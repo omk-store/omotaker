@@ -3,658 +3,672 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#05070c" />
+  <meta name="theme-color" content="#000000" />
   <title>Omo Taker — Official</title>
-  <meta name="description" content="Omo Taker official artist hub — music, store, and connect." />
+  <meta name="description" content="Omo Taker official music website — releases, music, videos, and connect." />
 
   <style>
     :root{
-      --bg:#05070c;
-      --panel: rgba(255,255,255,.06);
-      --panel2: rgba(255,255,255,.09);
-      --line: rgba(255,255,255,.10);
-      --text:#eef2ff;
-      --muted: rgba(238,242,255,.72);
-      --muted2: rgba(238,242,255,.52);
+      --bg:#000;
+      --panel:#0a0a0a;
+      --panel2:#111;
+      --line:rgba(255,255,255,.10);
+      --text:#f5f6ff;
+      --muted:rgba(245,246,255,.72);
+      --muted2:rgba(245,246,255,.55);
+      --pill:rgba(255,255,255,.08);
+      --pill2:rgba(255,255,255,.12);
 
-      --accent:#7aa6ff;
-      --accent2:#ff7ad9;
+      /* futuristic glow accents */
+      --a1:#7aa6ff;   /* blue */
+      --a2:#ff7ad9;   /* pink */
+      --glow: 0 10px 35px rgba(122,166,255,.18), 0 8px 30px rgba(255,122,217,.10);
+      --radius:18px;
+      --max:1100px;
 
-      --radius: 22px;
-      --shadow: 0 22px 70px rgba(0,0,0,.60);
-      --shadow2: 0 10px 30px rgba(0,0,0,.40);
-
-      --max: 1120px;
       --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
     }
 
-    *{box-sizing:border-box}
-    html,body{height:100%}
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
     body{
       margin:0;
-      font-family: var(--font);
-      color: var(--text);
+      font-family:var(--font);
+      color:var(--text);
       background:
-        radial-gradient(900px 550px at 12% 12%, rgba(122,166,255,.18), transparent 55%),
-        radial-gradient(900px 550px at 88% 22%, rgba(255,122,217,.14), transparent 55%),
-        radial-gradient(900px 650px at 50% 92%, rgba(122,255,214,.08), transparent 55%),
+        radial-gradient(900px 500px at 15% 10%, rgba(122,166,255,.15), transparent 55%),
+        radial-gradient(900px 500px at 85% 20%, rgba(255,122,217,.12), transparent 55%),
+        radial-gradient(1200px 700px at 50% 85%, rgba(122,255,210,.06), transparent 60%),
         var(--bg);
-      overflow-x:hidden;
     }
 
-    a{color:inherit;text-decoration:none}
-    .wrap{max-width:var(--max); margin:0 auto; padding:22px 18px 80px}
+    a{ color:inherit; text-decoration:none; }
+    .wrap{ max-width:var(--max); margin:0 auto; padding:18px 16px 90px; }
 
-    /* Top Bar */
+    /* Top brand bar */
     .topbar{
-      position: sticky;
-      top:0;
-      z-index: 50;
-      backdrop-filter: blur(14px);
-      background: linear-gradient(to bottom, rgba(5,7,12,.75), rgba(5,7,12,.35));
-      border-bottom: 1px solid rgba(255,255,255,.08);
-    }
-    .topbar-inner{
-      max-width:var(--max);
-      margin:0 auto;
-      padding:14px 18px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
+      display:flex; align-items:center; justify-content:space-between;
       gap:14px;
+      padding:10px 0 14px;
     }
     .brand{
-      display:flex; align-items:center; gap:12px; min-width: 220px;
+      display:flex; align-items:center; gap:12px; min-width:180px;
     }
     .orb{
-      width:42px;height:42px;border-radius:14px;
+      width:42px; height:42px; border-radius:14px;
       background:
-        radial-gradient(12px 12px at 30% 30%, rgba(255,255,255,.65), transparent 60%),
-        radial-gradient(24px 18px at 70% 35%, rgba(122,166,255,.70), transparent 70%),
-        radial-gradient(34px 28px at 45% 75%, rgba(255,122,217,.55), transparent 70%),
+        radial-gradient(16px 18px at 30% 30%, rgba(255,255,255,.55), transparent 55%),
+        radial-gradient(40px 40px at 60% 70%, rgba(255,122,217,.45), transparent 65%),
+        radial-gradient(40px 40px at 30% 60%, rgba(122,166,255,.45), transparent 65%),
         rgba(255,255,255,.06);
       border:1px solid rgba(255,255,255,.12);
-      box-shadow: 0 14px 40px rgba(0,0,0,.45);
+      box-shadow: var(--glow);
     }
     .brand h1{
-      margin:0; font-size:16px; letter-spacing:.14em;
+      font-size:18px; margin:0; letter-spacing:.12em;
     }
-    .brand p{margin:2px 0 0; font-size:12px; color:var(--muted2)}
-    .nav{
-      display:flex; gap:16px; align-items:center;
-      font-size:14px;
-    }
-    .nav a{
-      color: var(--muted);
-      padding:10px 12px;
-      border-radius: 14px;
-      transition: .2s ease;
-    }
-    .nav a:hover{
-      background: rgba(255,255,255,.06);
-      color: var(--text);
-    }
-    .nav a.active{ color: var(--text); background: rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.10); }
-
-    /* HERO */
-    .hero{
-      margin-top:22px;
-      position:relative;
-      border-radius: 28px;
-      overflow:hidden;
-      border: 1px solid rgba(255,255,255,.10);
-      box-shadow: var(--shadow);
-      min-height: 540px; /* BIG SPACE FOR YOUR PHOTO (what you asked) */
-      background:
-        radial-gradient(900px 500px at 20% 25%, rgba(122,166,255,.22), transparent 55%),
-        radial-gradient(900px 500px at 80% 35%, rgba(255,122,217,.18), transparent 60%),
-        rgba(255,255,255,.05);
+    .brand p{
+      margin:2px 0 0; font-size:12px; color:var(--muted2);
     }
 
-    .hero-media{
-      position:absolute; inset:0;
-      opacity:.55;
-      transform: scale(1.02);
-      filter: saturate(1.1) contrast(1.05);
+    /* Pill nav like Shallipopi */
+    .pillbar{
+      display:flex; align-items:center; justify-content:center;
+      gap:10px;
+      padding:10px;
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.04);
+      border-radius:999px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 12px 35px rgba(0,0,0,.45);
+      position:sticky;
+      top:0;
+      z-index:20;
+      margin-bottom:18px;
     }
-    /* Background types */
-    .bg-photo{
-      background:
-        linear-gradient(120deg, rgba(5,7,12,.85), rgba(5,7,12,.30)),
-        url("assets/hero-photo.jpg") center/cover no-repeat;
-    }
-    .bg-cover{
-      background:
-        linear-gradient(120deg, rgba(5,7,12,.88), rgba(5,7,12,.30)),
-        url("assets/hero-cover.jpg") center/cover no-repeat;
-    }
-    .bg-video{
-      background:
-        linear-gradient(120deg, rgba(5,7,12,.88), rgba(5,7,12,.30)),
-        url("assets/hero-video-poster.jpg") center/cover no-repeat;
-    }
-
-    .hero-inner{
-      position:relative;
-      padding: 34px 26px 26px;
-      display:grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap:18px;
-      align-items: end;
-      min-height: 540px;
-    }
-    .pill{
-      display:inline-flex; align-items:center; gap:10px;
+    .pillbar a{
       padding:10px 14px;
-      border-radius: 999px;
-      background: rgba(255,255,255,.07);
-      border: 1px solid rgba(255,255,255,.10);
-      color: var(--muted);
-      font-size: 13px;
+      border-radius:999px;
+      font-weight:700;
+      letter-spacing:.06em;
+      font-size:12px;
+      color:rgba(255,255,255,.82);
+      border:1px solid transparent;
+      background:transparent;
+      transition: .2s ease;
+      white-space:nowrap;
     }
-    .dot{
-      width:9px;height:9px;border-radius:50%;
-      background: #56ffb1;
-      box-shadow: 0 0 0 6px rgba(86,255,177,.12);
-    }
-    .hero-title{
-      margin:16px 0 8px;
-      font-size: clamp(40px, 5vw, 64px);
-      letter-spacing:-.02em;
-      line-height:1.02;
-    }
-    .hero-sub{
-      margin:0;
-      color: var(--muted);
-      font-size: 16px;
-      max-width: 60ch;
+    .pillbar a:hover{ background:rgba(255,255,255,.06); }
+    .pillbar a.active{
+      background:rgba(255,255,255,.10);
+      border-color:rgba(255,255,255,.12);
+      box-shadow: var(--glow);
+      color:#fff;
     }
 
-    .hero-actions{
-      margin-top:22px;
-      display:flex; gap:12px; flex-wrap:wrap;
+    /* Hero (BIG SPACE for your picture/video) */
+    .hero{
+      border-radius: var(--radius);
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.03);
+      box-shadow: 0 20px 60px rgba(0,0,0,.55);
+      margin-bottom:18px;
+    }
+    .heroMedia{
+      position:relative;
+      width:100%;
+      height:320px; /* BIG SPACE */
+      background:
+        linear-gradient(to bottom, rgba(0,0,0,.25), rgba(0,0,0,.85)),
+        url("YOUR-HERO-IMAGE.jpg") center/cover no-repeat;
+    }
+    /* If you prefer VIDEO, replace the heroMedia div content with an iframe (I left a template below) */
+
+    .heroOverlay{
+      position:absolute;
+      inset:auto 0 0 0;
+      padding:18px 18px 16px;
+      background: linear-gradient(to top, rgba(0,0,0,.82), transparent);
+    }
+    .heroTitle{ margin:0; font-size:34px; font-weight:900; letter-spacing:.02em; }
+    .heroSub{ margin:8px 0 0; color:var(--muted); line-height:1.45; max-width:72ch; }
+
+    /* Quick buttons under hero: Instagram + TikTok FIRST (like you said) */
+    .quickRow{
+      display:flex; gap:10px; flex-wrap:wrap;
+      padding:14px 14px 16px;
+      background:rgba(0,0,0,.35);
+      border-top:1px solid rgba(255,255,255,.08);
     }
     .btn{
       display:inline-flex; align-items:center; justify-content:center; gap:10px;
-      padding: 14px 16px;
-      border-radius: 18px;
-      border: 1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.06);
-      color: var(--text);
-      font-weight: 600;
-      transition: .2s ease;
-      cursor:pointer;
-      user-select:none;
-    }
-    .btn:hover{ transform: translateY(-1px); background: rgba(255,255,255,.10); }
-    .btn.primary{
-      background: linear-gradient(135deg, rgba(122,166,255,.95), rgba(255,122,217,.90));
-      border: none;
-      color: #080a12;
-      box-shadow: 0 18px 55px rgba(122,166,255,.22);
-    }
-    .btn.ghost{
-      background: rgba(255,255,255,.05);
-    }
-
-    /* Right Hero Card (mini controls like Shallipopi vibe) */
-    .hero-card{
-      background: rgba(255,255,255,.06);
-      border: 1px solid rgba(255,255,255,.10);
-      border-radius: 22px;
-      padding: 16px;
-      box-shadow: var(--shadow2);
-    }
-    .card-title{font-weight:700; margin:0 0 6px}
-    .card-sub{margin:0 0 14px; color:var(--muted2); font-size: 13px; line-height:1.35}
-
-    .seg{
-      display:flex; gap:10px; flex-wrap:wrap;
-    }
-    .seg button{
-      flex:1;
-      min-width: 120px;
-      padding: 12px 12px;
-      border-radius: 16px;
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.05);
-      color: var(--muted);
-      font-weight: 700;
-      cursor:pointer;
+      padding:12px 14px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.06);
+      color:#fff;
+      font-weight:800;
+      letter-spacing:.02em;
       transition:.2s ease;
+      min-width:160px;
     }
-    .seg button.active{
-      color:#080a12;
-      border:none;
-      background: linear-gradient(135deg, rgba(122,166,255,.95), rgba(255,122,217,.90));
+    .btn:hover{ transform:translateY(-1px); background:rgba(255,255,255,.10); }
+    .btn.primary{
+      background: linear-gradient(90deg, rgba(122,166,255,.95), rgba(255,122,217,.95));
+      border-color: rgba(255,255,255,.18);
+      color:#06060a;
+      box-shadow: var(--glow);
     }
 
-    /* Sections */
+    /* Section titles like Shallipopi */
     .section{
-      margin-top: 22px;
-      padding: 18px;
-      border-radius: 24px;
-      background: rgba(255,255,255,.04);
-      border: 1px solid rgba(255,255,255,.08);
-      box-shadow: var(--shadow2);
+      margin-top:22px;
+      padding-top:10px;
+      border-top:1px solid rgba(255,255,255,.10);
     }
     .section h2{
-      margin:0 0 6px;
-      font-size: 22px;
-      letter-spacing:-.01em;
+      text-align:center;
+      letter-spacing:.12em;
+      font-size:22px;
+      margin:18px 0 12px;
+      font-weight:950;
     }
-    .section p{margin:0 0 14px; color:var(--muted); line-height:1.5}
 
-    /* Music Cards */
-    .grid{
-      display:grid;
-      grid-template-columns: repeat(2, minmax(0,1fr));
-      gap: 14px;
-    }
-    .track{
+    /* Cards grid */
+    .grid{ display:grid; gap:12px; }
+    .card{
       display:flex;
-      gap: 14px;
-      padding: 14px;
-      border-radius: 22px;
-      background: rgba(255,255,255,.05);
-      border: 1px solid rgba(255,255,255,.08);
-      transition: .2s ease;
+      gap:14px;
+      align-items:center;
+      padding:14px;
+      border-radius:var(--radius);
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.05);
+      backdrop-filter: blur(10px);
     }
-    .track:hover{ transform: translateY(-1px); background: rgba(255,255,255,.07); }
     .cover{
-      width: 74px; height: 74px; border-radius: 18px;
-      background: rgba(255,255,255,.06) center/cover no-repeat;
-      border: 1px solid rgba(255,255,255,.10);
-      flex: 0 0 auto;
+      width:92px; height:92px; border-radius:14px;
+      background:rgba(255,255,255,.08) center/cover no-repeat;
+      border:1px solid rgba(255,255,255,.10);
+      flex:0 0 auto;
+      position:relative;
       overflow:hidden;
     }
-    .t-meta{flex:1; min-width:0}
-    .t-meta h3{
-      margin: 0 0 4px;
-      font-size: 18px;
-      white-space: nowrap;
-      overflow:hidden;
-      text-overflow: ellipsis;
+    .playIcon{
+      position:absolute; inset:0;
+      display:grid; place-items:center;
+      background: radial-gradient(circle at 50% 50%, rgba(0,0,0,.25), rgba(0,0,0,.55));
+      opacity:1;
     }
-    .t-meta .mini{
-      font-size: 13px;
-      color: var(--muted2);
+    .playIcon span{
+      width:44px; height:44px; border-radius:999px;
+      display:grid; place-items:center;
+      border:1px solid rgba(255,255,255,.22);
+      background:rgba(255,255,255,.06);
+      box-shadow: var(--glow);
+      font-size:18px;
     }
-    .t-actions{
-      margin-top: 10px;
-      display:flex;
-      flex-wrap:wrap;
-      gap: 10px;
+    .meta{ flex:1; min-width:0; }
+    .meta .title{
+      font-weight:950; font-size:18px; margin:0;
+      white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+    }
+    .meta .sub{
+      margin:6px 0 0;
+      color:var(--muted2);
+      font-size:13px;
+      white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+    }
+
+    .actions{
+      display:flex; gap:10px; flex-wrap:wrap;
+      justify-content:flex-end;
+      flex:0 0 auto;
     }
     .chip{
-      padding: 10px 12px;
-      border-radius: 999px;
-      font-weight: 700;
-      font-size: 13px;
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.05);
-      color: var(--muted);
+      padding:10px 14px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.06);
+      font-weight:800;
+      font-size:12px;
+      letter-spacing:.04em;
+      color:#fff;
     }
-    .chip:hover{ background: rgba(255,255,255,.09); color: var(--text); }
+    .chip:hover{ background:rgba(255,255,255,.10); }
 
-    /* Store + Connect */
-    .two{
+    /* Video section (big thumbnail cards) */
+    .videoCard{
+      border-radius:var(--radius);
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.05);
+    }
+    .videoThumb{
+      height:220px;
+      background:
+        linear-gradient(to bottom, rgba(0,0,0,.15), rgba(0,0,0,.75)),
+        url("YOUR-VIDEO-THUMB.jpg") center/cover no-repeat;
+      position:relative;
+      display:flex;
+      align-items:flex-end;
+      padding:14px;
+    }
+    .videoThumb .label{
+      font-weight:950;
+      letter-spacing:.06em;
+      font-size:14px;
+      background:rgba(0,0,0,.35);
+      border:1px solid rgba(255,255,255,.10);
+      padding:10px 12px;
+      border-radius:14px;
+      backdrop-filter: blur(10px);
+    }
+    .videoThumb .bigPlay{
+      position:absolute; inset:0;
+      display:grid; place-items:center;
+    }
+    .videoThumb .bigPlay span{
+      width:70px; height:70px; border-radius:999px;
+      display:grid; place-items:center;
+      border:1px solid rgba(255,255,255,.22);
+      background:rgba(255,255,255,.06);
+      box-shadow: var(--glow);
+      font-size:24px;
+    }
+
+    /* Connect panel like Shallipopi (big box + buttons) */
+    .connectBox{
+      border-radius:var(--radius);
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.05);
+      padding:16px;
+      text-align:center;
+    }
+    .connectBox h3{
+      margin:0 0 6px;
+      font-size:18px;
+      font-weight:950;
+      letter-spacing:.08em;
+    }
+    .connectBox p{
+      margin:0 0 14px;
+      color:var(--muted2);
+    }
+    .connectBtns{
       display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap:10px;
+      max-width:720px;
+      margin:0 auto;
     }
-    .box{
-      padding: 16px;
-      border-radius: 22px;
-      background: rgba(255,255,255,.05);
-      border: 1px solid rgba(255,255,255,.08);
+    .connectBtns a{
+      display:flex; align-items:center; justify-content:center; gap:10px;
+      padding:12px 14px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.06);
+      font-weight:900;
+      letter-spacing:.02em;
     }
+    .connectBtns a:hover{ background:rgba(255,255,255,.10); }
 
-    /* Email list */
-    .email-row{
-      display:flex; gap:10px; flex-wrap:wrap;
-      margin-top: 12px;
+    /* Email capture (local) */
+    .emailBox{
+      margin-top:14px;
+      display:flex;
+      gap:10px;
+      justify-content:center;
+      flex-wrap:wrap;
     }
-    input[type="email"]{
-      flex: 1;
-      min-width: 220px;
-      padding: 14px 14px;
-      border-radius: 18px;
-      border: 1px solid rgba(255,255,255,.12);
-      background: rgba(0,0,0,.25);
-      color: var(--text);
+    .emailBox input{
+      width:min(520px, 100%);
+      padding:14px 14px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(0,0,0,.35);
+      color:#fff;
       outline:none;
     }
-    .note{
-      margin-top: 10px;
-      color: var(--muted2);
-      font-size: 13px;
-      line-height:1.45;
+    .emailBox button{
+      padding:14px 16px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.18);
+      background: linear-gradient(90deg, rgba(122,166,255,.95), rgba(255,122,217,.95));
+      font-weight:950;
+      color:#06060a;
+      cursor:pointer;
+      box-shadow: var(--glow);
+    }
+    .miniRow{
+      display:flex; gap:10px; justify-content:center; flex-wrap:wrap;
+      margin-top:10px;
+    }
+    .miniRow button{
+      padding:10px 14px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.06);
+      color:#fff;
+      font-weight:850;
+      cursor:pointer;
     }
 
     /* Footer */
-    .foot{
-      margin-top: 18px;
-      padding: 12px 4px;
-      color: var(--muted2);
-      font-size: 12px;
+    footer{
+      margin-top:26px;
+      padding-top:16px;
+      border-top:1px solid rgba(255,255,255,.10);
       text-align:center;
+      color:rgba(255,255,255,.55);
+      font-size:12px;
+      letter-spacing:.04em;
     }
 
-    /* Mobile */
-    @media (max-width: 860px){
-      .nav{display:none}
-      .hero-inner{ grid-template-columns: 1fr; align-items: start; min-height: 600px; }
-      .hero{ min-height: 600px; }
-      .grid{ grid-template-columns: 1fr; }
-      .two{ grid-template-columns: 1fr; }
-      .brand{ min-width: unset; }
+    /* Mobile tweaks */
+    @media (max-width:560px){
+      .heroMedia{ height:360px; } /* still big */
+      .heroTitle{ font-size:30px; }
+      .btn{ min-width:0; flex:1; }
+      .actions{ justify-content:flex-start; }
+      .cover{ width:84px; height:84px; }
+      .connectBtns{ grid-template-columns: 1fr; }
+      .pillbar{ overflow:auto; justify-content:flex-start; }
     }
   </style>
 </head>
 
 <body>
-  <!-- TOPBAR -->
-  <div class="topbar">
-    <div class="topbar-inner">
+  <div class="wrap">
+
+    <!-- Brand -->
+    <div class="topbar">
       <div class="brand">
         <div class="orb" aria-hidden="true"></div>
         <div>
           <h1>OMOTAKER</h1>
-          <p>2030 Artist Hub • Music • Store • Connect</p>
+          <p>Official Website • Releases • Music • Videos</p>
         </div>
       </div>
-
-      <nav class="nav" id="nav">
-        <a href="#home" class="active">Home</a>
-        <a href="#music">Music</a>
-        <a href="#store">Store</a>
-        <a href="#connect">Connect</a>
-      </nav>
+      <div style="color:rgba(255,255,255,.65); font-size:12px; letter-spacing:.08em;">
+        2030 ARTIST HUB
+      </div>
     </div>
-  </div>
 
-  <div class="wrap">
+    <!-- Pill nav -->
+    <nav class="pillbar" aria-label="Primary">
+      <a class="active" href="#home">HOME</a>
+      <a href="#releases">RELEASES</a>
+      <a href="#music">MUSIC</a>
+      <a href="#videos">VIDEOS</a>
+      <a href="#connect">CONNECT</a>
+      <a href="#store">SHOP OMK</a>
+    </nav>
 
     <!-- HERO -->
-    <section class="hero" id="home">
-      <div class="hero-media bg-photo" id="heroBg"></div>
+    <section id="home" class="hero">
+      <div class="heroMedia">
+        <!-- OPTIONAL VIDEO HERO:
+        <iframe
+          style="position:absolute; inset:0; width:100%; height:100%; border:0;"
+          src="https://www.youtube.com/embed/YOUR_VIDEO_ID?rel=0&modestbranding=1&playsinline=1"
+          title="Omo Taker — Hero Video"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+        ></iframe>
+        <div style="position:absolute; inset:0; background:linear-gradient(to bottom, rgba(0,0,0,.25), rgba(0,0,0,.88));"></div>
+        -->
 
-      <div class="hero-inner">
-        <div>
-          <div class="pill"><span class="dot"></span> New drop ready • Tap & stream</div>
-          <h2 class="hero-title">Omo Taker</h2>
-          <p class="hero-sub">
-            Welcome to my official universe. All songs, all platforms, and the OMK wave.
-            Join the email list so you get the link immediately when a new song drops.
+        <div class="heroOverlay">
+          <h2 class="heroTitle">Omo Taker</h2>
+          <p class="heroSub">
+            Welcome to my official zone. Tap a release to stream instantly.
+            Join the email list so you get the link the moment a new song drops.
           </p>
+        </div>
+      </div>
 
-          <div class="hero-actions">
-            <a class="btn primary" href="#music">🎧 View all songs</a>
-            <a class="btn ghost" href="#connect">🌍 Follow / Connect</a>
-            <a class="btn ghost" href="#store">🛒 OMK Store</a>
+      <!-- IG + TikTok FIRST (like you asked) -->
+      <div class="quickRow">
+        <a class="btn primary" href="https://instagram.com/YOUR_INSTAGRAM" target="_blank" rel="noopener">Instagram</a>
+        <a class="btn primary" href="https://www.tiktok.com/@YOUR_TIKTOK" target="_blank" rel="noopener">TikTok</a>
+
+        <a class="btn" href="#music">Music</a>
+        <a class="btn" href="#connect">Connect</a>
+        <a class="btn" href="#store">Shop OMK</a>
+      </div>
+    </section>
+
+    <!-- RELEASES (Top songs / latest drop like Shallipopi) -->
+    <section id="releases" class="section">
+      <h2>RELEASES</h2>
+
+      <div class="grid">
+        <!-- 2026 -->
+        <div class="card">
+          <div class="cover" style="background-image:url('covers/if-earth-could-talk.jpg');">
+            <div class="playIcon"><span>▶</span></div>
+          </div>
+          <div class="meta">
+            <p class="title">If Earth Could Talk</p>
+            <p class="sub">Single • 2026</p>
+          </div>
+          <div class="actions">
+            <a class="chip" href="YOUR_SMARTLINK_IF_EARTH" target="_blank" rel="noopener">PLAY</a>
+            <a class="chip" href="YOUR_SPOTIFY_IF_EARTH" target="_blank" rel="noopener">SPOTIFY</a>
+            <a class="chip" href="YOUR_APPLE_IF_EARTH" target="_blank" rel="noopener">APPLE</a>
+            <a class="chip" href="YOUR_BOOMPLAY_IF_EARTH" target="_blank" rel="noopener">BOOMPLAY</a>
           </div>
         </div>
 
-        <div class="hero-card">
-          <p class="card-title">TOP STYLE</p>
-          <p class="card-sub">Choose the top look (Photo / Album cover / Video poster). This keeps the Shallipopi-style layout, but futuristic.</p>
-
-          <div class="seg">
-            <button class="active" data-bg="photo">1 Photo</button>
-            <button data-bg="cover">2 Album cover</button>
-            <button data-bg="video">3 Video</button>
+        <div class="card">
+          <div class="cover" style="background-image:url('covers/benin-to-lagos.jpg');">
+            <div class="playIcon"><span>▶</span></div>
           </div>
-
-          <div class="note" style="margin-top:12px">
-            ✅ Upload your files to: <b>/assets/</b><br>
-            • hero-photo.jpg<br>
-            • hero-cover.jpg<br>
-            • hero-video-poster.jpg
+          <div class="meta">
+            <p class="title">Benin To Lagos</p>
+            <p class="sub">Single • 2026</p>
+          </div>
+          <div class="actions">
+            <a class="chip" href="YOUR_SMARTLINK_BTL" target="_blank" rel="noopener">PLAY</a>
+            <a class="chip" href="YOUR_SPOTIFY_BTL" target="_blank" rel="noopener">SPOTIFY</a>
+            <a class="chip" href="YOUR_APPLE_BTL" target="_blank" rel="noopener">APPLE</a>
+            <a class="chip" href="YOUR_BOOMPLAY_BTL" target="_blank" rel="noopener">BOOMPLAY</a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- MUSIC -->
-    <section class="section" id="music">
-      <h2>Music</h2>
-      <p>Clean music cards like Shallipopi site (but futuristic). We’ll update links + covers one time inside this file.</p>
+    <!-- MUSIC (all songs list like Shallipopi) -->
+    <section id="music" class="section">
+      <h2>MUSIC</h2>
 
-      <div class="grid" id="tracks"></div>
+      <div class="grid">
+        <!-- 2025 / older -->
+        <div class="card">
+          <div class="cover" style="background-image:url('covers/my-door.jpg');">
+            <div class="playIcon"><span>▶</span></div>
+          </div>
+          <div class="meta">
+            <p class="title">My Door</p>
+            <p class="sub">My Truth EP • 2025</p>
+          </div>
+          <div class="actions">
+            <a class="chip" href="YOUR_SMARTLINK_MYDOOR" target="_blank" rel="noopener">PLAY</a>
+            <a class="chip" href="YOUR_SPOTIFY_MYDOOR" target="_blank" rel="noopener">SPOTIFY</a>
+            <a class="chip" href="YOUR_APPLE_MYDOOR" target="_blank" rel="noopener">APPLE</a>
+            <a class="chip" href="YOUR_BOOMPLAY_MYDOOR" target="_blank" rel="noopener">BOOMPLAY</a>
+          </div>
+        </div>
 
-      <div class="note">
-        ⚡ Tip: “Stream” can be your smart landing link (one page with all platforms). Spotify/Apple/Boomplay buttons can be direct links.
+        <div class="card">
+          <div class="cover" style="background-image:url('covers/bend-down-select.jpg');">
+            <div class="playIcon"><span>▶</span></div>
+          </div>
+          <div class="meta">
+            <p class="title">Bend Down Select</p>
+            <p class="sub">Single • 2025</p>
+          </div>
+          <div class="actions">
+            <a class="chip" href="YOUR_SMARTLINK_BDS" target="_blank" rel="noopener">PLAY</a>
+            <a class="chip" href="YOUR_SPOTIFY_BDS" target="_blank" rel="noopener">SPOTIFY</a>
+            <a class="chip" href="YOUR_APPLE_BDS" target="_blank" rel="noopener">APPLE</a>
+            <a class="chip" href="YOUR_BOOMPLAY_BDS" target="_blank" rel="noopener">BOOMPLAY</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="cover" style="background-image:url('covers/badt-guy.jpg');">
+            <div class="playIcon"><span>▶</span></div>
+          </div>
+          <div class="meta">
+            <p class="title">Badt Guy</p>
+            <p class="sub">Single • 2025</p>
+          </div>
+          <div class="actions">
+            <a class="chip" href="YOUR_SMARTLINK_BADT" target="_blank" rel="noopener">PLAY</a>
+            <a class="chip" href="YOUR_SPOTIFY_BADT" target="_blank" rel="noopener">SPOTIFY</a>
+            <a class="chip" href="YOUR_APPLE_BADT" target="_blank" rel="noopener">APPLE</a>
+            <a class="chip" href="YOUR_BOOMPLAY_BADT" target="_blank" rel="noopener">BOOMPLAY</a>
+          </div>
+        </div>
+
+        <!-- Add more songs by copying one card -->
       </div>
     </section>
 
-    <!-- STORE -->
-    <section class="section" id="store">
-      <h2>Store</h2>
-      <p>Link this to your OMKDrip store later (or a WhatsApp order link).</p>
+    <!-- VIDEOS -->
+    <section id="videos" class="section">
+      <h2>VIDEOS</h2>
 
-      <div class="two">
-        <div class="box">
-          <h3 style="margin:0 0 8px">OMK Store Link</h3>
-          <p style="margin:0 0 12px;color:var(--muted)">Put your real store link here (omkdrip.com or a shop page).</p>
-          <div class="hero-actions" style="margin-top:0">
-            <a class="btn primary" id="storeBtn" href="https://omkdrip.com" target="_blank" rel="noopener">🛒 Visit Store</a>
-            <a class="btn ghost" id="dmBtn" href="https://wa.me/2340000000000" target="_blank" rel="noopener">💬 DM for orders</a>
+      <div class="grid">
+        <a class="videoCard" href="YOUR_YOUTUBE_VIDEO_LINK" target="_blank" rel="noopener">
+          <div class="videoThumb" style="background-image:
+            linear-gradient(to bottom, rgba(0,0,0,.15), rgba(0,0,0,.75)),
+            url('videos/if-earth-could-talk-thumb.jpg');">
+            <div class="bigPlay"><span>▶</span></div>
+            <div class="label">IF EARTH COULD TALK (OFFICIAL VIDEO)</div>
           </div>
-        </div>
-
-        <div class="box">
-          <h3 style="margin:0 0 8px">Featured Merch</h3>
-          <p style="margin:0;color:var(--muted)">
-            We can upgrade this to a real product grid later. For now it’s clean and fast for your bio.
-          </p>
-          <p class="note">If you want, I’ll add product images + prices inside this same page.</p>
-        </div>
+        </a>
       </div>
     </section>
 
-    <!-- CONNECT -->
-    <section class="section" id="connect">
-      <h2>Connect</h2>
-      <p>Follow, contact, and join the email list.</p>
+    <!-- SHOP OMK (NO WHATSAPP) -->
+    <section id="store" class="section">
+      <h2>SHOP OMK</h2>
+      <div class="connectBox" style="text-align:left;">
+        <h3 style="text-align:center;">OMK DRIP STORE</h3>
+        <p style="text-align:center;">Merch + clothing. Link this to your store page.</p>
 
-      <div class="two">
-        <div class="box">
-          <h3 style="margin:0 0 8px">Join Email List</h3>
-          <p style="margin:0;color:var(--muted)">
-            Fans drop email here. It saves inside the browser for now (simple).
-            Later we can connect to Google Sheet / Mailchimp.
-          </p>
-
-          <div class="email-row">
-            <input id="emailInput" type="email" placeholder="Enter your email" />
-            <button class="btn primary" id="joinBtn">Join</button>
-            <button class="btn ghost" id="copyBtn">Copy Emails</button>
-          </div>
-
-          <div class="note" id="emailNote">
-            ✅ This saves emails on your device (local). If you open on another phone, it won’t show.
-            If you want “real email database”, tell me and I’ll connect it properly.
-          </div>
+        <div class="miniRow">
+          <a class="btn primary" href="https://omkdrip.com" target="_blank" rel="noopener">Visit OMK Store</a>
         </div>
 
-        <div class="box">
-          <h3 style="margin:0 0 8px">Social & Streaming</h3>
-          <p style="margin:0 0 12px;color:var(--muted)">Replace each link with your real accounts.</p>
-
-          <div class="grid" style="grid-template-columns: repeat(2, minmax(0,1fr));">
-            <a class="chip" id="ig" href="https://instagram.com/" target="_blank" rel="noopener">Instagram</a>
-            <a class="chip" id="tt" href="https://tiktok.com/" target="_blank" rel="noopener">TikTok</a>
-            <a class="chip" id="yt" href="https://youtube.com/" target="_blank" rel="noopener">YouTube</a>
-            <a class="chip" id="wa" href="https://wa.me/2340000000000" target="_blank" rel="noopener">WhatsApp</a>
-            <a class="chip" id="sp" href="https://open.spotify.com/" target="_blank" rel="noopener">Spotify</a>
-            <a class="chip" id="am" href="https://music.apple.com/" target="_blank" rel="noopener">Apple Music</a>
-            <a class="chip" id="bp" href="https://www.boomplay.com/" target="_blank" rel="noopener">Boomplay</a>
-            <a class="chip" id="au" href="https://audiomack.com/" target="_blank" rel="noopener">Audiomack</a>
-          </div>
-
-          <p class="note" style="margin-top:12px">
-            Want a “one smart button” like Linktree for all platforms? I can add it inside each song card too.
-          </p>
-        </div>
+        <p style="margin-top:12px; text-align:center; color:var(--muted2);">
+          (No WhatsApp here — clean like Shallipopi.)
+        </p>
       </div>
     </section>
 
-    <div class="foot">© <span id="year"></span> Omo Taker • Built for speed • OMK wave</div>
+    <!-- CONNECT (like Shallipopi connect box) -->
+    <section id="connect" class="section">
+      <h2>CONNECT</h2>
+
+      <div class="connectBox">
+        <h3>GET UPDATES FROM OMO TAKER</h3>
+        <p>Choose your service…</p>
+
+        <div class="connectBtns">
+          <a href="mailto:YOUR_EMAIL">Email</a>
+          <a href="YOUR_SPOTIFY_PROFILE" target="_blank" rel="noopener">Follow (Spotify)</a>
+          <a href="YOUR_APPLE_PROFILE" target="_blank" rel="noopener">Follow (Apple)</a>
+          <a href="YOUR_YOUTUBE" target="_blank" rel="noopener">YouTube</a>
+          <a href="https://instagram.com/YOUR_INSTAGRAM" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://www.tiktok.com/@YOUR_TIKTOK" target="_blank" rel="noopener">TikTok</a>
+        </div>
+
+        <!-- Email list (local save) -->
+        <div class="emailBox" style="margin-top:16px;">
+          <input id="emailInput" type="email" placeholder="Enter your email to join updates" />
+          <button id="joinBtn">Sign Up</button>
+        </div>
+
+        <div class="miniRow">
+          <button id="copyBtn">Copy Emails</button>
+          <button id="clearBtn">Clear List</button>
+        </div>
+
+        <p id="msg" style="margin:10px 0 0; color:var(--muted2); font-size:12px;">
+          Note: this saves emails on your device (local). If you want real database later, tell me.
+        </p>
+      </div>
+    </section>
+
+    <footer>
+      © <span id="yr"></span> Omo Taker • All rights reserved
+    </footer>
+
   </div>
 
   <script>
-    // ====== (1) HERO STYLE SWITCH (Photo / Cover / Video poster) ======
-    const heroBg = document.getElementById("heroBg");
-    const buttons = document.querySelectorAll(".seg button");
+    // footer year
+    document.getElementById("yr").textContent = new Date().getFullYear();
 
-    function setHero(mode){
-      heroBg.className = "hero-media " + (mode==="photo" ? "bg-photo" : mode==="cover" ? "bg-cover" : "bg-video");
-      buttons.forEach(b => b.classList.toggle("active", b.dataset.bg === mode));
-    }
-    buttons.forEach(btn => btn.addEventListener("click", () => setHero(btn.dataset.bg)));
+    // local email list
+    const key = "omotaker_emails_v1";
+    const input = document.getElementById("emailInput");
+    const msg = document.getElementById("msg");
 
-    // ====== (2) TRACK DATA (EDIT THIS ONLY) ======
-    // You told me: 2026 songs = "If Earth Could Talk" + "Benin to Lagos"
-    // Others are last year (2025) + EP (2025).
-    const TRACKS = [
-      {
-        title: "If Earth Could Talk",
-        type: "Single",
-        year: "2026",
-        cover: "assets/if-earth-could-talk.jpg",
-        stream: "#",         // put your smart landing link for this song
-        spotify: "#",
-        apple: "#",
-        boomplay: "#",
-        audiomack: "#"
-      },
-      {
-        title: "Benin to Lagos",
-        type: "Single",
-        year: "2026",
-        cover: "assets/benin-to-lagos.jpg",
-        stream: "#",
-        spotify: "#",
-        apple: "#",
-        boomplay: "#",
-        audiomack: "#"
-      },
-
-      // Example older songs (edit titles/years/covers)
-      {
-        title: "My Door",
-        type: "EP: My Truth",
-        year: "2025",
-        cover: "assets/my-door.jpg",
-        stream: "#",
-        spotify: "#",
-        apple: "#",
-        boomplay: "#",
-        audiomack: "#"
-      },
-      {
-        title: "Bend Down Select",
-        type: "EP: My Truth",
-        year: "2025",
-        cover: "assets/bend-down-select.jpg",
-        stream: "#",
-        spotify: "#",
-        apple: "#",
-        boomplay: "#",
-        audiomack: "#"
-      }
-    ];
-
-    // ====== (3) RENDER TRACKS ======
-    const tracksEl = document.getElementById("tracks");
-
-    function mkLink(href, label){
-      if(!href || href === "#") return "";
-      return `<a class="chip" href="${href}" target="_blank" rel="noopener">${label}</a>`;
-    }
-
-    tracksEl.innerHTML = TRACKS.map(t => {
-      return `
-        <div class="track">
-          <div class="cover" style="background-image:url('${t.cover}')"></div>
-          <div class="t-meta">
-            <h3 title="${t.title}">${t.title}</h3>
-            <div class="mini">${t.type} • ${t.year}</div>
-            <div class="t-actions">
-              ${mkLink(t.stream, "Stream")}
-              ${mkLink(t.spotify, "Spotify")}
-              ${mkLink(t.apple, "Apple")}
-              ${mkLink(t.boomplay, "Boomplay")}
-              ${mkLink(t.audiomack, "Audiomack")}
-            </div>
-          </div>
-        </div>
-      `;
-    }).join("");
-
-    // ====== (4) EMAIL LIST (LOCAL) ======
-    const emailInput = document.getElementById("emailInput");
-    const joinBtn = document.getElementById("joinBtn");
-    const copyBtn = document.getElementById("copyBtn");
-    const emailNote = document.getElementById("emailNote");
-    const STORE_KEY = "omotaker_emails_v1";
-
-    function loadEmails(){
-      try{ return JSON.parse(localStorage.getItem(STORE_KEY) || "[]"); }
+    function getList(){
+      try { return JSON.parse(localStorage.getItem(key) || "[]"); }
       catch(e){ return []; }
     }
-    function saveEmails(list){
-      localStorage.setItem(STORE_KEY, JSON.stringify(list));
+    function setList(list){
+      localStorage.setItem(key, JSON.stringify(list));
     }
 
-    joinBtn.addEventListener("click", () => {
-      const v = (emailInput.value || "").trim().toLowerCase();
-      if(!v || !v.includes("@") || !v.includes(".")){
-        emailNote.textContent = "⚠️ Enter a valid email.";
+    document.getElementById("joinBtn").addEventListener("click", () => {
+      const email = (input.value || "").trim().toLowerCase();
+      if(!email || !email.includes("@") || email.length < 6){
+        msg.textContent = "Enter a valid email.";
         return;
       }
-      const list = loadEmails();
-      if(!list.includes(v)) list.push(v);
-      saveEmails(list);
-      emailInput.value = "";
-      emailNote.textContent = `✅ Saved. Total emails: ${list.length}`;
+      const list = getList();
+      if(!list.includes(email)) list.push(email);
+      setList(list);
+      input.value = "";
+      msg.textContent = "✅ Added. Total emails saved: " + list.length;
     });
 
-    copyBtn.addEventListener("click", async () => {
-      const list = loadEmails();
+    document.getElementById("copyBtn").addEventListener("click", async () => {
+      const list = getList();
       if(!list.length){
-        emailNote.textContent = "⚠️ No emails saved yet.";
+        msg.textContent = "No emails saved yet.";
         return;
       }
       const text = list.join(", ");
       try{
         await navigator.clipboard.writeText(text);
-        emailNote.textContent = `✅ Copied ${list.length} emails.`;
+        msg.textContent = "✅ Copied " + list.length + " emails.";
       }catch(e){
-        // fallback prompt
-        window.prompt("Copy emails:", text);
+        // fallback
+        msg.textContent = "Copy blocked. Open in Safari/Chrome and try again.";
       }
     });
 
-    // ====== (5) NAV ACTIVE (smooth + highlight) ======
-    const nav = document.getElementById("nav");
-    const links = [...nav.querySelectorAll("a")];
-    const sections = links.map(a => document.querySelector(a.getAttribute("href")));
+    document.getElementById("clearBtn").addEventListener("click", () => {
+      setList([]);
+      msg.textContent = "Cleared.";
+    });
 
-    function onScroll(){
-      const y = window.scrollY + 120;
-      let active = 0;
-      sections.forEach((sec, i) => {
-        if(sec && sec.offsetTop <= y) active = i;
+    // make nav active on click (simple)
+    document.querySelectorAll(".pillbar a").forEach(a=>{
+      a.addEventListener("click", ()=>{
+        document.querySelectorAll(".pillbar a").forEach(x=>x.classList.remove("active"));
+        a.classList.add("active");
       });
-      links.forEach((a,i)=>a.classList.toggle("active", i===active));
-    }
-    window.addEventListener("scroll", onScroll, {passive:true});
-    onScroll();
-
-    // Footer year
-    document.getElementById("year").textContent = new Date().getFullYear();
+    });
   </script>
 </body>
 </html>
