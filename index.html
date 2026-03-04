@@ -31,7 +31,6 @@
       margin:0;
       font-family:var(--font);
       color:var(--text);
-      /* big protected space at the top for iPhone notch */
       padding-top: env(safe-area-inset-top);
       background:
         radial-gradient(900px 500px at 15% 10%, rgba(122,166,255,.14), transparent 55%),
@@ -55,7 +54,7 @@
       margin: 10px 0 12px;
       display:flex;
       justify-content:center;
-      pointer-events:none; /* so only pillbar is clickable */
+      pointer-events:none;
     }
     .pillbar{
       pointer-events:auto;
@@ -126,7 +125,7 @@
       text-transform:uppercase;
     }
 
-    /* 3 buttons under hero: OMOTAKER + Instagram + TikTok */
+    /* 3 buttons under hero */
     .socialRow{
       display:flex;
       gap:12px;
@@ -163,7 +162,7 @@
       margin-top:18px;
       padding-top:14px;
       border-top:1px solid rgba(255,255,255,.10);
-      scroll-margin-top: 92px; /* so sticky bar doesn't cover headings */
+      scroll-margin-top: 92px;
     }
     .section h2{
       margin:16px 0 12px;
@@ -174,7 +173,7 @@
       text-transform:uppercase;
     }
 
-    /* ====== Shallipopi-like horizontal rail cards (compact, not long) ====== */
+    /* ====== Rail cards ====== */
     .rail{
       display:flex;
       gap:12px;
@@ -309,7 +308,7 @@
       font-size:24px;
     }
 
-    /* Shop + Connect (NO WhatsApp) */
+    /* Shop + Connect */
     .box{
       border-radius:var(--radius);
       border:1px solid rgba(255,255,255,.10);
@@ -372,13 +371,14 @@
         <a class="active" href="#home">HOME</a>
         <a href="#releases">RELEASES</a>
         <a href="#music">MUSIC</a>
+        <a href="#albums">ALBUMS</a>
         <a href="#videos">VIDEOS</a>
         <a href="#connect">CONNECT</a>
         <a href="#store">SHOP OMK</a>
       </nav>
     </div>
 
-    <!-- HERO (photo protected + clean like Shallipopi) -->
+    <!-- HERO -->
     <section id="home" class="hero">
       <div class="heroMedia">
         <div class="heroFade"></div>
@@ -387,20 +387,19 @@
         </div>
       </div>
 
-      <!-- Replace IG/Twitter with: OMOTAKER + Instagram + TikTok -->
       <div class="socialRow">
-        <a class="sBtn" href="#releases">OmoTaker</a>
+        <a class="sBtn" href="#releases">Omotaker</a>
         <a class="sBtn primary" href="https://instagram.com/YOUR_INSTAGRAM" target="_blank" rel="noopener">Instagram</a>
         <a class="sBtn primary" href="https://www.tiktok.com/@YOUR_TIKTOK" target="_blank" rel="noopener">TikTok</a>
       </div>
     </section>
 
-    <!-- RELEASES: If Earth Could Talk, Benin To Lagos, then (optional) My Door, then Bend Down Select, then others -->
+    <!-- RELEASES (ORDER FIXED) -->
     <section id="releases" class="section">
       <h2>RELEASES</h2>
 
       <div class="rail">
-        <!-- 2026 -->
+        <!-- 1) If Earth Could Talk -->
         <div class="miniCard">
           <div class="rowTop">
             <div class="cover" style="background-image:url('covers/if-earth-could-talk.jpg');">
@@ -419,6 +418,7 @@
           </div>
         </div>
 
+        <!-- 2) Benin To Lagos -->
         <div class="miniCard">
           <div class="rowTop">
             <div class="cover" style="background-image:url('covers/benin-to-lagos.jpg');">
@@ -437,7 +437,26 @@
           </div>
         </div>
 
-        <!-- Older / last year -->
+        <!-- 3) Bend Down Select -->
+        <div class="miniCard">
+          <div class="rowTop">
+            <div class="cover" style="background-image:url('covers/bend-down-select.jpg');">
+              <div class="playDot"><span>▶</span></div>
+            </div>
+            <div class="meta">
+              <p class="title">Bend Down Select</p>
+              <p class="sub">Single • 2025</p>
+            </div>
+          </div>
+          <a class="playBtn" href="YOUR_SMARTLINK_BDS" target="_blank" rel="noopener">Play</a>
+          <div class="chips">
+            <a class="chip" href="YOUR_SPOTIFY_BDS" target="_blank" rel="noopener">Spotify</a>
+            <a class="chip" href="YOUR_APPLE_BDS" target="_blank" rel="noopener">Apple</a>
+            <a class="chip" href="YOUR_BOOMPLAY_BDS" target="_blank" rel="noopener">Boomplay</a>
+          </div>
+        </div>
+
+        <!-- OTHER SONGS (after Bend Down Select) -->
         <div class="miniCard">
           <div class="rowTop">
             <div class="cover" style="background-image:url('covers/my-door.jpg');">
@@ -458,25 +477,6 @@
 
         <div class="miniCard">
           <div class="rowTop">
-            <div class="cover" style="background-image:url('covers/bend-down-select.jpg');">
-              <div class="playDot"><span>▶</span></div>
-            </div>
-            <div class="meta">
-              <p class="title">Bend Down Select</p>
-              <p class="sub">Single • 2025</p>
-            </div>
-          </div>
-          <a class="playBtn" href="YOUR_SMARTLINK_BDS" target="_blank" rel="noopener">Play</a>
-          <div class="chips">
-            <a class="chip" href="YOUR_SPOTIFY_BDS" target="_blank" rel="noopener">Spotify</a>
-            <a class="chip" href="YOUR_APPLE_BDS" target="_blank" rel="noopener">Apple</a>
-            <a class="chip" href="YOUR_BOOMPLAY_BDS" target="_blank" rel="noopener">Boomplay</a>
-          </div>
-        </div>
-
-        <!-- add more songs AFTER Bend Down Select -->
-        <div class="miniCard">
-          <div class="rowTop">
             <div class="cover" style="background-image:url('covers/badt-guy.jpg');">
               <div class="playDot"><span>▶</span></div>
             </div>
@@ -495,7 +495,7 @@
       </div>
     </section>
 
-    <!-- NEW LAYER: two songs you showed (Importer Exporter, Ovior) -->
+    <!-- MUSIC (Importer Exporter + Ovior) -->
     <section id="music" class="section">
       <h2>MUSIC</h2>
 
@@ -535,8 +535,31 @@
             <a class="chip" href="YOUR_BOOMPLAY_OVIOR" target="_blank" rel="noopener">Boomplay</a>
           </div>
         </div>
+      </div>
+    </section>
 
-        <!-- you can keep adding older songs here -->
+    <!-- ALBUMS (My Truth) -->
+    <section id="albums" class="section">
+      <h2>ALBUMS</h2>
+
+      <div class="rail">
+        <div class="miniCard">
+          <div class="rowTop">
+            <div class="cover" style="background-image:url('covers/my-truth.jpg');">
+              <div class="playDot"><span>▶</span></div>
+            </div>
+            <div class="meta">
+              <p class="title">My Truth</p>
+              <p class="sub">Album • 2025</p>
+            </div>
+          </div>
+          <a class="playBtn" href="YOUR_SMARTLINK_MYTRUTH" target="_blank" rel="noopener">Open</a>
+          <div class="chips">
+            <a class="chip" href="YOUR_SPOTIFY_MYTRUTH" target="_blank" rel="noopener">Spotify</a>
+            <a class="chip" href="YOUR_APPLE_MYTRUTH" target="_blank" rel="noopener">Apple</a>
+            <a class="chip" href="YOUR_BOOMPLAY_MYTRUTH" target="_blank" rel="noopener">Boomplay</a>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -553,7 +576,7 @@
       </a>
     </section>
 
-    <!-- SHOP OMK (NO WHATSAPP) -->
+    <!-- SHOP OMK -->
     <section id="store" class="section">
       <h2>SHOP OMK</h2>
       <div class="box">
@@ -584,10 +607,8 @@
   </div>
 
   <script>
-    // year
     document.getElementById("yr").textContent = new Date().getFullYear();
 
-    // ===== Scrollspy (THIS is the “moving” behavior like Shallipopi: tab highlights as you scroll) =====
     const links = Array.from(document.querySelectorAll(".pillbar a"));
     const sections = links
       .map(a => document.querySelector(a.getAttribute("href")))
@@ -597,7 +618,6 @@
       links.forEach(a => a.classList.toggle("active", a.getAttribute("href") === "#" + id));
     };
 
-    // smooth click + set active immediately
     links.forEach(a=>{
       a.addEventListener("click", ()=>{
         const href = a.getAttribute("href");
@@ -605,7 +625,6 @@
       });
     });
 
-    // observer updates active while scrolling
     const obs = new IntersectionObserver((entries)=>{
       const visible = entries
         .filter(e => e.isIntersecting)
@@ -614,7 +633,6 @@
     }, {
       root: null,
       threshold: [0.15, 0.25, 0.35, 0.5],
-      // push the “active” change a bit earlier (so it feels like Shallipopi)
       rootMargin: "-25% 0px -60% 0px"
     });
 
