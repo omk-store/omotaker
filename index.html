@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#05070c" />
+  <title>Omo Taker — Official</title>
+  <meta name="description" content="Omo Taker official music website — music, videos, releases, store, and fan updates." />
+
+  <style>
+    :root{
+      --bg:#05070c;
+      --panel:rgba(255,255,255,.06);
+      --panel2:rgba(255,255,255,.09);
+      --line:rgba(255,255,255,.10);
+      --text:#eef2ff;
+      --muted:rgba(238,242,255,.72);
+      --muted2:rgba(238,242,255,.52);
+      --glow:rgba(120,160,255,.28);
+      --glow2:rgba(255,120,220,.18);
+      --accent:#7aa6ff;
+      --accent2:#ff7ad9;
+      --good:#35f2a1;
+      --warn:#ffd36a;
+      --radius:22px;
+      --shadow: 0 20px 60px rgba(0,0,0,.55);
+      --shadow2: 0 10px 30px rgba(0,0,0,.45);
+      --max:1080px;
+      --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:var(--font);
+      color:var(--text);
+      background:
+        radial-gradient(1200px 600px at 15% 10%, rgba(122,166,255,.16), transparent 55%),
+        radial-gradient(900px 500px at 85% 20%, rgba(255,122,217,.12), transparent 58%),
+        radial-gradient(900px 600px at 50% 95%, rgba(53,242,161,.10), transparent 62%),
+        linear-gradient(180deg, #04050a, #070a12 35%, #05070c);
+      overflow-x:hidden;
+    }
+
+    /* subtle stars */
+    .stars{
+      position:fixed; inset:0;
+      pointer-events:none;
+      opacity:.55;
+      background-image:
+        radial-gradient(2px 2px at 12% 18%, rgba(255,255,255,.35) 50%, transparent 55%),
+        radial-gradient(1px 1px at 22% 62%, rgba(255,255,255,.25) 50%, transparent 55%),
+        radial-gradient(1px 1px at 82% 38%, rgba(255,255,255,.22) 50%, transparent 55%),
+        radial-gradient(2px 2px at 72% 78%, rgba(255,255,255,.25) 50%, transparent 55%),
+        radial-gradient(1px 1px at 52% 28%, rgba(255,255,255,.22) 50%, transparent 55%),
+        radial-gradient(1px 1px at 42% 85%, rgba(255,255,255,.18) 50%, transparent 55%);
+      filter: blur(.2px);
+    }
+
+    a{color:inherit; text-decoration:none}
+    .wrap{max-width:var(--max); margin:0 auto; padding:18px 14px 90px}
+
+    /* Topbar */
+    .topbar{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(14px);
+      background: linear-gradient(180deg, rgba(5,7,12,.85), rgba(5,7,12,.55));
+      border-bottom:1px solid rgba(255,255,255,.07);
+    }
+    .topbar .inner{
+      max-width:var(--max); margin:0 auto;
+      padding:12px 14px;
+      display:flex; align-items:center; justify-content:space-between; gap:10px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      font-weight:800; letter-spacing:.6px;
+    }
+    .logoDot{
+      width:34px; height:34px; border-radius:12px;
+      background:
+        radial-gradient(12px 12px at 30% 30%, rgba(255,255,255,.22), transparent 60%),
+        linear-gradient(135deg, rgba(122,166,255,.85), rgba(255,122,217,.75));
+      box-shadow: 0 10px 30px rgba(122,166,255,.18);
+      border:1px solid rgba(255,255,255,.18);
+    }
+    .nav{
+      display:flex; gap:10px; align-items:center;
+      padding:6px;
+      border:1px solid rgba(255,255,255,.08);
+      background: rgba(255,255,255,.04);
+      border-radius:999px;
+      overflow:auto;
+      max-width:70%;
+      scrollbar-width:none;
+    }
+    .nav::-webkit-scrollbar{display:none}
+    .pill{
+      padding:10px 14px;
+      border-radius:999px;
+      font-weight:700;
+      font-size:13px;
+      color:var(--muted);
+      transition:.2s;
+      white-space:nowrap;
+    }
+    .pill:hover{background:rgba(255,255,255,.06); color:var(--text)}
+    .pill.active{
+      background: linear-gradient(135deg, rgba(122,166,255,.22), rgba(255,122,217,.18));
+      color:var(--text);
+      border:1px solid rgba(255,255,255,.12);
+    }
+
+    .btn{
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.05);
+      color:var(--text);
+      padding:10px 12px;
+      border-radius:14px;
+      font-weight:800;
+      font-size:13px;
+      display:inline-flex; align-items:center; gap:8px;
+      box-shadow: var(--shadow2);
+      transition:.2s;
+    }
+    .btn:hover{transform: translateY(-1px); background:rgba(255,255,255,.07)}
+    .btn.primary{
+      background: linear-gradient(135deg, rgba(122,166,255,.28), rgba(255,122,217,.22));
+      border:1px solid rgba(255,255,255,.16);
+    }
+
+    /* Hero */
+    .hero{
+      margin-top:16px;
+      border-radius:var(--radius);
+      border:1px solid rgba(255,255,255,.10);
+      background:
+        radial-gradient(500px 260px at 15% 20%, rgba(122,166,255,.18), transparent 60%),
+        radial-gradient(400px 260px at 85% 25%, rgba(255,122,217,.14), transparent 60%),
+        linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      position:relative;
+    }
+    .hero::before{
+      content:"";
+      position:absolute; inset:-2px;
+      background: radial-gradient(700px 300px at 50% 0%, rgba(255,255,255,.12), transparent 70%);
+      pointer-events:none;
+    }
+    .heroInner{
+      display:grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap:14px;
+      padding:18px;
+    }
+    @media (max-width:860px){
+      .heroInner{grid-template-columns:1fr; }
+      .nav{max-width:60%}
+    }
+
+    .heroTitle{
+      font-size:40px;
+      line-height:1.03;
+      margin:0;
+      letter-spacing:-.6px;
+    }
+    .heroTitle span{
+      background: linear-gradient(90deg, #eaf0ff, #a9c2ff 35%, #ffb6ea 70%, #eaf0ff);
+      -webkit-background-clip:text; background-clip:text;
+      color:transparent;
+    }
+    .heroSub{
+      margin:10px 0 0;
+      color:var(--muted);
+      font-weight:600;
+      max-width:52ch;
+    }
+    .heroTags{
+      margin-top:12px;
+      display:flex; flex-wrap:wrap; gap:8px;
+    }
+    .tag{
+      padding:8px 10px;
+      border-radius:999px;
+      font-size:12px;
+      font-weight:800;
+      color:rgba(238,242,255,.86);
+      background: rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.10);
+    }
+    .tag.good{border-color: rgba(53,242,161,.30); background: rgba(53,242,161,.07)}
+    .tag.new{border-color: rgba(122,166,255,.30); background: rgba(122,166,255,.07)}
+    .tag.hot{border-color: rgba(255,122,217,.28); background: rgba(255,122,217,.06)}
+
+    .heroActions{
+      margin-top:14px;
+      display:flex; flex-wrap:wrap; gap:10px;
+    }
+
+    .card{
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      border-radius:18px;
+      padding:14px;
+      box-shadow: var(--shadow2);
+    }
+
+    .nowPlaying{
+      display:flex; gap:12px; align-items:center;
+    }
+    .cover{
+      width:58px; height:58px; border-radius:16px;
+      background:
+        radial-gradient(18px 18px at 30% 30%, rgba(255,255,255,.22), transparent 60%),
+        linear-gradient(135deg, rgba(122,166,255,.55), rgba(255,122,217,.45));
+      border:1px solid rgba(255,255,255,.16);
+      flex:0 0 auto;
+      overflow:hidden;
+      position:relative;
+    }
+    .cover img{width:100%; height:100%; object-fit:cover; display:block}
+    .mini{
+      display:flex; flex-direction:column; gap:2px;
+      min-width:0;
+    }
+    .mini .t{
+      font-weight:900;
+      letter-spacing:.3px;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+    .mini .s{color:var(--muted2); font-weight:700; font-size:12px}
+    .miniBtns{display:flex; gap:8px; margin-left:auto; flex-wrap:wrap; justify-content:flex-end}
+    .miniBtns .btn{padding:9px 10px; border-radius:12px}
+
+    /* Sections */
+    .section{
+      margin-top:16px;
+      scroll-margin-top:88px;
+    }
+    .sectionHead{
+      display:flex; align-items:end; justify-content:space-between; gap:10px;
+      margin:0 2px 10px;
+    }
+    .h2{
+      margin:0;
+      font-size:18px;
+      letter-spacing:.4px;
+      text-transform:uppercase;
+      color:rgba(238,242,255,.88);
+    }
+    .hint{
+      margin:0;
+      color:var(--muted2);
+      font-weight:700;
+      font-size:12px;
+      max-width:52ch;
+      text-align:right;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap:12px;
+    }
+    .col-7{grid-column: span 7;}
+    .col-5{grid-column: span 5;}
+    .col-6{grid-column: span 6;}
+    .col-4{grid-column: span 4;}
+    .col-12{grid-column: span 12;}
+    @media (max-width:860px){
+      .col-7,.col-5,.col-6,.col-4{grid-column: span 12;}
+    }
+
+    .release{
+      padding:14px;
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,.10);
+      background:
+        radial-gradient(260px 180px at 25% 10%, rgba(122,166,255,.12), transparent 60%),
+        radial-gradient(240px 160px at 85% 25%, rgba(255,122,217,.10), transparent 60%),
+        rgba(255,255,255,.04);
+      box-shadow: var(--shadow2);
+      display:flex;
+      gap:12px;
+      align-items:center;
+    }
+    .release .cover{width:70px;height:70px;border-radius:18px}
+    .meta{min-width:0}
+    .meta .name{font-weight:1000; letter-spacing:.2px}
+    .meta .desc{color:var(--muted2); font-weight:700; font-size:12px; margin-top:4px}
+    .actionsRow{margin-left:auto; display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end}
+    .actionsRow .btn{box-shadow:none}
+
+    .chips{
+      display:flex; gap:8px; flex-wrap:wrap;
+    }
+    .chip{
+      padding:10px 12px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.05);
+      color:rgba(238,242,255,.86);
+      font-weight:900;
+      font-size:13px;
+      cursor:pointer;
+      user-select:none;
+    }
+    .chip.active{
+      background: linear-gradient(135deg, rgba(122,166,255,.22), rgba(255,122,217,.16));
+      border-color: rgba(255,255,255,.16);
+      color:var(--text);
+    }
+
+    /* Music list */
+    .musicList{
+      display:flex; flex-direction:column; gap:10px;
+    }
+    .track{
+      display:grid;
+      grid-template-columns: 54px 1fr auto;
+      gap:12px;
+      align-items:center;
+      padding:12px;
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      box-shadow: var(--shadow2);
+    }
+    .track .cover{width:54px;height:54px;border-radius:16px}
+    .track .tt{font-weight:950; letter-spacing:.2px}
+    .track .sub{color:var(--muted2); font-weight:700; font-size:12px; margin-top:4px}
+    .track .right{display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end}
+    .track .btn{padding:9px 10px; border-radius:12px; box-shadow:none}
+
+    /* Store placeholder */
+    .storeGrid{
+      display:grid; grid-template-columns: repeat(2,1fr); gap:12px;
+    }
+    @media (max-width:520px){ .storeGrid{grid-template-columns:1fr;} }
+
+    .product{
+      padding:14px;
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      box-shadow: var(--shadow2);
+    }
+    .product .ph{
+      height:150px;
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.10);
+      background:
+        radial-gradient(220px 120px at 20% 20%, rgba(122,166,255,.14), transparent 60%),
+        radial-gradient(220px 120px at 80% 20%, rgba(255,122,217,.12), transparent 60%),
+        rgba(255,255,255,.03);
+      margin-bottom:10px;
+      display:flex; align-items:center; justify-content:center;
+      color:rgba(238,242,255,.75);
+      font-weight:900;
+      letter-spacing:.3px;
+    }
+    .product .pn{font-weight:950}
+    .product .pp{color:var(--muted2); font-weight:800; font-size:12px; margin-top:4px}
+    .product .btn{margin-top:10px; width:100%; justify-content:center; box-shadow:none}
+
+    /* Connect */
+    .connectCard{
+      padding:16px;
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,.10);
+      background:
+        radial-gradient(240px 160px at 15% 25%, rgba(53,242,161,.10), transparent 60%),
+        radial-gradient(260px 170px at 85% 15%, rgba(255,122,217,.10), transparent 60%),
+        rgba(255,255,255,.04);
+      box-shadow: var(--shadow2);
+    }
+    .formRow{
+      display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;
+    }
+    .input{
+      flex:1 1 240px;
+      padding:12px 12px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.22);
+      color:var(--text);
+      outline:none;
+      font-weight:800;
+    }
+    .input::placeholder{color:rgba(238,242,255,.45)}
+    .tiny{
+      color:var(--muted2);
+      font-weight:700;
+      font-size:12px;
+      margin-top:8px;
+      line-height:1.35;
+    }
+    .serviceRow{
+      margin-top:12px;
+      display:flex; gap:10px; flex-wrap:wrap;
+    }
+
+    /* Footer */
+    footer{
+      margin-top:18px;
+      color:rgba(238,242,255,.52);
+      font-weight:700;
+      font-size:12px;
+      text-align:center;
+      padding:18px 0 0;
+    }
+
+    /* Small helper */
+    .sr{position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden}
+  </style>
+</head>
+
+<body>
+  <div class="stars"></div>
+
+  <header class="topbar">
+    <div class="inner">
+      <div class="brand" onclick="scrollToId('home')" role="button" tabindex="0" aria-label="Go to home">
+        <div class="logoDot" aria-hidden="true"></div>
+        <div>
+          <div style="font-size:13px; opacity:.9;">Omo Taker</div>
+          <div style="font-size:11px; color:rgba(238,242,255,.55); font-weight:800; letter-spacing:.6px;">OFFICIAL</div>
+        </div>
+      </div>
+
+      <nav class="nav" aria-label="Primary">
+        <a class="pill active" href="#home" data-tab="home">Home</a>
+        <a class="pill" href="#music" data-tab="music">Music</a>
+        <a class="pill" href="#store" data-tab="store">Store</a>
+        <a class="pill" href="#connect" data-tab="connect">Connect</a>
+      </nav>
+
+      <a class="btn primary" href="#connect" onclick="scrollToId('connect')">
+        ✨ Fan Updates
+      </a>
+    </div>
+  </header>
+
+  <main class="wrap">
+
+    <!-- HERO -->
+    <section id="home" class="hero" aria-label="Hero">
+      <div class="heroInner">
+        <div>
+          <h1 class="heroTitle"><span>2030 Sound.</span><br/>Omo Taker Universe.</h1>
+          <p class="heroSub">
+            Dark-modern official page for music, releases, and fan updates. Tap a song, choose your platform, and run it up.
+          </p>
+
+          <div class="heroTags">
+            <span class="tag new">NEW</span>
+            <span class="tag good">Official</span>
+            <span class="tag hot">OMK Energy</span>
+            <span class="tag">Afro • Alt • Vibes</span>
+          </div>
+
+          <div class="heroActions">
+            <a class="btn primary" href="#music" onclick="scrollToId('music')">▶️ Play Music</a>
+            <a class="btn" href="#connect" onclick="scrollToId('connect')">📩 Join Updates</a>
+            <a class="btn" href="#store" onclick="scrollToId('store')">🛒 Store</a>
+          </div>
+        </div>
+
+        <div class="card" aria-label="Now featured">
+          <div class="nowPlaying">
+            <div class="cover" id="featuredCover">
+              <!-- optional: put your cover image later -->
+            </div>
+            <div class="mini">
+              <div class="t" id="featuredTitle">If Earth Could Talk</div>
+              <div class="s" id="featuredSub">Featured Release • Out Now</div>
+            </div>
+            <div class="miniBtns">
+              <button class="btn" onclick="openLinks('if-earth-could-talk')">Spotify</button>
+              <button class="btn" onclick="openLinks('if-earth-could-talk')">Apple</button>
+              <button class="btn" onclick="openLinks('if-earth-could-talk')">More</button>
+            </div>
+          </div>
+
+          <p class="tiny" style="margin-top:10px">
+            Tip: later we will paste your real Spotify/Apple/Boomplay/Audiomack links into the tracks list.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- RELEASES / QUICK LINKS -->
+    <section class="section" aria-label="Releases">
+      <div class="sectionHead">
+        <h2 class="h2">Latest</h2>
+        <p class="hint">Fast access to your main drops.</p>
+      </div>
+
+      <div class="grid">
+        <div class="col-6">
+          <div class="release">
+            <div class="cover"></div>
+            <div class="meta">
+              <div class="name">If Earth Could Talk</div>
+              <div class="desc">Single • 2026</div>
+            </div>
+            <div class="actionsRow">
+              <button class="btn primary" onclick="openLinks('if-earth-could-talk')">Open</button>
+              <button class="btn" onclick="copyShare('If Earth Could Talk')">Share</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-6">
+          <div class="release">
+            <div class="cover"></div>
+            <div class="meta">
+              <div class="name">Benin To Lagos</div>
+              <div class="desc">Single • 2026</div>
+            </div>
+            <div class="actionsRow">
+              <button class="btn primary" onclick="openLinks('benin-to-lagos')">Open</button>
+              <button class="btn" onclick="copyShare('Benin To Lagos')">Share</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MUSIC -->
+    <section id="music" class="section" aria-label="Music">
+      <div class="sectionHead">
+        <h2 class="h2">Music</h2>
+        <p class="hint">All songs — clean, fast, and mobile-ready.</p>
+      </div>
+
+      <div class="card">
+        <div class="chips" aria-label="Filter">
+          <div class="chip active" data-filter="all" onclick="setFilter('all')">All</div>
+          <div class="chip" data-filter="single" onclick="setFilter('single')">Singles</div>
+          <div class="chip" data-filter="album" onclick="setFilter('album')">Albums / EP</div>
+        </div>
+
+        <div style="height:10px"></div>
+
+        <div class="musicList" id="musicList">
+          <!-- Tracks (edit these) -->
+          <div class="track" data-type="single">
+            <div class="cover"></div>
+            <div>
+              <div class="tt">Benin To Lagos</div>
+              <div class="sub">Single • 2026</div>
+            </div>
+            <div class="right">
+              <button class="btn primary" onclick="openLinks('benin-to-lagos')">Play</button>
+              <button class="btn" onclick="openLinks('benin-to-lagos')">More</button>
+            </div>
+          </div>
+
+          <div class="track" data-type="single">
+            <div class="cover"></div>
+            <div>
+              <div class="tt">If Earth Could Talk</div>
+              <div class="sub">Single • 2026</div>
+            </div>
+            <div class="right">
+              <button class="btn primary" onclick="openLinks('if-earth-could-talk')">Play</button>
+              <button class="btn" onclick="openLinks('if-earth-could-talk')">More</button>
+            </div>
+          </div>
+
+          <div class="track" data-type="single">
+            <div class="cover"></div>
+            <div>
+              <div class="tt">If Earth Could Talk (Radio Edit)</div>
+              <div class="sub">Single • 2026</div>
+            </div>
+            <div class="right">
+              <button class="btn primary" onclick="openLinks('if-earth-could-talk-radio')">Play</button>
+              <button class="btn" onclick="openLinks('if-earth-could-talk-radio')">More</button>
+            </div>
+          </div>
+
+          <div class="track" data-type="album">
+            <div class="cover"></div>
+            <div>
+              <div class="tt">My Truth</div>
+              <div class="sub">Album • 2025</div>
+            </div>
+            <div class="right">
+              <button class="btn primary" onclick="openLinks('my-truth')">Open</button>
+              <button class="btn" onclick="openLinks('my-truth')">Tracks</button>
+            </div>
+          </div>
+
+          <!-- Add more tracks here later -->
+        </div>
+
+        <p class="tiny">
+          We will add **every song you have** here. Just send me your Spotify artist link (or a screenshot list) and I’ll fill it perfectly.
+        </p>
+      </div>
+    </section>
+
+    <!-- STORE -->
+    <section id="store" class="section" aria-label="Store">
+      <div class="sectionHead">
+        <h2 class="h2">Store</h2>
+        <p class="hint">Optional — connect OMK Drip later.</p>
+      </div>
+
+      <div class="storeGrid">
+        <div class="product">
+          <div class="ph">OMK • Coming Soon</div>
+          <div class="pn">OMK Wolf Tee</div>
+          <div class="pp">Drop soon — premium streetwear</div>
+          <a class="btn" href="https://omkdrip.com" target="_blank" rel="noreferrer">Open OMKDrip</a>
+        </div>
+
+        <div class="product">
+          <div class="ph">Merch • Coming Soon</div>
+          <div class="pn">Omo Taker Merch</div>
+          <div class="pp">Limited runs • fan-only drops</div>
+          <a class="btn" href="#connect" onclick="scrollToId('connect')">Get notified</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONNECT -->
+    <section id="connect" class="section" aria-label="Connect">
+      <div class="sectionHead">
+        <h2 class="h2">Connect</h2>
+        <p class="hint">Collect emails — send fans your next drop link.</p>
+      </div>
+
+      <div class="connectCard">
+        <div style="font-weight:1000; letter-spacing:.3px; font-size:16px;">Join the list 📩</div>
+        <div class="tiny">Drop your email. When a new song is out, you can export the list and blast the link.</div>
+
+        <form id="fanForm" onsubmit="return addEmail(event)">
+          <div class="formRow">
+            <input class="input" id="fanName" placeholder="Name (optional)" />
+            <input class="input" id="fanEmail" type="email" required placeholder="Email address" />
+            <button class="btn primary" type="submit">Subscribe</button>
+          </div>
+        </form>
+
+        <div class="tiny" id="saveMsg" style="margin-top:8px;"></div>
+
+        <div class="serviceRow">
+          <a class="btn" href="#" id="igLink" target="_blank" rel="noreferrer">Instagram</a>
+          <a class="btn" href="#" id="ttLink" target="_blank" rel="noreferrer">TikTok</a>
+          <a class="btn" href="#" id="ytLink" target="_blank" rel="noreferrer">YouTube</a>
+          <a class="btn" href="#" id="waLink" target="_blank" rel="noreferrer">WhatsApp</a>
+        </div>
+
+        <div class="serviceRow">
+          <button class="btn" onclick="downloadEmails()">Download emails (.csv)</button>
+          <button class="btn" onclick="clearEmails()">Clear list</button>
+        </div>
+
+        <p class="tiny">
+          ⚠️ This stores emails in the visitor’s browser (localStorage).  
+          If you want a REAL online database like Shalli’s Sony form, tell me and I’ll show you the simple free way (Google Forms / Mailchimp / ConvertKit).
+        </p>
+      </div>
+    </section>
+
+    <footer>
+      © <span id="year"></span> Omo Taker • Built for the next era.
+    </footer>
+  </main>
+
+  <script>
+    // ====== QUICK SETTINGS (EDIT THESE) ======
+    const SOCIALS = {
+      instagram: "https://instagram.com/iam_omotaker",
+      tiktok: "https://tiktok.com/@iam_omotaker",
+      youtube: "https://www.youtube.com/",
+      whatsapp: "https://wa.me/" // add your full wa.me number later
+    };
+
+    // Replace these with your real links later.
+    // Each key is used by openLinks(trackKey)
+    const TRACK_LINKS = {
+      "if-earth-could-talk": {
+        spotify: "https://open.spotify.com/",
+        apple: "https://music.apple.com/",
+        boomplay: "https://www.boomplay.com/",
+        audiomack: "https://audiomack.com/",
+        youtube: "https://www.youtube.com/"
+      },
+      "if-earth-could-talk-radio": {
+        spotify: "https://open.spotify.com/",
+        apple: "https://music.apple.com/",
+        boomplay: "https://www.boomplay.com/",
+        audiomack: "https://audiomack.com/",
+        youtube: "https://www.youtube.com/"
+      },
+      "benin-to-lagos": {
+        spotify: "https://open.spotify.com/",
+        apple: "https://music.apple.com/",
+        boomplay: "https://www.boomplay.com/",
+        audiomack: "https://audiomack.com/",
+        youtube: "https://www.youtube.com/"
+      },
+      "my-truth": {
+        spotify: "https://open.spotify.com/",
+        apple: "https://music.apple.com/",
+        boomplay: "https://www.boomplay.com/",
+        audiomack: "https://audiomack.com/",
+        youtube: "https://www.youtube.com/"
+      }
+    };
+
+    // ====== NAV HIGHLIGHT ======
+    const pills = Array.from(document.querySelectorAll(".pill"));
+    function setActive(tab){
+      pills.forEach(p=>p.classList.toggle("active", p.dataset.tab===tab));
+    }
+    function scrollToId(id){
+      const el = document.getElementById(id);
+      if(el) el.scrollIntoView({behavior:"smooth", block:"start"});
+      setActive(id);
+    }
+    window.addEventListener("scroll", ()=>{
+      const sections = ["home","music","store","connect"];
+      const y = window.scrollY + 120;
+      let current = "home";
+      for(const s of sections){
+        const el = document.getElementById(s);
+        if(el && el.offsetTop <= y) current = s;
+      }
+      setActive(current);
+    });
+
+    // ====== FILTER ======
+    function setFilter(type){
+      document.querySelectorAll(".chip").forEach(c => c.classList.toggle("active", c.dataset.filter===type));
+      document.querySelectorAll("#musicList .track").forEach(t=>{
+        const ok = (type==="all") || (t.dataset.type===type);
+        t.style.display = ok ? "" : "none";
+      });
+    }
+
+    // ====== OPEN LINKS (simple menu) ======
+    function openLinks(key){
+      const links = TRACK_LINKS[key];
+      if(!links){
+        alert("Links not added yet for: " + key);
+        return;
+      }
+      // Simple prompt menu
+      const choice = prompt(
+        "Choose platform:\\n1 = Spotify\\n2 = Apple Music\\n3 = Boomplay\\n4 = Audiomack\\n5 = YouTube\\n\\nType 1-5"
+      );
+      const map = { "1":"spotify", "2":"apple", "3":"boomplay", "4":"audiomack", "5":"youtube" };
+      const k = map[(choice||"").trim()];
+      if(k && links[k]) window.open(links[k], "_blank");
+    }
+
+    // ====== SHARE ======
+    async function copyShare(title){
+      const text = `${title} — Omo Taker\\n${location.href}`;
+      try{
+        await navigator.clipboard.writeText(text);
+        alert("Copied share text ✅");
+      }catch(e){
+        alert("Copy failed — you can manually share: " + text);
+      }
+    }
+
+    // ====== EMAIL LIST (local) ======
+    const LS_KEY = "omotaker_fan_emails_v1";
+    function getEmails(){
+      try{ return JSON.parse(localStorage.getItem(LS_KEY) || "[]"); }catch(e){ return []; }
+    }
+    function setEmails(list){
+      localStorage.setItem(LS_KEY, JSON.stringify(list));
+    }
+
+    function addEmail(e){
+      e.preventDefault();
+      const name = (document.getElementById("fanName").value || "").trim();
+      const email = (document.getElementById("fanEmail").value || "").trim().toLowerCase();
+      const msg = document.getElementById("saveMsg");
+
+      if(!email || !email.includes("@")){
+        msg.textContent = "Please enter a valid email.";
+        msg.style.color = "rgba(255,211,106,.9)";
+        return false;
+      }
+
+      const list = getEmails();
+      if(list.some(x => x.email === email)){
+        msg.textContent = "You’re already subscribed ✅";
+        msg.style.color = "rgba(53,242,161,.9)";
+        return false;
+      }
+
+      list.push({name, email, date: new Date().toISOString()});
+      setEmails(list);
+
+      msg.textContent = "Subscribed ✅ Welcome to the Omo Taker universe.";
+      msg.style.color = "rgba(53,242,161,.9)";
+      document.getElementById("fanEmail").value = "";
+      return false;
+    }
+
+    function downloadEmails(){
+      const list = getEmails();
+      if(!list.length){ alert("No emails yet."); return; }
+      const rows = [["name","email","date"], ...list.map(x=>[x.name||"", x.email, x.date])];
+      const csv = rows.map(r => r.map(v => `"${String(v).replaceAll('"','""')}"`).join(",")).join("\\n");
+      const blob = new Blob([csv], {type:"text/csv;charset=utf-8;"});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "omotaker-emails.csv";
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+
+    function clearEmails(){
+      if(confirm("Clear saved emails on this device?")){
+        localStorage.removeItem(LS_KEY);
+        document.getElementById("saveMsg").textContent = "List cleared.";
+        document.getElementById("saveMsg").style.color = "rgba(238,242,255,.7)";
+      }
+    }
+
+    // ====== INIT ======
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // socials
+    document.getElementById("igLink").href = SOCIALS.instagram;
+    document.getElementById("ttLink").href = SOCIALS.tiktok;
+    document.getElementById("ytLink").href = SOCIALS.youtube;
+    document.getElementById("waLink").href = SOCIALS.whatsapp;
+  </script>
+</body>
+</html>
