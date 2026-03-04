@@ -2,668 +2,560 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="theme-color" content="#06070b" />
-  <title>Omo Taker — Official Website</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <title>Omo Taker — Official</title>
   <meta name="description" content="Omo Taker official music website — releases, music, videos, and connect." />
 
   <style>
     :root{
-      --bg:#05060a;
+      --bg:#000;
       --panel:rgba(255,255,255,.06);
-      --panel2:rgba(255,255,255,.10);
-      --line:rgba(255,255,255,.12);
-      --text:#eef1ff;
-      --muted:rgba(238,241,255,.72);
-      --muted2:rgba(238,241,255,.52);
+      --panel2:rgba(255,255,255,.09);
+      --line:rgba(255,255,255,.10);
+      --text:#f5f6ff;
+      --muted:rgba(245,246,255,.70);
 
-      --accent:#8a7bff;
-      --accent2:#ff5bd6;
-      --glow:rgba(138,123,255,.35);
-      --glow2:rgba(255,91,214,.22);
+      /* Future glow accents */
+      --a1:#7aa6ff;
+      --a2:#ff7ad9;
+      --glow: 0 10px 35px rgba(122,166,255,.16), 0 8px 30px rgba(255,122,217,.10);
 
-      --radius:22px;
-      --shadow:0 18px 70px rgba(0,0,0,.55);
-      --shadow2:0 10px 30px rgba(0,0,0,.45);
-
-      --max:1100px;
-      --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      --radius:18px;
+      --max:980px;
+      --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
     }
 
-    *{box-sizing:border-box}
-    html,body{height:100%}
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
     body{
       margin:0;
       font-family:var(--font);
       color:var(--text);
       background:
-        radial-gradient(1200px 600px at 18% 10%, rgba(138,123,255,.22), transparent 55%),
-        radial-gradient(900px 500px at 85% 22%, rgba(255,91,214,.14), transparent 55%),
-        radial-gradient(1000px 700px at 50% 85%, rgba(76,220,255,.10), transparent 55%),
-        linear-gradient(180deg, #04050a 0%, #070817 60%, #05060a 100%);
-      overflow-x:hidden;
+        radial-gradient(900px 500px at 15% 10%, rgba(122,166,255,.14), transparent 55%),
+        radial-gradient(900px 500px at 85% 20%, rgba(255,122,217,.12), transparent 55%),
+        radial-gradient(1200px 700px at 50% 85%, rgba(122,255,210,.05), transparent 60%),
+        var(--bg);
     }
+    a{ color:inherit; text-decoration:none; }
 
-    a{color:inherit;text-decoration:none}
-    .wrap{max-width:var(--max); margin:0 auto; padding:0 16px 70px;}
-
-    /* ======= Top Bar like Shallipopi ======= */
-    .topbar{
-      position:sticky;
-      top:0;
-      z-index:50;
-      backdrop-filter: blur(14px);
-      background: rgba(5,6,10,.55);
-      border-bottom:1px solid rgba(255,255,255,.06);
-    }
-    .topbar-inner{
+    .wrap{
       max-width:var(--max);
       margin:0 auto;
-      padding:14px 16px;
+      padding:16px 14px 90px;
+    }
+
+    /* Brand header */
+    .topbar{
       display:flex;
       align-items:center;
       justify-content:space-between;
       gap:12px;
+      padding:6px 0 12px;
     }
-
-    .brand{
-      display:flex; align-items:center; gap:10px; min-width:170px;
-    }
+    .brand{ display:flex; align-items:center; gap:12px; }
     .orb{
-      width:36px; height:36px; border-radius:999px;
+      width:40px; height:40px; border-radius:14px;
       background:
-        radial-gradient(16px 16px at 35% 35%, rgba(255,255,255,.75), transparent 55%),
-        radial-gradient(22px 22px at 65% 70%, rgba(255,255,255,.25), transparent 60%),
-        conic-gradient(from 210deg, var(--accent), var(--accent2), #4fe3ff, var(--accent));
-      box-shadow: 0 0 0 1px rgba(255,255,255,.10), 0 18px 40px rgba(0,0,0,.55);
+        radial-gradient(16px 18px at 30% 30%, rgba(255,255,255,.55), transparent 55%),
+        radial-gradient(40px 40px at 60% 70%, rgba(255,122,217,.45), transparent 65%),
+        radial-gradient(40px 40px at 30% 60%, rgba(122,166,255,.45), transparent 65%),
+        rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.12);
+      box-shadow: var(--glow);
     }
-    .brand h1{
-      margin:0;
-      font-size:16px;
-      letter-spacing:.14em;
-      font-weight:800;
-    }
-    .brand small{
-      display:block;
-      color:var(--muted2);
-      font-size:12px;
-      margin-top:2px;
-      letter-spacing:.02em;
-    }
+    .brand h1{ margin:0; font-size:16px; letter-spacing:.14em; }
+    .brand p{ margin:2px 0 0; font-size:12px; color:rgba(255,255,255,.55); }
 
-    .tabs{
+    /* Pill nav like Shallipopi */
+    .pillbar{
       display:flex;
       gap:10px;
-      padding:8px;
+      padding:10px;
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.04);
       border-radius:999px;
-      background: rgba(255,255,255,.05);
-      border:1px solid rgba(255,255,255,.08);
-      box-shadow: var(--shadow2);
+      backdrop-filter: blur(10px);
+      position:sticky;
+      top:0;
+      z-index:30;
       overflow:auto;
       -webkit-overflow-scrolling:touch;
+      box-shadow: 0 12px 35px rgba(0,0,0,.45);
+      margin-bottom:14px;
     }
-    .tab{
+    .pillbar a{
       padding:10px 14px;
       border-radius:999px;
-      color:var(--muted);
-      font-weight:700;
-      font-size:13px;
-      letter-spacing:.05em;
+      font-weight:900;
+      letter-spacing:.06em;
+      font-size:12px;
+      color:rgba(255,255,255,.80);
       white-space:nowrap;
-      transition:.2s ease;
       border:1px solid transparent;
+      background:transparent;
+      transition:.2s ease;
     }
-    .tab:hover{ color:var(--text); border-color:rgba(255,255,255,.12); background:rgba(255,255,255,.04); }
-    .tab.active{
-      color:var(--text);
-      background: linear-gradient(90deg, rgba(138,123,255,.25), rgba(255,91,214,.18));
-      border-color: rgba(255,255,255,.12);
-      box-shadow: 0 0 0 1px rgba(255,255,255,.06) inset;
+    .pillbar a.active{
+      background:rgba(255,255,255,.10);
+      border-color:rgba(255,255,255,.12);
+      box-shadow: var(--glow);
+      color:#fff;
     }
 
-    /* ======= Big hero image space (your main picture) ======= */
+    /* HERO — big protected space for your photo/video */
     .hero{
-      margin-top:18px;
-      border-radius:28px;
+      border-radius:var(--radius);
       overflow:hidden;
       border:1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.04);
-      box-shadow: var(--shadow);
+      background:rgba(255,255,255,.03);
+      box-shadow: 0 20px 60px rgba(0,0,0,.55);
     }
-    .hero-media{
+    .heroMedia{
       position:relative;
       width:100%;
-      height: 330px; /* BIG SPACE AT TOP */
+      height:340px;
       background:
-        linear-gradient(180deg, rgba(0,0,0,.12), rgba(0,0,0,.55)),
-        url("https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1400&q=70");
-      background-size:cover;
-      background-position:center;
+        linear-gradient(to bottom, rgba(0,0,0,.20), rgba(0,0,0,.88)),
+        url("YOUR-HERO-IMAGE.jpg") center/cover no-repeat;
     }
-    .hero-media::after{
-      content:"";
-      position:absolute; inset:0;
-      background:
-        radial-gradient(600px 260px at 20% 20%, rgba(138,123,255,.22), transparent 55%),
-        radial-gradient(520px 240px at 85% 30%, rgba(255,91,214,.18), transparent 60%);
-      pointer-events:none;
+    .heroOverlay{
+      position:absolute;
+      left:0; right:0; bottom:0;
+      padding:16px;
+      background: linear-gradient(to top, rgba(0,0,0,.85), transparent);
     }
+    .heroTitle{ margin:0; font-size:30px; font-weight:950; letter-spacing:.02em; }
+    .heroSub{ margin:8px 0 0; color:var(--muted); line-height:1.45; max-width:70ch; }
 
-    .hero-content{
-      padding:18px 18px 20px;
-    }
-    .pill{
-      display:inline-flex; align-items:center; gap:10px;
-      padding:10px 14px;
-      border-radius:999px;
-      background: rgba(255,255,255,.06);
-      border:1px solid rgba(255,255,255,.10);
-      color:var(--muted);
-      font-weight:700;
-      font-size:13px;
-      letter-spacing:.02em;
-    }
-    .dot{
-      width:10px; height:10px; border-radius:99px;
-      background: #39ff88;
-      box-shadow: 0 0 0 6px rgba(57,255,136,.10);
-    }
-    .hero-title{
-      margin:14px 0 8px;
-      font-size:44px;
-      line-height:1.05;
-      letter-spacing:-.02em;
-    }
-    .hero-sub{
-      margin:0;
-      color:var(--muted);
-      max-width: 780px;
-      font-size:16px;
-      line-height:1.55;
-    }
-
-    .cta-row{
-      display:flex;
-      flex-wrap:wrap;
-      gap:12px;
-      margin-top:18px;
+    /* two buttons first: IG + TikTok */
+    .quickRow{
+      display:flex; gap:10px; flex-wrap:wrap;
+      padding:14px;
+      border-top:1px solid rgba(255,255,255,.08);
+      background:rgba(0,0,0,.35);
     }
     .btn{
       display:inline-flex; align-items:center; justify-content:center;
-      gap:10px;
-      padding:12px 16px;
+      padding:12px 14px;
       border-radius:999px;
-      font-weight:800;
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.06);
-      color:var(--text);
-      box-shadow: var(--shadow2);
-      transition:.2s ease;
-      cursor:pointer;
-      user-select:none;
-    }
-    .btn:hover{ transform: translateY(-1px); background: rgba(255,255,255,.08); }
-    .btn.primary{
-      border:none;
-      background: linear-gradient(90deg, rgba(138,123,255,.95), rgba(255,91,214,.95));
-      color:#0a0613;
-      box-shadow: 0 18px 60px rgba(138,123,255,.20), 0 18px 60px rgba(255,91,214,.15);
-    }
-    .btn.ghost{
-      background: rgba(255,255,255,.05);
-    }
-    .hint{
-      margin-top:10px;
-      color:var(--muted2);
-      font-size:13px;
-    }
-
-    /* ======= Sections / headings like Shallipopi ======= */
-    .section{
-      margin-top:26px;
-      padding-top:14px;
-      border-top:1px solid rgba(255,255,255,.08);
-    }
-    .section-title{
-      text-align:center;
-      font-size:28px;
-      letter-spacing:.20em;
-      font-weight:900;
-      margin:18px 0 16px;
-    }
-
-    /* ======= Featured video (top like Shallipopi) ======= */
-    .featured{
-      margin-top:18px;
-      border-radius:26px;
-      overflow:hidden;
-      border:1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.04);
-      box-shadow: var(--shadow);
-    }
-    .featured iframe{
-      width:100%;
-      height:320px;
-      border:0;
-      display:block;
-      background:#000;
-    }
-    .featured-cap{
-      padding:14px 16px;
-      color:var(--muted);
-      font-weight:800;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.06);
+      font-weight:950;
       letter-spacing:.02em;
+      transition:.2s ease;
+      flex:1;
+      min-width:140px;
+      text-align:center;
+    }
+    .btn.primary{
+      background: linear-gradient(90deg, rgba(122,166,255,.95), rgba(255,122,217,.95));
+      color:#07070a;
+      border-color: rgba(255,255,255,.18);
+      box-shadow: var(--glow);
     }
 
-    /* ======= Music cards like Shallipopi (cover left + play button) ======= */
-    .list{
-      display:flex;
-      flex-direction:column;
-      gap:14px;
-      max-width:860px;
-      margin:0 auto;
+    /* Section headings like Shallipopi */
+    .section{
+      margin-top:18px;
+      padding-top:14px;
+      border-top:1px solid rgba(255,255,255,.10);
     }
-    .card{
+    .section h2{
+      margin:16px 0 12px;
+      text-align:center;
+      font-size:22px;
+      font-weight:950;
+      letter-spacing:.12em;
+    }
+
+    /* ====== KEY CHANGE: Shallipopi-like compact horizontal rails ====== */
+    .rail{
       display:flex;
-      gap:14px;
-      padding:14px;
-      border-radius:22px;
-      background: rgba(255,255,255,.05);
+      gap:12px;
+      overflow:auto;
+      padding:6px 4px 10px;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling:touch;
+    }
+    .rail::after{ content:""; flex:0 0 18px; } /* right padding space */
+    .miniCard{
+      flex:0 0 330px;          /* compact size (NOT long) */
+      scroll-snap-align:start;
+      border-radius:var(--radius);
       border:1px solid rgba(255,255,255,.10);
-      box-shadow: var(--shadow2);
-      overflow:hidden;
+      background:rgba(255,255,255,.05);
+      backdrop-filter: blur(10px);
+      padding:12px;
+      box-shadow: 0 18px 55px rgba(0,0,0,.45);
+    }
+    .rowTop{
+      display:flex;
+      gap:12px;
+      align-items:center;
+      margin-bottom:10px;
     }
     .cover{
-      width:88px; height:88px;
-      border-radius:18px;
-      background: rgba(255,255,255,.08);
-      border:1px solid rgba(255,255,255,.12);
+      width:72px; height:72px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.08) center/cover no-repeat;
+      position:relative;
       overflow:hidden;
       flex:0 0 auto;
-      position:relative;
     }
-    .cover img{
-      width:100%; height:100%; object-fit:cover; display:block;
-      filter:saturate(1.05) contrast(1.05);
-    }
-    .play-badge{
+    .playDot{
       position:absolute; inset:0;
       display:grid; place-items:center;
-      background: radial-gradient(circle at 50% 50%, rgba(0,0,0,.10), rgba(0,0,0,.58));
-      opacity:.0;
-      transition:.2s ease;
+      background: radial-gradient(circle at 50% 50%, rgba(0,0,0,.15), rgba(0,0,0,.55));
     }
-    .cover:hover .play-badge{opacity:1}
-    .play-icon{
-      width:42px;height:42px;border-radius:999px;
-      display:grid; place-items:center;
-      background: rgba(255,255,255,.12);
-      border:1px solid rgba(255,255,255,.18);
-      backdrop-filter: blur(10px);
-    }
-
-    .meta{flex:1; min-width:0;}
-    .meta h3{
-      margin:2px 0 4px;
-      font-size:18px;
-      letter-spacing:.02em;
-      white-space:nowrap;
-      overflow:hidden;
-      text-overflow:ellipsis;
-    }
-    .meta p{
-      margin:0;
-      color:var(--muted2);
-      font-weight:700;
-      font-size:13px;
-      white-space:nowrap;
-      overflow:hidden;
-      text-overflow:ellipsis;
-    }
-    .meta .year{
-      display:inline-block;
-      margin-top:8px;
-      font-size:12px;
-      color:var(--muted2);
-      padding:6px 10px;
+    .playDot span{
+      width:36px; height:36px;
       border-radius:999px;
-      border:1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.04);
+      display:grid; place-items:center;
+      border:1px solid rgba(255,255,255,.22);
+      background:rgba(255,255,255,.06);
+      box-shadow: var(--glow);
+      font-size:14px;
+    }
+    .meta{ min-width:0; }
+    .meta .title{
+      margin:0;
+      font-size:16px;
+      font-weight:950;
+      white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+    }
+    .meta .sub{
+      margin:6px 0 0;
+      font-size:12px;
+      color:rgba(255,255,255,.60);
+      white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
     }
 
-    .actions{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      flex-wrap:wrap;
-      justify-content:flex-end;
+    .playBtn{
+      display:inline-flex; align-items:center; justify-content:center;
+      width:100%;
+      padding:12px 14px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.06);
+      font-weight:950;
+      letter-spacing:.02em;
+      margin-bottom:10px;
     }
-    .small{
-      padding:10px 14px;
-      font-size:13px;
-      font-weight:900;
-    }
-
-    /* ======= Connect buttons like Shallipopi ======= */
-    .connect-box{
-      max-width:860px;
-      margin:0 auto;
-      border-radius:26px;
-      padding:16px;
-      background: rgba(255,255,255,.05);
-      border:1px solid rgba(255,255,255,.10);
-      box-shadow: var(--shadow2);
-    }
-    .connect-box h4{
-      margin:6px 0 8px;
-      font-size:18px;
-      letter-spacing:.10em;
-      font-weight:900;
-      text-transform:uppercase;
-      text-align:center;
-    }
-    .connect-box p{
-      margin:0 0 14px;
-      color:var(--muted2);
-      text-align:center;
-      font-weight:700;
-    }
-
-    .grid{
+    .chips{
       display:grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap:12px;
+      gap:10px;
     }
-    .grid .btn{
-      width:100%;
-      justify-content:center;
-      background: rgba(255,255,255,.06);
-    }
-
-    .social-row{
-      display:flex;
-      justify-content:center;
-      gap:16px;
-      margin-top:18px;
-      opacity:.9;
-    }
-    .icon{
-      width:46px;height:46px;border-radius:999px;
-      display:grid; place-items:center;
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.05);
-      box-shadow: var(--shadow2);
-      transition:.2s ease;
-    }
-    .icon:hover{ transform: translateY(-1px); background: rgba(255,255,255,.08); }
-    .icon svg{ width:22px;height:22px; fill: rgba(255,255,255,.86); }
-
-    /* ======= Footer ======= */
-    footer{
+    .chip{
+      padding:10px 12px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.06);
+      font-weight:900;
+      font-size:11px;
+      letter-spacing:.05em;
       text-align:center;
-      color:var(--muted2);
-      font-weight:700;
-      margin-top:26px;
-      font-size:13px;
+      white-space:nowrap;
     }
 
-    /* ======= Responsive ======= */
-    @media (max-width:720px){
-      .hero-title{font-size:38px}
-      .hero-media{height:300px}
-      .featured iframe{height:240px}
-      .grid{grid-template-columns: repeat(2, minmax(0, 1fr));}
-      .actions{justify-content:flex-start}
+    /* Videos */
+    .videoCard{
+      border-radius:var(--radius);
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.05);
+      box-shadow: 0 18px 55px rgba(0,0,0,.45);
     }
+    .videoThumb{
+      height:220px;
+      background:
+        linear-gradient(to bottom, rgba(0,0,0,.15), rgba(0,0,0,.75)),
+        url("YOUR-VIDEO-THUMB.jpg") center/cover no-repeat;
+      position:relative;
+      display:flex;
+      align-items:flex-end;
+      padding:14px;
+    }
+    .videoThumb .label{
+      font-weight:950;
+      letter-spacing:.06em;
+      font-size:13px;
+      background:rgba(0,0,0,.35);
+      border:1px solid rgba(255,255,255,.10);
+      padding:10px 12px;
+      border-radius:14px;
+      backdrop-filter: blur(10px);
+    }
+    .videoThumb .bigPlay{
+      position:absolute; inset:0;
+      display:grid; place-items:center;
+    }
+    .videoThumb .bigPlay span{
+      width:70px; height:70px;
+      border-radius:999px;
+      display:grid; place-items:center;
+      border:1px solid rgba(255,255,255,.22);
+      background:rgba(255,255,255,.06);
+      box-shadow: var(--glow);
+      font-size:24px;
+    }
+
+    /* Connect + Shop (no WhatsApp) */
+    .box{
+      border-radius:var(--radius);
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.05);
+      padding:16px;
+      text-align:center;
+      box-shadow: 0 18px 55px rgba(0,0,0,.45);
+    }
+    .box h3{
+      margin:0 0 6px;
+      font-size:18px;
+      font-weight:950;
+      letter-spacing:.08em;
+    }
+    .box p{ margin:0 0 14px; color:rgba(255,255,255,.65); }
+
+    .connectBtns{
+      display:grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap:10px;
+      max-width:760px;
+      margin:0 auto;
+    }
+    .connectBtns a{
+      display:flex; justify-content:center; align-items:center;
+      padding:12px 14px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.06);
+      font-weight:950;
+    }
+
+    footer{
+      margin-top:22px;
+      padding-top:16px;
+      border-top:1px solid rgba(255,255,255,.10);
+      text-align:center;
+      color:rgba(255,255,255,.55);
+      font-size:12px;
+      letter-spacing:.04em;
+    }
+
     @media (max-width:420px){
-      .hero-title{font-size:34px}
-      .cover{width:80px;height:80px}
+      .miniCard{ flex-basis:300px; }
+      .chips{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .connectBtns{ grid-template-columns:1fr; }
+      .heroMedia{ height:360px; }
     }
   </style>
 </head>
 
 <body>
+  <div class="wrap">
 
-  <!-- Top bar -->
-  <div class="topbar">
-    <div class="topbar-inner">
+    <div class="topbar">
       <div class="brand">
         <div class="orb"></div>
         <div>
           <h1>OMOTAKER</h1>
-          <small>2030 Artist Hub • Music • Videos</small>
+          <p>Official Website • Releases • Music • Videos</p>
         </div>
       </div>
-
-      <nav class="tabs" id="tabs">
-        <a class="tab active" href="#home">HOME</a>
-        <a class="tab" href="#releases">RELEASES</a>
-        <a class="tab" href="#music">MUSIC</a>
-        <a class="tab" href="#videos">VIDEOS</a>
-        <a class="tab" href="#connect">CONNECT</a>
-      </nav>
+      <div style="color:rgba(255,255,255,.6); font-size:12px; letter-spacing:.08em;">2030 ARTIST HUB</div>
     </div>
-  </div>
 
-  <div class="wrap">
+    <nav class="pillbar">
+      <a class="active" href="#home">HOME</a>
+      <a href="#releases">RELEASES</a>
+      <a href="#music">MUSIC</a>
+      <a href="#videos">VIDEOS</a>
+      <a href="#connect">CONNECT</a>
+      <a href="#store">SHOP OMK</a>
+    </nav>
 
-    <!-- HERO -->
-    <section class="hero" id="home">
-      <div class="hero-media" id="heroMedia" aria-label="Hero image"></div>
-
-      <div class="hero-content">
-        <span class="pill"><span class="dot"></span> New drop ready • Tap & stream</span>
-        <h2 class="hero-title">Omo Taker</h2>
-        <p class="hero-sub">
-          Welcome to my official universe. Music, videos, and releases — in one place.
-          Tap a song, stream it, and connect with the OMK wave.
-        </p>
-
-        <!-- IMPORTANT: like you said, after big picture, show Instagram + TikTok first -->
-        <div class="cta-row">
-          <a class="btn primary" href="#music">▶ View Music</a>
-          <a class="btn ghost" href="https://instagram.com/" target="_blank" rel="noopener">Instagram</a>
-          <a class="btn ghost" href="https://tiktok.com/" target="_blank" rel="noopener">TikTok</a>
+    <section id="home" class="hero">
+      <div class="heroMedia">
+        <div class="heroOverlay">
+          <h2 class="heroTitle">Omo Taker</h2>
+          <p class="heroSub">
+            Welcome to my official zone. Tap “Play” to stream instantly — clean like Shallipopi, upgraded to 2030.
+          </p>
         </div>
+      </div>
 
-        <div class="cta-row">
-          <a class="btn" href="#connect">Follow / Connect</a>
-          <a class="btn" href="https://omkdrip.com" target="_blank" rel="noopener">Shop OMK</a>
-        </div>
-
-        <div class="hint">
-          ⚡ Edit links + pictures inside this one file only. No WhatsApp on this site.
-        </div>
+      <div class="quickRow">
+        <a class="btn primary" href="https://instagram.com/YOUR_INSTAGRAM" target="_blank" rel="noopener">Instagram</a>
+        <a class="btn primary" href="https://www.tiktok.com/@YOUR_TIKTOK" target="_blank" rel="noopener">TikTok</a>
+        <a class="btn" href="#music">Music</a>
+        <a class="btn" href="#connect">Connect</a>
       </div>
     </section>
 
-    <!-- RELEASES (Featured video at top like Shallipopi) -->
-    <section class="section" id="releases">
-      <div class="section-title">RELEASES</div>
+    <!-- RELEASES rail (compact + side peeking) -->
+    <section id="releases" class="section">
+      <h2>RELEASES</h2>
 
-      <div class="featured">
-        <!-- Replace the YouTube link below with your latest official video -->
-        <iframe
-          src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-          title="Featured Video"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen>
-        </iframe>
-        <div class="featured-cap">FEATURED: Replace this video with your latest drop (YouTube).</div>
-      </div>
-    </section>
-
-    <!-- MUSIC -->
-    <section class="section" id="music">
-      <div class="section-title">MUSIC</div>
-
-      <div class="list">
-
+      <div class="rail">
         <!-- 2026 -->
-        <div class="card">
-          <a class="cover" href="YOUR_SMART_LINK_IF_EARTH_COULD_TALK" target="_blank" rel="noopener">
-            <img src="PASTE_COVER_IMAGE_URL_IF_EARTH_COULD_TALK" alt="If Earth Could Talk cover" />
-            <div class="play-badge">
-              <div class="play-icon">▶</div>
+        <div class="miniCard">
+          <div class="rowTop">
+            <div class="cover" style="background-image:url('covers/if-earth-could-talk.jpg');">
+              <div class="playDot"><span>▶</span></div>
             </div>
-          </a>
-          <div class="meta">
-            <h3>If Earth Could Talk</h3>
-            <p>Omo Taker • Single</p>
-            <span class="year">2026</span>
+            <div class="meta">
+              <p class="title">If Earth Could Talk</p>
+              <p class="sub">Single • 2026</p>
+            </div>
           </div>
-          <div class="actions">
-            <a class="btn small primary" href="YOUR_SMART_LINK_IF_EARTH_COULD_TALK" target="_blank" rel="noopener">Play</a>
-            <a class="btn small" href="YOUR_SPOTIFY_LINK_IF_EARTH_COULD_TALK" target="_blank" rel="noopener">Spotify</a>
-            <a class="btn small" href="YOUR_APPLE_LINK_IF_EARTH_COULD_TALK" target="_blank" rel="noopener">Apple</a>
-            <a class="btn small" href="YOUR_BOOMPLAY_LINK_IF_EARTH_COULD_TALK" target="_blank" rel="noopener">Boomplay</a>
+
+          <a class="playBtn" href="YOUR_SMARTLINK_IF_EARTH" target="_blank" rel="noopener">Play</a>
+
+          <div class="chips">
+            <a class="chip" href="YOUR_SPOTIFY_IF_EARTH" target="_blank" rel="noopener">Spotify</a>
+            <a class="chip" href="YOUR_APPLE_IF_EARTH" target="_blank" rel="noopener">Apple</a>
+            <a class="chip" href="YOUR_BOOMPLAY_IF_EARTH" target="_blank" rel="noopener">Boomplay</a>
           </div>
         </div>
 
-        <div class="card">
-          <a class="cover" href="YOUR_SMART_LINK_BENIN_TO_LAGOS" target="_blank" rel="noopener">
-            <img src="PASTE_COVER_IMAGE_URL_BENIN_TO_LAGOS" alt="Benin to Lagos cover" />
-            <div class="play-badge"><div class="play-icon">▶</div></div>
-          </a>
-          <div class="meta">
-            <h3>Benin To Lagos</h3>
-            <p>Omo Taker • Single</p>
-            <span class="year">2026</span>
+        <div class="miniCard">
+          <div class="rowTop">
+            <div class="cover" style="background-image:url('covers/benin-to-lagos.jpg');">
+              <div class="playDot"><span>▶</span></div>
+            </div>
+            <div class="meta">
+              <p class="title">Benin To Lagos</p>
+              <p class="sub">Single • 2026</p>
+            </div>
           </div>
-          <div class="actions">
-            <a class="btn small primary" href="YOUR_SMART_LINK_BENIN_TO_LAGOS" target="_blank" rel="noopener">Play</a>
-            <a class="btn small" href="YOUR_SPOTIFY_LINK_BENIN_TO_LAGOS" target="_blank" rel="noopener">Spotify</a>
-            <a class="btn small" href="YOUR_APPLE_LINK_BENIN_TO_LAGOS" target="_blank" rel="noopener">Apple</a>
-            <a class="btn small" href="YOUR_BOOMPLAY_LINK_BENIN_TO_LAGOS" target="_blank" rel="noopener">Boomplay</a>
+
+          <a class="playBtn" href="YOUR_SMARTLINK_BTL" target="_blank" rel="noopener">Play</a>
+
+          <div class="chips">
+            <a class="chip" href="YOUR_SPOTIFY_BTL" target="_blank" rel="noopener">Spotify</a>
+            <a class="chip" href="YOUR_APPLE_BTL" target="_blank" rel="noopener">Apple</a>
+            <a class="chip" href="YOUR_BOOMPLAY_BTL" target="_blank" rel="noopener">Boomplay</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MUSIC rail (older songs, not 2026) -->
+    <section id="music" class="section">
+      <h2>MUSIC</h2>
+
+      <div class="rail">
+        <div class="miniCard">
+          <div class="rowTop">
+            <div class="cover" style="background-image:url('covers/my-door.jpg');">
+              <div class="playDot"><span>▶</span></div>
+            </div>
+            <div class="meta">
+              <p class="title">My Door</p>
+              <p class="sub">My Truth EP • 2025</p>
+            </div>
+          </div>
+          <a class="playBtn" href="YOUR_SMARTLINK_MYDOOR" target="_blank" rel="noopener">Play</a>
+          <div class="chips">
+            <a class="chip" href="YOUR_SPOTIFY_MYDOOR" target="_blank" rel="noopener">Spotify</a>
+            <a class="chip" href="YOUR_APPLE_MYDOOR" target="_blank" rel="noopener">Apple</a>
+            <a class="chip" href="YOUR_BOOMPLAY_MYDOOR" target="_blank" rel="noopener">Boomplay</a>
           </div>
         </div>
 
-        <!-- 2025 / older -->
-        <div class="card">
-          <a class="cover" href="YOUR_SMART_LINK_MY_DOOR" target="_blank" rel="noopener">
-            <img src="PASTE_COVER_IMAGE_URL_MY_DOOR" alt="My Door cover" />
-            <div class="play-badge"><div class="play-icon">▶</div></div>
-          </a>
-          <div class="meta">
-            <h3>My Door</h3>
-            <p>Omo Taker • My Truth EP</p>
-            <span class="year">2025</span>
+        <div class="miniCard">
+          <div class="rowTop">
+            <div class="cover" style="background-image:url('covers/bend-down-select.jpg');">
+              <div class="playDot"><span>▶</span></div>
+            </div>
+            <div class="meta">
+              <p class="title">Bend Down Select</p>
+              <p class="sub">Single • 2025</p>
+            </div>
           </div>
-          <div class="actions">
-            <a class="btn small primary" href="YOUR_SMART_LINK_MY_DOOR" target="_blank" rel="noopener">Play</a>
-            <a class="btn small" href="YOUR_SPOTIFY_LINK_MY_DOOR" target="_blank" rel="noopener">Spotify</a>
-            <a class="btn small" href="YOUR_APPLE_LINK_MY_DOOR" target="_blank" rel="noopener">Apple</a>
-            <a class="btn small" href="YOUR_BOOMPLAY_LINK_MY_DOOR" target="_blank" rel="noopener">Boomplay</a>
-          </div>
-        </div>
-
-        <div class="card">
-          <a class="cover" href="YOUR_SMART_LINK_BEND_DOWN_SELECT" target="_blank" rel="noopener">
-            <img src="PASTE_COVER_IMAGE_URL_BEND_DOWN_SELECT" alt="Bend Down Select cover" />
-            <div class="play-badge"><div class="play-icon">▶</div></div>
-          </a>
-          <div class="meta">
-            <h3>Bend Down Select</h3>
-            <p>Omo Taker • Single</p>
-            <span class="year">2025</span>
-          </div>
-          <div class="actions">
-            <a class="btn small primary" href="YOUR_SMART_LINK_BEND_DOWN_SELECT" target="_blank" rel="noopener">Play</a>
-            <a class="btn small" href="YOUR_SPOTIFY_LINK_BEND_DOWN_SELECT" target="_blank" rel="noopener">Spotify</a>
-            <a class="btn small" href="YOUR_APPLE_LINK_BEND_DOWN_SELECT" target="_blank" rel="noopener">Apple</a>
-            <a class="btn small" href="YOUR_BOOMPLAY_LINK_BEND_DOWN_SELECT" target="_blank" rel="noopener">Boomplay</a>
+          <a class="playBtn" href="YOUR_SMARTLINK_BDS" target="_blank" rel="noopener">Play</a>
+          <div class="chips">
+            <a class="chip" href="YOUR_SPOTIFY_BDS" target="_blank" rel="noopener">Spotify</a>
+            <a class="chip" href="YOUR_APPLE_BDS" target="_blank" rel="noopener">Apple</a>
+            <a class="chip" href="YOUR_BOOMPLAY_BDS" target="_blank" rel="noopener">Boomplay</a>
           </div>
         </div>
 
+        <div class="miniCard">
+          <div class="rowTop">
+            <div class="cover" style="background-image:url('covers/badt-guy.jpg');">
+              <div class="playDot"><span>▶</span></div>
+            </div>
+            <div class="meta">
+              <p class="title">Badt Guy</p>
+              <p class="sub">Single • 2025</p>
+            </div>
+          </div>
+          <a class="playBtn" href="YOUR_SMARTLINK_BADT" target="_blank" rel="noopener">Play</a>
+          <div class="chips">
+            <a class="chip" href="YOUR_SPOTIFY_BADT" target="_blank" rel="noopener">Spotify</a>
+            <a class="chip" href="YOUR_APPLE_BADT" target="_blank" rel="noopener">Apple</a>
+            <a class="chip" href="YOUR_BOOMPLAY_BADT" target="_blank" rel="noopener">Boomplay</a>
+          </div>
+        </div>
       </div>
     </section>
 
     <!-- VIDEOS -->
-    <section class="section" id="videos">
-      <div class="section-title">VIDEOS</div>
-
-      <div class="list">
-        <div class="featured">
-          <iframe
-            src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-            title="Video 1"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen>
-          </iframe>
-          <div class="featured-cap">VIDEO: Replace with “If Earth Could Talk” official video.</div>
+    <section id="videos" class="section">
+      <h2>VIDEOS</h2>
+      <a class="videoCard" href="YOUR_YOUTUBE_VIDEO_LINK" target="_blank" rel="noopener">
+        <div class="videoThumb" style="background-image:
+          linear-gradient(to bottom, rgba(0,0,0,.15), rgba(0,0,0,.75)),
+          url('videos/if-earth-could-talk-thumb.jpg');">
+          <div class="bigPlay"><span>▶</span></div>
+          <div class="label">IF EARTH COULD TALK (OFFICIAL VIDEO)</div>
         </div>
+      </a>
+    </section>
 
-        <div class="featured">
-          <iframe
-            src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-            title="Video 2"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen>
-          </iframe>
-          <div class="featured-cap">VIDEO: Replace with “Benin To Lagos” video.</div>
-        </div>
+    <!-- SHOP OMK (NO WHATSAPP) -->
+    <section id="store" class="section">
+      <h2>SHOP OMK</h2>
+      <div class="box">
+        <h3>OMK DRIP STORE</h3>
+        <p>Merch + clothing. Clean link only.</p>
+        <a class="btn primary" href="https://omkdrip.com" target="_blank" rel="noopener" style="max-width:420px;margin:0 auto;">
+          Visit OMK Store
+        </a>
       </div>
     </section>
 
     <!-- CONNECT -->
-    <section class="section" id="connect">
-      <div class="section-title">CONNECT</div>
-
-      <div class="connect-box">
-        <h4>Get updates from Omo Taker</h4>
+    <section id="connect" class="section">
+      <h2>CONNECT</h2>
+      <div class="box">
+        <h3>GET UPDATES FROM OMO TAKER</h3>
         <p>Choose your service…</p>
-
-        <div class="grid">
-          <!-- No WhatsApp (as you requested) -->
-          <a class="btn" href="mailto:YOUR_EMAIL_HERE">Email</a>
-          <a class="btn" href="YOUR_SPOTIFY_PROFILE_LINK" target="_blank" rel="noopener">Spotify</a>
-          <a class="btn" href="YOUR_APPLE_MUSIC_PROFILE_LINK" target="_blank" rel="noopener">Apple Music</a>
-          <a class="btn" href="YOUR_INSTAGRAM_LINK" target="_blank" rel="noopener">Instagram</a>
-          <a class="btn" href="YOUR_TIKTOK_LINK" target="_blank" rel="noopener">TikTok</a>
-          <a class="btn" href="YOUR_YOUTUBE_LINK" target="_blank" rel="noopener">YouTube</a>
-          <a class="btn" href="YOUR_AUDIOMACK_LINK" target="_blank" rel="noopener">Audiomack</a>
-          <a class="btn" href="YOUR_BOOMPLAY_PROFILE_LINK" target="_blank" rel="noopener">Boomplay</a>
-          <a class="btn" href="https://omkdrip.com" target="_blank" rel="noopener">Shop OMK</a>
-        </div>
-
-        <div class="social-row" aria-label="Social icons">
-          <!-- Instagram icon -->
-          <a class="icon" href="YOUR_INSTAGRAM_LINK" target="_blank" rel="noopener" aria-label="Instagram">
-            <svg viewBox="0 0 24 24"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm10 2H7a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3zm-5 4a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm6-2a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/></svg>
-          </a>
-
-          <!-- X/Twitter icon -->
-          <a class="icon" href="YOUR_X_LINK" target="_blank" rel="noopener" aria-label="X">
-            <svg viewBox="0 0 24 24"><path d="M18.9 2H22l-6.8 7.8L23 22h-6.2l-4.9-6.5L6 22H2.9l7.4-8.5L1 2h6.3l4.4 5.9L18.9 2zm-1.1 18h1.7L6.2 3.9H4.4L17.8 20z"/></svg>
-          </a>
+        <div class="connectBtns">
+          <a href="mailto:YOUR_EMAIL">Email</a>
+          <a href="https://instagram.com/YOUR_INSTAGRAM" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://www.tiktok.com/@YOUR_TIKTOK" target="_blank" rel="noopener">TikTok</a>
+          <a href="YOUR_YOUTUBE" target="_blank" rel="noopener">YouTube</a>
         </div>
       </div>
-
-      <footer>
-        © <span id="year"></span> Omo Taker • Official Website
-      </footer>
     </section>
 
+    <footer>© <span id="yr"></span> Omo Taker • All rights reserved</footer>
   </div>
 
   <script>
-    // Auto year
-    document.getElementById("year").textContent = new Date().getFullYear();
-
-    // Active tab highlight on click
-    const tabs = document.querySelectorAll(".tab");
-    tabs.forEach(t=>{
-      t.addEventListener("click", ()=>{
-        tabs.forEach(x=>x.classList.remove("active"));
-        t.classList.add("active");
+    document.getElementById("yr").textContent = new Date().getFullYear();
+    document.querySelectorAll(".pillbar a").forEach(a=>{
+      a.addEventListener("click", ()=>{
+        document.querySelectorAll(".pillbar a").forEach(x=>x.classList.remove("active"));
+        a.classList.add("active");
       });
     });
-
-    // OPTIONAL: Change hero image easily here (paste your own image link)
-    // Put your REAL photo link here (recommended: upload photo into repo then use ./yourphoto.jpg)
-    // Example: heroMedia.style.backgroundImage = `linear-gradient(...), url("./omotaker.jpg")`;
-    // For now we keep the default placeholder.
   </script>
-
 </body>
 </html>
