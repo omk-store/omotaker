@@ -31,6 +31,7 @@
       margin:0;
       font-family:var(--font);
       color:var(--text);
+      /* big protected space at the top for iPhone notch */
       padding-top: env(safe-area-inset-top);
       background:
         radial-gradient(900px 500px at 15% 10%, rgba(122,166,255,.14), transparent 55%),
@@ -54,7 +55,7 @@
       margin: 10px 0 12px;
       display:flex;
       justify-content:center;
-      pointer-events:none;
+      pointer-events:none; /* so only pillbar is clickable */
     }
     .pillbar{
       pointer-events:auto;
@@ -125,13 +126,13 @@
       text-transform:uppercase;
     }
 
-    /* 3 buttons under hero */
+    /* 3 buttons under hero: OMOTAKER + Instagram + TikTok */
     .socialRow{
       display:flex;
       gap:12px;
       justify-content:center;
       flex-wrap:wrap;
-      padding: 16px 14px 18px;
+      padding: 16px 14px 14px; /* little smaller so new cards sit tight */
       background: rgba(0,0,0,.35);
       border-top: 1px solid rgba(255,255,255,.08);
     }
@@ -157,12 +158,88 @@
       box-shadow: var(--glow);
     }
 
+    /* ===== NEW RELEASES under hero (2 small cards) ===== */
+    .heroNewWrap{
+      padding: 0 14px 16px;
+      background: rgba(0,0,0,.28);
+      border-top: 1px solid rgba(255,255,255,.08);
+    }
+    .heroNewTitle{
+      margin: 10px 0 10px;
+      text-align:center;
+      font-size:12px;
+      font-weight:950;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      color: rgba(255,255,255,.78);
+    }
+    .miniRow{
+      display:flex;
+      gap:12px;
+      overflow:auto;
+      padding: 2px 2px 6px;
+      -webkit-overflow-scrolling:touch;
+    }
+    .miniRow::after{ content:""; flex:0 0 10px; }
+    .miniSmall{
+      flex:0 0 320px;
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.05);
+      box-shadow: 0 18px 55px rgba(0,0,0,.45);
+      padding:12px;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+    .miniTop{
+      display:flex;
+      gap:12px;
+      align-items:center;
+    }
+    .miniCover{
+      width:62px; height:62px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.08) center/cover no-repeat;
+      overflow:hidden;
+      flex:0 0 auto;
+      position:relative;
+    }
+    .miniCover::after{
+      content:"";
+      position:absolute; inset:0;
+      background: radial-gradient(circle at 50% 50%, rgba(0,0,0,.10), rgba(0,0,0,.55));
+    }
+    .miniMeta{ min-width:0; }
+    .miniMeta .t{
+      margin:0;
+      font-size:15px;
+      font-weight:950;
+      white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+    }
+    .miniMeta .s{
+      margin:6px 0 0;
+      font-size:12px;
+      color: rgba(255,255,255,.60);
+      white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+    }
+    .streamBtn{
+      width:100%;
+      padding:12px 14px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.06);
+      font-weight:950;
+      text-align:center;
+    }
+
     /* Sections */
     .section{
       margin-top:18px;
       padding-top:14px;
       border-top:1px solid rgba(255,255,255,.10);
-      scroll-margin-top: 92px;
+      scroll-margin-top: 92px; /* so sticky bar doesn't cover headings */
     }
     .section h2{
       margin:16px 0 12px;
@@ -173,7 +250,7 @@
       text-transform:uppercase;
     }
 
-    /* ====== Rail cards ====== */
+    /* ====== Shallipopi-like horizontal rail cards (compact, not long) ====== */
     .rail{
       display:flex;
       gap:12px;
@@ -192,6 +269,11 @@
       backdrop-filter: blur(10px);
       padding:12px;
       box-shadow: 0 18px 55px rgba(0,0,0,.45);
+
+      /* PREMIUM: keep layout straight */
+      display:flex;
+      flex-direction:column;
+      min-height: 210px;
     }
     .rowTop{
       display:flex;
@@ -251,6 +333,9 @@
       display:grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap:10px;
+
+      /* PREMIUM: chips align same place on every card */
+      margin-top:auto;
     }
     .chip{
       padding:10px 12px;
@@ -308,7 +393,7 @@
       font-size:24px;
     }
 
-    /* Shop + Connect */
+    /* Shop + Connect (NO WhatsApp) */
     .box{
       border-radius:var(--radius);
       border:1px solid rgba(255,255,255,.10);
@@ -355,6 +440,7 @@
     @media (max-width:420px){
       .heroMedia{ height:540px; }
       .miniCard{ flex-basis:300px; }
+      .miniSmall{ flex-basis:290px; }
       .chips{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .connectBtns{ grid-template-columns:1fr; }
       .sBtn{ min-width:150px; }
@@ -371,14 +457,13 @@
         <a class="active" href="#home">HOME</a>
         <a href="#releases">RELEASES</a>
         <a href="#music">MUSIC</a>
-        <a href="#albums">ALBUMS</a>
         <a href="#videos">VIDEOS</a>
         <a href="#connect">CONNECT</a>
         <a href="#store">SHOP OMK</a>
       </nav>
     </div>
 
-    <!-- HERO -->
+    <!-- HERO (photo protected + clean like Shallipopi) -->
     <section id="home" class="hero">
       <div class="heroMedia">
         <div class="heroFade"></div>
@@ -387,57 +472,51 @@
         </div>
       </div>
 
+      <!-- Replace IG/Twitter with: OMOTAKER + Instagram + TikTok -->
       <div class="socialRow">
-        <a class="sBtn" href="#releases">Omotaker</a>
+        <a class="sBtn" href="#releases">OmoTaker</a>
         <a class="sBtn primary" href="https://instagram.com/YOUR_INSTAGRAM" target="_blank" rel="noopener">Instagram</a>
         <a class="sBtn primary" href="https://www.tiktok.com/@YOUR_TIKTOK" target="_blank" rel="noopener">TikTok</a>
       </div>
+
+      <!-- NEW RELEASES (2 cards under hero like Shallipopi) -->
+      <div class="heroNewWrap">
+        <div class="heroNewTitle">NEW RELEASES</div>
+
+        <div class="miniRow">
+          <!-- New 1 -->
+          <div class="miniSmall">
+            <div class="miniTop">
+              <div class="miniCover" style="background-image:url('covers/if-earth-could-talk.jpg');"></div>
+              <div class="miniMeta">
+                <p class="t">If Earth Could Talk</p>
+                <p class="s">Single • 2026</p>
+              </div>
+            </div>
+            <a class="streamBtn" href="YOUR_SMARTLINK_IF_EARTH" target="_blank" rel="noopener">Stream</a>
+          </div>
+
+          <!-- New 2 -->
+          <div class="miniSmall">
+            <div class="miniTop">
+              <div class="miniCover" style="background-image:url('covers/benin-to-lagos.jpg');"></div>
+              <div class="miniMeta">
+                <p class="t">Benin To Lagos</p>
+                <p class="s">Single • 2026</p>
+              </div>
+            </div>
+            <a class="streamBtn" href="YOUR_SMARTLINK_BTL" target="_blank" rel="noopener">Stream</a>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <!-- RELEASES (ORDER FIXED) -->
+    <!-- RELEASES (keep your list — just paste your links) -->
     <section id="releases" class="section">
       <h2>RELEASES</h2>
 
       <div class="rail">
-        <!-- 1) If Earth Could Talk -->
-        <div class="miniCard">
-          <div class="rowTop">
-            <div class="cover" style="background-image:url('covers/if-earth-could-talk.jpg');">
-              <div class="playDot"><span>▶</span></div>
-            </div>
-            <div class="meta">
-              <p class="title">If Earth Could Talk</p>
-              <p class="sub">Single • 2026</p>
-            </div>
-          </div>
-          <a class="playBtn" href="YOUR_SMARTLINK_IF_EARTH" target="_blank" rel="noopener">Play</a>
-          <div class="chips">
-            <a class="chip" href="YOUR_SPOTIFY_IF_EARTH" target="_blank" rel="noopener">Spotify</a>
-            <a class="chip" href="YOUR_APPLE_IF_EARTH" target="_blank" rel="noopener">Apple</a>
-            <a class="chip" href="YOUR_BOOMPLAY_IF_EARTH" target="_blank" rel="noopener">Boomplay</a>
-          </div>
-        </div>
-
-        <!-- 2) Benin To Lagos -->
-        <div class="miniCard">
-          <div class="rowTop">
-            <div class="cover" style="background-image:url('covers/benin-to-lagos.jpg');">
-              <div class="playDot"><span>▶</span></div>
-            </div>
-            <div class="meta">
-              <p class="title">Benin To Lagos</p>
-              <p class="sub">Single • 2026</p>
-            </div>
-          </div>
-          <a class="playBtn" href="YOUR_SMARTLINK_BTL" target="_blank" rel="noopener">Play</a>
-          <div class="chips">
-            <a class="chip" href="YOUR_SPOTIFY_BTL" target="_blank" rel="noopener">Spotify</a>
-            <a class="chip" href="YOUR_APPLE_BTL" target="_blank" rel="noopener">Apple</a>
-            <a class="chip" href="YOUR_BOOMPLAY_BTL" target="_blank" rel="noopener">Boomplay</a>
-          </div>
-        </div>
-
-        <!-- 3) Bend Down Select -->
+        <!-- Bend Down Select -->
         <div class="miniCard">
           <div class="rowTop">
             <div class="cover" style="background-image:url('covers/bend-down-select.jpg');">
@@ -456,7 +535,7 @@
           </div>
         </div>
 
-        <!-- OTHER SONGS (after Bend Down Select) -->
+        <!-- My Door -->
         <div class="miniCard">
           <div class="rowTop">
             <div class="cover" style="background-image:url('covers/my-door.jpg');">
@@ -475,6 +554,7 @@
           </div>
         </div>
 
+        <!-- Badt Guy -->
         <div class="miniCard">
           <div class="rowTop">
             <div class="cover" style="background-image:url('covers/badt-guy.jpg');">
@@ -495,7 +575,7 @@
       </div>
     </section>
 
-    <!-- MUSIC (Importer Exporter + Ovior) -->
+    <!-- OLD SONGS (2024) -->
     <section id="music" class="section">
       <h2>MUSIC</h2>
 
@@ -538,31 +618,6 @@
       </div>
     </section>
 
-    <!-- ALBUMS (My Truth) -->
-    <section id="albums" class="section">
-      <h2>ALBUMS</h2>
-
-      <div class="rail">
-        <div class="miniCard">
-          <div class="rowTop">
-            <div class="cover" style="background-image:url('covers/my-truth.jpg');">
-              <div class="playDot"><span>▶</span></div>
-            </div>
-            <div class="meta">
-              <p class="title">My Truth</p>
-              <p class="sub">Album • 2025</p>
-            </div>
-          </div>
-          <a class="playBtn" href="YOUR_SMARTLINK_MYTRUTH" target="_blank" rel="noopener">Open</a>
-          <div class="chips">
-            <a class="chip" href="YOUR_SPOTIFY_MYTRUTH" target="_blank" rel="noopener">Spotify</a>
-            <a class="chip" href="YOUR_APPLE_MYTRUTH" target="_blank" rel="noopener">Apple</a>
-            <a class="chip" href="YOUR_BOOMPLAY_MYTRUTH" target="_blank" rel="noopener">Boomplay</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- VIDEOS -->
     <section id="videos" class="section">
       <h2>VIDEOS</h2>
@@ -576,7 +631,7 @@
       </a>
     </section>
 
-    <!-- SHOP OMK -->
+    <!-- SHOP OMK (NO WHATSAPP) -->
     <section id="store" class="section">
       <h2>SHOP OMK</h2>
       <div class="box">
@@ -607,8 +662,10 @@
   </div>
 
   <script>
+    // year
     document.getElementById("yr").textContent = new Date().getFullYear();
 
+    // ===== Scrollspy =====
     const links = Array.from(document.querySelectorAll(".pillbar a"));
     const sections = links
       .map(a => document.querySelector(a.getAttribute("href")))
