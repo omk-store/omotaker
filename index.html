@@ -1,561 +1,453 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#000000" />
-  <title>Omo Taker — Official</title>
-  <meta name="description" content="Omo Taker official music website — releases, music, videos, and connect." />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Omo Taker — Official</title>
 
-  <style>
-    :root{
-      --bg:#000;
-      --panel:rgba(255,255,255,.06);
-      --panel2:rgba(255,255,255,.09);
-      --line:rgba(255,255,255,.10);
-      --text:#f5f6ff;
-      --muted:rgba(245,246,255,.70);
+<style>
 
-      /* Future glow accents */
-      --a1:#7aa6ff;
-      --a2:#ff7ad9;
-      --glow: 0 10px 35px rgba(122,166,255,.16), 0 8px 30px rgba(255,122,217,.10);
+:root{
+--bg:#000;
+--text:#fff;
+--muted:#9ea3aa;
+--radius:18px;
+--accent1:#7aa6ff;
+--accent2:#ff7ad9;
+}
 
-      --radius:18px;
-      --max:980px;
-      --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-    }
+*{box-sizing:border-box}
 
-    *{ box-sizing:border-box; }
-    html,body{ height:100%; }
-    body{
-      margin:0;
-      font-family:var(--font);
-      color:var(--text);
-      background:
-        radial-gradient(900px 500px at 15% 10%, rgba(122,166,255,.14), transparent 55%),
-        radial-gradient(900px 500px at 85% 20%, rgba(255,122,217,.12), transparent 55%),
-        radial-gradient(1200px 700px at 50% 85%, rgba(122,255,210,.05), transparent 60%),
-        var(--bg);
-    }
-    a{ color:inherit; text-decoration:none; }
+body{
+margin:0;
+font-family:system-ui,-apple-system,Segoe UI,Roboto;
+background:radial-gradient(circle at 20% 10%,#0b0e14,#000);
+color:var(--text);
+}
 
-    .wrap{
-      max-width:var(--max);
-      margin:0 auto;
-      padding:16px 14px 90px;
-    }
+.wrap{
+max-width:980px;
+margin:auto;
+padding:16px 14px 80px;
+}
 
-    /* Brand header */
-    .topbar{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
-      padding:6px 0 12px;
-    }
-    .brand{ display:flex; align-items:center; gap:12px; }
-    .orb{
-      width:40px; height:40px; border-radius:14px;
-      background:
-        radial-gradient(16px 18px at 30% 30%, rgba(255,255,255,.55), transparent 55%),
-        radial-gradient(40px 40px at 60% 70%, rgba(255,122,217,.45), transparent 65%),
-        radial-gradient(40px 40px at 30% 60%, rgba(122,166,255,.45), transparent 65%),
-        rgba(255,255,255,.06);
-      border:1px solid rgba(255,255,255,.12);
-      box-shadow: var(--glow);
-    }
-    .brand h1{ margin:0; font-size:16px; letter-spacing:.14em; }
-    .brand p{ margin:2px 0 0; font-size:12px; color:rgba(255,255,255,.55); }
+a{color:inherit;text-decoration:none}
 
-    /* Pill nav like Shallipopi */
-    .pillbar{
-      display:flex;
-      gap:10px;
-      padding:10px;
-      border:1px solid rgba(255,255,255,.10);
-      background:rgba(255,255,255,.04);
-      border-radius:999px;
-      backdrop-filter: blur(10px);
-      position:sticky;
-      top:0;
-      z-index:30;
-      overflow:auto;
-      -webkit-overflow-scrolling:touch;
-      box-shadow: 0 12px 35px rgba(0,0,0,.45);
-      margin-bottom:14px;
-    }
-    .pillbar a{
-      padding:10px 14px;
-      border-radius:999px;
-      font-weight:900;
-      letter-spacing:.06em;
-      font-size:12px;
-      color:rgba(255,255,255,.80);
-      white-space:nowrap;
-      border:1px solid transparent;
-      background:transparent;
-      transition:.2s ease;
-    }
-    .pillbar a.active{
-      background:rgba(255,255,255,.10);
-      border-color:rgba(255,255,255,.12);
-      box-shadow: var(--glow);
-      color:#fff;
-    }
+/* top header */
 
-    /* HERO — big protected space for your photo/video */
-    .hero{
-      border-radius:var(--radius);
-      overflow:hidden;
-      border:1px solid rgba(255,255,255,.10);
-      background:rgba(255,255,255,.03);
-      box-shadow: 0 20px 60px rgba(0,0,0,.55);
-    }
-    .heroMedia{
-      position:relative;
-      width:100%;
-      height:340px;
-      background:
-        linear-gradient(to bottom, rgba(0,0,0,.20), rgba(0,0,0,.88)),
-        url("YOUR-HERO-IMAGE.jpg") center/cover no-repeat;
-    }
-    .heroOverlay{
-      position:absolute;
-      left:0; right:0; bottom:0;
-      padding:16px;
-      background: linear-gradient(to top, rgba(0,0,0,.85), transparent);
-    }
-    .heroTitle{ margin:0; font-size:30px; font-weight:950; letter-spacing:.02em; }
-    .heroSub{ margin:8px 0 0; color:var(--muted); line-height:1.45; max-width:70ch; }
+.topbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:10px;
+}
 
-    /* two buttons first: IG + TikTok */
-    .quickRow{
-      display:flex; gap:10px; flex-wrap:wrap;
-      padding:14px;
-      border-top:1px solid rgba(255,255,255,.08);
-      background:rgba(0,0,0,.35);
-    }
-    .btn{
-      display:inline-flex; align-items:center; justify-content:center;
-      padding:12px 14px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.14);
-      background:rgba(255,255,255,.06);
-      font-weight:950;
-      letter-spacing:.02em;
-      transition:.2s ease;
-      flex:1;
-      min-width:140px;
-      text-align:center;
-    }
-    .btn.primary{
-      background: linear-gradient(90deg, rgba(122,166,255,.95), rgba(255,122,217,.95));
-      color:#07070a;
-      border-color: rgba(255,255,255,.18);
-      box-shadow: var(--glow);
-    }
+.brand{
+display:flex;
+gap:10px;
+align-items:center;
+}
 
-    /* Section headings like Shallipopi */
-    .section{
-      margin-top:18px;
-      padding-top:14px;
-      border-top:1px solid rgba(255,255,255,.10);
-    }
-    .section h2{
-      margin:16px 0 12px;
-      text-align:center;
-      font-size:22px;
-      font-weight:950;
-      letter-spacing:.12em;
-    }
+.brand h1{
+font-size:16px;
+letter-spacing:.15em;
+margin:0;
+}
 
-    /* ====== KEY CHANGE: Shallipopi-like compact horizontal rails ====== */
-    .rail{
-      display:flex;
-      gap:12px;
-      overflow:auto;
-      padding:6px 4px 10px;
-      scroll-snap-type: x mandatory;
-      -webkit-overflow-scrolling:touch;
-    }
-    .rail::after{ content:""; flex:0 0 18px; } /* right padding space */
-    .miniCard{
-      flex:0 0 330px;          /* compact size (NOT long) */
-      scroll-snap-align:start;
-      border-radius:var(--radius);
-      border:1px solid rgba(255,255,255,.10);
-      background:rgba(255,255,255,.05);
-      backdrop-filter: blur(10px);
-      padding:12px;
-      box-shadow: 0 18px 55px rgba(0,0,0,.45);
-    }
-    .rowTop{
-      display:flex;
-      gap:12px;
-      align-items:center;
-      margin-bottom:10px;
-    }
-    .cover{
-      width:72px; height:72px;
-      border-radius:14px;
-      border:1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.08) center/cover no-repeat;
-      position:relative;
-      overflow:hidden;
-      flex:0 0 auto;
-    }
-    .playDot{
-      position:absolute; inset:0;
-      display:grid; place-items:center;
-      background: radial-gradient(circle at 50% 50%, rgba(0,0,0,.15), rgba(0,0,0,.55));
-    }
-    .playDot span{
-      width:36px; height:36px;
-      border-radius:999px;
-      display:grid; place-items:center;
-      border:1px solid rgba(255,255,255,.22);
-      background:rgba(255,255,255,.06);
-      box-shadow: var(--glow);
-      font-size:14px;
-    }
-    .meta{ min-width:0; }
-    .meta .title{
-      margin:0;
-      font-size:16px;
-      font-weight:950;
-      white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
-    }
-    .meta .sub{
-      margin:6px 0 0;
-      font-size:12px;
-      color:rgba(255,255,255,.60);
-      white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
-    }
+.brand p{
+font-size:12px;
+color:var(--muted);
+margin:0;
+}
 
-    .playBtn{
-      display:inline-flex; align-items:center; justify-content:center;
-      width:100%;
-      padding:12px 14px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.14);
-      background:rgba(255,255,255,.06);
-      font-weight:950;
-      letter-spacing:.02em;
-      margin-bottom:10px;
-    }
-    .chips{
-      display:grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap:10px;
-    }
-    .chip{
-      padding:10px 12px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.14);
-      background:rgba(255,255,255,.06);
-      font-weight:900;
-      font-size:11px;
-      letter-spacing:.05em;
-      text-align:center;
-      white-space:nowrap;
-    }
+/* nav bar */
 
-    /* Videos */
-    .videoCard{
-      border-radius:var(--radius);
-      overflow:hidden;
-      border:1px solid rgba(255,255,255,.10);
-      background:rgba(255,255,255,.05);
-      box-shadow: 0 18px 55px rgba(0,0,0,.45);
-    }
-    .videoThumb{
-      height:220px;
-      background:
-        linear-gradient(to bottom, rgba(0,0,0,.15), rgba(0,0,0,.75)),
-        url("YOUR-VIDEO-THUMB.jpg") center/cover no-repeat;
-      position:relative;
-      display:flex;
-      align-items:flex-end;
-      padding:14px;
-    }
-    .videoThumb .label{
-      font-weight:950;
-      letter-spacing:.06em;
-      font-size:13px;
-      background:rgba(0,0,0,.35);
-      border:1px solid rgba(255,255,255,.10);
-      padding:10px 12px;
-      border-radius:14px;
-      backdrop-filter: blur(10px);
-    }
-    .videoThumb .bigPlay{
-      position:absolute; inset:0;
-      display:grid; place-items:center;
-    }
-    .videoThumb .bigPlay span{
-      width:70px; height:70px;
-      border-radius:999px;
-      display:grid; place-items:center;
-      border:1px solid rgba(255,255,255,.22);
-      background:rgba(255,255,255,.06);
-      box-shadow: var(--glow);
-      font-size:24px;
-    }
+.pillbar{
+display:flex;
+gap:10px;
+padding:10px;
+background:#0c0f15;
+border-radius:999px;
+overflow:auto;
+position:sticky;
+top:0;
+z-index:50;
+margin-bottom:12px;
+}
 
-    /* Connect + Shop (no WhatsApp) */
-    .box{
-      border-radius:var(--radius);
-      border:1px solid rgba(255,255,255,.10);
-      background:rgba(255,255,255,.05);
-      padding:16px;
-      text-align:center;
-      box-shadow: 0 18px 55px rgba(0,0,0,.45);
-    }
-    .box h3{
-      margin:0 0 6px;
-      font-size:18px;
-      font-weight:950;
-      letter-spacing:.08em;
-    }
-    .box p{ margin:0 0 14px; color:rgba(255,255,255,.65); }
+.pillbar a{
+padding:10px 14px;
+border-radius:999px;
+font-weight:800;
+font-size:12px;
+letter-spacing:.08em;
+color:#9ea3aa;
+}
 
-    .connectBtns{
-      display:grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap:10px;
-      max-width:760px;
-      margin:0 auto;
-    }
-    .connectBtns a{
-      display:flex; justify-content:center; align-items:center;
-      padding:12px 14px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.14);
-      background:rgba(255,255,255,.06);
-      font-weight:950;
-    }
+.pillbar a.active{
+background:#151922;
+color:white;
+}
 
-    footer{
-      margin-top:22px;
-      padding-top:16px;
-      border-top:1px solid rgba(255,255,255,.10);
-      text-align:center;
-      color:rgba(255,255,255,.55);
-      font-size:12px;
-      letter-spacing:.04em;
-    }
+/* hero */
 
-    @media (max-width:420px){
-      .miniCard{ flex-basis:300px; }
-      .chips{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .connectBtns{ grid-template-columns:1fr; }
-      .heroMedia{ height:360px; }
-    }
-  </style>
+.hero{
+border-radius:var(--radius);
+overflow:hidden;
+margin-bottom:20px;
+border:1px solid #141821;
+}
+
+.heroMedia{
+height:340px;
+background:linear-gradient(to bottom,transparent,#000),
+url("YOUR-HERO.jpg") center/cover no-repeat;
+display:flex;
+align-items:flex-end;
+}
+
+.heroOverlay{
+padding:18px;
+}
+
+.heroTitle{
+font-size:30px;
+margin:0;
+font-weight:900;
+}
+
+.heroSub{
+color:var(--muted);
+margin-top:6px;
+}
+
+/* buttons */
+
+.quickRow{
+display:flex;
+flex-wrap:wrap;
+gap:10px;
+padding:14px;
+}
+
+.btn{
+flex:1;
+min-width:130px;
+padding:12px;
+border-radius:999px;
+text-align:center;
+border:1px solid #1a1e28;
+background:#0d1017;
+font-weight:700;
+}
+
+.btn.primary{
+background:linear-gradient(90deg,var(--accent1),var(--accent2));
+color:#000;
+border:none;
+}
+
+/* sections */
+
+.section{
+margin-top:20px;
+padding-top:14px;
+border-top:1px solid #141821;
+}
+
+.section h2{
+text-align:center;
+font-size:22px;
+letter-spacing:.1em;
+margin:14px 0;
+}
+
+/* scroll cards */
+
+.rail{
+display:flex;
+gap:12px;
+overflow:auto;
+padding-bottom:10px;
+}
+
+.card{
+flex:0 0 300px;
+background:#0c1017;
+border-radius:16px;
+padding:14px;
+border:1px solid #151922;
+}
+
+.rowTop{
+display:flex;
+gap:12px;
+margin-bottom:10px;
+}
+
+.cover{
+width:70px;
+height:70px;
+border-radius:12px;
+background:#1b1f2a center/cover no-repeat;
+}
+
+.meta .title{
+font-weight:900;
+margin:0;
+}
+
+.meta .sub{
+color:var(--muted);
+font-size:12px;
+}
+
+.playBtn{
+display:block;
+padding:10px;
+border-radius:999px;
+border:1px solid #1a1e28;
+text-align:center;
+margin-bottom:8px;
+font-weight:700;
+}
+
+.chips{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:8px;
+}
+
+.chip{
+padding:8px;
+border-radius:999px;
+text-align:center;
+border:1px solid #1a1e28;
+font-size:11px;
+}
+
+/* video */
+
+.videoCard{
+border-radius:16px;
+overflow:hidden;
+border:1px solid #151922;
+}
+
+.videoThumb{
+height:220px;
+background:linear-gradient(to bottom,transparent,#000),
+url("video.jpg") center/cover no-repeat;
+display:flex;
+align-items:flex-end;
+padding:12px;
+}
+
+.videoLabel{
+font-weight:900;
+}
+
+/* boxes */
+
+.box{
+background:#0c1017;
+border-radius:16px;
+padding:16px;
+border:1px solid #151922;
+text-align:center;
+}
+
+.connectBtns{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:10px;
+margin-top:10px;
+}
+
+.connectBtns a{
+padding:12px;
+border-radius:999px;
+border:1px solid #1a1e28;
+}
+
+/* footer */
+
+footer{
+margin-top:22px;
+text-align:center;
+font-size:12px;
+color:#8d93a0;
+}
+
+</style>
 </head>
 
 <body>
-  <div class="wrap">
 
-    <div class="topbar">
-      <div class="brand">
-        <div class="orb"></div>
-        <div>
-          <h1>OMOTAKER</h1>
-          <p>Official Website • Releases • Music • Videos</p>
-        </div>
-      </div>
-      <div style="color:rgba(255,255,255,.6); font-size:12px; letter-spacing:.08em;">2030 ARTIST HUB</div>
-    </div>
+<div class="wrap">
 
-    <nav class="pillbar">
-      <a class="active" href="#home">HOME</a>
-      <a href="#releases">RELEASES</a>
-      <a href="#music">MUSIC</a>
-      <a href="#videos">VIDEOS</a>
-      <a href="#connect">CONNECT</a>
-      <a href="#store">SHOP OMK</a>
-    </nav>
+<div class="topbar">
+<div class="brand">
+<div>
+<h1>OMOTAKER</h1>
+<p>Official Website</p>
+</div>
+</div>
+</div>
 
-    <section id="home" class="hero">
-      <div class="heroMedia">
-        <div class="heroOverlay">
-          <h2 class="heroTitle">Omo Taker</h2>
-          <p class="heroSub">
-            Welcome to my official zone. Tap “Play” to stream instantly — clean like Shallipopi, upgraded to 2030.
-          </p>
-        </div>
-      </div>
+<nav class="pillbar">
+<a href="#home" class="active">HOME</a>
+<a href="#releases">RELEASES</a>
+<a href="#music">MUSIC</a>
+<a href="#videos">VIDEOS</a>
+<a href="#connect">CONNECT</a>
+<a href="#store">SHOP</a>
+</nav>
 
-      <div class="quickRow">
-        <a class="btn primary" href="https://instagram.com/YOUR_INSTAGRAM" target="_blank" rel="noopener">Instagram</a>
-        <a class="btn primary" href="https://www.tiktok.com/@YOUR_TIKTOK" target="_blank" rel="noopener">TikTok</a>
-        <a class="btn" href="#music">Music</a>
-        <a class="btn" href="#connect">Connect</a>
-      </div>
-    </section>
+<section id="home" class="hero">
+<div class="heroMedia">
+<div class="heroOverlay">
+<h2 class="heroTitle">Omo Taker</h2>
+<p class="heroSub">Official artist hub</p>
+</div>
+</div>
 
-    <!-- RELEASES rail (compact + side peeking) -->
-    <section id="releases" class="section">
-      <h2>RELEASES</h2>
+<div class="quickRow">
+<a class="btn primary" href="#">Instagram</a>
+<a class="btn primary" href="#">TikTok</a>
+<a class="btn" href="#music">Music</a>
+<a class="btn" href="#connect">Connect</a>
+</div>
+</section>
 
-      <div class="rail">
-        <!-- 2026 -->
-        <div class="miniCard">
-          <div class="rowTop">
-            <div class="cover" style="background-image:url('covers/if-earth-could-talk.jpg');">
-              <div class="playDot"><span>▶</span></div>
-            </div>
-            <div class="meta">
-              <p class="title">If Earth Could Talk</p>
-              <p class="sub">Single • 2026</p>
-            </div>
-          </div>
+<section id="releases" class="section">
+<h2>RELEASES</h2>
 
-          <a class="playBtn" href="YOUR_SMARTLINK_IF_EARTH" target="_blank" rel="noopener">Play</a>
+<div class="rail">
 
-          <div class="chips">
-            <a class="chip" href="YOUR_SPOTIFY_IF_EARTH" target="_blank" rel="noopener">Spotify</a>
-            <a class="chip" href="YOUR_APPLE_IF_EARTH" target="_blank" rel="noopener">Apple</a>
-            <a class="chip" href="YOUR_BOOMPLAY_IF_EARTH" target="_blank" rel="noopener">Boomplay</a>
-          </div>
-        </div>
+<div class="card">
+<div class="rowTop">
+<div class="cover"></div>
+<div class="meta">
+<p class="title">If Earth Could Talk</p>
+<p class="sub">Single • 2026</p>
+</div>
+</div>
 
-        <div class="miniCard">
-          <div class="rowTop">
-            <div class="cover" style="background-image:url('covers/benin-to-lagos.jpg');">
-              <div class="playDot"><span>▶</span></div>
-            </div>
-            <div class="meta">
-              <p class="title">Benin To Lagos</p>
-              <p class="sub">Single • 2026</p>
-            </div>
-          </div>
+<a class="playBtn">Play</a>
 
-          <a class="playBtn" href="YOUR_SMARTLINK_BTL" target="_blank" rel="noopener">Play</a>
+<div class="chips">
+<a class="chip">Spotify</a>
+<a class="chip">Apple</a>
+<a class="chip">Boomplay</a>
+</div>
+</div>
 
-          <div class="chips">
-            <a class="chip" href="YOUR_SPOTIFY_BTL" target="_blank" rel="noopener">Spotify</a>
-            <a class="chip" href="YOUR_APPLE_BTL" target="_blank" rel="noopener">Apple</a>
-            <a class="chip" href="YOUR_BOOMPLAY_BTL" target="_blank" rel="noopener">Boomplay</a>
-          </div>
-        </div>
-      </div>
-    </section>
+</div>
+</section>
 
-    <!-- MUSIC rail (older songs, not 2026) -->
-    <section id="music" class="section">
-      <h2>MUSIC</h2>
+<section id="music" class="section">
+<h2>MUSIC</h2>
 
-      <div class="rail">
-        <div class="miniCard">
-          <div class="rowTop">
-            <div class="cover" style="background-image:url('covers/my-door.jpg');">
-              <div class="playDot"><span>▶</span></div>
-            </div>
-            <div class="meta">
-              <p class="title">My Door</p>
-              <p class="sub">My Truth EP • 2025</p>
-            </div>
-          </div>
-          <a class="playBtn" href="YOUR_SMARTLINK_MYDOOR" target="_blank" rel="noopener">Play</a>
-          <div class="chips">
-            <a class="chip" href="YOUR_SPOTIFY_MYDOOR" target="_blank" rel="noopener">Spotify</a>
-            <a class="chip" href="YOUR_APPLE_MYDOOR" target="_blank" rel="noopener">Apple</a>
-            <a class="chip" href="YOUR_BOOMPLAY_MYDOOR" target="_blank" rel="noopener">Boomplay</a>
-          </div>
-        </div>
+<div class="rail">
 
-        <div class="miniCard">
-          <div class="rowTop">
-            <div class="cover" style="background-image:url('covers/bend-down-select.jpg');">
-              <div class="playDot"><span>▶</span></div>
-            </div>
-            <div class="meta">
-              <p class="title">Bend Down Select</p>
-              <p class="sub">Single • 2025</p>
-            </div>
-          </div>
-          <a class="playBtn" href="YOUR_SMARTLINK_BDS" target="_blank" rel="noopener">Play</a>
-          <div class="chips">
-            <a class="chip" href="YOUR_SPOTIFY_BDS" target="_blank" rel="noopener">Spotify</a>
-            <a class="chip" href="YOUR_APPLE_BDS" target="_blank" rel="noopener">Apple</a>
-            <a class="chip" href="YOUR_BOOMPLAY_BDS" target="_blank" rel="noopener">Boomplay</a>
-          </div>
-        </div>
+<div class="card">
+<div class="rowTop">
+<div class="cover"></div>
+<div class="meta">
+<p class="title">Benin To Lagos</p>
+<p class="sub">Single</p>
+</div>
+</div>
 
-        <div class="miniCard">
-          <div class="rowTop">
-            <div class="cover" style="background-image:url('covers/badt-guy.jpg');">
-              <div class="playDot"><span>▶</span></div>
-            </div>
-            <div class="meta">
-              <p class="title">Badt Guy</p>
-              <p class="sub">Single • 2025</p>
-            </div>
-          </div>
-          <a class="playBtn" href="YOUR_SMARTLINK_BADT" target="_blank" rel="noopener">Play</a>
-          <div class="chips">
-            <a class="chip" href="YOUR_SPOTIFY_BADT" target="_blank" rel="noopener">Spotify</a>
-            <a class="chip" href="YOUR_APPLE_BADT" target="_blank" rel="noopener">Apple</a>
-            <a class="chip" href="YOUR_BOOMPLAY_BADT" target="_blank" rel="noopener">Boomplay</a>
-          </div>
-        </div>
-      </div>
-    </section>
+<a class="playBtn">Play</a>
 
-    <!-- VIDEOS -->
-    <section id="videos" class="section">
-      <h2>VIDEOS</h2>
-      <a class="videoCard" href="YOUR_YOUTUBE_VIDEO_LINK" target="_blank" rel="noopener">
-        <div class="videoThumb" style="background-image:
-          linear-gradient(to bottom, rgba(0,0,0,.15), rgba(0,0,0,.75)),
-          url('videos/if-earth-could-talk-thumb.jpg');">
-          <div class="bigPlay"><span>▶</span></div>
-          <div class="label">IF EARTH COULD TALK (OFFICIAL VIDEO)</div>
-        </div>
-      </a>
-    </section>
+<div class="chips">
+<a class="chip">Spotify</a>
+<a class="chip">Apple</a>
+<a class="chip">Boomplay</a>
+</div>
+</div>
 
-    <!-- SHOP OMK (NO WHATSAPP) -->
-    <section id="store" class="section">
-      <h2>SHOP OMK</h2>
-      <div class="box">
-        <h3>OMK DRIP STORE</h3>
-        <p>Merch + clothing. Clean link only.</p>
-        <a class="btn primary" href="https://omkdrip.com" target="_blank" rel="noopener" style="max-width:420px;margin:0 auto;">
-          Visit OMK Store
-        </a>
-      </div>
-    </section>
+</div>
+</section>
 
-    <!-- CONNECT -->
-    <section id="connect" class="section">
-      <h2>CONNECT</h2>
-      <div class="box">
-        <h3>GET UPDATES FROM OMO TAKER</h3>
-        <p>Choose your service…</p>
-        <div class="connectBtns">
-          <a href="mailto:YOUR_EMAIL">Email</a>
-          <a href="https://instagram.com/YOUR_INSTAGRAM" target="_blank" rel="noopener">Instagram</a>
-          <a href="https://www.tiktok.com/@YOUR_TIKTOK" target="_blank" rel="noopener">TikTok</a>
-          <a href="YOUR_YOUTUBE" target="_blank" rel="noopener">YouTube</a>
-        </div>
-      </div>
-    </section>
+<section id="videos" class="section">
+<h2>VIDEOS</h2>
 
-    <footer>© <span id="yr"></span> Omo Taker • All rights reserved</footer>
-  </div>
+<div class="videoCard">
+<div class="videoThumb">
+<div class="videoLabel">IF EARTH COULD TALK (OFFICIAL VIDEO)</div>
+</div>
+</div>
 
-  <script>
-    document.getElementById("yr").textContent = new Date().getFullYear();
-    document.querySelectorAll(".pillbar a").forEach(a=>{
-      a.addEventListener("click", ()=>{
-        document.querySelectorAll(".pillbar a").forEach(x=>x.classList.remove("active"));
-        a.classList.add("active");
-      });
-    });
-  </script>
+</section>
+
+<section id="store" class="section">
+<h2>SHOP OMK</h2>
+
+<div class="box">
+<h3>OMK DRIP STORE</h3>
+<p>Merch + clothing</p>
+
+<a class="btn primary" href="https://omkdrip.com">Visit OMK Store</a>
+</div>
+
+</section>
+
+<section id="connect" class="section">
+<h2>CONNECT</h2>
+
+<div class="box">
+<h3>GET UPDATES FROM OMO TAKER</h3>
+
+<div class="connectBtns">
+<a>Email</a>
+<a>Instagram</a>
+<a>TikTok</a>
+<a>YouTube</a>
+</div>
+
+</div>
+</section>
+
+<footer>
+© <span id="yr"></span> Omo Taker • All rights reserved
+</footer>
+
+</div>
+
+<script>
+
+/* footer year */
+document.getElementById("yr").textContent=new Date().getFullYear()
+
+/* scroll spy */
+
+const sections=document.querySelectorAll("section")
+const navLinks=document.querySelectorAll(".pillbar a")
+
+window.addEventListener("scroll",()=>{
+
+let current=""
+
+sections.forEach(section=>{
+const sectionTop=section.offsetTop-200
+if(scrollY>=sectionTop){
+current=section.getAttribute("id")
+}
+})
+
+navLinks.forEach(a=>{
+a.classList.remove("active")
+if(a.getAttribute("href")==="#"+current){
+a.classList.add("active")
+}
+})
+
+})
+
+</script>
+
 </body>
 </html>
