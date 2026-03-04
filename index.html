@@ -3,28 +3,28 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#0b0c10" />
+  <meta name="theme-color" content="#0b0b10" />
   <title>Omo Taker — Official</title>
-  <meta name="description" content="Omo Taker official music hub — all songs, all platforms. Join the email list for new drops." />
+  <meta name="description" content="Omo Taker official music website — all songs, all platforms. Follow, stream, and connect." />
 
   <style>
     :root{
-      --bg:#0b0c10;
-      --card:#12141c;
-      --card2:#0f1118;
-      --line:rgba(255,255,255,.08);
-      --text:#f3f5ff;
-      --muted:rgba(243,245,255,.72);
-      --muted2:rgba(243,245,255,.52);
-      --accent:#6ea8ff;
-      --accent2:#ff6ad5;
+      --bg:#0b0b10;
+      --panel: rgba(255,255,255,.06);
+      --panel2: rgba(255,255,255,.09);
+      --line: rgba(255,255,255,.12);
+      --text: rgba(255,255,255,.92);
+      --muted: rgba(255,255,255,.68);
+      --muted2: rgba(255,255,255,.52);
+      --accent: #7aa6ff;
+      --accent2:#ff7ad9;
       --good:#35f2a1;
-      --radius:18px;
-      --shadow: 0 18px 50px rgba(0,0,0,.55);
-      --max:1100px;
-      --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      --radius: 18px;
+      --shadow: 0 20px 60px rgba(0,0,0,.55);
+      --shadow2: 0 10px 30px rgba(0,0,0,.45);
+      --max: 1100px;
+      --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
     }
-
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
@@ -32,425 +32,626 @@
       font-family:var(--font);
       color:var(--text);
       background:
-        radial-gradient(900px 480px at 20% 10%, rgba(110,168,255,.14), transparent 55%),
-        radial-gradient(900px 480px at 80% 20%, rgba(255,106,213,.12), transparent 55%),
-        radial-gradient(900px 520px at 50% 90%, rgba(53,242,161,.08), transparent 60%),
+        radial-gradient(1000px 700px at 20% 10%, rgba(122,166,255,.18), transparent 60%),
+        radial-gradient(900px 650px at 85% 20%, rgba(255,122,217,.14), transparent 55%),
+        radial-gradient(900px 600px at 50% 95%, rgba(53,242,161,.10), transparent 60%),
         var(--bg);
+      overflow-x:hidden;
     }
 
     a{color:inherit; text-decoration:none}
-    .wrap{max-width:var(--max); margin:0 auto; padding:18px 14px 60px}
+    .wrap{max-width:var(--max); margin:0 auto; padding:22px 16px 60px}
     .topbar{
-      display:flex; align-items:center; justify-content:space-between;
-      gap:12px;
-      position:sticky; top:0;
-      padding:14px 10px;
-      backdrop-filter: blur(12px);
-      background: linear-gradient(to bottom, rgba(11,12,16,.85), rgba(11,12,16,.55));
-      border-bottom:1px solid var(--line);
-      z-index:10;
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(14px);
+      background: linear-gradient(to bottom, rgba(11,11,16,.80), rgba(11,11,16,.40));
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .topbar .wrap{padding:14px 16px}
+    .nav{
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
     }
     .brand{
-      display:flex; align-items:center; gap:10px;
-      min-width: 180px;
+      display:flex; align-items:center; gap:10px; min-width: 160px;
     }
     .logo{
-      width:36px; height:36px; border-radius:12px;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      box-shadow: 0 10px 30px rgba(110,168,255,.18);
+      width:40px; height:40px; border-radius:14px;
+      background:
+        radial-gradient(18px 18px at 30% 30%, rgba(255,255,255,.25), transparent 55%),
+        linear-gradient(135deg, rgba(122,166,255,.70), rgba(255,122,217,.70));
+      box-shadow: var(--shadow2);
+      border:1px solid rgba(255,255,255,.18);
     }
-    .brand h1{font-size:14px; margin:0; letter-spacing:.12em}
-    .brand p{margin:0; font-size:12px; color:var(--muted2)}
-    nav{
-      display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end;
+    .brand h1{
+      margin:0;
+      font-size:14px;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      line-height:1.1;
     }
-    .pill{
-      padding:10px 12px;
-      border:1px solid var(--line);
-      border-radius:999px;
-      background: rgba(255,255,255,.03);
+    .brand small{
+      display:block;
+      color:var(--muted2);
+      font-size:12px;
+      letter-spacing:.04em;
+      margin-top:3px;
+      text-transform:none;
+    }
+    .links{
+      display:flex; gap:18px; align-items:center; flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+    .links a{
       color:var(--muted);
+      font-weight:600;
       font-size:13px;
+      letter-spacing:.02em;
+      padding:8px 10px;
+      border-radius:12px;
     }
-    .pill.active{color:var(--text); border-color: rgba(110,168,255,.35)}
+    .links a:hover{
+      color:var(--text);
+      background: rgba(255,255,255,.06);
+    }
+
     .hero{
-      margin-top:16px;
-      border:1px solid var(--line);
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap:18px;
+      align-items:stretch;
+      margin-top:18px;
+    }
+    @media (max-width: 900px){
+      .hero{grid-template-columns:1fr}
+      .links{gap:10px}
+    }
+
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
+      border:1px solid rgba(255,255,255,.10);
       border-radius: var(--radius);
-      background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
       box-shadow: var(--shadow);
       overflow:hidden;
     }
-    .heroInner{
-      padding:22px 18px;
-      display:grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap:18px;
-      align-items:center;
-    }
-    .tag{
+    .heroMain{padding:18px}
+    .badge{
       display:inline-flex; align-items:center; gap:8px;
       padding:8px 12px;
       border-radius:999px;
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.03);
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
       color:var(--muted);
-      font-size:13px;
-      width: fit-content;
+      font-size:12px;
+      font-weight:700;
+      letter-spacing:.02em;
     }
-    .dot{width:8px; height:8px; border-radius:50%; background: var(--good)}
-    .hero h2{margin:12px 0 8px; font-size:34px; letter-spacing:-.02em}
-    .hero p{margin:0; color:var(--muted); line-height:1.55}
-    .ctaRow{display:flex; gap:10px; flex-wrap:wrap; margin-top:16px}
+    .dot{
+      width:10px; height:10px; border-radius:50%;
+      background: var(--good);
+      box-shadow: 0 0 18px rgba(53,242,161,.55);
+    }
+    .heroTitle{
+      margin:14px 0 6px;
+      font-size:44px;
+      letter-spacing:-.02em;
+      line-height:1.05;
+    }
+    @media (max-width: 520px){
+      .heroTitle{font-size:36px}
+    }
+    .heroText{
+      color:var(--muted);
+      font-size:15px;
+      line-height:1.6;
+      margin:0 0 16px;
+      max-width: 52ch;
+    }
+    .btnRow{display:flex; gap:10px; flex-wrap:wrap}
     .btn{
-      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      display:inline-flex; align-items:center; justify-content:center;
+      gap:10px;
       padding:12px 14px;
-      border-radius:12px;
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.04);
+      border-radius: 14px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
       color:var(--text);
-      font-weight:600;
-      min-width: 160px;
+      font-weight:800;
+      letter-spacing:.01em;
+      cursor:pointer;
+      user-select:none;
+      min-height:46px;
     }
     .btn.primary{
       border:none;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      box-shadow: 0 14px 40px rgba(110,168,255,.16);
-      color:#0b0c10;
+      background: linear-gradient(135deg, rgba(122,166,255,.95), rgba(255,122,217,.92));
+      box-shadow: 0 18px 40px rgba(122,166,255,.22);
+      color:#0b0b10;
     }
-    .miniCard{
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.03);
-      border-radius: 16px;
-      padding:14px;
+    .btn.ghost:hover{background: rgba(255,255,255,.10)}
+    .btn.small{padding:10px 12px; min-height:42px; font-size:14px}
+    .btn .ico{font-size:18px}
+
+    .heroSide{
+      position:relative;
+      min-height:320px;
+      display:flex;
+      align-items:stretch;
+      justify-content:stretch;
     }
-    .miniCard h3{margin:0 0 6px; font-size:14px}
-    .miniCard p{margin:0; font-size:13px; color:var(--muted)}
-    .grid2{
+    .mediaWrap{
+      width:100%;
       display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:12px;
+      grid-template-rows: 1fr auto;
+    }
+    .media{
+      position:relative;
+      width:100%;
+      height:100%;
+      min-height:260px;
+      overflow:hidden;
+      background:
+        radial-gradient(320px 220px at 25% 25%, rgba(122,166,255,.26), transparent 60%),
+        radial-gradient(320px 240px at 70% 35%, rgba(255,122,217,.20), transparent 60%),
+        rgba(255,255,255,.04);
+    }
+    .media img{
+      position:absolute; inset:0;
+      width:100%; height:100%;
+      object-fit:cover;
+      opacity:.98;
+      filter: saturate(1.05) contrast(1.05);
+    }
+    .media .shade{
+      position:absolute; inset:0;
+      background: linear-gradient(to top, rgba(11,11,16,.85), rgba(11,11,16,.10) 55%, rgba(11,11,16,.55));
+    }
+    .mediaFooter{
+      padding:12px 14px;
+      border-top: 1px solid rgba(255,255,255,.10);
+      display:flex; gap:10px; flex-wrap:wrap; justify-content:space-between; align-items:center;
+      background: rgba(0,0,0,.18);
+    }
+    .seg{
+      display:flex; gap:8px; flex-wrap:wrap;
+    }
+    .pill{
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+      color:var(--muted);
+      font-size:12px;
+      font-weight:800;
+      cursor:pointer;
+    }
+    .pill.active{
+      background: rgba(255,255,255,.12);
+      color:var(--text);
+      border-color: rgba(255,255,255,.18);
     }
 
     section{margin-top:18px}
     .sectionHead{
-      display:flex; justify-content:space-between; align-items:flex-end; gap:10px;
-      margin:18px 2px 10px;
+      display:flex; justify-content:space-between; align-items:flex-end; gap:12px; flex-wrap:wrap;
+      margin: 8px 2px 10px;
     }
-    .sectionHead h3{margin:0; font-size:18px}
-    .sectionHead p{margin:0; color:var(--muted2); font-size:13px}
+    .sectionHead h2{
+      margin:0;
+      font-size:18px;
+      letter-spacing:.01em;
+    }
+    .sectionHead p{
+      margin:0;
+      color:var(--muted2);
+      font-size:13px;
+      line-height:1.4;
+    }
 
-    .songs{
+    .grid{
       display:grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap:12px;
     }
+    @media (max-width: 980px){ .grid{grid-template-columns: repeat(2, 1fr);} }
+    @media (max-width: 560px){ .grid{grid-template-columns: 1fr;} }
+
     .song{
-      border:1px solid var(--line);
-      background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
-      border-radius: var(--radius);
       padding:14px;
       display:grid;
-      grid-template-columns: 58px 1fr;
+      grid-template-columns: 62px 1fr;
       gap:12px;
       align-items:center;
-      box-shadow: 0 10px 30px rgba(0,0,0,.25);
     }
     .cover{
-      width:58px; height:58px;
+      width:62px; height:62px;
       border-radius:14px;
-      background: rgba(255,255,255,.06);
-      border:1px solid var(--line);
+      border:1px solid rgba(255,255,255,.14);
       overflow:hidden;
-      display:flex; align-items:center; justify-content:center;
+      background: rgba(255,255,255,.06);
+      box-shadow: var(--shadow2);
+      flex:0 0 auto;
+    }
+    .cover img{width:100%; height:100%; object-fit:cover}
+    .meta h3{
+      margin:0;
+      font-size:15px;
+      line-height:1.2;
+    }
+    .meta small{
+      display:block;
       color:var(--muted2);
+      margin-top:4px;
       font-size:12px;
     }
-    .cover img{width:100%; height:100%; object-fit:cover; display:block}
-    .songTitle{margin:0; font-size:16px}
-    .songMeta{margin:3px 0 10px; color:var(--muted2); font-size:13px}
     .actions{
+      grid-column: 1 / -1;
       display:flex; gap:8px; flex-wrap:wrap;
+      margin-top:10px;
     }
     .chip{
       padding:10px 12px;
       border-radius:999px;
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.03);
-      font-weight:600;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
+      color:var(--text);
+      font-weight:800;
       font-size:13px;
-      color: var(--text);
     }
-    .chip.alt{color:var(--muted)}
+    .chip:hover{background: rgba(255,255,255,.09)}
     .chip.primary{
       border:none;
-      background: linear-gradient(135deg, rgba(110,168,255,.95), rgba(255,106,213,.95));
-      color:#0b0c10;
+      background: linear-gradient(135deg, rgba(122,166,255,.9), rgba(255,122,217,.82));
+      color:#0b0b10;
     }
 
-    .panel{
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.03);
-      border-radius: var(--radius);
-      padding:16px;
-      box-shadow: var(--shadow);
+    .twoCol{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:12px;
     }
-    .formRow{
-      display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;
-    }
-    input{
-      flex: 1;
-      min-width: 190px;
-      padding:12px 12px;
-      border-radius:12px;
-      border:1px solid var(--line);
-      background: rgba(10,12,16,.55);
-      color: var(--text);
-      outline:none;
-    }
-    .small{font-size:12px; color:var(--muted2); margin-top:10px}
-    .footer{
-      margin-top:20px;
-      padding:12px 4px;
-      color:var(--muted2);
-      font-size:12px;
+    @media (max-width: 900px){ .twoCol{grid-template-columns:1fr} }
+    .box{padding:16px}
+
+    .fieldRow{
       display:flex;
-      justify-content:space-between;
       gap:10px;
       flex-wrap:wrap;
-      border-top:1px solid var(--line);
+      margin-top:10px;
+    }
+    input[type="email"]{
+      flex: 1 1 220px;
+      min-width: 200px;
+      padding:12px 14px;
+      border-radius: 14px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.25);
+      color:var(--text);
+      outline:none;
+    }
+    input[type="email"]::placeholder{color:rgba(255,255,255,.35)}
+    .note{color:var(--muted2); font-size:12px; line-height:1.45; margin-top:10px}
+    .miniRow{display:flex; gap:10px; flex-wrap:wrap; margin-top:10px}
+    .miniRow .btn{flex: 0 0 auto}
+
+    .footer{
+      margin-top:22px;
+      color:var(--muted2);
+      font-size:12px;
+      text-align:center;
+      opacity:.9;
     }
 
-    @media (max-width: 840px){
-      .heroInner{grid-template-columns:1fr}
-      .songs{grid-template-columns:1fr}
-      nav{justify-content:flex-start}
-      .brand{min-width:auto}
-    }
+    /* Smooth scroll */
+    html{scroll-behavior:smooth}
   </style>
 </head>
 
 <body>
+
   <div class="topbar">
-    <div class="brand">
-      <div class="logo" aria-hidden="true"></div>
-      <div>
-        <h1>OMOTAKER</h1>
-        <p>Official music hub</p>
+    <div class="wrap">
+      <div class="nav">
+        <div class="brand">
+          <div class="logo" aria-hidden="true"></div>
+          <div>
+            <h1>OMOTAKER</h1>
+            <small>Official • Music • OMK</small>
+          </div>
+        </div>
+
+        <div class="links">
+          <a href="#home">Home</a>
+          <a href="#music">Music</a>
+          <a href="#store">Store</a>
+          <a href="#connect">Connect</a>
+        </div>
       </div>
     </div>
-
-    <nav>
-      <a class="pill active" href="#home">Home</a>
-      <a class="pill" href="#music">Music</a>
-      <a class="pill" href="#store">Store</a>
-      <a class="pill" href="#connect">Connect</a>
-    </nav>
   </div>
 
-  <div class="wrap">
-    <!-- HOME -->
-    <section id="home" class="hero">
-      <div class="heroInner">
-        <div>
-          <div class="tag"><span class="dot"></span> New drop ready • Tap & stream</div>
-          <h2>Omo Taker</h2>
-          <p>
-            Welcome to my official page. All songs, all platforms — clean and easy.
-            Join the email list so you get the link immediately when a new song drops.
-          </p>
+  <main class="wrap" id="home">
 
-          <div class="ctaRow">
-            <a class="btn primary" href="#music">🎧 View all songs</a>
-            <a class="btn" href="#connect">🌍 Follow / Connect</a>
-            <a class="btn" href="#store">🛒 OMK Store</a>
-          </div>
+    <!-- HERO -->
+    <div class="hero">
+      <div class="card heroMain">
+        <span class="badge"><span class="dot"></span> New drop ready • Tap & stream</span>
+        <h2 class="heroTitle">Omo Taker</h2>
+        <p class="heroText">
+          Welcome to my official music home. Stream every song on every platform, and join the email list so you get the link immediately when a new song drops.
+        </p>
+
+        <div class="btnRow">
+          <a class="btn primary" href="#music"><span class="ico">🎧</span> View all songs</a>
+          <a class="btn ghost" href="#connect"><span class="ico">🌍</span> Follow / Connect</a>
+          <a class="btn ghost" href="#store"><span class="ico">🛒</span> OMK Store</a>
         </div>
 
-        <div class="grid2">
-          <div class="miniCard">
-            <h3>Fast for bio</h3>
-            <p>No loading stress. One page that opens quickly.</p>
+        <p class="note" style="margin-top:12px;">
+          Tip: I built everything in one file. You only change your photo, cover arts, and streaming links inside the “SONGS LIST” section.
+        </p>
+      </div>
+
+      <div class="card heroSide">
+        <div class="mediaWrap">
+          <div class="media" id="heroMedia">
+            <!-- HERO PHOTO (default) -->
+            <img id="heroImg" src="assets/hero-photo.jpg" alt="Omo Taker photo" />
+            <div class="shade"></div>
           </div>
-          <div class="miniCard">
-            <h3>All platforms</h3>
-            <p>Each song has “All Platforms” + optional direct links.</p>
-          </div>
-          <div class="miniCard">
-            <h3>Easy updates</h3>
-            <p>Edit only the links — everything stays arranged.</p>
-          </div>
-          <div class="miniCard">
-            <h3>Email list</h3>
-            <p>Collect emails now (local). Later we connect real database.</p>
+
+          <div class="mediaFooter">
+            <div class="seg">
+              <div class="pill active" id="pillPhoto" onclick="setHero('photo')">Top: Photo</div>
+              <div class="pill" id="pillCover" onclick="setHero('cover')">Top: Album cover</div>
+              <div class="pill" id="pillVideo" onclick="setHero('video')">Top: Video</div>
+            </div>
+            <div style="color:var(--muted2); font-size:12px; font-weight:800;">
+              2030 Artist Hub
+            </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
 
     <!-- MUSIC -->
     <section id="music">
       <div class="sectionHead">
         <div>
-          <h3>Music — All Songs</h3>
-          <p>Tap “All Platforms” for the smart link. You can replace links later.</p>
+          <h2>Music — All Songs</h2>
+          <p>Every song has quick buttons (Stream / Spotify / Apple / Boomplay).</p>
         </div>
+        <p>When you send me your real links, I’ll replace all placeholders for you.</p>
       </div>
 
-      <div class="songs" id="songs"></div>
+      <div class="grid" id="songsGrid"></div>
     </section>
 
-    <!-- STORE -->
-    <section id="store">
-      <div class="sectionHead">
-        <div>
-          <h3>Store — OMK Drip</h3>
-          <p>Link this to your omkdrip.com store later.</p>
-        </div>
-      </div>
-
-      <div class="panel">
-        <p style="margin:0;color:var(--muted)">Put your real store link and WhatsApp DM here.</p>
-        <div class="ctaRow" style="margin-top:12px">
-          <a class="btn primary" id="storeLink" href="https://omkdrip.com" target="_blank" rel="noopener">🛒 Visit Store</a>
-          <a class="btn" id="whatsApp" href="https://wa.me/" target="_blank" rel="noopener">💬 DM for orders</a>
+    <!-- STORE + CONNECT -->
+    <section class="twoCol">
+      <div class="card box" id="store">
+        <div class="sectionHead">
+          <div>
+            <h2>Store — OMK Drip</h2>
+            <p>Link this to your real store (omkdrip.com) later.</p>
+          </div>
         </div>
 
-        <p class="small">
-          Tip: If you don’t want the store section now, tell me — we remove it.
+        <div class="btnRow">
+          <a class="btn primary" id="storeBtn" href="https://omkdrip.com" target="_blank" rel="noopener"><span class="ico">🛍️</span> Visit Store</a>
+          <a class="btn ghost" id="dmBtn" href="https://instagram.com/" target="_blank" rel="noopener"><span class="ico">💬</span> DM for orders</a>
+        </div>
+
+        <p class="note">
+          Want a real product grid here (pictures + prices)? Tell me and I’ll build it.
         </p>
       </div>
-    </section>
 
-    <!-- CONNECT -->
-    <section id="connect">
-      <div class="sectionHead">
-        <div>
-          <h3>Connect</h3>
-          <p>Follow, contact, and join the email list.</p>
+      <div class="card box" id="connect">
+        <div class="sectionHead">
+          <div>
+            <h2>Connect</h2>
+            <p>Follow, contact, and join the email list.</p>
+          </div>
         </div>
-      </div>
 
-      <div class="panel">
-        <h4 style="margin:0 0 6px">Join Email List</h4>
-        <p style="margin:0;color:var(--muted);line-height:1.55">
-          Fans drop email here. It saves inside the browser (local) for now.
-          Later we connect it to Google Sheet / Mailchimp.
+        <h3 style="margin:0 0 6px; font-size:15px;">Join Email List</h3>
+        <p class="note" style="margin-top:0;">
+          This saves emails inside the browser (local) for now. Later we can connect it to Google Sheet / Mailchimp.
         </p>
 
-        <div class="formRow">
+        <div class="fieldRow">
           <input id="emailInput" type="email" placeholder="Enter your email" />
-          <button class="btn primary" id="joinBtn" type="button">Join</button>
-          <button class="btn" id="copyBtn" type="button">Copy emails</button>
+          <button class="btn primary small" onclick="saveEmail()"><span class="ico">✅</span> Join</button>
         </div>
 
-        <p class="small" id="emailNote">✅ Emails save on this device only (local). We can upgrade later.</p>
-
-        <hr style="border:none;border-top:1px solid var(--line); margin:16px 0"/>
-
-        <h4 style="margin:0 0 6px">Social & Streaming</h4>
-        <p style="margin:0;color:var(--muted2)">Replace each link with your real accounts.</p>
-
-        <div class="ctaRow" style="margin-top:12px">
-          <a class="btn" id="ig" href="https://instagram.com/" target="_blank" rel="noopener">Instagram</a>
-          <a class="btn" id="tt" href="https://tiktok.com/" target="_blank" rel="noopener">TikTok</a>
-          <a class="btn" id="yt" href="https://youtube.com/" target="_blank" rel="noopener">YouTube</a>
-          <a class="btn" id="wa" href="https://wa.me/" target="_blank" rel="noopener">WhatsApp</a>
-          <a class="btn" id="sp" href="https://open.spotify.com/" target="_blank" rel="noopener">Spotify</a>
-          <a class="btn" id="am" href="https://music.apple.com/" target="_blank" rel="noopener">Apple Music</a>
-          <a class="btn" id="bp" href="https://www.boomplay.com/" target="_blank" rel="noopener">Boomplay</a>
-          <a class="btn" id="au" href="https://audiomack.com/" target="_blank" rel="noopener">Audiomack</a>
+        <div class="miniRow">
+          <button class="btn ghost small" onclick="copyEmails()"><span class="ico">📋</span> Copy Emails</button>
+          <button class="btn ghost small" onclick="clearEmails()"><span class="ico">🧹</span> Clear</button>
         </div>
+
+        <div class="sectionHead" style="margin-top:14px;">
+          <div>
+            <h2 style="font-size:16px;">Social & Streaming</h2>
+            <p>Replace each link with your real accounts.</p>
+          </div>
+        </div>
+
+        <div class="btnRow">
+          <a class="btn ghost small" id="igLink" href="https://instagram.com/" target="_blank" rel="noopener">Instagram</a>
+          <a class="btn ghost small" id="ttLink" href="https://tiktok.com/" target="_blank" rel="noopener">TikTok</a>
+          <a class="btn ghost small" id="ytLink" href="https://youtube.com/" target="_blank" rel="noopener">YouTube</a>
+          <a class="btn ghost small" id="waLink" href="https://wa.me/" target="_blank" rel="noopener">WhatsApp</a>
+          <a class="btn ghost small" id="spLink" href="https://open.spotify.com/" target="_blank" rel="noopener">Spotify</a>
+          <a class="btn ghost small" id="amLink" href="https://music.apple.com/" target="_blank" rel="noopener">Apple Music</a>
+          <a class="btn ghost small" id="bpLink" href="https://www.boomplay.com/" target="_blank" rel="noopener">Boomplay</a>
+          <a class="btn ghost small" id="auLink" href="https://audiomack.com/" target="_blank" rel="noopener">Audiomack</a>
+        </div>
+
+        <p class="note">
+          If you want a “one smart button” like Linktree that auto-detects phone (iPhone/Android) and opens the best platform, tell me.
+        </p>
       </div>
     </section>
 
     <div class="footer">
-      <div>© <span id="yr"></span> Omo Taker</div>
-      <div style="color:var(--muted2)">Built for fast bio linking • GitHub Pages</div>
+      © <span id="yr"></span> Omo Taker • Built for OMK • All rights reserved.
     </div>
-  </div>
+
+  </main>
 
   <script>
-    // ====== EDIT ONLY HERE (your songs + links) ======
-    // "smartLink" should be your ONE landing page per song (Linkfire, ToneDen, Feature.fm, etc).
-    // For now you can leave blank and we will paste later when you send the links.
+    // ========= EDIT HERE (top media) =========
+    const HERO = {
+      photo: "assets/hero-photo.jpg",           // your face photo (recommended)
+      cover: "assets/latest-cover.jpg",         // latest song/album cover
+      video: ""                                 // put YouTube embed link if you want, e.g. https://www.youtube.com/embed/VIDEO_ID
+    };
 
+    // ========= EDIT HERE (social + store) =========
+    const LINKS = {
+      store: "https://omkdrip.com",
+      instagram: "https://instagram.com/iam_omotaker",
+      tiktok: "https://tiktok.com/@iam_omotaker",
+      youtube: "https://youtube.com/",
+      whatsapp: "https://wa.me/",
+      spotify: "https://open.spotify.com/",
+      apple: "https://music.apple.com/",
+      boomplay: "https://www.boomplay.com/",
+      audiomack: "https://audiomack.com/"
+    };
+
+    // ========= SONGS LIST (EDIT THIS) =========
+    // Replace covers + links when you send them to me.
     const SONGS = [
       {
         title: "If Earth Could Talk",
-        meta: "Single • 2026",
-        cover: "", // put image file path later e.g. "covers/if-earth-could-talk.jpg"
-        smartLink: "", // put your all-platforms link
-        spotify: "",
-        apple: "",
-        boomplay: ""
+        subtitle: "Single • 2026",
+        cover: "assets/if-earth-could-talk.jpg",
+        stream: "#",       // your “all platforms” landing link for this song (Smartlink)
+        spotify: "#",
+        apple: "#",
+        boomplay: "#"
       },
       {
         title: "Benin To Lagos",
-        meta: "Single • 2026",
-        cover: "",
-        smartLink: "",
-        spotify: "",
-        apple: "",
-        boomplay: ""
+        subtitle: "Single • 2026",
+        cover: "assets/benin-to-lagos.jpg",
+        stream: "#",
+        spotify: "#",
+        apple: "#",
+        boomplay: "#"
       },
       {
         title: "My Door",
-        meta: "My Truth • 2026",
-        cover: "",
-        smartLink: "",
-        spotify: "",
-        apple: "",
-        boomplay: ""
+        subtitle: "My Truth • 2026",
+        cover: "assets/my-door.jpg",
+        stream: "#",
+        spotify: "#",
+        apple: "#",
+        boomplay: "#"
       },
       {
         title: "Bend Down Select",
-        meta: "My Truth • 2025",
-        cover: "",
-        smartLink: "",
-        spotify: "",
-        apple: "",
-        boomplay: ""
+        subtitle: "My Truth • 2025",
+        cover: "assets/bend-down-select.jpg",
+        stream: "#",
+        spotify: "#",
+        apple: "#",
+        boomplay: "#"
+      },
+      {
+        title: "Bad Guy",
+        subtitle: "Single • 2025",
+        cover: "assets/bad-guy.jpg",
+        stream: "#",
+        spotify: "#",
+        apple: "#",
+        boomplay: "#"
       }
     ];
 
-    // ====== RENDER SONGS ======
-    const songsEl = document.getElementById("songs");
-
-    function makeCover(cover, title){
-      if(!cover){
-        return `<div class="cover" aria-label="${title} cover">Cover</div>`;
-      }
-      return `<div class="cover"><img src="${cover}" alt="${title} cover"></div>`;
-    }
-
-    function makeLink(label, url, cls="chip alt"){
-      if(!url) return "";
-      return `<a class="${cls}" href="${url}" target="_blank" rel="noopener">${label}</a>`;
-    }
-
-    function render(){
-      songsEl.innerHTML = SONGS.map(s => `
-        <div class="song">
-          ${makeCover(s.cover, s.title)}
-          <div>
-            <div class="songTitle">${s.title}</div>
-            <div class="songMeta">${s.meta}</div>
-            <div class="actions">
-              ${makeLink("All Platforms", s.smartLink, "chip primary")}
-              ${makeLink("Spotify", s.spotify, "chip")}
-              ${makeLink("Apple", s.apple, "chip")}
-              ${makeLink("Boomplay", s.boomplay, "chip")}
-            </div>
-          </div>
-        </div>
-      `).join("");
-    }
-
-    render();
+    // ========= BUILD PAGE =========
     document.getElementById("yr").textContent = new Date().getFullYear();
 
-    // ====== EMAIL LIST (LOCAL ONLY) ======
+    // set links
+    document.getElementById("storeBtn").href = LINKS.store;
+    document.getElementById("igLink").href = LINKS.instagram;
+    document.getElementById("ttLink").href = LINKS.tiktok;
+    document.getElementById("ytLink").href = LINKS.youtube;
+    document.getElementById("waLink").href = LINKS.whatsapp;
+    document.getElementById("spLink").href = LINKS.spotify;
+    document.getElementById("amLink").href = LINKS.apple;
+    document.getElementById("bpLink").href = LINKS.boomplay;
+    document.getElementById("auLink").href = LINKS.audiomack;
+    document.getElementById("dmBtn").href = LINKS.instagram;
+
+    // build songs
+    const grid = document.getElementById("songsGrid");
+    grid.innerHTML = SONGS.map((s) => `
+      <div class="card song">
+        <div class="cover">
+          <img src="${s.cover}" alt="${s.title} cover" onerror="this.style.display='none'; this.parentElement.style.background='rgba(255,255,255,.07)';" />
+        </div>
+        <div class="meta">
+          <h3>${s.title}</h3>
+          <small>${s.subtitle}</small>
+        </div>
+        <div class="actions">
+          <a class="chip primary" href="${s.stream}" target="_blank" rel="noopener">Stream</a>
+          <a class="chip" href="${s.spotify}" target="_blank" rel="noopener">Spotify</a>
+          <a class="chip" href="${s.apple}" target="_blank" rel="noopener">Apple</a>
+          <a class="chip" href="${s.boomplay}" target="_blank" rel="noopener">Boomplay</a>
+        </div>
+      </div>
+    `).join("");
+
+    // ========= HERO SWITCHER =========
+    function setActive(p){
+      ["pillPhoto","pillCover","pillVideo"].forEach(id => document.getElementById(id).classList.remove("active"));
+      if(p==="photo") document.getElementById("pillPhoto").classList.add("active");
+      if(p==="cover") document.getElementById("pillCover").classList.add("active");
+      if(p==="video") document.getElementById("pillVideo").classList.add("active");
+    }
+
+    function setHero(mode){
+      const media = document.getElementById("heroMedia");
+      media.innerHTML = ""; // clear
+      if(mode === "video" && HERO.video){
+        const iframe = document.createElement("iframe");
+        iframe.src = HERO.video;
+        iframe.style.width = "100%";
+        iframe.style.height = "100%";
+        iframe.style.border = "0";
+        iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+        iframe.allowFullscreen = true;
+        media.appendChild(iframe);
+
+        const shade = document.createElement("div");
+        shade.className = "shade";
+        shade.style.pointerEvents = "none";
+        shade.style.background = "linear-gradient(to top, rgba(11,11,16,.75), rgba(11,11,16,.05) 55%, rgba(11,11,16,.55))";
+        media.appendChild(shade);
+
+        setActive("video");
+        return;
+      }
+
+      const img = document.createElement("img");
+      img.src = (mode === "cover") ? HERO.cover : HERO.photo;
+      img.alt = "Omo Taker hero";
+      media.appendChild(img);
+
+      const shade = document.createElement("div");
+      shade.className = "shade";
+      media.appendChild(shade);
+
+      setActive(mode === "cover" ? "cover" : "photo");
+    }
+
+    // default
+    setHero("photo");
+
+    // ========= EMAIL LIST (LOCAL) =========
     const KEY = "omotaker_emails_v1";
 
     function getEmails(){
@@ -458,55 +659,36 @@
       catch(e){ return []; }
     }
 
-    function setEmails(arr){
-      localStorage.setItem(KEY, JSON.stringify(arr));
-    }
-
-    const emailInput = document.getElementById("emailInput");
-    const emailNote = document.getElementById("emailNote");
-
-    document.getElementById("joinBtn").addEventListener("click", () => {
-      const email = (emailInput.value || "").trim().toLowerCase();
+    function saveEmail(){
+      const input = document.getElementById("emailInput");
+      const email = (input.value || "").trim().toLowerCase();
       if(!email || !email.includes("@") || !email.includes(".")){
-        emailNote.textContent = "❌ Enter a valid email.";
+        alert("Enter a valid email.");
         return;
       }
       const list = getEmails();
       if(!list.includes(email)) list.push(email);
-      setEmails(list);
-      emailInput.value = "";
-      emailNote.textContent = `✅ Saved. Total emails on this device: ${list.length}`;
-    });
-
-    document.getElementById("copyBtn").addEventListener("click", async () => {
-      const list = getEmails();
-      const text = list.join(", ");
-      if(!text){
-        emailNote.textContent = "⚠️ No emails saved yet.";
-        return;
-      }
-      try{
-        await navigator.clipboard.writeText(text);
-        emailNote.textContent = "✅ Emails copied to clipboard!";
-      }catch(e){
-        emailNote.textContent = "⚠️ Copy failed. Try on Safari/Chrome or tell me and I’ll add a manual copy box.";
-      }
-    });
-
-    // ====== NAV ACTIVE STATE ======
-    const pills = [...document.querySelectorAll("nav .pill")];
-    function setActive(){
-      const y = window.scrollY;
-      const ids = ["home","music","store","connect"];
-      let current = "home";
-      ids.forEach(id=>{
-        const el = document.getElementById(id);
-        if(el && el.offsetTop - 120 <= y) current = id;
-      });
-      pills.forEach(p=> p.classList.toggle("active", p.getAttribute("href")==="#"+current));
+      localStorage.setItem(KEY, JSON.stringify(list));
+      input.value = "";
+      alert("Saved ✅");
     }
-    window.addEventListener("scroll", setActive, {passive:true});
-    setActive();
+
+    function copyEmails(){
+      const list = getEmails();
+      if(!list.length){ alert("No emails saved yet."); return; }
+      const text = list.join(", ");
+      navigator.clipboard.writeText(text).then(() => alert("Copied ✅")).catch(() => {
+        // fallback
+        prompt("Copy emails:", text);
+      });
+    }
+
+    function clearEmails(){
+      if(confirm("Clear all saved emails?")){
+        localStorage.removeItem(KEY);
+        alert("Cleared ✅");
+      }
+    }
   </script>
 </body>
 </html>
