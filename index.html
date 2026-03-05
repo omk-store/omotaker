@@ -10,9 +10,6 @@
   <style>
     :root{
       --bg:#000;
-      --panel:rgba(255,255,255,.06);
-      --panel2:rgba(255,255,255,.09);
-      --line:rgba(255,255,255,.10);
       --text:#f5f6ff;
       --muted:rgba(245,246,255,.70);
 
@@ -104,7 +101,6 @@
       height:520px;
       background:
         radial-gradient(900px 500px at 50% 20%, rgba(0,0,0,.10), rgba(0,0,0,.88)),
-        /* Hero stays as your first main picture */
         url("https://raw.githubusercontent.com/omk-store/omotaker/main/D99E8D8F-BC87-4C45-8767-5DF7E7E18DA4.png") center/cover no-repeat;
     }
     .heroFade{
@@ -238,7 +234,7 @@
       background: radial-gradient(circle at 50% 50%, rgba(0,0,0,.10), rgba(0,0,0,.55));
     }
 
-    /* ✅ ZOOM ALL SMALL COVERS (removes white edges) */
+    /* ✅ zoom small covers to remove white edges */
     .newCover, .cover{
       background-size: 120% !important;
       background-position: center !important;
@@ -412,7 +408,7 @@
       background:
         linear-gradient(to bottom, rgba(0,0,0,.15), rgba(0,0,0,.75)),
         url("https://raw.githubusercontent.com/omk-store/omotaker/main/IMG_7104.jpeg") center/cover no-repeat;
-      background-size: 112% !important;  /* ✅ zoom video image a bit too */
+      background-size: 112% !important;
       background-position:center !important;
       position:relative;
       display:flex;
@@ -432,8 +428,6 @@
       box-shadow: var(--glow);
       font-size:24px;
     }
-
-    /* ✅ label moved BELOW video */
     .videoCaption{
       margin:10px auto 0;
       width: fit-content;
@@ -485,6 +479,12 @@
       margin:0 0 14px;
       color:rgba(255,255,255,.70);
       line-height:1.4;
+    }
+
+    /* ✅ Center text in SHOP + CONNECT like your mark */
+    #store .premiumInner,
+    #connect .premiumInner{
+      text-align:center;
     }
 
     .cta{
@@ -593,10 +593,10 @@
         <div class="heroNewTitle">NEW RELEASES</div>
 
         <div class="newGrid">
-          <!-- ✅ FIX 1: flip covers correctly -->
+          <!-- ✅ FLIPPED: If Earth now uses the OTHER cover -->
           <div class="newCard">
             <div class="newTop">
-              <div class="newCover" style="background-image:url('https://raw.githubusercontent.com/omk-store/omotaker/main/6066994F-0E77-4ACE-AB1C-4E1445E4457F.png');"></div>
+              <div class="newCover" style="background-image:url('https://raw.githubusercontent.com/omk-store/omotaker/main/A4C9B8E6-BBDF-4489-927B-B535734DED3C.png');"></div>
               <div class="newMeta">
                 <p class="t">If Earth Could Talk</p>
                 <p class="s">Single • 2026</p>
@@ -609,9 +609,10 @@
             </div>
           </div>
 
+          <!-- ✅ FLIPPED: Benin now uses the OTHER cover -->
           <div class="newCard">
             <div class="newTop">
-              <div class="newCover" style="background-image:url('https://raw.githubusercontent.com/omk-store/omotaker/main/A4C9B8E6-BBDF-4489-927B-B535734DED3C.png');"></div>
+              <div class="newCover" style="background-image:url('https://raw.githubusercontent.com/omk-store/omotaker/main/6066994F-0E77-4ACE-AB1C-4E1445E4457F.png');"></div>
               <div class="newMeta">
                 <p class="t">Benin To Lagos</p>
                 <p class="s">Single • 2026</p>
@@ -754,7 +755,6 @@
         </div>
       </a>
 
-      <!-- ✅ moved text BELOW -->
       <div class="videoCaption">IF EARTH COULD TALK (OFFICIAL VIDEO)</div>
     </section>
 
@@ -781,7 +781,9 @@
         <div class="premiumCard">
           <div class="premiumInner">
             <h3 class="premiumTitle">JOIN OMK COMMUNITY 🐺🌋</h3>
-            <p class="premiumSub">Get updates, drops, and new music first. No email — just vibes.</p>
+
+            <!-- ✅ removed the dash line you circled -->
+            <p class="premiumSub">Get updates, drops, and new music first. No email, just vibes.</p>
 
             <div class="joinCenter">
               <a class="joinWhats" href="YOUR_WHATSAPP_COMMUNITY_LINK" target="_blank" rel="noopener">
