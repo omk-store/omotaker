@@ -104,7 +104,7 @@
       height:520px;
       background:
         radial-gradient(900px 500px at 50% 20%, rgba(0,0,0,.10), rgba(0,0,0,.88)),
-        /* ✅ HERO now uses OVIOR image */
+        /* Hero stays as your first main picture */
         url("https://raw.githubusercontent.com/omk-store/omotaker/main/D99E8D8F-BC87-4C45-8767-5DF7E7E18DA4.png") center/cover no-repeat;
     }
     .heroFade{
@@ -126,7 +126,7 @@
       text-transform:uppercase;
     }
 
-    /* ===== Social dock (ICON-ONLY) — centered ===== */
+    /* ===== Social dock ===== */
     .socialRow{
       display:flex;
       justify-content:center;
@@ -171,7 +171,6 @@
       display:block;
     }
 
-    /* Divider */
     .section-divider{
       height:1px;
       width:100%;
@@ -222,6 +221,7 @@
       opacity:.9;
     }
     .newTop{ position:relative; display:flex; gap:12px; align-items:center; }
+
     .newCover{
       width:86px;
       height:86px;
@@ -237,6 +237,14 @@
       position:absolute; inset:0;
       background: radial-gradient(circle at 50% 50%, rgba(0,0,0,.10), rgba(0,0,0,.55));
     }
+
+    /* ✅ ZOOM ALL SMALL COVERS (removes white edges) */
+    .newCover, .cover{
+      background-size: 120% !important;
+      background-position: center !important;
+      background-repeat: no-repeat !important;
+    }
+
     .newMeta{ position:relative; min-width:0; }
     .newMeta .t{
       margin:0;
@@ -280,11 +288,9 @@
     .platformBar a:last-child{ border-right:none; }
     .platformBar a:hover{ background: rgba(255,255,255,.08); }
 
-    /* ===== Sections ===== */
     .section{
       margin-top:18px;
       padding-top:14px;
-      border-top:none;
       scroll-margin-top: 92px;
     }
     .section h2{
@@ -296,7 +302,6 @@
       text-transform:uppercase;
     }
 
-    /* ===== Horizontal rail ===== */
     .rail{
       display:flex;
       gap:12px;
@@ -331,6 +336,7 @@
       opacity:.7;
       pointer-events:none;
     }
+
     .rowTop{
       position:relative;
       display:flex;
@@ -361,6 +367,7 @@
       box-shadow: var(--glow);
       font-size:14px;
     }
+
     .meta{ min-width:0; position:relative; }
     .meta .title{
       margin:0;
@@ -404,23 +411,13 @@
       height:240px;
       background:
         linear-gradient(to bottom, rgba(0,0,0,.15), rgba(0,0,0,.75)),
-        /* ✅ this is your YouTube/Official video picture */
         url("https://raw.githubusercontent.com/omk-store/omotaker/main/IMG_7104.jpeg") center/cover no-repeat;
+      background-size: 112% !important;  /* ✅ zoom video image a bit too */
+      background-position:center !important;
       position:relative;
       display:flex;
       align-items:flex-end;
       padding:14px;
-    }
-    .videoThumb .label{
-      font-weight:950;
-      letter-spacing:.06em;
-      font-size:13px;
-      background:rgba(0,0,0,.35);
-      border:1px solid rgba(255,255,255,.10);
-      padding:10px 12px;
-      border-radius:14px;
-      backdrop-filter: blur(10px);
-      text-transform:uppercase;
     }
     .videoThumb .bigPlay{
       position:absolute; inset:0;
@@ -434,6 +431,23 @@
       background:rgba(255,255,255,.06);
       box-shadow: var(--glow);
       font-size:24px;
+    }
+
+    /* ✅ label moved BELOW video */
+    .videoCaption{
+      margin:10px auto 0;
+      width: fit-content;
+      max-width: 100%;
+      text-align:center;
+      font-weight:950;
+      letter-spacing:.06em;
+      font-size:13px;
+      text-transform:uppercase;
+      padding:10px 12px;
+      border-radius:14px;
+      background:rgba(0,0,0,.35);
+      border:1px solid rgba(255,255,255,.10);
+      backdrop-filter: blur(10px);
     }
 
     /* Premium cards */
@@ -497,7 +511,6 @@
     }
     .cta:hover{ transform: translateY(-1px); }
 
-    /* Join WhatsApp: centered gradient CTA */
     .joinCenter{
       display:flex;
       justify-content:center;
@@ -580,9 +593,9 @@
         <div class="heroNewTitle">NEW RELEASES</div>
 
         <div class="newGrid">
+          <!-- ✅ FIX 1: flip covers correctly -->
           <div class="newCard">
             <div class="newTop">
-              <!-- ✅ If Earth keeps its own cover -->
               <div class="newCover" style="background-image:url('https://raw.githubusercontent.com/omk-store/omotaker/main/6066994F-0E77-4ACE-AB1C-4E1445E4457F.png');"></div>
               <div class="newMeta">
                 <p class="t">If Earth Could Talk</p>
@@ -598,7 +611,6 @@
 
           <div class="newCard">
             <div class="newTop">
-              <!-- ✅ Benin keeps its own cover (this cover gets reused across MY TRUTH below) -->
               <div class="newCover" style="background-image:url('https://raw.githubusercontent.com/omk-store/omotaker/main/A4C9B8E6-BBDF-4489-927B-B535734DED3C.png');"></div>
               <div class="newMeta">
                 <p class="t">Benin To Lagos</p>
@@ -615,12 +627,12 @@
       </div>
     </section>
 
+    <!-- MY TRUTH -->
     <section id="releases" class="section">
       <div class="section-divider"></div>
       <h2>MY TRUTH</h2>
 
       <div class="rail">
-        <!-- Bend Down Select (✅ now uses Benin To Lagos cover) -->
         <div class="miniCard">
           <div class="rowTop">
             <div class="cover" style="background-image:url('https://raw.githubusercontent.com/omk-store/omotaker/main/A4C9B8E6-BBDF-4489-927B-B535734DED3C.png');">
@@ -641,7 +653,6 @@
           </div>
         </div>
 
-        <!-- My Door (✅ now uses Benin To Lagos cover) -->
         <div class="miniCard">
           <div class="rowTop">
             <div class="cover" style="background-image:url('https://raw.githubusercontent.com/omk-store/omotaker/main/A4C9B8E6-BBDF-4489-927B-B535734DED3C.png');">
@@ -662,7 +673,6 @@
           </div>
         </div>
 
-        <!-- Badt Guy (✅ now uses Benin To Lagos cover) -->
         <div class="miniCard">
           <div class="rowTop">
             <div class="cover" style="background-image:url('https://raw.githubusercontent.com/omk-store/omotaker/main/A4C9B8E6-BBDF-4489-927B-B535734DED3C.png');">
@@ -685,12 +695,12 @@
       </div>
     </section>
 
+    <!-- MUSIC -->
     <section id="music" class="section">
       <div class="section-divider"></div>
       <h2>MUSIC</h2>
 
       <div class="rail">
-        <!-- Importer Exporter (✅ now uses OLD HERO image) -->
         <div class="miniCard">
           <div class="rowTop">
             <div class="cover" style="background-image:url('https://raw.githubusercontent.com/omk-store/omotaker/main/IMG_7103.jpeg');">
@@ -711,7 +721,6 @@
           </div>
         </div>
 
-        <!-- Ovior (✅ now uses YouTube/Official video image) -->
         <div class="miniCard">
           <div class="rowTop">
             <div class="cover" style="background-image:url('https://raw.githubusercontent.com/omk-store/omotaker/main/IMG_7104.jpeg');">
@@ -734,17 +743,22 @@
       </div>
     </section>
 
+    <!-- VIDEOS -->
     <section id="videos" class="section">
       <div class="section-divider"></div>
       <h2>VIDEOS</h2>
+
       <a class="videoCard" href="YOUR_YOUTUBE_VIDEO_LINK" target="_blank" rel="noopener">
         <div class="videoThumb">
           <div class="bigPlay"><span>▶</span></div>
-          <div class="label">IF EARTH COULD TALK (OFFICIAL VIDEO)</div>
         </div>
       </a>
+
+      <!-- ✅ moved text BELOW -->
+      <div class="videoCaption">IF EARTH COULD TALK (OFFICIAL VIDEO)</div>
     </section>
 
+    <!-- SHOP OMK -->
     <section id="store" class="section">
       <div class="section-divider"></div>
       <h2>SHOP OMK</h2>
@@ -758,6 +772,7 @@
       </div>
     </section>
 
+    <!-- CONNECT -->
     <section id="connect" class="section">
       <div class="section-divider"></div>
       <h2>CONNECT</h2>
