@@ -125,41 +125,47 @@
       text-transform:uppercase;
     }
 
-    /* ===== Social buttons (IG + TikTok only) ===== */
+    /* ===== Social (ICON-ONLY like Shalli) ===== */
     .socialRow{
       display:flex;
-      gap:12px;
       justify-content:center;
-      flex-wrap:wrap;
-      padding: 16px 14px 14px;
+      padding: 14px 14px 14px;
       background: rgba(0,0,0,.35);
       border-top: 1px solid rgba(255,255,255,.08);
     }
-    .sBtn{
-      display:inline-flex;
+    .socialDock{
+      width:min(560px, 100%);
+      display:flex;
       align-items:center;
       justify-content:center;
       gap:10px;
-      padding:12px 16px;
+      padding:10px;
       border-radius:999px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 18px 55px rgba(0,0,0,.45);
+    }
+    .iconBtn{
+      width:52px; height:52px;
+      border-radius:999px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
       border:1px solid rgba(255,255,255,.14);
-      background:rgba(255,255,255,.06);
-      font-weight:950;
-      letter-spacing:.03em;
-      min-width:170px;
-      box-shadow: 0 10px 28px rgba(0,0,0,.35);
+      background: rgba(0,0,0,.18);
       transition:.2s ease;
     }
-    .sBtn.primary{
+    .iconBtn:hover{ transform: translateY(-1px); box-shadow: var(--glow); }
+    .iconBtn.primary{
       background: linear-gradient(90deg, rgba(122,166,255,.95), rgba(255,122,217,.95));
-      color:#07070a;
       border-color: rgba(255,255,255,.18);
-      box-shadow: var(--glow);
+      color:#07070a;
     }
     .ico{ width:22px; height:22px; display:inline-flex; }
     .svg-ico{ width:22px; height:22px; fill: currentColor; }
 
-    /* cleaner divider so lines don't cut headings */
+    /* Divider */
     .section-divider{
       height:1px;
       width:100%;
@@ -168,7 +174,7 @@
       opacity:.95;
     }
 
-    /* ===== NEW RELEASES (BIG + STATIC, NOT SLIDING) ===== */
+    /* ===== NEW RELEASES (BIG + STATIC) ===== */
     .heroNewWrap{
       padding: 0 14px 16px;
       background: rgba(0,0,0,.28);
@@ -197,12 +203,19 @@
       display:flex;
       flex-direction:column;
       gap:12px;
+      overflow:hidden;
+      position:relative;
     }
-    .newTop{
-      display:flex;
-      gap:12px;
-      align-items:center;
+    .newCard::before{
+      content:"";
+      position:absolute; inset:-1px;
+      background:
+        radial-gradient(500px 240px at 20% 10%, rgba(122,166,255,.18), transparent 60%),
+        radial-gradient(500px 240px at 80% 15%, rgba(255,122,217,.15), transparent 60%);
+      pointer-events:none;
+      opacity:.9;
     }
+    .newTop{ position:relative; display:flex; gap:12px; align-items:center; }
     .newCover{
       width:86px;
       height:86px;
@@ -218,7 +231,7 @@
       position:absolute; inset:0;
       background: radial-gradient(circle at 50% 50%, rgba(0,0,0,.10), rgba(0,0,0,.55));
     }
-    .newMeta{ min-width:0; }
+    .newMeta{ position:relative; min-width:0; }
     .newMeta .t{
       margin:0;
       font-size:16px;
@@ -235,15 +248,32 @@
       overflow:hidden;
       text-overflow:ellipsis;
     }
-    .streamBtn{
+
+    /* Shalli-like platform bar */
+    .platformBar{
+      position:relative;
+      display:flex;
       width:100%;
-      padding:12px 14px;
       border-radius:999px;
-      border:1px solid rgba(255,255,255,.14);
-      background:rgba(255,255,255,.06);
-      font-weight:950;
-      text-align:center;
+      border:1px solid rgba(255,255,255,.12);
+      overflow:hidden;
+      background: rgba(0,0,0,.25);
+      backdrop-filter: blur(10px);
     }
+    .platformBar a{
+      flex:1;
+      padding:12px 12px;
+      text-align:center;
+      font-weight:950;
+      font-size:12px;
+      letter-spacing:.04em;
+      color: rgba(255,255,255,.88);
+      border-right:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      transition:.2s ease;
+    }
+    .platformBar a:last-child{ border-right:none; }
+    .platformBar a:hover{ background: rgba(255,255,255,.08); }
 
     /* ===== Sections ===== */
     .section{
@@ -271,6 +301,7 @@
       -webkit-overflow-scrolling:touch;
     }
     .rail::after{ content:""; flex:0 0 18px; }
+
     .miniCard{
       flex:0 0 330px;
       scroll-snap-align:start;
@@ -282,9 +313,21 @@
       box-shadow: 0 18px 55px rgba(0,0,0,.45);
       display:flex;
       flex-direction:column;
-      min-height: 210px;
+      min-height: 230px;
+      overflow:hidden;
+      position:relative;
+    }
+    .miniCard::before{
+      content:"";
+      position:absolute; inset:-1px;
+      background:
+        radial-gradient(420px 220px at 20% 10%, rgba(122,166,255,.14), transparent 60%),
+        radial-gradient(420px 220px at 80% 20%, rgba(255,122,217,.12), transparent 60%);
+      opacity:.7;
+      pointer-events:none;
     }
     .rowTop{
+      position:relative;
       display:flex;
       gap:12px;
       align-items:center;
@@ -313,7 +356,7 @@
       box-shadow: var(--glow);
       font-size:14px;
     }
-    .meta{ min-width:0; }
+    .meta{ min-width:0; position:relative; }
     .meta .title{
       margin:0;
       font-size:16px;
@@ -328,6 +371,7 @@
     }
 
     .playBtn{
+      position:relative;
       display:inline-flex; align-items:center; justify-content:center;
       width:100%;
       padding:12px 14px;
@@ -338,23 +382,10 @@
       letter-spacing:.02em;
       margin-bottom:10px;
     }
-    .chips{
-      display:grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap:10px;
-      margin-top:auto;
-    }
-    .chip{
-      padding:10px 12px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.14);
-      background:rgba(255,255,255,.06);
-      font-weight:900;
-      font-size:11px;
-      letter-spacing:.05em;
-      text-align:center;
-      white-space:nowrap;
-    }
+
+    /* Replace old chips with Shalli-like bar */
+    .miniBar{ position:relative; margin-top:auto; }
+    .miniBar .platformBar a{ padding:10px 10px; font-size:11px; }
 
     /* Videos */
     .videoCard{
@@ -400,23 +431,88 @@
       font-size:24px;
     }
 
-    /* Box */
-    .box{
+    /* Premium Cards for STORE + COMMUNITY + FOLLOW */
+    .grid2{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap:12px;
+    }
+    .premiumCard{
       border-radius:var(--radius);
       border:1px solid rgba(255,255,255,.10);
       background:rgba(255,255,255,.05);
-      padding:16px;
-      text-align:center;
       box-shadow: 0 18px 55px rgba(0,0,0,.45);
+      overflow:hidden;
+      position:relative;
     }
-    .box h3{
+    .premiumCard::before{
+      content:"";
+      position:absolute; inset:-1px;
+      background:
+        radial-gradient(520px 260px at 15% 10%, rgba(122,166,255,.18), transparent 60%),
+        radial-gradient(520px 260px at 85% 15%, rgba(255,122,217,.16), transparent 60%);
+      opacity:.85;
+      pointer-events:none;
+    }
+    .premiumInner{ position:relative; padding:16px; }
+    .premiumTitle{
       margin:0 0 6px;
       font-size:18px;
       font-weight:950;
-      letter-spacing:.08em;
+      letter-spacing:.10em;
       text-transform:uppercase;
     }
-    .box p{ margin:0 0 14px; color:rgba(255,255,255,.65); }
+    .premiumSub{
+      margin:0 0 14px;
+      color:rgba(255,255,255,.70);
+      line-height:1.4;
+    }
+
+    .cta{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:12px 16px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.06);
+      font-weight:950;
+      letter-spacing:.03em;
+      width:100%;
+      max-width:460px;
+      box-shadow: 0 10px 28px rgba(0,0,0,.35);
+      transition:.2s ease;
+    }
+    .cta.primary{
+      background: linear-gradient(90deg, rgba(122,166,255,.95), rgba(255,122,217,.95));
+      color:#07070a;
+      border-color: rgba(255,255,255,.18);
+      box-shadow: var(--glow);
+    }
+    .cta:hover{ transform: translateY(-1px); }
+
+    .tinyRow{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      justify-content:flex-start;
+    }
+    .tinyBtn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:12px 14px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(0,0,0,.20);
+      font-weight:950;
+      letter-spacing:.03em;
+      min-width:160px;
+      transition:.2s ease;
+    }
+    .tinyBtn:hover{ transform: translateY(-1px); box-shadow: var(--glow); }
 
     footer{
       margin-top:22px;
@@ -430,12 +526,14 @@
 
     @media (max-width:720px){
       .newGrid{ grid-template-columns:1fr; }
+      .grid2{ grid-template-columns: 1fr; }
     }
     @media (max-width:420px){
       .heroMedia{ height:540px; }
       .miniCard{ flex-basis:300px; }
-      .chips{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .sBtn{ min-width:160px; }
+      .iconBtn{ width:50px; height:50px; }
+      .platformBar a{ font-size:11px; }
+      .tinyBtn{ min-width:150px; }
     }
   </style>
 </head>
@@ -447,7 +545,7 @@
     <div class="pillbarWrap">
       <nav class="pillbar" aria-label="Sections">
         <a class="active" href="#home">HOME</a>
-        <a href="#releases">RELEASES</a>
+        <a href="#releases">MY TRUTH</a>
         <a href="#music">MUSIC</a>
         <a href="#videos">VIDEOS</a>
         <a href="#connect">CONNECT</a>
@@ -464,27 +562,35 @@
         </div>
       </div>
 
-      <!-- IG + TikTok (icons) -->
+      <!-- ICON-ONLY IG + TikTok -->
       <div class="socialRow">
-        <a class="sBtn primary" href="https://instagram.com/YOUR_INSTAGRAM" target="_blank" rel="noopener">
-          <span class="ico" aria-hidden="true">
-            <svg viewBox="0 0 24 24" class="svg-ico">
-              <path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9A5.5 5.5 0 0 1 16.5 22h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2Zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9A3.5 3.5 0 0 0 20 16.5v-9A3.5 3.5 0 0 0 16.5 4h-9Z"/>
-              <path d="M12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z"/>
-              <path d="M17.6 6.4a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"/>
-            </svg>
-          </span>
-          Instagram
-        </a>
+        <div class="socialDock" aria-label="Social links">
+          <a class="iconBtn primary" href="https://instagram.com/YOUR_INSTAGRAM" target="_blank" rel="noopener" aria-label="Instagram">
+            <span class="ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24" class="svg-ico">
+                <path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9A5.5 5.5 0 0 1 16.5 22h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2Zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9A3.5 3.5 0 0 0 20 16.5v-9A3.5 3.5 0 0 0 16.5 4h-9Z"/>
+                <path d="M12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z"/>
+                <path d="M17.6 6.4a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"/>
+              </svg>
+            </span>
+          </a>
 
-        <a class="sBtn primary" href="https://www.tiktok.com/@YOUR_TIKTOK" target="_blank" rel="noopener">
-          <span class="ico" aria-hidden="true">
-            <svg viewBox="0 0 24 24" class="svg-ico">
-              <path d="M14 3v10.1a3.9 3.9 0 1 1-2-3.4V6.1c0-.5.4-.9.9-.9H14Zm2.8 0c.5 2.7 2.6 4.8 5.2 5.2v2.1c-2.2-.2-4.1-1.1-5.4-2.6V14a6 6 0 1 1-6.6-5.9v2.2a3.8 3.8 0 1 0 4.6 3.7V3h2.2Z"/>
-            </svg>
-          </span>
-          TikTok
-        </a>
+          <a class="iconBtn primary" href="https://www.tiktok.com/@YOUR_TIKTOK" target="_blank" rel="noopener" aria-label="TikTok">
+            <span class="ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24" class="svg-ico">
+                <path d="M14 3v10.1a3.9 3.9 0 1 1-2-3.4V6.1c0-.5.4-.9.9-.9H14Zm2.8 0c.5 2.7 2.6 4.8 5.2 5.2v2.1c-2.2-.2-4.1-1.1-5.4-2.6V14a6 6 0 1 1-6.6-5.9v2.2a3.8 3.8 0 1 0 4.6 3.7V3h2.2Z"/>
+              </svg>
+            </span>
+          </a>
+
+          <a class="iconBtn" href="YOUR_YOUTUBE" target="_blank" rel="noopener" aria-label="YouTube">
+            <span class="ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24" class="svg-ico">
+                <path d="M21.6 7.2a3 3 0 0 0-2.1-2.1C17.7 4.6 12 4.6 12 4.6s-5.7 0-7.5.5A3 3 0 0 0 2.4 7.2 31 31 0 0 0 2 12a31 31 0 0 0 .4 4.8 3 3 0 0 0 2.1 2.1c1.8.5 7.5.5 7.5.5s5.7 0 7.5-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 22 12a31 31 0 0 0-.4-4.8ZM10 15.5v-7l6 3.5-6 3.5Z"/>
+              </svg>
+            </span>
+          </a>
+        </div>
       </div>
 
       <!-- NEW RELEASES (BIG, NOT SLIDING) -->
@@ -502,7 +608,13 @@
                 <p class="s">Single • 2026</p>
               </div>
             </div>
-            <a class="streamBtn" href="YOUR_SMARTLINK_IF_EARTH" target="_blank" rel="noopener">Stream</a>
+
+            <!-- Put real links here -->
+            <div class="platformBar" role="group" aria-label="If Earth Could Talk platforms">
+              <a href="YOUR_SPOTIFY_IF_EARTH" target="_blank" rel="noopener">Spotify</a>
+              <a href="YOUR_APPLE_IF_EARTH" target="_blank" rel="noopener">Apple Music</a>
+              <a href="YOUR_SMARTLINK_IF_EARTH" target="_blank" rel="noopener">More</a>
+            </div>
           </div>
 
           <!-- BIG 2 -->
@@ -514,19 +626,25 @@
                 <p class="s">Single • 2026</p>
               </div>
             </div>
-            <a class="streamBtn" href="YOUR_SMARTLINK_BTL" target="_blank" rel="noopener">Stream</a>
+
+            <!-- Put real links here -->
+            <div class="platformBar" role="group" aria-label="Benin To Lagos platforms">
+              <a href="YOUR_SPOTIFY_BTL" target="_blank" rel="noopener">Spotify</a>
+              <a href="YOUR_APPLE_BTL" target="_blank" rel="noopener">Apple Music</a>
+              <a href="YOUR_SMARTLINK_BTL" target="_blank" rel="noopener">More</a>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- RELEASES (sliding rail is okay here) -->
+    <!-- MY TRUTH (EP / RELEASES rail) -->
     <section id="releases" class="section">
       <div class="section-divider"></div>
-      <h2>RELEASES</h2>
+      <h2>MY TRUTH</h2>
 
       <div class="rail">
-        <!-- Bend Down Select (you can change cover later if you want) -->
+        <!-- Bend Down Select -->
         <div class="miniCard">
           <div class="rowTop">
             <div class="cover" style="background-image:url('https://raw.githubusercontent.com/omk-store/omotaker/main/IMG_7105.jpeg');">
@@ -537,15 +655,19 @@
               <p class="sub">Single • 2025</p>
             </div>
           </div>
+
           <a class="playBtn" href="YOUR_SMARTLINK_BDS" target="_blank" rel="noopener">Play</a>
-          <div class="chips">
-            <a class="chip" href="YOUR_SPOTIFY_BDS" target="_blank" rel="noopener">Spotify</a>
-            <a class="chip" href="YOUR_APPLE_BDS" target="_blank" rel="noopener">Apple</a>
-            <a class="chip" href="YOUR_BOOMPLAY_BDS" target="_blank" rel="noopener">Boomplay</a>
+
+          <div class="miniBar">
+            <div class="platformBar" role="group" aria-label="Bend Down Select platforms">
+              <a href="YOUR_SPOTIFY_BDS" target="_blank" rel="noopener">Spotify</a>
+              <a href="YOUR_APPLE_BDS" target="_blank" rel="noopener">Apple Music</a>
+              <a href="YOUR_SMARTLINK_BDS" target="_blank" rel="noopener">More</a>
+            </div>
           </div>
         </div>
 
-        <!-- My Door (placeholder cover for now) -->
+        <!-- My Door -->
         <div class="miniCard">
           <div class="rowTop">
             <div class="cover" style="background-image:url('https://raw.githubusercontent.com/omk-store/omotaker/main/IMG_7104.jpeg');">
@@ -556,15 +678,19 @@
               <p class="sub">My Truth EP • 2025</p>
             </div>
           </div>
+
           <a class="playBtn" href="YOUR_SMARTLINK_MYDOOR" target="_blank" rel="noopener">Play</a>
-          <div class="chips">
-            <a class="chip" href="YOUR_SPOTIFY_MYDOOR" target="_blank" rel="noopener">Spotify</a>
-            <a class="chip" href="YOUR_APPLE_MYDOOR" target="_blank" rel="noopener">Apple</a>
-            <a class="chip" href="YOUR_BOOMPLAY_MYDOOR" target="_blank" rel="noopener">Boomplay</a>
+
+          <div class="miniBar">
+            <div class="platformBar" role="group" aria-label="My Door platforms">
+              <a href="YOUR_SPOTIFY_MYDOOR" target="_blank" rel="noopener">Spotify</a>
+              <a href="YOUR_APPLE_MYDOOR" target="_blank" rel="noopener">Apple Music</a>
+              <a href="YOUR_SMARTLINK_MYDOOR" target="_blank" rel="noopener">More</a>
+            </div>
           </div>
         </div>
 
-        <!-- Badt Guy (placeholder cover for now) -->
+        <!-- Badt Guy -->
         <div class="miniCard">
           <div class="rowTop">
             <div class="cover" style="background-image:url('https://raw.githubusercontent.com/omk-store/omotaker/main/IMG_7103.jpeg');">
@@ -575,17 +701,21 @@
               <p class="sub">Single • 2025</p>
             </div>
           </div>
+
           <a class="playBtn" href="YOUR_SMARTLINK_BADT" target="_blank" rel="noopener">Play</a>
-          <div class="chips">
-            <a class="chip" href="YOUR_SPOTIFY_BADT" target="_blank" rel="noopener">Spotify</a>
-            <a class="chip" href="YOUR_APPLE_BADT" target="_blank" rel="noopener">Apple</a>
-            <a class="chip" href="YOUR_BOOMPLAY_BADT" target="_blank" rel="noopener">Boomplay</a>
+
+          <div class="miniBar">
+            <div class="platformBar" role="group" aria-label="Badt Guy platforms">
+              <a href="YOUR_SPOTIFY_BADT" target="_blank" rel="noopener">Spotify</a>
+              <a href="YOUR_APPLE_BADT" target="_blank" rel="noopener">Apple Music</a>
+              <a href="YOUR_SMARTLINK_BADT" target="_blank" rel="noopener">More</a>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- OLD SONGS (2024) -->
+    <!-- MUSIC (2024 / DistroKid older songs) -->
     <section id="music" class="section">
       <div class="section-divider"></div>
       <h2>MUSIC</h2>
@@ -602,30 +732,38 @@
               <p class="sub">Single • 2024</p>
             </div>
           </div>
+
           <a class="playBtn" href="YOUR_SMARTLINK_IMPORTER" target="_blank" rel="noopener">Play</a>
-          <div class="chips">
-            <a class="chip" href="YOUR_SPOTIFY_IMPORTER" target="_blank" rel="noopener">Spotify</a>
-            <a class="chip" href="YOUR_APPLE_IMPORTER" target="_blank" rel="noopener">Apple</a>
-            <a class="chip" href="YOUR_BOOMPLAY_IMPORTER" target="_blank" rel="noopener">Boomplay</a>
+
+          <div class="miniBar">
+            <div class="platformBar" role="group" aria-label="Importer Exporter platforms">
+              <a href="YOUR_SPOTIFY_IMPORTER" target="_blank" rel="noopener">Spotify</a>
+              <a href="YOUR_APPLE_IMPORTER" target="_blank" rel="noopener">Apple Music</a>
+              <a href="YOUR_SMARTLINK_IMPORTER" target="_blank" rel="noopener">More</a>
+            </div>
           </div>
         </div>
 
-        <!-- OMOR -->
+        <!-- OVIOR (renamed from OMOR) -->
         <div class="miniCard">
           <div class="rowTop">
             <div class="cover" style="background-image:url('https://raw.githubusercontent.com/omk-store/omotaker/main/D99E8D8F-BC87-4C45-8767-5DF7E7E18DA4.png');">
               <div class="playDot"><span>▶</span></div>
             </div>
             <div class="meta">
-              <p class="title">OMOR</p>
+              <p class="title">Ovior</p>
               <p class="sub">Single • 2024</p>
             </div>
           </div>
-          <a class="playBtn" href="YOUR_SMARTLINK_OMOR" target="_blank" rel="noopener">Play</a>
-          <div class="chips">
-            <a class="chip" href="YOUR_SPOTIFY_OMOR" target="_blank" rel="noopener">Spotify</a>
-            <a class="chip" href="YOUR_APPLE_OMOR" target="_blank" rel="noopener">Apple</a>
-            <a class="chip" href="YOUR_BOOMPLAY_OMOR" target="_blank" rel="noopener">Boomplay</a>
+
+          <a class="playBtn" href="YOUR_SMARTLINK_OVIOR" target="_blank" rel="noopener">Play</a>
+
+          <div class="miniBar">
+            <div class="platformBar" role="group" aria-label="Ovior platforms">
+              <a href="YOUR_SPOTIFY_OVIOR" target="_blank" rel="noopener">Spotify</a>
+              <a href="YOUR_APPLE_OVIOR" target="_blank" rel="noopener">Apple Music</a>
+              <a href="YOUR_SMARTLINK_OVIOR" target="_blank" rel="noopener">More</a>
+            </div>
           </div>
         </div>
       </div>
@@ -643,30 +781,53 @@
       </a>
     </section>
 
-    <!-- SHOP OMK -->
+    <!-- SHOP OMK (UPGRADED) -->
     <section id="store" class="section">
       <div class="section-divider"></div>
       <h2>SHOP OMK</h2>
-      <div class="box">
-        <h3>OMK DRIP STORE</h3>
-        <p>Merch + clothing. Clean link only.</p>
-        <a class="sBtn primary" href="https://omkdrip.com" target="_blank" rel="noopener" style="max-width:420px;margin:0 auto;">
-          Visit OMK Store
-        </a>
+
+      <div class="premiumCard">
+        <div class="premiumInner">
+          <h3 class="premiumTitle">OMK DRIP STORE</h3>
+          <p class="premiumSub">Merch + clothing. Premium drops only.</p>
+
+          <a class="cta primary" href="https://omkdrip.com" target="_blank" rel="noopener">Visit OMK Store</a>
+        </div>
       </div>
     </section>
 
-    <!-- CONNECT (no email stress) -->
+    <!-- CONNECT (UPGRADED + JOIN COMMUNITY, NO EMAIL) -->
     <section id="connect" class="section">
       <div class="section-divider"></div>
       <h2>CONNECT</h2>
-      <div class="box">
-        <h3>FOLLOW OMO TAKER</h3>
-        <p>Tap a platform…</p>
-        <div style="display:flex; gap:10px; justify-content:center; flex-wrap:wrap;">
-          <a class="sBtn" style="min-width:160px;" href="https://instagram.com/YOUR_INSTAGRAM" target="_blank" rel="noopener">Instagram</a>
-          <a class="sBtn" style="min-width:160px;" href="https://www.tiktok.com/@YOUR_TIKTOK" target="_blank" rel="noopener">TikTok</a>
-          <a class="sBtn" style="min-width:160px;" href="YOUR_YOUTUBE" target="_blank" rel="noopener">YouTube</a>
+
+      <div class="grid2">
+        <!-- Join community -->
+        <div class="premiumCard">
+          <div class="premiumInner">
+            <h3 class="premiumTitle">JOIN OMK COMMUNITY 🪐🐢</h3>
+            <p class="premiumSub">Get updates, drops, and new music first. No email — just vibes.</p>
+
+            <div class="tinyRow">
+              <a class="tinyBtn" href="YOUR_WHATSAPP_COMMUNITY_LINK" target="_blank" rel="noopener">WhatsApp</a>
+              <a class="tinyBtn" href="YOUR_TELEGRAM_LINK" target="_blank" rel="noopener">Telegram</a>
+              <a class="tinyBtn" href="YOUR_DISCORD_LINK" target="_blank" rel="noopener">Discord</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Follow -->
+        <div class="premiumCard">
+          <div class="premiumInner">
+            <h3 class="premiumTitle">FOLLOW OMO TAKER</h3>
+            <p class="premiumSub">Tap a platform…</p>
+
+            <div class="tinyRow" style="justify-content:flex-start;">
+              <a class="tinyBtn" href="https://instagram.com/YOUR_INSTAGRAM" target="_blank" rel="noopener">Instagram</a>
+              <a class="tinyBtn" href="https://www.tiktok.com/@YOUR_TIKTOK" target="_blank" rel="noopener">TikTok</a>
+              <a class="tinyBtn" href="YOUR_YOUTUBE" target="_blank" rel="noopener">YouTube</a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
