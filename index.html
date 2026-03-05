@@ -46,7 +46,7 @@
       padding:14px 14px 90px;
     }
 
-    /* ====== MOVING TOP (Sticky + Scrollspy like Shallipopi) ====== */
+    /* ====== MOVING TOP (Sticky + Scrollspy) ====== */
     .pillbarWrap{
       position:sticky;
       top: calc(env(safe-area-inset-top) + 10px);
@@ -90,7 +90,7 @@
       color:#fff;
     }
 
-    /* ====== HERO like Shallipopi (picture is the focus) ====== */
+    /* ====== HERO (picture focus) ====== */
     .hero{
       border-radius:var(--radius);
       overflow:hidden;
@@ -104,7 +104,7 @@
       height:520px;
       background:
         radial-gradient(900px 500px at 50% 20%, rgba(0,0,0,.10), rgba(0,0,0,.88)),
-        url("YOUR-HERO-IMAGE.jpg") center/cover no-repeat;
+        url("https://raw.githubusercontent.com/omk-store/omotaker/refs/heads/main/IMG_7103.jpeg") center/cover no-repeat;
     }
     .heroFade{
       position:absolute; left:0; right:0; bottom:0;
@@ -125,7 +125,7 @@
       text-transform:uppercase;
     }
 
-    /* ===== Social buttons under hero (ONLY IG + TikTok with real logos) ===== */
+    /* ===== Social buttons under hero ===== */
     .socialRow{
       display:flex;
       gap:12px;
@@ -156,26 +156,10 @@
       border-color: rgba(255,255,255,.18);
       box-shadow: var(--glow);
     }
+    .ico{ width:22px; height:22px; display:inline-flex; align-items:center; justify-content:center; }
+    .svg-ico{ width:22px; height:22px; fill: currentColor; }
 
-    .ico{
-      width:22px; height:22px;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-    }
-    .svg-ico{
-      width:22px; height:22px;
-      fill: currentColor;
-    }
-
-    /* ===== NEW RELEASES under hero (2 small cards) ===== */
-    .heroNewWrap{
-      padding: 0 14px 16px;
-      background: rgba(0,0,0,.28);
-      border-top: 1px solid rgba(255,255,255,.08);
-    }
-
-    /* clean divider so nothing “cuts” headings */
+    /* divider */
     .section-divider{
       height:1px;
       width:100%;
@@ -183,6 +167,12 @@
       background: linear-gradient(90deg, transparent, rgba(255,255,255,.16), transparent);
     }
 
+    /* ===== BIG FEATURE NEW RELEASES (what you asked) ===== */
+    .heroNewWrap{
+      padding: 0 14px 16px;
+      background: rgba(0,0,0,.28);
+      border-top: 1px solid rgba(255,255,255,.08);
+    }
     .heroNewTitle{
       margin: 0 0 10px;
       text-align:center;
@@ -192,73 +182,75 @@
       text-transform:uppercase;
       color: rgba(255,255,255,.78);
     }
-    .miniRow{
+    .featureRow{
       display:flex;
-      gap:12px;
+      gap:14px;
       overflow:auto;
-      padding: 2px 2px 6px;
+      padding: 2px 2px 8px;
       -webkit-overflow-scrolling:touch;
     }
-    .miniRow::after{ content:""; flex:0 0 10px; }
-    .miniSmall{
-      flex:0 0 320px;
-      border-radius:16px;
-      border:1px solid rgba(255,255,255,.10);
+    .featureRow::after{ content:""; flex:0 0 12px; }
+    .featureCard{
+      flex: 0 0 420px; /* bigger */
+      border-radius: 18px;
+      border:1px solid rgba(255,255,255,.12);
       background: rgba(255,255,255,.05);
-      box-shadow: 0 18px 55px rgba(0,0,0,.45);
-      padding:12px;
+      box-shadow: 0 20px 70px rgba(0,0,0,.55);
+      padding: 14px;
       display:flex;
       flex-direction:column;
-      gap:10px;
-    }
-    .miniTop{
-      display:flex;
       gap:12px;
+    }
+    .featureTop{
+      display:flex;
+      gap:14px;
       align-items:center;
     }
-    .miniCover{
-      width:62px; height:62px;
-      border-radius:14px;
-      border:1px solid rgba(255,255,255,.10);
+    .featureCover{
+      width:100px;
+      height:100px;
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.12);
       background: rgba(255,255,255,.08) center/cover no-repeat;
+      position:relative;
       overflow:hidden;
       flex:0 0 auto;
-      position:relative;
     }
-    .miniCover::after{
+    .featureCover::after{
       content:"";
       position:absolute; inset:0;
       background: radial-gradient(circle at 50% 50%, rgba(0,0,0,.10), rgba(0,0,0,.55));
     }
-    .miniMeta{ min-width:0; }
-    .miniMeta .t{
+    .featureMeta{ min-width:0; }
+    .featureMeta .t{
       margin:0;
-      font-size:15px;
+      font-size:18px; /* bigger */
       font-weight:950;
       white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
     }
-    .miniMeta .s{
-      margin:6px 0 0;
-      font-size:12px;
-      color: rgba(255,255,255,.60);
+    .featureMeta .s{
+      margin:8px 0 0;
+      font-size:13px;
+      color: rgba(255,255,255,.65);
       white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
     }
-    .streamBtn{
+    .featureBtn{
       width:100%;
-      padding:12px 14px;
-      border-radius:999px;
+      padding: 14px 16px;
+      border-radius: 999px;
       border:1px solid rgba(255,255,255,.14);
-      background:rgba(255,255,255,.06);
-      font-weight:950;
+      background: rgba(255,255,255,.06);
+      font-weight: 950;
       text-align:center;
+      letter-spacing:.02em;
     }
 
     /* Sections */
     .section{
       margin-top:18px;
       padding-top:14px;
-      border-top: none; /* removed hard border that was cutting */
-      scroll-margin-top: 92px;
+      border-top:none;
+      scroll-margin-top:92px;
     }
     .section h2{
       margin:16px 0 12px;
@@ -269,7 +261,7 @@
       text-transform:uppercase;
     }
 
-    /* ====== Horizontal rail cards ====== */
+    /* Rails */
     .rail{
       display:flex;
       gap:12px;
@@ -290,7 +282,7 @@
       box-shadow: 0 18px 55px rgba(0,0,0,.45);
       display:flex;
       flex-direction:column;
-      min-height: 210px;
+      min-height:210px;
     }
     .rowTop{
       display:flex;
@@ -334,7 +326,6 @@
       color:rgba(255,255,255,.60);
       white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
     }
-
     .playBtn{
       display:inline-flex; align-items:center; justify-content:center;
       width:100%;
@@ -362,6 +353,84 @@
       letter-spacing:.05em;
       text-align:center;
       white-space:nowrap;
+    }
+
+    /* ALBUM / EP layout */
+    .albumGrid{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap:12px;
+    }
+    .albumCard{
+      border-radius:var(--radius);
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.05);
+      box-shadow: 0 18px 55px rgba(0,0,0,.45);
+      padding:16px;
+    }
+    .albumTop{
+      display:flex;
+      gap:14px;
+      align-items:center;
+      margin-bottom:12px;
+    }
+    .albumCover{
+      width:110px; height:110px;
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.08) center/cover no-repeat;
+      overflow:hidden;
+      flex:0 0 auto;
+      position:relative;
+    }
+    .albumCover::after{
+      content:"";
+      position:absolute; inset:0;
+      background: radial-gradient(circle at 50% 50%, rgba(0,0,0,.08), rgba(0,0,0,.55));
+    }
+    .albumMeta .name{
+      margin:0;
+      font-size:20px;
+      font-weight:950;
+      letter-spacing:.06em;
+      text-transform:uppercase;
+    }
+    .albumMeta .info{
+      margin:8px 0 0;
+      color:rgba(255,255,255,.70);
+      font-size:13px;
+    }
+    .trackList{
+      margin:10px 0 0;
+      padding:0;
+      list-style:none;
+      display:grid;
+      gap:8px;
+      color:rgba(255,255,255,.75);
+      font-size:13px;
+    }
+    .trackList li{
+      padding:10px 12px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+    }
+    .albumBtnRow{
+      display:flex;
+      gap:10px;
+      margin-top:12px;
+      flex-wrap:wrap;
+    }
+    .albumBtn{
+      flex:1 1 180px;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      padding:12px 14px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.06);
+      font-weight:950;
     }
 
     /* Videos */
@@ -408,25 +477,7 @@
       font-size:24px;
     }
 
-    /* Shop + Connect */
-    .box{
-      border-radius:var(--radius);
-      border:1px solid rgba(255,255,255,.10);
-      background:rgba(255,255,255,.05);
-      padding:18px;
-      text-align:center;
-      box-shadow: 0 18px 55px rgba(0,0,0,.45);
-    }
-    .box h3{
-      margin:0 0 6px;
-      font-size:18px;
-      font-weight:950;
-      letter-spacing:.08em;
-      text-transform:uppercase;
-    }
-    .box p{ margin:0 0 14px; color:rgba(255,255,255,.65); }
-
-    /* SHOP upgraded */
+    /* Shop */
     .storeCard{
       padding: 22px 18px;
       border-radius: 18px;
@@ -465,7 +516,23 @@
       margin:0 auto;
     }
 
-    /* CONNECT: email input + submit */
+    /* Connect */
+    .box{
+      border-radius:var(--radius);
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.05);
+      padding:18px;
+      text-align:center;
+      box-shadow: 0 18px 55px rgba(0,0,0,.45);
+    }
+    .box h3{
+      margin:0 0 6px;
+      font-size:18px;
+      font-weight:950;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
+    .box p{ margin:0 0 14px; color:rgba(255,255,255,.65); }
     .emailBox{
       display:flex;
       gap:10px;
@@ -491,8 +558,6 @@
       background: rgba(255,255,255,.10);
       color:#fff;
     }
-
-    /* small slim social buttons under email */
     .miniSocial{
       display:flex;
       gap:10px;
@@ -523,12 +588,16 @@
       letter-spacing:.04em;
     }
 
+    @media (max-width:740px){
+      .albumGrid{ grid-template-columns: 1fr; }
+    }
     @media (max-width:420px){
       .heroMedia{ height:540px; }
       .miniCard{ flex-basis:300px; }
-      .miniSmall{ flex-basis:290px; }
       .chips{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .sBtn{ min-width:160px; }
+      .featureCard{ flex-basis: 360px; }
+      .featureCover{ width:92px; height:92px; }
     }
   </style>
 </head>
@@ -536,12 +605,12 @@
 <body>
   <div class="wrap">
 
-    <!-- ONLY THIS TOP MOVES (sticky) -->
     <div class="pillbarWrap">
       <nav class="pillbar" aria-label="Sections">
         <a class="active" href="#home">HOME</a>
         <a href="#releases">RELEASES</a>
         <a href="#music">MUSIC</a>
+        <a href="#album">ALBUM</a>
         <a href="#videos">VIDEOS</a>
         <a href="#connect">CONNECT</a>
         <a href="#store">SHOP OMK</a>
@@ -557,11 +626,10 @@
         </div>
       </div>
 
-      <!-- IG + TikTok only (with real logos) -->
+      <!-- IG + TikTok -->
       <div class="socialRow">
         <a class="sBtn primary" href="https://instagram.com/YOUR_INSTAGRAM" target="_blank" rel="noopener">
           <span class="ico" aria-hidden="true">
-            <!-- Instagram SVG -->
             <svg viewBox="0 0 24 24" class="svg-ico">
               <path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9A5.5 5.5 0 0 1 16.5 22h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2Zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9A3.5 3.5 0 0 0 20 16.5v-9A3.5 3.5 0 0 0 16.5 4h-9Z"/>
               <path d="M12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z"/>
@@ -573,7 +641,6 @@
 
         <a class="sBtn primary" href="https://www.tiktok.com/@YOUR_TIKTOK" target="_blank" rel="noopener">
           <span class="ico" aria-hidden="true">
-            <!-- TikTok SVG -->
             <svg viewBox="0 0 24 24" class="svg-ico">
               <path d="M14 3v10.1a3.9 3.9 0 1 1-2-3.4V6.1c0-.5.4-.9.9-.9H14Zm2.8 0c.5 2.7 2.6 4.8 5.2 5.2v2.1c-2.2-.2-4.1-1.1-5.4-2.6V14a6 6 0 1 1-6.6-5.9v2.2a3.8 3.8 0 1 0 4.6 3.7V3h2.2Z"/>
             </svg>
@@ -582,32 +649,34 @@
         </a>
       </div>
 
-      <!-- NEW RELEASES -->
+      <!-- BIG NEW RELEASES -->
       <div class="heroNewWrap">
         <div class="section-divider"></div>
         <div class="heroNewTitle">NEW RELEASES</div>
 
-        <div class="miniRow">
-          <div class="miniSmall">
-            <div class="miniTop">
-              <div class="miniCover" style="background-image:url('covers/if-earth-could-talk.jpg');"></div>
-              <div class="miniMeta">
+        <div class="featureRow">
+          <!-- If Earth Could Talk (BIG) -->
+          <div class="featureCard">
+            <div class="featureTop">
+              <div class="featureCover" style="background-image:url('https://raw.githubusercontent.com/omk-store/omotaker/refs/heads/main/6066994F-0E77-4ACE-AB1C-4E1445E4457F.png');"></div>
+              <div class="featureMeta">
                 <p class="t">If Earth Could Talk</p>
                 <p class="s">Single • 2026</p>
               </div>
             </div>
-            <a class="streamBtn" href="YOUR_SMARTLINK_IF_EARTH" target="_blank" rel="noopener">Stream</a>
+            <a class="featureBtn" href="YOUR_SMARTLINK_IF_EARTH" target="_blank" rel="noopener">Stream Now</a>
           </div>
 
-          <div class="miniSmall">
-            <div class="miniTop">
-              <div class="miniCover" style="background-image:url('covers/benin-to-lagos.jpg');"></div>
-              <div class="miniMeta">
+          <!-- Benin To Lagos (BIG) -->
+          <div class="featureCard">
+            <div class="featureTop">
+              <div class="featureCover" style="background-image:url('https://raw.githubusercontent.com/omk-store/omotaker/refs/heads/main/A4C9B8E6-BBDF-4489-927B-B535734DED3C.png');"></div>
+              <div class="featureMeta">
                 <p class="t">Benin To Lagos</p>
                 <p class="s">Single • 2026</p>
               </div>
             </div>
-            <a class="streamBtn" href="YOUR_SMARTLINK_BTL" target="_blank" rel="noopener">Stream</a>
+            <a class="featureBtn" href="YOUR_SMARTLINK_BTL" target="_blank" rel="noopener">Stream Now</a>
           </div>
         </div>
       </div>
@@ -619,6 +688,7 @@
       <h2>RELEASES</h2>
 
       <div class="rail">
+        <!-- Bend Down Select -->
         <div class="miniCard">
           <div class="rowTop">
             <div class="cover" style="background-image:url('covers/bend-down-select.jpg');">
@@ -637,6 +707,7 @@
           </div>
         </div>
 
+        <!-- My Door -->
         <div class="miniCard">
           <div class="rowTop">
             <div class="cover" style="background-image:url('covers/my-door.jpg');">
@@ -655,6 +726,7 @@
           </div>
         </div>
 
+        <!-- Badt Guy -->
         <div class="miniCard">
           <div class="rowTop">
             <div class="cover" style="background-image:url('covers/badt-guy.jpg');">
@@ -681,9 +753,10 @@
       <h2>MUSIC</h2>
 
       <div class="rail">
+        <!-- Importer Exporter (linked cover from your GitHub) -->
         <div class="miniCard">
           <div class="rowTop">
-            <div class="cover" style="background-image:url('covers/importer-exporter.jpg');">
+            <div class="cover" style="background-image:url('https://raw.githubusercontent.com/omk-store/omotaker/refs/heads/main/A7D70F9C-D928-4A18-BAAD-ED8908BEBC77.png');">
               <div class="playDot"><span>▶</span></div>
             </div>
             <div class="meta">
@@ -699,6 +772,26 @@
           </div>
         </div>
 
+        <!-- Omor (linked cover from your GitHub) -->
+        <div class="miniCard">
+          <div class="rowTop">
+            <div class="cover" style="background-image:url('https://raw.githubusercontent.com/omk-store/omotaker/refs/heads/main/D99E8D8F-BC87-4C45-8767-5DF7E7E18DA4.png');">
+              <div class="playDot"><span>▶</span></div>
+            </div>
+            <div class="meta">
+              <p class="title">Omor</p>
+              <p class="sub">Single • 2024</p>
+            </div>
+          </div>
+          <a class="playBtn" href="YOUR_SMARTLINK_OMOR" target="_blank" rel="noopener">Play</a>
+          <div class="chips">
+            <a class="chip" href="YOUR_SPOTIFY_OMOR" target="_blank" rel="noopener">Spotify</a>
+            <a class="chip" href="YOUR_APPLE_OMOR" target="_blank" rel="noopener">Apple</a>
+            <a class="chip" href="YOUR_BOOMPLAY_OMOR" target="_blank" rel="noopener">Boomplay</a>
+          </div>
+        </div>
+
+        <!-- Ovior (keep your existing file until you upload link) -->
         <div class="miniCard">
           <div class="rowTop">
             <div class="cover" style="background-image:url('covers/ovior.jpg');">
@@ -715,6 +808,65 @@
             <a class="chip" href="YOUR_APPLE_OVIOR" target="_blank" rel="noopener">Apple</a>
             <a class="chip" href="YOUR_BOOMPLAY_OVIOR" target="_blank" rel="noopener">Boomplay</a>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ALBUM / EP (placed before videos as you requested) -->
+    <section id="album" class="section">
+      <div class="section-divider"></div>
+      <h2>ALBUM / EP</h2>
+
+      <div class="albumGrid">
+        <div class="albumCard">
+          <div class="albumTop">
+            <div class="albumCover" style="background-image:url('covers/my-truth-ep.jpg');"></div>
+            <div class="albumMeta">
+              <p class="name">MY TRUTH EP</p>
+              <p class="info">EP • 2025 • Omo Taker</p>
+            </div>
+          </div>
+
+          <!-- Put only the key tracks (not all songs) -->
+          <ul class="trackList">
+            <li>My Door</li>
+            <li>Track 2 (edit name)</li>
+            <li>Track 3 (edit name)</li>
+            <li>Track 4 (edit name)</li>
+          </ul>
+
+          <div class="albumBtnRow">
+            <a class="albumBtn" href="YOUR_SMARTLINK_MYTRUTH_EP" target="_blank" rel="noopener">Listen EP</a>
+            <a class="albumBtn" href="YOUR_SPOTIFY_MYTRUTH_EP" target="_blank" rel="noopener">Spotify</a>
+            <a class="albumBtn" href="YOUR_APPLE_MYTRUTH_EP" target="_blank" rel="noopener">Apple</a>
+          </div>
+        </div>
+
+        <div class="albumCard">
+          <p style="margin:0 0 10px; font-weight:950; letter-spacing:.10em; text-transform:uppercase; opacity:.9;">
+            EP Notes
+          </p>
+          <p style="margin:0; color:rgba(255,255,255,.70); line-height:1.6;">
+            Add a short story here (2–4 lines): why the EP matters, what fans should feel, and your vibe.
+          </p>
+
+          <div class="section-divider" style="margin:14px 0;"></div>
+
+          <p style="margin:0 0 10px; font-weight:950; letter-spacing:.10em; text-transform:uppercase; opacity:.9;">
+            Featured Track
+          </p>
+
+          <div class="rowTop" style="margin-bottom:0;">
+            <div class="cover" style="background-image:url('covers/my-door.jpg'); width:86px; height:86px;">
+              <div class="playDot"><span>▶</span></div>
+            </div>
+            <div class="meta">
+              <p class="title">My Door</p>
+              <p class="sub">My Truth EP • 2025</p>
+            </div>
+          </div>
+
+          <a class="playBtn" style="margin-top:12px;" href="YOUR_SMARTLINK_MYDOOR" target="_blank" rel="noopener">Play Featured Track</a>
         </div>
       </div>
     </section>
@@ -771,10 +923,8 @@
   </div>
 
   <script>
-    // year
     document.getElementById("yr").textContent = new Date().getFullYear();
 
-    // simple email submit (stores locally + alert)
     function handleEmailSubmit(e){
       e.preventDefault();
       const email = document.getElementById("email").value.trim();
@@ -789,11 +939,8 @@
       return false;
     }
 
-    // ===== Scrollspy =====
     const links = Array.from(document.querySelectorAll(".pillbar a"));
-    const sections = links
-      .map(a => document.querySelector(a.getAttribute("href")))
-      .filter(Boolean);
+    const sections = links.map(a => document.querySelector(a.getAttribute("href"))).filter(Boolean);
 
     const setActive = (id) => {
       links.forEach(a => a.classList.toggle("active", a.getAttribute("href") === "#" + id));
