@@ -40,7 +40,7 @@
     .wrap{
       max-width:var(--max);
       margin:0 auto;
-      padding:14px 14px 90px;
+      padding:14px 14px 110px;
     }
 
     /* ====== Sticky top bar ====== */
@@ -175,7 +175,14 @@
       opacity:.95;
     }
 
-    /* ===== NEW RELEASES ===== */
+    /* ✅ zoom covers to remove white edges */
+    .newCover, .cover{
+      background-size: 120% !important;
+      background-position: center !important;
+      background-repeat: no-repeat !important;
+    }
+
+    /* ===== NEW RELEASES (Shalli style) ===== */
     .heroNewWrap{
       padding: 0 14px 16px;
       background: rgba(0,0,0,.28);
@@ -190,79 +197,71 @@
       text-transform:uppercase;
       color: rgba(255,255,255,.78);
     }
-    .newGrid{
-      display:grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap:12px;
+
+    .releaseStack{
+      display:flex;
+      flex-direction:column;
+      gap:14px;
     }
-    .newCard{
-      border-radius:18px;
+
+    .releaseHero{
+      border-radius:22px;
       border:1px solid rgba(255,255,255,.10);
       background: rgba(255,255,255,.05);
       box-shadow: 0 18px 55px rgba(0,0,0,.45);
-      padding:14px;
-      display:flex;
-      flex-direction:column;
-      gap:12px;
       overflow:hidden;
       position:relative;
+      padding:14px;
+      text-align:center;
     }
-    .newCard::before{
+    .releaseHero::before{
       content:"";
       position:absolute; inset:-1px;
       background:
-        radial-gradient(500px 240px at 20% 10%, rgba(122,166,255,.18), transparent 60%),
-        radial-gradient(500px 240px at 80% 15%, rgba(255,122,217,.15), transparent 60%);
+        radial-gradient(520px 260px at 20% 10%, rgba(122,166,255,.18), transparent 60%),
+        radial-gradient(520px 260px at 80% 15%, rgba(255,122,217,.15), transparent 60%);
       pointer-events:none;
       opacity:.9;
     }
-    .newTop{ position:relative; display:flex; gap:12px; align-items:center; }
 
-    .newCover{
-      width:86px;
-      height:86px;
-      border-radius:16px;
+    .releaseCover{
+      position:relative;
+      width:min(520px, 100%);
+      aspect-ratio: 1 / 1;
+      margin: 0 auto 12px;
+      border-radius:20px;
       border:1px solid rgba(255,255,255,.10);
       background: rgba(255,255,255,.08) center/cover no-repeat;
-      position:relative;
       overflow:hidden;
-      flex:0 0 auto;
     }
-    .newCover::after{
+    .releaseCover::after{
       content:"";
       position:absolute; inset:0;
-      background: radial-gradient(circle at 50% 50%, rgba(0,0,0,.10), rgba(0,0,0,.55));
+      background: radial-gradient(circle at 50% 50%, rgba(0,0,0,.05), rgba(0,0,0,.45));
     }
 
-    /* ✅ zoom small covers to remove white edges */
-    .newCover, .cover{
-      background-size: 120% !important;
-      background-position: center !important;
-      background-repeat: no-repeat !important;
-    }
-
-    .newMeta{ position:relative; min-width:0; }
-    .newMeta .t{
+    .releaseName{
+      position:relative;
       margin:0;
-      font-size:16px;
+      font-size:22px;
       font-weight:950;
-      white-space:nowrap;
-      overflow:hidden;
-      text-overflow:ellipsis;
+      letter-spacing:.04em;
+      text-transform:uppercase;
     }
-    .newMeta .s{
-      margin:6px 0 0;
+    .releaseSub{
+      position:relative;
+      margin:8px 0 12px;
       font-size:12px;
-      color: rgba(255,255,255,.60);
-      white-space:nowrap;
-      overflow:hidden;
-      text-overflow:ellipsis;
+      color: rgba(255,255,255,.65);
+      letter-spacing:.05em;
+      text-transform:uppercase;
     }
 
     .platformBar{
       position:relative;
       display:flex;
-      width:100%;
+      width:min(720px, 100%);
+      margin: 0 auto;
       border-radius:999px;
       border:1px solid rgba(255,255,255,.12);
       overflow:hidden;
@@ -443,11 +442,6 @@
       border:1px solid rgba(255,255,255,.10);
       backdrop-filter: blur(10px);
     }
-    .videoActions{
-      display:flex;
-      justify-content:center;
-      margin-top:10px;
-    }
 
     /* Premium cards */
     .grid2{
@@ -546,9 +540,28 @@
       letter-spacing:.04em;
     }
 
+    /* ✅ floating omotaker.com pill (takes to NEW RELEASES) */
+    .bottomPill{
+      position:fixed;
+      left:50%;
+      transform:translateX(-50%);
+      bottom: calc(env(safe-area-inset-bottom) + 12px);
+      z-index:80;
+      width:min(260px, calc(100% - 28px));
+      text-align:center;
+      padding:12px 16px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.16);
+      background: rgba(0,0,0,.45);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 18px 55px rgba(0,0,0,.55);
+      font-weight:950;
+      letter-spacing:.04em;
+    }
+
     @media (max-width:720px){
-      .newGrid{ grid-template-columns:1fr; }
       .grid2{ grid-template-columns: 1fr; }
+      .releaseCover{ width:100%; }
     }
     @media (max-width:420px){
       .heroMedia{ height:540px; }
@@ -560,6 +573,8 @@
 </head>
 
 <body>
+  <a class="bottomPill" href="#newreleases">omotaker.com</a>
+
   <div class="wrap">
 
     <div class="pillbarWrap">
@@ -583,30 +598,26 @@
 
       <div class="socialRow">
         <div class="socialDock" aria-label="Social links">
-          <a class="iconBtn primary" href="https://www.instagram.com/iam__omotaker?igsh=MTEwM2RiOHV1ZjJzdQ%3D%3D&utm_source=qr" target="_blank" rel="noopener" aria-label="Instagram">
+          <a class="iconBtn primary" href="https://instagram.com/iam__omotaker" target="_blank" rel="noopener" aria-label="Instagram">
             <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram">
           </a>
 
-          <a class="iconBtn primary" href="https://www.tiktok.com/@iam.omotaker?_r=1&_t=ZS-94R7kuZiptd" target="_blank" rel="noopener" aria-label="TikTok">
+          <a class="iconBtn primary" href="https://www.tiktok.com/@iam.omotaker" target="_blank" rel="noopener" aria-label="TikTok">
             <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/tiktok.svg" alt="TikTok">
           </a>
         </div>
       </div>
 
-      <div id="new-releases" class="heroNewWrap">
+      <div id="newreleases" class="heroNewWrap">
         <div class="section-divider"></div>
         <div class="heroNewTitle">NEW RELEASES</div>
 
-        <div class="newGrid">
+        <div class="releaseStack">
           <!-- If Earth Could Talk -->
-          <div class="newCard">
-            <div class="newTop">
-              <div class="newCover" style="background-image:url('https://raw.githubusercontent.com/omk-store/omotaker/main/A4C9B8E6-BBDF-4489-927B-B535734DED3C.png');"></div>
-              <div class="newMeta">
-                <p class="t">If Earth Could Talk</p>
-                <p class="s">Single • 2026</p>
-              </div>
-            </div>
+          <div class="releaseHero">
+            <div class="releaseCover" style="background-image:url('https://raw.githubusercontent.com/omk-store/omotaker/main/A4C9B8E6-BBDF-4489-927B-B535734DED3C.png');"></div>
+            <p class="releaseName">If Earth Could Talk</p>
+            <p class="releaseSub">Single • 2026</p>
             <div class="platformBar" role="group" aria-label="If Earth Could Talk platforms">
               <a href="https://open.spotify.com/track/7mifEtIK9OPGWD9EyOOLnq?si=hmsxRSbFT0SYsQYaHyHJrg" target="_blank" rel="noopener">Spotify</a>
               <a href="https://music.apple.com/ng/album/if-earth-could-talk/1881338853?i=1881338854" target="_blank" rel="noopener">Apple Music</a>
@@ -615,14 +626,10 @@
           </div>
 
           <!-- Benin To Lagos -->
-          <div class="newCard">
-            <div class="newTop">
-              <div class="newCover" style="background-image:url('https://raw.githubusercontent.com/omk-store/omotaker/main/6066994F-0E77-4ACE-AB1C-4E1445E4457F.png');"></div>
-              <div class="newMeta">
-                <p class="t">Benin To Lagos</p>
-                <p class="s">Single • 2026</p>
-              </div>
-            </div>
+          <div class="releaseHero">
+            <div class="releaseCover" style="background-image:url('https://raw.githubusercontent.com/omk-store/omotaker/main/6066994F-0E77-4ACE-AB1C-4E1445E4457F.png');"></div>
+            <p class="releaseName">Benin To Lagos</p>
+            <p class="releaseSub">Single • 2026</p>
             <div class="platformBar" role="group" aria-label="Benin To Lagos platforms">
               <a href="https://open.spotify.com/track/0SooNM8i9p1UiE7HTTp5C4?si=AStB3M9vRlCplVnQxvyT3w" target="_blank" rel="noopener">Spotify</a>
               <a href="https://music.apple.com/ng/album/benin-to-lagos/1866424075?i=1866424076" target="_blank" rel="noopener">Apple Music</a>
@@ -639,7 +646,6 @@
       <h2>MY TRUTH</h2>
 
       <div class="rail">
-        <!-- Bend Down Select -->
         <div class="miniCard">
           <div class="rowTop">
             <div class="cover" style="background-image:url('https://raw.githubusercontent.com/omk-store/omotaker/main/A4C9B8E6-BBDF-4489-927B-B535734DED3C.png');">
@@ -660,7 +666,6 @@
           </div>
         </div>
 
-        <!-- My Door -->
         <div class="miniCard">
           <div class="rowTop">
             <div class="cover" style="background-image:url('https://raw.githubusercontent.com/omk-store/omotaker/main/A4C9B8E6-BBDF-4489-927B-B535734DED3C.png');">
@@ -681,7 +686,6 @@
           </div>
         </div>
 
-        <!-- Badt Guy -->
         <div class="miniCard">
           <div class="rowTop">
             <div class="cover" style="background-image:url('https://raw.githubusercontent.com/omk-store/omotaker/main/A4C9B8E6-BBDF-4489-927B-B535734DED3C.png');">
@@ -710,7 +714,6 @@
       <h2>MUSIC</h2>
 
       <div class="rail">
-        <!-- Importer Exporter -->
         <div class="miniCard">
           <div class="rowTop">
             <div class="cover" style="background-image:url('https://raw.githubusercontent.com/omk-store/omotaker/main/IMG_7103.jpeg');">
@@ -731,7 +734,6 @@
           </div>
         </div>
 
-        <!-- Ovior -->
         <div class="miniCard">
           <div class="rowTop">
             <div class="cover" style="background-image:url('https://raw.githubusercontent.com/omk-store/omotaker/main/IMG_7104.jpeg');">
@@ -766,10 +768,6 @@
       </a>
 
       <div class="videoCaption">BEND DOWN SELECT (OFFICIAL VIDEO)</div>
-
-      <div class="videoActions">
-        <a class="cta primary" href="https://youtu.be/7qlRs1gDnMI" target="_blank" rel="noopener">Watch on YouTube</a>
-      </div>
     </section>
 
     <!-- SHOP OMK -->
@@ -812,11 +810,11 @@
 
             <div class="socialRow" style="padding:12px 0 0; background:transparent; border-top:none;">
               <div class="socialDock" aria-label="Follow links" style="width:100%;">
-                <a class="iconBtn primary" href="https://www.instagram.com/iam__omotaker?igsh=MTEwM2RiOHV1ZjJzdQ%3D%3D&utm_source=qr" target="_blank" rel="noopener" aria-label="Instagram">
+                <a class="iconBtn primary" href="https://instagram.com/iam__omotaker" target="_blank" rel="noopener" aria-label="Instagram">
                   <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram">
                 </a>
 
-                <a class="iconBtn primary" href="https://www.tiktok.com/@iam.omotaker?_r=1&_t=ZS-94R7kuZiptd" target="_blank" rel="noopener" aria-label="TikTok">
+                <a class="iconBtn primary" href="https://www.tiktok.com/@iam.omotaker" target="_blank" rel="noopener" aria-label="TikTok">
                   <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/tiktok.svg" alt="TikTok">
                 </a>
               </div>
@@ -833,19 +831,14 @@
   <script>
     document.getElementById("yr").textContent = new Date().getFullYear();
 
-    // ✅ Always open to NEW RELEASES (fix ads landing at CONNECT)
-    if ("scrollRestoration" in history) history.scrollRestoration = "manual";
-    window.addEventListener("load", () => {
-      // if there is no #hash, push them to New Releases
-      if (!location.hash) {
-        setTimeout(() => {
-          const target = document.getElementById("new-releases");
-          if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
-        }, 250);
-      }
-    });
+    // ✅ If someone lands with #connect (or any hash), you can force new releases for ads by adding ?focus=new
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("focus") === "new") {
+      const el = document.getElementById("newreleases");
+      if (el) el.scrollIntoView({behavior:"smooth", block:"start"});
+      history.replaceState(null, "", window.location.pathname + window.location.search);
+    }
 
-    // Scrollspy
     const links = Array.from(document.querySelectorAll(".pillbar a"));
     const sections = links
       .map(a => document.querySelector(a.getAttribute("href")))
