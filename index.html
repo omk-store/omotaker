@@ -95,37 +95,24 @@
       background:rgba(255,255,255,.03);
       box-shadow: 0 20px 60px rgba(0,0,0,.55);
     }
-
-    /* ✅ HERO IMAGE (FLIPPED) */
     .heroMedia{
       position:relative;
       width:100%;
       height:520px;
-      overflow:hidden;
-      --heroImg: url("https://raw.githubusercontent.com/omk-store/omotaker/main/D99E8D8F-BC87-4C45-8767-5DF7E7E18DA4.png"); /* Ovior */
-      background: #000;
-    }
-    .heroMedia::before{
-      content:"";
-      position:absolute; inset:0;
       background:
         radial-gradient(900px 500px at 50% 20%, rgba(0,0,0,.10), rgba(0,0,0,.88)),
-        var(--heroImg) center/cover no-repeat;
-      transform: scaleX(-1); /* FLIP */
+        url("https://raw.githubusercontent.com/omk-store/omotaker/main/D99E8D8F-BC87-4C45-8767-5DF7E7E18DA4.png") center/cover no-repeat;
     }
-
     .heroFade{
       position:absolute; left:0; right:0; bottom:0;
       height:48%;
       background: linear-gradient(to top, rgba(0,0,0,.92), rgba(0,0,0,.0));
-      z-index:2;
     }
     .heroCenter{
       position:absolute; left:0; right:0; bottom:22px;
       display:flex; flex-direction:column; align-items:center; gap:10px;
       padding:0 14px;
       text-align:center;
-      z-index:3;
     }
     .heroName{
       margin:0;
@@ -172,13 +159,10 @@
       border-color: rgba(255,255,255,.18);
       box-shadow: var(--glow);
     }
-
-    /* ✅ clean white icons (no “weird” invert look) */
-    .brandIcon{
-      width:24px; height:24px;
-      background:#fff;
-      -webkit-mask: var(--mask) no-repeat center / contain;
-      mask: var(--mask) no-repeat center / contain;
+    .iconBtn img{
+      width:24px;
+      height:24px;
+      filter: invert(1);
       opacity:.98;
       display:block;
     }
@@ -423,7 +407,7 @@
       height:240px;
       background:
         linear-gradient(to bottom, rgba(0,0,0,.15), rgba(0,0,0,.75)),
-        url("https://img.youtube.com/vi/7qlRs1gDnMI/hqdefault.jpg") center/cover no-repeat; /* YouTube thumb */
+        url("https://i.ytimg.com/vi/7qlRs1gDnMI/hqdefault.jpg") center/cover no-repeat;
       background-size: 112% !important;
       background-position:center !important;
       position:relative;
@@ -444,8 +428,6 @@
       box-shadow: var(--glow);
       font-size:24px;
     }
-
-    /* ✅ Caption BELOW (no link text inside) */
     .videoCaption{
       margin:10px auto 0;
       width: fit-content;
@@ -460,6 +442,11 @@
       background:rgba(0,0,0,.35);
       border:1px solid rgba(255,255,255,.10);
       backdrop-filter: blur(10px);
+    }
+    .videoActions{
+      display:flex;
+      justify-content:center;
+      margin-top:10px;
     }
 
     /* Premium cards */
@@ -499,7 +486,7 @@
       line-height:1.4;
     }
 
-    /* ✅ Center text in SHOP + CONNECT */
+    /* ✅ Center text in SHOP + CONNECT like your mark */
     #store .premiumInner,
     #connect .premiumInner{
       text-align:center;
@@ -597,22 +584,21 @@
       <div class="socialRow">
         <div class="socialDock" aria-label="Social links">
           <a class="iconBtn primary" href="https://www.instagram.com/iam__omotaker?igsh=MTEwM2RiOHV1ZjJzdQ%3D%3D&utm_source=qr" target="_blank" rel="noopener" aria-label="Instagram">
-            <span class="brandIcon" style="--mask:url('https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg');"></span>
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram">
           </a>
 
           <a class="iconBtn primary" href="https://www.tiktok.com/@iam.omotaker?_r=1&_t=ZS-94R7kuZiptd" target="_blank" rel="noopener" aria-label="TikTok">
-            <span class="brandIcon" style="--mask:url('https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/tiktok.svg');"></span>
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/tiktok.svg" alt="TikTok">
           </a>
         </div>
       </div>
 
-      <!-- ✅ visitors land here (NEW RELEASES) -->
-      <div id="newreleases" class="heroNewWrap">
+      <div id="new-releases" class="heroNewWrap">
         <div class="section-divider"></div>
         <div class="heroNewTitle">NEW RELEASES</div>
 
         <div class="newGrid">
-          <!-- ✅ FLIPPED covers between these two -->
+          <!-- If Earth Could Talk -->
           <div class="newCard">
             <div class="newTop">
               <div class="newCover" style="background-image:url('https://raw.githubusercontent.com/omk-store/omotaker/main/A4C9B8E6-BBDF-4489-927B-B535734DED3C.png');"></div>
@@ -628,6 +614,7 @@
             </div>
           </div>
 
+          <!-- Benin To Lagos -->
           <div class="newCard">
             <div class="newTop">
               <div class="newCover" style="background-image:url('https://raw.githubusercontent.com/omk-store/omotaker/main/6066994F-0E77-4ACE-AB1C-4E1445E4457F.png');"></div>
@@ -652,6 +639,7 @@
       <h2>MY TRUTH</h2>
 
       <div class="rail">
+        <!-- Bend Down Select -->
         <div class="miniCard">
           <div class="rowTop">
             <div class="cover" style="background-image:url('https://raw.githubusercontent.com/omk-store/omotaker/main/A4C9B8E6-BBDF-4489-927B-B535734DED3C.png');">
@@ -672,6 +660,7 @@
           </div>
         </div>
 
+        <!-- My Door -->
         <div class="miniCard">
           <div class="rowTop">
             <div class="cover" style="background-image:url('https://raw.githubusercontent.com/omk-store/omotaker/main/A4C9B8E6-BBDF-4489-927B-B535734DED3C.png');">
@@ -692,6 +681,7 @@
           </div>
         </div>
 
+        <!-- Badt Guy -->
         <div class="miniCard">
           <div class="rowTop">
             <div class="cover" style="background-image:url('https://raw.githubusercontent.com/omk-store/omotaker/main/A4C9B8E6-BBDF-4489-927B-B535734DED3C.png');">
@@ -720,6 +710,7 @@
       <h2>MUSIC</h2>
 
       <div class="rail">
+        <!-- Importer Exporter -->
         <div class="miniCard">
           <div class="rowTop">
             <div class="cover" style="background-image:url('https://raw.githubusercontent.com/omk-store/omotaker/main/IMG_7103.jpeg');">
@@ -740,6 +731,7 @@
           </div>
         </div>
 
+        <!-- Ovior -->
         <div class="miniCard">
           <div class="rowTop">
             <div class="cover" style="background-image:url('https://raw.githubusercontent.com/omk-store/omotaker/main/IMG_7104.jpeg');">
@@ -767,14 +759,17 @@
       <div class="section-divider"></div>
       <h2>VIDEOS</h2>
 
-      <a class="videoCard" href="https://youtu.be/7qlRs1gDnMI" target="_blank" rel="noopener" aria-label="Bend Down Select Official Video">
+      <a class="videoCard" href="https://youtu.be/7qlRs1gDnMI" target="_blank" rel="noopener">
         <div class="videoThumb">
           <div class="bigPlay"><span>▶</span></div>
         </div>
       </a>
 
-      <!-- ✅ only title (no link inside) -->
-      <div class="videoCaption">BEND DOWN SELECT OFFICIAL VIDEO</div>
+      <div class="videoCaption">BEND DOWN SELECT (OFFICIAL VIDEO)</div>
+
+      <div class="videoActions">
+        <a class="cta primary" href="https://youtu.be/7qlRs1gDnMI" target="_blank" rel="noopener">Watch on YouTube</a>
+      </div>
     </section>
 
     <!-- SHOP OMK -->
@@ -800,7 +795,6 @@
         <div class="premiumCard">
           <div class="premiumInner">
             <h3 class="premiumTitle">JOIN OMK COMMUNITY 🐺🌋</h3>
-            <!-- ✅ line removed (no dash) -->
             <p class="premiumSub">Get updates, drops, and new music first. No email, just vibes.</p>
 
             <div class="joinCenter">
@@ -819,11 +813,11 @@
             <div class="socialRow" style="padding:12px 0 0; background:transparent; border-top:none;">
               <div class="socialDock" aria-label="Follow links" style="width:100%;">
                 <a class="iconBtn primary" href="https://www.instagram.com/iam__omotaker?igsh=MTEwM2RiOHV1ZjJzdQ%3D%3D&utm_source=qr" target="_blank" rel="noopener" aria-label="Instagram">
-                  <span class="brandIcon" style="--mask:url('https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg');"></span>
+                  <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram">
                 </a>
 
                 <a class="iconBtn primary" href="https://www.tiktok.com/@iam.omotaker?_r=1&_t=ZS-94R7kuZiptd" target="_blank" rel="noopener" aria-label="TikTok">
-                  <span class="brandIcon" style="--mask:url('https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/tiktok.svg');"></span>
+                  <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/tiktok.svg" alt="TikTok">
                 </a>
               </div>
             </div>
@@ -839,11 +833,15 @@
   <script>
     document.getElementById("yr").textContent = new Date().getFullYear();
 
-    // ✅ When people open omotaker.com (ads), land on NEW RELEASES (not the very top)
+    // ✅ Always open to NEW RELEASES (fix ads landing at CONNECT)
+    if ("scrollRestoration" in history) history.scrollRestoration = "manual";
     window.addEventListener("load", () => {
+      // if there is no #hash, push them to New Releases
       if (!location.hash) {
-        const nr = document.getElementById("newreleases");
-        if (nr) nr.scrollIntoView({ behavior: "smooth", block: "start" });
+        setTimeout(() => {
+          const target = document.getElementById("new-releases");
+          if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
+        }, 250);
       }
     });
 
