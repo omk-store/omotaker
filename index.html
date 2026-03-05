@@ -40,7 +40,7 @@
     .wrap{
       max-width:var(--max);
       margin:0 auto;
-      padding:14px 14px 110px;
+      padding:14px 14px 90px;
     }
 
     /* ====== Sticky top bar ====== */
@@ -175,16 +175,9 @@
       opacity:.95;
     }
 
-    /* ✅ zoom covers to remove white edges */
-    .newCover, .cover{
-      background-size: 120% !important;
-      background-position: center !important;
-      background-repeat: no-repeat !important;
-    }
-
-    /* ===== NEW RELEASES (Shalli style) ===== */
+    /* ===== NEW RELEASES (BIG LIKE SHALLI STYLE) ===== */
     .heroNewWrap{
-      padding: 0 14px 16px;
+      padding: 0 14px 18px;
       background: rgba(0,0,0,.28);
       border-top: 1px solid rgba(255,255,255,.08);
     }
@@ -198,70 +191,65 @@
       color: rgba(255,255,255,.78);
     }
 
-    .releaseStack{
-      display:flex;
-      flex-direction:column;
+    .newGrid{
+      display:grid;
+      grid-template-columns: 1fr;
       gap:14px;
     }
 
-    .releaseHero{
+    .bigRelease{
       border-radius:22px;
       border:1px solid rgba(255,255,255,.10);
       background: rgba(255,255,255,.05);
       box-shadow: 0 18px 55px rgba(0,0,0,.45);
       overflow:hidden;
       position:relative;
-      padding:14px;
-      text-align:center;
     }
-    .releaseHero::before{
+    .bigRelease::before{
       content:"";
       position:absolute; inset:-1px;
       background:
-        radial-gradient(520px 260px at 20% 10%, rgba(122,166,255,.18), transparent 60%),
-        radial-gradient(520px 260px at 80% 15%, rgba(255,122,217,.15), transparent 60%);
+        radial-gradient(520px 260px at 15% 10%, rgba(122,166,255,.18), transparent 60%),
+        radial-gradient(520px 260px at 85% 15%, rgba(255,122,217,.16), transparent 60%);
+      opacity:.85;
       pointer-events:none;
-      opacity:.9;
     }
 
-    .releaseCover{
+    .bigCover{
       position:relative;
-      width:min(520px, 100%);
-      aspect-ratio: 1 / 1;
-      margin: 0 auto 12px;
-      border-radius:20px;
-      border:1px solid rgba(255,255,255,.10);
+      height:340px;
       background: rgba(255,255,255,.08) center/cover no-repeat;
-      overflow:hidden;
+      background-size: 120% !important;
+      background-position:center !important;
     }
-    .releaseCover::after{
+    .bigCover::after{
       content:"";
       position:absolute; inset:0;
-      background: radial-gradient(circle at 50% 50%, rgba(0,0,0,.05), rgba(0,0,0,.45));
+      background: radial-gradient(circle at 50% 35%, rgba(0,0,0,.08), rgba(0,0,0,.70));
     }
 
-    .releaseName{
+    .bigBody{
       position:relative;
-      margin:0;
-      font-size:22px;
-      font-weight:950;
-      letter-spacing:.04em;
-      text-transform:uppercase;
+      padding:14px 14px 16px;
+      text-align:center;
     }
-    .releaseSub{
-      position:relative;
-      margin:8px 0 12px;
+    .bigTitle{
+      margin:0;
+      font-size:18px;
+      font-weight:950;
+      letter-spacing:.05em;
+    }
+    .bigSub{
+      margin:8px 0 14px;
       font-size:12px;
       color: rgba(255,255,255,.65);
-      letter-spacing:.05em;
-      text-transform:uppercase;
+      letter-spacing:.02em;
     }
 
     .platformBar{
       position:relative;
       display:flex;
-      width:min(720px, 100%);
-      margin: 0 auto;
+      width:100%;
       border-radius:999px;
       border:1px solid rgba(255,255,255,.12);
       overflow:hidden;
@@ -347,6 +335,9 @@
       position:relative;
       overflow:hidden;
       flex:0 0 auto;
+      background-size: 120% !important;
+      background-position:center !important;
+      background-repeat:no-repeat !important;
     }
     .playDot{
       position:absolute; inset:0;
@@ -406,7 +397,7 @@
       height:240px;
       background:
         linear-gradient(to bottom, rgba(0,0,0,.15), rgba(0,0,0,.75)),
-        url("https://i.ytimg.com/vi/7qlRs1gDnMI/hqdefault.jpg") center/cover no-repeat;
+        url("https://i.ytimg.com/vi/7qlRs1gDnMI/maxresdefault.jpg") center/cover no-repeat;
       background-size: 112% !important;
       background-position:center !important;
       position:relative;
@@ -480,7 +471,7 @@
       line-height:1.4;
     }
 
-    /* ✅ Center text in SHOP + CONNECT like your mark */
+    /* Center text in SHOP + CONNECT */
     #store .premiumInner,
     #connect .premiumInner{
       text-align:center;
@@ -540,41 +531,21 @@
       letter-spacing:.04em;
     }
 
-    /* ✅ floating omotaker.com pill (takes to NEW RELEASES) */
-    .bottomPill{
-      position:fixed;
-      left:50%;
-      transform:translateX(-50%);
-      bottom: calc(env(safe-area-inset-bottom) + 12px);
-      z-index:80;
-      width:min(260px, calc(100% - 28px));
-      text-align:center;
-      padding:12px 16px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.16);
-      background: rgba(0,0,0,.45);
-      backdrop-filter: blur(12px);
-      box-shadow: 0 18px 55px rgba(0,0,0,.55);
-      font-weight:950;
-      letter-spacing:.04em;
-    }
-
     @media (max-width:720px){
       .grid2{ grid-template-columns: 1fr; }
-      .releaseCover{ width:100%; }
+      .bigCover{ height:360px; }
     }
     @media (max-width:420px){
       .heroMedia{ height:540px; }
       .miniCard{ flex-basis:300px; }
       .iconBtn{ width:56px; height:56px; }
       .platformBar a{ font-size:11px; }
+      .bigCover{ height:380px; }
     }
   </style>
 </head>
 
 <body>
-  <a class="bottomPill" href="#newreleases">omotaker.com</a>
-
   <div class="wrap">
 
     <div class="pillbarWrap">
@@ -608,32 +579,37 @@
         </div>
       </div>
 
+      <!-- NEW RELEASES -->
       <div id="newreleases" class="heroNewWrap">
         <div class="section-divider"></div>
         <div class="heroNewTitle">NEW RELEASES</div>
 
-        <div class="releaseStack">
-          <!-- If Earth Could Talk -->
-          <div class="releaseHero">
-            <div class="releaseCover" style="background-image:url('https://raw.githubusercontent.com/omk-store/omotaker/main/A4C9B8E6-BBDF-4489-927B-B535734DED3C.png');"></div>
-            <p class="releaseName">If Earth Could Talk</p>
-            <p class="releaseSub">Single • 2026</p>
-            <div class="platformBar" role="group" aria-label="If Earth Could Talk platforms">
-              <a href="https://open.spotify.com/track/7mifEtIK9OPGWD9EyOOLnq?si=hmsxRSbFT0SYsQYaHyHJrg" target="_blank" rel="noopener">Spotify</a>
-              <a href="https://music.apple.com/ng/album/if-earth-could-talk/1881338853?i=1881338854" target="_blank" rel="noopener">Apple Music</a>
-              <a href="https://omkdrip.com/if-earth-could-talk.html" target="_blank" rel="noopener">More</a>
+        <div class="newGrid">
+          <!-- IF EARTH COULD TALK (BIG) -->
+          <div class="bigRelease">
+            <div class="bigCover" style="background-image:url('https://raw.githubusercontent.com/omk-store/omotaker/main/A4C9B8E6-BBDF-4489-927B-B535734DED3C.png');"></div>
+            <div class="bigBody">
+              <p class="bigTitle">If Earth Could Talk</p>
+              <p class="bigSub">Single • 2026</p>
+              <div class="platformBar" role="group" aria-label="If Earth Could Talk platforms">
+                <a href="https://open.spotify.com/track/7mifEtIK9OPGWD9EyOOLnq?si=hmsxRSbFT0SYsQYaHyHJrg" target="_blank" rel="noopener">Spotify</a>
+                <a href="https://music.apple.com/ng/album/if-earth-could-talk/1881338853?i=1881338854" target="_blank" rel="noopener">Apple Music</a>
+                <a href="https://omkdrip.com/if-earth-could-talk.html" target="_blank" rel="noopener">More</a>
+              </div>
             </div>
           </div>
 
-          <!-- Benin To Lagos -->
-          <div class="releaseHero">
-            <div class="releaseCover" style="background-image:url('https://raw.githubusercontent.com/omk-store/omotaker/main/6066994F-0E77-4ACE-AB1C-4E1445E4457F.png');"></div>
-            <p class="releaseName">Benin To Lagos</p>
-            <p class="releaseSub">Single • 2026</p>
-            <div class="platformBar" role="group" aria-label="Benin To Lagos platforms">
-              <a href="https://open.spotify.com/track/0SooNM8i9p1UiE7HTTp5C4?si=AStB3M9vRlCplVnQxvyT3w" target="_blank" rel="noopener">Spotify</a>
-              <a href="https://music.apple.com/ng/album/benin-to-lagos/1866424075?i=1866424076" target="_blank" rel="noopener">Apple Music</a>
-              <a href="https://omkdrip.com/benin-to-lagos" target="_blank" rel="noopener">More</a>
+          <!-- BENIN TO LAGOS (BIG) -->
+          <div class="bigRelease">
+            <div class="bigCover" style="background-image:url('https://raw.githubusercontent.com/omk-store/omotaker/main/6066994F-0E77-4ACE-AB1C-4E1445E4457F.png');"></div>
+            <div class="bigBody">
+              <p class="bigTitle">Benin To Lagos</p>
+              <p class="bigSub">Single • 2026</p>
+              <div class="platformBar" role="group" aria-label="Benin To Lagos platforms">
+                <a href="https://open.spotify.com/track/0SooNM8i9p1UiE7HTTp5C4?si=AStB3M9vRlCplVnQxvyT3w" target="_blank" rel="noopener">Spotify</a>
+                <a href="https://music.apple.com/ng/album/benin-to-lagos/1866424075?i=1866424076" target="_blank" rel="noopener">Apple Music</a>
+                <a href="https://omkdrip.com/benin-to-lagos" target="_blank" rel="noopener">More</a>
+              </div>
             </div>
           </div>
         </div>
@@ -831,13 +807,13 @@
   <script>
     document.getElementById("yr").textContent = new Date().getFullYear();
 
-    // ✅ If someone lands with #connect (or any hash), you can force new releases for ads by adding ?focus=new
-    const params = new URLSearchParams(window.location.search);
-    if (params.get("focus") === "new") {
-      const el = document.getElementById("newreleases");
-      if (el) el.scrollIntoView({behavior:"smooth", block:"start"});
-      history.replaceState(null, "", window.location.pathname + window.location.search);
-    }
+    // ✅ Auto-scroll to NEW RELEASES when people open omotaker.com (best for ads)
+    window.addEventListener("load", () => {
+      setTimeout(() => {
+        const target = document.getElementById("newreleases");
+        if(target) target.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 350);
+    });
 
     const links = Array.from(document.querySelectorAll(".pillbar a"));
     const sections = links
