@@ -104,7 +104,8 @@
       height:520px;
       background:
         radial-gradient(900px 500px at 50% 20%, rgba(0,0,0,.10), rgba(0,0,0,.88)),
-        url("https://raw.githubusercontent.com/omk-store/omotaker/main/IMG_7103.jpeg") center/cover no-repeat;
+        /* ✅ HERO now uses OVIOR image */
+        url("https://raw.githubusercontent.com/omk-store/omotaker/main/D99E8D8F-BC87-4C45-8767-5DF7E7E18DA4.png") center/cover no-repeat;
     }
     .heroFade{
       position:absolute; left:0; right:0; bottom:0;
@@ -137,7 +138,7 @@
       width:min(560px, 100%);
       display:flex;
       align-items:center;
-      justify-content:center;  /* keeps the icons centered inside the pill */
+      justify-content:center;
       gap:14px;
       padding:12px;
       border-radius:999px;
@@ -157,8 +158,6 @@
       transition:.2s ease;
     }
     .iconBtn:hover{ transform: translateY(-1px); box-shadow: var(--glow); }
-
-    /* make them look like REAL logos (white icon + premium gradient) */
     .iconBtn.primary{
       background: linear-gradient(90deg, rgba(122,166,255,.95), rgba(255,122,217,.95));
       border-color: rgba(255,255,255,.18);
@@ -167,7 +166,7 @@
     .iconBtn img{
       width:24px;
       height:24px;
-      filter: invert(1); /* turns the logo white so it pops */
+      filter: invert(1);
       opacity:.98;
       display:block;
     }
@@ -256,7 +255,6 @@
       text-overflow:ellipsis;
     }
 
-    /* Shalli-like platform bar */
     .platformBar{
       position:relative;
       display:flex;
@@ -406,6 +404,7 @@
       height:240px;
       background:
         linear-gradient(to bottom, rgba(0,0,0,.15), rgba(0,0,0,.75)),
+        /* ✅ this is your YouTube/Official video picture */
         url("https://raw.githubusercontent.com/omk-store/omotaker/main/IMG_7104.jpeg") center/cover no-repeat;
       position:relative;
       display:flex;
@@ -545,7 +544,6 @@
 <body>
   <div class="wrap">
 
-    <!-- Sticky -->
     <div class="pillbarWrap">
       <nav class="pillbar" aria-label="Sections">
         <a class="active" href="#home">HOME</a>
@@ -557,7 +555,6 @@
       </nav>
     </div>
 
-    <!-- HERO -->
     <section id="home" class="hero">
       <div class="heroMedia">
         <div class="heroFade"></div>
@@ -566,7 +563,6 @@
         </div>
       </div>
 
-      <!-- ICON-ONLY IG + TikTok (CENTERED + REAL LOGOS) -->
       <div class="socialRow">
         <div class="socialDock" aria-label="Social links">
           <a class="iconBtn primary" href="https://instagram.com/iam_omotaker" target="_blank" rel="noopener" aria-label="Instagram">
@@ -579,15 +575,14 @@
         </div>
       </div>
 
-      <!-- NEW RELEASES -->
       <div class="heroNewWrap">
         <div class="section-divider"></div>
         <div class="heroNewTitle">NEW RELEASES</div>
 
         <div class="newGrid">
-          <!-- If Earth Could Talk -->
           <div class="newCard">
             <div class="newTop">
+              <!-- ✅ If Earth keeps its own cover -->
               <div class="newCover" style="background-image:url('https://raw.githubusercontent.com/omk-store/omotaker/main/6066994F-0E77-4ACE-AB1C-4E1445E4457F.png');"></div>
               <div class="newMeta">
                 <p class="t">If Earth Could Talk</p>
@@ -601,9 +596,9 @@
             </div>
           </div>
 
-          <!-- Benin To Lagos -->
           <div class="newCard">
             <div class="newTop">
+              <!-- ✅ Benin keeps its own cover (this cover gets reused across MY TRUTH below) -->
               <div class="newCover" style="background-image:url('https://raw.githubusercontent.com/omk-store/omotaker/main/A4C9B8E6-BBDF-4489-927B-B535734DED3C.png');"></div>
               <div class="newMeta">
                 <p class="t">Benin To Lagos</p>
@@ -620,16 +615,15 @@
       </div>
     </section>
 
-    <!-- MY TRUTH -->
     <section id="releases" class="section">
       <div class="section-divider"></div>
       <h2>MY TRUTH</h2>
 
       <div class="rail">
-        <!-- Bend Down Select -->
+        <!-- Bend Down Select (✅ now uses Benin To Lagos cover) -->
         <div class="miniCard">
           <div class="rowTop">
-            <div class="cover" style="background-image:url('https://raw.githubusercontent.com/omk-store/omotaker/main/IMG_7105.jpeg');">
+            <div class="cover" style="background-image:url('https://raw.githubusercontent.com/omk-store/omotaker/main/A4C9B8E6-BBDF-4489-927B-B535734DED3C.png');">
               <div class="playDot"><span>▶</span></div>
             </div>
             <div class="meta">
@@ -647,10 +641,10 @@
           </div>
         </div>
 
-        <!-- My Door -->
+        <!-- My Door (✅ now uses Benin To Lagos cover) -->
         <div class="miniCard">
           <div class="rowTop">
-            <div class="cover" style="background-image:url('https://raw.githubusercontent.com/omk-store/omotaker/main/IMG_7104.jpeg');">
+            <div class="cover" style="background-image:url('https://raw.githubusercontent.com/omk-store/omotaker/main/A4C9B8E6-BBDF-4489-927B-B535734DED3C.png');">
               <div class="playDot"><span>▶</span></div>
             </div>
             <div class="meta">
@@ -668,10 +662,10 @@
           </div>
         </div>
 
-        <!-- Badt Guy -->
+        <!-- Badt Guy (✅ now uses Benin To Lagos cover) -->
         <div class="miniCard">
           <div class="rowTop">
-            <div class="cover" style="background-image:url('https://raw.githubusercontent.com/omk-store/omotaker/main/IMG_7103.jpeg');">
+            <div class="cover" style="background-image:url('https://raw.githubusercontent.com/omk-store/omotaker/main/A4C9B8E6-BBDF-4489-927B-B535734DED3C.png');">
               <div class="playDot"><span>▶</span></div>
             </div>
             <div class="meta">
@@ -691,16 +685,15 @@
       </div>
     </section>
 
-    <!-- MUSIC -->
     <section id="music" class="section">
       <div class="section-divider"></div>
       <h2>MUSIC</h2>
 
       <div class="rail">
-        <!-- Importer Exporter -->
+        <!-- Importer Exporter (✅ now uses OLD HERO image) -->
         <div class="miniCard">
           <div class="rowTop">
-            <div class="cover" style="background-image:url('https://raw.githubusercontent.com/omk-store/omotaker/main/A7D70F9C-D928-4A18-BAAD-ED8908BEBC77.png');">
+            <div class="cover" style="background-image:url('https://raw.githubusercontent.com/omk-store/omotaker/main/IMG_7103.jpeg');">
               <div class="playDot"><span>▶</span></div>
             </div>
             <div class="meta">
@@ -718,10 +711,10 @@
           </div>
         </div>
 
-        <!-- Ovior -->
+        <!-- Ovior (✅ now uses YouTube/Official video image) -->
         <div class="miniCard">
           <div class="rowTop">
-            <div class="cover" style="background-image:url('https://raw.githubusercontent.com/omk-store/omotaker/main/D99E8D8F-BC87-4C45-8767-5DF7E7E18DA4.png');">
+            <div class="cover" style="background-image:url('https://raw.githubusercontent.com/omk-store/omotaker/main/IMG_7104.jpeg');">
               <div class="playDot"><span>▶</span></div>
             </div>
             <div class="meta">
@@ -741,7 +734,6 @@
       </div>
     </section>
 
-    <!-- VIDEOS -->
     <section id="videos" class="section">
       <div class="section-divider"></div>
       <h2>VIDEOS</h2>
@@ -753,7 +745,6 @@
       </a>
     </section>
 
-    <!-- SHOP OMK -->
     <section id="store" class="section">
       <div class="section-divider"></div>
       <h2>SHOP OMK</h2>
@@ -767,13 +758,11 @@
       </div>
     </section>
 
-    <!-- CONNECT -->
     <section id="connect" class="section">
       <div class="section-divider"></div>
       <h2>CONNECT</h2>
 
       <div class="grid2">
-        <!-- Join community (WhatsApp only, centered gradient CTA) -->
         <div class="premiumCard">
           <div class="premiumInner">
             <h3 class="premiumTitle">JOIN OMK COMMUNITY 🐺🌋</h3>
@@ -787,7 +776,6 @@
           </div>
         </div>
 
-        <!-- Follow card (NOW with Instagram + TikTok at the bottom like you asked) -->
         <div class="premiumCard">
           <div class="premiumInner">
             <h3 class="premiumTitle">FOLLOW OMO TAKER</h3>
@@ -816,7 +804,6 @@
   <script>
     document.getElementById("yr").textContent = new Date().getFullYear();
 
-    // Scrollspy
     const links = Array.from(document.querySelectorAll(".pillbar a"));
     const sections = links
       .map(a => document.querySelector(a.getAttribute("href")))
