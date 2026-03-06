@@ -10,14 +10,13 @@
   <style>
     :root{
       --bg:#000;
-      --card:#111214;
       --text:#f5f6ff;
       --muted:rgba(245,246,255,.72);
       --line:rgba(255,255,255,.10);
       --a1:#7aa6ff;
       --a2:#ff7ad9;
       --glow:0 10px 35px rgba(122,166,255,.16), 0 8px 30px rgba(255,122,217,.10);
-      --radius:22px;
+      --radius:24px;
       --max:980px;
       --font:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji";
     }
@@ -42,52 +41,23 @@
       padding:14px 14px 90px;
     }
 
-    /* TOP HERO AREA */
-    .heroShell{
-      border-radius:30px;
-      overflow:hidden;
-      border:1px solid rgba(255,255,255,.10);
-      background:rgba(255,255,255,.03);
-      box-shadow:0 20px 60px rgba(0,0,0,.55);
-    }
-
-    .heroMedia{
-      position:relative;
-      width:100%;
-      height:520px;
-      overflow:hidden;
-      --heroImg:url("https://raw.githubusercontent.com/omk-store/omotaker/main/D99E8D8F-BC87-4C45-8767-5DF7E7E18DA4.png");
-      background:#000;
-    }
-    .heroMedia::before{
-      content:"";
-      position:absolute; inset:0;
-      background:
-        linear-gradient(to bottom, rgba(0,0,0,.10), rgba(0,0,0,.18)),
-        var(--heroImg) center/cover no-repeat;
-    }
-    .heroMedia::after{
-      content:"";
-      position:absolute; left:0; right:0; bottom:0;
-      height:26%;
-      background:linear-gradient(to top, rgba(0,0,0,.82), rgba(0,0,0,0));
+    /* STICKY TOP BAR */
+    .topbarWrap{
+      position:sticky;
+      top:calc(env(safe-area-inset-top) + 10px);
+      z-index:100;
+      margin:8px 0 14px;
+      display:flex;
+      justify-content:center;
       pointer-events:none;
     }
-
-    /* menu sits on picture */
-    .heroNavWrap{
-      position:absolute;
-      top:18px;
-      left:18px;
-      right:18px;
-      z-index:5;
-    }
-    .heroNav{
+    .topbar{
+      pointer-events:auto;
       width:100%;
       display:flex;
       gap:10px;
       padding:10px;
-      border:1px solid rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.10);
       background:rgba(8,8,10,.62);
       border-radius:999px;
       backdrop-filter:blur(12px);
@@ -95,7 +65,7 @@
       -webkit-overflow-scrolling:touch;
       box-shadow:0 12px 35px rgba(0,0,0,.35);
     }
-    .heroNav a{
+    .topbar a{
       padding:10px 16px;
       border-radius:999px;
       font-weight:900;
@@ -106,18 +76,51 @@
       border:1px solid transparent;
       flex:0 0 auto;
     }
-    .heroNav a.active{
+    .topbar a.active{
       background:rgba(255,255,255,.10);
       border-color:rgba(255,255,255,.12);
       color:#fff;
       box-shadow:var(--glow);
     }
 
-    /* below picture */
-    .heroBottom{
-      padding:18px 18px 22px;
+    /* HERO */
+    .heroSection{
+      scroll-margin-top:90px;
+    }
+    .heroWide{
+      margin-left:-14px;
+      margin-right:-14px;
+    }
+    .heroMedia{
+      position:relative;
+      width:100%;
+      height:520px;
+      overflow:hidden;
+      --heroImg:url("https://raw.githubusercontent.com/omk-store/omotaker/main/D99E8D8F-BC87-4C45-8767-5DF7E7E18DA4.png");
       background:#000;
+      border-top-left-radius:0;
+      border-top-right-radius:0;
+      border-bottom-left-radius:0;
+      border-bottom-right-radius:0;
+    }
+    .heroMedia::before{
+      content:"";
+      position:absolute; inset:0;
+      background:
+        linear-gradient(to bottom, rgba(0,0,0,.08), rgba(0,0,0,.20)),
+        var(--heroImg) center/cover no-repeat;
+    }
+    .heroMedia::after{
+      content:"";
+      position:absolute; left:0; right:0; bottom:0;
+      height:26%;
+      background:linear-gradient(to top, rgba(0,0,0,.88), rgba(0,0,0,0));
+      pointer-events:none;
+    }
+
+    .heroBottom{
       text-align:center;
+      padding:18px 14px 6px;
     }
     .heroName{
       margin:0;
@@ -154,7 +157,7 @@
       display:block;
     }
 
-    /* sections */
+    /* GENERAL SECTIONS */
     .section{
       margin-top:22px;
       scroll-margin-top:92px;
@@ -174,7 +177,7 @@
       text-transform:uppercase;
     }
 
-    /* featured release */
+    /* FEATURED RELEASE */
     .featureCard{
       background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.04));
       border:1px solid var(--line);
@@ -247,7 +250,7 @@
     }
     .platformBar a:last-child{ border-right:none; }
 
-    /* releases */
+    /* RELEASES */
     .releaseStack{
       display:grid;
       gap:18px;
@@ -299,7 +302,7 @@
       color:var(--muted);
     }
 
-    /* rails */
+    /* RAIL */
     .rail{
       display:flex;
       gap:12px;
@@ -395,7 +398,7 @@
     .miniBar .platformBar{ margin-top:0; }
     .miniBar .platformBar a{ padding:10px 10px; font-size:11px; }
 
-    /* video */
+    /* VIDEO */
     .videoCard{
       border-radius:22px;
       overflow:hidden;
@@ -443,6 +446,7 @@
       backdrop-filter:blur(10px);
     }
 
+    /* BOTTOM */
     .grid2{
       display:grid;
       grid-template-columns:1.1fr .9fr;
@@ -537,7 +541,7 @@
       .miniCard{ flex-basis:300px; }
       .platformBar a{ font-size:11px; }
       .heroName{ font-size:34px; }
-      .heroNav a{ padding:10px 14px; font-size:11px; }
+      .topbar a{ padding:10px 14px; font-size:11px; }
     }
   </style>
 </head>
@@ -545,21 +549,21 @@
 <body>
   <div class="wrap">
 
-    <section id="home" class="heroShell">
-      <div class="heroMedia">
+    <div class="topbarWrap">
+      <nav class="topbar" aria-label="Sections">
+        <a class="active" href="#home">HOME</a>
+        <a href="#featured">IF EARTH</a>
+        <a href="#releases">RELEASES</a>
+        <a href="#music">MUSIC</a>
+        <a href="#videos">VIDEOS</a>
+        <a href="#connect">CONNECT</a>
+        <a href="#store">SHOP OMK</a>
+      </nav>
+    </div>
 
-        <div class="heroNavWrap">
-          <nav class="heroNav" aria-label="Sections">
-            <a class="active" href="#home">HOME</a>
-            <a href="#featured">IF EARTH</a>
-            <a href="#releases">RELEASES</a>
-            <a href="#music">MUSIC</a>
-            <a href="#videos">VIDEOS</a>
-            <a href="#connect">CONNECT</a>
-            <a href="#store">SHOP OMK</a>
-          </nav>
-        </div>
-
+    <section id="home" class="heroSection">
+      <div class="heroWide">
+        <div class="heroMedia"></div>
       </div>
 
       <div class="heroBottom">
@@ -807,7 +811,7 @@
   <script>
     document.getElementById("yr").textContent = new Date().getFullYear();
 
-    const links = Array.from(document.querySelectorAll(".heroNav a"));
+    const links = Array.from(document.querySelectorAll(".topbar a"));
     const sections = links
       .map(a => document.querySelector(a.getAttribute("href")))
       .filter(Boolean);
