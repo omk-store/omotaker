@@ -102,7 +102,7 @@
       height:520px;
       overflow:hidden;
       --heroImg: url("https://raw.githubusercontent.com/omk-store/omotaker/main/D99E8D8F-BC87-4C45-8767-5DF7E7E18DA4.png");
-      background: #000;
+      background:#000;
     }
     .heroMedia::before{
       content:"";
@@ -137,7 +137,7 @@
     .socialRow{
       display:flex;
       justify-content:center;
-      padding: 14px 14px 14px;
+      padding:14px 14px 14px;
       background: rgba(0,0,0,.35);
       border-top: 1px solid rgba(255,255,255,.08);
     }
@@ -183,19 +183,19 @@
     .section-divider{
       height:1px;
       width:100%;
-      margin: 14px 0 10px;
+      margin:14px 0 10px;
       background: linear-gradient(90deg, transparent, rgba(255,255,255,.16), transparent);
       opacity:.95;
     }
 
     /* ===== NEW RELEASES ===== */
     .heroNewWrap{
-      padding: 0 14px 16px;
+      padding:0 14px 16px;
       background: rgba(0,0,0,.28);
-      border-top: 1px solid rgba(255,255,255,.08);
+      border-top:1px solid rgba(255,255,255,.08);
     }
     .heroNewTitle{
-      margin: 0 0 12px;
+      margin:0 0 12px;
       text-align:center;
       font-size:12px;
       font-weight:950;
@@ -229,46 +229,52 @@
       pointer-events:none;
       opacity:.9;
     }
-    .newTop{ position:relative; display:flex; gap:12px; align-items:center; }
-
+    .newTop{
+      position:relative;
+      display:flex;
+      gap:14px;
+      align-items:center;
+    }
     .newCover{
-      width:86px;
-      height:86px;
-      border-radius:16px;
+      width:118px;
+      height:118px;
+      border-radius:18px;
       border:1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.08) center/cover no-repeat;
+      background-color: rgba(255,255,255,.05);
+      background-position:center;
+      background-repeat:no-repeat;
+      background-size:contain;
       position:relative;
       overflow:hidden;
       flex:0 0 auto;
+      box-shadow: 0 12px 28px rgba(0,0,0,.28);
     }
     .newCover::after{
       content:"";
       position:absolute; inset:0;
-      background: radial-gradient(circle at 50% 50%, rgba(0,0,0,.10), rgba(0,0,0,.55));
+      background: radial-gradient(circle at 50% 50%, rgba(0,0,0,.06), rgba(0,0,0,.28));
     }
 
-    .newCover, .cover{
-      background-size: 120% !important;
-      background-position: center !important;
-      background-repeat: no-repeat !important;
+    .cover{
+      background-size:120% !important;
+      background-position:center !important;
+      background-repeat:no-repeat !important;
     }
 
-    .newMeta{ position:relative; min-width:0; }
+    .newMeta{
+      position:relative;
+      min-width:0;
+    }
     .newMeta .t{
       margin:0;
-      font-size:16px;
+      font-size:18px;
       font-weight:950;
-      white-space:nowrap;
-      overflow:hidden;
-      text-overflow:ellipsis;
+      line-height:1.15;
     }
     .newMeta .s{
-      margin:6px 0 0;
-      font-size:12px;
-      color: rgba(255,255,255,.60);
-      white-space:nowrap;
-      overflow:hidden;
-      text-overflow:ellipsis;
+      margin:8px 0 0;
+      font-size:13px;
+      color: rgba(255,255,255,.68);
     }
 
     .platformBar{
@@ -299,7 +305,7 @@
     .section{
       margin-top:18px;
       padding-top:14px;
-      scroll-margin-top: 92px;
+      scroll-margin-top:92px;
     }
     .section h2{
       margin:16px 0 12px;
@@ -315,7 +321,7 @@
       gap:12px;
       overflow:auto;
       padding:6px 4px 10px;
-      scroll-snap-type: x mandatory;
+      scroll-snap-type:x mandatory;
       -webkit-overflow-scrolling:touch;
     }
     .rail::after{ content:""; flex:0 0 18px; }
@@ -331,7 +337,7 @@
       box-shadow: 0 18px 55px rgba(0,0,0,.45);
       display:flex;
       flex-direction:column;
-      min-height: 230px;
+      min-height:230px;
       overflow:hidden;
       position:relative;
     }
@@ -420,7 +426,7 @@
       background:
         linear-gradient(to bottom, rgba(0,0,0,.15), rgba(0,0,0,.75)),
         url("https://img.youtube.com/vi/7qlRs1gDnMI/hqdefault.jpg") center/cover no-repeat;
-      background-size: 112% !important;
+      background-size:112% !important;
       background-position:center !important;
       position:relative;
       display:flex;
@@ -443,8 +449,8 @@
 
     .videoCaption{
       margin:10px auto 0;
-      width: fit-content;
-      max-width: 100%;
+      width:fit-content;
+      max-width:100%;
       text-align:center;
       font-weight:950;
       letter-spacing:.06em;
@@ -459,7 +465,7 @@
 
     .grid2{
       display:grid;
-      grid-template-columns: 1.1fr .9fr;
+      grid-template-columns:1.1fr .9fr;
       gap:12px;
     }
     .premiumCard{
@@ -554,13 +560,19 @@
 
     @media (max-width:720px){
       .newGrid{ grid-template-columns:1fr; }
-      .grid2{ grid-template-columns: 1fr; }
+      .grid2{ grid-template-columns:1fr; }
     }
     @media (max-width:420px){
       .heroMedia{ height:540px; }
       .miniCard{ flex-basis:300px; }
       .iconBtn{ width:56px; height:56px; }
       .platformBar a{ font-size:11px; }
+      .newTop{ align-items:flex-start; }
+      .newCover{
+        width:108px;
+        height:108px;
+      }
+      .newMeta .t{ font-size:17px; }
     }
   </style>
 </head>
