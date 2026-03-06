@@ -95,36 +95,24 @@
       background:rgba(255,255,255,.03);
       box-shadow: 0 20px 60px rgba(0,0,0,.55);
     }
-
     .heroMedia{
       position:relative;
       width:100%;
       height:520px;
-      overflow:hidden;
-      --heroImg: url("https://raw.githubusercontent.com/omk-store/omotaker/main/D99E8D8F-BC87-4C45-8767-5DF7E7E18DA4.png");
-      background: #000;
-    }
-    .heroMedia::before{
-      content:"";
-      position:absolute; inset:0;
       background:
         radial-gradient(900px 500px at 50% 20%, rgba(0,0,0,.10), rgba(0,0,0,.88)),
-        var(--heroImg) center/cover no-repeat;
-      transform: scaleX(-1);
+        url("https://raw.githubusercontent.com/omk-store/omotaker/main/D99E8D8F-BC87-4C45-8767-5DF7E7E18DA4.png") center/cover no-repeat;
     }
-
     .heroFade{
       position:absolute; left:0; right:0; bottom:0;
       height:48%;
       background: linear-gradient(to top, rgba(0,0,0,.92), rgba(0,0,0,.0));
-      z-index:2;
     }
     .heroCenter{
       position:absolute; left:0; right:0; bottom:22px;
       display:flex; flex-direction:column; align-items:center; gap:10px;
       padding:0 14px;
       text-align:center;
-      z-index:3;
     }
     .heroName{
       margin:0;
@@ -171,12 +159,10 @@
       border-color: rgba(255,255,255,.18);
       box-shadow: var(--glow);
     }
-
-    .brandIcon{
-      width:24px; height:24px;
-      background:#fff;
-      -webkit-mask: var(--mask) no-repeat center / contain;
-      mask: var(--mask) no-repeat center / contain;
+    .iconBtn img{
+      width:24px;
+      height:24px;
+      filter: invert(1);
       opacity:.98;
       display:block;
     }
@@ -248,6 +234,7 @@
       background: radial-gradient(circle at 50% 50%, rgba(0,0,0,.10), rgba(0,0,0,.55));
     }
 
+    /* ✅ zoom small covers to remove white edges */
     .newCover, .cover{
       background-size: 120% !important;
       background-position: center !important;
@@ -420,7 +407,7 @@
       height:240px;
       background:
         linear-gradient(to bottom, rgba(0,0,0,.15), rgba(0,0,0,.75)),
-        url("https://img.youtube.com/vi/7qlRs1gDnMI/hqdefault.jpg") center/cover no-repeat;
+        url("https://i.ytimg.com/vi/7qlRs1gDnMI/maxresdefault.jpg") center/cover no-repeat;
       background-size: 112% !important;
       background-position:center !important;
       position:relative;
@@ -441,7 +428,6 @@
       box-shadow: var(--glow);
       font-size:24px;
     }
-
     .videoCaption{
       margin:10px auto 0;
       width: fit-content;
@@ -495,6 +481,7 @@
       line-height:1.4;
     }
 
+    /* ✅ Center text in SHOP + CONNECT */
     #store .premiumInner,
     #connect .premiumInner{
       text-align:center;
@@ -592,23 +579,24 @@
       <div class="socialRow">
         <div class="socialDock" aria-label="Social links">
           <a class="iconBtn primary" href="https://www.instagram.com/iam__omotaker?igsh=MTEwM2RiOHV1ZjJzdQ%3D%3D&utm_source=qr" target="_blank" rel="noopener" aria-label="Instagram">
-            <span class="brandIcon" style="--mask:url('https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg');"></span>
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram">
           </a>
 
           <a class="iconBtn primary" href="https://www.tiktok.com/@iam.omotaker?_r=1&_t=ZS-94R7kuZiptd" target="_blank" rel="noopener" aria-label="TikTok">
-            <span class="brandIcon" style="--mask:url('https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/tiktok.svg');"></span>
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/tiktok.svg" alt="TikTok">
           </a>
         </div>
       </div>
 
-      <div id="newreleases" class="heroNewWrap">
+      <div class="heroNewWrap">
         <div class="section-divider"></div>
         <div class="heroNewTitle">NEW RELEASES</div>
 
         <div class="newGrid">
+          <!-- If Earth Could Talk -->
           <div class="newCard">
             <div class="newTop">
-              <div class="newCover" style="background-image:url('https://raw.githubusercontent.com/omk-store/omotaker/refs/heads/main/C3971D0F-F19E-47FB-93FF-51641BB29FD6.png');"></div>
+              <div class="newCover" style="background-image:url('https://raw.githubusercontent.com/omk-store/omotaker/main/A4C9B8E6-BBDF-4489-927B-B535734DED3C.png');"></div>
               <div class="newMeta">
                 <p class="t">If Earth Could Talk</p>
                 <p class="s">Single • 2026</p>
@@ -621,6 +609,7 @@
             </div>
           </div>
 
+          <!-- Benin To Lagos -->
           <div class="newCard">
             <div class="newTop">
               <div class="newCover" style="background-image:url('https://raw.githubusercontent.com/omk-store/omotaker/main/6066994F-0E77-4ACE-AB1C-4E1445E4457F.png');"></div>
@@ -639,14 +628,16 @@
       </div>
     </section>
 
+    <!-- MY TRUTH -->
     <section id="releases" class="section">
       <div class="section-divider"></div>
       <h2>MY TRUTH</h2>
 
       <div class="rail">
+        <!-- Bend Down Select -->
         <div class="miniCard">
           <div class="rowTop">
-            <div class="cover" style="background-image:url('https://raw.githubusercontent.com/omk-store/omotaker/main/A4C9B8E6-BBDF-4489-927B-B535734DED3C.png');">
+            <div class="cover" style="background-image:url('https://raw.githubusercontent.com/omk-store/omotaker/main/6066994F-0E77-4ACE-AB1C-4E1445E4457F.png');">
               <div class="playDot"><span>▶</span></div>
             </div>
             <div class="meta">
@@ -664,9 +655,10 @@
           </div>
         </div>
 
+        <!-- My Door -->
         <div class="miniCard">
           <div class="rowTop">
-            <div class="cover" style="background-image:url('https://raw.githubusercontent.com/omk-store/omotaker/main/A4C9B8E6-BBDF-4489-927B-B535734DED3C.png');">
+            <div class="cover" style="background-image:url('https://raw.githubusercontent.com/omk-store/omotaker/main/6066994F-0E77-4ACE-AB1C-4E1445E4457F.png');">
               <div class="playDot"><span>▶</span></div>
             </div>
             <div class="meta">
@@ -684,9 +676,10 @@
           </div>
         </div>
 
+        <!-- Badt Guy -->
         <div class="miniCard">
           <div class="rowTop">
-            <div class="cover" style="background-image:url('https://raw.githubusercontent.com/omk-store/omotaker/main/A4C9B8E6-BBDF-4489-927B-B535734DED3C.png');">
+            <div class="cover" style="background-image:url('https://raw.githubusercontent.com/omk-store/omotaker/main/6066994F-0E77-4ACE-AB1C-4E1445E4457F.png');">
               <div class="playDot"><span>▶</span></div>
             </div>
             <div class="meta">
@@ -706,11 +699,13 @@
       </div>
     </section>
 
+    <!-- MUSIC -->
     <section id="music" class="section">
       <div class="section-divider"></div>
       <h2>MUSIC</h2>
 
       <div class="rail">
+        <!-- Importer Exporter -->
         <div class="miniCard">
           <div class="rowTop">
             <div class="cover" style="background-image:url('https://raw.githubusercontent.com/omk-store/omotaker/main/IMG_7103.jpeg');">
@@ -731,6 +726,7 @@
           </div>
         </div>
 
+        <!-- Ovior -->
         <div class="miniCard">
           <div class="rowTop">
             <div class="cover" style="background-image:url('https://raw.githubusercontent.com/omk-store/omotaker/main/IMG_7104.jpeg');">
@@ -753,19 +749,22 @@
       </div>
     </section>
 
+    <!-- VIDEOS -->
     <section id="videos" class="section">
       <div class="section-divider"></div>
       <h2>VIDEOS</h2>
 
-      <a class="videoCard" href="https://youtu.be/7qlRs1gDnMI" target="_blank" rel="noopener" aria-label="Bend Down Select Official Video">
+      <a class="videoCard" href="https://youtu.be/7qlRs1gDnMI" target="_blank" rel="noopener">
         <div class="videoThumb">
           <div class="bigPlay"><span>▶</span></div>
         </div>
       </a>
 
-      <div class="videoCaption">BEND DOWN SELECT OFFICIAL VIDEO</div>
+      <!-- ✅ no link text here, just the title -->
+      <div class="videoCaption">BEND DOWN SELECT (OFFICIAL VIDEO)</div>
     </section>
 
+    <!-- SHOP OMK -->
     <section id="store" class="section">
       <div class="section-divider"></div>
       <h2>SHOP OMK</h2>
@@ -779,6 +778,7 @@
       </div>
     </section>
 
+    <!-- CONNECT -->
     <section id="connect" class="section">
       <div class="section-divider"></div>
       <h2>CONNECT</h2>
@@ -805,11 +805,11 @@
             <div class="socialRow" style="padding:12px 0 0; background:transparent; border-top:none;">
               <div class="socialDock" aria-label="Follow links" style="width:100%;">
                 <a class="iconBtn primary" href="https://www.instagram.com/iam__omotaker?igsh=MTEwM2RiOHV1ZjJzdQ%3D%3D&utm_source=qr" target="_blank" rel="noopener" aria-label="Instagram">
-                  <span class="brandIcon" style="--mask:url('https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg');"></span>
+                  <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram">
                 </a>
 
                 <a class="iconBtn primary" href="https://www.tiktok.com/@iam.omotaker?_r=1&_t=ZS-94R7kuZiptd" target="_blank" rel="noopener" aria-label="TikTok">
-                  <span class="brandIcon" style="--mask:url('https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/tiktok.svg');"></span>
+                  <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/tiktok.svg" alt="TikTok">
                 </a>
               </div>
             </div>
@@ -824,13 +824,6 @@
 
   <script>
     document.getElementById("yr").textContent = new Date().getFullYear();
-
-    window.addEventListener("load", () => {
-      if (!location.hash) {
-        const nr = document.getElementById("newreleases");
-        if (nr) nr.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
-    });
 
     const links = Array.from(document.querySelectorAll(".pillbar a"));
     const sections = links
