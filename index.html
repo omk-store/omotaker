@@ -1,614 +1,192 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
-  <meta name="theme-color" content="#06060b" />
-  <title>OMOTAKER</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OmoTaker | OMK Records</title>
 
-  <!-- Basic SEO -->
-  <meta name="description" content="OMOTAKER — Official Music Hub. Stream new releases & watch official videos." />
+<style>
 
-  <!-- Open Graph (for link previews) -->
-  <meta property="og:title" content="OMOTAKER" />
-  <meta property="og:description" content="Stream new releases & watch official videos." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="hero.jpg" />
+body{
+margin:0;
+font-family:Arial, Helvetica, sans-serif;
+background:#000;
+color:white;
+text-align:center;
+}
 
-  <style>
-    :root{
-      --bg:#06060b;
-      --glass: rgba(255,255,255,.08);
-      --glass2: rgba(255,255,255,.10);
-      --stroke: rgba(255,255,255,.14);
-      --text: rgba(255,255,255,.92);
-      --muted: rgba(255,255,255,.70);
-      --shadow: 0 24px 70px rgba(0,0,0,.55);
-      --radius: 22px;
-    }
-    *{ box-sizing: border-box; }
-    html,body{ height:100%; }
-    body{
-      margin:0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      background: radial-gradient(1200px 600px at 50% -10%, rgba(130,80,255,.25), transparent 60%),
-                  radial-gradient(900px 600px at 90% 10%, rgba(0,210,255,.18), transparent 55%),
-                  var(--bg);
-      color:var(--text);
-    }
-    a{ color:inherit; text-decoration:none; }
-    .wrap{ width:min(980px, 92vw); margin:0 auto; }
+.hero{
+height:90vh;
+background:url("https://raw.githubusercontent.com/omk-store/omotaker/refs/heads/main/A4C9B8E6-BBDF-4489-927B-B535734DED3C.png") center/cover no-repeat;
+display:flex;
+align-items:center;
+justify-content:center;
+flex-direction:column;
+}
 
-    /* HERO (full image, no separation) */
-    .hero{
-      position:relative;
-      min-height: 92vh;
-      display:flex;
-      align-items:flex-end;
-      overflow:hidden;
-    }
-    .hero::before{
-      content:"";
-      position:absolute; inset:0;
-      background:url('hero.jpg') center/cover no-repeat;
-      transform: scale(1.03);
-      filter: saturate(1.05) contrast(1.05);
-    }
-    .hero::after{
-      content:"";
-      position:absolute; inset:0;
-      background: linear-gradient(to bottom,
-        rgba(6,6,11,.25) 0%,
-        rgba(6,6,11,.35) 35%,
-        rgba(6,6,11,.92) 85%,
-        rgba(6,6,11,1) 100%);
-    }
+.hero h1{
+font-size:40px;
+letter-spacing:3px;
+}
 
-    /* Top nav sits ON the image */
-    .topbar{
-      position: absolute;
-      top: calc(14px + env(safe-area-inset-top));
-      left:0; right:0;
-      z-index: 5;
-      display:flex;
-      justify-content:center;
-      pointer-events:none;
-    }
-    .nav{
-      pointer-events:auto;
-      display:flex;
-      gap: 18px;
-      align-items:center;
-      padding: 14px 18px;
-      border-radius: 999px;
-      background: rgba(0,0,0,.38);
-      border: 1px solid rgba(255,255,255,.14);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      box-shadow: 0 18px 55px rgba(0,0,0,.35);
-      overflow:auto;
-      max-width: 92vw;
-    }
-    .nav a{
-      font-weight: 700;
-      letter-spacing:.12em;
-      text-transform: uppercase;
-      font-size: 12px;
-      color: rgba(255,255,255,.85);
-      white-space:nowrap;
-      padding: 10px 12px;
-      border-radius: 999px;
-      transition: .18s ease;
-    }
-    .nav a:hover{ background: rgba(255,255,255,.08); }
+.section{
+padding:40px 20px;
+}
 
-    .hero-inner{
-      position:relative;
-      z-index:3;
-      width:100%;
-      padding: 0 0 34px;
-    }
-    .brand{
-      text-align:center;
-      padding-top: 74vh; /* pushes title down so image dominates */
-    }
-    .brand h1{
-      margin: 0;
-      font-size: clamp(34px, 6.2vw, 58px);
-      letter-spacing: .14em;
-      font-weight: 900;
-      text-transform: uppercase;
-      text-shadow: 0 18px 60px rgba(0,0,0,.55);
-    }
+.song-grid{
+display:flex;
+flex-direction:column;
+gap:25px;
+max-width:420px;
+margin:auto;
+}
 
-    /* Social pill in the middle */
-    .social-pill{
-      margin: 18px auto 18px;
-      width: min(520px, 92vw);
-      padding: 18px;
-      border-radius: 999px;
-      background: rgba(0,0,0,.40);
-      border: 1px solid rgba(255,255,255,.14);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      box-shadow: var(--shadow);
-      display:flex;
-      justify-content:center;
-      gap: 18px;
-    }
-    .social-btn{
-      width: 64px;
-      height: 64px;
-      border-radius: 999px;
-      display:grid;
-      place-items:center;
-      border: 1px solid rgba(255,255,255,.18);
-      background: radial-gradient(circle at 35% 25%, rgba(165,95,255,.65), rgba(0,210,255,.22));
-      box-shadow: 0 16px 45px rgba(0,0,0,.42);
-      transition:.15s ease;
-    }
-    .social-btn:active{ transform: scale(.98); }
-    .social-btn svg{ width: 26px; height: 26px; opacity:.95; }
+.song-card{
+background:#111;
+border-radius:16px;
+overflow:hidden;
+box-shadow:0 0 20px rgba(255,255,255,0.05);
+}
 
-    /* Sections */
-    section{ padding: 34px 0; }
-    .section-title{
-      text-align:center;
-      letter-spacing: .28em;
-      text-transform: uppercase;
-      font-weight: 900;
-      color: rgba(255,255,255,.85);
-      margin: 10px 0 18px;
-    }
+.song-card img{
+width:100%;
+display:block;
+}
 
-    /* BIG release cards (Shalli style) */
-    .big-release{
-      border-radius: var(--radius);
-      overflow:hidden;
-      background: rgba(255,255,255,.06);
-      border: 1px solid rgba(255,255,255,.12);
-      box-shadow: var(--shadow);
-      margin: 18px auto;
-      width: min(720px, 94vw);
-    }
-    .big-release .art{
-      width:100%;
-      aspect-ratio: 1 / 1; /* big square like your covers */
-      background: #0d0d14;
-      position: relative;
-    }
-    .big-release .art img{
-      width:100%;
-      height:100%;
-      object-fit: cover;
-      display:block;
-    }
-    .big-release .meta{
-      padding: 18px 18px 16px;
-      background: linear-gradient(to bottom, rgba(20,20,30,.55), rgba(10,10,16,.70));
-    }
-    .big-release h3{
-      margin:0 0 6px;
-      font-size: 22px;
-      font-weight: 900;
-      letter-spacing:.02em;
-    }
-    .sub{
-      color: var(--muted);
-      font-size: 14px;
-      margin-bottom: 14px;
-    }
-    .pill-row{
-      display:flex;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-    .pill{
-      flex: 1 1 140px;
-      text-align:center;
-      padding: 12px 14px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.06);
-      font-weight: 800;
-      letter-spacing:.06em;
-      text-transform: uppercase;
-      font-size: 12px;
-    }
-    .pill:hover{ background: rgba(255,255,255,.09); }
+.song-info{
+padding:15px;
+}
 
-    /* Smaller grid after the first two big releases */
-    .grid{
-      display:grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 14px;
-    }
-    @media (max-width: 720px){
-      .grid{ grid-template-columns: 1fr; }
-      .brand{ padding-top: 72vh; }
-    }
-    .card{
-      border-radius: var(--radius);
-      overflow:hidden;
-      background: rgba(255,255,255,.06);
-      border: 1px solid rgba(255,255,255,.12);
-      box-shadow: 0 16px 55px rgba(0,0,0,.45);
-    }
-    .card-top{
-      display:flex;
-      gap: 12px;
-      padding: 14px;
-      align-items:center;
-    }
-    .thumb{
-      width: 62px;
-      height: 62px;
-      border-radius: 14px;
-      overflow:hidden;
-      flex: 0 0 auto;
-      background:#111;
-      border: 1px solid rgba(255,255,255,.10);
-    }
-    .thumb img{ width:100%; height:100%; object-fit: cover; display:block; }
-    .card h4{ margin:0 0 6px; font-size: 15px; font-weight: 900; }
-    .card .mini{ margin:0; color:var(--muted); font-size: 12px; }
-    .card-actions{
-      display:flex;
-      border-top: 1px solid rgba(255,255,255,.10);
-    }
-    .card-actions a{
-      flex:1;
-      text-align:center;
-      padding: 12px 10px;
-      font-weight: 900;
-      font-size: 12px;
-      letter-spacing:.08em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,.88);
-    }
-    .card-actions a + a{ border-left: 1px solid rgba(255,255,255,.10); }
-    .card-actions a:hover{ background: rgba(255,255,255,.07); }
+.song-info h3{
+margin:5px 0;
+font-size:20px;
+}
 
-    /* VIDEO big banner */
-    .video-banner{
-      width: min(860px, 94vw);
-      margin: 14px auto 0;
-      border-radius: var(--radius);
-      overflow:hidden;
-      border: 1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.06);
-      box-shadow: var(--shadow);
-      position: relative;
-      aspect-ratio: 16/9;
-      cursor:pointer;
-    }
-    .video-banner img{
-      width:100%; height:100%;
-      object-fit: cover;
-      display:block;
-      filter: saturate(1.05) contrast(1.05);
-    }
-    .play{
-      position:absolute; inset:0;
-      display:grid;
-      place-items:center;
-      background: radial-gradient(circle at 50% 50%, rgba(0,0,0,.15), rgba(0,0,0,.55));
-    }
-    .play-btn{
-      width: 82px; height: 82px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,.22);
-      background: rgba(255,255,255,.10);
-      backdrop-filter: blur(10px);
-      display:grid;
-      place-items:center;
-      box-shadow: 0 18px 60px rgba(0,0,0,.45);
-    }
-    .play-btn span{
-      display:block;
-      width:0; height:0;
-      border-left: 18px solid rgba(255,255,255,.92);
-      border-top: 11px solid transparent;
-      border-bottom: 11px solid transparent;
-      margin-left: 4px;
-    }
-    .video-caption{
-      position:absolute;
-      left: 14px; right: 14px; bottom: 14px;
-      padding: 12px 14px;
-      border-radius: 16px;
-      background: rgba(0,0,0,.45);
-      border: 1px solid rgba(255,255,255,.14);
-      backdrop-filter: blur(12px);
-    }
-    .video-caption .t{
-      font-weight: 1000;
-      letter-spacing:.04em;
-      margin:0 0 4px;
-    }
-    .video-caption .d{
-      margin:0;
-      color: rgba(255,255,255,.78);
-      font-size: 13px;
-    }
+.stream-btn{
+display:inline-block;
+margin-top:10px;
+padding:10px 20px;
+border-radius:30px;
+background:linear-gradient(45deg,#00c6ff,#0072ff);
+color:white;
+text-decoration:none;
+font-size:14px;
+}
 
-    /* Modal */
-    .modal{
-      position: fixed; inset:0;
-      background: rgba(0,0,0,.72);
-      display:none;
-      align-items:center;
-      justify-content:center;
-      z-index: 9999;
-      padding: 18px;
-    }
-    .modal.open{ display:flex; }
-    .modal-box{
-      width: min(960px, 96vw);
-      aspect-ratio: 16/9;
-      border-radius: 18px;
-      overflow:hidden;
-      border: 1px solid rgba(255,255,255,.16);
-      background: #000;
-      box-shadow: 0 30px 100px rgba(0,0,0,.65);
-      position: relative;
-    }
-    .close{
-      position:absolute;
-      top: 10px; right: 10px;
-      width: 44px; height: 44px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,.22);
-      background: rgba(0,0,0,.45);
-      color: #fff;
-      font-weight: 900;
-      display:grid;
-      place-items:center;
-      cursor:pointer;
-      z-index: 2;
-    }
-    iframe{ width:100%; height:100%; border:0; display:block; }
+.socials{
+display:flex;
+justify-content:center;
+gap:25px;
+margin-top:20px;
+}
 
-    /* CTA / WhatsApp middle gradient */
-    .cta{
-      width: min(820px, 94vw);
-      margin: 18px auto 0;
-      padding: 16px;
-      border-radius: 999px;
-      background: linear-gradient(90deg, rgba(165,95,255,.65), rgba(0,210,255,.35));
-      border: 1px solid rgba(255,255,255,.18);
-      box-shadow: 0 18px 70px rgba(0,0,0,.45);
-      display:flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      justify-content:center;
-    }
-    .cta a{
-      flex: 1 1 220px;
-      text-align:center;
-      padding: 14px 16px;
-      border-radius: 999px;
-      background: rgba(0,0,0,.35);
-      border: 1px solid rgba(255,255,255,.16);
-      font-weight: 1000;
-      letter-spacing:.06em;
-      text-transform: uppercase;
-      font-size: 12px;
-    }
-    .cta a:hover{ background: rgba(0,0,0,.45); }
+.socials a{
+color:white;
+text-decoration:none;
+font-size:18px;
+}
 
-    footer{
-      padding: 22px 0 46px;
-      text-align:center;
-      color: rgba(255,255,255,.55);
-      font-size: 12px;
-    }
-  </style>
+.whatsapp{
+margin:50px auto;
+max-width:300px;
+padding:15px;
+border-radius:30px;
+background:linear-gradient(90deg,#00ff87,#60efff);
+color:black;
+font-weight:bold;
+}
+
+.footer{
+margin-top:40px;
+font-size:12px;
+opacity:.7;
+}
+
+</style>
 </head>
 
 <body>
-  <!-- HERO (full image top) -->
-  <header class="hero" id="home">
-    <div class="topbar">
-      <nav class="nav">
-        <a href="#home">Home</a>
-        <a href="#mytruth">My Truth</a>
-        <a href="#music">Music</a>
-        <a href="#videos">Videos</a>
-        <a href="#connect">Connect</a>
-      </nav>
-    </div>
 
-    <div class="hero-inner">
-      <div class="wrap brand">
-        <h1>OMOTAKER</h1>
+<div class="hero">
+<h1>OMOTAKER</h1>
 
-        <!-- SOCIAL ICONS (Instagram + TikTok only) -->
-        <div class="social-pill" aria-label="Social links">
-          <a class="social-btn" href="https://www.instagram.com/iam__omotaker" target="_blank" rel="noopener">
-            <!-- IG icon -->
-            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Z" stroke="white" opacity=".9" stroke-width="2"/>
-              <path d="M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" stroke="white" opacity=".9" stroke-width="2"/>
-              <path d="M17.5 6.5h.01" stroke="white" stroke-width="3" stroke-linecap="round"/>
-            </svg>
-          </a>
+<div class="socials">
+<a href="https://instagram.com/iam_omotaker">Instagram</a>
+<a href="#">TikTok</a>
+</div>
+</div>
 
-          <a class="social-btn" href="https://www.tiktok.com/@iam.omotaker" target="_blank" rel="noopener">
-            <!-- TikTok-ish icon -->
-            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M14 3v11.2a3.8 3.8 0 1 1-3-3.7" stroke="white" stroke-width="2" opacity=".9" stroke-linecap="round"/>
-              <path d="M14 3c.8 3.2 3.1 5.2 6 5.6" stroke="white" stroke-width="2" opacity=".9" stroke-linecap="round"/>
-            </svg>
-          </a>
-        </div>
-      </div>
-    </div>
-  </header>
+<div class="section">
 
-  <!-- NEW RELEASES (BIG) -->
-  <main>
-    <section id="music">
-      <div class="wrap">
-        <div class="section-title">New Releases</div>
+<h2>NEW RELEASES</h2>
 
-        <!-- BIG 1: If Earth Could Talk -->
-        <article class="big-release" id="if-earth">
-          <div class="art">
-            <img src="ife-earth-could-talk.jpg" alt="If Earth Could Talk cover" />
-          </div>
-          <div class="meta">
-            <h3>If Earth Could Talk</h3>
-            <div class="sub">Single • 2026</div>
-            <div class="pill-row">
-              <a class="pill" href="https://open.spotify.com/" target="_blank" rel="noopener">Spotify</a>
-              <a class="pill" href="https://music.apple.com/" target="_blank" rel="noopener">Apple Music</a>
-              <a class="pill" href="#connect">More</a>
-            </div>
-          </div>
-        </article>
+<div class="song-grid">
 
-        <!-- BIG 2: Benin To Lagos -->
-        <article class="big-release" id="benin">
-          <div class="art">
-            <img src="benin-to-lagos.jpg" alt="Benin To Lagos cover" />
-          </div>
-          <div class="meta">
-            <h3>Benin To Lagos</h3>
-            <div class="sub">Single • 2026</div>
-            <div class="pill-row">
-              <a class="pill" href="https://open.spotify.com/" target="_blank" rel="noopener">Spotify</a>
-              <a class="pill" href="https://music.apple.com/" target="_blank" rel="noopener">Apple Music</a>
-              <a class="pill" href="#connect">More</a>
-            </div>
-          </div>
-        </article>
-      </div>
-    </section>
+<div class="song-card">
+<img src="https://raw.githubusercontent.com/omk-store/omotaker/refs/heads/main/C3971D0F-F19E-47FB-93FF-51641BB29FD6.png">
+<div class="song-info">
+<h3>If Earth Could Talk</h3>
+<a class="stream-btn" href="#">Stream Now</a>
+</div>
+</div>
 
-    <!-- MY TRUTH (smaller cards) -->
-    <section id="mytruth">
-      <div class="wrap">
-        <div class="section-title">My Truth</div>
+<div class="song-card">
+<img src="https://raw.githubusercontent.com/omk-store/omotaker/refs/heads/main/A4C9B8E6-BBDF-4489-927B-B535734DED3C.png">
+<div class="song-info">
+<h3>Benin To Lagos</h3>
+<a class="stream-btn" href="#">Stream Now</a>
+</div>
+</div>
 
-        <div class="grid">
-          <div class="card">
-            <div class="card-top">
-              <div class="thumb">
-                <img src="ife-earth-could-talk.jpg" alt="Bend Down Select cover (placeholder)" />
-              </div>
-              <div>
-                <h4>Bend Down Select</h4>
-                <p class="mini">Single • 2025</p>
-              </div>
-            </div>
-            <div class="card-actions">
-              <a href="#videos">Play</a>
-              <a href="#connect">More</a>
-            </div>
-          </div>
+</div>
+</div>
 
-          <div class="card">
-            <div class="card-top">
-              <div class="thumb">
-                <img src="benin-to-lagos.jpg" alt="Other release cover" />
-              </div>
-              <div>
-                <h4>Importer Exporter</h4>
-                <p class="mini">Single • 2024</p>
-              </div>
-            </div>
-            <div class="card-actions">
-              <a href="#connect">Spotify</a>
-              <a href="#connect">Apple</a>
-              <a href="#connect">More</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- VIDEOS -->
-    <section id="videos">
-      <div class="wrap">
-        <div class="section-title">Videos</div>
+<div class="section">
 
-        <!-- Bend Down Select (Official Video) -->
-        <div class="video-banner" id="bendVideo" role="button" aria-label="Play Bend Down Select official video">
-          <!-- YouTube thumbnail from your link -->
-          <img src="https://i.ytimg.com/vi/7qlRs1gDnMI/maxresdefault.jpg" alt="Bend Down Select Official Video thumbnail" />
-          <div class="play">
-            <div class="play-btn"><span></span></div>
-          </div>
-          <div class="video-caption">
-            <p class="t">Bend Down Select (Official Video)</p>
-            <p class="d">This sound came from a real place. If it touches you 🖤🔥</p>
-          </div>
-        </div>
-      </div>
-    </section>
+<h2>EP / VIDEO</h2>
 
-    <!-- CONNECT -->
-    <section id="connect">
-      <div class="wrap">
-        <div class="section-title">Connect</div>
+<div class="song-grid">
 
-        <div class="cta">
-          <a href="https://wa.me/" target="_blank" rel="noopener">WhatsApp</a>
-          <a href="https://whatsapp.com/channel/" target="_blank" rel="noopener">Join WhatsApp Channel</a>
-        </div>
-      </div>
-    </section>
+<div class="song-card">
+<img src="https://raw.githubusercontent.com/omk-store/omotaker/refs/heads/main/A4C9B8E6-BBDF-4489-927B-B535734DED3C.png">
+<div class="song-info">
+<h3>Bend Down Select</h3>
+<a class="stream-btn" href="#">Watch Video</a>
+</div>
+</div>
 
-    <footer>
-      © <span id="yr"></span> OMOTAKER
-    </footer>
-  </main>
+</div>
+</div>
 
-  <!-- Video modal -->
-  <div class="modal" id="modal">
-    <div class="modal-box">
-      <div class="close" id="closeBtn">✕</div>
-      <iframe id="ytFrame"
-        src=""
-        title="YouTube video player"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen></iframe>
-    </div>
-  </div>
 
-  <script>
-    // Year
-    document.getElementById('yr').textContent = new Date().getFullYear();
+<div class="section">
 
-    // Make your main domain open straight to the new release section (If Earth Could Talk)
-    // So when people click omotaker.com, they SEE the new release fast.
-    window.addEventListener('load', () => {
-      const hasHash = !!location.hash;
-      if(!hasHash){
-        // default focus to the new release
-        location.hash = '#if-earth';
-      }
-    });
+<h2>ALL SONGS</h2>
 
-    // Video modal
-    const modal = document.getElementById('modal');
-    const ytFrame = document.getElementById('ytFrame');
-    const openVideo = () => {
-      modal.classList.add('open');
-      // autoplay YouTube embed
-      ytFrame.src = 'https://www.youtube.com/embed/7qlRs1gDnMI?autoplay=1&rel=0';
-    };
-    const closeVideo = () => {
-      modal.classList.remove('open');
-      ytFrame.src = '';
-    };
+<div class="song-grid">
 
-    document.getElementById('bendVideo').addEventListener('click', openVideo);
-    document.getElementById('closeBtn').addEventListener('click', closeVideo);
-    modal.addEventListener('click', (e) => {
-      if(e.target === modal) closeVideo();
-    });
-  </script>
+<div class="song-card">
+<img src="https://raw.githubusercontent.com/omk-store/omotaker/refs/heads/main/A4C9B8E6-BBDF-4489-927B-B535734DED3C.png">
+<div class="song-info">
+<h3>Older Releases</h3>
+<a class="stream-btn" href="#">Listen</a>
+</div>
+</div>
+
+</div>
+
+</div>
+
+
+<div class="whatsapp">
+Join WhatsApp Channel
+</div>
+
+
+<div class="footer">
+© 2026 OMK Records
+</div>
+
 </body>
 </html>
