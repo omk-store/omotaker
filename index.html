@@ -96,13 +96,12 @@
       box-shadow: 0 20px 60px rgba(0,0,0,.55);
     }
 
-    /* ✅ HERO IMAGE (FLIPPED) */
     .heroMedia{
       position:relative;
       width:100%;
       height:520px;
       overflow:hidden;
-      --heroImg: url("https://raw.githubusercontent.com/omk-store/omotaker/main/D99E8D8F-BC87-4C45-8767-5DF7E7E18DA4.png"); /* Ovior */
+      --heroImg: url("https://raw.githubusercontent.com/omk-store/omotaker/main/D99E8D8F-BC87-4C45-8767-5DF7E7E18DA4.png");
       background: #000;
     }
     .heroMedia::before{
@@ -111,7 +110,7 @@
       background:
         radial-gradient(900px 500px at 50% 20%, rgba(0,0,0,.10), rgba(0,0,0,.88)),
         var(--heroImg) center/cover no-repeat;
-      transform: scaleX(-1); /* FLIP */
+      transform: scaleX(-1);
     }
 
     .heroFade{
@@ -173,7 +172,6 @@
       box-shadow: var(--glow);
     }
 
-    /* ✅ clean white icons (no “weird” invert look) */
     .brandIcon{
       width:24px; height:24px;
       background:#fff;
@@ -250,7 +248,6 @@
       background: radial-gradient(circle at 50% 50%, rgba(0,0,0,.10), rgba(0,0,0,.55));
     }
 
-    /* ✅ zoom small covers to remove white edges */
     .newCover, .cover{
       background-size: 120% !important;
       background-position: center !important;
@@ -423,7 +420,7 @@
       height:240px;
       background:
         linear-gradient(to bottom, rgba(0,0,0,.15), rgba(0,0,0,.75)),
-        url("https://img.youtube.com/vi/7qlRs1gDnMI/hqdefault.jpg") center/cover no-repeat; /* YouTube thumb */
+        url("https://img.youtube.com/vi/7qlRs1gDnMI/hqdefault.jpg") center/cover no-repeat;
       background-size: 112% !important;
       background-position:center !important;
       position:relative;
@@ -445,7 +442,6 @@
       font-size:24px;
     }
 
-    /* ✅ Caption BELOW (no link text inside) */
     .videoCaption{
       margin:10px auto 0;
       width: fit-content;
@@ -499,7 +495,6 @@
       line-height:1.4;
     }
 
-    /* ✅ Center text in SHOP + CONNECT */
     #store .premiumInner,
     #connect .premiumInner{
       text-align:center;
@@ -606,16 +601,14 @@
         </div>
       </div>
 
-      <!-- ✅ visitors land here (NEW RELEASES) -->
       <div id="newreleases" class="heroNewWrap">
         <div class="section-divider"></div>
         <div class="heroNewTitle">NEW RELEASES</div>
 
         <div class="newGrid">
-          <!-- ✅ FLIPPED covers between these two -->
           <div class="newCard">
             <div class="newTop">
-              <div class="newCover" style="background-image:url('https://raw.githubusercontent.com/omk-store/omotaker/main/A4C9B8E6-BBDF-4489-927B-B535734DED3C.png');"></div>
+              <div class="newCover" style="background-image:url('https://raw.githubusercontent.com/omk-store/omotaker/refs/heads/main/C3971D0F-F19E-47FB-93FF-51641BB29FD6.png');"></div>
               <div class="newMeta">
                 <p class="t">If Earth Could Talk</p>
                 <p class="s">Single • 2026</p>
@@ -646,7 +639,6 @@
       </div>
     </section>
 
-    <!-- MY TRUTH -->
     <section id="releases" class="section">
       <div class="section-divider"></div>
       <h2>MY TRUTH</h2>
@@ -714,7 +706,6 @@
       </div>
     </section>
 
-    <!-- MUSIC -->
     <section id="music" class="section">
       <div class="section-divider"></div>
       <h2>MUSIC</h2>
@@ -762,7 +753,6 @@
       </div>
     </section>
 
-    <!-- VIDEOS -->
     <section id="videos" class="section">
       <div class="section-divider"></div>
       <h2>VIDEOS</h2>
@@ -773,11 +763,9 @@
         </div>
       </a>
 
-      <!-- ✅ only title (no link inside) -->
       <div class="videoCaption">BEND DOWN SELECT OFFICIAL VIDEO</div>
     </section>
 
-    <!-- SHOP OMK -->
     <section id="store" class="section">
       <div class="section-divider"></div>
       <h2>SHOP OMK</h2>
@@ -791,7 +779,6 @@
       </div>
     </section>
 
-    <!-- CONNECT -->
     <section id="connect" class="section">
       <div class="section-divider"></div>
       <h2>CONNECT</h2>
@@ -800,7 +787,6 @@
         <div class="premiumCard">
           <div class="premiumInner">
             <h3 class="premiumTitle">JOIN OMK COMMUNITY 🐺🌋</h3>
-            <!-- ✅ line removed (no dash) -->
             <p class="premiumSub">Get updates, drops, and new music first. No email, just vibes.</p>
 
             <div class="joinCenter">
@@ -839,7 +825,6 @@
   <script>
     document.getElementById("yr").textContent = new Date().getFullYear();
 
-    // ✅ When people open omotaker.com (ads), land on NEW RELEASES (not the very top)
     window.addEventListener("load", () => {
       if (!location.hash) {
         const nr = document.getElementById("newreleases");
@@ -847,7 +832,6 @@
       }
     });
 
-    // Scrollspy
     const links = Array.from(document.querySelectorAll(".pillbar a"));
     const sections = links
       .map(a => document.querySelector(a.getAttribute("href")))
