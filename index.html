@@ -11,7 +11,6 @@
     :root{
       --bg:#000;
       --card:#111214;
-      --card2:#17181c;
       --text:#f5f6ff;
       --muted:rgba(245,246,255,.72);
       --line:rgba(255,255,255,.10);
@@ -43,56 +42,15 @@
       padding:14px 14px 90px;
     }
 
-    /* top nav */
-    .pillbarWrap{
-      position:sticky;
-      top:calc(env(safe-area-inset-top) + 10px);
-      z-index:50;
-      margin:10px 0 12px;
-      display:flex;
-      justify-content:center;
-      pointer-events:none;
-    }
-    .pillbar{
-      pointer-events:auto;
-      width:min(980px,100%);
-      display:flex;
-      gap:10px;
-      padding:10px;
-      border:1px solid rgba(255,255,255,.08);
-      background:rgba(8,8,10,.72);
-      border-radius:999px;
-      backdrop-filter:blur(12px);
-      overflow:auto;
-      -webkit-overflow-scrolling:touch;
-      box-shadow:0 12px 35px rgba(0,0,0,.45);
-    }
-    .pillbar a{
-      padding:10px 14px;
-      border-radius:999px;
-      font-weight:900;
-      letter-spacing:.06em;
-      font-size:12px;
-      color:rgba(255,255,255,.82);
-      white-space:nowrap;
-      border:1px solid transparent;
-      flex:0 0 auto;
-    }
-    .pillbar a.active{
-      background:rgba(255,255,255,.10);
-      border-color:rgba(255,255,255,.12);
-      color:#fff;
-      box-shadow:var(--glow);
-    }
-
-    /* hero */
-    .hero{
-      border-radius:var(--radius);
+    /* TOP HERO AREA */
+    .heroShell{
+      border-radius:30px;
       overflow:hidden;
-      border:1px solid var(--line);
+      border:1px solid rgba(255,255,255,.10);
       background:rgba(255,255,255,.03);
       box-shadow:0 20px 60px rgba(0,0,0,.55);
     }
+
     .heroMedia{
       position:relative;
       width:100%;
@@ -105,29 +63,65 @@
       content:"";
       position:absolute; inset:0;
       background:
-        radial-gradient(900px 500px at 50% 18%, rgba(0,0,0,.08), rgba(0,0,0,.90)),
+        linear-gradient(to bottom, rgba(0,0,0,.10), rgba(0,0,0,.18)),
         var(--heroImg) center/cover no-repeat;
     }
-    .heroFade{
+    .heroMedia::after{
+      content:"";
       position:absolute; left:0; right:0; bottom:0;
-      height:52%;
-      background:linear-gradient(to top, rgba(0,0,0,.96), rgba(0,0,0,0));
-      z-index:2;
+      height:26%;
+      background:linear-gradient(to top, rgba(0,0,0,.82), rgba(0,0,0,0));
+      pointer-events:none;
     }
-    .heroCenter{
-      position:absolute; left:0; right:0; bottom:28px;
-      z-index:3;
+
+    /* menu sits on picture */
+    .heroNavWrap{
+      position:absolute;
+      top:18px;
+      left:18px;
+      right:18px;
+      z-index:5;
+    }
+    .heroNav{
+      width:100%;
       display:flex;
-      flex-direction:column;
-      align-items:center;
-      justify-content:center;
+      gap:10px;
+      padding:10px;
+      border:1px solid rgba(255,255,255,.08);
+      background:rgba(8,8,10,.62);
+      border-radius:999px;
+      backdrop-filter:blur(12px);
+      overflow:auto;
+      -webkit-overflow-scrolling:touch;
+      box-shadow:0 12px 35px rgba(0,0,0,.35);
+    }
+    .heroNav a{
+      padding:10px 16px;
+      border-radius:999px;
+      font-weight:900;
+      letter-spacing:.06em;
+      font-size:12px;
+      color:rgba(255,255,255,.84);
+      white-space:nowrap;
+      border:1px solid transparent;
+      flex:0 0 auto;
+    }
+    .heroNav a.active{
+      background:rgba(255,255,255,.10);
+      border-color:rgba(255,255,255,.12);
+      color:#fff;
+      box-shadow:var(--glow);
+    }
+
+    /* below picture */
+    .heroBottom{
+      padding:18px 18px 22px;
+      background:#000;
       text-align:center;
-      gap:14px;
-      padding:0 16px;
     }
     .heroName{
       margin:0;
-      font-size:36px;
+      font-size:38px;
       font-weight:1000;
       letter-spacing:.05em;
       text-transform:uppercase;
@@ -138,9 +132,10 @@
       align-items:center;
       justify-content:center;
       gap:18px;
+      margin-top:16px;
     }
     .iconBtn{
-      width:56px; height:56px;
+      width:58px; height:58px;
       border-radius:999px;
       display:inline-flex;
       align-items:center;
@@ -152,7 +147,7 @@
     }
     .iconBtn:hover{ transform:translateY(-1px); box-shadow:var(--glow); }
     .brandIcon{
-      width:24px; height:24px;
+      width:25px; height:25px;
       background:#fff;
       -webkit-mask: var(--mask) no-repeat center / contain;
       mask: var(--mask) no-repeat center / contain;
@@ -179,10 +174,7 @@
       text-transform:uppercase;
     }
 
-    /* featured */
-    .featureShell{
-      margin-top:18px;
-    }
+    /* featured release */
     .featureCard{
       background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.04));
       border:1px solid var(--line);
@@ -232,6 +224,7 @@
       font-size:14px;
       color:var(--muted);
     }
+
     .platformBar{
       margin-top:18px;
       display:flex;
@@ -254,7 +247,7 @@
     }
     .platformBar a:last-child{ border-right:none; }
 
-    /* releases cards */
+    /* releases */
     .releaseStack{
       display:grid;
       gap:18px;
@@ -306,7 +299,7 @@
       color:var(--muted);
     }
 
-    /* rail */
+    /* rails */
     .rail{
       display:flex;
       gap:12px;
@@ -450,7 +443,6 @@
       backdrop-filter:blur(10px);
     }
 
-    /* bottom cards */
     .grid2{
       display:grid;
       grid-template-columns:1.1fr .9fr;
@@ -536,16 +528,16 @@
     }
 
     @media (max-width:720px){
-      .newGrid,
       .grid2{ grid-template-columns:1fr; }
       .featureCard,
       .releaseCard{ padding:18px; }
     }
     @media (max-width:420px){
-      .heroMedia{ height:540px; }
+      .heroMedia{ height:500px; }
       .miniCard{ flex-basis:300px; }
       .platformBar a{ font-size:11px; }
       .heroName{ font-size:34px; }
+      .heroNav a{ padding:10px 14px; font-size:11px; }
     }
   </style>
 </head>
@@ -553,38 +545,43 @@
 <body>
   <div class="wrap">
 
-    <div class="pillbarWrap">
-      <nav class="pillbar" aria-label="Sections">
-        <a class="active" href="#home">HOME</a>
-        <a href="#featured">IF EARTH</a>
-        <a href="#releases">RELEASES</a>
-        <a href="#music">MUSIC</a>
-        <a href="#videos">VIDEOS</a>
-        <a href="#connect">CONNECT</a>
-        <a href="#store">SHOP OMK</a>
-      </nav>
-    </div>
-
-    <section id="home" class="hero">
+    <section id="home" class="heroShell">
       <div class="heroMedia">
-        <div class="heroFade"></div>
-        <div class="heroCenter">
-          <h1 class="heroName">OMOTAKER</h1>
 
-          <div class="socialDock" aria-label="Social links">
-            <a class="iconBtn" href="https://www.instagram.com/iam__omotaker?igsh=MTEwM2RiOHV1ZjJzdQ%3D%3D&utm_source=qr" target="_blank" rel="noopener" aria-label="Instagram">
-              <span class="brandIcon" style="--mask:url('https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg');"></span>
-            </a>
+        <div class="heroNavWrap">
+          <nav class="heroNav" aria-label="Sections">
+            <a class="active" href="#home">HOME</a>
+            <a href="#featured">IF EARTH</a>
+            <a href="#releases">RELEASES</a>
+            <a href="#music">MUSIC</a>
+            <a href="#videos">VIDEOS</a>
+            <a href="#connect">CONNECT</a>
+            <a href="#store">SHOP OMK</a>
+          </nav>
+        </div>
 
-            <a class="iconBtn" href="https://www.tiktok.com/@iam.omotaker?_r=1&_t=ZS-94R7kuZiptd" target="_blank" rel="noopener" aria-label="TikTok">
-              <span class="brandIcon" style="--mask:url('https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/tiktok.svg');"></span>
-            </a>
-          </div>
+      </div>
+
+      <div class="heroBottom">
+        <h1 class="heroName">OMOTAKER</h1>
+
+        <div class="socialDock" aria-label="Social links">
+          <a class="iconBtn" href="https://www.instagram.com/iam__omotaker?igsh=MTEwM2RiOHV1ZjJzdQ%3D%3D&utm_source=qr" target="_blank" rel="noopener" aria-label="Instagram">
+            <span class="brandIcon" style="--mask:url('https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg');"></span>
+          </a>
+
+          <a class="iconBtn" href="https://www.tiktok.com/@iam.omotaker?_r=1&_t=ZS-94R7kuZiptd" target="_blank" rel="noopener" aria-label="TikTok">
+            <span class="brandIcon" style="--mask:url('https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/tiktok.svg');"></span>
+          </a>
+
+          <a class="iconBtn" href="https://www.snapchat.com/@omotaker1" target="_blank" rel="noopener" aria-label="Snapchat">
+            <span class="brandIcon" style="--mask:url('https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/snapchat.svg');"></span>
+          </a>
         </div>
       </div>
     </section>
 
-    <section id="featured" class="section featureShell">
+    <section id="featured" class="section">
       <div class="section-divider"></div>
       <h2>If Earth Could Talk</h2>
 
@@ -784,7 +781,7 @@
         <div class="premiumCard">
           <div class="premiumInner">
             <h3 class="premiumTitle">FOLLOW OMO TAKER</h3>
-            <p class="premiumSub">Instagram + TikTok</p>
+            <p class="premiumSub">Instagram + TikTok + Snapchat</p>
 
             <div class="socialDock" aria-label="Follow links" style="padding-top:8px;">
               <a class="iconBtn" href="https://www.instagram.com/iam__omotaker?igsh=MTEwM2RiOHV1ZjJzdQ%3D%3D&utm_source=qr" target="_blank" rel="noopener" aria-label="Instagram">
@@ -793,6 +790,10 @@
 
               <a class="iconBtn" href="https://www.tiktok.com/@iam.omotaker?_r=1&_t=ZS-94R7kuZiptd" target="_blank" rel="noopener" aria-label="TikTok">
                 <span class="brandIcon" style="--mask:url('https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/tiktok.svg');"></span>
+              </a>
+
+              <a class="iconBtn" href="https://www.snapchat.com/@omotaker1" target="_blank" rel="noopener" aria-label="Snapchat">
+                <span class="brandIcon" style="--mask:url('https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/snapchat.svg');"></span>
               </a>
             </div>
           </div>
@@ -806,7 +807,7 @@
   <script>
     document.getElementById("yr").textContent = new Date().getFullYear();
 
-    const links = Array.from(document.querySelectorAll(".pillbar a"));
+    const links = Array.from(document.querySelectorAll(".heroNav a"));
     const sections = links
       .map(a => document.querySelector(a.getAttribute("href")))
       .filter(Boolean);
@@ -829,7 +830,7 @@
       if(visible) setActive(visible.target.id);
     }, {
       root:null,
-      threshold:[0.15, 0.25, 0.35, 0.5],
+      threshold:[0.15,0.25,0.35,0.5],
       rootMargin:"-25% 0px -60% 0px"
     });
 
