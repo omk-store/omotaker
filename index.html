@@ -12,11 +12,14 @@
       --bg:#000;
       --text:#f5f6ff;
       --muted:rgba(245,246,255,.72);
+      --soft:rgba(245,246,255,.58);
       --line:rgba(255,255,255,.10);
       --a1:#7aa6ff;
       --a2:#ff7ad9;
+      --gold1:#ffca7a;
+      --gold2:#ff8a1f;
       --glow:0 10px 35px rgba(122,166,255,.16), 0 8px 30px rgba(255,122,217,.10);
-      --radius:24px;
+      --warmGlow:0 0 30px rgba(255,138,31,.18);
       --max:980px;
       --font:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji";
     }
@@ -82,9 +85,7 @@
       box-shadow:var(--glow);
     }
 
-    .heroSection{
-      scroll-margin-top:90px;
-    }
+    .heroSection{ scroll-margin-top:90px; }
     .heroWide{
       margin-left:-14px;
       margin-right:-14px;
@@ -96,10 +97,6 @@
       overflow:hidden;
       --heroImg:url("https://raw.githubusercontent.com/omk-store/omotaker/main/D99E8D8F-BC87-4C45-8767-5DF7E7E18DA4.png");
       background:#000;
-      border-top-left-radius:0;
-      border-top-right-radius:0;
-      border-bottom-left-radius:0;
-      border-bottom-right-radius:0;
     }
     .heroMedia::before{
       content:"";
@@ -192,10 +189,7 @@
       pointer-events:none;
       opacity:.9;
     }
-    .featureInner{
-      position:relative;
-      z-index:1;
-    }
+    .featureInner{ position:relative; z-index:1; }
     .featureImage{
       width:100%;
       aspect-ratio:1 / 1;
@@ -209,31 +203,37 @@
     }
     .featureMeta{
       text-align:center;
-      padding:18px 8px 0;
+      padding:20px 8px 0;
     }
     .featureTitle{
       margin:0;
-      font-size:23px;
+      font-size:24px;
       font-weight:1000;
-      letter-spacing:.03em;
+      letter-spacing:.05em;
       text-transform:uppercase;
-    }
-    .featureSub{
-      margin:10px 0 0;
-      font-size:14px;
-      color:var(--muted);
+      text-shadow:0 0 16px rgba(255,255,255,.08);
     }
     .promoLine{
-      margin:12px auto 0;
-      max-width:680px;
+      margin:14px auto 0;
+      max-width:660px;
+      text-align:center;
+      font-size:16px;
+      line-height:1.65;
+      font-weight:800;
+      color:#f7f1e8;
+    }
+    .promoMini{
+      margin:8px auto 0;
+      max-width:560px;
       text-align:center;
       font-size:13px;
-      line-height:1.6;
-      color:rgba(255,255,255,.78);
+      line-height:1.65;
+      color:var(--soft);
+      letter-spacing:.02em;
     }
 
     .platformBar{
-      margin-top:18px;
+      margin-top:20px;
       display:flex;
       width:100%;
       border-radius:999px;
@@ -275,10 +275,7 @@
         radial-gradient(420px 220px at 80% 10%, rgba(255,122,217,.09), transparent 60%);
       pointer-events:none;
     }
-    .releaseInner{
-      position:relative;
-      z-index:1;
-    }
+    .releaseInner{ position:relative; z-index:1; }
     .releaseImage{
       width:100%;
       aspect-ratio:1 / 1;
@@ -542,6 +539,7 @@
       .platformBar a{ font-size:11px; }
       .heroName{ font-size:34px; }
       .topbar a{ padding:10px 14px; font-size:11px; }
+      .promoLine{ font-size:15px; }
     }
   </style>
 </head>
@@ -587,7 +585,6 @@
 
     <section id="featured" class="section">
       <div class="section-divider"></div>
-      <h2>Benin To Lagos</h2>
 
       <div class="featureCard">
         <div class="featureInner">
@@ -595,8 +592,8 @@
 
           <div class="featureMeta">
             <p class="featureTitle">Benin To Lagos</p>
-            <p class="featureSub">Out Now 🔥</p>
-            <p class="promoLine">From Benin to Lagos — the journey, pressure, hunger and wolf spirit. Tap in and stream now.</p>
+            <p class="promoLine">From the city fire to the Lagos lights, this is motion, hunger and wolf energy in one sound.</p>
+            <p class="promoMini">Press play and step into the journey.</p>
           </div>
 
           <div class="platformBar" role="group" aria-label="Benin To Lagos platforms">
@@ -626,23 +623,6 @@
               <a href="https://open.spotify.com/track/7mifEtIK9OPGWD9EyOOLnq?si=hmsxRSbFT0SYsQYaHyHJrg" target="_blank" rel="noopener">Spotify</a>
               <a href="https://music.apple.com/ng/album/if-earth-could-talk/1881338853?i=1881338854" target="_blank" rel="noopener">Apple Music</a>
               <a href="https://omkdrip.com/if-earth-could-talk.html" target="_blank" rel="noopener">More</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="releaseCard">
-          <div class="releaseInner">
-            <div class="releaseImage" style="background-image:url('https://raw.githubusercontent.com/omk-store/omotaker/main/6066994F-0E77-4ACE-AB1C-4E1445E4457F.png');"></div>
-
-            <div class="releaseMeta">
-              <p class="releaseTitle">Benin To Lagos</p>
-              <p class="releaseSub">Out Now</p>
-            </div>
-
-            <div class="platformBar" role="group" aria-label="Benin To Lagos platforms second release">
-              <a href="https://open.spotify.com/track/0SooNM8i9p1UiE7HTTp5C4?si=AStB3M9vRlCplVnQxvyT3w" target="_blank" rel="noopener">Spotify</a>
-              <a href="https://music.apple.com/ng/album/benin-to-lagos/1866424075?i=1866424076" target="_blank" rel="noopener">Apple Music</a>
-              <a href="https://omkdrip.com/benin-to-lagos" target="_blank" rel="noopener">More</a>
             </div>
           </div>
         </div>
