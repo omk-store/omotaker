@@ -302,19 +302,18 @@
       color:var(--muted);
     }
 
-    .rail{
-      display:flex;
-      gap:12px;
-      overflow:auto;
-      padding:6px 4px 10px;
-      scroll-snap-type:x mandatory;
-      -webkit-overflow-scrolling:touch;
+    .musicRows{
+      display:grid;
+      gap:16px;
     }
-    .rail::after{ content:""; flex:0 0 18px; }
+
+    .rail{
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0,1fr));
+      gap:12px;
+    }
 
     .miniCard{
-      flex:0 0 330px;
-      scroll-snap-align:start;
       border-radius:20px;
       border:1px solid var(--line);
       background:rgba(255,255,255,.05);
@@ -532,10 +531,12 @@
       .grid2{ grid-template-columns:1fr; }
       .featureCard,
       .releaseCard{ padding:18px; }
+      .rail{
+        grid-template-columns:1fr;
+      }
     }
     @media (max-width:420px){
       .heroMedia{ height:500px; }
-      .miniCard{ flex-basis:300px; }
       .platformBar a{ font-size:11px; }
       .heroName{ font-size:34px; }
       .topbar a{ padding:10px 14px; font-size:11px; }
@@ -597,7 +598,7 @@
           </div>
 
           <div class="platformBar" role="group" aria-label="Benin To Lagos platforms">
-            <a href="https://open.spotify.com/track/0SooNM8i9p1UiE7HTTp5C4?si=AStB3M9vRlCplVnQxvyT3w" target="_blank" rel="noopener">Spotify</a>
+            <a href="https://open.spotify.com/album/2a60aUj3cd4I905EsIFYuR?si=LDBT6DwUTqGCsvIkXOepRA" target="_blank" rel="noopener">Spotify</a>
             <a href="https://music.apple.com/ng/album/benin-to-lagos/1866424075?i=1866424076" target="_blank" rel="noopener">Apple Music</a>
             <a href="https://omkdrip.com/benin-to-lagos" target="_blank" rel="noopener">More</a>
           </div>
@@ -620,7 +621,7 @@
             </div>
 
             <div class="platformBar" role="group" aria-label="If Earth Could Talk platforms">
-              <a href="https://open.spotify.com/track/7mifEtIK9OPGWD9EyOOLnq?si=hmsxRSbFT0SYsQYaHyHJrg" target="_blank" rel="noopener">Spotify</a>
+              <a href="https://open.spotify.com/album/3pmVjnNbaT7LHTQlaaLC8V?si=65-DGj6PQk6R5vWe6eui3Q" target="_blank" rel="noopener">Spotify</a>
               <a href="https://music.apple.com/ng/album/if-earth-could-talk/1881338853?i=1881338854" target="_blank" rel="noopener">Apple Music</a>
               <a href="https://omkdrip.com/if-earth-could-talk.html" target="_blank" rel="noopener">More</a>
             </div>
@@ -633,106 +634,132 @@
       <div class="section-divider"></div>
       <h2>Music</h2>
 
-      <div class="rail">
-        <div class="miniCard">
-          <div class="rowTop">
-            <div class="cover" style="background-image:url('https://raw.githubusercontent.com/omk-store/omotaker/main/A4C9B8E6-BBDF-4489-927B-B535734DED3C.png');">
-              <div class="playDot"><span>▶</span></div>
+      <div class="musicRows">
+
+        <div class="rail">
+          <div class="miniCard">
+            <div class="rowTop">
+              <div class="cover" style="background-image:url('https://raw.githubusercontent.com/omk-store/omotaker/main/A4C9B8E6-BBDF-4489-927B-B535734DED3C.png');">
+                <div class="playDot"><span>▶</span></div>
+              </div>
+              <div class="meta">
+                <p class="title">Bend Down Select</p>
+                <p class="sub">Single • 2025</p>
+              </div>
             </div>
-            <div class="meta">
-              <p class="title">Bend Down Select</p>
-              <p class="sub">Single • 2025</p>
+            <a class="playBtn" href="http://dvpper.lnk.to/mytruth" target="_blank" rel="noopener">Learn More</a>
+            <div class="miniBar">
+              <div class="platformBar" role="group" aria-label="Bend Down Select platforms">
+                <a href="http://dvpper.lnk.to/mytruth" target="_blank" rel="noopener">Spotify</a>
+                <a href="https://music.apple.com/ng/album/bend-down-select/1859702027?i=1859702029" target="_blank" rel="noopener">Apple Music</a>
+                <a href="http://dvpper.lnk.to/mytruth" target="_blank" rel="noopener">More</a>
+              </div>
             </div>
           </div>
-          <a class="playBtn" href="https://open.spotify.com/track/6fZjfm5ABj46mzwnowDj93?si=I2BQ-_OMT3Wro3ISwPgY2A" target="_blank" rel="noopener">Play</a>
-          <div class="miniBar">
-            <div class="platformBar" role="group" aria-label="Bend Down Select platforms">
-              <a href="https://open.spotify.com/track/6fZjfm5ABj46mzwnowDj93?si=I2BQ-_OMT3Wro3ISwPgY2A" target="_blank" rel="noopener">Spotify</a>
-              <a href="https://music.apple.com/ng/album/bend-down-select/1859702027?i=1859702029" target="_blank" rel="noopener">Apple Music</a>
-              <a href="http://dvpper.lnk.to/mytruth" target="_blank" rel="noopener">More</a>
+
+          <div class="miniCard">
+            <div class="rowTop">
+              <div class="cover" style="background-image:url('https://raw.githubusercontent.com/omk-store/omotaker/main/A4C9B8E6-BBDF-4489-927B-B535734DED3C.png');">
+                <div class="playDot"><span>▶</span></div>
+              </div>
+              <div class="meta">
+                <p class="title">My Door</p>
+                <p class="sub">My Truth EP • 2025</p>
+              </div>
+            </div>
+            <a class="playBtn" href="http://dvpper.lnk.to/mytruth" target="_blank" rel="noopener">Learn More</a>
+            <div class="miniBar">
+              <div class="platformBar" role="group" aria-label="My Door platforms">
+                <a href="http://dvpper.lnk.to/mytruth" target="_blank" rel="noopener">Spotify</a>
+                <a href="https://music.apple.com/ng/album/my-door/1859702027?i=1859702242" target="_blank" rel="noopener">Apple Music</a>
+                <a href="http://dvpper.lnk.to/mytruth" target="_blank" rel="noopener">More</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="miniCard">
+            <div class="rowTop">
+              <div class="cover" style="background-image:url('https://raw.githubusercontent.com/omk-store/omotaker/main/A4C9B8E6-BBDF-4489-927B-B535734DED3C.png');">
+                <div class="playDot"><span>▶</span></div>
+              </div>
+              <div class="meta">
+                <p class="title">Badt Guy</p>
+                <p class="sub">Single • 2024</p>
+              </div>
+            </div>
+            <a class="playBtn" href="http://dvpper.lnk.to/mytruth" target="_blank" rel="noopener">Learn More</a>
+            <div class="miniBar">
+              <div class="platformBar" role="group" aria-label="Badt Guy platforms">
+                <a href="https://open.spotify.com/album/126dI3vQGGZSuKxkQ8nVs9?si=lolPOEV7RmCprjhCKC7blA" target="_blank" rel="noopener">Spotify</a>
+                <a href="https://music.apple.com/ng/album/badt-guy-single/1758752613" target="_blank" rel="noopener">Apple Music</a>
+                <a href="http://dvpper.lnk.to/mytruth" target="_blank" rel="noopener">More</a>
+              </div>
             </div>
           </div>
         </div>
 
-        <div class="miniCard">
-          <div class="rowTop">
-            <div class="cover" style="background-image:url('https://raw.githubusercontent.com/omk-store/omotaker/main/A4C9B8E6-BBDF-4489-927B-B535734DED3C.png');">
-              <div class="playDot"><span>▶</span></div>
+        <div class="rail">
+          <div class="miniCard">
+            <div class="rowTop">
+              <div class="cover" style="background-image:url('https://raw.githubusercontent.com/omk-store/omotaker/main/IMG_7103.jpeg');">
+                <div class="playDot"><span>▶</span></div>
+              </div>
+              <div class="meta">
+                <p class="title">Importer Exporter</p>
+                <p class="sub">Single • 2024</p>
+              </div>
             </div>
-            <div class="meta">
-              <p class="title">My Door</p>
-              <p class="sub">My Truth EP • 2025</p>
+            <a class="playBtn" href="https://open.spotify.com/album/4LEwhQbZpuakua1fucihFq?si=q3XkRPIPT6aH4o9DuFpOJA" target="_blank" rel="noopener">Play</a>
+            <div class="miniBar">
+              <div class="platformBar" role="group" aria-label="Importer Exporter platforms">
+                <a href="https://open.spotify.com/album/4LEwhQbZpuakua1fucihFq?si=q3XkRPIPT6aH4o9DuFpOJA" target="_blank" rel="noopener">Spotify</a>
+                <a href="https://distrokid.com/hyperfollow/omotaker/importer-exporter/" target="_blank" rel="noopener">Apple Music</a>
+                <a href="https://distrokid.com/hyperfollow/omotaker/importer-exporter/" target="_blank" rel="noopener">More</a>
+              </div>
             </div>
           </div>
-          <a class="playBtn" href="https://open.spotify.com/track/2FMkNT1AHV4qfo7zgHil4a?si=bqMvIIRZTQCVJ6_d4M9Lkw" target="_blank" rel="noopener">Play</a>
-          <div class="miniBar">
-            <div class="platformBar" role="group" aria-label="My Door platforms">
-              <a href="https://open.spotify.com/track/2FMkNT1AHV4qfo7zgHil4a?si=bqMvIIRZTQCVJ6_d4M9Lkw" target="_blank" rel="noopener">Spotify</a>
-              <a href="https://music.apple.com/ng/album/my-door/1859702027?i=1859702242" target="_blank" rel="noopener">Apple Music</a>
-              <a href="http://dvpper.lnk.to/mytruth" target="_blank" rel="noopener">More</a>
+
+          <div class="miniCard">
+            <div class="rowTop">
+              <div class="cover" style="background-image:url('https://raw.githubusercontent.com/omk-store/omotaker/main/IMG_7104.jpeg');">
+                <div class="playDot"><span>▶</span></div>
+              </div>
+              <div class="meta">
+                <p class="title">Ovior</p>
+                <p class="sub">Single • 2024</p>
+              </div>
+            </div>
+            <a class="playBtn" href="https://open.spotify.com/track/13gKtxG70RjXZe5utCeJfw?si=L1WhABVVQTGcWkiZGbQKvQ" target="_blank" rel="noopener">Play</a>
+            <div class="miniBar">
+              <div class="platformBar" role="group" aria-label="Ovior platforms">
+                <a href="https://open.spotify.com/track/13gKtxG70RjXZe5utCeJfw?si=L1WhABVVQTGcWkiZGbQKvQ" target="_blank" rel="noopener">Spotify</a>
+                <a href="https://music.apple.com/ng/album/ovior/1725694012?i=1725694013" target="_blank" rel="noopener">Apple Music</a>
+                <a href="https://distrokid.com/hyperfollow/omotaker/ovior/" target="_blank" rel="noopener">More</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="miniCard">
+            <div class="rowTop">
+              <div class="cover" style="background-image:url('https://raw.githubusercontent.com/omk-store/omotaker/main/A4C9B8E6-BBDF-4489-927B-B535734DED3C.png');">
+                <div class="playDot"><span>▶</span></div>
+              </div>
+              <div class="meta">
+                <p class="title">My Truth EP</p>
+                <p class="sub">EP • 2025</p>
+              </div>
+            </div>
+            <a class="playBtn" href="http://dvpper.lnk.to/mytruth" target="_blank" rel="noopener">Learn More</a>
+            <div class="miniBar">
+              <div class="platformBar" role="group" aria-label="My Truth EP platforms">
+                <a href="https://open.spotify.com/album/4DlwZGHDYZHYy4DFmwdkGG?si=nDup4Tn0RxqJlggfKyquXQ" target="_blank" rel="noopener">Spotify</a>
+                <a href="http://dvpper.lnk.to/mytruth" target="_blank" rel="noopener">Apple Music</a>
+                <a href="http://dvpper.lnk.to/mytruth" target="_blank" rel="noopener">More</a>
+              </div>
             </div>
           </div>
         </div>
 
-        <div class="miniCard">
-          <div class="rowTop">
-            <div class="cover" style="background-image:url('https://raw.githubusercontent.com/omk-store/omotaker/main/A4C9B8E6-BBDF-4489-927B-B535734DED3C.png');">
-              <div class="playDot"><span>▶</span></div>
-            </div>
-            <div class="meta">
-              <p class="title">Badt Guy</p>
-              <p class="sub">Single • 2025</p>
-            </div>
-          </div>
-          <a class="playBtn" href="https://open.spotify.com/track/78ckyu0HPy4oOQPzee5rkx?si=6tJHaGmxQtq4GOsrkHzMHg" target="_blank" rel="noopener">Play</a>
-          <div class="miniBar">
-            <div class="platformBar" role="group" aria-label="Badt Guy platforms">
-              <a href="https://open.spotify.com/track/78ckyu0HPy4oOQPzee5rkx?si=6tJHaGmxQtq4GOsrkHzMHg" target="_blank" rel="noopener">Spotify</a>
-              <a href="https://music.apple.com/ng/album/badt-guy/1859702027?i=1859702033" target="_blank" rel="noopener">Apple Music</a>
-              <a href="http://dvpper.lnk.to/mytruth" target="_blank" rel="noopener">More</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="miniCard">
-          <div class="rowTop">
-            <div class="cover" style="background-image:url('https://raw.githubusercontent.com/omk-store/omotaker/main/IMG_7103.jpeg');">
-              <div class="playDot"><span>▶</span></div>
-            </div>
-            <div class="meta">
-              <p class="title">Importer Exporter</p>
-              <p class="sub">Single • 2024</p>
-            </div>
-          </div>
-          <a class="playBtn" href="https://open.spotify.com/track/2rYqbqZXZEKBKzoaWWo5PN?si=1qVPzB8pQ06i5zPI2mTncA" target="_blank" rel="noopener">Play</a>
-          <div class="miniBar">
-            <div class="platformBar" role="group" aria-label="Importer Exporter platforms">
-              <a href="https://open.spotify.com/track/2rYqbqZXZEKBKzoaWWo5PN?si=1qVPzB8pQ06i5zPI2mTncA" target="_blank" rel="noopener">Spotify</a>
-              <a href="https://music.apple.com/ng/album/importer-exporter/1748881250?i=1748881251" target="_blank" rel="noopener">Apple Music</a>
-              <a href="https://distrokid.com/hyperfollow/omotaker/importer-exporter/" target="_blank" rel="noopener">More</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="miniCard">
-          <div class="rowTop">
-            <div class="cover" style="background-image:url('https://raw.githubusercontent.com/omk-store/omotaker/main/IMG_7104.jpeg');">
-              <div class="playDot"><span>▶</span></div>
-            </div>
-            <div class="meta">
-              <p class="title">Ovior</p>
-              <p class="sub">Single • 2024</p>
-            </div>
-          </div>
-          <a class="playBtn" href="https://open.spotify.com/track/13gKtxG70RjXZe5utCeJfw?si=pPPMD-D5RGurxT4GzC9pZw" target="_blank" rel="noopener">Play</a>
-          <div class="miniBar">
-            <div class="platformBar" role="group" aria-label="Ovior platforms">
-              <a href="https://open.spotify.com/track/13gKtxG70RjXZe5utCeJfw?si=pPPMD-D5RGurxT4GzC9pZw" target="_blank" rel="noopener">Spotify</a>
-              <a href="https://music.apple.com/ng/album/ovior/1725694012?i=1725694013" target="_blank" rel="noopener">Apple Music</a>
-              <a href="https://distrokid.com/hyperfollow/omotaker/ovior/" target="_blank" rel="noopener">More</a>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
 
