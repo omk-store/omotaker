@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>If Earth Could Talk | Omo Taker</title>
+
+<style>
+:root{
+  --bg:#06070d;
+  --card:rgba(255,255,255,.06);
+  --text:#ffffff;
+  --muted:rgba(255,255,255,.65);
+  --border:rgba(255,255,255,.18);
+  --radius:28px;
+}
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+}
+
+body{
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:24px 16px;
+  background:
+  radial-gradient(circle at 20% 20%, #5b6cff33, transparent 40%),
+  radial-gradient(circle at 80% 80%, #ff5bc233, transparent 40%),
+  linear-gradient(180deg,#04050a,#0a0d1a);
+}
+
+/* CARD */
+.wrap{
+  width:100%;
+  max-width:420px;
+  border-radius:var(--radius);
+  padding:18px;
+  background:var(--card);
+  backdrop-filter:blur(16px);
+  border:1px solid var(--border);
+  text-align:center;
+}
+
+/* TOP BRAND */
+.brand{
+  margin-bottom:14px;
+}
+
+.brand b{
+  display:block;
+  font-size:15px;
+  letter-spacing:.5px;
+}
+
+.brand span{
+  font-size:12px;
+  color:var(--muted);
+}
+
+/* COVER */
+.cover{
+  width:100%;
+  border-radius:20px;
+  margin-bottom:12px;
+  border:1px solid var(--border);
+}
+
+/* TITLE */
+h1{
+  font-size:22px;
+  font-weight:900;
+  letter-spacing:1px;
+}
+
+.artist{
+  font-size:13px;
+  color:var(--muted);
+  margin-top:4px;
+}
+
+/* BADGE */
+.status{
+  display:inline-block;
+  margin:10px auto 12px auto;
+  padding:7px 14px;
+  border-radius:999px;
+  font-size:12px;
+  font-weight:700;
+  background:linear-gradient(90deg,#6a7bff,#ff5bc2);
+  color:#fff;
+}
+
+/* SHORT TEXT */
+.desc{
+  font-size:14px;
+  color:#e8e8e8;
+  margin:8px 0 16px 0;
+  line-height:1.5;
+}
+
+/* SECTION TITLE */
+.section{
+  margin:14px 0 8px;
+  font-size:11px;
+  letter-spacing:1.4px;
+  font-weight:800;
+  color:var(--muted);
+}
+
+/* BUTTONS */
+.platforms{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+.btn{
+  text-decoration:none;
+  padding:14px;
+  border-radius:18px;
+  border:1px solid var(--border);
+  background:rgba(255,255,255,.05);
+  color:#fff;
+  font-weight:800;
+  font-size:14px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  transition:.2s ease;
+}
+
+.btn:active{
+  transform:scale(.97);
+}
+
+.icon img{
+  width:18px;
+  height:18px;
+}
+
+.footer{
+  margin-top:16px;
+  font-size:12px;
+  color:var(--muted);
+}
+</style>
+</head>
+
+<body>
+
+<div class="wrap">
+
+<div class="brand">
+<b>OMK Records</b>
+<span>Official links</span>
+</div>
+
+<img
+src="https://raw.githubusercontent.com/omk-store/omk-website/main/27475981-5AEA-4007-BC96-AA39B96FCC87.png"
+class="cover"
+alt="If Earth Could Talk Cover">
+
+<div class="status">Out Now 🌍</div>
+
+<h1>IF EARTH COULD TALK</h1>
+<div class="artist">Omo Taker • OMK Records</div>
+
+<div class="desc">
+If the world had a voice, this sound would carry the pain and the truth.
+</div>
+
+<div class="section">LISTEN NOW</div>
+
+<div class="platforms">
+
+<a class="btn" href="https://open.spotify.com/track/7mifEtIK9OPGWD9EyOOLnq?si=0sQivtDWRvm6Oytb57phdg" target="_blank">
+<span class="icon">
+<img src="https://cdn.simpleicons.org/spotify/ffffff">
+</span>
+PLAY ON SPOTIFY
+</a>
+
+<a class="btn" href="https://music.apple.com/ng/album/if-earth-could-talk/1881338853?i=1881338854" target="_blank">
+<span class="icon">
+<img src="https://cdn.simpleicons.org/applemusic/ffffff">
+</span>
+APPLE MUSIC
+</a>
+
+<a class="btn" href="https://www.boomplay.com/share/music/240458081" target="_blank">
+BOOMPLAY
+</a>
+
+<a class="btn" href="https://audiomack.com/iam_omotaker/song/if-earth-could-talk" target="_blank">
+AUDIOMACK
+</a>
+
+</div>
+
+<div class="footer">
+© 2026 Omo Taker • OMK Records
+</div>
+
+</div>
+
+</body>
+</html>
