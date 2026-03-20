@@ -17,7 +17,7 @@
   margin:0;
   padding:0;
   box-sizing:border-box;
-  font-family:Inter,system-ui;
+  font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
 }
 
 body{
@@ -30,7 +30,7 @@ body{
   justify-content:center;
   align-items:center;
   padding:20px;
-  color:white;
+  color:var(--text);
 }
 
 .wrap{
@@ -40,75 +40,103 @@ body{
   border-radius:30px;
   padding:20px;
   backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
   border:1px solid rgba(255,255,255,.10);
   box-shadow:0 30px 80px rgba(0,0,0,.6);
+  position:relative;
+  overflow:hidden;
 }
 
-/* HEADER */
+.wrap::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(98,230,255,.06), transparent 35%),
+    radial-gradient(circle at 100% 100%, rgba(255,99,198,.06), transparent 35%);
+}
+
 .brand{
   text-align:center;
   margin-bottom:16px;
+  position:relative;
+  z-index:1;
 }
+
 .brand b{
   font-size:16px;
+  font-weight:800;
 }
+
 .brand span{
   font-size:12px;
   color:var(--muted);
 }
 
-/* COVER */
 .cover{
   width:100%;
   border-radius:20px;
-  margin-bottom:14px;
+  margin-bottom:16px;
+  display:block;
+  box-shadow:0 18px 40px rgba(0,0,0,.38);
+  position:relative;
+  z-index:1;
 }
 
 h1{
   text-align:center;
   font-size:22px;
   font-weight:900;
+  position:relative;
+  z-index:1;
 }
 
 .artist{
   text-align:center;
   color:var(--muted);
-  margin-top:6px;
+  margin-top:8px;
+  font-size:14px;
+  position:relative;
+  z-index:1;
 }
 
-/* spacing instead of badge */
 .spacer{
-  height:10px;
+  height:14px;
 }
 
-/* SECTION */
 .section{
   margin-top:24px;
   font-size:11px;
   text-align:center;
   color:var(--muted2);
-  letter-spacing:2px;
+  letter-spacing:3px;
   font-weight:800;
   text-transform:uppercase;
+  position:relative;
+  z-index:1;
 }
 
-/* BUTTONS */
 .platforms{
   display:flex;
   flex-direction:column;
   gap:14px;
   margin-top:14px;
+  position:relative;
+  z-index:1;
 }
 
 .btn{
   text-decoration:none;
-  padding:16px;
-  border-radius:18px;
+  padding:18px 18px;
+  min-height:64px;
+  border-radius:20px;
   display:flex;
   align-items:center;
   justify-content:center;
   border:1px solid rgba(255,255,255,.10);
-  transition:.2s;
+  transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+  font-size:15px;
 }
 
 .btn:hover{
@@ -117,126 +145,167 @@ h1{
 
 .spotify{
   background:linear-gradient(90deg,#62e6ff,#7b7dff,#ff63c6);
-  color:black;
-  font-weight:800;
+  color:#06111d;
+  font-weight:900;
+  box-shadow:0 12px 28px rgba(123,125,255,.22);
 }
 
 .darkbtn{
   background:rgba(255,255,255,.05);
-  color:white;
+  color:#fff;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.03);
 }
 
-/* DIVIDER */
 .divider{
-  margin:24px auto;
-  width:80%;
+  margin:26px auto 4px;
+  width:82%;
   height:1px;
-  background:linear-gradient(90deg, transparent, rgba(255,255,255,.2), transparent);
+  background:linear-gradient(90deg, transparent, rgba(255,255,255,.20), transparent);
+  position:relative;
+  z-index:1;
 }
 
-/* FAN CARDS FIXED */
+/* UPDATED FAN CARDS */
+.fan-list{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  margin-top:14px;
+  position:relative;
+  z-index:1;
+}
+
 .fan-card{
   background:rgba(255,255,255,.05);
-  border-radius:18px;
-  padding:18px;
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:20px;
+  min-height:92px;
+  padding:0 22px;
+  display:flex;
+  align-items:center;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.03),
+    0 10px 24px rgba(0,0,0,.18);
+}
+
+.fan-copy{
   display:flex;
   flex-direction:column;
   justify-content:center;
-  min-height:86px;
+  align-items:flex-start;
+  text-align:left;
+  width:100%;
+  gap:6px;
 }
 
 .fan-title{
-  font-weight:800;
-  font-size:16px;
-  margin-bottom:6px;
+  font-weight:900;
+  font-size:17px;
+  line-height:1.1;
+  color:#fff;
 }
 
 .fan-meta{
   font-size:13px;
   color:var(--muted2);
+  line-height:1.1;
 }
 
-/* FOOTER */
 .footer{
-  margin-top:20px;
+  margin-top:22px;
   text-align:center;
   font-size:12px;
   color:var(--muted2);
+  position:relative;
+  z-index:1;
+}
+
+@media (max-width:360px){
+  .wrap{padding:16px}
+  h1{font-size:20px}
+  .btn{font-size:14px; min-height:60px}
+  .fan-card{min-height:86px; padding:0 18px}
+  .fan-title{font-size:16px}
 }
 </style>
 </head>
 
 <body>
+  <div class="wrap">
 
-<div class="wrap">
-
-  <div class="brand">
-    <b>OMK Records</b>
-    <span>Official links</span>
-  </div>
-
-  <img src="https://raw.githubusercontent.com/omk-store/omk-website/main/914C5ED9-2BF8-4515-9320-9169F7E32FBB.png" class="cover">
-
-  <h1>BENIN TO LAGOS</h1>
-  <div class="artist">Omo Taker</div>
-
-  <div class="spacer"></div>
-
-  <!-- LISTEN -->
-  <div class="section">Listen Now</div>
-
-  <div class="platforms">
-    <a class="btn spotify" href="https://open.spotify.com/track/0SooNM8i9p1UiE7HTTp5C4">
-      ▶ Play on Spotify
-    </a>
-
-    <a class="btn darkbtn" href="https://music.apple.com/ng/album/benin-to-lagos/1866424075?i=1866424076">
-      Apple Music
-    </a>
-
-    <a class="btn darkbtn" href="https://www.boomplay.com/songs/231357454">
-      Boomplay
-    </a>
-
-    <a class="btn darkbtn" href="https://audiomack.com/iam_omotaker/song/benin-to-lagos">
-      Audiomack
-    </a>
-  </div>
-
-  <div class="divider"></div>
-
-  <!-- FAN FAVORITES -->
-  <div class="section">🔥 Fan Favorites</div>
-
-  <div class="platforms">
-    <div class="fan-card">
-      <div class="fan-title">My Truth</div>
-      <div class="fan-meta">219K+ streams</div>
+    <div class="brand">
+      <b>OMK Records</b>
+      <span>Official links</span>
     </div>
 
-    <div class="fan-card">
-      <div class="fan-title">Bend Down Select</div>
-      <div class="fan-meta">84K+ streams</div>
+    <img
+      src="https://raw.githubusercontent.com/omk-store/omk-website/main/914C5ED9-2BF8-4515-9320-9169F7E32FBB.png"
+      class="cover"
+      alt="Benin To Lagos Cover"
+    >
+
+    <h1>BENIN TO LAGOS</h1>
+    <div class="artist">Omo Taker</div>
+
+    <div class="spacer"></div>
+
+    <div class="section">Listen Now</div>
+
+    <div class="platforms">
+      <a class="btn spotify" href="https://open.spotify.com/track/0SooNM8i9p1UiE7HTTp5C4" target="_blank" rel="noopener">
+        ▶ Play on Spotify
+      </a>
+
+      <a class="btn darkbtn" href="https://music.apple.com/ng/album/benin-to-lagos/1866424075?i=1866424076" target="_blank" rel="noopener">
+        Apple Music
+      </a>
+
+      <a class="btn darkbtn" href="https://www.boomplay.com/songs/231357454" target="_blank" rel="noopener">
+        Boomplay
+      </a>
+
+      <a class="btn darkbtn" href="https://audiomack.com/iam_omotaker/song/benin-to-lagos" target="_blank" rel="noopener">
+        Audiomack
+      </a>
     </div>
 
-    <div class="fan-card">
-      <div class="fan-title">You + You</div>
-      <div class="fan-meta">26K+ streams</div>
+    <div class="divider"></div>
+
+    <div class="section">🔥 Fan Favorites</div>
+
+    <div class="fan-list">
+      <div class="fan-card">
+        <div class="fan-copy">
+          <div class="fan-title">My Truth</div>
+          <div class="fan-meta">219K+ streams</div>
+        </div>
+      </div>
+
+      <div class="fan-card">
+        <div class="fan-copy">
+          <div class="fan-title">Bend Down Select</div>
+          <div class="fan-meta">84K+ streams</div>
+        </div>
+      </div>
+
+      <div class="fan-card">
+        <div class="fan-copy">
+          <div class="fan-title">You + You</div>
+          <div class="fan-meta">26K+ streams</div>
+        </div>
+      </div>
     </div>
+
+    <div class="section">Follow OMK</div>
+
+    <div class="platforms">
+      <a class="btn spotify" href="https://instagram.com/iam__omotaker" target="_blank" rel="noopener">
+        Follow on Instagram
+      </a>
+    </div>
+
+    <div class="footer">© 2026 Omo Taker • OMK Records</div>
+
   </div>
-
-  <!-- FOLLOW -->
-  <div class="section">Follow OMK</div>
-
-  <div class="platforms">
-    <a class="btn spotify" href="https://instagram.com/iam__omotaker">
-      Follow on Instagram
-    </a>
-  </div>
-
-  <div class="footer">© 2026 Omo Taker • OMK Records</div>
-
-</div>
-
 </body>
 </html>
