@@ -23,6 +23,8 @@
       --a2:#7c5cff;
       --a3:#00c2ff;
       --a4:#9b7bff;
+      --a5:#18f2b2;
+      --a6:#ff3b6b;
 
       --g1:#77e6ff;
       --g2:#7f6bff;
@@ -171,7 +173,8 @@
     .musicCard,
     .premiumCard,
     .impactCard,
-    .impactMini{
+    .impactMini,
+    .impactHero{
       border:1px solid rgba(140,210,255,.12);
       background:linear-gradient(180deg, rgba(10,16,28,.70), rgba(8,10,18,.78));
       box-shadow:
@@ -205,9 +208,7 @@
       box-shadow:0 8px 20px rgba(0,0,0,.24);
     }
 
-    .heroClose:hover{
-      background:rgba(255,255,255,.14);
-    }
+    .heroClose:hover{ background:rgba(255,255,255,.14); }
 
     .heroName{
       margin:0;
@@ -347,23 +348,25 @@
       font-weight:700;
     }
 
-    .featureGrid{
-      display:grid;
-      gap:18px;
-    }
+    .featureGrid{ display:grid; gap:18px; }
 
-    .featureCard{
+    .featureCard,
+    .musicCard,
+    .premiumCard,
+    .impactCard,
+    .impactMini,
+    .impactHero{
       position:relative;
       overflow:hidden;
       border-radius:30px;
-      padding:18px;
     }
 
     .featureCard::before,
     .musicCard::before,
     .premiumCard::before,
     .impactCard::before,
-    .impactMini::before{
+    .impactMini::before,
+    .impactHero::before{
       content:"";
       position:absolute;
       inset:-1px;
@@ -372,6 +375,23 @@
         radial-gradient(520px 220px at 88% 12%, rgba(124,92,255,.12), transparent 60%);
       pointer-events:none;
     }
+
+    .featureCard::after,
+    .musicCard::after,
+    .impactCard::after,
+    .impactMini::after,
+    .impactHero::after{
+      content:"";
+      position:absolute;
+      inset:auto -20% -40% auto;
+      width:220px;
+      height:220px;
+      background:radial-gradient(circle, rgba(24,242,178,.08), transparent 68%);
+      pointer-events:none;
+      filter:blur(12px);
+    }
+
+    .featureCard{ padding:18px; }
 
     .featureInner{
       position:relative;
@@ -444,6 +464,8 @@
       border:1px solid rgba(140,210,255,.14);
       background:#05070d;
       margin-top:18px;
+      position:relative;
+      z-index:1;
     }
 
     .platformBar a{
@@ -464,16 +486,11 @@
 
     .platformBar a:last-child{ border-right:none; }
 
-    .musicRows{
-      display:grid;
-      gap:14px;
-    }
+    .musicRows{ display:grid; gap:14px; }
 
     .musicCard{
-      position:relative;
-      overflow:hidden;
-      border-radius:24px;
       padding:14px;
+      border-radius:24px;
     }
 
     .musicInner{
@@ -550,6 +567,7 @@
       text-transform:uppercase;
       position:relative;
       z-index:1;
+      box-shadow:0 8px 24px rgba(0,0,0,.22);
     }
 
     .videoCard{
@@ -611,12 +629,6 @@
       gap:14px;
     }
 
-    .premiumCard{
-      position:relative;
-      overflow:hidden;
-      border-radius:24px;
-    }
-
     .premiumInner{
       position:relative;
       z-index:1;
@@ -658,44 +670,95 @@
       box-shadow:0 10px 24px rgba(0,0,0,.28);
     }
 
-    /* IMPACT SECTION */
+    /* IMPACT */
     .impactWrap{
       margin-top:8px;
       position:relative;
+      display:grid;
+      gap:16px;
     }
 
-    .impactProfile{
-      display:flex;
+    .impactHero{
+      padding:18px;
+      border-radius:28px;
+    }
+
+    .impactHeroInner{
+      position:relative;
+      z-index:1;
+      display:grid;
+      grid-template-columns:96px 1fr;
+      gap:16px;
       align-items:center;
-      gap:14px;
-      margin-bottom:18px;
-      padding:0 4px;
     }
 
     .impactAvatar{
-      width:84px;
-      height:84px;
-      border-radius:999px;
+      width:96px;
+      height:96px;
+      border-radius:24px;
       object-fit:cover;
+      object-position:center;
       border:1px solid rgba(255,255,255,.12);
       box-shadow:0 12px 30px rgba(0,0,0,.32);
-      background:#111;
+      background:
+        linear-gradient(135deg, rgba(94,231,255,.16), rgba(124,92,255,.16)),
+        #111;
       flex:0 0 auto;
+    }
+
+    .impactMetaTop{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-bottom:8px;
+    }
+
+    .impactBadge{
+      display:inline-flex;
+      align-items:center;
+      padding:8px 12px;
+      border-radius:999px;
+      background:rgba(255,255,255,.05);
+      border:1px solid rgba(140,210,255,.12);
+      color:#d9eaff;
+      font-size:11px;
+      font-weight:950;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+    }
+
+    .impactLiveDot{
+      width:9px;
+      height:9px;
+      border-radius:999px;
+      background:#18f2b2;
+      box-shadow:0 0 12px rgba(24,242,178,.75);
     }
 
     .impactName{
       margin:0;
-      font-size:42px;
+      font-size:34px;
       line-height:1;
       font-weight:1000;
       letter-spacing:-.03em;
+      text-transform:uppercase;
     }
 
     .impactSubline{
       margin-top:8px;
+      color:var(--muted);
+      font-size:14px;
+      font-weight:800;
+      line-height:1.5;
+    }
+
+    .impactTiny{
+      margin-top:10px;
       color:var(--soft);
-      font-size:13px;
+      font-size:12px;
       font-weight:700;
+      letter-spacing:.04em;
     }
 
     .impactStack{
@@ -705,10 +768,8 @@
     }
 
     .impactCard{
-      position:relative;
-      overflow:hidden;
-      border-radius:28px;
       padding:22px 20px;
+      border-radius:28px;
     }
 
     .impactInner{
@@ -770,10 +831,8 @@
     }
 
     .impactMini{
-      position:relative;
-      overflow:hidden;
-      border-radius:22px;
       padding:18px 18px 16px;
+      border-radius:22px;
     }
 
     .impactMiniInner{
@@ -822,12 +881,16 @@
     }
 
     @media (max-width:640px){
-      .impactName{ font-size:34px; }
-      .impactProfile{ align-items:center; }
-      .impactAvatar{
-        width:76px;
-        height:76px;
+      .impactHeroInner{
+        grid-template-columns:82px 1fr;
+        gap:14px;
       }
+      .impactAvatar{
+        width:82px;
+        height:82px;
+        border-radius:22px;
+      }
+      .impactName{ font-size:30px; }
     }
 
     @media (max-width:520px){
@@ -862,8 +925,28 @@
       .meta .title{ font-size:18px; }
       .videoThumb{ height:240px; }
 
+      .impactHero{
+        padding:16px;
+      }
+
+      .impactHeroInner{
+        grid-template-columns:72px 1fr;
+        gap:12px;
+        align-items:center;
+      }
+
+      .impactAvatar{
+        width:72px;
+        height:72px;
+        border-radius:20px;
+      }
+
       .impactName{
-        font-size:30px;
+        font-size:26px;
+      }
+
+      .impactSubline{
+        font-size:13px;
       }
 
       .impactCard{
@@ -1009,7 +1092,7 @@
       <div class="sectionHead">
         <div class="sectionKicker">Catalogue</div>
         <h2>Music</h2>
-        <p class="lead">All songs in a cleaner premium stack so the page feels more like an artist hub and less crowded.</p>
+        <p class="lead">All songs in a cleaner premium stack so the page feels more like an artist hub and more futuristic for ads.</p>
       </div>
 
       <div class="musicRows">
@@ -1124,7 +1207,7 @@
       <div class="sectionHead">
         <div class="sectionKicker">Visuals</div>
         <h2>Videos</h2>
-        <p class="lead">Premium video block with a stronger cover look.</p>
+        <p class="lead">Premium video block with a stronger futuristic cover look.</p>
       </div>
 
       <a class="videoCard" href="https://youtu.be/7qlRs1gDnMI" target="_blank" rel="noopener" aria-label="Bend Down Select Official Video">
@@ -1195,15 +1278,30 @@
       <div class="sectionHead">
         <div class="sectionKicker">Impact</div>
         <h2>Omo Taker</h2>
-        <p class="lead">The movement in numbers. Social proof, reach and artist growth — arranged in a clean OMK finish.</p>
+        <p class="lead">Simple, clean and futuristic social proof for ad traffic.</p>
       </div>
 
       <div class="impactWrap">
-        <div class="impactProfile">
-          <img class="impactAvatar" src="https://raw.githubusercontent.com/omk-store/omotaker/main/IMG_6917.jpeg" alt="Omo Taker profile" />
-          <div>
-            <h3 class="impactName">Omo Taker</h3>
-            <div class="impactSubline">Official OMK performance snapshot</div>
+
+        <div class="impactHero">
+          <div class="impactHeroInner">
+            <img
+              class="impactAvatar"
+              src="YOUR_OLD_PAGE_PROFILE_IMAGE_HERE"
+              alt="Omo Taker profile"
+              onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/omk-store/omotaker/main/IMG_6917.jpeg';"
+            />
+
+            <div>
+              <div class="impactMetaTop">
+                <span class="impactBadge">Performance</span>
+                <span class="impactLiveDot"></span>
+              </div>
+
+              <h3 class="impactName">Omo Taker</h3>
+              <div class="impactSubline">Live performance • music reach • artist impact</div>
+              <div class="impactTiny">Built for quick trust, clean look and better ad clicks.</div>
+            </div>
           </div>
         </div>
 
@@ -1220,7 +1318,7 @@
                   <span class="dotIcon scC">C</span>
                 </div>
               </div>
-              <div class="impactValue countUp" data-target="17800" data-suffix="K" data-format="17.8K">0</div>
+              <div class="impactValue countUp" data-target="17800" data-format="17.8K">0</div>
             </div>
           </div>
 
