@@ -4,7 +4,6 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Benin To Lagos | Omo Taker</title>
-<meta name="theme-color" content="#04060d">
 
 <style>
 :root{
@@ -15,278 +14,111 @@
   --blue:#62e6ff;
   --violet:#7b7dff;
   --pink:#ff63c6;
-  --glow:0 24px 80px rgba(0,0,0,.58);
-  --softGlow:0 12px 34px rgba(98,230,255,.16), 0 10px 28px rgba(123,125,255,.12);
 }
 
 *{
-  box-sizing:border-box;
   margin:0;
   padding:0;
-  font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-  -webkit-tap-highlight-color:transparent;
+  box-sizing:border-box;
+  font-family:Inter,system-ui;
 }
 
 body{
   min-height:100vh;
-  background:
-    radial-gradient(circle at 20% 20%, rgba(98,230,255,.15), transparent 28%),
-    radial-gradient(circle at 80% 80%, rgba(255,99,198,.14), transparent 28%),
-    radial-gradient(circle at 80% 10%, rgba(123,125,255,.18), transparent 24%),
-    linear-gradient(180deg,#020309 0%, #07111d 50%, #04060d 100%);
-  padding:26px 16px;
+  background:linear-gradient(180deg,#020309,#07111d,#04060d);
   display:flex;
   justify-content:center;
   align-items:center;
-  color:var(--text);
-  overflow-x:hidden;
-}
-
-body::before{
-  content:"";
-  position:fixed;
-  inset:-20%;
-  background:
-    radial-gradient(circle at 50% 50%, rgba(255,255,255,.03), transparent 34%),
-    linear-gradient(120deg, transparent 35%, rgba(98,230,255,.05) 50%, transparent 65%);
-  filter:blur(20px);
-  pointer-events:none;
-  animation:floatAura 10s ease-in-out infinite;
+  padding:20px;
+  color:white;
 }
 
 .wrap{
-  position:relative;
   width:100%;
-  max-width:430px;
-  background:
-    linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03)),
-    linear-gradient(135deg, rgba(98,230,255,.05), rgba(255,99,198,.03));
-  border-radius:32px;
-  padding:18px;
-  box-shadow:var(--glow);
-  text-align:center;
+  max-width:420px;
+  background:rgba(255,255,255,0.05);
+  border-radius:28px;
+  padding:20px;
+  backdrop-filter:blur(20px);
   border:1px solid var(--line);
-  backdrop-filter:blur(22px) saturate(150%);
-  -webkit-backdrop-filter:blur(22px) saturate(150%);
-  overflow:hidden;
-}
-
-.wrap::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:
-    linear-gradient(135deg, rgba(98,230,255,.06), transparent 30%, transparent 70%, rgba(255,99,198,.06));
-  pointer-events:none;
-}
-
-.top-line{
-  width:116px;
-  height:6px;
-  border-radius:999px;
-  margin:2px auto 18px;
-  background:linear-gradient(90deg, rgba(255,255,255,.18), rgba(98,230,255,.34), rgba(255,255,255,.18));
-  box-shadow:0 0 20px rgba(98,230,255,.12);
 }
 
 .brand{
-  position:relative;
-  z-index:1;
+  text-align:center;
   margin-bottom:16px;
 }
 
 .brand b{
-  display:block;
-  font-size:15px;
-  color:#fff;
-  font-weight:900;
+  font-size:16px;
 }
 
 .brand span{
-  display:block;
   font-size:12px;
   color:var(--muted);
-  margin-top:4px;
-}
-
-.cover-link{
-  position:relative;
-  z-index:1;
-  display:block;
-  text-decoration:none;
-  border-radius:22px;
-  overflow:hidden;
-  margin-bottom:16px;
 }
 
 .cover{
   width:100%;
-  max-height:380px;
-  object-fit:cover;
-  display:block;
-  border-radius:22px;
-  border:1px solid rgba(255,255,255,.12);
-  box-shadow:0 18px 40px rgba(0,0,0,.38);
-  transition:transform .3s ease, filter .3s ease, box-shadow .3s ease;
-}
-
-.cover-link:hover .cover{
-  transform:scale(1.015);
-  filter:brightness(1.03);
-  box-shadow:0 22px 48px rgba(0,0,0,.44), 0 0 30px rgba(98,230,255,.08);
+  border-radius:20px;
+  margin-bottom:14px;
 }
 
 h1{
-  position:relative;
-  z-index:1;
+  text-align:center;
   font-size:22px;
-  font-weight:950;
-  letter-spacing:1.4px;
-  color:#fff;
-  line-height:1.08;
 }
 
 .artist{
-  position:relative;
-  z-index:1;
-  font-size:14px;
+  text-align:center;
   color:var(--muted);
-  margin-top:8px;
-  font-weight:800;
+  margin-top:6px;
 }
 
 .status{
-  position:relative;
-  z-index:1;
-  display:inline-block;
+  text-align:center;
+  margin:12px 0;
   font-size:12px;
-  font-weight:900;
-  color:#fff;
-  margin:12px 0 14px;
-  padding:9px 18px;
-  border-radius:999px;
-  background:linear-gradient(90deg,#7b7dff,#ff63c6);
-  box-shadow:0 10px 24px rgba(0,0,0,.25);
-}
-
-.tap{
-  position:relative;
-  z-index:1;
-  font-size:11px;
-  letter-spacing:2.8px;
-  font-weight:900;
-  margin-bottom:12px;
-  color:rgba(255,255,255,.80);
 }
 
 .section{
-  position:relative;
-  z-index:1;
+  margin-top:18px;
+  font-size:12px;
   text-align:center;
-  margin:8px 0 10px;
   color:var(--muted2);
-  font-size:11px;
-  font-weight:900;
-  letter-spacing:2px;
 }
 
 .platforms{
-  position:relative;
-  z-index:1;
-  display:grid;
-  grid-template-columns:1fr;
+  display:flex;
+  flex-direction:column;
   gap:12px;
+  margin-top:10px;
 }
 
 .btn{
-  position:relative;
   text-decoration:none;
-  border-radius:18px;
-  padding:15px 14px;
-  font-weight:900;
-  font-size:14px;
-  letter-spacing:.6px;
+  padding:14px;
+  border-radius:14px;
   display:flex;
   align-items:center;
-  justify-content:flex-start;
   gap:10px;
   border:1px solid var(--line);
-  transition:transform .18s ease, box-shadow .18s ease;
-  min-height:56px;
-  overflow:hidden;
-}
-
-.btn::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:linear-gradient(115deg, transparent 20%, rgba(255,255,255,.08) 50%, transparent 80%);
-  transform:translateX(-120%);
-  transition:transform .45s ease;
-}
-
-.btn:hover{
-  transform:translateY(-2px);
-}
-
-.btn:hover::before{
-  transform:translateX(120%);
-}
-
-.icon{
-  width:34px;
-  height:34px;
-  border-radius:12px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  flex:0 0 34px;
-}
-
-.icon img{
-  width:18px;
-  height:18px;
-  display:block;
 }
 
 .spotify{
-  background:linear-gradient(90deg,var(--blue),var(--violet));
-  color:#06111d;
-  border-color:rgba(255,255,255,.16);
-  box-shadow:var(--softGlow);
-}
-.spotify .icon{
-  background:rgba(6,17,29,.12);
+  background:linear-gradient(90deg,#62e6ff,#7b7dff);
+  color:black;
 }
 
-.apple,
 .darkbtn{
-  background:rgba(255,255,255,.05);
-  color:#fff;
-}
-
-.apple .icon,
-.darkbtn .icon{
-  background:rgba(255,255,255,.10);
+  background:rgba(255,255,255,0.05);
+  color:white;
 }
 
 .footer{
-  position:relative;
-  z-index:1;
   margin-top:16px;
+  text-align:center;
   font-size:12px;
   color:var(--muted2);
-}
-
-@keyframes floatAura{
-  0%,100%{ transform:translateY(0) scale(1); }
-  50%{ transform:translateY(-10px) scale(1.02); }
-}
-
-@media (max-width:360px){
-  .btn{font-size:13px}
-  .wrap{padding:16px}
-  h1{font-size:20px}
 }
 </style>
 </head>
@@ -294,59 +126,57 @@ h1{
 <body>
 <div class="wrap">
 
-  <div class="top-line"></div>
+<div class="brand">
+  <b>OMK Records</b>
+  <span>Official links</span>
+</div>
 
-  <div class="brand">
-    <b>OMK Records</b>
-    <span>Official links</span>
-  </div>
+<img src="https://raw.githubusercontent.com/omk-store/omk-website/main/914C5ED9-2BF8-4515-9320-9169F7E32FBB.png" class="cover">
 
-  <a class="cover-link" href="https://open.spotify.com/track/0SooNM8i9p1UiE7HTTp5C4?si=Pb43khCKS6insicDQFM8YA" target="_blank" rel="noopener">
-    <img
-      src="https://raw.githubusercontent.com/omk-store/omk-website/main/914C5ED9-2BF8-4515-9320-9169F7E32FBB.png"
-      class="cover"
-      alt="Benin To Lagos Cover">
-  </a>
+<h1>BENIN TO LAGOS</h1>
+<div class="artist">Omo Taker</div>
+<div class="status">Out Now 🌍🐺</div>
 
-  <h1>BENIN TO LAGOS</h1>
-  <div class="artist">Omo Taker</div>
-  <div class="status">Out Now 🌍🐺</div>
+<div class="section">LISTEN NOW</div>
 
-  <div class="tap">TAP BELOW TO PLAY</div>
+<div class="platforms">
+<a class="btn spotify" href="https://open.spotify.com/track/0SooNM8i9p1UiE7HTTp5C4">
+▶ Play on Spotify
+</a>
 
-  <div class="section">LISTEN NOW</div>
+<a class="btn darkbtn" href="https://music.apple.com/ng/album/benin-to-lagos/1866424075?i=1866424076">
+Apple Music
+</a>
 
-  <div class="platforms">
-    <a class="btn spotify" href="https://open.spotify.com/track/0SooNM8i9p1UiE7HTTp5C4?si=Pb43khCKS6insicDQFM8YA" target="_blank" rel="noopener">
-      <span class="icon">
-        <img alt="Spotify" src="https://cdn.simpleicons.org/spotify/071018">
-      </span>
-      <span>PLAY ON SPOTIFY</span>
-    </a>
+<a class="btn darkbtn" href="https://www.boomplay.com/songs/231357454">
+Boomplay
+</a>
 
-    <a class="btn apple" href="https://music.apple.com/ng/album/benin-to-lagos/1866424075?i=1866424076" target="_blank" rel="noopener">
-      <span class="icon">
-        <img alt="Apple Music" src="https://cdn.simpleicons.org/applemusic/ffffff">
-      </span>
-      <span>APPLE MUSIC</span>
-    </a>
+<a class="btn darkbtn" href="https://audiomack.com/iam_omotaker/song/benin-to-lagos">
+Audiomack
+</a>
+</div>
 
-    <a class="btn darkbtn" href="https://www.boomplay.com/songs/231357454?srModel=COPYLINK&srList=WEB&share_content=music&share_channel=copylink&share_platform=web" target="_blank" rel="noopener">
-      <span class="icon">
-        <img alt="Boomplay" src="https://cdn.simpleicons.org/musicbrainz/ffffff">
-      </span>
-      <span>BOOMPLAY</span>
-    </a>
+<!-- FAN FAVORITES -->
+<div class="section">🔥 FAN FAVORITES</div>
 
-    <a class="btn darkbtn" href="https://audiomack.com/iam_omotaker/song/benin-to-lagos?share-user-id=111838460" target="_blank" rel="noopener">
-      <span class="icon">
-        <img alt="Audiomack" src="https://cdn.simpleicons.org/audiomack/ffffff">
-      </span>
-      <span>AUDIOMACK</span>
-    </a>
-  </div>
+<div class="platforms">
+<div class="btn darkbtn">My Truth • 219K+ streams</div>
+<div class="btn darkbtn">Bend Down Select • 84K+ streams</div>
+<div class="btn darkbtn">You + You • 26K+ streams</div>
+</div>
 
-  <div class="footer">© 2026 Omo Taker • OMK Records</div>
+<!-- FOLLOW -->
+<div class="section">FOLLOW OMK</div>
+
+<div class="platforms">
+<a class="btn spotify" href="https://instagram.com/iam__omotaker">
+Follow on Instagram
+</a>
+</div>
+
+<div class="footer">© 2026 Omo Taker • OMK Records</div>
+
 </div>
 </body>
 </html>
