@@ -1,139 +1,323 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>EV 🌍 | Everyday Vibe</title>
-
 <style>
-body{
-  margin:0;
-  font-family:Arial, sans-serif;
-  background:#020304;
-  color:#fff;
-  text-align:center;
-}
+  *{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+  }
 
-.hero{
-  height:100vh;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  background:linear-gradient(to bottom, rgba(0,0,0,.6), rgba(0,0,0,.9)),
-  url('https://images.unsplash.com/photo-1519608487953-e999c86e7455');
-  background-size:cover;
-  background-position:center;
-}
+  body{
+    font-family: Arial, sans-serif;
+    background:#04050b;
+    color:#fff;
+    text-align:center;
+    line-height:1.5;
+  }
 
-h1{
-  font-size:42px;
-  letter-spacing:2px;
-}
+  a{
+    text-decoration:none;
+  }
 
-.glow{
-  color:#5ee7ff;
-  text-shadow:0 0 20px #00c2ff;
-}
+  .hero{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    padding:40px 20px;
+    background:
+      linear-gradient(to bottom, rgba(0,0,0,.72), rgba(0,0,0,.88)),
+      url('https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=1400&q=80');
+    background-size:cover;
+    background-position:center;
+  }
 
-p{
-  max-width:400px;
-  color:#aaa;
-  line-height:1.5;
-}
+  .hero h1{
+    font-size:52px;
+    margin-bottom:8px;
+    letter-spacing:2px;
+  }
 
-.btn{
-  display:block;
-  width:80%;
-  max-width:300px;
-  margin:12px auto;
-  padding:14px;
-  border-radius:30px;
-  text-decoration:none;
-  font-weight:bold;
-  background:linear-gradient(90deg,#00c2ff,#7c5cff);
-  color:white;
-}
+  .glow{
+    font-size:28px;
+    font-weight:800;
+    color:#73d8ff;
+    text-shadow:0 0 14px rgba(0,194,255,.9);
+    margin-bottom:18px;
+  }
 
-.section{
-  padding:60px 20px;
-}
+  .hero p{
+    max-width:640px;
+    color:rgba(255,255,255,.82);
+    font-size:18px;
+    margin-bottom:28px;
+  }
 
-.card{
-  background:rgba(255,255,255,0.05);
-  padding:20px;
-  border-radius:20px;
-  margin:15px auto;
-  max-width:350px;
-}
+  .btn-group{
+    width:100%;
+    max-width:380px;
+  }
 
-footer{
-  padding:30px;
-  color:#777;
-}
+  .btn{
+    display:block;
+    width:100%;
+    margin:12px 0;
+    padding:16px 18px;
+    border-radius:999px;
+    font-weight:700;
+    color:#fff;
+    background:linear-gradient(90deg,#5ec9ff,#755cff);
+    box-shadow:0 12px 28px rgba(80,110,255,.22);
+  }
+
+  .section{
+    padding:70px 20px;
+  }
+
+  .section-title{
+    font-size:30px;
+    margin-bottom:12px;
+  }
+
+  .section-text{
+    max-width:700px;
+    margin:0 auto 28px;
+    color:rgba(255,255,255,.72);
+    font-size:17px;
+  }
+
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
+    gap:18px;
+    max-width:1100px;
+    margin:0 auto;
+  }
+
+  .card{
+    background:rgba(255,255,255,.05);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:24px;
+    padding:24px 20px;
+    backdrop-filter:blur(10px);
+    text-align:left;
+  }
+
+  .card h3{
+    font-size:22px;
+    margin-bottom:10px;
+  }
+
+  .card p{
+    color:rgba(255,255,255,.72);
+    margin-bottom:18px;
+    font-size:15px;
+  }
+
+  .small-btn{
+    display:inline-block;
+    padding:12px 18px;
+    border-radius:999px;
+    font-weight:700;
+    color:#fff;
+    background:linear-gradient(90deg,#5ec9ff,#755cff);
+  }
+
+  .socials{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
+    gap:16px;
+    max-width:900px;
+    margin:0 auto;
+  }
+
+  .social{
+    background:rgba(255,255,255,.05);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:20px;
+    padding:20px;
+  }
+
+  .social h4{
+    font-size:20px;
+    margin-bottom:8px;
+  }
+
+  .social p{
+    color:rgba(255,255,255,.7);
+    font-size:14px;
+    margin-bottom:16px;
+  }
+
+  footer{
+    padding:30px 20px 45px;
+    color:rgba(255,255,255,.45);
+    font-size:14px;
+  }
+
+  @media (max-width:600px){
+    .hero h1{
+      font-size:42px;
+    }
+
+    .glow{
+      font-size:22px;
+    }
+
+    .hero p{
+      font-size:16px;
+    }
+
+    .section-title{
+      font-size:26px;
+    }
+  }
 </style>
-
 </head>
 <body>
 
-<!-- HERO -->
-<div class="hero">
-  <h1>EV 🌍</h1>
-  <h2 class="glow">EVERYDAY VIBE</h2>
+  <!-- HERO -->
+  <section class="hero">
+    <h1>EV 🌍</h1>
+    <div class="glow">EVERYDAY VIBE</div>
+    <p>
+      Welcome to EV — discover new music, rising artists, viral sounds,
+      and promo opportunities built for today’s content era.
+    </p>
 
-  <p>
-    This is not just music.  
-    This is where viral sounds are born. 🚀
-  </p>
+    <div class="btn-group">
+      <a href="https://youtube.com/" class="btn">▶ Watch on YouTube</a>
+      <a href="https://tiktok.com/" class="btn">🎵 Follow on TikTok</a>
+      <a href="https://instagram.com/" class="btn">📸 Follow on Instagram</a>
+      <a href="https://facebook.com/" class="btn">📘 Follow on Facebook</a>
+    </div>
+  </section>
 
-  <a href="#" class="btn">🎬 Watch Viral Videos</a>
-  <a href="#" class="btn">🔥 Discover New Artists</a>
-</div>
+  <!-- ABOUT -->
+  <section class="section">
+    <h2 class="section-title">What is EV?</h2>
+    <p class="section-text">
+      EV is a discovery and promo hub for artists, sounds, visuals, and viral moments.
+      We focus on content that connects, gets noticed, and moves culture.
+    </p>
 
-<!-- SUBMIT -->
-<div class="section">
-  <h2>🚀 Get Featured on EV</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>🎤 Discover Artists</h3>
+        <p>
+          Explore rising talent, fresh sounds, and artists worth paying attention to.
+        </p>
+        <a href="#" class="small-btn">Explore Artists</a>
+      </div>
 
-  <div class="card">
-    <h3>🎤 Submit Your Sound</h3>
-    <p>We pick sounds that can go viral. Not noise.</p>
-    <a href="https://instagram.com/iam_omotaker" class="btn">Submit via Instagram</a>
-  </div>
+      <div class="card">
+        <h3>🚀 Promote Your Song</h3>
+        <p>
+          Want more attention on your sound? Use EV to push your music through content.
+        </p>
+        <a href="https://instagram.com/" class="small-btn">Contact on Instagram</a>
+      </div>
 
-  <div class="card">
-    <h3>📈 Promote Your Song</h3>
-    <p>We turn songs into viral content.</p>
-    <a href="https://tiktok.com/@yourusername" class="btn">Promote via TikTok</a>
-  </div>
-</div>
+      <div class="card">
+        <h3>🔥 Submit Your Sound</h3>
+        <p>
+          Send in your best song or snippet for possible feature, promo, or spotlight.
+        </p>
+        <a href="https://tiktok.com/" class="small-btn">Submit on TikTok</a>
+      </div>
+    </div>
+  </section>
 
-<!-- EV MOVEMENT -->
-<div class="section">
-  <h2 class="glow">🐺 Join the EV Movement</h2>
+  <!-- SOCIAL HUB -->
+  <section class="section">
+    <h2 class="section-title">Connect With EV</h2>
+    <p class="section-text">
+      Follow the platform everywhere and stay updated on new artists, trending sounds, visuals, and drops.
+    </p>
 
-  <p>
-    Everyday Vibe is for artists ready to stand out.  
-    No fake streams. Only real viral energy.
-  </p>
+    <div class="socials">
+      <div class="social">
+        <h4>▶ YouTube</h4>
+        <p>Watch visuals, artist content, and featured releases.</p>
+        <a href="https://youtube.com/" class="small-btn">Open YouTube</a>
+      </div>
 
-  <a href="https://instagram.com/iam_omotaker" class="btn">Follow on Instagram</a>
-  <a href="https://tiktok.com/@yourusername" class="btn">Follow on TikTok</a>
-</div>
+      <div class="social">
+        <h4>🎵 TikTok</h4>
+        <p>Find viral snippets, trending edits, and promo clips.</p>
+        <a href="https://tiktok.com/" class="small-btn">Open TikTok</a>
+      </div>
 
-<!-- FEATURED -->
-<div class="section">
-  <h2>🔥 Trending Sound</h2>
+      <div class="social">
+        <h4>📸 Instagram</h4>
+        <p>See artist spotlights, reels, promo updates, and visuals.</p>
+        <a href="https://instagram.com/" class="small-btn">Open Instagram</a>
+      </div>
 
-  <div class="card">
-    <p>Omo Taker — Benin To Lagos 🚀</p>
-    <a href="#" class="btn">Listen Now</a>
-  </div>
-</div>
+      <div class="social">
+        <h4>📘 Facebook</h4>
+        <p>Follow EV updates, promo posts, and community content.</p>
+        <a href="https://facebook.com/" class="small-btn">Open Facebook</a>
+      </div>
+    </div>
+  </section>
 
-<!-- FOOTER -->
-<footer>
-  <p>© 2026 EV | Everyday Vibe</p>
-</footer>
+  <!-- FEATURED -->
+  <section class="section">
+    <h2 class="section-title">Featured Right Now</h2>
+    <p class="section-text">
+      Spotlighting sounds, visuals, and artists making noise.
+    </p>
+
+    <div class="grid">
+      <div class="card">
+        <h3>🌍 Omo Taker — Benin To Lagos</h3>
+        <p>
+          A featured sound from the EV movement. Tap below to listen and connect.
+        </p>
+        <a href="#" class="small-btn">Listen Now</a>
+      </div>
+
+      <div class="card">
+        <h3>🎬 Latest Visual</h3>
+        <p>
+          Catch the newest cinematic content and viral-ready artist visuals.
+        </p>
+        <a href="https://youtube.com/" class="small-btn">Watch Visual</a>
+      </div>
+
+      <div class="card">
+        <h3>⭐ EV Spotlight</h3>
+        <p>
+          Discover a new artist, fresh drop, or trending snippet from the platform.
+        </p>
+        <a href="#" class="small-btn">View Spotlight</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section">
+    <h2 class="section-title">Join the EV Movement 🐺</h2>
+    <p class="section-text">
+      Built for artists, sounds, and visuals that deserve real attention.
+      No confusion. Just discovery, promo, and momentum.
+    </p>
+
+    <div class="btn-group" style="max-width:360px;margin:0 auto;">
+      <a href="https://instagram.com/" class="btn">DM on Instagram</a>
+      <a href="https://tiktok.com/" class="btn">Connect on TikTok</a>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 EV | Everyday Vibe
+  </footer>
 
 </body>
 </html>
