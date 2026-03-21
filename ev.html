@@ -1,190 +1,868 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>EV | Everyday Vibe</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EV | Everyday Vibe</title>
+  <meta name="theme-color" content="#050816" />
+  <meta name="description" content="Everyday Vibe — discover new artists, viral sounds, visuals, playlists, and promo opportunities." />
 
-<style>
-  *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-  }
-
-  :root{
-    --bg:#04060d;
-    --text:#ffffff;
-    --muted:rgba(255,255,255,.82);
-    --blue:#67d4ff;
-    --blue2:#58bfff;
-    --purple:#735bff;
-  }
-
-  html,body{
-    width:100%;
-    min-height:100%;
-    font-family:Arial, sans-serif;
-    background:var(--bg);
-    color:var(--text);
-    overflow-x:hidden;
-  }
-
-  body{
-    background:
-      linear-gradient(to bottom, rgba(2,4,10,.72), rgba(2,4,10,.90)),
-      url('https://raw.githubusercontent.com/omk-store/omotaker/main/EA4AD843-C358-4AE5-8A3E-3CA6C7D09539.png');
-    background-size:cover;
-    background-position:center center;
-    background-repeat:no-repeat;
-    background-attachment:scroll;
-  }
-
-  .wrap{
-    min-height:100vh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    padding:48px 18px;
-  }
-
-  .hero{
-    width:100%;
-    max-width:760px;
-    text-align:center;
-  }
-
-  .eyebrow{
-    font-size:22px;
-    font-weight:700;
-    margin-bottom:14px;
-    letter-spacing:.5px;
-  }
-
-  h1{
-    font-size:64px;
-    line-height:1;
-    font-weight:900;
-    letter-spacing:1px;
-    margin-bottom:18px;
-  }
-
-  .sub{
-    font-size:25px;
-    font-weight:800;
-    color:var(--blue);
-    text-shadow:0 0 18px rgba(103,212,255,.55);
-    margin-bottom:18px;
-  }
-
-  .desc{
-    max-width:640px;
-    margin:0 auto 28px;
-    font-size:18px;
-    line-height:1.7;
-    color:var(--muted);
-  }
-
-  .btns{
-    width:100%;
-    max-width:540px;
-    margin:0 auto;
-  }
-
-  .btn{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    width:100%;
-    min-height:66px;
-    margin:14px 0;
-    padding:16px 22px;
-    border-radius:999px;
-    background:linear-gradient(90deg, var(--blue2), var(--purple));
-    color:#fff;
-    text-decoration:none;
-    font-size:18px;
-    font-weight:800;
-    box-shadow:0 14px 34px rgba(89,110,255,.28);
-    transition:transform .18s ease, opacity .18s ease;
-  }
-
-  .btn:hover{
-    transform:translateY(-2px);
-    opacity:.96;
-  }
-
-  .section-title{
-    margin:26px 0 8px;
-    font-size:16px;
-    color:rgba(255,255,255,.72);
-    letter-spacing:.3px;
-  }
-
-  .mini{
-    margin-top:26px;
-    font-size:15px;
-    color:rgba(255,255,255,.68);
-    text-align:center;
-  }
-
-  @media (max-width:700px){
-    h1{
-      font-size:46px;
+  <style>
+    :root{
+      --bg:#050816;
+      --bg2:#091126;
+      --panel:rgba(255,255,255,.06);
+      --panel2:rgba(255,255,255,.04);
+      --line:rgba(255,255,255,.10);
+      --text:#f5f8ff;
+      --muted:rgba(245,248,255,.72);
+      --muted2:rgba(245,248,255,.52);
+      --blue:#69d7ff;
+      --blue2:#46b8ff;
+      --purple:#765cff;
+      --glow:0 0 30px rgba(70,184,255,.22);
+      --shadow:0 24px 60px rgba(0,0,0,.32);
+      --radius:26px;
+      --max:1180px;
     }
 
-    .sub{
-      font-size:20px;
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:Arial,Helvetica,sans-serif;
+      background:
+        radial-gradient(circle at top, rgba(70,184,255,.10), transparent 28%),
+        linear-gradient(180deg, #040713 0%, #071022 48%, #040713 100%);
+      color:var(--text);
+      overflow-x:hidden;
     }
 
-    .desc{
-      font-size:16px;
-      line-height:1.6;
+    a{text-decoration:none;color:inherit}
+    img{max-width:100%;display:block}
+
+    .site-bg{
+      position:fixed;
+      inset:0;
+      background:
+        linear-gradient(to bottom, rgba(3,6,16,.56), rgba(3,6,16,.84)),
+        url('https://raw.githubusercontent.com/omk-store/omotaker/main/EA4AD843-C358-4AE5-8A3E-3CA6C7D09539.png') center/cover no-repeat;
+      z-index:-2;
+      transform:scale(1.03);
     }
 
-    .btn{
-      font-size:17px;
-      min-height:62px;
+    .site-overlay{
+      position:fixed;
+      inset:0;
+      background:
+        linear-gradient(to bottom, rgba(5,8,22,.18), rgba(5,8,22,.72)),
+        radial-gradient(circle at 50% 0%, rgba(118,92,255,.14), transparent 35%);
+      z-index:-1;
+      pointer-events:none;
+    }
+
+    .container{
+      width:min(var(--max), calc(100% - 32px));
+      margin:0 auto;
+    }
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:100;
+      backdrop-filter:blur(16px);
+      background:rgba(5,8,22,.58);
+      border-bottom:1px solid rgba(255,255,255,.06);
+    }
+
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      min-height:74px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      font-weight:900;
+      letter-spacing:.5px;
+    }
+
+    .brand-badge{
+      width:42px;
+      height:42px;
+      border-radius:14px;
+      display:grid;
+      place-items:center;
+      background:linear-gradient(135deg,var(--blue2),var(--purple));
+      box-shadow:var(--glow);
+      font-size:18px;
+    }
+
+    .brand-text{
+      display:flex;
+      flex-direction:column;
+      line-height:1.05;
+    }
+
+    .brand-text small{
+      color:var(--muted2);
+      font-size:11px;
+      font-weight:700;
+      letter-spacing:1px;
+      text-transform:uppercase;
+    }
+
+    .nav-links{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+
+    .nav-link{
+      padding:11px 16px;
+      border-radius:999px;
+      color:var(--muted);
+      font-weight:700;
+      font-size:14px;
+      border:1px solid transparent;
+    }
+
+    .nav-link:hover{
+      color:#fff;
+      border-color:rgba(255,255,255,.12);
+      background:rgba(255,255,255,.04);
+    }
+
+    .nav-cta{
+      padding:12px 18px;
+      border-radius:999px;
+      font-weight:800;
+      background:linear-gradient(90deg,var(--blue2),var(--purple));
+      box-shadow:var(--glow);
+      white-space:nowrap;
+    }
+
+    .hero{
+      min-height:100svh;
+      display:flex;
+      align-items:center;
+      padding:54px 0 46px;
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:28px;
+      align-items:center;
+    }
+
+    .hero-copy{
+      padding:12px 0;
     }
 
     .eyebrow{
-      font-size:19px;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 14px;
+      border:1px solid rgba(105,215,255,.18);
+      border-radius:999px;
+      background:rgba(255,255,255,.04);
+      color:var(--blue);
+      font-weight:800;
+      font-size:13px;
+      letter-spacing:.7px;
+      text-transform:uppercase;
+      margin-bottom:18px;
+      box-shadow:var(--glow);
     }
-  }
-</style>
+
+    .hero h1{
+      font-size:clamp(42px, 8vw, 86px);
+      line-height:.96;
+      letter-spacing:-1.8px;
+      margin-bottom:16px;
+      text-wrap:balance;
+    }
+
+    .hero h1 .glow{
+      color:var(--blue);
+      text-shadow:0 0 20px rgba(105,215,255,.25);
+    }
+
+    .hero p{
+      max-width:700px;
+      font-size:19px;
+      line-height:1.72;
+      color:var(--muted);
+      margin-bottom:26px;
+    }
+
+    .hero-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:14px;
+      margin-bottom:24px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      min-height:58px;
+      padding:0 22px;
+      border-radius:999px;
+      font-weight:800;
+      border:1px solid rgba(255,255,255,.10);
+      transition:transform .18s ease, opacity .18s ease, background .18s ease;
+    }
+
+    .btn:hover{
+      transform:translateY(-2px);
+      opacity:.96;
+    }
+
+    .btn-primary{
+      background:linear-gradient(90deg,var(--blue2),var(--purple));
+      box-shadow:var(--glow);
+    }
+
+    .btn-secondary{
+      background:rgba(255,255,255,.05);
+      color:#fff;
+    }
+
+    .hero-meta{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    .meta-pill{
+      padding:12px 14px;
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.08);
+      background:rgba(255,255,255,.035);
+      color:var(--muted);
+      font-size:14px;
+      font-weight:700;
+    }
+
+    .hero-card{
+      position:relative;
+      border-radius:32px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.04));
+      border:1px solid rgba(255,255,255,.10);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+      min-height:640px;
+      display:flex;
+      align-items:flex-end;
+    }
+
+    .hero-card::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(to top, rgba(5,8,22,.14), rgba(5,8,22,.02)),
+        url('https://raw.githubusercontent.com/omk-store/omotaker/main/EA4AD843-C358-4AE5-8A3E-3CA6C7D09539.png') center/cover no-repeat;
+      transform:scale(1.03);
+    }
+
+    .hero-card::after{
+      content:"";
+      position:absolute;
+      inset:auto 0 0;
+      height:44%;
+      background:linear-gradient(to top, rgba(5,8,22,.94), transparent);
+    }
+
+    .hero-card-content{
+      position:relative;
+      z-index:2;
+      width:100%;
+      padding:24px;
+      display:grid;
+      gap:14px;
+    }
+
+    .stat-row{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:12px;
+    }
+
+    .stat{
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.10);
+      border-radius:22px;
+      padding:18px 16px;
+      backdrop-filter:blur(10px);
+    }
+
+    .stat strong{
+      display:block;
+      font-size:24px;
+      margin-bottom:6px;
+    }
+
+    .stat span{
+      color:var(--muted2);
+      font-size:13px;
+      font-weight:700;
+      text-transform:uppercase;
+      letter-spacing:.6px;
+    }
+
+    section{
+      padding:28px 0 86px;
+    }
+
+    .section-head{
+      text-align:center;
+      max-width:840px;
+      margin:0 auto 28px;
+    }
+
+    .section-head h2{
+      font-size:clamp(28px, 5vw, 52px);
+      line-height:1.02;
+      margin-bottom:12px;
+    }
+
+    .section-head p{
+      color:var(--muted);
+      font-size:18px;
+      line-height:1.7;
+    }
+
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:20px;
+    }
+
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.04));
+      border:1px solid rgba(255,255,255,.09);
+      border-radius:28px;
+      padding:24px;
+      box-shadow:var(--shadow);
+      backdrop-filter:blur(14px);
+    }
+
+    .card h3{
+      font-size:23px;
+      margin-bottom:10px;
+    }
+
+    .card p{
+      color:var(--muted);
+      line-height:1.7;
+      margin-bottom:18px;
+      font-size:15px;
+    }
+
+    .mini-btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:48px;
+      padding:0 16px;
+      border-radius:999px;
+      font-weight:800;
+      background:linear-gradient(90deg,var(--blue2),var(--purple));
+      box-shadow:var(--glow);
+    }
+
+    .platforms{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:18px;
+    }
+
+    .platform{
+      text-align:center;
+      padding:24px 18px;
+      border-radius:26px;
+      background:linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.04));
+      border:1px solid rgba(255,255,255,.09);
+      box-shadow:var(--shadow);
+    }
+
+    .platform .icon{
+      width:58px;
+      height:58px;
+      margin:0 auto 14px;
+      border-radius:18px;
+      display:grid;
+      place-items:center;
+      font-size:26px;
+      background:linear-gradient(135deg,var(--blue2),var(--purple));
+      box-shadow:var(--glow);
+    }
+
+    .platform h3{
+      font-size:20px;
+      margin-bottom:8px;
+    }
+
+    .platform p{
+      color:var(--muted);
+      line-height:1.65;
+      font-size:14px;
+      margin-bottom:16px;
+    }
+
+    .feature{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:24px;
+      align-items:stretch;
+    }
+
+    .feature-visual,
+    .feature-copy{
+      min-height:520px;
+      border-radius:30px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.09);
+      box-shadow:var(--shadow);
+    }
+
+    .feature-visual{
+      background:
+        linear-gradient(to top, rgba(5,8,22,.20), rgba(5,8,22,.04)),
+        url('https://raw.githubusercontent.com/omk-store/omotaker/main/EA4AD843-C358-4AE5-8A3E-3CA6C7D09539.png') center/cover no-repeat;
+    }
+
+    .feature-copy{
+      background:linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.04));
+      padding:34px 30px;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+    }
+
+    .tag{
+      display:inline-flex;
+      align-items:center;
+      width:max-content;
+      padding:10px 14px;
+      border-radius:999px;
+      background:rgba(105,215,255,.12);
+      border:1px solid rgba(105,215,255,.18);
+      color:var(--blue);
+      font-weight:800;
+      font-size:13px;
+      margin-bottom:16px;
+    }
+
+    .feature-copy h3{
+      font-size:42px;
+      line-height:1.04;
+      margin-bottom:14px;
+    }
+
+    .feature-copy p{
+      color:var(--muted);
+      font-size:17px;
+      line-height:1.75;
+      margin-bottom:16px;
+    }
+
+    .stack{
+      display:grid;
+      gap:14px;
+      margin-top:8px;
+    }
+
+    .stack-item{
+      padding:18px 18px;
+      border-radius:22px;
+      background:rgba(255,255,255,.045);
+      border:1px solid rgba(255,255,255,.08);
+      color:var(--muted);
+      font-weight:700;
+      line-height:1.6;
+    }
+
+    .cta{
+      text-align:center;
+      padding:86px 0 110px;
+    }
+
+    .cta-box{
+      max-width:920px;
+      margin:0 auto;
+      border-radius:34px;
+      padding:42px 24px;
+      background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
+      border:1px solid rgba(255,255,255,.10);
+      box-shadow:var(--shadow);
+    }
+
+    .cta-box h2{
+      font-size:clamp(30px, 5vw, 58px);
+      line-height:1.02;
+      margin-bottom:14px;
+    }
+
+    .cta-box p{
+      max-width:760px;
+      margin:0 auto 24px;
+      color:var(--muted);
+      font-size:18px;
+      line-height:1.72;
+    }
+
+    .cta-actions{
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:14px;
+    }
+
+    footer{
+      border-top:1px solid rgba(255,255,255,.06);
+      padding:24px 0 34px;
+      color:var(--muted2);
+    }
+
+    .footer-row{
+      display:flex;
+      justify-content:space-between;
+      gap:16px;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+
+    .footer-links{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+    }
+
+    .footer-links a{
+      color:var(--muted2);
+      font-weight:700;
+    }
+
+    @media (max-width:1050px){
+      .hero-grid,
+      .feature,
+      .cards,
+      .platforms{
+        grid-template-columns:1fr 1fr;
+      }
+
+      .hero-card{
+        min-height:560px;
+      }
+    }
+
+    @media (max-width:760px){
+      .nav{
+        padding:10px 0;
+      }
+
+      .nav-links{
+        display:none;
+      }
+
+      .hero{
+        padding-top:28px;
+      }
+
+      .hero-grid,
+      .feature,
+      .cards,
+      .platforms{
+        grid-template-columns:1fr;
+      }
+
+      .hero-card,
+      .feature-visual,
+      .feature-copy{
+        min-height:auto;
+      }
+
+      .stat-row{
+        grid-template-columns:1fr;
+      }
+
+      .hero h1{
+        letter-spacing:-1px;
+      }
+
+      .hero p,
+      .section-head p,
+      .cta-box p{
+        font-size:16px;
+      }
+
+      .feature-copy h3{
+        font-size:32px;
+      }
+
+      .btn,
+      .nav-cta{
+        width:100%;
+      }
+
+      .hero-actions{
+        flex-direction:column;
+      }
+    }
+  </style>
 </head>
 <body>
+  <div class="site-bg"></div>
+  <div class="site-overlay"></div>
 
-  <div class="wrap">
-    <div class="hero">
-      <div class="eyebrow">EV 🌍 🛰️</div>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#top">
+        <div class="brand-badge">EV</div>
+        <div class="brand-text">
+          <span>Everyday Vibe</span>
+          <small>Discover • Push • Promote</small>
+        </div>
+      </a>
 
-      <h1>EVERYDAY VIBE</h1>
-
-      <div class="sub">Discover New Music. Push Viral Sounds.</div>
-
-      <p class="desc">
-        Welcome to EV — a hub for rising artists, viral-ready content,
-        fresh visuals, playlists, and promo opportunities built for the way music moves now.
-      </p>
-
-      <div class="btns">
-        <a class="btn" href="https://m.youtube.com/@Everydayvibe-01" target="_blank">▶ Watch on YouTube</a>
-        <a class="btn" href="https://www.tiktok.com/@everydayvibe001?_r=1&_t=ZS-94sOW9FvwPA" target="_blank">🎵 Follow on TikTok</a>
-        <a class="btn" href="https://www.instagram.com/everydayvibe01?igsh=MTEwM2RiOHV1ZjJzdQ%3D%3D&utm_source=qr" target="_blank">📸 Follow on Instagram</a>
-        <a class="btn" href="https://www.facebook.com/share/18Nb1j6ywW/?mibextid=wwXIfr" target="_blank">📘 Follow on Facebook</a>
-
-        <div class="section-title">EV Links</div>
-
-        <a class="btn" href="https://omkdrip.com/playlist.html" target="_blank">🎧 Open Playlist</a>
-        <a class="btn" href="https://www.instagram.com/everydayvibe01?igsh=MTEwM2RiOHV1ZjJzdQ%3D%3D&utm_source=qr" target="_blank">🚀 Submit Your Sound</a>
-        <a class="btn" href="https://www.instagram.com/everydayvibe01?igsh=MTEwM2RiOHV1ZjJzdQ%3D%3D&utm_source=qr" target="_blank">🔥 Promote Your Song</a>
-      </div>
-
-      <div class="mini">EV • Discover • Playlist • Connect • Promote</div>
+      <nav class="nav-links">
+        <a class="nav-link" href="#about">About</a>
+        <a class="nav-link" href="#platforms">Platforms</a>
+        <a class="nav-link" href="#playlist">Playlist</a>
+        <a class="nav-link" href="#services">Services</a>
+        <a class="nav-cta" href="https://www.instagram.com/everydayvibe01?igsh=MTEwM2RiOHV1ZjJzdQ%3D%3D&utm_source=qr" target="_blank">Contact EV</a>
+      </nav>
     </div>
-  </div>
+  </header>
 
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow">EV 🌍 Futuristic Music Discovery Platform</div>
+          <h1>Discover new artists. <span class="glow">Push viral sounds.</span></h1>
+          <p>
+            Welcome to Everyday Vibe — a futuristic music platform built for rising artists,
+            visual culture, playlists, discovery, and promo opportunities that match how music moves now.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="https://m.youtube.com/@Everydayvibe-01" target="_blank">▶ Watch on YouTube</a>
+            <a class="btn btn-secondary" href="#platforms">Explore EV</a>
+          </div>
+
+          <div class="hero-meta">
+            <div class="meta-pill">🎵 New music discovery</div>
+            <div class="meta-pill">🚀 Promo opportunities</div>
+            <div class="meta-pill">🎬 Viral-ready visuals</div>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <div class="hero-card-content">
+            <div class="stat-row">
+              <div class="stat">
+                <strong>4</strong>
+                <span>Main Platforms</span>
+              </div>
+              <div class="stat">
+                <strong>24/7</strong>
+                <span>Artist Visibility</span>
+              </div>
+              <div class="stat">
+                <strong>EV</strong>
+                <span>Music Movement</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-head">
+          <h2>A real company-style landing page for EV</h2>
+          <p>
+            EV is not just a social page. It is a discovery and promotion platform for artists,
+            viral content, playlists, visuals, and audience growth — presented in a clean futuristic format.
+          </p>
+        </div>
+
+        <div class="cards">
+          <div class="card">
+            <h3>🎤 Discover Artists</h3>
+            <p>
+              Find rising talent, fresh songs, and artists worth paying attention to across the EV movement.
+            </p>
+            <a class="mini-btn" href="https://www.instagram.com/everydayvibe01?igsh=MTEwM2RiOHV1ZjJzdQ%3D%3D&utm_source=qr" target="_blank">Explore Artists</a>
+          </div>
+
+          <div class="card">
+            <h3>🔥 Push Viral Sounds</h3>
+            <p>
+              EV is built for the current era — where visuals, reels, clips, and repeatable moments drive attention.
+            </p>
+            <a class="mini-btn" href="https://www.tiktok.com/@everydayvibe001?_r=1&_t=ZS-94sOW9FvwPA" target="_blank">Open TikTok</a>
+          </div>
+
+          <div class="card">
+            <h3>🚀 Promote Your Song</h3>
+            <p>
+              Want EV to look at your music? Connect through our promo channels and bring your best sound.
+            </p>
+            <a class="mini-btn" href="https://www.instagram.com/everydayvibe01?igsh=MTEwM2RiOHV1ZjJzdQ%3D%3D&utm_source=qr" target="_blank">Contact EV</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="platforms">
+      <div class="container">
+        <div class="section-head">
+          <h2>Connect with EV everywhere</h2>
+          <p>
+            Follow the platform across video, social, and community channels. Each platform has its own role.
+          </p>
+        </div>
+
+        <div class="platforms">
+          <div class="platform">
+            <div class="icon">▶</div>
+            <h3>YouTube</h3>
+            <p>Watch visuals, artist content, spotlight videos, and featured releases.</p>
+            <a class="mini-btn" href="https://m.youtube.com/@Everydayvibe-01" target="_blank">Open YouTube</a>
+          </div>
+
+          <div class="platform">
+            <div class="icon">🎵</div>
+            <h3>TikTok</h3>
+            <p>Catch viral edits, promo clips, sound pushes, and repeatable moments.</p>
+            <a class="mini-btn" href="https://www.tiktok.com/@everydayvibe001?_r=1&_t=ZS-94sOW9FvwPA" target="_blank">Open TikTok</a>
+          </div>
+
+          <div class="platform">
+            <div class="icon">📸</div>
+            <h3>Instagram</h3>
+            <p>See reels, spotlights, updates, visuals, and artist-facing EV content.</p>
+            <a class="mini-btn" href="https://www.instagram.com/everydayvibe01?igsh=MTEwM2RiOHV1ZjJzdQ%3D%3D&utm_source=qr" target="_blank">Open Instagram</a>
+          </div>
+
+          <div class="platform">
+            <div class="icon">📘</div>
+            <h3>Facebook</h3>
+            <p>Stay connected with community updates, promo shares, and platform posts.</p>
+            <a class="mini-btn" href="https://www.facebook.com/share/18Nb1j6ywW/?mibextid=wwXIfr" target="_blank">Open Facebook</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="playlist">
+      <div class="container feature">
+        <div class="feature-visual"></div>
+
+        <div class="feature-copy">
+          <div class="tag">EV PLAYLIST + DISCOVERY</div>
+          <h3>Keep the page clean, but make it useful</h3>
+          <p>
+            This section gives visitors a clear next move. They can explore the EV playlist,
+            discover new sounds, and understand that EV is built like a platform, not a random link page.
+          </p>
+          <p>
+            The design stays premium, the information stays centered, and the page still scrolls like a real company website.
+          </p>
+
+          <div class="stack">
+            <div class="stack-item">🎧 Playlist access for fans and artists looking for new sounds.</div>
+            <div class="stack-item">⭐ Discovery-focused layout that feels premium and futuristic.</div>
+            <div class="stack-item">🚀 Easy next step for promo, artist spotlight, or music submission.</div>
+          </div>
+
+          <div style="margin-top:18px;">
+            <a class="mini-btn" href="https://omkdrip.com/playlist.html" target="_blank">Open Playlist</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <div class="section-head">
+          <h2>What visitors can do on EV</h2>
+          <p>
+            Keep choices clear. No confusion. Each option should guide people directly to the right place.
+          </p>
+        </div>
+
+        <div class="cards">
+          <div class="card">
+            <h3>🎧 Playlist Access</h3>
+            <p>
+              Send people to the EV playlist so they can hear fresh sounds and stay connected to the movement.
+            </p>
+            <a class="mini-btn" href="https://omkdrip.com/playlist.html" target="_blank">Go to Playlist</a>
+          </div>
+
+          <div class="card">
+            <h3>📩 Submit Your Sound</h3>
+            <p>
+              Artists can reach out through Instagram or TikTok to submit music for spotlight or promo consideration.
+            </p>
+            <a class="mini-btn" href="https://www.instagram.com/everydayvibe01?igsh=MTEwM2RiOHV1ZjJzdQ%3D%3D&utm_source=qr" target="_blank">Submit on Instagram</a>
+          </div>
+
+          <div class="card">
+            <h3>🔥 Promote Your Song</h3>
+            <p>
+              Turn your sound into content-ready promo with EV. Built for visibility, not clutter.
+            </p>
+            <a class="mini-btn" href="https://www.tiktok.com/@everydayvibe001?_r=1&_t=ZS-94sOW9FvwPA" target="_blank">Promote via TikTok</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="container cta-box">
+        <h2>Welcome to the EV movement</h2>
+        <p>
+          Built for artists, sounds, visuals, playlists, and promo opportunities that deserve real attention.
+          Discover. Connect. Submit. Promote.
+        </p>
+
+        <div class="cta-actions">
+          <a class="btn btn-primary" href="https://www.instagram.com/everydayvibe01?igsh=MTEwM2RiOHV1ZjJzdQ%3D%3D&utm_source=qr" target="_blank">DM on Instagram</a>
+          <a class="btn btn-secondary" href="https://www.tiktok.com/@everydayvibe001?_r=1&_t=ZS-94sOW9FvwPA" target="_blank">Connect on TikTok</a>
+          <a class="btn btn-secondary" href="https://omkdrip.com/playlist.html" target="_blank">Open Playlist</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-row">
+      <div>© 2026 EV | Everyday Vibe</div>
+      <div class="footer-links">
+        <a href="https://m.youtube.com/@Everydayvibe-01" target="_blank">YouTube</a>
+        <a href="https://www.tiktok.com/@everydayvibe001?_r=1&_t=ZS-94sOW9FvwPA" target="_blank">TikTok</a>
+        <a href="https://www.instagram.com/everydayvibe01?igsh=MTEwM2RiOHV1ZjJzdQ%3D%3D&utm_source=qr" target="_blank">Instagram</a>
+        <a href="https://www.facebook.com/share/18Nb1j6ywW/?mibextid=wwXIfr" target="_blank">Facebook</a>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
