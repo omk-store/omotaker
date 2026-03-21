@@ -3,26 +3,27 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>EV | Everyday Vibe</title>
+  <title>Everyday Vibe | Artist Promo Platform</title>
   <meta name="theme-color" content="#050816" />
-  <meta name="description" content="Everyday Vibe — discover new artists, viral sounds, visuals, playlists, and promo opportunities." />
+  <meta name="description" content="Everyday Vibe helps artists push songs with viral promo, discovery, visuals, playlists, and social media growth." />
 
   <style>
     :root{
       --bg:#050816;
       --bg2:#091126;
-      --panel:rgba(255,255,255,.06);
+      --panel:rgba(255,255,255,.07);
       --panel2:rgba(255,255,255,.04);
       --line:rgba(255,255,255,.10);
       --text:#f5f8ff;
-      --muted:rgba(245,248,255,.72);
-      --muted2:rgba(245,248,255,.52);
+      --muted:rgba(245,248,255,.74);
+      --muted2:rgba(245,248,255,.54);
       --blue:#69d7ff;
       --blue2:#46b8ff;
       --purple:#765cff;
+      --green:#34d399;
       --glow:0 0 30px rgba(70,184,255,.22);
-      --shadow:0 24px 60px rgba(0,0,0,.32);
-      --radius:26px;
+      --shadow:0 24px 60px rgba(0,0,0,.34);
+      --radius:28px;
       --max:1180px;
     }
 
@@ -44,7 +45,7 @@
       position:fixed;
       inset:0;
       background:
-        linear-gradient(to bottom, rgba(3,6,16,.56), rgba(3,6,16,.84)),
+        linear-gradient(to bottom, rgba(3,6,16,.52), rgba(3,6,16,.88)),
         url('https://raw.githubusercontent.com/omk-store/omotaker/main/EA4AD843-C358-4AE5-8A3E-3CA6C7D09539.png') center/cover no-repeat;
       z-index:-2;
       transform:scale(1.03);
@@ -54,8 +55,8 @@
       position:fixed;
       inset:0;
       background:
-        linear-gradient(to bottom, rgba(5,8,22,.18), rgba(5,8,22,.72)),
-        radial-gradient(circle at 50% 0%, rgba(118,92,255,.14), transparent 35%);
+        linear-gradient(to bottom, rgba(5,8,22,.10), rgba(5,8,22,.76)),
+        radial-gradient(circle at 50% 0%, rgba(118,92,255,.16), transparent 35%);
       z-index:-1;
       pointer-events:none;
     }
@@ -70,7 +71,7 @@
       top:0;
       z-index:100;
       backdrop-filter:blur(16px);
-      background:rgba(5,8,22,.58);
+      background:rgba(5,8,22,.60);
       border-bottom:1px solid rgba(255,255,255,.06);
     }
 
@@ -79,7 +80,7 @@
       align-items:center;
       justify-content:space-between;
       gap:16px;
-      min-height:74px;
+      min-height:76px;
     }
 
     .brand{
@@ -87,12 +88,12 @@
       align-items:center;
       gap:12px;
       font-weight:900;
-      letter-spacing:.5px;
+      letter-spacing:.4px;
     }
 
     .brand-badge{
-      width:42px;
-      height:42px;
+      width:44px;
+      height:44px;
       border-radius:14px;
       display:grid;
       place-items:center;
@@ -151,18 +152,14 @@
       min-height:100svh;
       display:flex;
       align-items:center;
-      padding:54px 0 46px;
+      padding:52px 0 42px;
     }
 
     .hero-grid{
       display:grid;
-      grid-template-columns:1.1fr .9fr;
+      grid-template-columns:1.08fr .92fr;
       gap:28px;
       align-items:center;
-    }
-
-    .hero-copy{
-      padding:12px 0;
     }
 
     .eyebrow{
@@ -183,7 +180,7 @@
     }
 
     .hero h1{
-      font-size:clamp(42px, 8vw, 86px);
+      font-size:clamp(42px, 8vw, 84px);
       line-height:.96;
       letter-spacing:-1.8px;
       margin-bottom:16px;
@@ -196,7 +193,7 @@
     }
 
     .hero p{
-      max-width:700px;
+      max-width:720px;
       font-size:19px;
       line-height:1.72;
       color:var(--muted);
@@ -207,7 +204,7 @@
       display:flex;
       flex-wrap:wrap;
       gap:14px;
-      margin-bottom:24px;
+      margin-bottom:22px;
     }
 
     .btn{
@@ -242,6 +239,7 @@
       display:flex;
       gap:12px;
       flex-wrap:wrap;
+      margin-bottom:20px;
     }
 
     .meta-pill{
@@ -254,15 +252,36 @@
       font-weight:700;
     }
 
+    .budget-box{
+      max-width:640px;
+      padding:18px 18px;
+      border-radius:22px;
+      border:1px solid rgba(52,211,153,.18);
+      background:linear-gradient(180deg, rgba(52,211,153,.08), rgba(255,255,255,.03));
+      box-shadow:var(--shadow);
+    }
+
+    .budget-box strong{
+      display:block;
+      font-size:18px;
+      margin-bottom:7px;
+    }
+
+    .budget-box span{
+      color:var(--muted);
+      line-height:1.7;
+      font-size:15px;
+      display:block;
+    }
+
     .hero-card{
       position:relative;
       border-radius:32px;
-      background:
-        linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.04));
+      background:linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.04));
       border:1px solid rgba(255,255,255,.10);
       box-shadow:var(--shadow);
       overflow:hidden;
-      min-height:640px;
+      min-height:650px;
       display:flex;
       align-items:flex-end;
     }
@@ -272,7 +291,7 @@
       position:absolute;
       inset:0;
       background:
-        linear-gradient(to top, rgba(5,8,22,.14), rgba(5,8,22,.02)),
+        linear-gradient(to top, rgba(5,8,22,.22), rgba(5,8,22,.04)),
         url('https://raw.githubusercontent.com/omk-store/omotaker/main/EA4AD843-C358-4AE5-8A3E-3CA6C7D09539.png') center/cover no-repeat;
       transform:scale(1.03);
     }
@@ -281,7 +300,7 @@
       content:"";
       position:absolute;
       inset:auto 0 0;
-      height:44%;
+      height:46%;
       background:linear-gradient(to top, rgba(5,8,22,.94), transparent);
     }
 
@@ -323,17 +342,17 @@
     }
 
     section{
-      padding:28px 0 86px;
+      padding:32px 0 88px;
     }
 
     .section-head{
       text-align:center;
-      max-width:840px;
-      margin:0 auto 28px;
+      max-width:860px;
+      margin:0 auto 30px;
     }
 
     .section-head h2{
-      font-size:clamp(28px, 5vw, 52px);
+      font-size:clamp(30px, 5vw, 54px);
       line-height:1.02;
       margin-bottom:12px;
     }
@@ -341,7 +360,7 @@
     .section-head p{
       color:var(--muted);
       font-size:18px;
-      line-height:1.7;
+      line-height:1.74;
     }
 
     .cards{
@@ -383,43 +402,120 @@
       box-shadow:var(--glow);
     }
 
-    .platforms{
+    .process{
       display:grid;
       grid-template-columns:repeat(4,1fr);
       gap:18px;
     }
 
-    .platform{
-      text-align:center;
-      padding:24px 18px;
-      border-radius:26px;
+    .step{
+      padding:22px 18px;
+      border-radius:24px;
       background:linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.04));
       border:1px solid rgba(255,255,255,.09);
       box-shadow:var(--shadow);
     }
 
-    .platform .icon{
-      width:58px;
-      height:58px;
-      margin:0 auto 14px;
-      border-radius:18px;
+    .step .num{
+      width:42px;
+      height:42px;
+      border-radius:12px;
       display:grid;
       place-items:center;
-      font-size:26px;
+      margin-bottom:14px;
+      font-weight:900;
       background:linear-gradient(135deg,var(--blue2),var(--purple));
       box-shadow:var(--glow);
     }
 
-    .platform h3{
+    .step h3{
       font-size:20px;
       margin-bottom:8px;
     }
 
-    .platform p{
+    .step p{
       color:var(--muted);
-      line-height:1.65;
+      line-height:1.7;
       font-size:14px;
+    }
+
+    .pricing{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:20px;
+    }
+
+    .price-card{
+      position:relative;
+      border-radius:30px;
+      padding:26px 24px;
+      background:linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.04));
+      border:1px solid rgba(255,255,255,.09);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+
+    .price-card.featured{
+      border-color:rgba(105,215,255,.28);
+      transform:translateY(-4px);
+      box-shadow:0 24px 70px rgba(0,0,0,.42), 0 0 35px rgba(70,184,255,.16);
+    }
+
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:34px;
+      padding:0 12px;
+      border-radius:999px;
+      background:rgba(105,215,255,.14);
+      border:1px solid rgba(105,215,255,.22);
+      color:var(--blue);
+      font-size:12px;
+      font-weight:800;
+      letter-spacing:.6px;
+      text-transform:uppercase;
       margin-bottom:16px;
+    }
+
+    .price-card h3{
+      font-size:24px;
+      margin-bottom:6px;
+    }
+
+    .price{
+      font-size:38px;
+      font-weight:900;
+      margin-bottom:12px;
+    }
+
+    .price small{
+      font-size:15px;
+      color:var(--muted2);
+      font-weight:700;
+    }
+
+    .price-card p{
+      color:var(--muted);
+      line-height:1.7;
+      margin-bottom:18px;
+      font-size:15px;
+    }
+
+    .price-list{
+      display:grid;
+      gap:10px;
+      margin-bottom:22px;
+    }
+
+    .price-list div{
+      padding:12px 14px;
+      border-radius:16px;
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.07);
+      color:var(--muted);
+      font-size:14px;
+      font-weight:700;
     }
 
     .feature{
@@ -440,7 +536,7 @@
 
     .feature-visual{
       background:
-        linear-gradient(to top, rgba(5,8,22,.20), rgba(5,8,22,.04)),
+        linear-gradient(to top, rgba(5,8,22,.18), rgba(5,8,22,.04)),
         url('https://raw.githubusercontent.com/omk-store/omotaker/main/EA4AD843-C358-4AE5-8A3E-3CA6C7D09539.png') center/cover no-repeat;
     }
 
@@ -497,21 +593,21 @@
 
     .cta{
       text-align:center;
-      padding:86px 0 110px;
+      padding:88px 0 112px;
     }
 
     .cta-box{
-      max-width:920px;
+      max-width:950px;
       margin:0 auto;
       border-radius:34px;
-      padding:42px 24px;
+      padding:44px 24px;
       background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
       border:1px solid rgba(255,255,255,.10);
       box-shadow:var(--shadow);
     }
 
     .cta-box h2{
-      font-size:clamp(30px, 5vw, 58px);
+      font-size:clamp(32px, 5vw, 58px);
       line-height:1.02;
       margin-bottom:14px;
     }
@@ -558,9 +654,10 @@
 
     @media (max-width:1050px){
       .hero-grid,
-      .feature,
       .cards,
-      .platforms{
+      .feature,
+      .pricing,
+      .process{
         grid-template-columns:1fr 1fr;
       }
 
@@ -583,9 +680,10 @@
       }
 
       .hero-grid,
-      .feature,
       .cards,
-      .platforms{
+      .feature,
+      .pricing,
+      .process{
         grid-template-columns:1fr;
       }
 
@@ -621,6 +719,10 @@
       .hero-actions{
         flex-direction:column;
       }
+
+      .budget-box{
+        padding:16px;
+      }
     }
   </style>
 </head>
@@ -639,11 +741,11 @@
       </a>
 
       <nav class="nav-links">
-        <a class="nav-link" href="#about">About</a>
-        <a class="nav-link" href="#platforms">Platforms</a>
-        <a class="nav-link" href="#playlist">Playlist</a>
         <a class="nav-link" href="#services">Services</a>
-        <a class="nav-cta" href="https://www.instagram.com/everydayvibe01?igsh=MTEwM2RiOHV1ZjJzdQ%3D%3D&utm_source=qr" target="_blank">Contact EV</a>
+        <a class="nav-link" href="#process">How It Works</a>
+        <a class="nav-link" href="#pricing">Packages</a>
+        <a class="nav-link" href="#platforms">Platforms</a>
+        <a class="nav-cta" href="https://www.instagram.com/everydayvibe01?igsh=MTEwM2RiOHV1ZjJzdQ%3D%3D&utm_source=qr" target="_blank">Book Promo</a>
       </nav>
     </div>
   </header>
@@ -652,22 +754,30 @@
     <section class="hero">
       <div class="container hero-grid">
         <div class="hero-copy">
-          <div class="eyebrow">EV 🌍 Futuristic Music Discovery Platform</div>
-          <h1>Discover new artists. <span class="glow">Push viral sounds.</span></h1>
+          <div class="eyebrow">EV 🌍 Viral Music Promotion Platform</div>
+          <h1>Push your sound. <span class="glow">Get seen faster.</span></h1>
           <p>
-            Welcome to Everyday Vibe — a futuristic music platform built for rising artists,
-            visual culture, playlists, discovery, and promo opportunities that match how music moves now.
+            Everyday Vibe helps rising artists promote songs with cinematic content, dance videos,
+            viral edits, playlist discovery, and social media visibility built for how music moves now.
           </p>
 
           <div class="hero-actions">
-            <a class="btn btn-primary" href="https://m.youtube.com/@Everydayvibe-01" target="_blank">▶ Watch on YouTube</a>
-            <a class="btn btn-secondary" href="#platforms">Explore EV</a>
+            <a class="btn btn-primary" href="https://www.instagram.com/everydayvibe01?igsh=MTEwM2RiOHV1ZjJzdQ%3D%3D&utm_source=qr" target="_blank">📩 Book EV Promo</a>
+            <a class="btn btn-secondary" href="#pricing">💸 View Packages</a>
           </div>
 
           <div class="hero-meta">
-            <div class="meta-pill">🎵 New music discovery</div>
-            <div class="meta-pill">🚀 Promo opportunities</div>
-            <div class="meta-pill">🎬 Viral-ready visuals</div>
+            <div class="meta-pill">🎬 Cinematic promo videos</div>
+            <div class="meta-pill">💃 Dance & trend content</div>
+            <div class="meta-pill">🚀 Mixed viral edits</div>
+          </div>
+
+          <div class="budget-box">
+            <strong>Start with your budget.</strong>
+            <span>
+              Tell us your song, your goal, and what you want to spend. We’ll match you with
+              the best Everyday Vibe promo plan for your sound.
+            </span>
           </div>
         </div>
 
@@ -675,8 +785,8 @@
           <div class="hero-card-content">
             <div class="stat-row">
               <div class="stat">
-                <strong>4</strong>
-                <span>Main Platforms</span>
+                <strong>3</strong>
+                <span>Promo Styles</span>
               </div>
               <div class="stat">
                 <strong>24/7</strong>
@@ -684,7 +794,7 @@
               </div>
               <div class="stat">
                 <strong>EV</strong>
-                <span>Music Movement</span>
+                <span>Growth System</span>
               </div>
             </div>
           </div>
@@ -692,39 +802,133 @@
       </div>
     </section>
 
-    <section id="about">
+    <section id="services">
       <div class="container">
         <div class="section-head">
-          <h2>A real company-style landing page for EV</h2>
+          <h2>What Everyday Vibe does</h2>
           <p>
-            EV is not just a social page. It is a discovery and promotion platform for artists,
-            viral content, playlists, visuals, and audience growth — presented in a clean futuristic format.
+            Built for artists who want more than random posting. EV turns songs into content-ready promo that can move across platforms.
           </p>
         </div>
 
         <div class="cards">
           <div class="card">
-            <h3>🎤 Discover Artists</h3>
+            <h3>🎬 Cinematic Music Promo</h3>
             <p>
-              Find rising talent, fresh songs, and artists worth paying attention to across the EV movement.
+              Clean visual edits that make your song feel bigger, more premium, and more serious.
             </p>
-            <a class="mini-btn" href="https://www.instagram.com/everydayvibe01?igsh=MTEwM2RiOHV1ZjJzdQ%3D%3D&utm_source=qr" target="_blank">Explore Artists</a>
+            <a class="mini-btn" href="https://www.instagram.com/everydayvibe01?igsh=MTEwM2RiOHV1ZjJzdQ%3D%3D&utm_source=qr" target="_blank">Book This</a>
           </div>
 
           <div class="card">
-            <h3>🔥 Push Viral Sounds</h3>
+            <h3>💃 Dance / Trend Content</h3>
             <p>
-              EV is built for the current era — where visuals, reels, clips, and repeatable moments drive attention.
+              Promo content designed to match how people consume sounds on social media right now.
             </p>
-            <a class="mini-btn" href="https://www.tiktok.com/@everydayvibe001?_r=1&_t=ZS-94sOW9FvwPA" target="_blank">Open TikTok</a>
+            <a class="mini-btn" href="https://www.tiktok.com/@everydayvibe001?_r=1&_t=ZS-94sOW9FvwPA" target="_blank">See TikTok</a>
           </div>
 
           <div class="card">
-            <h3>🚀 Promote Your Song</h3>
+            <h3>🔥 Full Viral Push</h3>
             <p>
-              Want EV to look at your music? Connect through our promo channels and bring your best sound.
+              Combine cinematic video, dance content, and mixed edits into one stronger promo rollout.
             </p>
-            <a class="mini-btn" href="https://www.instagram.com/everydayvibe01?igsh=MTEwM2RiOHV1ZjJzdQ%3D%3D&utm_source=qr" target="_blank">Contact EV</a>
+            <a class="mini-btn" href="#pricing">View Package</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="process">
+      <div class="container">
+        <div class="section-head">
+          <h2>How it works</h2>
+          <p>
+            Keep it simple. Artists reach out, send the song, state the goal, and we build the right promo direction.
+          </p>
+        </div>
+
+        <div class="process">
+          <div class="step">
+            <div class="num">1</div>
+            <h3>Send Your Song</h3>
+            <p>DM Everyday Vibe with your track, link, or snippet.</p>
+          </div>
+
+          <div class="step">
+            <div class="num">2</div>
+            <h3>State Your Goal</h3>
+            <p>Tell us if you want streams, visibility, awareness, or stronger content.</p>
+          </div>
+
+          <div class="step">
+            <div class="num">3</div>
+            <h3>Pick Your Budget</h3>
+            <p>Start small or go premium. We’ll match the promo style to your budget.</p>
+          </div>
+
+          <div class="step">
+            <div class="num">4</div>
+            <h3>Launch the Push</h3>
+            <p>Your promo starts once the plan is confirmed and locked in.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="pricing">
+      <div class="container">
+        <div class="section-head">
+          <h2>Promo packages</h2>
+          <p>
+            Simple pricing structure for artists. Start with one push or go all in with the full EV system.
+          </p>
+        </div>
+
+        <div class="pricing">
+          <div class="price-card">
+            <div class="badge">Starter</div>
+            <h3>Single Push</h3>
+            <div class="price">₦20K–₦30K <small>/ one promo post</small></div>
+            <p>
+              Good for artists testing a song or pushing one clean content piece.
+            </p>
+            <div class="price-list">
+              <div>1 promo post</div>
+              <div>Best for smaller budgets</div>
+              <div>Fast and simple rollout</div>
+            </div>
+            <a class="mini-btn" href="https://www.instagram.com/everydayvibe01?igsh=MTEwM2RiOHV1ZjJzdQ%3D%3D&utm_source=qr" target="_blank">Start Here</a>
+          </div>
+
+          <div class="price-card featured">
+            <div class="badge">Most Popular</div>
+            <h3>Standard Push</h3>
+            <div class="price">₦50K–₦80K <small>/ stronger campaign</small></div>
+            <p>
+              Best for artists who want better visibility with multiple promo styles.
+            </p>
+            <div class="price-list">
+              <div>2 promo posts</div>
+              <div>Dance + viral edit</div>
+              <div>Better social media movement</div>
+            </div>
+            <a class="mini-btn" href="https://www.instagram.com/everydayvibe01?igsh=MTEwM2RiOHV1ZjJzdQ%3D%3D&utm_source=qr" target="_blank">Book Standard</a>
+          </div>
+
+          <div class="price-card">
+            <div class="badge">Premium</div>
+            <h3>EV Full Package</h3>
+            <div class="price">₦80K+ <small>/ full rollout</small></div>
+            <p>
+              Full Everyday Vibe system for artists who want the strongest push.
+            </p>
+            <div class="price-list">
+              <div>1 cinematic video</div>
+              <div>1 dance / trend video</div>
+              <div>1 mixed viral promo edit</div>
+            </div>
+            <a class="mini-btn" href="https://www.instagram.com/everydayvibe01?igsh=MTEwM2RiOHV1ZjJzdQ%3D%3D&utm_source=qr" target="_blank">Go Premium</a>
           </div>
         </div>
       </div>
@@ -735,37 +939,33 @@
         <div class="section-head">
           <h2>Connect with EV everywhere</h2>
           <p>
-            Follow the platform across video, social, and community channels. Each platform has its own role.
+            Follow the platform across content channels and promo spaces.
           </p>
         </div>
 
-        <div class="platforms">
-          <div class="platform">
-            <div class="icon">▶</div>
-            <h3>YouTube</h3>
-            <p>Watch visuals, artist content, spotlight videos, and featured releases.</p>
+        <div class="cards">
+          <div class="card">
+            <h3>▶ YouTube</h3>
+            <p>
+              Watch visuals, artist content, spotlight clips, and release-focused videos.
+            </p>
             <a class="mini-btn" href="https://m.youtube.com/@Everydayvibe-01" target="_blank">Open YouTube</a>
           </div>
 
-          <div class="platform">
-            <div class="icon">🎵</div>
-            <h3>TikTok</h3>
-            <p>Catch viral edits, promo clips, sound pushes, and repeatable moments.</p>
-            <a class="mini-btn" href="https://www.tiktok.com/@everydayvibe001?_r=1&_t=ZS-94sOW9FvwPA" target="_blank">Open TikTok</a>
-          </div>
-
-          <div class="platform">
-            <div class="icon">📸</div>
-            <h3>Instagram</h3>
-            <p>See reels, spotlights, updates, visuals, and artist-facing EV content.</p>
+          <div class="card">
+            <h3>📸 Instagram</h3>
+            <p>
+              Main EV contact point for promo inquiries, artist messages, and content updates.
+            </p>
             <a class="mini-btn" href="https://www.instagram.com/everydayvibe01?igsh=MTEwM2RiOHV1ZjJzdQ%3D%3D&utm_source=qr" target="_blank">Open Instagram</a>
           </div>
 
-          <div class="platform">
-            <div class="icon">📘</div>
-            <h3>Facebook</h3>
-            <p>Stay connected with community updates, promo shares, and platform posts.</p>
-            <a class="mini-btn" href="https://www.facebook.com/share/18Nb1j6ywW/?mibextid=wwXIfr" target="_blank">Open Facebook</a>
+          <div class="card">
+            <h3>🎵 TikTok</h3>
+            <p>
+              Home for quick sound pushes, trend-style content, and viral-focused edits.
+            </p>
+            <a class="mini-btn" href="https://www.tiktok.com/@everydayvibe001?_r=1&_t=ZS-94sOW9FvwPA" target="_blank">Open TikTok</a>
           </div>
         </div>
       </div>
@@ -777,19 +977,18 @@
 
         <div class="feature-copy">
           <div class="tag">EV PLAYLIST + DISCOVERY</div>
-          <h3>Keep the page clean, but make it useful</h3>
+          <h3>Keep discovery part of the movement</h3>
           <p>
-            This section gives visitors a clear next move. They can explore the EV playlist,
-            discover new sounds, and understand that EV is built like a platform, not a random link page.
+            Everyday Vibe is not only about promo. It is also a place for people to discover fresh music and connect with new artists.
           </p>
           <p>
-            The design stays premium, the information stays centered, and the page still scrolls like a real company website.
+            This keeps the page useful for both artists and listeners while still pushing the EV brand as a serious platform.
           </p>
 
           <div class="stack">
-            <div class="stack-item">🎧 Playlist access for fans and artists looking for new sounds.</div>
-            <div class="stack-item">⭐ Discovery-focused layout that feels premium and futuristic.</div>
-            <div class="stack-item">🚀 Easy next step for promo, artist spotlight, or music submission.</div>
+            <div class="stack-item">🎧 Playlist access for fans and artists looking for fresh sounds.</div>
+            <div class="stack-item">⭐ Premium layout that feels clean, modern, and brand-ready.</div>
+            <div class="stack-item">🚀 Easy next step for discovery, promo, or artist contact.</div>
           </div>
 
           <div style="margin-top:18px;">
@@ -799,55 +998,17 @@
       </div>
     </section>
 
-    <section id="services">
-      <div class="container">
-        <div class="section-head">
-          <h2>What visitors can do on EV</h2>
-          <p>
-            Keep choices clear. No confusion. Each option should guide people directly to the right place.
-          </p>
-        </div>
-
-        <div class="cards">
-          <div class="card">
-            <h3>🎧 Playlist Access</h3>
-            <p>
-              Send people to the EV playlist so they can hear fresh sounds and stay connected to the movement.
-            </p>
-            <a class="mini-btn" href="https://omkdrip.com/playlist.html" target="_blank">Go to Playlist</a>
-          </div>
-
-          <div class="card">
-            <h3>📩 Submit Your Sound</h3>
-            <p>
-              Artists can reach out through Instagram or TikTok to submit music for spotlight or promo consideration.
-            </p>
-            <a class="mini-btn" href="https://www.instagram.com/everydayvibe01?igsh=MTEwM2RiOHV1ZjJzdQ%3D%3D&utm_source=qr" target="_blank">Submit on Instagram</a>
-          </div>
-
-          <div class="card">
-            <h3>🔥 Promote Your Song</h3>
-            <p>
-              Turn your sound into content-ready promo with EV. Built for visibility, not clutter.
-            </p>
-            <a class="mini-btn" href="https://www.tiktok.com/@everydayvibe001?_r=1&_t=ZS-94sOW9FvwPA" target="_blank">Promote via TikTok</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <section class="cta">
       <div class="container cta-box">
-        <h2>Welcome to the EV movement</h2>
+        <h2>Ready to push your music?</h2>
         <p>
-          Built for artists, sounds, visuals, playlists, and promo opportunities that deserve real attention.
-          Discover. Connect. Submit. Promote.
+          Send your song, tell us your goal, and let us know your budget. Everyday Vibe will match you with the right promo direction.
         </p>
 
         <div class="cta-actions">
-          <a class="btn btn-primary" href="https://www.instagram.com/everydayvibe01?igsh=MTEwM2RiOHV1ZjJzdQ%3D%3D&utm_source=qr" target="_blank">DM on Instagram</a>
-          <a class="btn btn-secondary" href="https://www.tiktok.com/@everydayvibe001?_r=1&_t=ZS-94sOW9FvwPA" target="_blank">Connect on TikTok</a>
-          <a class="btn btn-secondary" href="https://omkdrip.com/playlist.html" target="_blank">Open Playlist</a>
+          <a class="btn btn-primary" href="https://www.instagram.com/everydayvibe01?igsh=MTEwM2RiOHV1ZjJzdQ%3D%3D&utm_source=qr" target="_blank">📩 DM to Book</a>
+          <a class="btn btn-secondary" href="#pricing">💸 See Packages</a>
+          <a class="btn btn-secondary" href="https://omkdrip.com/playlist.html" target="_blank">🎧 Open Playlist</a>
         </div>
       </div>
     </section>
@@ -855,7 +1016,7 @@
 
   <footer>
     <div class="container footer-row">
-      <div>© 2026 EV | Everyday Vibe</div>
+      <div>© 2026 Everyday Vibe. All rights reserved.</div>
       <div class="footer-links">
         <a href="https://m.youtube.com/@Everydayvibe-01" target="_blank">YouTube</a>
         <a href="https://www.tiktok.com/@everydayvibe001?_r=1&_t=ZS-94sOW9FvwPA" target="_blank">TikTok</a>
