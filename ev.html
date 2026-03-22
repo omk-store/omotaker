@@ -1,1029 +1,196 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Everyday Vibe | Artist Promo Platform</title>
-  <meta name="theme-color" content="#050816" />
-  <meta name="description" content="Everyday Vibe helps artists push songs with viral promo, discovery, visuals, playlists, and social media growth." />
-
-  <style>
-    :root{
-      --bg:#050816;
-      --bg2:#091126;
-      --panel:rgba(255,255,255,.07);
-      --panel2:rgba(255,255,255,.04);
-      --line:rgba(255,255,255,.10);
-      --text:#f5f8ff;
-      --muted:rgba(245,248,255,.74);
-      --muted2:rgba(245,248,255,.54);
-      --blue:#69d7ff;
-      --blue2:#46b8ff;
-      --purple:#765cff;
-      --green:#34d399;
-      --glow:0 0 30px rgba(70,184,255,.22);
-      --shadow:0 24px 60px rgba(0,0,0,.34);
-      --radius:28px;
-      --max:1180px;
-    }
-
-    *{box-sizing:border-box;margin:0;padding:0}
-    html{scroll-behavior:smooth}
-    body{
-      font-family:Arial,Helvetica,sans-serif;
-      background:
-        radial-gradient(circle at top, rgba(70,184,255,.10), transparent 28%),
-        linear-gradient(180deg, #040713 0%, #071022 48%, #040713 100%);
-      color:var(--text);
-      overflow-x:hidden;
-    }
-
-    a{text-decoration:none;color:inherit}
-    img{max-width:100%;display:block}
-
-    .site-bg{
-      position:fixed;
-      inset:0;
-      background:
-        linear-gradient(to bottom, rgba(3,6,16,.52), rgba(3,6,16,.88)),
-        url('https://raw.githubusercontent.com/omk-store/omotaker/main/EA4AD843-C358-4AE5-8A3E-3CA6C7D09539.png') center/cover no-repeat;
-      z-index:-2;
-      transform:scale(1.03);
-    }
-
-    .site-overlay{
-      position:fixed;
-      inset:0;
-      background:
-        linear-gradient(to bottom, rgba(5,8,22,.10), rgba(5,8,22,.76)),
-        radial-gradient(circle at 50% 0%, rgba(118,92,255,.16), transparent 35%);
-      z-index:-1;
-      pointer-events:none;
-    }
-
-    .container{
-      width:min(var(--max), calc(100% - 32px));
-      margin:0 auto;
-    }
-
-    header{
-      position:sticky;
-      top:0;
-      z-index:100;
-      backdrop-filter:blur(16px);
-      background:rgba(5,8,22,.60);
-      border-bottom:1px solid rgba(255,255,255,.06);
-    }
-
-    .nav{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:16px;
-      min-height:76px;
-    }
-
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      font-weight:900;
-      letter-spacing:.4px;
-    }
-
-    .brand-badge{
-      width:44px;
-      height:44px;
-      border-radius:14px;
-      display:grid;
-      place-items:center;
-      background:linear-gradient(135deg,var(--blue2),var(--purple));
-      box-shadow:var(--glow);
-      font-size:18px;
-    }
-
-    .brand-text{
-      display:flex;
-      flex-direction:column;
-      line-height:1.05;
-    }
-
-    .brand-text small{
-      color:var(--muted2);
-      font-size:11px;
-      font-weight:700;
-      letter-spacing:1px;
-      text-transform:uppercase;
-    }
-
-    .nav-links{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      flex-wrap:wrap;
-      justify-content:flex-end;
-    }
-
-    .nav-link{
-      padding:11px 16px;
-      border-radius:999px;
-      color:var(--muted);
-      font-weight:700;
-      font-size:14px;
-      border:1px solid transparent;
-    }
-
-    .nav-link:hover{
-      color:#fff;
-      border-color:rgba(255,255,255,.12);
-      background:rgba(255,255,255,.04);
-    }
-
-    .nav-cta{
-      padding:12px 18px;
-      border-radius:999px;
-      font-weight:800;
-      background:linear-gradient(90deg,var(--blue2),var(--purple));
-      box-shadow:var(--glow);
-      white-space:nowrap;
-    }
-
-    .hero{
-      min-height:100svh;
-      display:flex;
-      align-items:center;
-      padding:52px 0 42px;
-    }
-
-    .hero-grid{
-      display:grid;
-      grid-template-columns:1.08fr .92fr;
-      gap:28px;
-      align-items:center;
-    }
-
-    .eyebrow{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      padding:10px 14px;
-      border:1px solid rgba(105,215,255,.18);
-      border-radius:999px;
-      background:rgba(255,255,255,.04);
-      color:var(--blue);
-      font-weight:800;
-      font-size:13px;
-      letter-spacing:.7px;
-      text-transform:uppercase;
-      margin-bottom:18px;
-      box-shadow:var(--glow);
-    }
-
-    .hero h1{
-      font-size:clamp(42px, 8vw, 84px);
-      line-height:.96;
-      letter-spacing:-1.8px;
-      margin-bottom:16px;
-      text-wrap:balance;
-    }
-
-    .hero h1 .glow{
-      color:var(--blue);
-      text-shadow:0 0 20px rgba(105,215,255,.25);
-    }
-
-    .hero p{
-      max-width:720px;
-      font-size:19px;
-      line-height:1.72;
-      color:var(--muted);
-      margin-bottom:26px;
-    }
-
-    .hero-actions{
-      display:flex;
-      flex-wrap:wrap;
-      gap:14px;
-      margin-bottom:22px;
-    }
-
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:10px;
-      min-height:58px;
-      padding:0 22px;
-      border-radius:999px;
-      font-weight:800;
-      border:1px solid rgba(255,255,255,.10);
-      transition:transform .18s ease, opacity .18s ease, background .18s ease;
-    }
-
-    .btn:hover{
-      transform:translateY(-2px);
-      opacity:.96;
-    }
-
-    .btn-primary{
-      background:linear-gradient(90deg,var(--blue2),var(--purple));
-      box-shadow:var(--glow);
-    }
-
-    .btn-secondary{
-      background:rgba(255,255,255,.05);
-      color:#fff;
-    }
-
-    .hero-meta{
-      display:flex;
-      gap:12px;
-      flex-wrap:wrap;
-      margin-bottom:20px;
-    }
-
-    .meta-pill{
-      padding:12px 14px;
-      border-radius:16px;
-      border:1px solid rgba(255,255,255,.08);
-      background:rgba(255,255,255,.035);
-      color:var(--muted);
-      font-size:14px;
-      font-weight:700;
-    }
-
-    .budget-box{
-      max-width:640px;
-      padding:18px 18px;
-      border-radius:22px;
-      border:1px solid rgba(52,211,153,.18);
-      background:linear-gradient(180deg, rgba(52,211,153,.08), rgba(255,255,255,.03));
-      box-shadow:var(--shadow);
-    }
-
-    .budget-box strong{
-      display:block;
-      font-size:18px;
-      margin-bottom:7px;
-    }
-
-    .budget-box span{
-      color:var(--muted);
-      line-height:1.7;
-      font-size:15px;
-      display:block;
-    }
-
-    .hero-card{
-      position:relative;
-      border-radius:32px;
-      background:linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.04));
-      border:1px solid rgba(255,255,255,.10);
-      box-shadow:var(--shadow);
-      overflow:hidden;
-      min-height:650px;
-      display:flex;
-      align-items:flex-end;
-    }
-
-    .hero-card::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:
-        linear-gradient(to top, rgba(5,8,22,.22), rgba(5,8,22,.04)),
-        url('https://raw.githubusercontent.com/omk-store/omotaker/main/EA4AD843-C358-4AE5-8A3E-3CA6C7D09539.png') center/cover no-repeat;
-      transform:scale(1.03);
-    }
-
-    .hero-card::after{
-      content:"";
-      position:absolute;
-      inset:auto 0 0;
-      height:46%;
-      background:linear-gradient(to top, rgba(5,8,22,.94), transparent);
-    }
-
-    .hero-card-content{
-      position:relative;
-      z-index:2;
-      width:100%;
-      padding:24px;
-      display:grid;
-      gap:14px;
-    }
-
-    .stat-row{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:12px;
-    }
-
-    .stat{
-      background:rgba(255,255,255,.06);
-      border:1px solid rgba(255,255,255,.10);
-      border-radius:22px;
-      padding:18px 16px;
-      backdrop-filter:blur(10px);
-    }
-
-    .stat strong{
-      display:block;
-      font-size:24px;
-      margin-bottom:6px;
-    }
-
-    .stat span{
-      color:var(--muted2);
-      font-size:13px;
-      font-weight:700;
-      text-transform:uppercase;
-      letter-spacing:.6px;
-    }
-
-    section{
-      padding:32px 0 88px;
-    }
-
-    .section-head{
-      text-align:center;
-      max-width:860px;
-      margin:0 auto 30px;
-    }
-
-    .section-head h2{
-      font-size:clamp(30px, 5vw, 54px);
-      line-height:1.02;
-      margin-bottom:12px;
-    }
-
-    .section-head p{
-      color:var(--muted);
-      font-size:18px;
-      line-height:1.74;
-    }
-
-    .cards{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:20px;
-    }
-
-    .card{
-      background:linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.04));
-      border:1px solid rgba(255,255,255,.09);
-      border-radius:28px;
-      padding:24px;
-      box-shadow:var(--shadow);
-      backdrop-filter:blur(14px);
-    }
-
-    .card h3{
-      font-size:23px;
-      margin-bottom:10px;
-    }
-
-    .card p{
-      color:var(--muted);
-      line-height:1.7;
-      margin-bottom:18px;
-      font-size:15px;
-    }
-
-    .mini-btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      min-height:48px;
-      padding:0 16px;
-      border-radius:999px;
-      font-weight:800;
-      background:linear-gradient(90deg,var(--blue2),var(--purple));
-      box-shadow:var(--glow);
-    }
-
-    .process{
-      display:grid;
-      grid-template-columns:repeat(4,1fr);
-      gap:18px;
-    }
-
-    .step{
-      padding:22px 18px;
-      border-radius:24px;
-      background:linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.04));
-      border:1px solid rgba(255,255,255,.09);
-      box-shadow:var(--shadow);
-    }
-
-    .step .num{
-      width:42px;
-      height:42px;
-      border-radius:12px;
-      display:grid;
-      place-items:center;
-      margin-bottom:14px;
-      font-weight:900;
-      background:linear-gradient(135deg,var(--blue2),var(--purple));
-      box-shadow:var(--glow);
-    }
-
-    .step h3{
-      font-size:20px;
-      margin-bottom:8px;
-    }
-
-    .step p{
-      color:var(--muted);
-      line-height:1.7;
-      font-size:14px;
-    }
-
-    .pricing{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:20px;
-    }
-
-    .price-card{
-      position:relative;
-      border-radius:30px;
-      padding:26px 24px;
-      background:linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.04));
-      border:1px solid rgba(255,255,255,.09);
-      box-shadow:var(--shadow);
-      overflow:hidden;
-    }
-
-    .price-card.featured{
-      border-color:rgba(105,215,255,.28);
-      transform:translateY(-4px);
-      box-shadow:0 24px 70px rgba(0,0,0,.42), 0 0 35px rgba(70,184,255,.16);
-    }
-
-    .badge{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      min-height:34px;
-      padding:0 12px;
-      border-radius:999px;
-      background:rgba(105,215,255,.14);
-      border:1px solid rgba(105,215,255,.22);
-      color:var(--blue);
-      font-size:12px;
-      font-weight:800;
-      letter-spacing:.6px;
-      text-transform:uppercase;
-      margin-bottom:16px;
-    }
-
-    .price-card h3{
-      font-size:24px;
-      margin-bottom:6px;
-    }
-
-    .price{
-      font-size:38px;
-      font-weight:900;
-      margin-bottom:12px;
-    }
-
-    .price small{
-      font-size:15px;
-      color:var(--muted2);
-      font-weight:700;
-    }
-
-    .price-card p{
-      color:var(--muted);
-      line-height:1.7;
-      margin-bottom:18px;
-      font-size:15px;
-    }
-
-    .price-list{
-      display:grid;
-      gap:10px;
-      margin-bottom:22px;
-    }
-
-    .price-list div{
-      padding:12px 14px;
-      border-radius:16px;
-      background:rgba(255,255,255,.04);
-      border:1px solid rgba(255,255,255,.07);
-      color:var(--muted);
-      font-size:14px;
-      font-weight:700;
-    }
-
-    .feature{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:24px;
-      align-items:stretch;
-    }
-
-    .feature-visual,
-    .feature-copy{
-      min-height:520px;
-      border-radius:30px;
-      overflow:hidden;
-      border:1px solid rgba(255,255,255,.09);
-      box-shadow:var(--shadow);
-    }
-
-    .feature-visual{
-      background:
-        linear-gradient(to top, rgba(5,8,22,.18), rgba(5,8,22,.04)),
-        url('https://raw.githubusercontent.com/omk-store/omotaker/main/EA4AD843-C358-4AE5-8A3E-3CA6C7D09539.png') center/cover no-repeat;
-    }
-
-    .feature-copy{
-      background:linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.04));
-      padding:34px 30px;
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-    }
-
-    .tag{
-      display:inline-flex;
-      align-items:center;
-      width:max-content;
-      padding:10px 14px;
-      border-radius:999px;
-      background:rgba(105,215,255,.12);
-      border:1px solid rgba(105,215,255,.18);
-      color:var(--blue);
-      font-weight:800;
-      font-size:13px;
-      margin-bottom:16px;
-    }
-
-    .feature-copy h3{
-      font-size:42px;
-      line-height:1.04;
-      margin-bottom:14px;
-    }
-
-    .feature-copy p{
-      color:var(--muted);
-      font-size:17px;
-      line-height:1.75;
-      margin-bottom:16px;
-    }
-
-    .stack{
-      display:grid;
-      gap:14px;
-      margin-top:8px;
-    }
-
-    .stack-item{
-      padding:18px 18px;
-      border-radius:22px;
-      background:rgba(255,255,255,.045);
-      border:1px solid rgba(255,255,255,.08);
-      color:var(--muted);
-      font-weight:700;
-      line-height:1.6;
-    }
-
-    .cta{
-      text-align:center;
-      padding:88px 0 112px;
-    }
-
-    .cta-box{
-      max-width:950px;
-      margin:0 auto;
-      border-radius:34px;
-      padding:44px 24px;
-      background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
-      border:1px solid rgba(255,255,255,.10);
-      box-shadow:var(--shadow);
-    }
-
-    .cta-box h2{
-      font-size:clamp(32px, 5vw, 58px);
-      line-height:1.02;
-      margin-bottom:14px;
-    }
-
-    .cta-box p{
-      max-width:760px;
-      margin:0 auto 24px;
-      color:var(--muted);
-      font-size:18px;
-      line-height:1.72;
-    }
-
-    .cta-actions{
-      display:flex;
-      flex-wrap:wrap;
-      justify-content:center;
-      gap:14px;
-    }
-
-    footer{
-      border-top:1px solid rgba(255,255,255,.06);
-      padding:24px 0 34px;
-      color:var(--muted2);
-    }
-
-    .footer-row{
-      display:flex;
-      justify-content:space-between;
-      gap:16px;
-      align-items:center;
-      flex-wrap:wrap;
-    }
-
-    .footer-links{
-      display:flex;
-      flex-wrap:wrap;
-      gap:12px;
-    }
-
-    .footer-links a{
-      color:var(--muted2);
-      font-weight:700;
-    }
-
-    @media (max-width:1050px){
-      .hero-grid,
-      .cards,
-      .feature,
-      .pricing,
-      .process{
-        grid-template-columns:1fr 1fr;
-      }
-
-      .hero-card{
-        min-height:560px;
-      }
-    }
-
-    @media (max-width:760px){
-      .nav{
-        padding:10px 0;
-      }
-
-      .nav-links{
-        display:none;
-      }
-
-      .hero{
-        padding-top:28px;
-      }
-
-      .hero-grid,
-      .cards,
-      .feature,
-      .pricing,
-      .process{
-        grid-template-columns:1fr;
-      }
-
-      .hero-card,
-      .feature-visual,
-      .feature-copy{
-        min-height:auto;
-      }
-
-      .stat-row{
-        grid-template-columns:1fr;
-      }
-
-      .hero h1{
-        letter-spacing:-1px;
-      }
-
-      .hero p,
-      .section-head p,
-      .cta-box p{
-        font-size:16px;
-      }
-
-      .feature-copy h3{
-        font-size:32px;
-      }
-
-      .btn,
-      .nav-cta{
-        width:100%;
-      }
-
-      .hero-actions{
-        flex-direction:column;
-      }
-
-      .budget-box{
-        padding:16px;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EV | Everyday Vibe</title>
+
+<style>
+:root{
+  --bg:#07070c;
+  --bg2:#10101a;
+  --card:rgba(255,255,255,.06);
+  --line:rgba(255,255,255,.10);
+  --text:#fff;
+  --muted:rgba(255,255,255,.72);
+  --red:#ff4b2b;
+  --red2:#ff7a18;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+  font-family:Arial;
+  background:linear-gradient(180deg,var(--bg),var(--bg2));
+  color:var(--text);
+}
+
+.wrap{
+  width:95%;
+  max-width:1100px;
+  margin:auto;
+}
+
+header{
+  padding:20px 0;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.logo{
+  font-weight:900;
+  font-size:20px;
+}
+
+.btn{
+  padding:12px 20px;
+  border-radius:10px;
+  font-weight:700;
+  display:inline-block;
+}
+
+.btn-main{
+  background:linear-gradient(135deg,var(--red),var(--red2));
+}
+
+.hero{
+  padding:40px 0;
+}
+
+.hero-box{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px;
+  align-items:center;
+}
+
+.hero img{
+  width:100%;
+  border-radius:20px;
+}
+
+h1{
+  font-size:40px;
+}
+
+p{
+  color:var(--muted);
+  margin:10px 0 20px;
+}
+
+.section{
+  padding:40px 0;
+}
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:20px;
+}
+
+.card{
+  background:var(--card);
+  padding:20px;
+  border-radius:15px;
+  border:1px solid var(--line);
+}
+
+.price{
+  font-size:22px;
+  font-weight:900;
+  margin:10px 0;
+}
+
+@media(max-width:700px){
+  .hero-box,.cards{
+    grid-template-columns:1fr;
+  }
+}
+</style>
 </head>
+
 <body>
-  <div class="site-bg"></div>
-  <div class="site-overlay"></div>
 
-  <header>
-    <div class="container nav">
-      <a class="brand" href="#top">
-        <div class="brand-badge">EV</div>
-        <div class="brand-text">
-          <span>Everyday Vibe</span>
-          <small>Discover • Push • Promote</small>
-        </div>
-      </a>
+<div class="wrap">
 
-      <nav class="nav-links">
-        <a class="nav-link" href="#services">Services</a>
-        <a class="nav-link" href="#process">How It Works</a>
-        <a class="nav-link" href="#pricing">Packages</a>
-        <a class="nav-link" href="#platforms">Platforms</a>
-        <a class="nav-cta" href="https://www.instagram.com/everydayvibe01?igsh=MTEwM2RiOHV1ZjJzdQ%3D%3D&utm_source=qr" target="_blank">Book Promo</a>
-      </nav>
+<header>
+  <div class="logo">EV | Everyday Vibe</div>
+  <a href="https://wa.me/2340000000000" class="btn btn-main">Start</a>
+</header>
+
+<section class="hero">
+  <div class="hero-box">
+
+    <div>
+      <h1>Push Your Song with EV</h1>
+      <p>We create playlists, put your song at the top, and push it for streams and growth.</p>
+
+      <a href="#packages" class="btn btn-main">View Packages</a>
     </div>
-  </header>
 
-  <main id="top">
-    <section class="hero">
-      <div class="container hero-grid">
-        <div class="hero-copy">
-          <div class="eyebrow">EV 🌍 Viral Music Promotion Platform</div>
-          <h1>Push your sound. <span class="glow">Get seen faster.</span></h1>
-          <p>
-            Everyday Vibe helps rising artists promote songs with cinematic content, dance videos,
-            viral edits, playlist discovery, and social media visibility built for how music moves now.
-          </p>
+    <img src="https://raw.githubusercontent.com/omk-store/omotaker/refs/heads/main/IMG_8145.jpeg">
 
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="https://www.instagram.com/everydayvibe01?igsh=MTEwM2RiOHV1ZjJzdQ%3D%3D&utm_source=qr" target="_blank">📩 Book EV Promo</a>
-            <a class="btn btn-secondary" href="#pricing">💸 View Packages</a>
-          </div>
+  </div>
+</section>
 
-          <div class="hero-meta">
-            <div class="meta-pill">🎬 Cinematic promo videos</div>
-            <div class="meta-pill">💃 Dance & trend content</div>
-            <div class="meta-pill">🚀 Mixed viral edits</div>
-          </div>
+<section class="section">
+  <h2>Choose Platform</h2>
+  <p>Replace links with your real playlists</p>
 
-          <div class="budget-box">
-            <strong>Start with your budget.</strong>
-            <span>
-              Tell us your song, your goal, and what you want to spend. We’ll match you with
-              the best Everyday Vibe promo plan for your sound.
-            </span>
-          </div>
-        </div>
-
-        <div class="hero-card">
-          <div class="hero-card-content">
-            <div class="stat-row">
-              <div class="stat">
-                <strong>3</strong>
-                <span>Promo Styles</span>
-              </div>
-              <div class="stat">
-                <strong>24/7</strong>
-                <span>Artist Visibility</span>
-              </div>
-              <div class="stat">
-                <strong>EV</strong>
-                <span>Growth System</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="services">
-      <div class="container">
-        <div class="section-head">
-          <h2>What Everyday Vibe does</h2>
-          <p>
-            Built for artists who want more than random posting. EV turns songs into content-ready promo that can move across platforms.
-          </p>
-        </div>
-
-        <div class="cards">
-          <div class="card">
-            <h3>🎬 Cinematic Music Promo</h3>
-            <p>
-              Clean visual edits that make your song feel bigger, more premium, and more serious.
-            </p>
-            <a class="mini-btn" href="https://www.instagram.com/everydayvibe01?igsh=MTEwM2RiOHV1ZjJzdQ%3D%3D&utm_source=qr" target="_blank">Book This</a>
-          </div>
-
-          <div class="card">
-            <h3>💃 Dance / Trend Content</h3>
-            <p>
-              Promo content designed to match how people consume sounds on social media right now.
-            </p>
-            <a class="mini-btn" href="https://www.tiktok.com/@everydayvibe001?_r=1&_t=ZS-94sOW9FvwPA" target="_blank">See TikTok</a>
-          </div>
-
-          <div class="card">
-            <h3>🔥 Full Viral Push</h3>
-            <p>
-              Combine cinematic video, dance content, and mixed edits into one stronger promo rollout.
-            </p>
-            <a class="mini-btn" href="#pricing">View Package</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="process">
-      <div class="container">
-        <div class="section-head">
-          <h2>How it works</h2>
-          <p>
-            Keep it simple. Artists reach out, send the song, state the goal, and we build the right promo direction.
-          </p>
-        </div>
-
-        <div class="process">
-          <div class="step">
-            <div class="num">1</div>
-            <h3>Send Your Song</h3>
-            <p>DM Everyday Vibe with your track, link, or snippet.</p>
-          </div>
-
-          <div class="step">
-            <div class="num">2</div>
-            <h3>State Your Goal</h3>
-            <p>Tell us if you want streams, visibility, awareness, or stronger content.</p>
-          </div>
-
-          <div class="step">
-            <div class="num">3</div>
-            <h3>Pick Your Budget</h3>
-            <p>Start small or go premium. We’ll match the promo style to your budget.</p>
-          </div>
-
-          <div class="step">
-            <div class="num">4</div>
-            <h3>Launch the Push</h3>
-            <p>Your promo starts once the plan is confirmed and locked in.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="pricing">
-      <div class="container">
-        <div class="section-head">
-          <h2>Promo packages</h2>
-          <p>
-            Simple pricing structure for artists. Start with one push or go all in with the full EV system.
-          </p>
-        </div>
-
-        <div class="pricing">
-          <div class="price-card">
-            <div class="badge">Starter</div>
-            <h3>Single Push</h3>
-            <div class="price">₦20K–₦30K <small>/ one promo post</small></div>
-            <p>
-              Good for artists testing a song or pushing one clean content piece.
-            </p>
-            <div class="price-list">
-              <div>1 promo post</div>
-              <div>Best for smaller budgets</div>
-              <div>Fast and simple rollout</div>
-            </div>
-            <a class="mini-btn" href="https://www.instagram.com/everydayvibe01?igsh=MTEwM2RiOHV1ZjJzdQ%3D%3D&utm_source=qr" target="_blank">Start Here</a>
-          </div>
-
-          <div class="price-card featured">
-            <div class="badge">Most Popular</div>
-            <h3>Standard Push</h3>
-            <div class="price">₦50K–₦80K <small>/ stronger campaign</small></div>
-            <p>
-              Best for artists who want better visibility with multiple promo styles.
-            </p>
-            <div class="price-list">
-              <div>2 promo posts</div>
-              <div>Dance + viral edit</div>
-              <div>Better social media movement</div>
-            </div>
-            <a class="mini-btn" href="https://www.instagram.com/everydayvibe01?igsh=MTEwM2RiOHV1ZjJzdQ%3D%3D&utm_source=qr" target="_blank">Book Standard</a>
-          </div>
-
-          <div class="price-card">
-            <div class="badge">Premium</div>
-            <h3>EV Full Package</h3>
-            <div class="price">₦80K+ <small>/ full rollout</small></div>
-            <p>
-              Full Everyday Vibe system for artists who want the strongest push.
-            </p>
-            <div class="price-list">
-              <div>1 cinematic video</div>
-              <div>1 dance / trend video</div>
-              <div>1 mixed viral promo edit</div>
-            </div>
-            <a class="mini-btn" href="https://www.instagram.com/everydayvibe01?igsh=MTEwM2RiOHV1ZjJzdQ%3D%3D&utm_source=qr" target="_blank">Go Premium</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="platforms">
-      <div class="container">
-        <div class="section-head">
-          <h2>Connect with EV everywhere</h2>
-          <p>
-            Follow the platform across content channels and promo spaces.
-          </p>
-        </div>
-
-        <div class="cards">
-          <div class="card">
-            <h3>▶ YouTube</h3>
-            <p>
-              Watch visuals, artist content, spotlight clips, and release-focused videos.
-            </p>
-            <a class="mini-btn" href="https://m.youtube.com/@Everydayvibe-01" target="_blank">Open YouTube</a>
-          </div>
-
-          <div class="card">
-            <h3>📸 Instagram</h3>
-            <p>
-              Main EV contact point for promo inquiries, artist messages, and content updates.
-            </p>
-            <a class="mini-btn" href="https://www.instagram.com/everydayvibe01?igsh=MTEwM2RiOHV1ZjJzdQ%3D%3D&utm_source=qr" target="_blank">Open Instagram</a>
-          </div>
-
-          <div class="card">
-            <h3>🎵 TikTok</h3>
-            <p>
-              Home for quick sound pushes, trend-style content, and viral-focused edits.
-            </p>
-            <a class="mini-btn" href="https://www.tiktok.com/@everydayvibe001?_r=1&_t=ZS-94sOW9FvwPA" target="_blank">Open TikTok</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="playlist">
-      <div class="container feature">
-        <div class="feature-visual"></div>
-
-        <div class="feature-copy">
-          <div class="tag">EV PLAYLIST + DISCOVERY</div>
-          <h3>Keep discovery part of the movement</h3>
-          <p>
-            Everyday Vibe is not only about promo. It is also a place for people to discover fresh music and connect with new artists.
-          </p>
-          <p>
-            This keeps the page useful for both artists and listeners while still pushing the EV brand as a serious platform.
-          </p>
-
-          <div class="stack">
-            <div class="stack-item">🎧 Playlist access for fans and artists looking for fresh sounds.</div>
-            <div class="stack-item">⭐ Premium layout that feels clean, modern, and brand-ready.</div>
-            <div class="stack-item">🚀 Easy next step for discovery, promo, or artist contact.</div>
-          </div>
-
-          <div style="margin-top:18px;">
-            <a class="mini-btn" href="https://omkdrip.com/playlist.html" target="_blank">Open Playlist</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="cta">
-      <div class="container cta-box">
-        <h2>Ready to push your music?</h2>
-        <p>
-          Send your song, tell us your goal, and let us know your budget. Everyday Vibe will match you with the right promo direction.
-        </p>
-
-        <div class="cta-actions">
-          <a class="btn btn-primary" href="https://www.instagram.com/everydayvibe01?igsh=MTEwM2RiOHV1ZjJzdQ%3D%3D&utm_source=qr" target="_blank">📩 DM to Book</a>
-          <a class="btn btn-secondary" href="#pricing">💸 See Packages</a>
-          <a class="btn btn-secondary" href="https://omkdrip.com/playlist.html" target="_blank">🎧 Open Playlist</a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container footer-row">
-      <div>© 2026 Everyday Vibe. All rights reserved.</div>
-      <div class="footer-links">
-        <a href="https://m.youtube.com/@Everydayvibe-01" target="_blank">YouTube</a>
-        <a href="https://www.tiktok.com/@everydayvibe001?_r=1&_t=ZS-94sOW9FvwPA" target="_blank">TikTok</a>
-        <a href="https://www.instagram.com/everydayvibe01?igsh=MTEwM2RiOHV1ZjJzdQ%3D%3D&utm_source=qr" target="_blank">Instagram</a>
-        <a href="https://www.facebook.com/share/18Nb1j6ywW/?mibextid=wwXIfr" target="_blank">Facebook</a>
-      </div>
+  <div class="cards">
+    <div class="card">
+      <h3>Spotify</h3>
+      <a href="https://open.spotify.com/" class="btn btn-main">Open</a>
     </div>
-  </footer>
+
+    <div class="card">
+      <h3>Apple Music</h3>
+      <a href="https://music.apple.com/" class="btn btn-main">Open</a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="packages">
+  <h2>Packages</h2>
+
+  <div class="cards">
+
+    <div class="card">
+      <h3>Playlist Setup</h3>
+      <div class="price">₦30,000</div>
+      <a href="https://wa.me/2340000000000" class="btn btn-main">Buy</a>
+    </div>
+
+    <div class="card">
+      <h3>Setup + Push</h3>
+      <div class="price">₦50,000</div>
+      <a href="https://wa.me/2340000000000" class="btn btn-main">Buy</a>
+    </div>
+
+    <div class="card">
+      <h3>7 Day Campaign</h3>
+      <div class="price">₦80,000</div>
+      <a href="https://wa.me/2340000000000" class="btn btn-main">Buy</a>
+    </div>
+
+    <div class="card">
+      <h3>Premium Push</h3>
+      <div class="price">₦120,000</div>
+      <a href="https://wa.me/2340000000000" class="btn btn-main">Buy</a>
+    </div>
+
+  </div>
+</section>
+
+<section class="section">
+  <h2>Submit Your Song</h2>
+  <p>Send your song link, platform, and package.</p>
+
+  <a href="https://wa.me/2340000000000" class="btn btn-main">Submit on WhatsApp</a>
+</section>
+
+</div>
+
 </body>
 </html>
