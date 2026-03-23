@@ -154,6 +154,8 @@
       background:linear-gradient(135deg, var(--blue3), var(--blue2));
       box-shadow:var(--glow);
       color:#fff;
+      border:none;
+      cursor:pointer;
     }
 
     section{
@@ -243,12 +245,14 @@
       border:1px solid transparent;
       transition:.25s ease;
       text-align:center;
+      cursor:pointer;
     }
 
     .btn-primary{
       background:linear-gradient(135deg, var(--blue3), var(--blue2));
       color:#fff;
       box-shadow:var(--glow);
+      border:none;
     }
 
     .btn-primary:hover{
@@ -341,7 +345,6 @@
       grid-template-columns:1fr 1fr;
     }
 
-    .card,
     .stat,
     .platform-card,
     .service-card,
@@ -404,7 +407,8 @@
     }
 
     .features,
-    .contact-list{
+    .contact-list,
+    .chat-list{
       list-style:none;
       display:grid;
       gap:10px;
@@ -457,6 +461,89 @@
       padding:34px 0 60px;
       text-align:center;
       color:var(--soft);
+    }
+
+    .modal{
+      position:fixed;
+      inset:0;
+      background:rgba(1,4,10,.72);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:20px;
+      z-index:500;
+      opacity:0;
+      visibility:hidden;
+      transition:.25s ease;
+    }
+
+    .modal.show{
+      opacity:1;
+      visibility:visible;
+    }
+
+    .modal-card{
+      width:min(100%, 540px);
+      background:linear-gradient(180deg, rgba(11,18,34,.96), rgba(8,14,28,.98));
+      border:1px solid var(--line);
+      border-radius:28px;
+      box-shadow:0 30px 90px rgba(0,0,0,.38);
+      padding:24px;
+      position:relative;
+    }
+
+    .modal-top{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      margin-bottom:10px;
+    }
+
+    .modal-top h3{
+      font-size:1.35rem;
+    }
+
+    .close-btn{
+      width:42px;
+      height:42px;
+      border-radius:50%;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.05);
+      color:#fff;
+      font-size:1.3rem;
+      cursor:pointer;
+    }
+
+    .modal-text{
+      color:var(--muted);
+      margin-bottom:18px;
+    }
+
+    .chat-list a{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      min-height:56px;
+      border-radius:16px;
+      background:rgba(255,255,255,.05);
+      border:1px solid var(--line);
+      color:#fff;
+      font-weight:800;
+      transition:.2s ease;
+      padding:0 16px;
+      text-align:center;
+    }
+
+    .chat-list a:hover{
+      background:rgba(255,255,255,.09);
+      transform:translateY(-1px);
+    }
+
+    .chat-list a.primary{
+      background:linear-gradient(135deg, var(--blue3), var(--blue2));
+      box-shadow:var(--glow);
+      border:none;
     }
 
     @media (max-width:1080px){
@@ -549,7 +636,7 @@
         <a href="#submit">Submit</a>
       </nav>
 
-      <a class="nav-cta" href="https://www.tiktok.com/@iam.omotaker?_r=1&_t=ZS-94R7kuZiptd" target="_blank" rel="noopener">Live Chat</a>
+      <button class="nav-cta" id="openContact">Contact EV</button>
     </div>
   </header>
 
@@ -567,7 +654,7 @@
 
             <div class="hero-actions">
               <a class="btn btn-primary" href="#services">View Packages</a>
-              <a class="btn btn-ghost" href="https://www.tiktok.com/@iam.omotaker?_r=1&_t=ZS-94R7kuZiptd" target="_blank" rel="noopener">Live Chat</a>
+              <button class="btn btn-ghost" id="openContactHero">Contact EV</button>
             </div>
 
             <div class="mini-note">Simple. Fast. Clean promo that looks premium.</div>
@@ -621,7 +708,7 @@
             <h3>TikTok Promotion</h3>
             <p>Drive viral traffic and discovery through scroll-stopping content and music-led videos.</p>
             <div class="hero-actions">
-              <a class="btn btn-primary" href="https://www.tiktok.com/@iam.omotaker?_r=1&_t=ZS-94R7kuZiptd" target="_blank" rel="noopener">Open TikTok</a>
+              <a class="btn btn-primary" href="https://www.tiktok.com/@everydayvibe001?_r=1&_t=ZS-94wCP5fMbzw" target="_blank" rel="noopener">Open TikTok</a>
             </div>
           </div>
 
@@ -629,7 +716,7 @@
             <h3>Instagram Promotion</h3>
             <p>Reach real fans with reels, posts, story support, and stronger presentation.</p>
             <div class="hero-actions">
-              <a class="btn btn-primary" href="YOUR_INSTAGRAM_LINK" target="_blank" rel="noopener">Open Instagram</a>
+              <a class="btn btn-primary" href="https://www.instagram.com/everydayvibe01?igsh=MTEwM2RiOHV1ZjJzdQ%3D%3D&utm_source=qr" target="_blank" rel="noopener">Open Instagram</a>
             </div>
           </div>
 
@@ -637,7 +724,7 @@
             <h3>Facebook Promotion</h3>
             <p>Use promo content and page support to push your music to wider audiences.</p>
             <div class="hero-actions">
-              <a class="btn btn-primary" href="YOUR_FACEBOOK_LINK" target="_blank" rel="noopener">Open Facebook</a>
+              <a class="btn btn-primary" href="https://www.facebook.com/share/18LMfUsaQu/?mibextid=wwXIfr" target="_blank" rel="noopener">Open Facebook</a>
             </div>
           </div>
         </div>
@@ -663,7 +750,7 @@
               <li>Platform selection support</li>
               <li>Clean presentation</li>
             </ul>
-            <a class="btn btn-primary" href="https://www.tiktok.com/@iam.omotaker?_r=1&_t=ZS-94R7kuZiptd" target="_blank" rel="noopener">Start Campaign</a>
+            <button class="btn btn-primary openContactBtn">Contact EV</button>
           </article>
 
           <article class="service-card">
@@ -677,7 +764,7 @@
               <li>Better visibility</li>
               <li>Stronger artist positioning</li>
             </ul>
-            <a class="btn btn-primary" href="https://www.tiktok.com/@iam.omotaker?_r=1&_t=ZS-94R7kuZiptd" target="_blank" rel="noopener">Book Campaign</a>
+            <button class="btn btn-primary openContactBtn">Contact EV</button>
           </article>
 
           <article class="service-card">
@@ -691,7 +778,7 @@
               <li>Promo support</li>
               <li>Better artist exposure</li>
             </ul>
-            <a class="btn btn-primary" href="https://www.tiktok.com/@iam.omotaker?_r=1&_t=ZS-94R7kuZiptd" target="_blank" rel="noopener">Get Started</a>
+            <button class="btn btn-primary openContactBtn">Contact EV</button>
           </article>
 
           <article class="service-card">
@@ -705,7 +792,7 @@
               <li>Higher promo attention</li>
               <li>Best for bigger releases</li>
             </ul>
-            <a class="btn btn-primary" href="https://www.tiktok.com/@iam.omotaker?_r=1&_t=ZS-94R7kuZiptd" target="_blank" rel="noopener">Book Campaign</a>
+            <button class="btn btn-primary openContactBtn">Contact EV</button>
           </article>
         </div>
       </div>
@@ -748,7 +835,7 @@
               <h2>Submit your song</h2>
               <p>
                 Send your song link, artist name, selected platform, and package.
-                Then tap live chat to continue directly on TikTok.
+                Then contact EV directly to continue.
               </p>
             </div>
 
@@ -761,7 +848,7 @@
             </ul>
 
             <div class="hero-actions" style="margin-top:20px;">
-              <a class="btn btn-primary" href="https://www.tiktok.com/@iam.omotaker?_r=1&_t=ZS-94R7kuZiptd" target="_blank" rel="noopener">Submit via Live Chat</a>
+              <button class="btn btn-primary openContactBtn">Contact EV</button>
               <a class="btn btn-ghost" href="#">Back to Top</a>
             </div>
           </div>
@@ -778,7 +865,7 @@
             <ul class="contact-list">
               <li>Premium music-brand feel</li>
               <li>Clear package pricing</li>
-              <li>Direct TikTok conversion</li>
+              <li>Direct contact popup</li>
               <li>Good for promo traffic and ads</li>
             </ul>
           </div>
@@ -792,6 +879,62 @@
       © 2026 EV • Everyday Vibe
     </div>
   </footer>
+
+  <div class="modal" id="contactModal">
+    <div class="modal-card">
+      <div class="modal-top">
+        <h3>Contact EV</h3>
+        <button class="close-btn" id="closeContact">&times;</button>
+      </div>
+      <p class="modal-text">Choose where you want to reach Everyday Vibe.</p>
+
+      <div class="chat-list">
+        <a class="primary" href="https://tiktok.me/everydayvibe001" target="_blank" rel="noopener">Live Chat</a>
+        <a href="https://www.tiktok.com/@everydayvibe001?_r=1&_t=ZS-94wCP5fMbzw" target="_blank" rel="noopener">TikTok</a>
+        <a href="https://www.instagram.com/everydayvibe01?igsh=MTEwM2RiOHV1ZjJzdQ%3D%3D&utm_source=qr" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.facebook.com/share/18LMfUsaQu/?mibextid=wwXIfr" target="_blank" rel="noopener">Facebook</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const modal = document.getElementById('contactModal');
+    const openers = [
+      document.getElementById('openContact'),
+      document.getElementById('openContactHero'),
+      ...document.querySelectorAll('.openContactBtn')
+    ].filter(Boolean);
+
+    const closeBtn = document.getElementById('closeContact');
+
+    function openModal(){
+      modal.classList.add('show');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal(){
+      modal.classList.remove('show');
+      document.body.style.overflow = '';
+    }
+
+    openers.forEach(btn => {
+      btn.addEventListener('click', openModal);
+    });
+
+    closeBtn.addEventListener('click', closeModal);
+
+    modal.addEventListener('click', (e) => {
+      if(e.target === modal){
+        closeModal();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if(e.key === 'Escape'){
+        closeModal();
+      }
+    });
+  </script>
 
 </body>
 </html>
