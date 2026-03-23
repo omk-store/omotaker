@@ -3,1015 +3,919 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#020304" />
+  <meta name="theme-color" content="#050608" />
   <title>Omo Taker — Official</title>
-  <meta name="description" content="Omo Taker official website — releases, music, videos, and connect." />
+  <meta
+    name="description"
+    content="Omo Taker official website — music, visuals, impact, fashion, and direct access."
+  />
 
   <style>
     :root{
-      --bg:#020304;
-      --bg2:#071018;
-      --card:rgba(255,255,255,.055);
-      --card2:rgba(255,255,255,.03);
-      --text:#f5f7ff;
-      --muted:rgba(245,247,255,.72);
-      --soft:rgba(245,247,255,.52);
-      --line:rgba(150,210,255,.10);
-      --line2:rgba(150,210,255,.18);
-
-      --a1:#5ee7ff;
-      --a2:#7c5cff;
-      --a3:#00c2ff;
-      --a4:#9b7bff;
-      --a5:#18f2b2;
-      --a6:#ff3b6b;
-
-      --g1:#77e6ff;
-      --g2:#7f6bff;
-
-      --dark:#05070c;
-      --shadow:0 20px 60px rgba(0,0,0,.50);
-      --glow:0 10px 34px rgba(94,231,255,.18), 0 10px 28px rgba(124,92,255,.14);
-      --glowWarm:0 10px 32px rgba(0,194,255,.16);
-      --accentPink:#ff3b6b;
-
-      --max:980px;
+      --bg:#050608;
+      --bg-soft:#0a0d12;
+      --panel:rgba(255,255,255,.05);
+      --panel2:rgba(255,255,255,.03);
+      --line:rgba(255,255,255,.08);
+      --line-strong:rgba(255,255,255,.14);
+      --text:#f6f8ff;
+      --muted:rgba(246,248,255,.72);
+      --soft:rgba(246,248,255,.50);
+      --blue:#89e9ff;
+      --violet:#8b7cff;
+      --cyan:#30d8ff;
+      --pink:#ff4f8d;
+      --green:#1df2ad;
+      --shadow:0 24px 70px rgba(0,0,0,.45);
+      --glow:0 14px 36px rgba(137,233,255,.16), 0 14px 36px rgba(139,124,255,.12);
       --radius:28px;
+      --max:1160px;
       --font:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji";
     }
 
     *{ box-sizing:border-box; }
     html,body{ margin:0; padding:0; min-height:100%; scroll-behavior:smooth; }
-
     body{
       font-family:var(--font);
       color:var(--text);
       background:
-        radial-gradient(1000px 520px at 15% 0%, rgba(94,231,255,.10), transparent 58%),
-        radial-gradient(900px 540px at 85% 14%, rgba(124,92,255,.10), transparent 58%),
-        linear-gradient(180deg, #020304 0%, #05070c 38%, #020304 100%);
-      padding-top:env(safe-area-inset-top);
+        radial-gradient(900px 500px at 10% -5%, rgba(48,216,255,.12), transparent 60%),
+        radial-gradient(1000px 540px at 90% 0%, rgba(139,124,255,.11), transparent 60%),
+        linear-gradient(180deg, #040507 0%, #080b11 35%, #040507 100%);
+      overflow-x:hidden;
+    }
+
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      background:
+        linear-gradient(rgba(255,255,255,.016), rgba(255,255,255,.016)),
+        radial-gradient(circle at center, rgba(255,255,255,.02) 0, transparent 50%);
+      mix-blend-mode:soft-light;
+      opacity:.55;
     }
 
     a{ color:inherit; text-decoration:none; }
-    img{ max-width:100%; display:block; }
+    img{ display:block; max-width:100%; }
 
-    .wrap{
-      max-width:var(--max);
+    .shell{
+      width:min(var(--max), calc(100% - 24px));
       margin:0 auto;
-      padding:14px 14px 90px;
     }
 
     .topbarWrap{
       position:sticky;
-      top:calc(env(safe-area-inset-top) + 10px);
-      z-index:220;
-      margin:6px 0 14px;
-      display:flex;
-      justify-content:center;
-      pointer-events:none;
+      top:10px;
+      z-index:100;
+      padding-top:max(8px, env(safe-area-inset-top));
     }
 
     .topbar{
-      pointer-events:auto;
-      width:100%;
       display:flex;
       gap:8px;
-      padding:8px;
-      border:1px solid rgba(140,210,255,.10);
-      background:rgba(7,10,18,.72);
-      border-radius:999px;
-      backdrop-filter:blur(16px);
+      align-items:center;
+      justify-content:flex-start;
+      padding:10px;
       overflow:auto;
-      -webkit-overflow-scrolling:touch;
-      box-shadow:0 16px 40px rgba(0,0,0,.34);
+      border:1px solid rgba(255,255,255,.09);
+      background:rgba(9,12,17,.62);
+      border-radius:999px;
+      backdrop-filter:blur(18px);
+      -webkit-backdrop-filter:blur(18px);
+      box-shadow:0 16px 44px rgba(0,0,0,.26);
       scrollbar-width:none;
     }
     .topbar::-webkit-scrollbar{ display:none; }
 
-    .topbar a{
+    .brandMini{
       flex:0 0 auto;
-      white-space:nowrap;
-      padding:11px 16px;
+      padding:12px 16px;
       border-radius:999px;
       font-size:11px;
-      font-weight:900;
-      letter-spacing:.12em;
-      color:rgba(255,255,255,.76);
-      border:1px solid transparent;
-      transition:.22s ease;
+      letter-spacing:.22em;
+      font-weight:1000;
+      color:#fff;
       text-transform:uppercase;
+      background:linear-gradient(135deg, rgba(137,233,255,.14), rgba(139,124,255,.10));
+      border:1px solid rgba(255,255,255,.10);
+    }
+
+    .topbar a{
+      flex:0 0 auto;
+      padding:12px 15px;
+      border-radius:999px;
+      font-size:11px;
+      letter-spacing:.14em;
+      font-weight:900;
+      text-transform:uppercase;
+      color:rgba(255,255,255,.74);
+      transition:.22s ease;
     }
 
     .topbar a.active{
-      color:#fff;
-      background:linear-gradient(180deg, rgba(119,230,255,.16), rgba(127,107,255,.10));
-      border-color:rgba(140,210,255,.14);
+      color:#081018;
+      background:linear-gradient(90deg, var(--blue), var(--violet));
       box-shadow:var(--glow);
     }
 
-    .heroSection{ scroll-margin-top:92px; }
-
-    .heroWide{
-      margin-left:-14px;
-      margin-right:-14px;
+    .hero{
+      min-height:100svh;
+      display:grid;
+      align-items:end;
       position:relative;
-      overflow:hidden;
-      border-bottom-left-radius:34px;
-      border-bottom-right-radius:34px;
+      padding:26px 0 30px;
     }
 
-    .heroMedia{
+    .heroFrame{
       position:relative;
-      min-height:620px;
+      min-height:calc(100svh - 70px);
+      border-radius:36px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.08);
+      box-shadow:var(--shadow);
       background:#000;
       isolation:isolate;
     }
 
-    .heroMedia::before{
+    .heroFrame::before{
       content:"";
-      position:absolute; inset:0;
+      position:absolute;
+      inset:0;
       background:
-        linear-gradient(to bottom, rgba(0,0,0,.14), rgba(0,0,0,.30) 35%, rgba(0,0,0,.72) 72%, rgba(0,0,0,.94) 100%),
+        linear-gradient(180deg, rgba(0,0,0,.14) 0%, rgba(0,0,0,.20) 30%, rgba(0,0,0,.58) 68%, rgba(0,0,0,.92) 100%),
         url("https://raw.githubusercontent.com/omk-store/omotaker/main/D99E8D8F-BC87-4C45-8767-5DF7E7E18DA4.png") center top / cover no-repeat;
-      transform:scale(1.02);
-      filter:saturate(1.05) contrast(1.02);
-    }
-
-    .heroMedia::after{
-      content:"";
-      position:absolute; inset:0;
-      background:
-        radial-gradient(520px 240px at 18% 18%, rgba(94,231,255,.16), transparent 60%),
-        radial-gradient(520px 240px at 82% 16%, rgba(124,92,255,.14), transparent 60%);
-      pointer-events:none;
+      transform:scale(1.04);
+      filter:saturate(1.04) contrast(1.04);
       z-index:0;
     }
 
-    .heroOverlay{
+    .heroFrame::after{
+      content:"";
       position:absolute;
-      inset:auto 0 0 0;
-      z-index:2;
-      padding:0 16px 18px;
-      transition:opacity .45s ease, transform .45s ease;
-    }
-
-    .hiddenPopup{
-      opacity:0;
+      inset:0;
+      z-index:1;
+      background:
+        radial-gradient(600px 260px at 15% 12%, rgba(48,216,255,.15), transparent 58%),
+        radial-gradient(660px 300px at 82% 14%, rgba(139,124,255,.14), transparent 60%),
+        linear-gradient(180deg, transparent 0%, rgba(5,6,8,.10) 55%, rgba(5,6,8,.62) 100%);
       pointer-events:none;
-      transform:translateY(26px) scale(.96);
     }
 
-    .showPopup{
-      opacity:1;
-      pointer-events:auto;
-      transform:translateY(0) scale(1);
-    }
-
-    .heroCard,
-    .featureCard,
-    .musicCard,
-    .premiumCard,
-    .impactCard,
-    .impactMini,
-    .impactHero{
-      border:1px solid rgba(140,210,255,.12);
-      background:linear-gradient(180deg, rgba(10,16,28,.70), rgba(8,10,18,.78));
-      box-shadow:
-        0 18px 55px rgba(0,0,0,.46),
-        inset 0 1px 0 rgba(255,255,255,.04);
-    }
-
-    .heroCard{
-      max-width:760px;
-      margin:0 auto;
-      border-radius:30px;
-      padding:18px;
-      backdrop-filter:blur(16px);
+    .heroInner{
       position:relative;
+      z-index:2;
+      padding:24px;
+      display:grid;
+      grid-template-columns:1.15fr .85fr;
+      gap:20px;
+      align-items:end;
+      min-height:calc(100svh - 70px);
     }
 
-    .heroClose{
-      position:absolute;
-      top:12px;
-      right:12px;
-      width:40px;
-      height:40px;
-      border:none;
+    .heroMain{
+      align-self:end;
+      max-width:720px;
+    }
+
+    .heroKicker{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 14px;
       border-radius:999px;
-      cursor:pointer;
-      color:#fff;
-      font-size:24px;
-      line-height:1;
-      background:rgba(255,255,255,.08);
-      border:1px solid rgba(255,255,255,.12);
-      box-shadow:0 8px 20px rgba(0,0,0,.24);
-    }
-
-    .heroClose:hover{ background:rgba(255,255,255,.14); }
-
-    .heroName{
-      margin:0;
-      text-align:center;
-      font-size:40px;
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.10);
+      backdrop-filter:blur(12px);
+      font-size:11px;
       font-weight:1000;
-      letter-spacing:.09em;
+      letter-spacing:.18em;
       text-transform:uppercase;
-      line-height:1;
     }
 
-    .heroTag{
-      margin:10px auto 0;
-      max-width:560px;
-      text-align:center;
+    .pulse{
+      width:9px;
+      height:9px;
+      border-radius:999px;
+      background:var(--green);
+      box-shadow:0 0 14px rgba(29,242,173,.85);
+    }
+
+    .heroTitle{
+      margin:16px 0 0;
+      font-size:clamp(52px, 10vw, 116px);
+      line-height:.92;
+      letter-spacing:-.05em;
+      font-weight:1000;
+      text-transform:uppercase;
+      max-width:780px;
+    }
+
+    .heroTitle .ghost{
+      display:block;
+      color:rgba(255,255,255,.30);
+    }
+
+    .heroText{
+      margin:18px 0 0;
+      max-width:620px;
+      font-size:16px;
+      line-height:1.7;
       color:var(--muted);
-      font-size:14px;
-      line-height:1.6;
       font-weight:700;
     }
 
     .heroActions{
       display:flex;
-      justify-content:center;
-      gap:10px;
+      gap:12px;
       flex-wrap:wrap;
-      margin-top:16px;
+      margin-top:22px;
     }
 
-    .pillBtn{
+    .btn{
       display:inline-flex;
       align-items:center;
       justify-content:center;
       gap:10px;
-      min-width:155px;
-      padding:13px 18px;
+      padding:15px 20px;
       border-radius:999px;
-      border:1px solid rgba(140,210,255,.14);
-      background:rgba(255,255,255,.05);
-      font-weight:950;
-      letter-spacing:.04em;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.06);
+      color:#fff;
       font-size:12px;
+      font-weight:1000;
+      letter-spacing:.10em;
       text-transform:uppercase;
-      box-shadow:0 10px 26px rgba(0,0,0,.28);
+      min-width:170px;
+      box-shadow:0 10px 28px rgba(0,0,0,.24);
     }
 
-    .pillBtn.primary,
-    .platformBar a.main,
-    .playBtn.primary,
-    .cta.primary{
-      color:#071018;
-      background:linear-gradient(90deg, #77e6ff 0%, #7f6bff 100%);
-      border-color:rgba(255,255,255,.14);
-      box-shadow:0 10px 28px rgba(94,231,255,.18), 0 10px 28px rgba(124,92,255,.14);
-    }
-
-    .socialDock{
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      gap:14px;
-      margin-top:16px;
-    }
-
-    .iconBtn{
-      width:54px;
-      height:54px;
-      border-radius:999px;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      border:1px solid rgba(140,210,255,.14);
-      background:rgba(255,255,255,.05);
-      box-shadow:0 10px 24px rgba(0,0,0,.28);
-      transition:.2s ease;
-    }
-
-    .iconBtn:hover{
-      transform:translateY(-1px);
+    .btn.primary{
+      color:#081018;
+      background:linear-gradient(90deg, var(--blue), var(--violet));
+      border-color:transparent;
       box-shadow:var(--glow);
     }
 
+    .heroSocials{
+      display:flex;
+      gap:12px;
+      margin-top:18px;
+      flex-wrap:wrap;
+    }
+
+    .iconBtn{
+      width:52px;
+      height:52px;
+      border-radius:999px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.10);
+      backdrop-filter:blur(10px);
+      box-shadow:0 10px 22px rgba(0,0,0,.22);
+    }
+
     .brandIcon{
-      width:23px;
-      height:23px;
+      width:22px;
+      height:22px;
       background:#fff;
       -webkit-mask: var(--mask) no-repeat center / contain;
       mask: var(--mask) no-repeat center / contain;
       display:block;
     }
 
-    .section{
-      margin-top:22px;
-      scroll-margin-top:92px;
+    .heroSide{
+      display:grid;
+      gap:14px;
+      align-self:end;
     }
 
-    .section-divider{
-      width:100%;
-      height:1px;
-      margin:18px 0 18px;
-      background:linear-gradient(90deg, transparent, rgba(94,231,255,.18), rgba(124,92,255,.18), transparent);
-    }
-
-    .sectionHead{
-      text-align:center;
-      margin-bottom:14px;
-    }
-
-    .sectionKicker{
-      display:inline-block;
-      padding:8px 12px;
-      border-radius:999px;
-      background:rgba(255,255,255,.04);
-      border:1px solid rgba(140,210,255,.10);
-      color:var(--soft);
-      font-size:11px;
-      letter-spacing:.18em;
-      font-weight:900;
-      text-transform:uppercase;
-      margin-bottom:10px;
-    }
-
-    .section h2{
-      margin:0;
-      font-size:26px;
-      font-weight:1000;
-      letter-spacing:.10em;
-      text-transform:uppercase;
-    }
-
-    .section p.lead{
-      margin:8px auto 0;
-      max-width:620px;
-      color:var(--muted);
-      font-size:14px;
-      line-height:1.6;
-      font-weight:700;
-    }
-
-    .featureGrid{ display:grid; gap:18px; }
-
-    .featureCard,
-    .musicCard,
-    .premiumCard,
-    .impactCard,
-    .impactMini,
-    .impactHero{
+    .glassCard{
       position:relative;
       overflow:hidden;
-      border-radius:30px;
+      border-radius:26px;
+      padding:18px;
+      background:linear-gradient(180deg, rgba(12,15,22,.70), rgba(8,10,15,.82));
+      border:1px solid rgba(255,255,255,.10);
+      backdrop-filter:blur(16px);
+      box-shadow:0 18px 50px rgba(0,0,0,.34);
     }
 
-    .featureCard::before,
-    .musicCard::before,
-    .premiumCard::before,
-    .impactCard::before,
-    .impactMini::before,
-    .impactHero::before{
+    .glassCard::before{
       content:"";
       position:absolute;
       inset:-1px;
       background:
-        radial-gradient(520px 220px at 14% 10%, rgba(94,231,255,.12), transparent 60%),
-        radial-gradient(520px 220px at 88% 12%, rgba(124,92,255,.12), transparent 60%);
+        radial-gradient(320px 160px at 14% 10%, rgba(137,233,255,.10), transparent 60%),
+        radial-gradient(320px 160px at 86% 10%, rgba(139,124,255,.10), transparent 60%);
       pointer-events:none;
     }
 
-    .featureCard::after,
-    .musicCard::after,
-    .impactCard::after,
-    .impactMini::after,
-    .impactHero::after{
-      content:"";
-      position:absolute;
-      inset:auto -20% -40% auto;
-      width:220px;
-      height:220px;
-      background:radial-gradient(circle, rgba(24,242,178,.08), transparent 68%);
-      pointer-events:none;
-      filter:blur(12px);
-    }
-
-    .featureCard{ padding:18px; }
-
-    .featureInner{
+    .cardLabel{
       position:relative;
       z-index:1;
-      display:grid;
-      grid-template-columns:1.02fr .98fr;
-      gap:18px;
-      align-items:center;
-    }
-
-    .featureArt{
-      width:100%;
-      aspect-ratio:1 / 1;
-      border-radius:24px;
-      background-color:#121217;
-      background-position:center;
-      background-repeat:no-repeat;
-      background-size:cover;
-      border:1px solid rgba(140,210,255,.10);
-      box-shadow:0 12px 34px rgba(0,0,0,.30);
-    }
-
-    .featureText{ padding:6px 4px; }
-
-    .eyebrow{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
+      display:inline-block;
       padding:8px 12px;
       border-radius:999px;
       background:rgba(255,255,255,.05);
-      border:1px solid rgba(140,210,255,.10);
-      color:#fff;
+      border:1px solid rgba(255,255,255,.08);
       font-size:11px;
-      font-weight:950;
-      letter-spacing:.15em;
-      text-transform:uppercase;
-    }
-
-    .featureTitle{
-      margin:14px 0 0;
-      font-size:34px;
-      line-height:1.02;
       font-weight:1000;
-      letter-spacing:.04em;
+      letter-spacing:.16em;
       text-transform:uppercase;
+      color:#e8f6ff;
     }
 
-    .featureDesc{
+    .nowTitle{
+      position:relative;
+      z-index:1;
       margin:14px 0 0;
-      font-size:16px;
-      line-height:1.7;
-      color:#f4f0ea;
-      font-weight:800;
+      font-size:28px;
+      line-height:1;
+      font-weight:1000;
+      text-transform:uppercase;
+      letter-spacing:-.03em;
     }
 
-    .featureMini{
+    .nowText{
+      position:relative;
+      z-index:1;
       margin:10px 0 0;
+      color:var(--muted);
       font-size:14px;
       line-height:1.65;
-      color:var(--soft);
       font-weight:700;
     }
 
-    .platformBar{
-      display:flex;
-      width:100%;
-      overflow:hidden;
-      border-radius:999px;
-      border:1px solid rgba(140,210,255,.14);
-      background:#05070d;
-      margin-top:18px;
+    .platforms{
       position:relative;
       z-index:1;
-    }
-
-    .platformBar a{
-      flex:1;
-      min-width:0;
-      text-align:center;
-      padding:14px 12px;
-      font-size:12px;
-      font-weight:950;
-      letter-spacing:.03em;
-      color:rgba(255,255,255,.90);
-      border-right:1px solid rgba(140,210,255,.10);
-      background:rgba(255,255,255,.02);
-      white-space:nowrap;
-      overflow:hidden;
-      text-overflow:ellipsis;
-    }
-
-    .platformBar a:last-child{ border-right:none; }
-
-    .musicRows{ display:grid; gap:14px; }
-
-    .musicCard{
-      padding:14px;
-      border-radius:24px;
-    }
-
-    .musicInner{
-      position:relative;
-      z-index:1;
+      margin-top:16px;
       display:grid;
-      grid-template-columns:86px 1fr;
+      grid-template-columns:1fr 1fr 1fr;
+      gap:8px;
+    }
+
+    .platforms a{
+      padding:12px 10px;
+      border-radius:14px;
+      text-align:center;
+      font-size:11px;
+      font-weight:1000;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.08);
+      color:#fff;
+    }
+
+    .platforms a.main{
+      color:#081018;
+      background:linear-gradient(90deg, var(--blue), var(--violet));
+      border-color:transparent;
+    }
+
+    .statGrid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:10px;
+    }
+
+    .stat{
+      position:relative;
+      z-index:1;
+      border-radius:18px;
+      padding:14px;
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.08);
+    }
+
+    .stat .v{
+      font-size:28px;
+      font-weight:1000;
+      letter-spacing:-.05em;
+      color:#fff;
+    }
+
+    .stat .l{
+      margin-top:6px;
+      color:var(--soft);
+      font-size:12px;
+      font-weight:800;
+      text-transform:uppercase;
+      letter-spacing:.12em;
+    }
+
+    .section{
+      padding:34px 0 0;
+      scroll-margin-top:92px;
+    }
+
+    .sectionHead{
+      margin-bottom:18px;
+      text-align:center;
+    }
+
+    .sectionHead .k{
+      display:inline-block;
+      padding:9px 13px;
+      border-radius:999px;
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.07);
+      font-size:11px;
+      font-weight:1000;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      color:var(--soft);
+    }
+
+    .sectionHead h2{
+      margin:12px 0 0;
+      font-size:clamp(28px, 4vw, 52px);
+      line-height:1;
+      font-weight:1000;
+      letter-spacing:-.04em;
+      text-transform:uppercase;
+    }
+
+    .sectionHead p{
+      max-width:700px;
+      margin:12px auto 0;
+      color:var(--muted);
+      font-size:15px;
+      line-height:1.7;
+      font-weight:700;
+    }
+
+    .releaseHero{
+      display:grid;
+      grid-template-columns:1.02fr .98fr;
+      gap:18px;
+      align-items:stretch;
+    }
+
+    .coverPanel{
+      min-height:520px;
+      border-radius:30px;
+      overflow:hidden;
+      position:relative;
+      border:1px solid rgba(255,255,255,.08);
+      background:#111 center/cover no-repeat;
+      box-shadow:var(--shadow);
+    }
+
+    .coverPanel::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.10), rgba(0,0,0,.72)),
+        radial-gradient(500px 200px at 20% 10%, rgba(137,233,255,.10), transparent 60%),
+        radial-gradient(500px 200px at 80% 10%, rgba(139,124,255,.10), transparent 60%);
+    }
+
+    .coverInfo{
+      position:absolute;
+      inset:auto 18px 18px 18px;
+      z-index:1;
+    }
+
+    .coverChip{
+      display:inline-flex;
+      padding:8px 12px;
+      border-radius:999px;
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.10);
+      font-size:11px;
+      font-weight:1000;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+    }
+
+    .coverInfo h3{
+      margin:12px 0 0;
+      font-size:42px;
+      line-height:.95;
+      font-weight:1000;
+      text-transform:uppercase;
+      letter-spacing:-.05em;
+      max-width:440px;
+    }
+
+    .coverInfo p{
+      margin:10px 0 0;
+      max-width:460px;
+      font-size:15px;
+      line-height:1.7;
+      color:var(--muted);
+      font-weight:700;
+    }
+
+    .stack{
+      display:grid;
+      gap:16px;
+    }
+
+    .miniRelease{
+      display:grid;
+      grid-template-columns:112px 1fr;
       gap:14px;
       align-items:center;
     }
 
-    .cover{
-      width:86px;
-      height:86px;
-      border-radius:18px;
-      background:#15161a center/cover no-repeat;
-      border:1px solid rgba(140,210,255,.10);
-      box-shadow:0 10px 24px rgba(0,0,0,.25);
-      position:relative;
-      overflow:hidden;
+    .miniArt{
+      width:112px;
+      height:112px;
+      border-radius:22px;
+      background:#121212 center/cover no-repeat;
+      border:1px solid rgba(255,255,255,.09);
+      box-shadow:0 10px 26px rgba(0,0,0,.24);
     }
 
-    .cover::after{
-      content:"▶";
-      position:absolute;
-      inset:auto 8px 8px auto;
-      width:34px;
-      height:34px;
-      display:grid;
-      place-items:center;
-      border-radius:999px;
-      background:rgba(0,0,0,.54);
-      border:1px solid rgba(255,255,255,.14);
-      font-size:12px;
-      box-shadow:var(--glow);
-    }
-
-    .meta .title{
+    .miniMeta h3{
       margin:0;
-      font-size:20px;
+      font-size:26px;
+      line-height:1;
       font-weight:1000;
-      letter-spacing:.01em;
+      text-transform:uppercase;
+      letter-spacing:-.03em;
     }
 
-    .meta .sub{
-      margin:6px 0 0;
+    .miniMeta p{
+      margin:10px 0 0;
       color:var(--muted);
-      font-size:13px;
+      font-size:14px;
+      line-height:1.65;
       font-weight:700;
     }
 
-    .miniDesc{
-      margin:10px 0 0;
+    .linkRow{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      margin-top:14px;
+    }
+
+    .linkRow a{
+      padding:11px 14px;
+      border-radius:999px;
+      font-size:11px;
+      font-weight:1000;
+      letter-spacing:.10em;
+      text-transform:uppercase;
+      border:1px solid rgba(255,255,255,.08);
+      background:rgba(255,255,255,.05);
+    }
+
+    .linkRow a.main{
+      color:#081018;
+      background:linear-gradient(90deg, var(--blue), var(--violet));
+      border-color:transparent;
+    }
+
+    .discogGrid{
+      display:grid;
+      grid-template-columns:repeat(2, minmax(0, 1fr));
+      gap:16px;
+    }
+
+    .song{
+      display:grid;
+      gap:14px;
+    }
+
+    .songTop{
+      display:grid;
+      grid-template-columns:88px 1fr;
+      gap:14px;
+      align-items:center;
+    }
+
+    .songArt{
+      width:88px;
+      height:88px;
+      border-radius:20px;
+      background:#121212 center/cover no-repeat;
+      border:1px solid rgba(255,255,255,.08);
+      box-shadow:0 10px 24px rgba(0,0,0,.22);
+    }
+
+    .song h3{
+      margin:0;
+      font-size:22px;
+      line-height:1;
+      font-weight:1000;
+      letter-spacing:-.02em;
+      text-transform:uppercase;
+    }
+
+    .song .sub{
+      margin:8px 0 0;
       color:var(--soft);
+      font-size:12px;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      font-weight:900;
+    }
+
+    .song .desc{
+      margin:10px 0 0;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.65;
+      font-weight:700;
+    }
+
+    .videoBlock{
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:16px;
+    }
+
+    .videoMain{
+      min-height:420px;
+      border-radius:30px;
+      overflow:hidden;
+      position:relative;
+      border:1px solid rgba(255,255,255,.08);
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.14), rgba(0,0,0,.82)),
+        url("https://img.youtube.com/vi/7qlRs1gDnMI/maxresdefault.jpg") center/cover no-repeat;
+      box-shadow:var(--shadow);
+    }
+
+    .videoMain::after{
+      content:"▶";
+      position:absolute;
+      inset:0;
+      margin:auto;
+      width:84px;
+      height:84px;
+      border-radius:999px;
+      display:grid;
+      place-items:center;
+      font-size:28px;
+      background:rgba(255,255,255,.09);
+      border:1px solid rgba(255,255,255,.15);
+      box-shadow:var(--glow);
+    }
+
+    .videoMain .label{
+      position:absolute;
+      left:18px;
+      bottom:18px;
+      padding:10px 14px;
+      border-radius:14px;
+      background:rgba(0,0,0,.34);
+      border:1px solid rgba(255,255,255,.10);
+      font-size:12px;
+      font-weight:1000;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      z-index:1;
+    }
+
+    .videoSide{
+      display:grid;
+      gap:16px;
+    }
+
+    .impactGrid{
+      display:grid;
+      grid-template-columns:repeat(4, minmax(0, 1fr));
+      gap:14px;
+    }
+
+    .impactStat{
+      text-align:left;
+      min-height:154px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+    }
+
+    .impactStat .num{
+      font-size:42px;
+      line-height:1;
+      font-weight:1000;
+      letter-spacing:-.06em;
+      color:#fff;
+    }
+
+    .impactStat .tag{
+      font-size:12px;
+      font-weight:900;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      color:var(--soft);
+    }
+
+    .impactStat .small{
+      margin-top:10px;
+      color:var(--muted);
       font-size:13px;
       line-height:1.55;
       font-weight:700;
     }
 
-    .playBtn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:10px;
-      width:100%;
-      margin-top:14px;
-      padding:13px 16px;
-      border-radius:999px;
-      border:1px solid rgba(140,210,255,.14);
-      background:rgba(255,255,255,.055);
-      font-weight:950;
-      font-size:12px;
-      letter-spacing:.05em;
-      text-transform:uppercase;
-      position:relative;
-      z-index:1;
-      box-shadow:0 8px 24px rgba(0,0,0,.22);
-    }
-
-    .videoCard{
-      position:relative;
-      overflow:hidden;
-      border-radius:28px;
-      border:1px solid rgba(140,210,255,.12);
-      background:linear-gradient(180deg, rgba(10,16,28,.70), rgba(8,10,18,.78));
-      box-shadow:0 18px 55px rgba(0,0,0,.46);
-      display:block;
-    }
-
-    .videoThumb{
-      height:290px;
-      position:relative;
-      background:
-        linear-gradient(to bottom, rgba(0,0,0,.15), rgba(0,0,0,.82)),
-        url("https://img.youtube.com/vi/7qlRs1gDnMI/hqdefault.jpg") center/cover no-repeat;
-      display:flex;
-      align-items:flex-end;
-      padding:18px;
-    }
-
-    .videoThumb::after{
-      content:"▶";
-      position:absolute;
-      inset:0;
-      display:grid;
-      place-items:center;
-      font-size:28px;
-      color:#fff;
-      margin:auto;
-      width:78px;
-      height:78px;
-      border-radius:999px;
-      background:rgba(255,255,255,.08);
-      border:1px solid rgba(255,255,255,.16);
-      box-shadow:var(--glow);
-    }
-
-    .videoText{
-      position:relative;
-      z-index:2;
-      display:inline-block;
-      padding:10px 14px;
-      border-radius:14px;
-      background:rgba(0,0,0,.35);
-      border:1px solid rgba(140,210,255,.10);
-      font-size:12px;
-      font-weight:950;
-      letter-spacing:.12em;
-      text-transform:uppercase;
-      backdrop-filter:blur(10px);
-    }
-
-    .grid2{
+    .connectGrid{
       display:grid;
       grid-template-columns:1fr 1fr;
-      gap:14px;
+      gap:16px;
     }
 
-    .premiumInner{
-      position:relative;
-      z-index:1;
-      padding:18px;
-      text-align:center;
-    }
-
-    .premiumTitle{
-      margin:0;
-      font-size:18px;
-      font-weight:1000;
-      letter-spacing:.10em;
-      text-transform:uppercase;
-    }
-
-    .premiumSub{
-      margin:10px auto 0;
-      max-width:420px;
-      color:var(--muted);
-      font-size:14px;
-      line-height:1.6;
-      font-weight:700;
-    }
-
-    .cta{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      width:100%;
+    .ctaLine{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
       margin-top:16px;
-      padding:14px 18px;
-      border-radius:999px;
-      border:1px solid rgba(140,210,255,.14);
-      background:rgba(255,255,255,.05);
-      font-size:12px;
-      font-weight:950;
-      letter-spacing:.06em;
-      text-transform:uppercase;
-      box-shadow:0 10px 24px rgba(0,0,0,.28);
-    }
-
-    /* IMPACT */
-    .impactWrap{
-      margin-top:8px;
-      position:relative;
-      display:grid;
-      gap:16px;
-    }
-
-    .impactHero{
-      padding:18px;
-      border-radius:28px;
-    }
-
-    .impactHeroInner{
-      position:relative;
-      z-index:1;
-      display:grid;
-      grid-template-columns:96px 1fr;
-      gap:16px;
-      align-items:center;
-    }
-
-    .impactAvatar{
-      width:96px;
-      height:96px;
-      border-radius:24px;
-      object-fit:cover;
-      object-position:center;
-      border:1px solid rgba(255,255,255,.12);
-      box-shadow:0 12px 30px rgba(0,0,0,.32);
-      background:
-        linear-gradient(135deg, rgba(94,231,255,.16), rgba(124,92,255,.16)),
-        #111;
-      flex:0 0 auto;
-    }
-
-    .impactMetaTop{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      flex-wrap:wrap;
-      margin-bottom:8px;
-    }
-
-    .impactBadge{
-      display:inline-flex;
-      align-items:center;
-      padding:8px 12px;
-      border-radius:999px;
-      background:rgba(255,255,255,.05);
-      border:1px solid rgba(140,210,255,.12);
-      color:#d9eaff;
-      font-size:11px;
-      font-weight:950;
-      letter-spacing:.16em;
-      text-transform:uppercase;
-    }
-
-    .impactLiveDot{
-      width:9px;
-      height:9px;
-      border-radius:999px;
-      background:#18f2b2;
-      box-shadow:0 0 12px rgba(24,242,178,.75);
-    }
-
-    .impactName{
-      margin:0;
-      font-size:34px;
-      line-height:1;
-      font-weight:1000;
-      letter-spacing:-.03em;
-      text-transform:uppercase;
-    }
-
-    .impactSubline{
-      margin-top:8px;
-      color:var(--muted);
-      font-size:14px;
-      font-weight:800;
-      line-height:1.5;
-    }
-
-    .impactTiny{
-      margin-top:10px;
-      color:var(--soft);
-      font-size:12px;
-      font-weight:700;
-      letter-spacing:.04em;
-    }
-
-    .impactStack{
-      display:grid;
-      gap:14px;
-      position:relative;
-    }
-
-    .impactCard{
-      padding:22px 20px;
-      border-radius:28px;
-    }
-
-    .impactInner{
-      position:relative;
-      z-index:1;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:20px;
-    }
-
-    .impactLeft h3{
-      margin:0;
-      font-size:22px;
-      font-weight:1000;
-      letter-spacing:-.02em;
-    }
-
-    .impactIcons{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      margin-top:12px;
-      align-items:center;
-    }
-
-    .dotIcon{
-      width:30px;
-      height:30px;
-      border-radius:999px;
-      display:grid;
-      place-items:center;
-      color:#fff;
-      font-size:14px;
-      font-weight:900;
-      box-shadow:0 8px 20px rgba(0,0,0,.22);
-    }
-
-    .spotifyC{ background:#1ed760; color:#04130b; }
-    .instaC{ background:linear-gradient(135deg,#f9ce34,#ee2a7b,#6228d7); }
-    .ytC{ background:#ff2323; }
-    .scC{ background:#ff8800; color:#111; }
-    .shazamC{ background:#1f80ff; }
-
-    .impactValue{
-      color:var(--accentPink);
-      font-size:34px;
-      font-weight:1000;
-      letter-spacing:-.03em;
-      text-align:right;
-      min-width:100px;
-      text-shadow:0 0 24px rgba(255,59,107,.16);
-    }
-
-    .impactGrid2{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:14px;
-    }
-
-    .impactMini{
-      padding:18px 18px 16px;
-      border-radius:22px;
-    }
-
-    .impactMiniInner{
-      position:relative;
-      z-index:1;
-      display:flex;
-      align-items:flex-start;
-      justify-content:space-between;
-      gap:14px;
-    }
-
-    .impactMiniTitle{
-      margin:0;
-      font-size:18px;
-      font-weight:1000;
-      letter-spacing:-.02em;
-    }
-
-    .impactMiniIcons{
-      display:flex;
-      gap:8px;
-      flex-wrap:wrap;
-      margin-top:10px;
-      align-items:center;
-    }
-
-    .impactMini .impactValue{
-      font-size:28px;
-      min-width:auto;
     }
 
     footer{
-      margin-top:24px;
-      padding-top:16px;
-      border-top:1px solid rgba(140,210,255,.08);
+      padding:34px 0 46px;
       text-align:center;
-      color:rgba(255,255,255,.50);
+      color:rgba(255,255,255,.48);
       font-size:12px;
-      letter-spacing:.04em;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+    }
+
+    @media (max-width:1024px){
+      .heroInner,
+      .releaseHero,
+      .videoBlock,
+      .connectGrid{
+        grid-template-columns:1fr;
+      }
+      .impactGrid{
+        grid-template-columns:repeat(2, minmax(0, 1fr));
+      }
     }
 
     @media (max-width:820px){
-      .featureInner{ grid-template-columns:1fr; }
-      .featureTitle{ font-size:28px; }
-      .grid2{ grid-template-columns:1fr; }
+      .discogGrid{
+        grid-template-columns:1fr;
+      }
+      .heroFrame,
+      .coverPanel,
+      .videoMain{
+        border-radius:28px;
+      }
     }
 
     @media (max-width:640px){
-      .impactHeroInner{
-        grid-template-columns:82px 1fr;
-        gap:14px;
+      .shell{
+        width:min(var(--max), calc(100% - 16px));
       }
-      .impactAvatar{
-        width:82px;
-        height:82px;
-        border-radius:22px;
+      .hero{
+        padding:16px 0 24px;
       }
-      .impactName{ font-size:30px; }
-    }
-
-    @media (max-width:520px){
-      .wrap{ padding:12px 12px 84px; }
-
-      .heroWide{
-        margin-left:-12px;
-        margin-right:-12px;
+      .heroInner{
+        padding:16px;
       }
-
-      .heroMedia{ min-height:570px; }
-      .heroName{ font-size:32px; }
-      .heroTag{ font-size:13px; }
-      .featureTitle{ font-size:26px; }
-      .featureDesc{ font-size:15px; }
-
-      .platformBar a{
-        font-size:11px;
-        padding:13px 8px;
+      .heroTitle{
+        font-size:54px;
       }
-
-      .musicInner{
+      .heroText{
+        font-size:15px;
+      }
+      .platforms{
+        grid-template-columns:1fr;
+      }
+      .miniRelease{
+        grid-template-columns:88px 1fr;
+      }
+      .miniArt{
+        width:88px;
+        height:88px;
+        border-radius:18px;
+      }
+      .impactGrid{
+        grid-template-columns:1fr 1fr;
+      }
+      .songTop{
         grid-template-columns:74px 1fr;
-        gap:12px;
       }
-
-      .cover{
+      .songArt{
         width:74px;
         height:74px;
       }
-
-      .meta .title{ font-size:18px; }
-      .videoThumb{ height:240px; }
-
-      .impactHero{
-        padding:16px;
+      .coverPanel{
+        min-height:440px;
       }
-
-      .impactHeroInner{
-        grid-template-columns:72px 1fr;
-        gap:12px;
-        align-items:center;
+      .coverInfo h3{
+        font-size:34px;
       }
+    }
 
-      .impactAvatar{
-        width:72px;
-        height:72px;
-        border-radius:20px;
+    @media (max-width:480px){
+      .impactGrid{
+        grid-template-columns:1fr;
       }
-
-      .impactName{
-        font-size:26px;
+      .statGrid{
+        grid-template-columns:1fr 1fr;
       }
-
-      .impactSubline{
-        font-size:13px;
+      .btn{
+        width:100%;
       }
-
-      .impactCard{
-        padding:20px 18px;
-      }
-
-      .impactInner{
-        align-items:flex-start;
-      }
-
-      .impactLeft h3{
-        font-size:20px;
-      }
-
-      .impactValue{
-        font-size:30px;
+      .heroActions{
+        display:grid;
+        grid-template-columns:1fr;
       }
     }
   </style>
 </head>
 <body>
-  <div class="wrap">
+  <div class="shell topbarWrap">
+    <nav class="topbar" aria-label="Main sections">
+      <span class="brandMini">OMK</span>
+      <a class="active" href="#home">Home</a>
+      <a href="#featured">If Earth</a>
+      <a href="#releases">Benin</a>
+      <a href="#music">Music</a>
+      <a href="#videos">Videos</a>
+      <a href="#impact">Impact</a>
+      <a href="#store">Shop</a>
+      <a href="#connect">Connect</a>
+    </nav>
+  </div>
 
-    <div class="topbarWrap">
-      <nav class="topbar" aria-label="Sections">
-        <a class="active" href="#home">Home</a>
-        <a href="#featured">If Earth</a>
-        <a href="#releases">Benin</a>
-        <a href="#music">Music</a>
-        <a href="#videos">Videos</a>
-        <a href="#connect">Connect</a>
-        <a href="#store">Shop OMK</a>
-        <a href="#impact">Impact</a>
-      </nav>
-    </div>
+  <main>
+    <section id="home" class="hero">
+      <div class="shell">
+        <div class="heroFrame">
+          <div class="heroInner">
+            <div class="heroMain">
+              <div class="heroKicker">
+                <span class="pulse"></span>
+                Afro Fusion • Wolf Energy • Omo Taker
+              </div>
 
-    <section id="home" class="heroSection">
-      <div class="heroWide">
-        <div class="heroMedia">
-          <div class="heroOverlay hiddenPopup" id="heroPopup">
-            <div class="heroCard">
-              <button class="heroClose" id="heroClose" aria-label="Close popup">×</button>
+              <h1 class="heroTitle">
+                Omo Taker
+                <span class="ghost">The Sound. The Motion.</span>
+              </h1>
 
-              <h1 class="heroName">OMOTAKER</h1>
-              <p class="heroTag">
-                Afro-fusion energy, premium visuals, wolf aura. Tap into the latest drops and stream the sound.
+              <p class="heroText">
+                Premium sound, premium visuals, real artist energy. Step into the world of Omo Taker —
+                latest releases, official visuals, catalogue, impact and OMK fashion in one clean home.
               </p>
 
               <div class="heroActions">
-                <a class="pillBtn primary" href="#featured">Play New Release</a>
-                <a class="pillBtn" href="#releases">Benin To Lagos</a>
+                <a class="btn primary" href="#featured">Play New Release</a>
+                <a class="btn" href="#music">Explore Catalogue</a>
               </div>
 
-              <div class="socialDock" aria-label="Social links">
+              <div class="heroSocials" aria-label="Social links">
                 <a class="iconBtn" href="https://www.instagram.com/iam__omotaker?igsh=MTEwM2RiOHV1ZjJzdQ%3D%3D&utm_source=qr" target="_blank" rel="noopener" aria-label="Instagram">
                   <span class="brandIcon" style="--mask:url('https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg');"></span>
                 </a>
-
                 <a class="iconBtn" href="https://www.tiktok.com/@iam.omotaker?_r=1&_t=ZS-94R7kuZiptd" target="_blank" rel="noopener" aria-label="TikTok">
                   <span class="brandIcon" style="--mask:url('https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/tiktok.svg');"></span>
                 </a>
-
                 <a class="iconBtn" href="https://www.snapchat.com/@omotaker1" target="_blank" rel="noopener" aria-label="Snapchat">
                   <span class="brandIcon" style="--mask:url('https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/snapchat.svg');"></span>
                 </a>
+              </div>
+            </div>
+
+            <div class="heroSide">
+              <div class="glassCard">
+                <span class="cardLabel">Now Pushing</span>
+                <h2 class="nowTitle">If Earth Could Talk</h2>
+                <p class="nowText">
+                  The earth is speaking through sound — pain, prayer, pressure and truth in one voice.
+                </p>
+                <div class="platforms">
+                  <a class="main" href="https://open.spotify.com/track/7mifEtIK9OPGWD9EyOOLnq?si=hmsxRSbFT0SYsQYaHyHJrg" target="_blank" rel="noopener">Spotify</a>
+                  <a href="https://music.apple.com/ng/album/if-earth-could-talk/1881338853?i=1881338854" target="_blank" rel="noopener">Apple</a>
+                  <a href="https://omkdrip.com/if-earth-could-talk.html" target="_blank" rel="noopener">More</a>
+                </div>
+              </div>
+
+              <div class="glassCard">
+                <span class="cardLabel">Quick Impact</span>
+                <div class="statGrid">
+                  <div class="stat">
+                    <div class="v countUp" data-target="17800" data-format="17.8K">0</div>
+                    <div class="l">Followers</div>
+                  </div>
+                  <div class="stat">
+                    <div class="v countUp" data-target="289000" data-format="289K">0</div>
+                    <div class="l">Streams</div>
+                  </div>
+                  <div class="stat">
+                    <div class="v countUp" data-target="29500" data-format="29.5K">0</div>
+                    <div class="l">Reach</div>
+                  </div>
+                  <div class="stat">
+                    <div class="v countUp" data-target="14600" data-format="14.6K">0</div>
+                    <div class="l">Shazams</div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -1020,32 +924,50 @@
     </section>
 
     <section id="featured" class="section">
-      <div class="section-divider"></div>
-      <div class="sectionHead">
-        <div class="sectionKicker">Now Pushing</div>
-        <h2>If Earth Could Talk</h2>
-        <p class="lead">Cleaner, stronger and built for ad traffic. First thing people see, first thing they tap.</p>
-      </div>
+      <div class="shell">
+        <div class="sectionHead">
+          <span class="k">Featured Release</span>
+          <h2>If Earth Could Talk</h2>
+          <p>
+            Bigger, cleaner, more cinematic. This section now feels like a real artist homepage centerpiece instead of a normal card.
+          </p>
+        </div>
 
-      <div class="featureGrid">
-        <div class="featureCard">
-          <div class="featureInner">
-            <div class="featureArt" style="background-image:url('https://raw.githubusercontent.com/omk-store/omotaker/main/A4C9B8E6-BBDF-4489-927B-B535734DED3C.png');"></div>
-
-            <div class="featureText">
-              <div class="eyebrow">New Release 🌍</div>
-              <h3 class="featureTitle">If Earth Could Talk</h3>
-              <p class="featureDesc">
-                The earth is speaking through sound. Pain, prayer, pressure and truth in one voice.
+        <div class="releaseHero">
+          <div
+            class="coverPanel"
+            style="background-image:url('https://raw.githubusercontent.com/omk-store/omotaker/main/A4C9B8E6-BBDF-4489-927B-B535734DED3C.png');"
+          >
+            <div class="coverInfo">
+              <span class="coverChip">New Release</span>
+              <h3>If Earth Could Talk</h3>
+              <p>
+                The earth is speaking through sound. Built to hit fast, feel premium and convert better from ad traffic.
               </p>
-              <p class="featureMini">
-                Tap play and feel the message.
-              </p>
+            </div>
+          </div>
 
-              <div class="platformBar" role="group" aria-label="If Earth Could Talk platforms">
-                <a class="main" href="https://open.spotify.com/track/7mifEtIK9OPGWD9EyOOLnq?si=hmsxRSbFT0SYsQYaHyHJrg" target="_blank" rel="noopener">Play on Spotify</a>
+          <div class="stack">
+            <div class="glassCard">
+              <span class="cardLabel">Listen</span>
+              <h3 class="nowTitle">Direct Platforms</h3>
+              <p class="nowText">Push the main platform first, but still keep Apple and multi-link easy to find.</p>
+              <div class="platforms">
+                <a class="main" href="https://open.spotify.com/track/7mifEtIK9OPGWD9EyOOLnq?si=hmsxRSbFT0SYsQYaHyHJrg" target="_blank" rel="noopener">Spotify</a>
                 <a href="https://music.apple.com/ng/album/if-earth-could-talk/1881338853?i=1881338854" target="_blank" rel="noopener">Apple Music</a>
                 <a href="https://omkdrip.com/if-earth-could-talk.html" target="_blank" rel="noopener">More Platforms</a>
+              </div>
+            </div>
+
+            <div class="glassCard">
+              <span class="cardLabel">Positioning</span>
+              <h3 class="nowTitle">Sound With Message</h3>
+              <p class="nowText">
+                Keep this release as the emotional flagship on the page. It makes the site feel like an artist world, not just a smartlink.
+              </p>
+              <div class="ctaLine">
+                <a class="btn primary" href="https://open.spotify.com/track/7mifEtIK9OPGWD9EyOOLnq?si=hmsxRSbFT0SYsQYaHyHJrg" target="_blank" rel="noopener">Play Now</a>
+                <a class="btn" href="#videos">Watch Visuals</a>
               </div>
             </div>
           </div>
@@ -1054,30 +976,29 @@
     </section>
 
     <section id="releases" class="section">
-      <div class="section-divider"></div>
-      <div class="sectionHead">
-        <div class="sectionKicker">Second Push</div>
-        <h2>Benin To Lagos</h2>
-        <p class="lead">Your second main card. Still strong, still premium, still easy to tap.</p>
-      </div>
+      <div class="shell">
+        <div class="sectionHead">
+          <span class="k">Second Push</span>
+          <h2>Benin To Lagos</h2>
+          <p>
+            Strong second hero block for the record that carries identity, movement and city story.
+          </p>
+        </div>
 
-      <div class="featureGrid">
-        <div class="featureCard">
-          <div class="featureInner">
-            <div class="featureArt" style="background-image:url('https://raw.githubusercontent.com/omk-store/omotaker/main/6066994F-0E77-4ACE-AB1C-4E1445E4457F.png');"></div>
+        <div class="glassCard">
+          <div class="miniRelease">
+            <div
+              class="miniArt"
+              style="background-image:url('https://raw.githubusercontent.com/omk-store/omotaker/main/6066994F-0E77-4ACE-AB1C-4E1445E4457F.png');"
+            ></div>
 
-            <div class="featureText">
-              <div class="eyebrow">Featured Release 🔥</div>
-              <h3 class="featureTitle">Benin To Lagos</h3>
-              <p class="featureDesc">
+            <div class="miniMeta">
+              <h3>Benin To Lagos</h3>
+              <p>
                 From city fire to Lagos lights. Motion, hunger and wolf energy in one sound.
               </p>
-              <p class="featureMini">
-                Tap play and step into the journey.
-              </p>
-
-              <div class="platformBar" role="group" aria-label="Benin To Lagos platforms">
-                <a class="main" href="https://open.spotify.com/track/0SooNM8i9p1UiE7HTTp5C4?si=AStB3M9vRlCplVnQxvyT3w" target="_blank" rel="noopener">Play on Spotify</a>
+              <div class="linkRow">
+                <a class="main" href="https://open.spotify.com/track/0SooNM8i9p1UiE7HTTp5C4?si=AStB3M9vRlCplVnQxvyT3w" target="_blank" rel="noopener">Spotify</a>
                 <a href="https://music.apple.com/ng/album/benin-to-lagos/1866424075?i=1866424076" target="_blank" rel="noopener">Apple Music</a>
                 <a href="https://omkdrip.com/benin-to-lagos" target="_blank" rel="noopener">More Platforms</a>
               </div>
@@ -1088,182 +1009,251 @@
     </section>
 
     <section id="music" class="section">
-      <div class="section-divider"></div>
-      <div class="sectionHead">
-        <div class="sectionKicker">Catalogue</div>
-        <h2>Music</h2>
-        <p class="lead">All songs in a cleaner premium stack so the page feels more like an artist hub and more futuristic for ads.</p>
-      </div>
-
-      <div class="musicRows">
-
-        <div class="musicCard">
-          <div class="musicInner">
-            <div class="cover" style="background-image:url('https://raw.githubusercontent.com/omk-store/omotaker/main/A4C9B8E6-BBDF-4489-927B-B535734DED3C.png');"></div>
-            <div class="meta">
-              <p class="title">Bend Down Select</p>
-              <p class="sub">Single • 2025</p>
-              <p class="miniDesc">A clean record from the My Truth era. Strong entry point for listeners exploring your catalogue.</p>
-            </div>
-          </div>
-          <a class="playBtn primary" href="http://dvpper.lnk.to/mytruth" target="_blank" rel="noopener">Learn More</a>
-          <div class="platformBar" role="group" aria-label="Bend Down Select platforms">
-            <a class="main" href="https://open.spotify.com/track/6fZjfm5ABj46mzwnowDj93?si=I2BQ-_OMT3Wro3ISwPgY2A" target="_blank" rel="noopener">Spotify</a>
-            <a href="https://music.apple.com/ng/album/bend-down-select/1859702027?i=1859702029" target="_blank" rel="noopener">Apple Music</a>
-            <a href="http://dvpper.lnk.to/mytruth" target="_blank" rel="noopener">More</a>
-          </div>
+      <div class="shell">
+        <div class="sectionHead">
+          <span class="k">Catalogue</span>
+          <h2>Music</h2>
+          <p>
+            Clean two-column discography with less clutter and more premium spacing.
+          </p>
         </div>
 
-        <div class="musicCard">
-          <div class="musicInner">
-            <div class="cover" style="background-image:url('https://raw.githubusercontent.com/omk-store/omotaker/main/A4C9B8E6-BBDF-4489-927B-B535734DED3C.png');"></div>
-            <div class="meta">
-              <p class="title">My Door</p>
-              <p class="sub">My Truth EP • 2025</p>
-              <p class="miniDesc">Emotional and personal. Keeps the page feeling deep, not just promotional.</p>
+        <div class="discogGrid">
+          <div class="glassCard song">
+            <div class="songTop">
+              <div class="songArt" style="background-image:url('https://raw.githubusercontent.com/omk-store/omotaker/main/A4C9B8E6-BBDF-4489-927B-B535734DED3C.png');"></div>
+              <div>
+                <h3>Bend Down Select</h3>
+                <div class="sub">Single • 2025</div>
+              </div>
+            </div>
+            <p class="desc">A strong entry point for listeners exploring your catalogue and one of the key records in your story.</p>
+            <div class="linkRow">
+              <a class="main" href="https://open.spotify.com/track/6fZjfm5ABj46mzwnowDj93?si=I2BQ-_OMT3Wro3ISwPgY2A" target="_blank" rel="noopener">Spotify</a>
+              <a href="https://music.apple.com/ng/album/bend-down-select/1859702027?i=1859702029" target="_blank" rel="noopener">Apple</a>
+              <a href="http://dvpper.lnk.to/mytruth" target="_blank" rel="noopener">More</a>
             </div>
           </div>
-          <a class="playBtn" href="http://dvpper.lnk.to/mytruth" target="_blank" rel="noopener">Learn More</a>
-          <div class="platformBar" role="group" aria-label="My Door platforms">
-            <a class="main" href="https://open.spotify.com/track/2FMkNT1AHV4qfo7zgHil4a?si=bqMvIIRZTQCVJ6_d4M9Lkw" target="_blank" rel="noopener">Spotify</a>
-            <a href="https://music.apple.com/ng/album/my-door/1859702027?i=1859702242" target="_blank" rel="noopener">Apple Music</a>
-            <a href="http://dvpper.lnk.to/mytruth" target="_blank" rel="noopener">More</a>
-          </div>
-        </div>
 
-        <div class="musicCard">
-          <div class="musicInner">
-            <div class="cover" style="background-image:url('https://raw.githubusercontent.com/omk-store/omotaker/main/A4C9B8E6-BBDF-4489-927B-B535734DED3C.png');"></div>
-            <div class="meta">
-              <p class="title">Badt Guy</p>
-              <p class="sub">Single • 2024</p>
-              <p class="miniDesc">One of the records that still adds identity and attitude to your page.</p>
+          <div class="glassCard song">
+            <div class="songTop">
+              <div class="songArt" style="background-image:url('https://raw.githubusercontent.com/omk-store/omotaker/main/A4C9B8E6-BBDF-4489-927B-B535734DED3C.png');"></div>
+              <div>
+                <h3>My Door</h3>
+                <div class="sub">My Truth EP • 2025</div>
+              </div>
+            </div>
+            <p class="desc">Emotional and personal. Keeps the page feeling deep, not only promotional.</p>
+            <div class="linkRow">
+              <a class="main" href="https://open.spotify.com/track/2FMkNT1AHV4qfo7zgHil4a?si=bqMvIIRZTQCVJ6_d4M9Lkw" target="_blank" rel="noopener">Spotify</a>
+              <a href="https://music.apple.com/ng/album/my-door/1859702027?i=1859702242" target="_blank" rel="noopener">Apple</a>
+              <a href="http://dvpper.lnk.to/mytruth" target="_blank" rel="noopener">More</a>
             </div>
           </div>
-          <a class="playBtn" href="http://dvpper.lnk.to/mytruth" target="_blank" rel="noopener">Learn More</a>
-          <div class="platformBar" role="group" aria-label="Badt Guy platforms">
-            <a class="main" href="https://open.spotify.com/track/78ckyu0HPy4oOQPzee5rkx?si=6tJHaGmxQtq4GOsrkHzMHg" target="_blank" rel="noopener">Spotify</a>
-            <a href="https://music.apple.com/ng/album/badt-guy-single/1758752613" target="_blank" rel="noopener">Apple Music</a>
-            <a href="http://dvpper.lnk.to/mytruth" target="_blank" rel="noopener">More</a>
-          </div>
-        </div>
 
-        <div class="musicCard">
-          <div class="musicInner">
-            <div class="cover" style="background-image:url('https://raw.githubusercontent.com/omk-store/omotaker/main/IMG_7103.jpeg');"></div>
-            <div class="meta">
-              <p class="title">Importer Exporter</p>
-              <p class="sub">Single • 2024</p>
-              <p class="miniDesc">Sharp title, memorable feel, and a good extra record for catalogue depth.</p>
+          <div class="glassCard song">
+            <div class="songTop">
+              <div class="songArt" style="background-image:url('https://raw.githubusercontent.com/omk-store/omotaker/main/A4C9B8E6-BBDF-4489-927B-B535734DED3C.png');"></div>
+              <div>
+                <h3>Badt Guy</h3>
+                <div class="sub">Single • 2024</div>
+              </div>
+            </div>
+            <p class="desc">Still adds attitude and identity to the world of the page.</p>
+            <div class="linkRow">
+              <a class="main" href="https://open.spotify.com/track/78ckyu0HPy4oOQPzee5rkx?si=6tJHaGmxQtq4GOsrkHzMHg" target="_blank" rel="noopener">Spotify</a>
+              <a href="https://music.apple.com/ng/album/badt-guy-single/1758752613" target="_blank" rel="noopener">Apple</a>
+              <a href="http://dvpper.lnk.to/mytruth" target="_blank" rel="noopener">More</a>
             </div>
           </div>
-          <a class="playBtn" href="https://open.spotify.com/track/2rYqbqZXZEKBKzoaWWo5PN?si=1qVPzB8pQ06i5zPI2mTncA" target="_blank" rel="noopener">Play Now</a>
-          <div class="platformBar" role="group" aria-label="Importer Exporter platforms">
-            <a class="main" href="https://open.spotify.com/track/2rYqbqZXZEKBKzoaWWo5PN?si=1qVPzB8pQ06i5zPI2mTncA" target="_blank" rel="noopener">Spotify</a>
-            <a href="https://distrokid.com/hyperfollow/omotaker/importer-exporter/" target="_blank" rel="noopener">Apple Music</a>
-            <a href="https://distrokid.com/hyperfollow/omotaker/importer-exporter/" target="_blank" rel="noopener">More</a>
-          </div>
-        </div>
 
-        <div class="musicCard">
-          <div class="musicInner">
-            <div class="cover" style="background-image:url('https://raw.githubusercontent.com/omk-store/omotaker/main/IMG_7104.jpeg');"></div>
-            <div class="meta">
-              <p class="title">Ovior</p>
-              <p class="sub">Single • 2024</p>
-              <p class="miniDesc">Keeps the discography full and gives older listeners something to revisit.</p>
+          <div class="glassCard song">
+            <div class="songTop">
+              <div class="songArt" style="background-image:url('https://raw.githubusercontent.com/omk-store/omotaker/main/IMG_7103.jpeg');"></div>
+              <div>
+                <h3>Importer Exporter</h3>
+                <div class="sub">Single • 2024</div>
+              </div>
+            </div>
+            <p class="desc">Sharp title, memorable feel and a solid extra record for catalogue depth.</p>
+            <div class="linkRow">
+              <a class="main" href="https://open.spotify.com/track/2rYqbqZXZEKBKzoaWWo5PN?si=1qVPzB8pQ06i5zPI2mTncA" target="_blank" rel="noopener">Spotify</a>
+              <a href="https://distrokid.com/hyperfollow/omotaker/importer-exporter/" target="_blank" rel="noopener">Apple</a>
+              <a href="https://distrokid.com/hyperfollow/omotaker/importer-exporter/" target="_blank" rel="noopener">More</a>
             </div>
           </div>
-          <a class="playBtn" href="https://open.spotify.com/track/13gKtxG70RjXZe5utCeJfw?si=pPPMD-D5RGurxT4GzC9pZw" target="_blank" rel="noopener">Play Now</a>
-          <div class="platformBar" role="group" aria-label="Ovior platforms">
-            <a class="main" href="https://open.spotify.com/track/13gKtxG70RjXZe5utCeJfw?si=pPPMD-D5RGurxT4GzC9pZw" target="_blank" rel="noopener">Spotify</a>
-            <a href="https://music.apple.com/ng/album/ovior/1725694012?i=1725694013" target="_blank" rel="noopener">Apple Music</a>
-            <a href="https://distrokid.com/hyperfollow/omotaker/ovior/" target="_blank" rel="noopener">More</a>
-          </div>
-        </div>
 
-        <div class="musicCard">
-          <div class="musicInner">
-            <div class="cover" style="background-image:url('https://raw.githubusercontent.com/omk-store/omotaker/main/A4C9B8E6-BBDF-4489-927B-B535734DED3C.png');"></div>
-            <div class="meta">
-              <p class="title">My Truth EP</p>
-              <p class="sub">EP • 2025</p>
-              <p class="miniDesc">A bigger body of work for fans that want more than singles.</p>
+          <div class="glassCard song">
+            <div class="songTop">
+              <div class="songArt" style="background-image:url('https://raw.githubusercontent.com/omk-store/omotaker/main/IMG_7104.jpeg');"></div>
+              <div>
+                <h3>Ovior</h3>
+                <div class="sub">Single • 2024</div>
+              </div>
+            </div>
+            <p class="desc">Keeps the discography full and gives older listeners something to revisit.</p>
+            <div class="linkRow">
+              <a class="main" href="https://open.spotify.com/track/13gKtxG70RjXZe5utCeJfw?si=pPPMD-D5RGurxT4GzC9pZw" target="_blank" rel="noopener">Spotify</a>
+              <a href="https://music.apple.com/ng/album/ovior/1725694012?i=1725694013" target="_blank" rel="noopener">Apple</a>
+              <a href="https://distrokid.com/hyperfollow/omotaker/ovior/" target="_blank" rel="noopener">More</a>
             </div>
           </div>
-          <a class="playBtn" href="http://dvpper.lnk.to/mytruth" target="_blank" rel="noopener">Learn More</a>
-          <div class="platformBar" role="group" aria-label="My Truth EP platforms">
-            <a class="main" href="https://open.spotify.com/album/4DlwZGHDYZHYy4DFmwdkGG?si=nDup4Tn0RxqJlggfKyquXQ" target="_blank" rel="noopener">Spotify</a>
-            <a href="http://dvpper.lnk.to/mytruth" target="_blank" rel="noopener">Apple Music</a>
-            <a href="http://dvpper.lnk.to/mytruth" target="_blank" rel="noopener">More</a>
+
+          <div class="glassCard song">
+            <div class="songTop">
+              <div class="songArt" style="background-image:url('https://raw.githubusercontent.com/omk-store/omotaker/main/A4C9B8E6-BBDF-4489-927B-B535734DED3C.png');"></div>
+              <div>
+                <h3>My Truth EP</h3>
+                <div class="sub">EP • 2025</div>
+              </div>
+            </div>
+            <p class="desc">A bigger body of work for fans that want more than singles.</p>
+            <div class="linkRow">
+              <a class="main" href="https://open.spotify.com/album/4DlwZGHDYZHYy4DFmwdkGG?si=nDup4Tn0RxqJlggfKyquXQ" target="_blank" rel="noopener">Spotify</a>
+              <a href="http://dvpper.lnk.to/mytruth" target="_blank" rel="noopener">Apple</a>
+              <a href="http://dvpper.lnk.to/mytruth" target="_blank" rel="noopener">More</a>
+            </div>
           </div>
         </div>
-
       </div>
     </section>
 
     <section id="videos" class="section">
-      <div class="section-divider"></div>
-      <div class="sectionHead">
-        <div class="sectionKicker">Visuals</div>
-        <h2>Videos</h2>
-        <p class="lead">Premium video block with a stronger futuristic cover look.</p>
-      </div>
-
-      <a class="videoCard" href="https://youtu.be/7qlRs1gDnMI" target="_blank" rel="noopener" aria-label="Bend Down Select Official Video">
-        <div class="videoThumb">
-          <span class="videoText">Bend Down Select Official Video</span>
+      <div class="shell">
+        <div class="sectionHead">
+          <span class="k">Visuals</span>
+          <h2>Official Video</h2>
+          <p>
+            One big visual block feels more premium than many small weak thumbnails.
+          </p>
         </div>
-      </a>
+
+        <div class="videoBlock">
+          <a class="videoMain" href="https://youtu.be/7qlRs1gDnMI" target="_blank" rel="noopener" aria-label="Bend Down Select Official Video">
+            <span class="label">Bend Down Select Official Video</span>
+          </a>
+
+          <div class="videoSide">
+            <div class="glassCard">
+              <span class="cardLabel">Visual Energy</span>
+              <h3 class="nowTitle">Built For Replay</h3>
+              <p class="nowText">
+                Give the video its own breathing room. This makes the page feel more like a premium release rollout.
+              </p>
+              <div class="ctaLine">
+                <a class="btn primary" href="https://youtu.be/7qlRs1gDnMI" target="_blank" rel="noopener">Watch on YouTube</a>
+              </div>
+            </div>
+
+            <div class="glassCard">
+              <span class="cardLabel">Artist Mode</span>
+              <h3 class="nowTitle">Music + Motion + Brand</h3>
+              <p class="nowText">
+                Your website should sell the world, not just the song. That is why this layout pushes visual storytelling harder.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="impact" class="section">
+      <div class="shell">
+        <div class="sectionHead">
+          <span class="k">Impact</span>
+          <h2>Performance</h2>
+          <p>
+            Cleaner bento-style social proof that builds trust fast.
+          </p>
+        </div>
+
+        <div class="impactGrid">
+          <div class="glassCard impactStat">
+            <div class="tag">Followers</div>
+            <div class="num countUp" data-target="17800" data-format="17.8K">0</div>
+            <div class="small">Cross-platform artist audience and growing community.</div>
+          </div>
+
+          <div class="glassCard impactStat">
+            <div class="tag">Streams</div>
+            <div class="num countUp" data-target="289000" data-format="289K">0</div>
+            <div class="small">Catalogue consumption across main music platforms.</div>
+          </div>
+
+          <div class="glassCard impactStat">
+            <div class="tag">Playlist Reach</div>
+            <div class="num countUp" data-target="29500" data-format="29.5K">0</div>
+            <div class="small">Signal that the records are touching discovery surfaces.</div>
+          </div>
+
+          <div class="glassCard impactStat">
+            <div class="tag">Shazams</div>
+            <div class="num countUp" data-target="14600" data-format="14.6K">0</div>
+            <div class="small">Real curiosity and strong identification energy.</div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <section id="store" class="section">
-      <div class="section-divider"></div>
-      <div class="sectionHead">
-        <div class="sectionKicker">Fashion</div>
-        <h2>Shop OMK</h2>
-      </div>
+      <div class="shell">
+        <div class="sectionHead">
+          <span class="k">Fashion</span>
+          <h2>Shop OMK</h2>
+          <p>
+            Keep merch direct, clean and premium.
+          </p>
+        </div>
 
-      <div class="premiumCard">
-        <div class="premiumInner">
-          <h3 class="premiumTitle">OMK Drip Store</h3>
-          <p class="premiumSub">Premium wolf energy. Clothing, merch and future drops under your OMK brand.</p>
-          <a class="cta primary" href="https://omkdrip.com" target="_blank" rel="noopener">Visit OMK Store</a>
+        <div class="glassCard">
+          <span class="cardLabel">OMK Drip</span>
+          <h3 class="nowTitle">Premium Wolf Energy</h3>
+          <p class="nowText">
+            Clothing, merch and future drops under your OMK brand.
+          </p>
+          <div class="ctaLine">
+            <a class="btn primary" href="https://omkdrip.com" target="_blank" rel="noopener">Visit OMK Store</a>
+          </div>
         </div>
       </div>
     </section>
 
     <section id="connect" class="section">
-      <div class="section-divider"></div>
-      <div class="sectionHead">
-        <div class="sectionKicker">Community</div>
-        <h2>Connect</h2>
-        <p class="lead">Keep your people close. New drops, updates and direct access.</p>
-      </div>
-
-      <div class="grid2">
-        <div class="premiumCard">
-          <div class="premiumInner">
-            <h3 class="premiumTitle">Join OMK Community</h3>
-            <p class="premiumSub">Get updates, drops and new music first. No long stress, just direct vibes.</p>
-            <a class="cta primary" href="https://chat.whatsapp.com/LeHieowBwWr40vuNG8XCaf" target="_blank" rel="noopener">Join WhatsApp Community</a>
-          </div>
+      <div class="shell">
+        <div class="sectionHead">
+          <span class="k">Community</span>
+          <h2>Connect</h2>
+          <p>
+            Keep your people close. Direct community and direct artist access.
+          </p>
         </div>
 
-        <div class="premiumCard">
-          <div class="premiumInner">
-            <h3 class="premiumTitle">Follow Omo Taker</h3>
-            <p class="premiumSub">Instagram, TikTok and Snapchat.</p>
+        <div class="connectGrid">
+          <div class="glassCard">
+            <span class="cardLabel">Community</span>
+            <h3 class="nowTitle">Join OMK Community</h3>
+            <p class="nowText">
+              Get updates, drops and new music first. No long stress, just direct vibes.
+            </p>
+            <div class="ctaLine">
+              <a class="btn primary" href="https://chat.whatsapp.com/LeHieowBwWr40vuNG8XCaf" target="_blank" rel="noopener">Join WhatsApp Community</a>
+            </div>
+          </div>
 
-            <div class="socialDock" aria-label="Follow links" style="margin-top:18px;">
+          <div class="glassCard">
+            <span class="cardLabel">Follow</span>
+            <h3 class="nowTitle">Follow Omo Taker</h3>
+            <p class="nowText">
+              Instagram, TikTok and Snapchat.
+            </p>
+
+            <div class="heroSocials" aria-label="Follow links">
               <a class="iconBtn" href="https://www.instagram.com/iam__omotaker?igsh=MTEwM2RiOHV1ZjJzdQ%3D%3D&utm_source=qr" target="_blank" rel="noopener" aria-label="Instagram">
                 <span class="brandIcon" style="--mask:url('https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg');"></span>
               </a>
-
               <a class="iconBtn" href="https://www.tiktok.com/@iam.omotaker?_r=1&_t=ZS-94R7kuZiptd" target="_blank" rel="noopener" aria-label="TikTok">
                 <span class="brandIcon" style="--mask:url('https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/tiktok.svg');"></span>
               </a>
-
               <a class="iconBtn" href="https://www.snapchat.com/@omotaker1" target="_blank" rel="noopener" aria-label="Snapchat">
                 <span class="brandIcon" style="--mask:url('https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/snapchat.svg');"></span>
               </a>
@@ -1272,154 +1262,11 @@
         </div>
       </div>
     </section>
+  </main>
 
-    <section id="impact" class="section">
-      <div class="section-divider"></div>
-      <div class="sectionHead">
-        <div class="sectionKicker">Impact</div>
-        <h2>Omo Taker</h2>
-        <p class="lead">Simple, clean and futuristic social proof for ad traffic.</p>
-      </div>
-
-      <div class="impactWrap">
-
-        <div class="impactHero">
-          <div class="impactHeroInner">
-            <img
-              class="impactAvatar"
-              src="YOUR_OLD_PAGE_PROFILE_IMAGE_HERE"
-              alt="Omo Taker profile"
-              onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/omk-store/omotaker/main/IMG_6917.jpeg';"
-            />
-
-            <div>
-              <div class="impactMetaTop">
-                <span class="impactBadge">Performance</span>
-                <span class="impactLiveDot"></span>
-              </div>
-
-              <h3 class="impactName">Omo Taker</h3>
-              <div class="impactSubline">Live performance • music reach • artist impact</div>
-              <div class="impactTiny">Built for quick trust, clean look and better ad clicks.</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="impactStack">
-
-          <div class="impactCard">
-            <div class="impactInner">
-              <div class="impactLeft">
-                <h3>Followers</h3>
-                <div class="impactIcons">
-                  <span class="dotIcon spotifyC">S</span>
-                  <span class="dotIcon instaC">I</span>
-                  <span class="dotIcon ytC">Y</span>
-                  <span class="dotIcon scC">C</span>
-                </div>
-              </div>
-              <div class="impactValue countUp" data-target="17800" data-format="17.8K">0</div>
-            </div>
-          </div>
-
-          <div class="impactCard">
-            <div class="impactInner">
-              <div class="impactLeft">
-                <h3>Streams</h3>
-                <div class="impactIcons">
-                  <span class="dotIcon spotifyC">S</span>
-                  <span class="dotIcon ytC">Y</span>
-                  <span class="dotIcon scC">C</span>
-                </div>
-              </div>
-              <div class="impactValue countUp" data-target="289000" data-format="289K">0</div>
-            </div>
-          </div>
-
-          <div class="impactCard">
-            <div class="impactInner">
-              <div class="impactLeft">
-                <h3>Playlists</h3>
-                <div class="impactIcons">
-                  <span class="dotIcon spotifyC">S</span>
-                </div>
-              </div>
-              <div class="impactValue countUp" data-target="10" data-format="10">0</div>
-            </div>
-          </div>
-
-          <div class="impactCard">
-            <div class="impactInner">
-              <div class="impactLeft">
-                <h3>Playlist Reach</h3>
-                <div class="impactIcons">
-                  <span class="dotIcon spotifyC">S</span>
-                </div>
-              </div>
-              <div class="impactValue countUp" data-target="29500" data-format="29.5K">0</div>
-            </div>
-          </div>
-
-          <div class="impactGrid2">
-            <div class="impactMini">
-              <div class="impactMiniInner">
-                <div>
-                  <h3 class="impactMiniTitle">Charts</h3>
-                  <div class="impactMiniIcons">
-                    <span class="dotIcon shazamC">S</span>
-                  </div>
-                </div>
-                <div class="impactValue countUp" data-target="1" data-format="1">0</div>
-              </div>
-            </div>
-
-            <div class="impactMini">
-              <div class="impactMiniInner">
-                <div>
-                  <h3 class="impactMiniTitle">Shazams</h3>
-                  <div class="impactMiniIcons">
-                    <span class="dotIcon shazamC">S</span>
-                  </div>
-                </div>
-                <div class="impactValue countUp" data-target="14600" data-format="14.6K">0</div>
-              </div>
-            </div>
-
-            <div class="impactMini">
-              <div class="impactMiniInner">
-                <div>
-                  <h3 class="impactMiniTitle">Videos</h3>
-                  <div class="impactMiniIcons">
-                    <span class="dotIcon instaC">I</span>
-                    <span class="dotIcon ytC">Y</span>
-                    <span class="dotIcon scC">C</span>
-                  </div>
-                </div>
-                <div class="impactValue countUp" data-target="1337" data-format="1337">0</div>
-              </div>
-            </div>
-
-            <div class="impactMini">
-              <div class="impactMiniInner">
-                <div>
-                  <h3 class="impactMiniTitle">Views</h3>
-                  <div class="impactMiniIcons">
-                    <span class="dotIcon instaC">I</span>
-                    <span class="dotIcon ytC">Y</span>
-                    <span class="dotIcon scC">C</span>
-                  </div>
-                </div>
-                <div class="impactValue countUp" data-target="2770000" data-format="2.77M">0</div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <footer>© <span id="yr"></span> Omo Taker • All rights reserved</footer>
-  </div>
+  <footer>
+    © <span id="yr"></span> Omo Taker • All Rights Reserved
+  </footer>
 
   <script>
     document.getElementById("yr").textContent = new Date().getFullYear();
@@ -1436,40 +1283,22 @@
     links.forEach(link => {
       link.addEventListener("click", () => {
         const href = link.getAttribute("href");
-        if(href && href.startsWith("#")) setActive(href.slice(1));
+        if (href && href.startsWith("#")) setActive(href.slice(1));
       });
     });
 
     const observer = new IntersectionObserver((entries) => {
       const visible = entries
         .filter(entry => entry.isIntersecting)
-        .sort((a,b) => b.intersectionRatio - a.intersectionRatio)[0];
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
 
-      if(visible) setActive(visible.target.id);
+      if (visible) setActive(visible.target.id);
     }, {
-      threshold:[0.16,0.26,0.36,0.5],
-      rootMargin:"-25% 0px -58% 0px"
+      threshold:[0.18,0.3,0.45,0.6],
+      rootMargin:"-24% 0px -55% 0px"
     });
 
     sections.forEach(section => observer.observe(section));
-
-    const heroPopup = document.getElementById("heroPopup");
-    const heroClose = document.getElementById("heroClose");
-
-    setTimeout(() => {
-      if(heroPopup && !sessionStorage.getItem("heroPopupClosed")){
-        heroPopup.classList.remove("hiddenPopup");
-        heroPopup.classList.add("showPopup");
-      }
-    }, 3000);
-
-    if(heroClose){
-      heroClose.addEventListener("click", () => {
-        heroPopup.classList.remove("showPopup");
-        heroPopup.classList.add("hiddenPopup");
-        sessionStorage.setItem("heroPopupClosed", "true");
-      });
-    }
 
     const countObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -1478,32 +1307,32 @@
         if (el.dataset.done === "true") return;
 
         const target = Number(el.dataset.target || 0);
-        const display = el.dataset.format || String(target);
+        const finalValue = el.dataset.format || String(target);
         const duration = 1300;
         const startTime = performance.now();
 
-        function step(now){
+        function frame(now){
           const progress = Math.min((now - startTime) / duration, 1);
           const current = Math.floor(target * progress);
 
-          if (progress < 1) {
-            if (target >= 1000000) {
-              el.textContent = (current / 1000000).toFixed(2).replace(/\.00$/,'') + "M";
-            } else if (target >= 1000) {
-              el.textContent = (current / 1000).toFixed(current < 10000 ? 1 : 0).replace(/\.0$/,'') + "K";
+          if (progress < 1){
+            if (target >= 1000000){
+              el.textContent = (current / 1000000).toFixed(2).replace(/\.00$/, "") + "M";
+            } else if (target >= 1000){
+              el.textContent = (current / 1000).toFixed(current < 10000 ? 1 : 0).replace(/\.0$/, "") + "K";
             } else {
               el.textContent = current.toLocaleString();
             }
-            requestAnimationFrame(step);
+            requestAnimationFrame(frame);
           } else {
-            el.textContent = display;
+            el.textContent = finalValue;
             el.dataset.done = "true";
           }
         }
 
-        requestAnimationFrame(step);
+        requestAnimationFrame(frame);
       });
-    }, { threshold: 0.35 });
+    }, { threshold:0.35 });
 
     document.querySelectorAll(".countUp").forEach(el => countObserver.observe(el));
   </script>
