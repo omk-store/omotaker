@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>EV | Everyday Vibe</title>
   <meta name="theme-color" content="#06111f" />
-  <meta name="description" content="Everyday Vibe — promo campaigns, artist branding, music discovery, and growth." />
+  <meta name="description" content="Everyday Vibe — cinematic promo for music, brands, and businesses." />
 
   <style>
     :root{
@@ -213,13 +213,13 @@
       line-height:1.04;
       letter-spacing:-1.4px;
       margin-bottom:14px;
-      max-width:700px;
+      max-width:760px;
       text-align:center;
     }
 
     .hero p{
       color:var(--muted);
-      max-width:680px;
+      max-width:720px;
       font-size:1.06rem;
       text-align:center;
     }
@@ -462,8 +462,75 @@
       font-weight:900;
     }
 
+    .floating-chat{
+      position:fixed;
+      right:18px;
+      bottom:18px;
+      z-index:999;
+      display:flex;
+      flex-direction:column;
+      align-items:flex-end;
+      gap:10px;
+    }
+
+    .floating-chat-note{
+      max-width:220px;
+      padding:12px 14px;
+      border-radius:18px 18px 6px 18px;
+      background:linear-gradient(180deg, rgba(18,30,58,.95), rgba(8,15,32,.95));
+      border:1px solid rgba(142,216,255,.20);
+      color:#dff3ff;
+      font-size:.92rem;
+      box-shadow:var(--glow2);
+      opacity:0;
+      transform:translateY(12px) scale(.96);
+      pointer-events:none;
+      transition:.35s ease;
+    }
+
+    .floating-chat.show .floating-chat-note{
+      opacity:1;
+      transform:translateY(0) scale(1);
+    }
+
+    .floating-chat-btn{
+      min-height:58px;
+      padding:0 18px;
+      border:none;
+      border-radius:999px;
+      background:linear-gradient(135deg, var(--blue3), var(--blue2));
+      color:#fff;
+      font-weight:900;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      box-shadow:0 18px 40px rgba(70,150,255,.32);
+      animation:floatPulse 2.4s ease-in-out infinite;
+      cursor:pointer;
+    }
+
+    .floating-chat-btn span{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:30px;
+      height:30px;
+      border-radius:50%;
+      background:rgba(255,255,255,.16);
+      font-size:1rem;
+    }
+
+    @keyframes floatPulse{
+      0%,100%{
+        transform:translateY(0);
+      }
+      50%{
+        transform:translateY(-4px);
+      }
+    }
+
     footer{
-      padding:34px 0 60px;
+      padding:34px 0 90px;
       text-align:center;
       color:var(--soft);
     }
@@ -521,6 +588,16 @@
       .hero-actions{
         width:100%;
       }
+
+      .floating-chat{
+        right:14px;
+        bottom:14px;
+      }
+
+      .floating-chat-note{
+        max-width:180px;
+        font-size:.88rem;
+      }
     }
   </style>
 </head>
@@ -537,10 +614,10 @@
         <a href="#about">About</a>
         <a href="#platforms">Platforms</a>
         <a href="#services">Packages</a>
-        <a href="#submit">Submit</a>
+        <a href="#submit">Start</a>
       </nav>
 
-      <a class="nav-cta" href="https://wa.me/2340000000000?text=Hi%20EV%2C%20I%20want%20to%20promote%20my%20song.">Start Now</a>
+      <a class="nav-cta" href="#submit">Start Now</a>
     </div>
   </header>
 
@@ -549,16 +626,16 @@
       <div class="wrap">
         <div class="hero-box">
           <div class="hero-text">
-            <div class="eyebrow">EV Campaigns • Artist Promo</div>
-            <h1>Push your song with EV Everyday Vibe</h1>
+            <div class="eyebrow">Music • Brand • Business Promo</div>
+            <h1>Promote your music, brand, or business with EV Everyday Vibe</h1>
             <p>
-              We help artists grow with clean promo, stronger branding, social media visibility,
-              and a simple way for new fans to discover the music fast.
+              We create cinematic promo, strong visuals, and attention-grabbing campaign support
+              for artists, brands, and businesses that want to stand out fast.
             </p>
 
             <div class="hero-actions">
               <a class="btn btn-primary" href="#services">View Packages</a>
-              <a class="btn btn-ghost" href="#submit">Submit Your Song</a>
+              <a class="btn btn-ghost" href="#submit">Get Started</a>
             </div>
           </div>
 
@@ -572,25 +649,25 @@
     <section id="about">
       <div class="wrap">
         <div class="section-head">
-          <h2>Built for artists that want movement</h2>
+          <h2>Built for attention, movement, and clean presentation</h2>
           <p>
-            Everyday Vibe helps artists get seen with campaign support, promo strategy, clean branding,
-            and a simple way for listeners and followers to connect with the music fast.
+            Everyday Vibe helps artists, brands, and businesses grow with cinematic content,
+            promo strategy, stronger branding, and a clean digital presence that converts attention into real interest.
           </p>
         </div>
 
         <div class="stats">
           <div class="stat">
-            <h3>TikTok</h3>
-            <p>Push your music through short-form content, viral moments, and audience engagement.</p>
+            <h3>Music</h3>
+            <p>Push songs, projects, visuals, and artist identity with stronger campaign energy.</p>
           </div>
           <div class="stat">
-            <h3>Instagram</h3>
-            <p>Promote your sound with reels, posts, stories, and strong artist presentation.</p>
+            <h3>Brands</h3>
+            <p>Promote products, pages, offers, and visuals with a premium creative look.</p>
           </div>
           <div class="stat">
-            <h3>Facebook</h3>
-            <p>Use Everyday Vibe as a strong promo page for artist campaigns, offers, and growth.</p>
+            <h3>Business</h3>
+            <p>Create short promo content that helps people notice your service or business fast.</p>
           </div>
         </div>
       </div>
@@ -599,14 +676,14 @@
     <section id="platforms">
       <div class="wrap">
         <div class="section-head">
-          <h2>Choose a platform</h2>
-          <p>Open the platform you want to use for promotion and audience growth.</p>
+          <h2>Choose your platform</h2>
+          <p>Use the platform that fits your audience and the kind of promotion you want.</p>
         </div>
 
         <div class="platforms">
           <div class="platform-card">
             <h3>TikTok Promotion</h3>
-            <p>Drive viral traffic and engagement through TikTok content and music discovery.</p>
+            <p>Best for viral moments, motion content, creative edits, and fast attention.</p>
             <div class="hero-actions">
               <a class="btn btn-primary" href="YOUR_TIKTOK_LINK" target="_blank" rel="noopener">Open TikTok</a>
             </div>
@@ -614,7 +691,7 @@
 
           <div class="platform-card">
             <h3>Instagram Promotion</h3>
-            <p>Reach real fans through reels, posts, stories, and stronger artist visibility.</p>
+            <p>Best for reels, branding, business visuals, and high-quality public presentation.</p>
             <div class="hero-actions">
               <a class="btn btn-primary" href="YOUR_INSTAGRAM_LINK" target="_blank" rel="noopener">Open Instagram</a>
             </div>
@@ -622,7 +699,7 @@
 
           <div class="platform-card">
             <h3>Facebook Promotion</h3>
-            <p>Push your music to wider audiences using Facebook content, pages, and promo support.</p>
+            <p>Best for wider reach, promo support, page growth, and campaign visibility.</p>
             <div class="hero-actions">
               <a class="btn btn-primary" href="YOUR_FACEBOOK_LINK" target="_blank" rel="noopener">Open Facebook</a>
             </div>
@@ -635,64 +712,64 @@
       <div class="wrap">
         <div class="section-head">
           <h2>EV campaign packages</h2>
-          <p>Simple packages artists can understand quickly and book without stress.</p>
+          <p>Simple packages for music, brand, and business promotion.</p>
         </div>
 
         <div class="services">
           <article class="service-card">
             <span class="tag">Starter</span>
             <h3>Promo Setup</h3>
-            <p>We set up a clean campaign direction around your sound and artist brand.</p>
+            <p>Clean setup for your promo direction, visual style, and campaign planning.</p>
             <div class="price">₦30,000</div>
             <ul class="features">
-              <li>Promo setup</li>
-              <li>Artist campaign direction</li>
-              <li>Platform selection support</li>
-              <li>Clean presentation</li>
+              <li>Promo direction</li>
+              <li>Brand or music positioning</li>
+              <li>Platform recommendation</li>
+              <li>Clean presentation setup</li>
             </ul>
-            <a class="btn btn-primary" href="https://wa.me/2340000000000?text=Hi%20EV%2C%20I%20want%20the%20Promo%20Setup%20package.">Start on WhatsApp</a>
+            <a class="btn btn-primary" href="#submit">Get Started</a>
           </article>
 
           <article class="service-card">
             <span class="tag">Popular</span>
             <h3>Setup + Push</h3>
-            <p>Campaign setup with light promo push to help your music start moving.</p>
+            <p>Promo setup with added push to help your content start getting stronger attention.</p>
             <div class="price">₦50,000</div>
             <ul class="features">
               <li>Promo setup included</li>
               <li>Light campaign push</li>
+              <li>Stronger public look</li>
               <li>Better visibility</li>
-              <li>Stronger artist positioning</li>
             </ul>
-            <a class="btn btn-primary" href="https://wa.me/2340000000000?text=Hi%20EV%2C%20I%20want%20the%20Setup%20%2B%20Push%20package.">Book Campaign</a>
+            <a class="btn btn-primary" href="#submit">Book Package</a>
           </article>
 
           <article class="service-card">
             <span class="tag">Growth</span>
             <h3>7-Day Campaign</h3>
-            <p>Focused 7-day campaign for discovery, audience growth, and stronger attention.</p>
+            <p>Focused 7-day campaign for more discovery, stronger reach, and real movement.</p>
             <div class="price">₦80,000</div>
             <ul class="features">
-              <li>7-day push</li>
-              <li>Audience growth focus</li>
-              <li>Promo support</li>
-              <li>Better artist exposure</li>
+              <li>7-day campaign support</li>
+              <li>Attention growth focus</li>
+              <li>Creative promo direction</li>
+              <li>Best for active pushes</li>
             </ul>
-            <a class="btn btn-primary" href="https://wa.me/2340000000000?text=Hi%20EV%2C%20I%20want%20the%207-Day%20Campaign%20package.">Get Started</a>
+            <a class="btn btn-primary" href="#submit">Get Started</a>
           </article>
 
           <article class="service-card">
             <span class="tag">Premium</span>
-            <h3>Artist Radio Push</h3>
-            <p>Bigger campaign look with stronger promo support for more serious releases.</p>
+            <h3>Cinematic Push</h3>
+            <p>Bigger campaign look for serious music, premium brands, and stronger business offers.</p>
             <div class="price">₦120,000</div>
             <ul class="features">
               <li>Premium campaign push</li>
-              <li>Strong artist presentation</li>
-              <li>Higher promo attention</li>
-              <li>Best for bigger releases</li>
+              <li>Cinematic visual direction</li>
+              <li>High attention presentation</li>
+              <li>Best for serious launches</li>
             </ul>
-            <a class="btn btn-primary" href="https://wa.me/2340000000000?text=Hi%20EV%2C%20I%20want%20the%20Artist%20Radio%20Push%20package.">Book Campaign</a>
+            <a class="btn btn-primary" href="#submit">Book Package</a>
           </article>
         </div>
       </div>
@@ -702,26 +779,26 @@
       <div class="wrap">
         <div class="section-head">
           <h2>How it works</h2>
-          <p>Fast process. Easy for artists. Clear offer.</p>
+          <p>Simple, fast, and clear.</p>
         </div>
 
         <div class="steps">
           <div class="step">
             <div class="num">1</div>
-            <h3>Send your song</h3>
-            <p>Send your artist name, song link, preferred platform, and the package you want.</p>
+            <h3>Tell us what you want to promote</h3>
+            <p>Send your music, brand, business, link, or idea with the package you want.</p>
           </div>
 
           <div class="step">
             <div class="num">2</div>
-            <h3>We build the campaign</h3>
-            <p>We shape the best promo direction for your song and artist brand.</p>
+            <h3>We shape the direction</h3>
+            <p>We build the right promo angle, visual style, and platform direction for your goal.</p>
           </div>
 
           <div class="step">
             <div class="num">3</div>
-            <h3>We start the push</h3>
-            <p>We begin promo support based on your package to help your music gain attention.</p>
+            <h3>We launch the push</h3>
+            <p>Once confirmed, we begin your campaign support and promo movement.</p>
           </div>
         </div>
       </div>
@@ -732,23 +809,23 @@
         <div class="contact">
           <div class="contact-box">
             <div class="section-head">
-              <h2>Submit your song</h2>
+              <h2>Start your promotion</h2>
               <p>
-                Send your song link, artist name, preferred platform, and selected package.
-                Payment details will be sent after your request is confirmed.
+                Tell us what you want to promote and where you want the attention to go.
+                Once your request is confirmed, payment details can be sent to you.
               </p>
             </div>
 
             <ul class="contact-list">
-              <li>Artist name</li>
-              <li>Song link</li>
-              <li>TikTok, Instagram, or Facebook</li>
+              <li>What are you promoting (music / brand / business)</li>
+              <li>Song link, page link, or short description</li>
+              <li>Preferred platform (TikTok, Instagram, Facebook)</li>
               <li>Selected package</li>
-              <li>WhatsApp number or Instagram handle</li>
+              <li>Email or Instagram handle</li>
             </ul>
 
             <div class="hero-actions" style="margin-top:20px;">
-              <a class="btn btn-primary" href="https://wa.me/2340000000000?text=Hi%20EV%2C%20I%20want%20to%20submit%20my%20song%20for%20promotion.">Submit on WhatsApp</a>
+              <a class="btn btn-primary" href="YOUR_INSTAGRAM_LINK" target="_blank" rel="noopener">Contact AV on Instagram</a>
               <a class="btn btn-ghost" href="#">Back to Top</a>
             </div>
           </div>
@@ -758,14 +835,14 @@
               <h2>Why this page works</h2>
             </div>
             <p>
-              This landing page gives artists one clean place to understand your offer, see pricing,
-              choose a platform, and contact you fast.
+              This page gives people one clean place to understand your offer, see your packages,
+              choose a platform, and contact AV fast without leaving the brand feeling.
             </p>
             <ul class="contact-list">
-              <li>Strong hero image</li>
-              <li>Simple pricing layout</li>
-              <li>Easy WhatsApp conversion</li>
-              <li>Good for ads and direct promotion</li>
+              <li>Stronger headline</li>
+              <li>Works for music, brand, and business</li>
+              <li>Cleaner conversion flow</li>
+              <li>No WhatsApp dependency</li>
             </ul>
           </div>
         </div>
@@ -778,6 +855,32 @@
       © 2026 EV • Everyday Vibe
     </div>
   </footer>
+
+  <a class="floating-chat" id="floatingChat" href="YOUR_INSTAGRAM_LINK" target="_blank" rel="noopener">
+    <div class="floating-chat-note">Contact AV live — tap to connect</div>
+    <div class="floating-chat-btn">
+      <span>💬</span>
+      <strong>Contact AV</strong>
+    </div>
+  </a>
+
+  <script>
+    const floatingChat = document.getElementById('floatingChat');
+
+    function showFloatingChat() {
+      floatingChat.classList.add('show');
+    }
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 140) {
+        showFloatingChat();
+      }
+    });
+
+    window.addEventListener('load', () => {
+      setTimeout(showFloatingChat, 1200);
+    });
+  </script>
 
 </body>
 </html>
