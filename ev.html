@@ -81,6 +81,10 @@
       max-width:100%;
     }
 
+    button{
+      font:inherit;
+    }
+
     .wrap{
       width:min(100%, var(--max));
       margin:auto;
@@ -458,7 +462,7 @@
     }
 
     footer{
-      padding:34px 0 60px;
+      padding:34px 0 90px;
       text-align:center;
       color:var(--soft);
     }
@@ -468,8 +472,8 @@
       inset:0;
       background:rgba(1,4,10,.72);
       display:flex;
-      align-items:center;
-      justify-content:center;
+      align-items:flex-end;
+      justify-content:flex-end;
       padding:20px;
       z-index:500;
       opacity:0;
@@ -483,13 +487,19 @@
     }
 
     .modal-card{
-      width:min(100%, 540px);
-      background:linear-gradient(180deg, rgba(11,18,34,.96), rgba(8,14,28,.98));
+      width:min(100%, 390px);
+      background:linear-gradient(180deg, rgba(11,18,34,.97), rgba(8,14,28,.99));
       border:1px solid var(--line);
       border-radius:28px;
-      box-shadow:0 30px 90px rgba(0,0,0,.38);
-      padding:24px;
+      box-shadow:0 30px 90px rgba(0,0,0,.42);
+      padding:22px;
       position:relative;
+      transform:translateY(18px) scale(.98);
+      transition:.25s ease;
+    }
+
+    .modal.show .modal-card{
+      transform:translateY(0) scale(1);
     }
 
     .modal-top{
@@ -520,19 +530,25 @@
       margin-bottom:18px;
     }
 
+    .chat-list{
+      margin:0;
+      gap:12px;
+    }
+
     .chat-list a{
       display:flex;
       align-items:center;
-      justify-content:center;
-      min-height:56px;
-      border-radius:16px;
+      justify-content:flex-start;
+      min-height:58px;
+      border-radius:18px;
       background:rgba(255,255,255,.05);
       border:1px solid var(--line);
       color:#fff;
       font-weight:800;
       transition:.2s ease;
       padding:0 16px;
-      text-align:center;
+      text-align:left;
+      gap:12px;
     }
 
     .chat-list a:hover{
@@ -544,6 +560,86 @@
       background:linear-gradient(135deg, var(--blue3), var(--blue2));
       box-shadow:var(--glow);
       border:none;
+    }
+
+    .chat-icon{
+      width:38px;
+      height:38px;
+      border-radius:12px;
+      display:grid;
+      place-items:center;
+      background:rgba(255,255,255,.10);
+      font-weight:900;
+      flex:0 0 38px;
+    }
+
+    .chat-copy{
+      display:flex;
+      flex-direction:column;
+      gap:2px;
+    }
+
+    .chat-copy strong{
+      font-size:.98rem;
+      line-height:1.1;
+    }
+
+    .chat-copy span{
+      font-size:.8rem;
+      opacity:.82;
+      font-weight:600;
+    }
+
+    .floating-chat{
+      position:fixed;
+      right:18px;
+      bottom:18px;
+      z-index:450;
+      border:none;
+      background:transparent;
+      cursor:pointer;
+    }
+
+    .floating-chat-inner{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-height:62px;
+      padding:10px 16px 10px 10px;
+      border-radius:999px;
+      background:linear-gradient(135deg, rgba(47,123,255,.96), rgba(142,216,255,.96));
+      color:#fff;
+      box-shadow:0 22px 50px rgba(47,123,255,.34);
+      border:1px solid rgba(255,255,255,.14);
+    }
+
+    .floating-badge{
+      width:42px;
+      height:42px;
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      background:rgba(255,255,255,.18);
+      font-weight:900;
+      font-size:1rem;
+      flex:0 0 42px;
+    }
+
+    .floating-text{
+      display:flex;
+      flex-direction:column;
+      align-items:flex-start;
+      line-height:1.05;
+    }
+
+    .floating-text strong{
+      font-size:.95rem;
+    }
+
+    .floating-text span{
+      font-size:.76rem;
+      opacity:.92;
+      font-weight:700;
     }
 
     @media (max-width:1080px){
@@ -616,6 +712,25 @@
 
       .hero-image img{
         min-height:320px;
+      }
+
+      .floating-chat{
+        right:12px;
+        bottom:12px;
+      }
+
+      .floating-chat-inner{
+        padding-right:14px;
+      }
+
+      .modal{
+        padding:12px;
+        align-items:flex-end;
+        justify-content:center;
+      }
+
+      .modal-card{
+        width:100%;
       }
     }
   </style>
@@ -880,6 +995,16 @@
     </div>
   </footer>
 
+  <button class="floating-chat" id="floatingContact" aria-label="Open Contact EV">
+    <span class="floating-chat-inner">
+      <span class="floating-badge">EV</span>
+      <span class="floating-text">
+        <strong>Contact EV</strong>
+        <span>Live chat</span>
+      </span>
+    </span>
+  </button>
+
   <div class="modal" id="contactModal">
     <div class="modal-card">
       <div class="modal-top">
@@ -889,10 +1014,37 @@
       <p class="modal-text">Choose where you want to reach Everyday Vibe.</p>
 
       <div class="chat-list">
-        <a class="primary" href="https://tiktok.me/everydayvibe001" target="_blank" rel="noopener">Live Chat</a>
-        <a href="https://www.tiktok.com/@everydayvibe001?_r=1&_t=ZS-94wCP5fMbzw" target="_blank" rel="noopener">TikTok</a>
-        <a href="https://www.instagram.com/everydayvibe01?igsh=MTEwM2RiOHV1ZjJzdQ%3D%3D&utm_source=qr" target="_blank" rel="noopener">Instagram</a>
-        <a href="https://www.facebook.com/share/18LMfUsaQu/?mibextid=wwXIfr" target="_blank" rel="noopener">Facebook</a>
+        <a class="primary" href="https://tiktok.me/everydayvibe001" target="_blank" rel="noopener">
+          <span class="chat-icon">💬</span>
+          <span class="chat-copy">
+            <strong>Live Chat</strong>
+            <span>Talk to Everyday Vibe now</span>
+          </span>
+        </a>
+
+        <a href="https://www.tiktok.com/@everydayvibe001?_r=1&_t=ZS-94wCP5fMbzw" target="_blank" rel="noopener">
+          <span class="chat-icon">T</span>
+          <span class="chat-copy">
+            <strong>TikTok</strong>
+            <span>@everydayvibe001</span>
+          </span>
+        </a>
+
+        <a href="https://www.instagram.com/everydayvibe01?igsh=MTEwM2RiOHV1ZjJzdQ%3D%3D&utm_source=qr" target="_blank" rel="noopener">
+          <span class="chat-icon">I</span>
+          <span class="chat-copy">
+            <strong>Instagram</strong>
+            <span>@everydayvibe01</span>
+          </span>
+        </a>
+
+        <a href="https://www.facebook.com/share/18LMfUsaQu/?mibextid=wwXIfr" target="_blank" rel="noopener">
+          <span class="chat-icon">F</span>
+          <span class="chat-copy">
+            <strong>Facebook</strong>
+            <span>Everyday Vibe page</span>
+          </span>
+        </a>
       </div>
     </div>
   </div>
@@ -902,6 +1054,7 @@
     const openers = [
       document.getElementById('openContact'),
       document.getElementById('openContactHero'),
+      document.getElementById('floatingContact'),
       ...document.querySelectorAll('.openContactBtn')
     ].filter(Boolean);
 
