@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OMK | Top 100 Nigeria</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0b0f1a;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 400px;
+      width: 90%;
+    }
+
+    h1 {
+      font-size: 26px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      opacity: 0.7;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      display: block;
+      width: 100%;
+      padding: 18px;
+      margin: 15px 0;
+      border-radius: 12px;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .spotify {
+      background: #1DB954;
+      color: black;
+    }
+
+    .apple {
+      background: black;
+      border: 2px solid white;
+      color: white;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+    }
+
+    .footer {
+      margin-top: 30px;
+      font-size: 12px;
+      opacity: 0.5;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <h1>TOP 100 NIGERIA 🇳🇬</h1>
+  <p>Choose your platform</p>
+
+  <a href="https://open.spotify.com/playlist/1Ox7VYqq4rFq1gYPPRP8Fh" class="btn spotify">
+    🎧 Listen on Spotify
+  </a>
+
+  <a href="https://music.apple.com/ng/playlist/everyday-vibe/pl.u-DdAN8l3TN2ANagg" class="btn apple">
+    🍎 Listen on Apple Music
+  </a>
+
+  <div class="footer">
+    Powered by OMK 🐺
+  </div>
+
+</div>
+
+</body>
+</html>
