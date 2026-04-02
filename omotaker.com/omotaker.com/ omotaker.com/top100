@@ -9,62 +9,125 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: #000;
+  background: #0b0f1a;
   color: white;
   text-align: center;
 }
 
+/* Glow background */
+body::before {
+  content: "";
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, #1a1f3c, #000);
+  z-index: -1;
+}
+
+/* Container */
 .container {
   max-width: 420px;
   margin: auto;
-  padding: 20px;
+  padding: 25px 20px;
 }
 
-img {
-  width: 100%;
-  border-radius: 12px;
-  margin-bottom: 20px;
+/* Profile image */
+.profile {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+  border: 2px solid #1DB954;
 }
 
-.btn {
-  display: block;
-  width: 100%;
-  padding: 18px;
-  margin: 12px 0;
-  border-radius: 12px;
-  text-decoration: none;
-  font-size: 18px;
+/* Name */
+.name {
+  font-size: 20px;
   font-weight: bold;
 }
 
+/* Poster */
+.poster {
+  width: 100%;
+  border-radius: 12px;
+  margin: 20px 0;
+}
+
+/* Buttons */
+.btn {
+  display: block;
+  width: 100%;
+  padding: 16px;
+  margin: 12px 0;
+  border-radius: 12px;
+  text-decoration: none;
+  font-size: 17px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+/* Spotify */
 .spotify {
   background: #1DB954;
   color: black;
 }
 
+/* Apple */
 .apple {
   background: black;
   border: 2px solid white;
   color: white;
 }
+
+/* YouTube */
+.youtube {
+  background: red;
+  color: white;
+}
+
+/* Hover */
+.btn:hover {
+  transform: scale(1.05);
+}
+
+/* Footer */
+.footer {
+  margin-top: 20px;
+  font-size: 12px;
+  opacity: 0.6;
+}
 </style>
+
 </head>
 
 <body>
 
 <div class="container">
 
-  <!-- IMAGE -->
-  <img src="https://raw.githubusercontent.com/omk-store/omotaker/refs/heads/main/C9C79518-708B-42CC-9579-8E8559BD13F1.png">
+  <!-- PROFILE IMAGE -->
+  <img src="https://raw.githubusercontent.com/omk-store/omotaker/refs/heads/main/C9C79518-708B-42CC-9579-8E8559BD13F1.png" class="profile">
+
+  <div class="name">OMK Records 🐺</div>
+
+  <!-- POSTER -->
+  <img src="https://raw.githubusercontent.com/omk-store/omotaker/refs/heads/main/C9C79518-708B-42CC-9579-8E8559BD13F1.png" class="poster">
 
   <!-- BUTTONS -->
   <a href="https://open.spotify.com/playlist/1Ox7VYqq4rFq1gYPPRP8Fh" class="btn spotify">
-    🎧 Spotify
+    🎧 Listen on Spotify
   </a>
 
   <a href="https://music.apple.com/ng/playlist/everyday-vibe/pl.u-DdAN8l3TN2ANagg" class="btn apple">
-    🍎 Apple Music
+    🍎 Listen on Apple Music
   </a>
+
+  <a href="https://m.youtube.com/watch?v=7qlRs1gDnMI" class="btn youtube">
+    ▶️ Watch on YouTube
+  </a>
+
+  <div class="footer">
+    Powered by OMK 🐺
+  </div>
 
 </div>
 
