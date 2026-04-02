@@ -9,18 +9,17 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: #0b0f1a;
+  background: #000;
   color: white;
-  text-align: center;
 }
 
-/* Glow background */
-body::before {
-  content: "";
+/* Background image */
+.bg {
   position: fixed;
   width: 100%;
   height: 100%;
-  background: radial-gradient(circle, #1a1f3c, #000);
+  background: url('https://raw.githubusercontent.com/omk-store/omotaker/refs/heads/main/C9C79518-708B-42CC-9579-8E8559BD13F1.png') center/cover no-repeat;
+  filter: blur(20px) brightness(0.4);
   z-index: -1;
 }
 
@@ -28,42 +27,49 @@ body::before {
 .container {
   max-width: 420px;
   margin: auto;
-  padding: 25px 20px;
+  padding: 20px;
 }
 
-/* Profile image */
-.profile {
-  width: 90px;
-  height: 90px;
-  border-radius: 50%;
-  margin-bottom: 10px;
-  border: 2px solid #1DB954;
+/* Card */
+.card {
+  background: rgba(0,0,0,0.8);
+  border-radius: 15px;
+  padding: 20px;
 }
 
-/* Name */
-.name {
-  font-size: 20px;
-  font-weight: bold;
+/* Header */
+.header {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.header h1 {
+  font-size: 22px;
+  margin: 5px 0;
+}
+
+.header p {
+  font-size: 13px;
+  opacity: 0.7;
 }
 
 /* Poster */
 .poster {
   width: 100%;
   border-radius: 12px;
-  margin: 20px 0;
+  margin-bottom: 15px;
 }
 
-/* Buttons */
+/* Button row */
 .btn {
-  display: block;
-  width: 100%;
-  padding: 16px;
-  margin: 12px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  margin: 10px 0;
   border-radius: 12px;
   text-decoration: none;
-  font-size: 17px;
   font-weight: bold;
-  transition: 0.3s;
 }
 
 /* Spotify */
@@ -74,26 +80,31 @@ body::before {
 
 /* Apple */
 .apple {
-  background: black;
-  border: 2px solid white;
+  background: #111;
+  border: 1px solid #333;
   color: white;
 }
 
 /* YouTube */
 .youtube {
-  background: red;
+  background: #111;
+  border: 1px solid #333;
   color: white;
 }
 
-/* Hover */
-.btn:hover {
-  transform: scale(1.05);
+/* Play button */
+.play {
+  background: rgba(255,255,255,0.15);
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 12px;
 }
 
 /* Footer */
 .footer {
-  margin-top: 20px;
+  text-align: center;
   font-size: 12px;
+  margin-top: 15px;
   opacity: 0.6;
 }
 </style>
@@ -102,33 +113,40 @@ body::before {
 
 <body>
 
+<div class="bg"></div>
+
 <div class="container">
+  <div class="card">
 
-  <!-- PROFILE IMAGE -->
-  <img src="https://raw.githubusercontent.com/omk-store/omotaker/refs/heads/main/C9C79518-708B-42CC-9579-8E8559BD13F1.png" class="profile">
+    <div class="header">
+      <h1>Top OMK Playlist 🐺</h1>
+      <p>Stream Everywhere</p>
+    </div>
 
-  <div class="name">OMK Records 🐺</div>
+    <!-- Poster -->
+    <img src="https://raw.githubusercontent.com/omk-store/omotaker/refs/heads/main/C9C79518-708B-42CC-9579-8E8559BD13F1.png" class="poster">
 
-  <!-- POSTER -->
-  <img src="https://raw.githubusercontent.com/omk-store/omotaker/refs/heads/main/C9C79518-708B-42CC-9579-8E8559BD13F1.png" class="poster">
+    <!-- Buttons -->
+    <a href="https://open.spotify.com/playlist/1Ox7VYqq4rFq1gYPPRP8Fh" class="btn spotify">
+      <span>Spotify</span>
+      <span class="play">PLAY ▶</span>
+    </a>
 
-  <!-- BUTTONS -->
-  <a href="https://open.spotify.com/playlist/1Ox7VYqq4rFq1gYPPRP8Fh" class="btn spotify">
-    🎧 Listen on Spotify
-  </a>
+    <a href="https://music.apple.com/ng/playlist/everyday-vibe/pl.u-DdAN8l3TN2ANagg" class="btn apple">
+      <span>Apple Music</span>
+      <span class="play">PLAY ▶</span>
+    </a>
 
-  <a href="https://music.apple.com/ng/playlist/everyday-vibe/pl.u-DdAN8l3TN2ANagg" class="btn apple">
-    🍎 Listen on Apple Music
-  </a>
+    <a href="https://m.youtube.com/watch?v=7qlRs1gDnMI" class="btn youtube">
+      <span>YouTube</span>
+      <span class="play">PLAY ▶</span>
+    </a>
 
-  <a href="https://m.youtube.com/watch?v=7qlRs1gDnMI" class="btn youtube">
-    ▶️ Watch on YouTube
-  </a>
+    <div class="footer">
+      Powered by OMK 🐺
+    </div>
 
-  <div class="footer">
-    Powered by OMK 🐺
   </div>
-
 </div>
 
 </body>
