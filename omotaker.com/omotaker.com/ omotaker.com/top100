@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>OMK | Playlist</title>
+<title>OMK Playlist</title>
 
 <style>
 body {
@@ -11,139 +11,96 @@ body {
   font-family: Arial, sans-serif;
   background: #000;
   color: white;
+  text-align: center;
 }
 
 /* Background image */
-.bg {
-  position: fixed;
+.hero {
+  position: relative;
+  height: 100vh;
+  background: url('https://raw.githubusercontent.com/omk-store/omotaker/refs/heads/main/C9C79518-708B-42CC-9579-8E8559BD13F1.png') no-repeat center/cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Dark overlay */
+.hero::after {
+  content: "";
+  position: absolute;
   width: 100%;
   height: 100%;
-  background: url('https://raw.githubusercontent.com/omk-store/omotaker/refs/heads/main/C9C79518-708B-42CC-9579-8E8559BD13F1.png') center/cover no-repeat;
-  filter: blur(20px) brightness(0.4);
-  z-index: -1;
+  background: rgba(0,0,0,0.6);
 }
 
-/* Container */
-.container {
-  max-width: 420px;
-  margin: auto;
-  padding: 20px;
-}
-
-/* Card */
-.card {
-  background: rgba(0,0,0,0.8);
-  border-radius: 15px;
-  padding: 20px;
-}
-
-/* Header */
-.header {
-  text-align: center;
-  margin-bottom: 15px;
-}
-
-.header h1 {
-  font-size: 22px;
-  margin: 5px 0;
-}
-
-.header p {
-  font-size: 13px;
-  opacity: 0.7;
-}
-
-/* Poster */
-.poster {
-  width: 100%;
-  border-radius: 12px;
-  margin-bottom: 15px;
-}
-
-/* Button row */
-.btn {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px;
-  margin: 10px 0;
-  border-radius: 12px;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-/* Spotify */
-.spotify {
-  background: #1DB954;
-  color: black;
-}
-
-/* Apple */
-.apple {
-  background: #111;
-  border: 1px solid #333;
-  color: white;
-}
-
-/* YouTube */
-.youtube {
-  background: #111;
-  border: 1px solid #333;
-  color: white;
+/* Content */
+.content {
+  position: relative;
+  z-index: 2;
 }
 
 /* Play button */
-.play {
-  background: rgba(255,255,255,0.15);
-  padding: 6px 12px;
-  border-radius: 8px;
-  font-size: 12px;
+.play-btn {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  margin-bottom: 20px;
+  cursor: pointer;
 }
 
-/* Footer */
-.footer {
-  text-align: center;
-  font-size: 12px;
-  margin-top: 15px;
-  opacity: 0.6;
+.play-btn::after {
+  content: "▶";
+  font-size: 30px;
+  color: black;
+  margin-left: 5px;
+}
+
+/* Buttons */
+.links a {
+  display: block;
+  width: 220px;
+  margin: 10px auto;
+  padding: 12px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  color: white;
+}
+
+.spotify {
+  background: #1DB954;
+}
+
+.apple {
+  background: #fff;
+  color: #000;
+}
+
+/* Title */
+.title {
+  font-size: 22px;
+  margin-bottom: 15px;
 }
 </style>
-
 </head>
 
 <body>
 
-<div class="bg"></div>
+<div class="hero">
+  <div class="content">
+    
+    <div class="title">OMOTAKER PLAYLIST</div>
 
-<div class="container">
-  <div class="card">
+    <div class="play-btn" onclick="window.location.href='https://omotaker.com/playlist.html'"></div>
 
-    <div class="header">
-      <h1>Top OMK Playlist 🐺</h1>
-      <p>Stream Everywhere</p>
-    </div>
-
-    <!-- Poster -->
-    <img src="https://raw.githubusercontent.com/omk-store/omotaker/refs/heads/main/C9C79518-708B-42CC-9579-8E8559BD13F1.png" class="poster">
-
-    <!-- Buttons -->
-    <a href="https://open.spotify.com/playlist/1Ox7VYqq4rFq1gYPPRP8Fh" class="btn spotify">
-      <span>Spotify</span>
-      <span class="play">PLAY ▶</span>
-    </a>
-
-    <a href="https://music.apple.com/ng/playlist/everyday-vibe/pl.u-DdAN8l3TN2ANagg" class="btn apple">
-      <span>Apple Music</span>
-      <span class="play">PLAY ▶</span>
-    </a>
-
-    <a href="https://m.youtube.com/watch?v=7qlRs1gDnMI" class="btn youtube">
-      <span>YouTube</span>
-      <span class="play">PLAY ▶</span>
-    </a>
-
-    <div class="footer">
-      Powered by OMK 🐺
+    <div class="links">
+      <a href="https://open.spotify.com" class="spotify">Play on Spotify</a>
+      <a href="https://music.apple.com/ng/playlist/everyday-vibe/pl.u-DdAN8l3TN2ANagg" class="apple">Play on Apple Music</a>
     </div>
 
   </div>
