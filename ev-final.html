@@ -9,7 +9,7 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: #0b0f1a;
+  background: radial-gradient(circle at top, #0f172a, #020617);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -20,84 +20,126 @@ body {
 .card {
   width: 100%;
   max-width: 420px;
-  background: #1a1a1a;
-  border-radius: 16px;
+  background: linear-gradient(180deg, #0f172a, #020617);
+  border-radius: 20px;
   overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.8);
+  border: 1px solid rgba(255,255,255,0.05);
 }
 
 /* Banner */
 .banner {
   width: 100%;
+  display: block;
 }
 
 /* Content */
 .content {
-  padding: 20px;
+  padding: 22px;
   color: white;
 }
 
 /* Title */
 .title {
   text-align: center;
-  margin-bottom: 20px;
   font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  letter-spacing: 0.5px;
 }
 
-/* Buttons */
+/* Platform box */
 .platform {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #111;
-  border-radius: 12px;
-  padding: 15px;
-  margin-bottom: 12px;
-  border: 1px solid #333;
+  background: rgba(255,255,255,0.03);
+  border-radius: 14px;
+  padding: 16px;
+  margin-bottom: 14px;
+  border: 1px solid rgba(255,255,255,0.08);
+  backdrop-filter: blur(10px);
 }
 
+/* Platform text */
 .platform span {
-  font-weight: bold;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* Spotify color */
+.spotify span {
+  color: #1DB954;
 }
 
 /* Button */
 .btn {
-  padding: 8px 16px;
-  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 16px;
+  border-radius: 10px;
   text-decoration: none;
   font-size: 13px;
-  border: 1px solid #555;
-  color: white;
+  font-weight: bold;
+  background: linear-gradient(135deg, #1DB954, #1ed760);
+  color: black;
 }
 
-/* Colors */
-.spotify span {
-  color: #1DB954;
+/* Apple button */
+.apple-btn {
+  background: linear-gradient(135deg, #ffffff, #d1d5db);
+  color: black;
+}
+
+/* Hover */
+.btn:hover {
+  opacity: 0.9;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  font-size: 11px;
+  opacity: 0.5;
+  margin-top: 10px;
 }
 </style>
-
 </head>
 
 <body>
 
 <div class="card">
 
-<img class="banner" src="https://raw.githubusercontent.com/omk-store/omotaker/refs/heads/main/6AC61EB2-B4B3-4CB6-927D-9B4E8C7AF9E8.jpeg">
+  <!-- Banner -->
+  <img class="banner" src="https://raw.githubusercontent.com/omk-store/omotaker/refs/heads/main/6AC61EB2-B4B3-4CB6-927D-9B4E8C7AF9E8.jpeg">
 
-<div class="content">
+  <!-- Content -->
+  <div class="content">
 
-<div class="title">Top 100 Nigeria Chart</div>
+    <div class="title">Top 100 Everyday Vibe Nigeria 🇳🇬</div>
 
-<div class="platform spotify">
-  <span>Spotify</span>
-  <a href="https://open.spotify.com/playlist/1Ox7VYqq4rFq1gYPPRP8Fh?si=HqDyzh4TTea6XySKb3oJHw" class="btn">PLAY ▶</a>
-</div>
+    <!-- Spotify -->
+    <div class="platform spotify">
+      <span>Spotify</span>
+      <a href="https://open.spotify.com/playlist/1Ox7VYqq4rFq1gYPPRP8Fh?si=HqDyzh4TTea6XySKb3oJHw" class="btn">
+        ▶ Play
+      </a>
+    </div>
 
-<div class="platform">
-  <span>Apple Music</span>
-  <a href="https://music.apple.com/ng/playlist/everyday-vibe/pl.u-DdAN8l3TN2ANagg" class="btn">PLAY ▶</a>
-</div>
+    <!-- Apple Music -->
+    <div class="platform">
+      <span>Apple Music</span>
+      <a href="https://music.apple.com/ng/playlist/everyday-vibe/pl.u-DdAN8l3TN2ANagg" class="btn apple-btn">
+        ▶ Play
+      </a>
+    </div>
 
-</div>
+    <div class="footer">
+      Powered by Everyday Vibe 🌍
+    </div>
+
+  </div>
 
 </div>
 
