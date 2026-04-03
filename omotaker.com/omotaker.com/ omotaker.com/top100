@@ -9,37 +9,25 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  overflow: hidden;
+  background: #000;
   color: white;
-}
-
-/* Video background */
-video {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  top: 0;
-  left: 0;
-  z-index: -1;
-}
-
-/* Overlay */
-.overlay {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.6);
+  text-align: center;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
+  height: 100vh;
+}
+
+/* Container */
+.box {
+  width: 90%;
+  max-width: 350px;
 }
 
 /* Title */
 .title {
-  font-size: 22px;
-  margin-bottom: 20px;
+  font-size: 20px;
+  margin-bottom: 25px;
   letter-spacing: 2px;
 }
 
@@ -49,6 +37,7 @@ video {
   height: 90px;
   border-radius: 50%;
   background: white;
+  margin: auto;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -63,16 +52,15 @@ video {
   margin-left: 5px;
 }
 
-/* Links */
-.links a {
+/* Buttons */
+a {
   display: block;
-  width: 240px;
-  margin: 10px auto;
-  padding: 13px;
+  width: 100%;
+  margin: 10px 0;
+  padding: 14px;
   border-radius: 30px;
   text-decoration: none;
   font-weight: bold;
-  text-align: center;
 }
 
 .spotify {
@@ -89,22 +77,17 @@ video {
 
 <body>
 
-<!-- VIDEO BACKGROUND (PUT YOUR RAW LINK HERE) -->
-<video autoplay muted loop playsinline>
-  <source src="https://raw.githubusercontent.com/omk-store/omotaker/main/omk-playlist-bg.mp4" type="video/mp4">
-</video>
+<div class="box">
 
-<div class="overlay">
-  
   <div class="title">OMOTAKER PLAYLIST</div>
 
-  <!-- MAIN PLAY BUTTON (GOES TO SPOTIFY) -->
+  <!-- MAIN PLAY BUTTON -->
   <div class="play-btn" onclick="window.location.href='https://open.spotify.com/playlist/1Ox7VYqq4rFq1gYPPRP8Fh'"></div>
 
-  <div class="links">
-    <a href="https://open.spotify.com/playlist/1Ox7VYqq4rFq1gYPPRP8Fh" class="spotify">Play on Spotify</a>
-    <a href="https://music.apple.com/ng/playlist/pl.u-DdAN8l3TN2ANagg" class="apple">Play on Apple Music</a>
-  </div>
+  <!-- LINKS -->
+  <a href="https://open.spotify.com/playlist/1Ox7VYqq4rFq1gYPPRP8Fh" class="spotify">Play on Spotify</a>
+
+  <a href="https://music.apple.com/ng/playlist/pl.u-DdAN8l3TN2ANagg" class="apple">Play on Apple Music</a>
 
 </div>
 
