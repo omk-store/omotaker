@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Everyday Vibe</title>
+
+<style>
+body {
+  margin: 0;
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Banner */
+img {
+  width: 100%;
+  max-width: 420px;
+}
+</style>
+
+<script>
+// Detect device and redirect
+setTimeout(function() {
+  var isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+  if (isIOS) {
+    window.location.href = "https://music.apple.com/ng/playlist/everyday-vibe/pl.u-DdAN8l3TN2ANagg";
+  } else {
+    window.location.href = "https://open.spotify.com/playlist/1Ox7VYqq4rFq1gYPPRP8Fh?si=HqDyzh4TTea6XySKb3oJHw";
+  }
+}, 1200); // 1.2 seconds
+</script>
+
+</head>
+
+<body>
+
+<img src="https://raw.githubusercontent.com/omk-store/omotaker/refs/heads/main/6AC61EB2-B4B3-4CB6-927D-9B4E8C7AF9E8.jpeg">
+
+</body>
+</html>
