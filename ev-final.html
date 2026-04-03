@@ -14,7 +14,6 @@ body {
   justify-content: center;
   align-items: center;
 
-  /* PREMIUM BACKGROUND */
   background: radial-gradient(circle at 20% 20%, #1DB95433, transparent),
               radial-gradient(circle at 80% 80%, #3b82f633, transparent),
               #020617;
@@ -51,7 +50,21 @@ body {
   text-align: center;
   font-size: 18px;
   font-weight: 600;
+  margin-bottom: 8px;
+}
+
+/* SUBTEXT */
+.sub {
+  text-align: center;
+  font-size: 13px;
+  opacity: 0.7;
   margin-bottom: 20px;
+  animation: blink 1.5s infinite;
+}
+
+@keyframes blink {
+  0%,100% { opacity: 0.4; }
+  50% { opacity: 1; }
 }
 
 /* PLATFORM BOX */
@@ -72,6 +85,7 @@ body {
 
 .platform:hover {
   background: rgba(255,255,255,0.06);
+  transform: scale(1.02);
 }
 
 /* TEXT */
@@ -79,7 +93,7 @@ body {
   font-weight: 600;
 }
 
-/* SPOTIFY COLOR */
+/* SPOTIFY */
 .spotify span {
   color: #1DB954;
 }
@@ -94,12 +108,26 @@ body {
   display: flex;
   align-items: center;
   gap: 6px;
+  transition: 0.2s;
 }
 
-/* SPOTIFY BUTTON */
+.btn:active {
+  transform: scale(0.9);
+}
+
+/* SPOTIFY BUTTON (BIGGER + GLOW) */
 .spotify-btn {
   background: #1DB954;
   color: black;
+  padding: 12px 22px;
+  box-shadow: 0 0 15px rgba(29,185,84,0.6);
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0px rgba(29,185,84,0.6); }
+  50% { box-shadow: 0 0 25px rgba(29,185,84,1); }
+  100% { box-shadow: 0 0 0px rgba(29,185,84,0.6); }
 }
 
 /* APPLE BUTTON */
@@ -127,6 +155,7 @@ body {
 <div class="content">
 
 <div class="title">Top 100 Everyday Vibe Nigeria 🇳🇬</div>
+<div class="sub">Choose your platform 👇</div>
 
 <div class="platform spotify">
   <span>Spotify</span>
