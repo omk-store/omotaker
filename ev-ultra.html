@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Everyday Vibe</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+
+  /* PREMIUM BACKGROUND */
+  background: #020617;
+}
+
+/* FLOATING LIGHTS */
+body::before,
+body::after {
+  content: "";
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.4;
+  animation: float 10s infinite alternate ease-in-out;
+}
+
+body::before {
+  background: #1DB954;
+  top: -100px;
+  left: -100px;
+}
+
+body::after {
+  background: #3b82f6;
+  bottom: -100px;
+  right: -100px;
+}
+
+@keyframes float {
+  from { transform: translateY(0px); }
+  to { transform: translateY(60px); }
+}
+
+/* CARD */
+.card {
+  width: 100%;
+  max-width: 420px;
+  border-radius: 22px;
+  overflow: hidden;
+
+  background: rgba(15,23,42,0.65);
+  backdrop-filter: blur(20px);
+
+  border: 1px solid rgba(255,255,255,0.06);
+  box-shadow: 0 20px 80px rgba(0,0,0,0.9);
+  z-index: 2;
+}
+
+/* IMAGE */
+.banner {
+  width: 100%;
+  display: block;
+}
+
+/* CONTENT */
+.content {
+  padding: 22px;
+  color: white;
+}
+
+/* TITLE */
+.title {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+/* PLATFORM */
+.platform {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 16px;
+  margin-bottom: 14px;
+
+  border-radius: 14px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+
+  transition: 0.25s;
+}
+
+.platform:hover {
+  transform: scale(1.02);
+  background: rgba(255,255,255,0.06);
+}
+
+/* TEXT */
+.platform span {
+  font-weight: 600;
+}
+
+/* SPOTIFY */
+.spotify span {
+  color: #1DB954;
+}
+
+/* BUTTON */
+.btn {
+  padding: 10px 18px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  transition: 0.2s;
+}
+
+/* CLICK EFFECT */
+.btn:active {
+  transform: scale(0.9);
+}
+
+/* SPOTIFY BUTTON (PULSE) */
+.spotify-btn {
+  background: #1DB954;
+  color: black;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0px rgba(29,185,84,0.7); }
+  50% { box-shadow: 0 0 20px rgba(29,185,84,1); }
+  100% { box-shadow: 0 0 0px rgba(29,185,84,0.7); }
+}
+
+/* APPLE BUTTON */
+.apple-btn {
+  background: #ffffff;
+  color: black;
+}
+
+/* TAP TEXT */
+.tap {
+  text-align: center;
+  font-size: 12px;
+  opacity: 0.6;
+  margin-bottom: 10px;
+  animation: blink 1.5s infinite;
+}
+
+@keyframes blink {
+  0%,100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+/* FOOTER */
+.footer {
+  text-align: center;
+  font-size: 11px;
+  opacity: 0.5;
+  margin-top: 10px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+<img class="banner" src="https://raw.githubusercontent.com/omk-store/omotaker/refs/heads/main/6AC61EB2-B4B3-4CB6-927D-9B4E8C7AF9E8.jpeg">
+
+<div class="content">
+
+<div class="title">Top 100 Everyday Vibe Nigeria 🇳🇬</div>
+
+<div class="tap">Tap to listen 👇</div>
+
+<div class="platform spotify">
+  <span>Spotify</span>
+  <a href="https://open.spotify.com/playlist/1Ox7VYqq4rFq1gYPPRP8Fh?si=HqDyzh4TTea6XySKb3oJHw" class="btn spotify-btn">
+    ▶ Play
+  </a>
+</div>
+
+<div class="platform">
+  <span>Apple Music</span>
+  <a href="https://music.apple.com/ng/playlist/everyday-vibe/pl.u-DdAN8l3TN2ANagg" class="btn apple-btn">
+    ▶ Play
+  </a>
+</div>
+
+<div class="footer">
+  Powered by Everyday Vibe 🌍
+</div>
+
+</div>
+
+</div>
+
+</body>
+</html>
