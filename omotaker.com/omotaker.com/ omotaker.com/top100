@@ -3,61 +3,116 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>OMK Playlist</title>
+<title>OMK | Listen Now</title>
 
 <style>
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  overflow: hidden;
+  background: #0b0f1a;
+  color: white;
+  text-align: center;
 }
 
-/* Background image */
-.bg {
+/* Background glow */
+body::before {
+  content: "";
   position: fixed;
   width: 100%;
   height: 100%;
-  background: url('https://raw.githubusercontent.com/omk-store/omotaker/main/C9C79518-708B-42CC-9579-8E8559BD13F1.png') no-repeat center/cover;
+  background: radial-gradient(circle, #1a1f3c, #000);
+  z-index: -1;
 }
 
-/* Overlay */
-.overlay {
-  position: absolute;
+/* Container */
+.container {
+  max-width: 420px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* Cover Image */
+.cover {
   width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.5);
+  border-radius: 15px;
+  margin-bottom: 20px;
+}
+
+/* Title */
+.title {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 25px;
+}
+
+/* Button box */
+.platform {
+  background: #111;
+  border-radius: 12px;
+  padding: 15px;
+  margin-bottom: 15px;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 }
 
-/* Play button */
-.play-btn {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
+/* Text */
+.platform span {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* Buttons */
+.btn {
+  background: #1DB954;
+  padding: 8px 16px;
+  border-radius: 20px;
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.apple {
   background: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
+  color: black;
 }
 
-.play-btn::after {
-  content: "▶";
-  font-size: 40px;
-  color: black;
-  margin-left: 6px;
+/* Footer */
+.footer {
+  margin-top: 25px;
+  font-size: 12px;
+  opacity: 0.6;
 }
 </style>
 </head>
 
 <body>
 
-<div class="bg"></div>
+<div class="container">
 
-<div class="overlay">
-  <div class="play-btn" onclick="window.location.href='https://open.spotify.com/playlist/1Ox7VYqq4rFq1gYPPRP8Fh'"></div>
+  <!-- COVER IMAGE -->
+  <img src="https://raw.githubusercontent.com/omk-store/omotaker/refs/heads/main/C9C79518-708B-42CC-9579-8E8559BD13F1.png" class="cover">
+
+  <!-- TITLE -->
+  <div class="title">OMK Playlist 🔥</div>
+
+  <!-- SPOTIFY -->
+  <div class="platform">
+    <span>Spotify</span>
+    <a href="https://open.spotify.com" class="btn">PLAY ▶</a>
+  </div>
+
+  <!-- APPLE MUSIC -->
+  <div class="platform">
+    <span>Apple Music</span>
+    <a href="https://music.apple.com/ng/playlist/everyday-vibe/pl.u-DdAN8l3TN2ANagg" class="btn apple">PLAY ▶</a>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    OMK • Everyday Vibe 🌍
+  </div>
+
 </div>
 
 </body>
