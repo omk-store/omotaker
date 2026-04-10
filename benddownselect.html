@@ -19,16 +19,16 @@ body {
   overflow-x: hidden;
 }
 
-/* ANIMATED BACKGROUND */
+/* SMOOTHER BACKGROUND */
 body::before, body::after {
   content: "";
   position: absolute;
   width: 500px;
   height: 500px;
   border-radius: 50%;
-  filter: blur(120px);
-  opacity: 0.3;
-  animation: float 8s infinite alternate;
+  filter: blur(140px);
+  opacity: 0.25;
+  animation: float 10s infinite alternate ease-in-out;
 }
 
 body::before {
@@ -45,7 +45,7 @@ body::after {
 
 @keyframes float {
   from { transform: translateY(0px); }
-  to { transform: translateY(40px); }
+  to { transform: translateY(60px); }
 }
 
 .container {
@@ -67,22 +67,27 @@ h1 {
 }
 
 .sub {
-  opacity: 0.7;
+  opacity: 0.75;
   margin-bottom: 10px;
 }
 
-/* SOCIAL PROOF */
 .stats {
   font-size: 13px;
   opacity: 0.6;
-  margin-bottom: 15px;
+  margin-bottom: 18px;
 }
 
 /* VIDEO */
 .video {
-  border-radius: 14px;
+  border-radius: 16px;
   overflow: hidden;
-  margin-bottom: 15px;
+  margin-bottom: 18px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  transition: 0.3s;
+}
+
+.video:hover {
+  transform: scale(1.02);
 }
 
 iframe {
@@ -105,21 +110,30 @@ iframe {
   transition: 0.3s;
 }
 
-/* YOUTUBE */
+/* YOUTUBE MAIN CTA */
 .youtube {
   background: linear-gradient(45deg, #ff0000, #ff4d4d);
-  box-shadow: 0 0 20px rgba(255,0,0,0.4);
+  box-shadow: 0 0 25px rgba(255,0,0,0.5);
+  animation: pulse 2s infinite;
 }
 
-/* PLATFORM */
+@keyframes pulse {
+  0% { box-shadow: 0 0 10px rgba(255,0,0,0.4); }
+  50% { box-shadow: 0 0 25px rgba(255,0,0,0.7); }
+  100% { box-shadow: 0 0 10px rgba(255,0,0,0.4); }
+}
+
+/* PLATFORM BUTTONS */
 .platform {
   background: rgba(255,255,255,0.08);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 0 10px rgba(255,255,255,0.05);
 }
 
 /* HOVER */
 .btn:hover {
-  transform: scale(1.06);
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(255,255,255,0.2);
 }
 
 /* LOGOS */
@@ -130,7 +144,7 @@ iframe {
 
 /* FOOTER */
 .footer {
-  margin-top: 20px;
+  margin-top: 22px;
   font-size: 12px;
   opacity: 0.5;
 }
