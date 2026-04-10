@@ -16,52 +16,71 @@ body {
   align-items: center;
   min-height: 100vh;
   text-align: center;
+  overflow-x: hidden;
 }
 
-/* GLOW BACKGROUND */
+/* ANIMATED BACKGROUND */
 body::before, body::after {
   content: "";
   position: absolute;
-  width: 400px;
-  height: 400px;
+  width: 500px;
+  height: 500px;
   border-radius: 50%;
   filter: blur(120px);
-  opacity: 0.25;
+  opacity: 0.3;
+  animation: float 8s infinite alternate;
 }
 
 body::before {
-  background: #00ffcc;
-  top: 10%;
-  left: 10%;
+  background: #00f0ff;
+  top: 5%;
+  left: 5%;
 }
 
 body::after {
-  background: #ffcc00;
-  bottom: 10%;
-  right: 10%;
+  background: #ff00c8;
+  bottom: 5%;
+  right: 5%;
+}
+
+@keyframes float {
+  from { transform: translateY(0px); }
+  to { transform: translateY(40px); }
 }
 
 .container {
   width: 90%;
   max-width: 420px;
   z-index: 2;
+  animation: fadeIn 1s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px);}
+  to { opacity: 1; transform: translateY(0);}
 }
 
 /* TITLE */
 h1 {
   font-size: 28px;
+  margin-bottom: 5px;
+}
+
+.sub {
+  opacity: 0.7;
   margin-bottom: 10px;
 }
 
-p {
-  opacity: 0.7;
+/* SOCIAL PROOF */
+.stats {
+  font-size: 13px;
+  opacity: 0.6;
   margin-bottom: 15px;
 }
 
 /* VIDEO */
 .video {
-  width: 100%;
-  border-radius: 12px;
+  border-radius: 14px;
   overflow: hidden;
   margin-bottom: 15px;
 }
@@ -80,7 +99,7 @@ iframe {
   gap: 10px;
   padding: 14px;
   margin: 10px 0;
-  border-radius: 12px;
+  border-radius: 14px;
   text-decoration: none;
   font-weight: bold;
   transition: 0.3s;
@@ -88,18 +107,19 @@ iframe {
 
 /* YOUTUBE */
 .youtube {
-  background: #ff0000;
-  color: white;
+  background: linear-gradient(45deg, #ff0000, #ff4d4d);
+  box-shadow: 0 0 20px rgba(255,0,0,0.4);
 }
 
 /* PLATFORM */
 .platform {
   background: rgba(255,255,255,0.08);
-  color: white;
+  backdrop-filter: blur(10px);
 }
 
+/* HOVER */
 .btn:hover {
-  transform: scale(1.05);
+  transform: scale(1.06);
 }
 
 /* LOGOS */
@@ -122,9 +142,10 @@ iframe {
 <div class="container">
 
 <h1>Bend Down Select 🔥</h1>
-<p>Watch & stream everywhere 🎧</p>
+<div class="sub">Watch first. Then stream everywhere 🎧</div>
+<div class="stats">Fan energy rising ⚡ Tap your platform below</div>
 
-<!-- YOUTUBE VIDEO -->
+<!-- VIDEO -->
 <div class="video">
 <iframe src="https://www.youtube.com/embed/7qlRs1gDnMI" allowfullscreen></iframe>
 </div>
