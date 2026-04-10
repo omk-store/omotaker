@@ -16,10 +16,9 @@ body {
   align-items: center;
   min-height: 100vh;
   text-align: center;
-  overflow-x: hidden;
 }
 
-/* BACKGROUND GLOW */
+/* GLOW BACKGROUND */
 body::before, body::after {
   content: "";
   position: absolute;
@@ -31,76 +30,87 @@ body::before, body::after {
 }
 
 body::before {
-  background: radial-gradient(circle, #00ffcc, transparent);
+  background: #00ffcc;
   top: 10%;
   left: 10%;
 }
 
 body::after {
-  background: radial-gradient(circle, #ffcc00, transparent);
+  background: #ffcc00;
   bottom: 10%;
   right: 10%;
 }
 
 .container {
-  position: relative;
-  z-index: 2;
   width: 90%;
   max-width: 420px;
-  padding: 20px;
+  z-index: 2;
 }
 
 /* TITLE */
 h1 {
-  font-size: 30px;
-  margin-bottom: 8px;
+  font-size: 28px;
+  margin-bottom: 10px;
 }
 
 p {
   opacity: 0.7;
-  margin-bottom: 20px;
-  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+/* VIDEO */
+.video {
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 15px;
+}
+
+iframe {
+  width: 100%;
+  height: 220px;
+  border: none;
 }
 
 /* BUTTONS */
 .btn {
-  display: block;
-  padding: 16px;
-  margin: 12px 0;
-  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px;
+  margin: 10px 0;
+  border-radius: 12px;
   text-decoration: none;
   font-weight: bold;
-  transition: 0.25s ease;
+  transition: 0.3s;
 }
 
-/* YOUTUBE TOP */
+/* YOUTUBE */
 .youtube {
-  background: linear-gradient(45deg, #ff0000, #ff4d4d);
+  background: #ff0000;
   color: white;
-  font-size: 16px;
-  box-shadow: 0 0 20px rgba(255,0,0,0.4);
 }
 
-.youtube:hover {
-  transform: scale(1.06);
-}
-
-/* OTHER PLATFORMS */
+/* PLATFORM */
 .platform {
-  background: rgba(255,255,255,0.05);
+  background: rgba(255,255,255,0.08);
   color: white;
-  border: 1px solid rgba(255,255,255,0.1);
-  backdrop-filter: blur(10px);
 }
 
-.platform:hover {
-  background: rgba(255,255,255,0.12);
-  transform: scale(1.03);
+.btn:hover {
+  transform: scale(1.05);
+}
+
+/* LOGOS */
+.logo {
+  width: 20px;
+  height: 20px;
 }
 
 /* FOOTER */
 .footer {
-  margin-top: 25px;
+  margin-top: 20px;
   font-size: 12px;
   opacity: 0.5;
 }
@@ -112,26 +122,37 @@ p {
 <div class="container">
 
 <h1>Bend Down Select 🔥</h1>
-<p>Watch first. Then stream anywhere 🎧</p>
+<p>Watch & stream everywhere 🎧</p>
 
+<!-- YOUTUBE VIDEO -->
+<div class="video">
+<iframe src="https://www.youtube.com/embed/7qlRs1gDnMI" allowfullscreen></iframe>
+</div>
+
+<!-- BUTTONS -->
 <a href="https://youtu.be/7qlRs1gDnMI" class="btn youtube" target="_blank">
-▶️ Watch on YouTube
+<img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" class="logo">
+Watch on YouTube
 </a>
 
 <a href="https://open.spotify.com/track/591YkWluaQeC3tGMWhSFWu" class="btn platform" target="_blank">
-🎵 Play on Spotify
+<img src="https://cdn-icons-png.flaticon.com/512/174/174872.png" class="logo">
+Spotify
 </a>
 
 <a href="https://music.apple.com/ng/album/bend-down-select/1829791125?i=1829791127" class="btn platform" target="_blank">
-🍎 Listen on Apple Music
+<img src="https://cdn-icons-png.flaticon.com/512/731/731985.png" class="logo">
+Apple Music
 </a>
 
 <a href="https://audiomack.com/iam_omotaker/song/benin-to-lagos" class="btn platform" target="_blank">
-🔥 Stream on Audiomack
+<img src="https://cdn-icons-png.flaticon.com/512/5968/5968885.png" class="logo">
+Audiomack
 </a>
 
 <a href="https://www.boomplay.com/songs/231357454" class="btn platform" target="_blank">
-🎧 Play on Boomplay
+<img src="https://cdn-icons-png.flaticon.com/512/727/727269.png" class="logo">
+Boomplay
 </a>
 
 <div class="footer">
