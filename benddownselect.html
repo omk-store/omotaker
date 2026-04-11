@@ -182,10 +182,355 @@ body::after {
   overflow: hidden;
 }
 
-/* (rest unchanged) */
+.container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(115deg, transparent 20%, rgba(255,255,255,0.08) 50%, transparent 80%);
+  transform: translateX(-120%);
+  animation: shine 7s linear infinite;
+  pointer-events: none;
+}
 
-/* ===== CONTENT ===== */
+.container::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: 28px;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(0,240,255,0.20), rgba(255,0,200,0.16), rgba(255,255,255,0.06));
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
 
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(28px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* TOP BADGE */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 14px;
+  border-radius: 999px;
+  font-size: 12px;
+  letter-spacing: 0.2px;
+  margin-bottom: 16px;
+  color: rgba(255,255,255,0.88);
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.08);
+  animation: badgePulse 3s ease-in-out infinite;
+}
+
+.badge-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #00f0ff;
+  box-shadow: 0 0 14px #00f0ff;
+}
+
+/* TITLE */
+h1 {
+  font-size: 31px;
+  margin: 0 0 8px;
+  line-height: 1.06;
+  letter-spacing: -0.5px;
+  text-shadow: 0 0 24px rgba(255,255,255,0.08);
+}
+
+.sub {
+  opacity: 0.82;
+  margin-bottom: 10px;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.stats {
+  font-size: 13px;
+  opacity: 0.65;
+  margin-bottom: 18px;
+}
+
+/* MINI WAVE */
+.wave {
+  width: 96px;
+  height: 20px;
+  margin: 0 auto 18px;
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  gap: 4px;
+  opacity: 0.9;
+}
+
+.wave span {
+  width: 6px;
+  border-radius: 999px;
+  background: linear-gradient(to top, #7c3aed, #00f0ff);
+  animation: bounce 1s ease-in-out infinite;
+  box-shadow: 0 0 10px rgba(0,240,255,0.25);
+}
+
+.wave span:nth-child(1) { height: 8px; animation-delay: 0s; }
+.wave span:nth-child(2) { height: 14px; animation-delay: 0.15s; }
+.wave span:nth-child(3) { height: 19px; animation-delay: 0.3s; }
+.wave span:nth-child(4) { height: 12px; animation-delay: 0.45s; }
+.wave span:nth-child(5) { height: 17px; animation-delay: 0.6s; }
+.wave span:nth-child(6) { height: 10px; animation-delay: 0.75s; }
+
+/* VIDEO */
+.video-wrap {
+  position: relative;
+  margin-bottom: 18px;
+}
+
+.video-glow {
+  position: absolute;
+  inset: 14px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, rgba(0,240,255,0.22), rgba(255,0,200,0.18));
+  filter: blur(28px);
+  z-index: -1;
+  animation: breathe 4s ease-in-out infinite;
+}
+
+.video {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  margin-bottom: 0;
+  box-shadow:
+    0 14px 34px rgba(0,0,0,0.45),
+    0 0 0 1px rgba(255,255,255,0.08);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  background: #000;
+}
+
+.video::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.08), transparent 35%, transparent 70%, rgba(0,0,0,0.16));
+  pointer-events: none;
+  z-index: 2;
+}
+
+.video:hover {
+  transform: translateY(-4px) scale(1.015);
+  box-shadow:
+    0 20px 48px rgba(0,0,0,0.55),
+    0 0 30px rgba(0,240,255,0.08);
+}
+
+iframe {
+  width: 100%;
+  height: 230px;
+  border: none;
+  display: block;
+}
+
+/* BUTTONS */
+.btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 11px;
+  padding: 15px 14px;
+  margin: 12px 0;
+  border-radius: 16px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease, background 0.28s ease;
+  overflow: hidden;
+  isolation: isolate;
+  will-change: transform;
+}
+
+.btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(120deg, transparent 20%, rgba(255,255,255,0.16) 50%, transparent 80%);
+  transform: translateX(-120%);
+  transition: transform 0.6s ease;
+  z-index: 0;
+}
+
+.btn::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.btn > * {
+  position: relative;
+  z-index: 1;
+}
+
+.youtube {
+  color: white;
+  background: linear-gradient(135deg, #ff0033, #ff4b4b 45%, #ff1f6a 100%);
+  box-shadow:
+    0 14px 32px rgba(255,0,51,0.32),
+    0 0 26px rgba(255,0,51,0.22);
+  animation: ctaPulse 2.8s ease-in-out infinite;
+}
+
+.youtube::after {
+  background: linear-gradient(135deg, rgba(255,90,90,0.65), rgba(255,0,80,0.18));
+  filter: blur(18px);
+}
+
+.platform {
+  color: white;
+  background: linear-gradient(180deg, rgba(255,255,255,0.11), rgba(255,255,255,0.06));
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow:
+    0 10px 24px rgba(0,0,0,0.20),
+    inset 0 1px 0 rgba(255,255,255,0.06);
+}
+
+.platform.spotify:hover {
+  box-shadow: 0 14px 28px rgba(29,185,84,0.22), 0 0 18px rgba(29,185,84,0.16);
+}
+
+.platform.apple:hover {
+  box-shadow: 0 14px 28px rgba(255,255,255,0.16), 0 0 18px rgba(255,255,255,0.10);
+}
+
+.platform.audiomack:hover {
+  box-shadow: 0 14px 28px rgba(255,166,0,0.22), 0 0 18px rgba(255,166,0,0.16);
+}
+
+.platform.boomplay:hover {
+  box-shadow: 0 14px 28px rgba(34,211,238,0.22), 0 0 18px rgba(34,211,238,0.16);
+}
+
+.btn:hover {
+  transform: translateY(-3px) scale(1.03);
+}
+
+.btn:hover::before {
+  transform: translateX(120%);
+}
+
+.logo {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 6px rgba(255,255,255,0.08));
+}
+
+/* FOOTER */
+.footer {
+  margin-top: 20px;
+  font-size: 12px;
+  opacity: 0.56;
+  letter-spacing: 0.3px;
+}
+
+/* ANIMATIONS */
+@keyframes driftOne {
+  from { transform: translate3d(0, 0, 0) scale(1); }
+  to { transform: translate3d(40px, 50px, 0) scale(1.08); }
+}
+
+@keyframes driftTwo {
+  from { transform: translate3d(0, 0, 0) scale(1); }
+  to { transform: translate3d(-30px, -45px, 0) scale(1.06); }
+}
+
+@keyframes orbFloat {
+  0%, 100% { transform: translateY(0px) translateX(0px) scale(1); }
+  50% { transform: translateY(-18px) translateX(10px) scale(1.08); }
+}
+
+@keyframes particleDrift {
+  from { transform: translateY(0px); }
+  to { transform: translateY(-120px); }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: scaleY(0.8); opacity: 0.75; }
+  50% { transform: scaleY(1.35); opacity: 1; }
+}
+
+@keyframes breathe {
+  0%, 100% { transform: scale(0.98); opacity: 0.55; }
+  50% { transform: scale(1.04); opacity: 0.9; }
+}
+
+@keyframes ctaPulse {
+  0%, 100% {
+    box-shadow:
+      0 14px 32px rgba(255,0,51,0.30),
+      0 0 22px rgba(255,0,51,0.18);
+  }
+  50% {
+    box-shadow:
+      0 18px 42px rgba(255,0,51,0.42),
+      0 0 34px rgba(255,0,51,0.28);
+  }
+}
+
+@keyframes badgePulse {
+  0%, 100% { transform: scale(1); box-shadow: inset 0 1px 0 rgba(255,255,255,0.08); }
+  50% { transform: scale(1.02); box-shadow: 0 0 18px rgba(0,240,255,0.07), inset 0 1px 0 rgba(255,255,255,0.10); }
+}
+
+@keyframes shine {
+  0% { transform: translateX(-140%); }
+  100% { transform: translateX(140%); }
+}
+
+/* MOBILE POLISH */
+@media (max-width: 480px) {
+  .container {
+    width: 92%;
+    padding: 22px 14px 22px;
+    border-radius: 24px;
+  }
+
+  h1 {
+    font-size: 28px;
+  }
+
+  .sub {
+    font-size: 14px;
+  }
+
+  iframe {
+    height: 215px;
+  }
+
+  .btn {
+    padding: 14px 12px;
+    border-radius: 15px;
+  }
+
+  body::before,
+  body::after {
+    width: 420px;
+    height: 420px;
+  }
+}
 </style>
 </head>
 
@@ -205,34 +550,62 @@ body::after {
 </div>
 
 <h1>Bend Down Select 🔥</h1>
-
-<!-- FIXED TEXT -->
-<div class="sub">Stream now on Spotify 🎧🔥</div>
-
+<div class="sub">Watch first. Then stream everywhere 🎧</div>
 <div class="stats">Fan energy rising ⚡ Tap your platform below</div>
 
 <div class="wave">
-  <span></span><span></span><span></span><span></span><span></span><span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
 </div>
 
+<!-- VIDEO -->
 <div class="video-wrap">
   <div class="video-glow"></div>
   <div class="video">
-    <!-- FIXED -->
-    <iframe src="https://www.youtube.com/embed/7qlRs1gDnMI?rel=0" allowfullscreen></iframe>
+    <iframe src="https://www.youtube.com/embed/7qlRs1gDnMI" allowfullscreen></iframe>
   </div>
 </div>
 
-<!-- SPOTIFY FIRST -->
-<a href="https://open.spotify.com/track/591YkWluaQeC3tGMWhSFWu" class="btn youtube" target="_blank">
-  <img src="https://cdn-icons-png.flaticon.com/512/174/174872.png" class="logo">
-  Play on Spotify
-</a>
-
+<!-- BUTTONS -->
 <a href="https://youtu.be/7qlRs1gDnMI" class="btn youtube" target="_blank">
   <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" class="logo">
   Watch on YouTube
 </a>
 
-<!-- rest untouched -->
-...
+<a href="https://open.spotify.com/track/591YkWluaQeC3tGMWhSFWu" class="btn platform spotify" target="_blank">
+  <img src="https://cdn-icons-png.flaticon.com/512/174/174872.png" class="logo">
+  Spotify
+</a>
+
+<a href="https://music.apple.com/ng/album/bend-down-select/1829791125?i=1829791127" class="btn platform apple" target="_blank">
+  <img src="https://cdn-icons-png.flaticon.com/512/731/731985.png" class="logo">
+  Apple Music
+</a>
+
+<a href="https://audiomack.com/iam_omotaker/song/bend-down-select-1449797" class="btn platform audiomack" target="_blank">
+  <img src="https://cdn-icons-png.flaticon.com/512/5968/5968885.png" class="logo">
+  Audiomack
+</a>
+
+<a href="https://www.boomplay.com/songs/212979254?srModel=COPYLINK&srList=WEB&share_content=music&share_channel=copylink&share_platform=web" class="btn platform boomplay" target="_blank">
+  <img src="https://cdn-icons-png.flaticon.com/512/727/727269.png" class="logo">
+  Boomplay
+</a>
+
+<a href="https://vt.tiktok.com/ZS9LFrn8pEQJE-RA0My/" class="btn platform" target="_blank">
+  <img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png" class="logo">
+  Use on TikTok
+</a>
+
+<div class="footer">
+  OMK • Omo Taker 🐺
+</div>
+
+</div>
+
+</body>
+</html>
