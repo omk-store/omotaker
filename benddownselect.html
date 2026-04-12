@@ -17,49 +17,38 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  text-align: center;
 }
 
 .container {
   width: 90%;
   max-width: 420px;
-  padding: 24px;
-  border-radius: 24px;
+  padding: 20px;
+  border-radius: 20px;
   background: rgba(255,255,255,0.05);
   backdrop-filter: blur(12px);
 }
 
-h1 {
-  font-size: 28px;
-  margin-bottom: 6px;
-}
-
-.sub {
-  opacity: 0.85;
-  margin-bottom: 16px;
-}
-
-/* VIDEO */
+/* VIDEO / IMAGE */
 .video {
-  border-radius: 18px;
+  border-radius: 16px;
   overflow: hidden;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
 }
 
-video {
+video, img {
   width: 100%;
   display: block;
 }
 
-/* BUTTONS */
+/* BUTTON */
 .btn {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
-  padding: 15px;
+  gap: 10px;
+  padding: 14px;
   margin: 10px 0;
-  border-radius: 14px;
+  border-radius: 12px;
   text-decoration: none;
   font-weight: bold;
   background: rgba(255,255,255,0.08);
@@ -68,10 +57,10 @@ video {
 }
 
 .btn:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 25px rgba(0,240,255,0.25);
+  transform: scale(1.04);
 }
 
+/* SPECIAL */
 .spotify {
   background: linear-gradient(135deg, #1DB954, #0f7a3e);
 }
@@ -80,10 +69,10 @@ video {
   background: linear-gradient(135deg, #ff0033, #ff4b4b);
 }
 
-/* LOGOS */
+/* LOGO */
 .logo {
-  width: 22px;
-  height: 22px;
+  width: 20px;
+  height: 20px;
   filter: invert(1);
 }
 </style>
@@ -93,14 +82,17 @@ video {
 
 <div class="container">
 
-<h1>Bend Down Select 🔥</h1>
-<div class="sub">Stream now everywhere 🎧🔥</div>
+<h2>Bend Down Select 🔥</h2>
+<p>Stream now everywhere 🎧🔥</p>
 
-<!-- VIDEO -->
+<!-- VIDEO WITH FALLBACK -->
 <div class="video">
-  <video autoplay muted loop playsinline>
+  <video autoplay muted loop playsinline onerror="this.style.display='none'; document.getElementById('fallback').style.display='block';">
     <source src="https://raw.githubusercontent.com/omk-store/omotaker/main/omotaker/copy_4D01C713-C4B1-4E9A-B273-C1DCD454B8E7.mov">
   </video>
+
+  <!-- FALLBACK IMAGE -->
+  <img id="fallback" src="https://via.placeholder.com/400x500" style="display:none;">
 </div>
 
 <!-- BUTTONS -->
@@ -121,7 +113,7 @@ video {
 </a>
 
 <a href="https://www.boomplay.com/songs/212979254" class="btn">
-  <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/boomplay.svg" class="logo">
+  <img src="https://img.icons8.com/?size=100&id=11144&format=png&color=ffffff" class="logo">
   Boomplay
 </a>
 
