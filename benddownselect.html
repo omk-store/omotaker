@@ -11,136 +11,599 @@
   --card: rgba(255,255,255,0.08);
   --card-border: rgba(255,255,255,0.12);
   --text-soft: rgba(255,255,255,0.72);
+  --text-fade: rgba(255,255,255,0.52);
+  --shadow-deep: 0 20px 60px rgba(0,0,0,0.45);
 }
 
 * {
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   font-family: Arial, sans-serif;
   background:
-    radial-gradient(circle at 20% 20%, rgba(0,240,255,0.12), transparent),
-    radial-gradient(circle at 80% 80%, rgba(255,0,200,0.12), transparent),
+    radial-gradient(circle at 20% 20%, rgba(0,240,255,0.12), transparent 28%),
+    radial-gradient(circle at 80% 80%, rgba(255,0,200,0.12), transparent 30%),
+    radial-gradient(circle at 50% 50%, rgba(124,58,237,0.08), transparent 38%),
     #020617;
   color: white;
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  text-align: center;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* MAIN AURAS */
+body::before,
+body::after {
+  content: "";
+  position: absolute;
+  width: 560px;
+  height: 560px;
+  border-radius: 50%;
+  filter: blur(140px);
+  opacity: 0.34;
+  pointer-events: none;
+  z-index: 0;
+}
+
+body::before {
+  background: linear-gradient(135deg, #00f0ff, #3b82f6);
+  top: -80px;
+  left: -100px;
+  animation: driftOne 12s ease-in-out infinite alternate;
+}
+
+body::after {
+  background: linear-gradient(135deg, #ff00c8, #7c3aed);
+  bottom: -120px;
+  right: -100px;
+  animation: driftTwo 14s ease-in-out infinite alternate;
+}
+
+/* EXTRA MOVING GLOWS */
+.bg-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.22;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.bg-orb.one {
+  width: 220px;
+  height: 220px;
+  background: #00e5ff;
+  top: 12%;
+  right: 16%;
+  animation: orbFloat 10s ease-in-out infinite;
+}
+
+.bg-orb.two {
+  width: 180px;
+  height: 180px;
+  background: #9333ea;
+  bottom: 18%;
+  left: 12%;
+  animation: orbFloat 13s ease-in-out infinite reverse;
+}
+
+.bg-orb.three {
+  width: 140px;
+  height: 140px;
+  background: #ff3cac;
+  top: 58%;
+  right: 8%;
+  animation: orbFloat 11s ease-in-out infinite;
+}
+
+/* GRID / ENERGY LINES */
+.grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 34px 34px;
+  mask-image: radial-gradient(circle at center, black 35%, transparent 88%);
+  opacity: 0.25;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* FLOATING PARTICLES */
+.particles,
+.particles::before,
+.particles::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.particles {
+  background-image:
+    radial-gradient(circle, rgba(255,255,255,0.22) 1.2px, transparent 1.4px),
+    radial-gradient(circle, rgba(0,240,255,0.28) 1.2px, transparent 1.6px),
+    radial-gradient(circle, rgba(255,0,200,0.22) 1.2px, transparent 1.5px);
+  background-size: 140px 140px, 180px 180px, 220px 220px;
+  background-position: 0 0, 50px 80px, 120px 20px;
+  animation: particleDrift 20s linear infinite;
+  opacity: 0.55;
+}
+
+.particles::before {
+  background-image:
+    radial-gradient(circle, rgba(255,255,255,0.14) 1px, transparent 1.5px);
+  background-size: 170px 170px;
+  animation: particleDrift 28s linear infinite reverse;
+  opacity: 0.45;
+}
+
+.particles::after {
+  background-image:
+    radial-gradient(circle, rgba(124,58,237,0.18) 1px, transparent 1.5px);
+  background-size: 210px 210px;
+  animation: particleDrift 32s linear infinite;
+  opacity: 0.4;
 }
 
 /* CONTAINER */
 .container {
   width: 90%;
-  max-width: 420px;
-  padding: 24px 18px;
-  border-radius: 24px;
-  background: rgba(255,255,255,0.05);
-  backdrop-filter: blur(14px);
-  text-align: center;
+  max-width: 430px;
+  z-index: 2;
+  position: relative;
+  padding: 26px 18px 24px;
+  border-radius: 28px;
+  background: linear-gradient(
+    180deg,
+    rgba(255,255,255,0.08),
+    rgba(255,255,255,0.04)
+  );
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow:
+    0 25px 80px rgba(0,0,0,0.45),
+    inset 0 1px 0 rgba(255,255,255,0.10),
+    0 0 0 1px rgba(255,255,255,0.03);
+  animation: fadeIn 1.1s ease;
+  overflow: hidden;
+}
+
+.container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(115deg, transparent 20%, rgba(255,255,255,0.08) 50%, transparent 80%);
+  transform: translateX(-120%);
+  animation: shine 7s linear infinite;
+  pointer-events: none;
+}
+
+.container::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: 28px;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(0,240,255,0.20), rgba(255,0,200,0.16), rgba(255,255,255,0.06));
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(28px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* TOP BADGE */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 14px;
+  border-radius: 999px;
+  font-size: 12px;
+  letter-spacing: 0.2px;
+  margin-bottom: 16px;
+  color: rgba(255,255,255,0.88);
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.08);
+  animation: badgePulse 3s ease-in-out infinite;
+}
+
+.badge-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #00f0ff;
+  box-shadow: 0 0 14px #00f0ff;
 }
 
 /* TITLE */
 h1 {
-  font-size: 28px;
-  margin-bottom: 6px;
+  font-size: 31px;
+  margin: 0 0 8px;
+  line-height: 1.06;
+  letter-spacing: -0.5px;
+  text-shadow: 0 0 24px rgba(255,255,255,0.08);
 }
 
 .sub {
-  opacity: 0.8;
+  opacity: 0.82;
+  margin-bottom: 10px;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.stats {
+  font-size: 13px;
+  opacity: 0.65;
   margin-bottom: 18px;
 }
 
-/* IMAGE */
-.cover img {
-  width: 100%;
-  border-radius: 18px;
-  margin-bottom: 20px;
+/* MINI WAVE */
+.wave {
+  width: 96px;
+  height: 20px;
+  margin: 0 auto 18px;
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  gap: 4px;
+  opacity: 0.9;
 }
 
-/* BUTTON */
+.wave span {
+  width: 6px;
+  border-radius: 999px;
+  background: linear-gradient(to top, #7c3aed, #00f0ff);
+  animation: bounce 1s ease-in-out infinite;
+  box-shadow: 0 0 10px rgba(0,240,255,0.25);
+}
+
+.wave span:nth-child(1) { height: 8px; animation-delay: 0s; }
+.wave span:nth-child(2) { height: 14px; animation-delay: 0.15s; }
+.wave span:nth-child(3) { height: 19px; animation-delay: 0.3s; }
+.wave span:nth-child(4) { height: 12px; animation-delay: 0.45s; }
+.wave span:nth-child(5) { height: 17px; animation-delay: 0.6s; }
+.wave span:nth-child(6) { height: 10px; animation-delay: 0.75s; }
+
+/* VIDEO */
+.video-wrap {
+  position: relative;
+  margin-bottom: 18px;
+}
+
+.video-glow {
+  position: absolute;
+  inset: 14px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, rgba(0,240,255,0.22), rgba(255,0,200,0.18));
+  filter: blur(28px);
+  z-index: -1;
+  animation: breathe 4s ease-in-out infinite;
+}
+
+.video {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  margin-bottom: 0;
+  box-shadow:
+    0 14px 34px rgba(0,0,0,0.45),
+    0 0 0 1px rgba(255,255,255,0.08);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  background: #000;
+}
+
+.video::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.08), transparent 35%, transparent 70%, rgba(0,0,0,0.16));
+  pointer-events: none;
+  z-index: 2;
+}
+
+.video:hover {
+  transform: translateY(-4px) scale(1.015);
+  box-shadow:
+    0 20px 48px rgba(0,0,0,0.55),
+    0 0 30px rgba(0,240,255,0.08);
+}
+
+iframe {
+  width: 100%;
+  height: 230px;
+  border: none;
+  display: block;
+}
+
+/* BUTTONS */
 .btn {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  padding: 14px;
-  margin: 10px 0;
+  gap: 11px;
+  padding: 15px 14px;
+  margin: 12px 0;
   border-radius: 16px;
   text-decoration: none;
   font-weight: bold;
-  background: rgba(255,255,255,0.08);
-  color: white;
-  transition: 0.2s;
+  transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease, background 0.28s ease;
+  overflow: hidden;
+  isolation: isolate;
+  will-change: transform;
 }
 
-.btn:hover {
-  transform: scale(1.04);
+.btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(120deg, transparent 20%, rgba(255,255,255,0.16) 50%, transparent 80%);
+  transform: translateX(-120%);
+  transition: transform 0.6s ease;
+  z-index: 0;
 }
 
-/* SPECIAL */
-.spotify {
-  background: linear-gradient(135deg, #1DB954, #0f7a3e);
+.btn::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.btn > * {
+  position: relative;
+  z-index: 1;
 }
 
 .youtube {
-  background: linear-gradient(135deg, #ff0033, #ff4b4b);
+  color: white;
+  background: linear-gradient(135deg, #ff0033, #ff4b4b 45%, #ff1f6a 100%);
+  box-shadow:
+    0 14px 32px rgba(255,0,51,0.32),
+    0 0 26px rgba(255,0,51,0.22);
+  animation: ctaPulse 2.8s ease-in-out infinite;
 }
 
-/* LOGO */
+.youtube::after {
+  background: linear-gradient(135deg, rgba(255,90,90,0.65), rgba(255,0,80,0.18));
+  filter: blur(18px);
+}
+
+.platform {
+  color: white;
+  background: linear-gradient(180deg, rgba(255,255,255,0.11), rgba(255,255,255,0.06));
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow:
+    0 10px 24px rgba(0,0,0,0.20),
+    inset 0 1px 0 rgba(255,255,255,0.06);
+}
+
+.platform.spotify:hover {
+  box-shadow: 0 14px 28px rgba(29,185,84,0.22), 0 0 18px rgba(29,185,84,0.16);
+}
+
+.platform.apple:hover {
+  box-shadow: 0 14px 28px rgba(255,255,255,0.16), 0 0 18px rgba(255,255,255,0.10);
+}
+
+.platform.audiomack:hover {
+  box-shadow: 0 14px 28px rgba(255,166,0,0.22), 0 0 18px rgba(255,166,0,0.16);
+}
+
+.platform.boomplay:hover {
+  box-shadow: 0 14px 28px rgba(34,211,238,0.22), 0 0 18px rgba(34,211,238,0.16);
+}
+
+.btn:hover {
+  transform: translateY(-3px) scale(1.03);
+}
+
+.btn:hover::before {
+  transform: translateX(120%);
+}
+
 .logo {
-  width: 22px;
-  height: 22px;
+  width: 20px;
+  height: 20px;
   object-fit: contain;
+  filter: drop-shadow(0 0 6px rgba(255,255,255,0.08));
+}
+
+/* FOOTER */
+.footer {
+  margin-top: 20px;
+  font-size: 12px;
+  opacity: 0.56;
+  letter-spacing: 0.3px;
+}
+
+/* ANIMATIONS */
+@keyframes driftOne {
+  from { transform: translate3d(0, 0, 0) scale(1); }
+  to { transform: translate3d(40px, 50px, 0) scale(1.08); }
+}
+
+@keyframes driftTwo {
+  from { transform: translate3d(0, 0, 0) scale(1); }
+  to { transform: translate3d(-30px, -45px, 0) scale(1.06); }
+}
+
+@keyframes orbFloat {
+  0%, 100% { transform: translateY(0px) translateX(0px) scale(1); }
+  50% { transform: translateY(-18px) translateX(10px) scale(1.08); }
+}
+
+@keyframes particleDrift {
+  from { transform: translateY(0px); }
+  to { transform: translateY(-120px); }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: scaleY(0.8); opacity: 0.75; }
+  50% { transform: scaleY(1.35); opacity: 1; }
+}
+
+@keyframes breathe {
+  0%, 100% { transform: scale(0.98); opacity: 0.55; }
+  50% { transform: scale(1.04); opacity: 0.9; }
+}
+
+@keyframes ctaPulse {
+  0%, 100% {
+    box-shadow:
+      0 14px 32px rgba(255,0,51,0.30),
+      0 0 22px rgba(255,0,51,0.18);
+  }
+  50% {
+    box-shadow:
+      0 18px 42px rgba(255,0,51,0.42),
+      0 0 34px rgba(255,0,51,0.28);
+  }
+}
+
+@keyframes badgePulse {
+  0%, 100% { transform: scale(1); box-shadow: inset 0 1px 0 rgba(255,255,255,0.08); }
+  50% { transform: scale(1.02); box-shadow: 0 0 18px rgba(0,240,255,0.07), inset 0 1px 0 rgba(255,255,255,0.10); }
+}
+
+@keyframes shine {
+  0% { transform: translateX(-140%); }
+  100% { transform: translateX(140%); }
+}
+
+/* MOBILE POLISH */
+@media (max-width: 480px) {
+  .container {
+    width: 92%;
+    padding: 22px 14px 22px;
+    border-radius: 24px;
+  }
+
+  h1 {
+    font-size: 28px;
+  }
+
+  .sub {
+    font-size: 14px;
+  }
+
+  iframe {
+    height: 215px;
+  }
+
+  .btn {
+    padding: 14px 12px;
+    border-radius: 15px;
+  }
+
+  body::before,
+  body::after {
+    width: 420px;
+    height: 420px;
+  }
 }
 </style>
 </head>
 
 <body>
 
+<div class="grid"></div>
+<div class="particles"></div>
+<div class="bg-orb one"></div>
+<div class="bg-orb two"></div>
+<div class="bg-orb three"></div>
+
 <div class="container">
 
-<h1>Bend Down Select 🔥</h1>
-<div class="sub">Stream now everywhere 🎧🔥</div>
+<div class="badge">
+  <span class="badge-dot"></span>
+  OMK • LIVE ENERGY
+</div>
 
-<!-- COVER IMAGE -->
-<div class="cover">
-  <img src="https://raw.githubusercontent.com/omk-store/omotaker/refs/heads/main/IMG_9918.jpeg">
+<h1>Bend Down Select 🔥</h1>
+<div class="sub">Watch first. Then stream everywhere 🎧</div>
+<div class="stats">Fan energy rising ⚡ Tap your platform below</div>
+
+<div class="wave">
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+
+<!-- VIDEO -->
+<div class="video-wrap">
+  <div class="video-glow"></div>
+  <div class="video">
+    <iframe src="https://www.youtube.com/embed/7qlRs1gDnMI" allowfullscreen></iframe>
+  </div>
 </div>
 
 <!-- BUTTONS -->
+<a href="https://youtu.be/7qlRs1gDnMI" class="btn youtube" target="_blank">
+  <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" class="logo">
+  Watch on YouTube
+</a>
 
-<a href="https://open.spotify.com/track/591YkWluaQeC3tGMWhSFWu" class="btn spotify" target="_blank">
+<a href="https://open.spotify.com/track/591YkWluaQeC3tGMWhSFWu" class="btn platform spotify" target="_blank">
   <img src="https://cdn-icons-png.flaticon.com/512/174/174872.png" class="logo">
   Spotify
 </a>
 
-<a href="https://music.apple.com/ng/album/bend-down-select/1829791125?i=1829791127" class="btn" target="_blank">
+<a href="https://music.apple.com/ng/album/bend-down-select/1829791125?i=1829791127" class="btn platform apple" target="_blank">
   <img src="https://cdn-icons-png.flaticon.com/512/731/731985.png" class="logo">
   Apple Music
 </a>
 
-<a href="https://audiomack.com/iam_omotaker/song/bend-down-select-1449797" class="btn" target="_blank">
+<a href="https://audiomack.com/iam_omotaker/song/bend-down-select-1449797" class="btn platform audiomack" target="_blank">
   <img src="https://cdn-icons-png.flaticon.com/512/5968/5968885.png" class="logo">
   Audiomack
 </a>
 
-<a href="https://www.boomplay.com/songs/212979254" class="btn" target="_blank">
+<a href="https://www.boomplay.com/songs/212979254?srModel=COPYLINK&srList=WEB&share_content=music&share_channel=copylink&share_platform=web" class="btn platform boomplay" target="_blank">
   <img src="https://cdn-icons-png.flaticon.com/512/727/727269.png" class="logo">
   Boomplay
 </a>
 
-<a href="https://vt.tiktok.com/ZS9LFrn8pEQJE-RA0My/" class="btn" target="_blank">
+<a href="https://vt.tiktok.com/ZS9LFrn8pEQJE-RA0My/" class="btn platform" target="_blank">
   <img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png" class="logo">
   Use on TikTok
 </a>
 
-<a href="https://youtu.be/7qlRs1gDnMI" class="btn youtube" target="_blank">
-  <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" class="logo">
-  YouTube
-</a>
+<div class="footer">
+  OMK • Omo Taker 🐺
+</div>
 
 </div>
 
