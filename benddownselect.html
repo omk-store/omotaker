@@ -6,26 +6,18 @@
 <title>Bend Down Select - Omo Taker</title>
 
 <style>
-:root {
-  --bg: #020617;
-}
-
-* {
-  box-sizing: border-box;
-}
-
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background:
-    radial-gradient(circle at 20% 20%, rgba(0,240,255,0.12), transparent),
-    radial-gradient(circle at 80% 80%, rgba(255,0,200,0.12), transparent),
-    #020617;
+  background: radial-gradient(circle at 20% 20%, #00f0ff22, transparent),
+              radial-gradient(circle at 80% 80%, #ff00c822, transparent),
+              #020617;
   color: white;
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  text-align: center;
 }
 
 /* CONTAINER */
@@ -35,20 +27,18 @@ body {
   padding: 24px;
   border-radius: 24px;
   background: rgba(255,255,255,0.05);
-  backdrop-filter: blur(18px);
-  box-shadow: 0 0 40px rgba(0,0,0,0.5);
-  text-align: center;
+  backdrop-filter: blur(12px);
 }
 
 /* TEXT */
 h1 {
-  font-size: 30px;
+  font-size: 28px;
   margin-bottom: 6px;
 }
 
 .sub {
   opacity: 0.85;
-  margin-bottom: 18px;
+  margin-bottom: 16px;
 }
 
 /* VIDEO */
@@ -56,10 +46,9 @@ h1 {
   border-radius: 18px;
   overflow: hidden;
   margin-bottom: 20px;
-  background: #000;
 }
 
-.video video {
+video {
   width: 100%;
   display: block;
 }
@@ -82,13 +71,12 @@ h1 {
 
 .btn:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 20px rgba(0,240,255,0.2);
+  box-shadow: 0 0 25px rgba(0,240,255,0.25);
 }
 
 /* SPOTIFY */
 .spotify {
   background: linear-gradient(135deg, #1DB954, #0f7a3e);
-  box-shadow: 0 0 20px rgba(29,185,84,0.4);
 }
 
 /* YOUTUBE */
@@ -100,13 +88,7 @@ h1 {
 .logo {
   width: 22px;
   height: 22px;
-}
-
-/* FOOTER */
-.footer {
-  margin-top: 18px;
-  font-size: 12px;
-  opacity: 0.6;
+  object-fit: contain;
 }
 </style>
 </head>
@@ -154,12 +136,8 @@ h1 {
 
 <a href="https://youtu.be/7qlRs1gDnMI" class="btn youtube" target="_blank">
   <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg" class="logo">
-  Watch on YouTube
+  YouTube
 </a>
-
-<div class="footer">
-  OMK • Omo Taker 🐺
-</div>
 
 </div>
 
