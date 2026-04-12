@@ -24,10 +24,11 @@ body {
   width: 90%;
   max-width: 420px;
   padding: 22px;
-  border-radius: 22px;
+  border-radius: 24px;
   background: rgba(255,255,255,0.05);
-  backdrop-filter: blur(12px);
+  backdrop-filter: blur(14px);
   text-align: center;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
 }
 
 /* TITLE */
@@ -41,51 +42,100 @@ h1 {
   margin-bottom: 18px;
 }
 
-/* IMAGE COVER */
-.cover {
-  margin-bottom: 18px;
-}
-
+/* COVER */
 .cover img {
   width: 100%;
   border-radius: 18px;
-  display: block;
+  margin-bottom: 18px;
 }
 
-/* BUTTON */
+/* BUTTON BASE */
 .btn {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
-  padding: 14px;
+  padding: 15px;
   margin: 10px 0;
-  border-radius: 14px;
+  border-radius: 16px;
   text-decoration: none;
   font-weight: bold;
-  background: rgba(255,255,255,0.08);
   color: white;
   transition: 0.3s;
+  position: relative;
+  overflow: hidden;
 }
 
+/* GLOW EFFECT */
+.btn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  filter: blur(18px);
+  opacity: 0.4;
+  z-index: -1;
+}
+
+/* HOVER */
 .btn:hover {
   transform: scale(1.05);
 }
 
-/* SPECIAL BUTTONS */
+/* SPOTIFY */
 .spotify {
   background: linear-gradient(135deg, #1DB954, #0f7a3e);
 }
+.spotify::after {
+  background: #1DB954;
+}
 
+/* APPLE */
+.apple {
+  background: linear-gradient(135deg, #ffffff22, #ffffff08);
+}
+.apple::after {
+  background: #ffffff;
+}
+
+/* AUDIOMACK */
+.audiomack {
+  background: linear-gradient(135deg, #ff9900, #ff6a00);
+}
+.audiomack::after {
+  background: #ff9900;
+}
+
+/* BOOMPLAY */
+.boomplay {
+  background: linear-gradient(135deg, #00c2ff, #0066ff);
+}
+.boomplay::after {
+  background: #00c2ff;
+}
+
+/* TIKTOK */
+.tiktok {
+  background: linear-gradient(135deg, #111, #333);
+}
+.tiktok::after {
+  background: #ff0050;
+}
+
+/* YOUTUBE */
 .youtube {
   background: linear-gradient(135deg, #ff0033, #ff4b4b);
 }
+.youtube::after {
+  background: #ff0033;
+}
 
-/* LOGOS */
+/* LOGO */
 .logo {
   width: 22px;
   height: 22px;
   object-fit: contain;
+  filter: brightness(1000%);
 }
 </style>
 </head>
@@ -97,7 +147,7 @@ h1 {
 <h1>Bend Down Select 🔥</h1>
 <div class="sub">Stream now everywhere 🎧🔥</div>
 
-<!-- COVER IMAGE -->
+<!-- COVER -->
 <div class="cover">
   <img src="https://raw.githubusercontent.com/omk-store/omotaker/refs/heads/main/IMG_9918.jpeg">
 </div>
@@ -109,22 +159,22 @@ h1 {
   Spotify
 </a>
 
-<a href="https://music.apple.com/ng/album/bend-down-select/1829791125?i=1829791127" class="btn" target="_blank">
+<a href="https://music.apple.com/ng/album/bend-down-select/1829791125?i=1829791127" class="btn apple" target="_blank">
   <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" class="logo">
   Apple Music
 </a>
 
-<a href="https://audiomack.com/iam_omotaker/song/bend-down-select-1449797" class="btn" target="_blank">
+<a href="https://audiomack.com/iam_omotaker/song/bend-down-select-1449797" class="btn audiomack" target="_blank">
   <img src="https://upload.wikimedia.org/wikipedia/commons/5/5a/Audiomack_logo.png" class="logo">
   Audiomack
 </a>
 
-<a href="https://www.boomplay.com/songs/212979254" class="btn" target="_blank">
+<a href="https://www.boomplay.com/songs/212979254" class="btn boomplay" target="_blank">
   <img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Boomplay_logo.png" class="logo">
   Boomplay
 </a>
 
-<a href="https://vt.tiktok.com/ZS9LFrn8pEQJE-RA0My/" class="btn" target="_blank">
+<a href="https://vt.tiktok.com/ZS9LFrn8pEQJE-RA0My/" class="btn tiktok" target="_blank">
   <img src="https://upload.wikimedia.org/wikipedia/en/a/a9/TikTok_logo.svg" class="logo">
   Use on TikTok
 </a>
