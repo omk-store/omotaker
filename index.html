@@ -5,27 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Omo Taker — Benin To Lagos</title>
 
-<!-- AUTO OPEN -->
-<script>
-(function() {
-  var ua = navigator.userAgent || navigator.vendor || window.opera;
-
-  function go(){
-    if (/android/i.test(ua)) {
-      window.location.replace("https://open.spotify.com/track/0SooNM8i9p1UiE7HTTp5C4?si=CfXOIeG3RXyyZ8TtGasQaA");
-    } 
-    else if (/iPad|iPhone|iPod/.test(ua) && !window.MSStream) {
-      window.location.replace("https://music.apple.com/ng/album/benin-to-lagos/1866424075?i=1866424076");
-    } 
-    else {
-      window.location.replace("https://open.spotify.com/track/0SooNM8i9p1UiE7HTTp5C4?si=CfXOIeG3RXyyZ8TtGasQaA");
-    }
-  }
-
-  setTimeout(go, 1200);
-})();
-</script>
-
 <style>
 body{
   margin:0;
@@ -37,7 +16,7 @@ body{
   display:flex;
   align-items:center;
   justify-content:center;
-  height:100vh;
+  min-height:100vh;
   text-align:center;
 }
 
@@ -64,12 +43,6 @@ p{
   line-height:1.5;
 }
 
-.loader{
-  margin-top:20px;
-  font-size:14px;
-  opacity:.7;
-}
-
 .buttons{
   margin-top:25px;
   display:flex;
@@ -85,6 +58,11 @@ p{
   color:#fff;
   font-weight:700;
   text-decoration:none;
+  transition:.2s ease;
+}
+
+.btn:hover{
+  transform:scale(1.02);
 }
 </style>
 </head>
@@ -97,11 +75,8 @@ p{
   <h1>Omo Taker — Benin To Lagos</h1>
 
   <p>🔥 Don’t scroll… this one hits different<br>
-  Opening your platform now… 🐺🌍</p>
+  Tap your platform & listen now 🐺🌍</p>
 
-  <div class="loader">Redirecting...</div>
-
-  <!-- fallback -->
   <div class="buttons">
     <a class="btn" href="https://open.spotify.com/track/0SooNM8i9p1UiE7HTTp5C4?si=CfXOIeG3RXyyZ8TtGasQaA">Play on Spotify</a>
     <a class="btn" href="https://music.apple.com/ng/album/benin-to-lagos/1866424075?i=1866424076">Play on Apple Music</a>
