@@ -1,68 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Omo Taker — Benin To Lagos</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Benin To Lagos - Omo Taker</title>
 
 <style>
-body{
-  margin:0;
-  font-family:Arial, sans-serif;
-  color:#fff;
-  background:
-    radial-gradient(circle at center, rgba(255,140,0,.25), transparent 60%),
-    linear-gradient(180deg,#0a0a0a,#000);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  min-height:100vh;
-  text-align:center;
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: radial-gradient(circle at top, #1a0f05, #000);
+  color: #fff;
+  text-align: center;
 }
 
-.container{
-  max-width:420px;
-  padding:20px;
+/* Container */
+.container {
+  padding: 20px;
+  max-width: 500px;
+  margin: auto;
 }
 
-img{
-  width:100%;
-  border-radius:20px;
-  box-shadow:0 10px 40px rgba(255,140,0,.3);
+/* Cover Image */
+.cover {
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(255,140,0,0.3);
 }
 
-h1{
-  margin-top:20px;
-  font-size:28px;
-  font-weight:900;
+/* Title */
+h1 {
+  margin: 20px 0 10px;
+  font-size: 26px;
 }
 
-p{
-  color:#ccc;
-  margin-top:10px;
-  line-height:1.5;
+/* Caption */
+.caption {
+  color: #ccc;
+  font-size: 14px;
+  margin-bottom: 25px;
 }
 
-.buttons{
-  margin-top:25px;
-  display:flex;
-  flex-direction:column;
-  gap:12px;
+/* MAIN BUTTON */
+.main-btn {
+  display: block;
+  background: linear-gradient(135deg, #ff7a00, #ff3c00);
+  color: #fff;
+  padding: 18px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: bold;
+  margin-bottom: 25px;
+  box-shadow: 0 0 20px rgba(255,100,0,0.6);
 }
 
-.btn{
-  padding:16px;
-  border-radius:12px;
-  background:#111;
-  border:1px solid rgba(255,255,255,.1);
-  color:#fff;
-  font-weight:700;
-  text-decoration:none;
-  transition:.2s ease;
+/* Small links */
+.links a {
+  display: block;
+  background: rgba(255,255,255,0.05);
+  padding: 14px;
+  border-radius: 10px;
+  margin: 10px 0;
+  text-decoration: none;
+  color: #fff;
+  font-size: 14px;
 }
 
-.btn:hover{
-  transform:scale(1.03);
+/* TikTok section */
+.tiktok {
+  margin-top: 30px;
+}
+
+.tiktok a {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 12px 18px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.08);
+  text-decoration: none;
+  color: #fff;
+  font-size: 13px;
 }
 </style>
 </head>
@@ -70,41 +87,35 @@ p{
 <body>
 
 <div class="container">
-  <img src="https://raw.githubusercontent.com/omk-store/omotaker/main/6066994F-0E77-4ACE-AB1C-4E1445E4457F.png">
 
-  <h1>Omo Taker — Benin To Lagos</h1>
+<img src="YOUR-IMAGE-LINK-HERE" class="cover">
 
-  <p>🔥 Choose your platform & vibe 🐺🌍</p>
+<h1>Omo Taker — Benin To Lagos</h1>
 
-  <div class="buttons">
+<p class="caption">
+🔥 This one hits different<br>
+Tap & choose your vibe 🐺🌍
+</p>
 
-    <a class="btn" href="https://open.spotify.com/track/0SooNM8i9p1UiE7HTTp5C4?si=CfXOIeG3RXyyZ8TtGasQaA" target="_blank">
-      Spotify
-    </a>
+<!-- MAIN BUTTON -->
+<a href="https://omotaker.com" class="main-btn">
+▶️ Listen to Benin To Lagos
+</a>
 
-    <a class="btn" href="https://music.apple.com/ng/album/benin-to-lagos/1866424075?i=1866424076" target="_blank">
-      Apple Music
-    </a>
+<!-- SMALL LINKS -->
+<div class="links">
+  <a href="https://open.spotify.com/track/0SooNM8i9p1UiE7HTTp5C4">Spotify</a>
+  <a href="https://music.apple.com/ng/album/benin-to-lagos/1866424075?i=1866424076">Apple Music</a>
+  <a href="https://audiomack.com/iam_omotaker/song/benin-to-lagos">Audiomack</a>
+  <a href="https://www.boomplay.com/songs/231357454">Boomplay</a>
+</div>
 
-    <a class="btn" href="https://audiomack.com/iam_omotaker/song/benin-to-lagos" target="_blank">
-      Audiomack
-    </a>
+<!-- TIKTOK -->
+<div class="tiktok">
+  <p>🎵 Create with this sound on TikTok</p>
+  <a href="https://vt.tiktok.com/ZS9LVe3Bd7aPN-1FPjx/">Use Sound</a>
+</div>
 
-    <a class="btn" href="https://www.boomplay.com/songs/231357454?srModel=COPYLINK&srList=WEB&share_content=music&share_channel=copylink&share_platform=web" target="_blank">
-      Boomplay
-    </a>
-
-    <!-- YOUR TELE PLATFORM -->
-    <a class="btn" href="YOUR_LETIS_LINK_HERE" target="_blank">
-      Letis (Telegram)
-    </a>
-
-    <!-- YOUR PITALAND PAGE -->
-    <a class="btn" href="YOUR_PITALAND_LINK_HERE" target="_blank">
-      Pitaland
-    </a>
-
-  </div>
 </div>
 
 </body>
