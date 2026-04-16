@@ -12,17 +12,16 @@
 
   function go(){
     if (/android/i.test(ua)) {
-      window.location.replace("https://open.spotify.com/track/0SooNM8i9p1UiE7HTTp5C4");
+      window.location.replace("https://open.spotify.com/track/0SooNM8i9p1UiE7HTTp5C4?si=CfXOIeG3RXyyZ8TtGasQaA");
     } 
     else if (/iPad|iPhone|iPod/.test(ua) && !window.MSStream) {
-      window.location.replace("https://music.apple.com/ng/album/benin-to-lagos");
+      window.location.replace("https://music.apple.com/ng/album/benin-to-lagos/1866424075?i=1866424076");
     } 
     else {
-      window.location.replace("https://open.spotify.com/track/0SooNM8i9p1UiE7HTTp5C4");
+      window.location.replace("https://open.spotify.com/track/0SooNM8i9p1UiE7HTTp5C4?si=CfXOIeG3RXyyZ8TtGasQaA");
     }
   }
 
-  // delay small so text shows
   setTimeout(go, 1200);
 })();
 </script>
@@ -102,11 +101,12 @@ p{
 
   <div class="loader">Redirecting...</div>
 
-  <!-- fallback if auto fails -->
+  <!-- fallback -->
   <div class="buttons">
-    <a class="btn" href="https://open.spotify.com/track/0SooNM8i9p1UiE7HTTp5C4">Play on Spotify</a>
-    <a class="btn" href="https://music.apple.com/ng/album/benin-to-lagos">Play on Apple Music</a>
-    <a class="btn" href="https://audiomack.com/">Play on Audiomack</a>
+    <a class="btn" href="https://open.spotify.com/track/0SooNM8i9p1UiE7HTTp5C4?si=CfXOIeG3RXyyZ8TtGasQaA">Play on Spotify</a>
+    <a class="btn" href="https://music.apple.com/ng/album/benin-to-lagos/1866424075?i=1866424076">Play on Apple Music</a>
+    <a class="btn" href="https://audiomack.com/iam_omotaker/song/benin-to-lagos">Play on Audiomack</a>
+    <a class="btn" href="https://www.boomplay.com/songs/231357454?srModel=COPYLINK&srList=WEB&share_content=music&share_channel=copylink&share_platform=web">Play on Boomplay</a>
   </div>
 </div>
 
