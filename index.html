@@ -8,77 +8,94 @@
 <style>
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: 'Arial', sans-serif;
   background: radial-gradient(circle at top, #1a0f05, #000);
   color: #fff;
   text-align: center;
 }
 
+/* Container */
 .container {
   max-width: 500px;
   margin: auto;
   padding: 20px;
 }
 
-/* IMAGE */
+/* Cover */
 .cover {
   width: 100%;
-  border-radius: 20px;
+  border-radius: 22px;
   margin-bottom: 20px;
-  box-shadow: 0 0 40px rgba(255,100,0,0.5);
+  box-shadow: 0 0 60px rgba(255,120,0,0.6);
 }
 
-/* TITLE */
+/* Title */
 h1 {
-  font-size: 24px;
+  font-size: 26px;
   margin: 10px 0;
+  letter-spacing: 0.5px;
 }
 
-/* ONE LINE TEXT */
+/* Caption */
 .caption {
   font-size: 14px;
-  color: #ccc;
+  color: #bbb;
   margin-bottom: 25px;
 }
 
-/* STREAM BUTTONS */
+/* 🔥 BIG TAP BUTTONS */
 .btn {
   display: block;
-  background: rgba(255,255,255,0.05);
-  padding: 16px;
-  margin: 10px 0;
-  border-radius: 12px;
+  padding: 20px;
+  margin: 14px 0;
+  border-radius: 16px;
   text-decoration: none;
   color: #fff;
-  font-size: 15px;
-  transition: 0.2s;
+  font-size: 16px;
+  font-weight: 500;
+  background: linear-gradient(145deg, rgba(255,255,255,0.06), rgba(0,0,0,0.6));
+  backdrop-filter: blur(10px);
+  box-shadow: 
+    0 0 15px rgba(255,120,0,0.15),
+    inset 0 0 10px rgba(255,255,255,0.05);
+  transition: all 0.25s ease;
 }
 
-.btn:hover {
-  background: rgba(255,255,255,0.12);
+/* Hover / Tap effect */
+.btn:active {
+  transform: scale(0.96);
+  box-shadow: 0 0 25px rgba(255,120,0,0.4);
 }
 
-/* TIKTOK SECTION */
+/* TikTok section */
 .tiktok-box {
   margin-top: 30px;
   padding: 20px;
-  border-radius: 16px;
-  background: rgba(255,255,255,0.05);
+  border-radius: 20px;
+  background: linear-gradient(145deg, rgba(255,255,255,0.05), rgba(0,0,0,0.6));
+  box-shadow: 0 0 20px rgba(255,120,0,0.2);
 }
 
 .tiktok-text {
   font-size: 14px;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
+  color: #ccc;
 }
 
 .tiktok-btn {
   display: inline-block;
-  padding: 12px 20px;
-  border-radius: 20px;
-  background: #111;
+  padding: 14px 24px;
+  border-radius: 30px;
+  background: linear-gradient(135deg, #ff7a00, #ff3c00);
   color: #fff;
   text-decoration: none;
-  font-size: 13px;
+  font-size: 14px;
+  box-shadow: 0 0 20px rgba(255,100,0,0.6);
+  transition: 0.25s;
+}
+
+.tiktok-btn:active {
+  transform: scale(0.95);
 }
 </style>
 </head>
@@ -87,20 +104,22 @@ h1 {
 
 <div class="container">
 
-<!-- ✅ YOUR IMAGE (WORKING NOW) -->
+<!-- IMAGE -->
 <img src="https://raw.githubusercontent.com/omk-store/omotaker/refs/heads/main/6066994F-0E77-4ACE-AB1C-4E1445E4457F.png" class="cover">
 
+<!-- TITLE -->
 <h1>Omo Taker — Benin To Lagos</h1>
 
+<!-- TEXT -->
 <p class="caption">
 🔥 This one hits different — stream now 🐺🌍
 </p>
 
-<!-- ALL STREAM BUTTONS -->
-<a href="https://open.spotify.com/track/0SooNM8i9p1UiE7HTTp5C4" class="btn">Spotify</a>
-<a href="https://music.apple.com/ng/album/benin-to-lagos/1866424075?i=1866424076" class="btn">Apple Music</a>
-<a href="https://audiomack.com/iam_omotaker/song/benin-to-lagos" class="btn">Audiomack</a>
-<a href="https://www.boomplay.com/songs/231357454" class="btn">Boomplay</a>
+<!-- 🔥 BIG TAP BUTTONS -->
+<a href="https://open.spotify.com/track/0SooNM8i9p1UiE7HTTp5C4" class="btn">Tap to Stream on Spotify</a>
+<a href="https://music.apple.com/ng/album/benin-to-lagos/1866424075?i=1866424076" class="btn">Tap to Stream on Apple Music</a>
+<a href="https://audiomack.com/iam_omotaker/song/benin-to-lagos" class="btn">Tap to Stream on Audiomack</a>
+<a href="https://www.boomplay.com/songs/231357454" class="btn">Tap to Stream on Boomplay</a>
 
 <!-- TIKTOK -->
 <div class="tiktok-box">
