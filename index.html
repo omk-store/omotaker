@@ -8,10 +8,28 @@
 <style>
 body {
   margin: 0;
-  font-family: 'Arial', sans-serif;
-  background: radial-gradient(circle at top, #1a0f05, #000);
+  font-family: Arial, sans-serif;
+  background: #000;
   color: #fff;
   text-align: center;
+  overflow-x: hidden;
+}
+
+/* 🔥 ANIMATED BACKGROUND */
+body::before {
+  content: "";
+  position: fixed;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,100,0,0.2), transparent 60%);
+  animation: moveGlow 8s infinite linear;
+  z-index: -1;
+}
+
+@keyframes moveGlow {
+  0% { transform: translate(-25%, -25%); }
+  50% { transform: translate(25%, 25%); }
+  100% { transform: translate(-25%, -25%); }
 }
 
 /* Container */
@@ -26,14 +44,13 @@ body {
   width: 100%;
   border-radius: 22px;
   margin-bottom: 20px;
-  box-shadow: 0 0 60px rgba(255,120,0,0.6);
+  box-shadow: 0 0 60px rgba(255,120,0,0.7);
 }
 
 /* Title */
 h1 {
   font-size: 26px;
   margin: 10px 0;
-  letter-spacing: 0.5px;
 }
 
 /* Caption */
@@ -43,7 +60,7 @@ h1 {
   margin-bottom: 25px;
 }
 
-/* 🔥 BIG TAP BUTTONS */
+/* 🔥 GLOW BUTTONS */
 .btn {
   display: block;
   padding: 20px;
@@ -53,33 +70,46 @@ h1 {
   color: #fff;
   font-size: 16px;
   font-weight: 500;
-  background: linear-gradient(145deg, rgba(255,255,255,0.06), rgba(0,0,0,0.6));
-  backdrop-filter: blur(10px);
-  box-shadow: 
-    0 0 15px rgba(255,120,0,0.15),
-    inset 0 0 10px rgba(255,255,255,0.05);
-  transition: all 0.25s ease;
+  background: linear-gradient(135deg, #1a1a1a, #000);
+  box-shadow: 0 0 15px rgba(255,100,0,0.3);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
 }
 
-/* Hover / Tap effect */
+/* glow animation */
+.btn::before {
+  content: "";
+  position: absolute;
+  width: 120%;
+  height: 120%;
+  background: linear-gradient(90deg, transparent, rgba(255,120,0,0.6), transparent);
+  top: 0;
+  left: -100%;
+  animation: glowMove 3s infinite;
+}
+
+@keyframes glowMove {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
 .btn:active {
   transform: scale(0.96);
-  box-shadow: 0 0 25px rgba(255,120,0,0.4);
 }
 
-/* TikTok section */
+/* TikTok box */
 .tiktok-box {
   margin-top: 30px;
   padding: 20px;
   border-radius: 20px;
-  background: linear-gradient(145deg, rgba(255,255,255,0.05), rgba(0,0,0,0.6));
-  box-shadow: 0 0 20px rgba(255,120,0,0.2);
+  background: rgba(255,255,255,0.05);
+  box-shadow: 0 0 20px rgba(255,120,0,0.3);
 }
 
 .tiktok-text {
   font-size: 14px;
   margin-bottom: 12px;
-  color: #ccc;
 }
 
 .tiktok-btn {
@@ -90,12 +120,7 @@ h1 {
   color: #fff;
   text-decoration: none;
   font-size: 14px;
-  box-shadow: 0 0 20px rgba(255,100,0,0.6);
-  transition: 0.25s;
-}
-
-.tiktok-btn:active {
-  transform: scale(0.95);
+  box-shadow: 0 0 25px rgba(255,100,0,0.7);
 }
 </style>
 </head>
@@ -104,24 +129,19 @@ h1 {
 
 <div class="container">
 
-<!-- IMAGE -->
 <img src="https://raw.githubusercontent.com/omk-store/omotaker/refs/heads/main/6066994F-0E77-4ACE-AB1C-4E1445E4457F.png" class="cover">
 
-<!-- TITLE -->
 <h1>Omo Taker — Benin To Lagos</h1>
 
-<!-- TEXT -->
 <p class="caption">
 🔥 This one hits different — stream now 🐺🌍
 </p>
 
-<!-- 🔥 BIG TAP BUTTONS -->
 <a href="https://open.spotify.com/track/0SooNM8i9p1UiE7HTTp5C4" class="btn">Tap to Stream on Spotify</a>
 <a href="https://music.apple.com/ng/album/benin-to-lagos/1866424075?i=1866424076" class="btn">Tap to Stream on Apple Music</a>
 <a href="https://audiomack.com/iam_omotaker/song/benin-to-lagos" class="btn">Tap to Stream on Audiomack</a>
 <a href="https://www.boomplay.com/songs/231357454" class="btn">Tap to Stream on Boomplay</a>
 
-<!-- TIKTOK -->
 <div class="tiktok-box">
   <div class="tiktok-text">🎵 Create with this sound on TikTok</div>
   <a href="https://vt.tiktok.com/ZS9LVe3Bd7aPN-1FPjx/" class="tiktok-btn">Use Sound</a>
