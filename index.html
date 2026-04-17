@@ -9,35 +9,33 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: radial-gradient(circle at center, #2b1405, #000);
+  background: radial-gradient(circle at top, #1a0f05, #000);
   color: #fff;
   text-align: center;
 }
 
-/* Container */
 .container {
   padding: 20px;
   max-width: 500px;
   margin: auto;
 }
 
-/* Cover */
+/* IMAGE FIX */
 .cover {
-  width: 220px;
-  height: 220px;
-  object-fit: contain;
-  border-radius: 16px;
-  margin-top: 20px;
-  box-shadow: 0 0 40px rgba(255,120,0,0.5);
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 20px;
+  margin: 20px auto;
+  display: block;
+  box-shadow: 0 0 40px rgba(255,100,0,0.5);
 }
 
-/* Title */
 h1 {
-  font-size: 26px;
-  margin: 20px 0 10px;
+  font-size: 24px;
+  margin: 10px 0;
 }
 
-/* Caption */
 .caption {
   color: #ccc;
   font-size: 14px;
@@ -48,36 +46,37 @@ h1 {
 .main-btn {
   display: block;
   background: linear-gradient(135deg, #ff7a00, #ff3c00);
-  padding: 18px;
-  border-radius: 12px;
-  text-decoration: none;
   color: #fff;
+  padding: 18px;
+  border-radius: 14px;
+  text-decoration: none;
   font-weight: bold;
-  box-shadow: 0 0 25px rgba(255,100,0,0.8);
-  margin-bottom: 20px;
+  margin: 25px 0;
+  box-shadow: 0 0 30px rgba(255,100,0,0.7);
 }
 
-/* Platform text */
+/* PLATFORM TEXT */
 .platforms {
   font-size: 13px;
   color: #aaa;
-  margin-bottom: 30px;
+  margin-bottom: 25px;
 }
 
-/* TikTok */
-.tiktok p {
+/* TIKTOK */
+.tiktok-text {
+  margin-top: 30px;
   font-size: 14px;
-  color: #ddd;
+  color: #ccc;
 }
 
-.tiktok a {
+.tiktok-btn {
   display: inline-block;
-  margin-top: 10px;
-  padding: 12px 20px;
-  border-radius: 20px;
+  margin-top: 12px;
+  padding: 12px 22px;
+  border-radius: 25px;
   background: rgba(255,255,255,0.08);
-  color: #fff;
   text-decoration: none;
+  color: #fff;
   font-size: 13px;
 }
 </style>
@@ -87,8 +86,8 @@ h1 {
 
 <div class="container">
 
-<!-- 🔥 YOUR COVER -->
-<img src="https://i.imgur.com/8Km9tLL.jpg" class="cover">
+<!-- 🔥 PUT YOUR REAL IMAGE LINK HERE -->
+<img src="https://i.imgur.com/REPLACE-WITH-YOUR-IMAGE.jpg" class="cover">
 
 <h1>Omo Taker — Benin To Lagos</h1>
 
@@ -97,21 +96,24 @@ h1 {
 Tap & listen now 🐺🌍
 </p>
 
-<!-- ✅ ONE ACTION -->
+<!-- MAIN BUTTON -->
 <a href="https://omotaker.com" class="main-btn">
 ▶️ Listen Now
 </a>
 
-<!-- ✅ CLEAN TEXT -->
+<!-- SMALL TEXT (NOT BUTTONS ANYMORE) -->
 <div class="platforms">
 Available on Spotify • Apple Music • Audiomack • Boomplay
 </div>
 
-<!-- ✅ TIKTOK -->
-<div class="tiktok">
-  <p>🎵 Create with this sound on TikTok</p>
-  <a href="https://vt.tiktok.com/ZS9LVe3Bd7aPN-1FPjx/">Use Sound</a>
+<!-- TIKTOK -->
+<div class="tiktok-text">
+🎵 Create with this sound on TikTok
 </div>
+
+<a href="https://vt.tiktok.com/ZS9LVe3Bd7aPN-1FPjx/" class="tiktok-btn">
+Use Sound
+</a>
 
 </div>
 
