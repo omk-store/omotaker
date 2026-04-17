@@ -14,71 +14,70 @@ body {
   text-align: center;
 }
 
-/* Container */
 .container {
-  padding: 20px;
   max-width: 500px;
   margin: auto;
+  padding: 20px;
 }
 
-/* Cover Image */
+/* IMAGE */
 .cover {
   width: 100%;
   border-radius: 20px;
-  box-shadow: 0 10px 40px rgba(255,140,0,0.3);
+  margin-bottom: 20px;
+  box-shadow: 0 0 40px rgba(255,100,0,0.5);
 }
 
-/* Title */
+/* TITLE */
 h1 {
-  margin: 20px 0 10px;
-  font-size: 26px;
+  font-size: 24px;
+  margin: 10px 0;
 }
 
-/* Caption */
+/* ONE LINE TEXT */
 .caption {
-  color: #ccc;
   font-size: 14px;
+  color: #ccc;
   margin-bottom: 25px;
 }
 
-/* MAIN BUTTON */
-.main-btn {
-  display: block;
-  background: linear-gradient(135deg, #ff7a00, #ff3c00);
-  color: #fff;
-  padding: 18px;
-  border-radius: 12px;
-  text-decoration: none;
-  font-weight: bold;
-  margin-bottom: 25px;
-  box-shadow: 0 0 20px rgba(255,100,0,0.6);
-}
-
-/* Small links */
-.links a {
+/* STREAM BUTTONS */
+.btn {
   display: block;
   background: rgba(255,255,255,0.05);
-  padding: 14px;
-  border-radius: 10px;
+  padding: 16px;
   margin: 10px 0;
+  border-radius: 12px;
   text-decoration: none;
   color: #fff;
-  font-size: 14px;
+  font-size: 15px;
+  transition: 0.2s;
 }
 
-/* TikTok section */
-.tiktok {
+.btn:hover {
+  background: rgba(255,255,255,0.12);
+}
+
+/* TIKTOK SECTION */
+.tiktok-box {
   margin-top: 30px;
+  padding: 20px;
+  border-radius: 16px;
+  background: rgba(255,255,255,0.05);
 }
 
-.tiktok a {
+.tiktok-text {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.tiktok-btn {
   display: inline-block;
-  margin-top: 10px;
-  padding: 12px 18px;
+  padding: 12px 20px;
   border-radius: 20px;
-  background: rgba(255,255,255,0.08);
-  text-decoration: none;
+  background: #111;
   color: #fff;
+  text-decoration: none;
   font-size: 13px;
 }
 </style>
@@ -88,32 +87,25 @@ h1 {
 
 <div class="container">
 
-<img src="YOUR-IMAGE-LINK-HERE" class="cover">
+<!-- ✅ YOUR IMAGE (WORKING NOW) -->
+<img src="https://raw.githubusercontent.com/omk-store/omotaker/refs/heads/main/6066994F-0E77-4ACE-AB1C-4E1445E4457F.png" class="cover">
 
 <h1>Omo Taker — Benin To Lagos</h1>
 
 <p class="caption">
-🔥 This one hits different<br>
-Tap & choose your vibe 🐺🌍
+🔥 This one hits different — stream now 🐺🌍
 </p>
 
-<!-- MAIN BUTTON -->
-<a href="https://omotaker.com" class="main-btn">
-▶️ Listen to Benin To Lagos
-</a>
-
-<!-- SMALL LINKS -->
-<div class="links">
-  <a href="https://open.spotify.com/track/0SooNM8i9p1UiE7HTTp5C4">Spotify</a>
-  <a href="https://music.apple.com/ng/album/benin-to-lagos/1866424075?i=1866424076">Apple Music</a>
-  <a href="https://audiomack.com/iam_omotaker/song/benin-to-lagos">Audiomack</a>
-  <a href="https://www.boomplay.com/songs/231357454">Boomplay</a>
-</div>
+<!-- ALL STREAM BUTTONS -->
+<a href="https://open.spotify.com/track/0SooNM8i9p1UiE7HTTp5C4" class="btn">Spotify</a>
+<a href="https://music.apple.com/ng/album/benin-to-lagos/1866424075?i=1866424076" class="btn">Apple Music</a>
+<a href="https://audiomack.com/iam_omotaker/song/benin-to-lagos" class="btn">Audiomack</a>
+<a href="https://www.boomplay.com/songs/231357454" class="btn">Boomplay</a>
 
 <!-- TIKTOK -->
-<div class="tiktok">
-  <p>🎵 Create with this sound on TikTok</p>
-  <a href="https://vt.tiktok.com/ZS9LVe3Bd7aPN-1FPjx/">Use Sound</a>
+<div class="tiktok-box">
+  <div class="tiktok-text">🎵 Create with this sound on TikTok</div>
+  <a href="https://vt.tiktok.com/ZS9LVe3Bd7aPN-1FPjx/" class="tiktok-btn">Use Sound</a>
 </div>
 
 </div>
