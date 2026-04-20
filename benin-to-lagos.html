@@ -1,718 +1,152 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Benin To Lagos | Omo Taker</title>
-<meta name="theme-color" content="#060b14">
-<meta name="description" content="Official smart link for Benin To Lagos by Omo Taker. Stream on Spotify, Apple Music, Boomplay and Audiomack.">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Benin To Lagos - Omo Taker</title>
 
 <style>
-:root{
-  --bg:#03060c;
-  --bg2:#071120;
-  --bg3:#0a1424;
-  --panel:rgba(255,255,255,.07);
-  --panel2:rgba(255,255,255,.045);
-  --stroke:rgba(255,255,255,.11);
-  --stroke2:rgba(255,255,255,.18);
-  --text:#ffffff;
-  --muted:rgba(233,240,255,.76);
-  --muted2:rgba(233,240,255,.54);
-  --glow1:rgba(88,226,255,.22);
-  --glow2:rgba(123,92,255,.18);
-  --glow3:rgba(255,88,182,.16);
-  --cyan:#6deaff;
-  --blue:#89a2ff;
-  --pink:#ff69c7;
-  --shadow:0 30px 80px rgba(0,0,0,.52);
-  --radius:32px;
-}
-
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  -webkit-tap-highlight-color:transparent;
-}
-
-html{
-  scroll-behavior:smooth;
-}
-
-body{
-  min-height:100vh;
-  font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-  color:var(--text);
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
   background:
-    radial-gradient(circle at 15% 15%, rgba(109,234,255,.14), transparent 28%),
-    radial-gradient(circle at 85% 18%, rgba(123,92,255,.14), transparent 30%),
-    radial-gradient(circle at 80% 85%, rgba(255,105,199,.10), transparent 26%),
-    linear-gradient(180deg, #02040a 0%, #07111d 48%, #040813 100%);
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  padding:22px;
-  overflow-x:hidden;
-  position:relative;
+    radial-gradient(circle at 20% 20%, rgba(0,240,255,0.12), transparent 28%),
+    radial-gradient(circle at 80% 80%, rgba(255,0,200,0.12), transparent 30%),
+    #020617;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
 }
 
-body::before{
-  content:"";
-  position:fixed;
-  inset:0;
-  pointer-events:none;
-  background:
-    linear-gradient(rgba(255,255,255,.018) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,.018) 1px, transparent 1px);
-  background-size:32px 32px;
-  mask-image:linear-gradient(to bottom, rgba(0,0,0,.45), transparent 75%);
+.container {
+  width: 90%;
+  max-width: 420px;
+  text-align: center;
 }
 
-body::after{
-  content:"";
-  position:fixed;
-  inset:0;
-  pointer-events:none;
-  background:
-    radial-gradient(circle at center, transparent 45%, rgba(0,0,0,.28) 100%);
+/* TITLE */
+h1 {
+  font-size: 28px;
+  margin-bottom: 6px;
+}
+.sub {
+  opacity: 0.8;
+  margin-bottom: 18px;
 }
 
-.wrap{
-  width:100%;
-  max-width:445px;
-  position:relative;
-  border-radius:var(--radius);
-  overflow:hidden;
-  background:
-    linear-gradient(180deg, rgba(10,18,32,.96), rgba(5,10,20,.98));
-  border:1px solid var(--stroke);
-  box-shadow:var(--shadow);
-  backdrop-filter:blur(24px);
-  -webkit-backdrop-filter:blur(24px);
+/* IMAGE */
+.banner {
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+}
+.banner img {
+  width: 100%;
 }
 
-.wrap::before{
-  content:"";
-  position:absolute;
-  inset:-1px;
-  pointer-events:none;
-  background:
-    radial-gradient(circle at 0% 0%, rgba(109,234,255,.10), transparent 28%),
-    radial-gradient(circle at 100% 0%, rgba(123,92,255,.10), transparent 30%),
-    radial-gradient(circle at 100% 100%, rgba(255,105,199,.08), transparent 28%);
+/* BUTTONS */
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 15px;
+  margin: 12px 0;
+  border-radius: 16px;
+  text-decoration: none;
+  font-weight: bold;
+  color: white;
+  transition: 0.3s ease;
+}
+.btn:hover {
+  transform: scale(1.05);
 }
 
-.wrap::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  pointer-events:none;
-  background:linear-gradient(180deg, rgba(255,255,255,.04), transparent 14%, transparent 86%, rgba(255,255,255,.025));
+/* PLATFORM STYLE */
+.platform {
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(10px);
 }
 
-.top-glow{
-  position:absolute;
-  inset:-120px -90px auto -90px;
-  height:240px;
-  background:
-    radial-gradient(circle at 50% 50%, rgba(109,234,255,.20), transparent 42%),
-    radial-gradient(circle at 30% 50%, rgba(123,92,255,.14), transparent 44%),
-    radial-gradient(circle at 70% 50%, rgba(255,105,199,.11), transparent 40%);
-  filter:blur(18px);
-  pointer-events:none;
+/* BRAND COLORS */
+.spotify { color: #1DB954; }
+.apple { color: #ffffff; }
+.audiomack { color: orange; }
+.boomplay { color: #00d4ff; }
+
+/* YOUTUBE */
+.youtube {
+  background: linear-gradient(135deg, #ff0033, #ff4b4b);
 }
 
-.inner{
-  position:relative;
-  z-index:2;
-  padding:18px 18px 22px;
+/* ICON */
+.logo {
+  width: 22px;
 }
 
-.brandbar{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:12px;
-  margin-bottom:14px;
-}
-
-.brandleft{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  min-width:0;
-}
-
-.logo-dot{
-  width:42px;
-  height:42px;
-  border-radius:14px;
-  background:
-    linear-gradient(135deg, rgba(109,234,255,.28), rgba(123,92,255,.20), rgba(255,105,199,.18));
-  border:1px solid rgba(255,255,255,.13);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-weight:900;
-  letter-spacing:.5px;
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.14),
-    0 10px 24px rgba(0,0,0,.24);
-}
-
-.brandcopy{
-  display:flex;
-  flex-direction:column;
-  min-width:0;
-}
-
-.brandcopy b{
-  font-size:15px;
-  line-height:1.1;
-  font-weight:900;
-  letter-spacing:.2px;
-}
-
-.brandcopy span{
-  font-size:12px;
-  color:var(--muted2);
-  margin-top:3px;
-}
-
-.badge{
-  padding:10px 12px;
-  border-radius:999px;
-  background:rgba(255,255,255,.05);
-  border:1px solid rgba(255,255,255,.09);
-  color:var(--muted);
-  font-size:11px;
-  font-weight:800;
-  letter-spacing:1.4px;
-  text-transform:uppercase;
-  white-space:nowrap;
-}
-
-.hero{
-  position:relative;
-  margin-bottom:18px;
-}
-
-.cover-shell{
-  position:relative;
-  border-radius:26px;
-  overflow:hidden;
-  border:1px solid rgba(255,255,255,.10);
-  background:rgba(255,255,255,.03);
-  box-shadow:
-    0 20px 50px rgba(0,0,0,.30),
-    0 0 0 1px rgba(255,255,255,.02) inset;
-}
-
-.cover{
-  width:100%;
-  display:block;
-  aspect-ratio:1/1;
-  object-fit:cover;
-}
-
-.cover-overlay{
-  position:absolute;
-  inset:0;
-  pointer-events:none;
-  background:
-    linear-gradient(180deg, rgba(255,255,255,.05), transparent 24%, transparent 70%, rgba(0,0,0,.24)),
-    radial-gradient(circle at 20% 15%, rgba(255,255,255,.10), transparent 22%);
-}
-
-.hero-chip{
-  position:absolute;
-  left:14px;
-  bottom:14px;
-  padding:10px 14px;
-  border-radius:999px;
-  background:rgba(3,8,18,.70);
-  backdrop-filter:blur(14px);
-  -webkit-backdrop-filter:blur(14px);
-  border:1px solid rgba(255,255,255,.12);
-  font-size:11px;
-  font-weight:800;
-  letter-spacing:1.4px;
-  text-transform:uppercase;
-  color:#fff;
-  box-shadow:0 12px 30px rgba(0,0,0,.26);
-}
-
-.titlewrap{
-  text-align:center;
-  padding:4px 8px 0;
-}
-
-h1{
-  font-size:28px;
-  line-height:1.02;
-  font-weight:950;
-  letter-spacing:.4px;
-}
-
-.artist{
-  margin-top:8px;
-  font-size:14px;
-  color:var(--muted);
-}
-
-.subtext{
-  margin:12px auto 0;
-  max-width:320px;
-  font-size:13px;
-  line-height:1.5;
-  color:var(--muted2);
-}
-
-.quickstats{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:10px;
-  margin-top:18px;
-}
-
-.stat{
-  min-height:72px;
-  border-radius:20px;
-  background:linear-gradient(180deg, rgba(255,255,255,.055), rgba(255,255,255,.028));
-  border:1px solid rgba(255,255,255,.09);
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.03);
-}
-
-.stat b{
-  font-size:15px;
-  font-weight:900;
-}
-
-.stat span{
-  margin-top:4px;
-  font-size:11px;
-  color:var(--muted2);
-  text-transform:uppercase;
-  letter-spacing:1.2px;
-}
-
-.section{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:10px;
-  margin-top:24px;
-  margin-bottom:14px;
-}
-
-.section::before,
-.section::after{
-  content:"";
-  height:1px;
-  flex:1;
-  background:linear-gradient(90deg, transparent, rgba(255,255,255,.16), transparent);
-}
-
-.section span{
-  font-size:11px;
-  color:var(--muted2);
-  letter-spacing:2.8px;
-  font-weight:900;
-  text-transform:uppercase;
-  white-space:nowrap;
-}
-
-.platforms{
-  display:flex;
-  flex-direction:column;
-  gap:12px;
-}
-
-.btn{
-  position:relative;
-  overflow:hidden;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:10px;
-  min-height:66px;
-  padding:18px 18px;
-  border-radius:22px;
-  text-decoration:none;
-  border:1px solid rgba(255,255,255,.11);
-  font-size:15px;
-  font-weight:900;
-  letter-spacing:.1px;
-  transition:transform .22s ease, box-shadow .22s ease, border-color .22s ease, background .22s ease;
-}
-
-.btn::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:linear-gradient(120deg, transparent 20%, rgba(255,255,255,.10) 50%, transparent 80%);
-  transform:translateX(-120%);
-  transition:transform .75s ease;
-}
-
-.btn:hover::before{
-  transform:translateX(120%);
-}
-
-.btn:hover{
-  transform:translateY(-2px);
-}
-
-.btn:active{
-  transform:translateY(0);
-}
-
-.btn-main{
-  color:#06111d;
-  background:linear-gradient(90deg, #6deaff 0%, #8b98ff 52%, #ff69c7 100%);
-  box-shadow:
-    0 16px 32px rgba(123,92,255,.18),
-    0 10px 22px rgba(109,234,255,.10);
-}
-
-.btn-main:hover{
-  box-shadow:
-    0 22px 38px rgba(123,92,255,.24),
-    0 12px 28px rgba(109,234,255,.14);
-}
-
-.btn-dark{
-  color:#fff;
-  background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.035));
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.03);
-}
-
-.btn-dark:hover{
-  border-color:rgba(255,255,255,.18);
-  background:linear-gradient(180deg, rgba(255,255,255,.075), rgba(255,255,255,.045));
-}
-
-.btn .icon{
-  font-size:16px;
-  line-height:1;
-}
-
-.highlight-card{
-  margin-top:18px;
-  border-radius:24px;
-  padding:16px;
-  background:
-    linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.028));
-  border:1px solid rgba(255,255,255,.08);
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.03);
-}
-
-.highlight-top{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:12px;
-}
-
-.highlight-top b{
-  font-size:15px;
-  font-weight:900;
-}
-
-.highlight-top span{
-  font-size:12px;
-  color:var(--muted2);
-}
-
-.highlight-copy{
-  margin-top:9px;
-  font-size:13px;
-  line-height:1.6;
-  color:var(--muted);
-}
-
-.fan-list{
-  display:flex;
-  flex-direction:column;
-  gap:12px;
-}
-
-.fan-card{
-  position:relative;
-  overflow:hidden;
-  border-radius:22px;
-  padding:18px 18px;
-  background:
-    linear-gradient(180deg, rgba(255,255,255,.058), rgba(255,255,255,.03));
-  border:1px solid rgba(255,255,255,.085);
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.03),
-    0 16px 28px rgba(0,0,0,.14);
-}
-
-.fan-card::after{
-  content:"";
-  position:absolute;
-  inset:auto -20% 0 auto;
-  width:140px;
-  height:140px;
-  background:radial-gradient(circle, rgba(109,234,255,.08), transparent 60%);
-  pointer-events:none;
-}
-
-.fan-row{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:10px;
-}
-
-.fan-title{
-  font-size:17px;
-  font-weight:900;
-  line-height:1.15;
-}
-
-.fan-meta{
-  margin-top:6px;
-  font-size:13px;
-  color:var(--muted2);
-}
-
-.pill{
-  padding:8px 12px;
-  border-radius:999px;
-  background:rgba(255,255,255,.05);
-  border:1px solid rgba(255,255,255,.09);
-  font-size:11px;
-  color:#fff;
-  font-weight:800;
-  letter-spacing:1px;
-  white-space:nowrap;
-}
-
-.social-grid{
-  display:grid;
-  grid-template-columns:1fr;
-  gap:12px;
-}
-
-.footer{
-  margin-top:22px;
-  text-align:center;
-}
-
-.footer .line{
-  width:86%;
-  height:1px;
-  margin:0 auto 14px;
-  background:linear-gradient(90deg, transparent, rgba(255,255,255,.18), transparent);
-}
-
-.footer-copy{
-  font-size:12px;
-  line-height:1.6;
-  color:var(--muted2);
-}
-
-.float-orb{
-  position:absolute;
-  border-radius:999px;
-  filter:blur(18px);
-  opacity:.55;
-  pointer-events:none;
-  animation:floaty 8s ease-in-out infinite;
-}
-
-.orb1{
-  width:110px;
-  height:110px;
-  top:90px;
-  right:-40px;
-  background:rgba(109,234,255,.12);
-}
-
-.orb2{
-  width:90px;
-  height:90px;
-  bottom:150px;
-  left:-35px;
-  background:rgba(255,105,199,.10);
-  animation-delay:1.4s;
-}
-
-@keyframes floaty{
-  0%,100%{transform:translateY(0)}
-  50%{transform:translateY(-10px)}
-}
-
-@media (max-width:390px){
-  body{padding:14px}
-  .inner{padding:16px}
-  h1{font-size:24px}
-  .btn{min-height:62px;font-size:14px}
-  .quickstats{gap:8px}
-  .stat{min-height:68px}
-  .fan-title{font-size:16px}
-}
-
-@media (prefers-reduced-motion:reduce){
-  *{
-    scroll-behavior:auto !important;
-  }
-  .float-orb,
-  .btn,
-  .btn::before{
-    animation:none !important;
-    transition:none !important;
-  }
+/* FOOTER */
+.footer {
+  margin-top: 20px;
+  font-size: 12px;
+  opacity: 0.6;
 }
 </style>
 </head>
 
 <body>
-  <div class="wrap">
-    <div class="top-glow"></div>
-    <div class="float-orb orb1"></div>
-    <div class="float-orb orb2"></div>
 
-    <div class="inner">
+<div class="container">
 
-      <div class="brandbar">
-        <div class="brandleft">
-          <div class="logo-dot">OMK</div>
-          <div class="brandcopy">
-            <b>OMK Records</b>
-            <span>Official smart link</span>
-          </div>
-        </div>
-        <div class="badge">2026 Drop</div>
-      </div>
+<!-- TITLE -->
+<h1>Benin To Lagos 🔥</h1>
+<div class="sub">Tap your platform below 🎧</div>
 
-      <div class="hero">
-        <div class="cover-shell">
-          <img
-            src="https://raw.githubusercontent.com/omk-store/omk-website/main/914C5ED9-2BF8-4515-9320-9169F7E32FBB.png"
-            class="cover"
-            alt="Benin To Lagos Cover"
-          >
-          <div class="cover-overlay"></div>
-          <div class="hero-chip">Out Now</div>
-        </div>
-      </div>
+<!-- IMAGE -->
+<div class="banner">
+  <img src="https://raw.githubusercontent.com/omk-store/omk-website/main/914C5ED9-2BF8-4515-9320-9169F7E32FBB.png">
+</div>
 
-      <div class="titlewrap">
-        <h1>BENIN TO LAGOS</h1>
-        <div class="artist">Omo Taker</div>
-        <div class="subtext">
-          Stream the official release across all major platforms and tap into one of the standout Omo Taker records.
-        </div>
-      </div>
+<!-- STREAMING -->
+<a href="https://open.spotify.com/track/0SooNM8i9p1UiE7HTTp5C4" class="btn platform spotify" target="_blank">
+  <img src="https://cdn-icons-png.flaticon.com/512/174/174872.png" class="logo">
+  Spotify
+</a>
 
-      <div class="quickstats">
-        <div class="stat">
-          <b>4</b>
-          <span>Platforms</span>
-        </div>
-        <div class="stat">
-          <b>OMK</b>
-          <span>Official</span>
-        </div>
-        <div class="stat">
-          <b>2026</b>
-          <span>Release Era</span>
-        </div>
-      </div>
+<a href="https://music.apple.com/ng/album/benin-to-lagos/1866424075?i=1866424076" class="btn platform apple" target="_blank">
+  <img src="https://cdn-icons-png.flaticon.com/512/731/731985.png" class="logo">
+  Apple Music
+</a>
 
-      <div class="section"><span>Listen Now</span></div>
+<a href="https://audiomack.com/iam_omotaker/song/benin-to-lagos" class="btn platform audiomack" target="_blank">
+  <img src="https://cdn-icons-png.flaticon.com/512/5968/5968885.png" class="logo">
+  Audiomack
+</a>
 
-      <div class="platforms">
-        <a class="btn btn-main" href="https://open.spotify.com/track/0SooNM8i9p1UiE7HTTp5C4" target="_blank" rel="noopener">
-          <span class="icon">▶</span>
-          <span>Play on Spotify</span>
-        </a>
+<a href="https://www.boomplay.com/songs/231357454" class="btn platform boomplay" target="_blank">
+  <img src="https://cdn-icons-png.flaticon.com/512/727/727269.png" class="logo">
+  Boomplay
+</a>
 
-        <a class="btn btn-dark" href="https://music.apple.com/ng/album/benin-to-lagos/1866424075?i=1866424076" target="_blank" rel="noopener">
-          <span class="icon"></span>
-          <span>Listen on Apple Music</span>
-        </a>
+<!-- YOUTUBE -->
+<a href="https://youtu.be/YOUR_VIDEO_LINK" class="btn youtube" target="_blank">
+  <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" class="logo">
+  Watch on YouTube
+</a>
 
-        <a class="btn btn-dark" href="https://www.boomplay.com/songs/231357454" target="_blank" rel="noopener">
-          <span class="icon">♪</span>
-          <span>Stream on Boomplay</span>
-        </a>
+<!-- TIKTOK -->
+<a href="https://vt.tiktok.com/YOUR_LINK" class="btn platform" target="_blank">
+  <img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png" class="logo">
+  Use on TikTok
+</a>
 
-        <a class="btn btn-dark" href="https://audiomack.com/iam_omotaker/song/benin-to-lagos" target="_blank" rel="noopener">
-          <span class="icon">♫</span>
-          <span>Play on Audiomack</span>
-        </a>
-      </div>
+<div class="footer">
+  OMK • Omo Taker 🐺
+</div>
 
-      <div class="highlight-card">
-        <div class="highlight-top">
-          <b>Why fans tap in</b>
-          <span>OMK sound</span>
-        </div>
-        <div class="highlight-copy">
-          Benin To Lagos carries the movement, pressure, growth, and city energy that defines Omo Taker’s sound and story.
-        </div>
-      </div>
+</div>
 
-      <div class="section"><span>Fan Favorites</span></div>
-
-      <div class="fan-list">
-        <div class="fan-card">
-          <div class="fan-row">
-            <div>
-              <div class="fan-title">My Truth</div>
-              <div class="fan-meta">219K+ streams</div>
-            </div>
-            <div class="pill">Top Pick</div>
-          </div>
-        </div>
-
-        <div class="fan-card">
-          <div class="fan-row">
-            <div>
-              <div class="fan-title">Bend Down Select</div>
-              <div class="fan-meta">84K+ streams</div>
-            </div>
-            <div class="pill">Fan Heat</div>
-          </div>
-        </div>
-
-        <div class="fan-card">
-          <div class="fan-row">
-            <div>
-              <div class="fan-title">You + You</div>
-              <div class="fan-meta">26K+ streams</div>
-            </div>
-            <div class="pill">Replay</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="section"><span>Follow Omo Taker</span></div>
-
-      <div class="social-grid">
-        <a class="btn btn-main" href="https://instagram.com/iam__omotaker" target="_blank" rel="noopener">
-          <span class="icon">◎</span>
-          <span>Follow on Instagram</span>
-        </a>
-      </div>
-
-      <div class="footer">
-        <div class="line"></div>
-        <div class="footer-copy">© 2026 Omo Taker • OMK Records</div>
-      </div>
-
-    </div>
-  </div>
 </body>
 </html>
