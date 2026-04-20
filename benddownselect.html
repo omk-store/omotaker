@@ -26,28 +26,26 @@ body {
   text-align: center;
 }
 
-/* TITLE */
-h1 {
-  font-size: 30px;
-  margin-bottom: 8px;
-}
-
-.sub {
-  opacity: 0.8;
-  margin-bottom: 18px;
-}
-
-/* BANNER */
+/* IMAGE FIRST */
 .banner {
   border-radius: 20px;
   overflow: hidden;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
   box-shadow: 0 20px 50px rgba(0,0,0,0.5);
 }
-
 .banner img {
   width: 100%;
   display: block;
+}
+
+/* TEXT */
+h1 {
+  font-size: 28px;
+  margin: 10px 0 5px;
+}
+.sub {
+  opacity: 0.8;
+  margin-bottom: 18px;
 }
 
 /* BUTTONS */
@@ -64,20 +62,14 @@ h1 {
   color: white;
   transition: 0.3s ease;
 }
-
 .btn:hover {
   transform: scale(1.05);
 }
 
-/* PLATFORM BASE */
+/* PLATFORM STYLE */
 .platform {
   background: rgba(255,255,255,0.08);
   backdrop-filter: blur(10px);
-}
-
-/* LOGOS */
-.logo {
-  width: 22px;
 }
 
 /* BRAND COLORS */
@@ -89,6 +81,11 @@ h1 {
 /* YOUTUBE */
 .youtube {
   background: linear-gradient(135deg, #ff0033, #ff4b4b);
+}
+
+/* ICONS */
+.logo {
+  width: 22px;
 }
 
 /* FOOTER */
@@ -104,13 +101,14 @@ h1 {
 
 <div class="container">
 
-<h1>Bend Down Select 🔥</h1>
-<div class="sub">Tap your platform below 🎧</div>
-
-<!-- COVER IMAGE -->
+<!-- IMAGE FIRST -->
 <div class="banner">
   <img src="https://raw.githubusercontent.com/omk-store/omotaker/main/A7D70F9C-D928-4A18-BAAD-ED8908BEBC77.png">
 </div>
+
+<!-- TEXT BELOW IMAGE -->
+<h1>Bend Down Select 🔥</h1>
+<div class="sub">Tap your platform below 🎧</div>
 
 <!-- STREAMING -->
 <a href="https://open.spotify.com/track/591YkWluaQeC3tGMWhSFWu" class="btn platform spotify" target="_blank">
@@ -133,7 +131,7 @@ h1 {
   Boomplay
 </a>
 
-<!-- YOUTUBE -->
+<!-- YOUTUBE (SECOND LAST) -->
 <a href="https://youtu.be/7qlRs1gDnMI" class="btn youtube" target="_blank">
   <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" class="logo">
   Watch on YouTube
