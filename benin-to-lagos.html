@@ -3,21 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Benin To Lagos - Omo Taker</title>
 
 <style>
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background:
-    radial-gradient(circle at 20% 20%, rgba(0,240,255,0.12), transparent 28%),
-    radial-gradient(circle at 80% 80%, rgba(255,0,200,0.12), transparent 30%),
-    #020617;
+  background: #020617;
   color: white;
   display: flex;
   justify-content: center;
-  align-items: center;
-  min-height: 100vh;
 }
 
 .container {
@@ -26,71 +22,71 @@ body {
   text-align: center;
 }
 
-/* IMAGE FIRST */
-.banner {
-  border-radius: 20px;
-  overflow: hidden;
-  margin-bottom: 15px;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-}
+/* IMAGE */
 .banner img {
   width: 100%;
+  border-radius: 20px;
+  margin-top: 20px;
 }
 
-/* TEXT UNDER IMAGE */
+/* TEXT */
 .title {
-  font-size: 28px;
-  font-weight: bold;
-  margin: 10px 0 5px;
+  font-size: 26px;
+  margin-top: 15px;
 }
-
 .sub {
   opacity: 0.7;
   margin-bottom: 15px;
 }
 
-/* BUTTONS */
+/* BUTTON STYLE */
 .btn {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  gap: 12px;
   padding: 16px;
   margin: 10px 0;
   border-radius: 18px;
   text-decoration: none;
-  font-weight: bold;
   color: white;
-  transition: 0.3s ease;
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(10px);
+  font-weight: bold;
 }
 
 .btn:hover {
-  transform: scale(1.05);
+  transform: scale(1.03);
 }
 
-.platform {
-  background: rgba(255,255,255,0.08);
-  backdrop-filter: blur(10px);
+/* LEFT TEXT + ICON */
+.left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* ICON TEXT STYLE (fallback clean) */
+.icon {
+  font-size: 18px;
 }
 
 /* COLORS */
 .spotify { color: #1DB954; }
-.apple { color: #ffffff; }
-.audiomack { color: #ffb300; }
+.apple { color: #fff; }
+.audiomack { color: orange; }
 .boomplay { color: #00d4ff; }
 
 .youtube {
   background: linear-gradient(135deg, #ff0033, #ff4b4b);
 }
 
-/* LOGOS */
-.logo {
-  width: 26px;
+.arrow {
+  opacity: 0.6;
 }
 
 /* FOOTER */
 .footer {
-  margin-top: 20px;
+  margin: 20px 0;
   font-size: 12px;
   opacity: 0.6;
 }
@@ -106,39 +102,40 @@ body {
   <img src="https://raw.githubusercontent.com/omk-store/omk-website/main/914C5ED9-2BF8-4515-9320-9169F7E32FBB.png">
 </div>
 
-<!-- TEXT NOW BELOW IMAGE ✅ -->
+<!-- TEXT BELOW IMAGE -->
 <div class="title">Benin To Lagos 🔥</div>
 <div class="sub">Tap your platform below 🎧</div>
 
 <!-- BUTTONS -->
-<a href="https://open.spotify.com/track/0SooNM8i9p1UiE7HTTp5C4" class="btn platform spotify" target="_blank">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/8/84/Spotify_icon.svg" class="logo">
-  Spotify
+
+<a href="https://open.spotify.com/track/0SooNM8i9p1UiE7HTTp5C4" class="btn spotify">
+  <div class="left"><span class="icon">🎵</span> Spotify</div>
+  <div class="arrow">›</div>
 </a>
 
-<a href="https://music.apple.com/ng/album/benin-to-lagos/1866424075?i=1866424076" class="btn platform apple" target="_blank">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" class="logo">
-  Apple Music
+<a href="https://music.apple.com/ng/album/benin-to-lagos/1866424075?i=1866424076" class="btn apple">
+  <div class="left"><span class="icon"></span> Apple Music</div>
+  <div class="arrow">›</div>
 </a>
 
-<a href="https://audiomack.com/iam_omotaker/song/benin-to-lagos" class="btn platform audiomack" target="_blank">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Audiomack_logo.png" class="logo">
-  Audiomack
+<a href="https://audiomack.com/iam_omotaker/song/benin-to-lagos" class="btn audiomack">
+  <div class="left"><span class="icon">🎧</span> Audiomack</div>
+  <div class="arrow">›</div>
 </a>
 
-<a href="https://www.boomplay.com/songs/231357454" class="btn platform boomplay" target="_blank">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/0/0d/Boomplay_logo.png" class="logo">
-  Boomplay
+<a href="https://www.boomplay.com/songs/231357454" class="btn boomplay">
+  <div class="left"><span class="icon">🔊</span> Boomplay</div>
+  <div class="arrow">›</div>
 </a>
 
-<a href="https://youtube.com/shorts/KwfxKwpdqJM?feature=share" class="btn youtube" target="_blank">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg" class="logo">
-  Watch on YouTube
+<a href="https://youtube.com/shorts/KwfxKwpdqJM?feature=share" class="btn youtube">
+  <div class="left"><span class="icon">▶️</span> Watch on YouTube</div>
+  <div class="arrow">›</div>
 </a>
 
-<a href="https://vt.tiktok.com/ZS9NeLSMvq35y-PgFND/" class="btn platform" target="_blank">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/TikTok_logo.svg" class="logo">
-  Use on TikTok
+<a href="https://vt.tiktok.com/ZS9NeLSMvq35y-PgFND/" class="btn">
+  <div class="left"><span class="icon">🎶</span> Use on TikTok</div>
+  <div class="arrow">›</div>
 </a>
 
 <div class="footer">
