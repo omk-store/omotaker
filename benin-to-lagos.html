@@ -26,17 +26,7 @@ body {
   text-align: center;
 }
 
-/* TITLE */
-h1 {
-  font-size: 30px;
-  margin-bottom: 5px;
-}
-.sub {
-  opacity: 0.8;
-  margin-bottom: 20px;
-}
-
-/* IMAGE */
+/* IMAGE FIRST */
 .banner {
   border-radius: 20px;
   overflow: hidden;
@@ -45,6 +35,18 @@ h1 {
 }
 .banner img {
   width: 100%;
+}
+
+/* TEXT UNDER IMAGE */
+.title {
+  font-size: 28px;
+  font-weight: bold;
+  margin: 10px 0 5px;
+}
+
+.sub {
+  opacity: 0.7;
+  margin-bottom: 15px;
 }
 
 /* BUTTONS */
@@ -66,28 +68,22 @@ h1 {
   transform: scale(1.05);
 }
 
-/* PLATFORM */
 .platform {
   background: rgba(255,255,255,0.08);
   backdrop-filter: blur(10px);
 }
 
-/* COLORS + GLOW */
-.spotify { color: #1DB954; box-shadow: 0 0 12px rgba(29,185,84,0.3); }
+/* COLORS */
+.spotify { color: #1DB954; }
 .apple { color: #ffffff; }
-.audiomack { color: #ffb300; box-shadow: 0 0 12px rgba(255,179,0,0.3); }
-.boomplay { color: #00d4ff; box-shadow: 0 0 12px rgba(0,212,255,0.3); }
+.audiomack { color: #ffb300; }
+.boomplay { color: #00d4ff; }
 
 .youtube {
   background: linear-gradient(135deg, #ff0033, #ff4b4b);
-  box-shadow: 0 0 15px rgba(255,0,0,0.5);
 }
 
-.tiktok {
-  box-shadow: 0 0 10px rgba(255,255,255,0.2);
-}
-
-/* LOGO */
+/* LOGOS */
 .logo {
   width: 26px;
 }
@@ -105,16 +101,16 @@ h1 {
 
 <div class="container">
 
-<!-- TITLE -->
-<h1>Benin To Lagos 🔥</h1>
-<div class="sub">Tap your platform below 🎧</div>
-
 <!-- IMAGE -->
 <div class="banner">
   <img src="https://raw.githubusercontent.com/omk-store/omk-website/main/914C5ED9-2BF8-4515-9320-9169F7E32FBB.png">
 </div>
 
-<!-- PLATFORMS (NOW DIRECTLY UNDER IMAGE ✅) -->
+<!-- TEXT NOW BELOW IMAGE ✅ -->
+<div class="title">Benin To Lagos 🔥</div>
+<div class="sub">Tap your platform below 🎧</div>
+
+<!-- BUTTONS -->
 <a href="https://open.spotify.com/track/0SooNM8i9p1UiE7HTTp5C4" class="btn platform spotify" target="_blank">
   <img src="https://upload.wikimedia.org/wikipedia/commons/8/84/Spotify_icon.svg" class="logo">
   Spotify
@@ -135,13 +131,12 @@ h1 {
   Boomplay
 </a>
 
-<!-- UPDATED LINKS -->
 <a href="https://youtube.com/shorts/KwfxKwpdqJM?feature=share" class="btn youtube" target="_blank">
   <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg" class="logo">
   Watch on YouTube
 </a>
 
-<a href="https://vt.tiktok.com/ZS9NeLSMvq35y-PgFND/" class="btn platform tiktok" target="_blank">
+<a href="https://vt.tiktok.com/ZS9NeLSMvq35y-PgFND/" class="btn platform" target="_blank">
   <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/TikTok_logo.svg" class="logo">
   Use on TikTok
 </a>
