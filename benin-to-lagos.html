@@ -1,297 +1,171 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Benin To Lagos - Omo Taker</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    *{
-      box-sizing:border-box;
-      margin:0;
-      padding:0;
-    }
+<title>Benin To Lagos - Omo Taker</title>
 
-    body{
-      font-family: Arial, sans-serif;
-      background:
-        radial-gradient(circle at 20% 15%, rgba(0,180,255,.10), transparent 24%),
-        radial-gradient(circle at 85% 75%, rgba(255,0,120,.10), transparent 26%),
-        #020617;
-      color:#fff;
-      min-height:100vh;
-      display:flex;
-      justify-content:center;
-      padding:20px 0 40px;
-    }
+<style>
+body{
+  margin:0;
+  font-family:Arial, sans-serif;
+  background:#020617;
+  color:#fff;
+  display:flex;
+  justify-content:center;
+}
 
-    .container{
-      width:90%;
-      max-width:430px;
-      text-align:center;
-    }
+.container{
+  width:90%;
+  max-width:420px;
+  text-align:center;
+}
 
-    .banner{
-      margin-bottom:18px;
-    }
+/* IMAGE */
+.banner img{
+  width:100%;
+  border-radius:20px;
+  margin-top:20px;
+}
 
-    .banner img{
-      width:100%;
-      display:block;
-      border-radius:24px;
-      box-shadow:0 18px 40px rgba(0,0,0,.45);
-    }
+/* TEXT */
+.title{
+  font-size:26px;
+  margin-top:15px;
+}
+.sub{
+  opacity:.7;
+  margin-bottom:18px;
+}
 
-    .title{
-      font-size:32px;
-      font-weight:800;
-      line-height:1.1;
-      margin-bottom:10px;
-    }
+/* BUTTON */
+.btn{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  padding:18px;
+  margin:12px 0;
+  border-radius:22px;
+  text-decoration:none;
+  font-weight:bold;
+  font-size:18px;
+  color:#fff;
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.08);
+  transition:.3s;
+}
 
-    .sub{
-      font-size:16px;
-      color:rgba(255,255,255,.72);
-      margin-bottom:20px;
-    }
+.btn:hover{
+  transform:scale(1.04);
+}
 
-    .btn{
-      position:relative;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      gap:14px;
-      width:100%;
-      min-height:86px;
-      margin:12px 0;
-      border-radius:22px;
-      text-decoration:none;
-      font-size:18px;
-      font-weight:800;
-      letter-spacing:.2px;
-      color:#fff;
-      background:rgba(255,255,255,.05);
-      border:1.5px solid rgba(255,255,255,.08);
-      backdrop-filter:blur(10px);
-      -webkit-backdrop-filter:blur(10px);
-      transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
-      overflow:hidden;
-    }
+/* LOGO */
+.logo{
+  width:28px;
+  height:28px;
+}
 
-    .btn:hover{
-      transform:translateY(-2px) scale(1.01);
-    }
+/* COLORS + GLOW */
+.spotify{
+  color:#1DB954;
+  border-color:#1DB954;
+  box-shadow:0 0 18px rgba(29,185,84,.25);
+}
 
-    .btn::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:linear-gradient(90deg, rgba(255,255,255,.03), transparent, rgba(255,255,255,.03));
-      opacity:.7;
-      pointer-events:none;
-    }
+.apple{
+  color:#fff;
+  border-color:rgba(255,255,255,.3);
+}
 
-    .btn-content{
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      gap:14px;
-      position:relative;
-      z-index:2;
-    }
+.audiomack{
+  color:#ffb300;
+  border-color:#ffb300;
+  box-shadow:0 0 18px rgba(255,179,0,.25);
+}
 
-    .logo{
-      width:34px;
-      height:34px;
-      object-fit:contain;
-      display:block;
-      flex:0 0 34px;
-      filter:drop-shadow(0 0 6px rgba(255,255,255,.12));
-    }
+.boomplay{
+  color:#00d4ff;
+  border-color:#00d4ff;
+  box-shadow:0 0 18px rgba(0,212,255,.25);
+}
 
-    .label{
-      display:inline-block;
-    }
+.youtube{
+  background:linear-gradient(135deg,#ff0033,#ff4b4b);
+  border:none;
+  box-shadow:0 0 25px rgba(255,0,0,.4);
+}
 
-    .spotify{
-      color:#1ED760;
-      border-color:rgba(30,215,96,.55);
-      box-shadow:
-        0 0 0 1px rgba(30,215,96,.18) inset,
-        0 0 18px rgba(30,215,96,.16);
-    }
+.tiktok{
+  border-color:rgba(255,255,255,.2);
+}
 
-    .spotify:hover{
-      box-shadow:
-        0 0 0 1px rgba(30,215,96,.22) inset,
-        0 0 26px rgba(30,215,96,.25);
-    }
+/* FOOTER */
+.footer{
+  margin-top:20px;
+  font-size:13px;
+  opacity:.6;
+}
 
-    .apple{
-      color:#ffffff;
-      border-color:rgba(255,255,255,.45);
-      box-shadow:
-        0 0 0 1px rgba(255,255,255,.10) inset,
-        0 0 16px rgba(255,255,255,.08);
-    }
-
-    .apple:hover{
-      box-shadow:
-        0 0 0 1px rgba(255,255,255,.14) inset,
-        0 0 24px rgba(255,255,255,.14);
-    }
-
-    .audiomack{
-      color:#F8A300;
-      border-color:rgba(248,163,0,.6);
-      box-shadow:
-        0 0 0 1px rgba(248,163,0,.14) inset,
-        0 0 18px rgba(248,163,0,.14);
-    }
-
-    .audiomack:hover{
-      box-shadow:
-        0 0 0 1px rgba(248,163,0,.18) inset,
-        0 0 26px rgba(248,163,0,.22);
-    }
-
-    .boomplay{
-      color:#13B9FF;
-      border-color:rgba(19,185,255,.58);
-      box-shadow:
-        0 0 0 1px rgba(19,185,255,.12) inset,
-        0 0 18px rgba(19,185,255,.14);
-    }
-
-    .boomplay:hover{
-      box-shadow:
-        0 0 0 1px rgba(19,185,255,.16) inset,
-        0 0 26px rgba(19,185,255,.22);
-    }
-
-    .youtube{
-      background:linear-gradient(135deg, #ff003c, #ff4f5e);
-      color:#fff;
-      border:none;
-      box-shadow:
-        0 0 18px rgba(255,40,70,.28),
-        0 8px 20px rgba(255,30,60,.18);
-    }
-
-    .youtube:hover{
-      box-shadow:
-        0 0 28px rgba(255,40,70,.38),
-        0 10px 24px rgba(255,30,60,.24);
-    }
-
-    .tiktok{
-      color:#ffffff;
-      border-color:rgba(255,255,255,.16);
-      box-shadow:
-        0 0 0 1px rgba(255,255,255,.04) inset,
-        0 0 16px rgba(0,255,255,.06);
-    }
-
-    .tiktok:hover{
-      box-shadow:
-        0 0 0 1px rgba(255,255,255,.08) inset,
-        0 0 24px rgba(255,0,128,.10),
-        0 0 20px rgba(0,255,255,.10);
-    }
-
-    .footer{
-      margin-top:22px;
-      color:rgba(255,255,255,.55);
-      font-size:14px;
-    }
-
-    .site-pill{
-      display:inline-block;
-      margin-top:14px;
-      padding:12px 26px;
-      border-radius:999px;
-      border:1px solid rgba(120,140,255,.22);
-      background:rgba(255,255,255,.05);
-      color:#fff;
-      font-weight:700;
-      box-shadow:0 0 18px rgba(110,130,255,.08);
-    }
-
-    @media (max-width:480px){
-      .title{
-        font-size:28px;
-      }
-
-      .btn{
-        min-height:78px;
-        font-size:17px;
-      }
-
-      .logo{
-        width:30px;
-        height:30px;
-        flex-basis:30px;
-      }
-    }
-  </style>
+.site{
+  margin-top:10px;
+  display:inline-block;
+  padding:10px 20px;
+  border-radius:20px;
+  background:rgba(255,255,255,.08);
+}
+</style>
 </head>
+
 <body>
-  <div class="container">
 
-    <div class="banner">
-      <img src="https://raw.githubusercontent.com/omk-store/omk-website/main/914C5ED9-2BF8-4515-9320-9169F7E32FBB.png" alt="Benin To Lagos cover art">
-    </div>
+<div class="container">
 
-    <div class="title">Benin To Lagos 🔥</div>
-    <div class="sub">Tap your platform below 🎧</div>
+<!-- IMAGE -->
+<div class="banner">
+  <img src="https://raw.githubusercontent.com/omk-store/omk-website/main/914C5ED9-2BF8-4515-9320-9169F7E32FBB.png">
+</div>
 
-    <a href="https://open.spotify.com/track/0SooNM8i9p1UiE7HTTp5C4" class="btn spotify" target="_blank" rel="noopener">
-      <div class="btn-content">
-        <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/8/84/Spotify_icon.svg" alt="Spotify logo">
-        <span class="label">Spotify</span>
-      </div>
-    </a>
+<!-- TEXT -->
+<div class="title">Benin To Lagos 🔥</div>
+<div class="sub">Tap your platform below 🎧</div>
 
-    <a href="https://music.apple.com/ng/album/benin-to-lagos/1866424075?i=1866424076" class="btn apple" target="_blank" rel="noopener">
-      <div class="btn-content">
-        <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="Apple logo" style="filter:brightness(0) invert(1) drop-shadow(0 0 6px rgba(255,255,255,.12));">
-        <span class="label">Apple Music</span>
-      </div>
-    </a>
+<!-- BUTTONS -->
 
-    <a href="https://audiomack.com/iam_omotaker/song/benin-to-lagos" class="btn audiomack" target="_blank" rel="noopener">
-      <div class="btn-content">
-        <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/2/26/Audiomack_logomark_orange.png" alt="Audiomack logo">
-        <span class="label">Audiomack</span>
-      </div>
-    </a>
+<a href="#" class="btn spotify">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/8/84/Spotify_icon.svg" class="logo">
+  Spotify
+</a>
 
-    <a href="https://www.boomplay.com/songs/231357454" class="btn boomplay" target="_blank" rel="noopener">
-      <div class="btn-content">
-        <img class="logo" src="https://seeklogo.com/images/B/boomplay-logo-B4B76F8D22-seeklogo.com.png" alt="Boomplay logo">
-        <span class="label">Boomplay</span>
-      </div>
-    </a>
+<a href="#" class="btn apple">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" class="logo" style="filter:invert(1);">
+  Apple Music
+</a>
 
-    <a href="https://youtube.com/shorts/KwfxKwpdqJM?feature=share" class="btn youtube" target="_blank" rel="noopener">
-      <div class="btn-content">
-        <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/e/ef/Youtube_logo.png" alt="YouTube logo">
-        <span class="label">Watch on YouTube</span>
-      </div>
-    </a>
+<!-- FIXED (NO BROKEN LOGO) -->
+<a href="#" class="btn audiomack">
+  🎧 Audiomack
+</a>
 
-    <a href="https://vt.tiktok.com/ZS9NeLSMvq35y-PgFND/" class="btn tiktok" target="_blank" rel="noopener">
-      <div class="btn-content">
-        <img class="logo" src="https://upload.wikimedia.org/wikipedia/en/a/a9/TikTok_logo.svg" alt="TikTok logo">
-        <span class="label">Use on TikTok</span>
-      </div>
-    </a>
+<a href="#" class="btn boomplay">
+  🔊 Boomplay
+</a>
 
-    <div class="footer">
-      OMK • Omo Taker 🐺
-      <div class="site-pill">omotaker.com</div>
-    </div>
+<a href="https://youtube.com/shorts/KwfxKwpdqJM?feature=share" class="btn youtube">
+  ▶️ Watch on YouTube
+</a>
 
-  </div>
+<a href="https://vt.tiktok.com/ZS9NeLSMvq35y-PgFND/" class="btn tiktok">
+  🎵 Use on TikTok
+</a>
+
+<div class="footer">
+  OMK • Omo Taker 🐺
+  <div class="site">omotaker.com</div>
+</div>
+
+</div>
+
 </body>
 </html>
