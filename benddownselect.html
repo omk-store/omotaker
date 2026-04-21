@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Bend Down Select - Omo Taker</title>
 
 <style>
@@ -16,8 +17,6 @@ body {
   color: white;
   display: flex;
   justify-content: center;
-  align-items: center;
-  min-height: 100vh;
 }
 
 .container {
@@ -26,11 +25,11 @@ body {
   text-align: center;
 }
 
-/* IMAGE FIRST */
+/* IMAGE */
 .banner {
   border-radius: 20px;
   overflow: hidden;
-  margin-bottom: 16px;
+  margin: 20px 0 15px;
   box-shadow: 0 20px 50px rgba(0,0,0,0.5);
 }
 .banner img {
@@ -48,44 +47,65 @@ h1 {
   margin-bottom: 18px;
 }
 
-/* BUTTONS */
+/* BUTTON */
 .btn {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 12px;
-  padding: 15px;
+  padding: 16px;
   margin: 12px 0;
-  border-radius: 16px;
+  border-radius: 20px;
   text-decoration: none;
   font-weight: bold;
+  font-size: 18px;
   color: white;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.08);
   transition: 0.3s ease;
 }
+
 .btn:hover {
   transform: scale(1.05);
 }
 
-/* PLATFORM STYLE */
-.platform {
-  background: rgba(255,255,255,0.08);
-  backdrop-filter: blur(10px);
+/* LOGO */
+.logo {
+  width: 26px;
 }
 
-/* BRAND COLORS */
-.spotify { color: #1DB954; }
-.apple { color: #ffffff; }
-.audiomack { color: orange; }
-.boomplay { color: #00d4ff; }
+/* COLORS + GLOW */
+.spotify {
+  color: #1DB954;
+  border-color: #1DB954;
+  box-shadow: 0 0 18px rgba(29,185,84,0.25);
+}
 
-/* YOUTUBE */
+.apple {
+  color: #ffffff;
+  border-color: rgba(255,255,255,0.3);
+}
+
+.audiomack {
+  color: orange;
+  border-color: orange;
+  box-shadow: 0 0 18px rgba(255,165,0,0.25);
+}
+
+.boomplay {
+  color: #00d4ff;
+  border-color: #00d4ff;
+  box-shadow: 0 0 18px rgba(0,212,255,0.25);
+}
+
 .youtube {
   background: linear-gradient(135deg, #ff0033, #ff4b4b);
+  border: none;
+  box-shadow: 0 0 25px rgba(255,0,0,0.4);
 }
 
-/* ICONS */
-.logo {
-  width: 22px;
+.tiktok {
+  border-color: rgba(255,255,255,0.2);
 }
 
 /* FOOTER */
@@ -101,48 +121,44 @@ h1 {
 
 <div class="container">
 
-<!-- IMAGE FIRST -->
+<!-- IMAGE -->
 <div class="banner">
   <img src="https://raw.githubusercontent.com/omk-store/omotaker/main/A7D70F9C-D928-4A18-BAAD-ED8908BEBC77.png">
 </div>
 
-<!-- TEXT BELOW IMAGE -->
+<!-- TEXT -->
 <h1>Bend Down Select 🔥</h1>
 <div class="sub">Tap your platform below 🎧</div>
 
-<!-- STREAMING -->
-<a href="https://open.spotify.com/track/591YkWluaQeC3tGMWhSFWu" class="btn platform spotify" target="_blank">
-  <img src="https://cdn-icons-png.flaticon.com/512/174/174872.png" class="logo">
+<!-- BUTTONS -->
+
+<a href="https://open.spotify.com/track/591YkWluaQeC3tGMWhSFWu" class="btn spotify" target="_blank">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/8/84/Spotify_icon.svg" class="logo">
   Spotify
 </a>
 
-<a href="https://music.apple.com/ng/album/bend-down-select/1829791125?i=1829791127" class="btn platform apple" target="_blank">
-  <img src="https://cdn-icons-png.flaticon.com/512/731/731985.png" class="logo">
+<a href="https://music.apple.com/ng/album/bend-down-select/1829791125?i=1829791127" class="btn apple" target="_blank">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" class="logo" style="filter:invert(1);">
   Apple Music
 </a>
 
-<a href="https://audiomack.com/iam_omotaker/song/bend-down-select-1449797" class="btn platform audiomack" target="_blank">
-  <img src="https://cdn-icons-png.flaticon.com/512/5968/5968885.png" class="logo">
-  Audiomack
+<a href="https://audiomack.com/iam_omotaker/song/bend-down-select-1449797" class="btn audiomack" target="_blank">
+  🎧 Audiomack
 </a>
 
-<a href="https://www.boomplay.com/songs/212979254" class="btn platform boomplay" target="_blank">
-  <img src="https://cdn-icons-png.flaticon.com/512/727/727269.png" class="logo">
-  Boomplay
+<a href="https://www.boomplay.com/songs/212979254" class="btn boomplay" target="_blank">
+  🔊 Boomplay
 </a>
 
-<!-- YOUTUBE (SECOND LAST) -->
 <a href="https://youtu.be/7qlRs1gDnMI" class="btn youtube" target="_blank">
-  <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" class="logo">
-  Watch on YouTube
+  ▶️ Watch on YouTube
 </a>
 
-<!-- TIKTOK LAST -->
-<a href="https://vt.tiktok.com/ZS9LFrn8pEQJE-RA0My/" class="btn platform" target="_blank">
-  <img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png" class="logo">
-  Use on TikTok
+<a href="https://vt.tiktok.com/ZS9LFrn8pEQJE-RA0My/" class="btn tiktok" target="_blank">
+  🎵 Use on TikTok
 </a>
 
+<!-- FOOTER -->
 <div class="footer">
   OMK • Omo Taker 🐺
 </div>
