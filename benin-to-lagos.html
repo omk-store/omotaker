@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Benin To Lagos - Omo Taker</title>
 
 <style>
@@ -39,49 +38,45 @@ body {
   margin-bottom: 15px;
 }
 
-/* BUTTON STYLE */
+/* BUTTONS */
 .btn {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: center; /* CENTER EVERYTHING */
+  gap: 12px;
   padding: 16px;
   margin: 10px 0;
-  border-radius: 18px;
+  border-radius: 20px;
   text-decoration: none;
-  color: white;
-  background: rgba(255,255,255,0.08);
-  backdrop-filter: blur(10px);
   font-weight: bold;
+  color: white;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.08);
+  transition: 0.3s ease;
 }
 
 .btn:hover {
-  transform: scale(1.03);
+  transform: scale(1.04);
 }
 
-/* LEFT TEXT + ICON */
-.left {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-/* ICON TEXT STYLE (fallback clean) */
-.icon {
-  font-size: 18px;
-}
-
-/* COLORS */
-.spotify { color: #1DB954; }
-.apple { color: #fff; }
-.audiomack { color: orange; }
-.boomplay { color: #00d4ff; }
+/* PLATFORM COLORS */
+.spotify { color: #1DB954; border-color: rgba(29,185,84,0.4); }
+.apple { color: #ffffff; border-color: rgba(255,255,255,0.2); }
+.audiomack { color: #ffb300; border-color: rgba(255,179,0,0.4); }
+.boomplay { color: #00d4ff; border-color: rgba(0,212,255,0.4); }
 
 .youtube {
   background: linear-gradient(135deg, #ff0033, #ff4b4b);
+  border: none;
 }
 
-.arrow {
-  opacity: 0.6;
+.tiktok {
+  border-color: rgba(255,255,255,0.2);
+}
+
+/* ICON STYLE (CLEAN TEXT ICONS) */
+.icon {
+  font-size: 20px;
 }
 
 /* FOOTER */
@@ -89,6 +84,13 @@ body {
   margin: 20px 0;
   font-size: 12px;
   opacity: 0.6;
+}
+.site {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 8px 18px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.08);
 }
 </style>
 </head>
@@ -102,44 +104,39 @@ body {
   <img src="https://raw.githubusercontent.com/omk-store/omk-website/main/914C5ED9-2BF8-4515-9320-9169F7E32FBB.png">
 </div>
 
-<!-- TEXT BELOW IMAGE -->
+<!-- TEXT -->
 <div class="title">Benin To Lagos 🔥</div>
 <div class="sub">Tap your platform below 🎧</div>
 
-<!-- BUTTONS -->
+<!-- BUTTONS (CENTERED CLEAN) -->
 
 <a href="https://open.spotify.com/track/0SooNM8i9p1UiE7HTTp5C4" class="btn spotify">
-  <div class="left"><span class="icon">🎵</span> Spotify</div>
-  <div class="arrow">›</div>
+  <span class="icon">🎵</span> Spotify
 </a>
 
 <a href="https://music.apple.com/ng/album/benin-to-lagos/1866424075?i=1866424076" class="btn apple">
-  <div class="left"><span class="icon"></span> Apple Music</div>
-  <div class="arrow">›</div>
+  <span class="icon"></span> Apple Music
 </a>
 
 <a href="https://audiomack.com/iam_omotaker/song/benin-to-lagos" class="btn audiomack">
-  <div class="left"><span class="icon">🎧</span> Audiomack</div>
-  <div class="arrow">›</div>
+  <span class="icon">🎧</span> Audiomack
 </a>
 
 <a href="https://www.boomplay.com/songs/231357454" class="btn boomplay">
-  <div class="left"><span class="icon">🔊</span> Boomplay</div>
-  <div class="arrow">›</div>
+  <span class="icon">🔊</span> Boomplay
 </a>
 
 <a href="https://youtube.com/shorts/KwfxKwpdqJM?feature=share" class="btn youtube">
-  <div class="left"><span class="icon">▶️</span> Watch on YouTube</div>
-  <div class="arrow">›</div>
+  <span class="icon">▶️</span> Watch on YouTube
 </a>
 
-<a href="https://vt.tiktok.com/ZS9NeLSMvq35y-PgFND/" class="btn">
-  <div class="left"><span class="icon">🎶</span> Use on TikTok</div>
-  <div class="arrow">›</div>
+<a href="https://vt.tiktok.com/ZS9NeLSMvq35y-PgFND/" class="btn tiktok">
+  <span class="icon">🎶</span> Use on TikTok
 </a>
 
 <div class="footer">
-  OMK • Omo Taker 🐺
+  OMK • Omo Taker 🐺 <br>
+  <div class="site">omotaker.com</div>
 </div>
 
 </div>
