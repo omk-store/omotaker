@@ -26,7 +26,6 @@ body {
   text-align: center;
 }
 
-/* TITLE */
 h1 {
   font-size: 28px;
   margin-bottom: 6px;
@@ -36,7 +35,6 @@ h1 {
   margin-bottom: 18px;
 }
 
-/* IMAGE */
 .banner {
   border-radius: 20px;
   overflow: hidden;
@@ -47,7 +45,6 @@ h1 {
   width: 100%;
 }
 
-/* BUTTONS */
 .btn {
   display: flex;
   align-items: center;
@@ -65,29 +62,32 @@ h1 {
   transform: scale(1.05);
 }
 
-/* PLATFORM STYLE */
 .platform {
   background: rgba(255,255,255,0.08);
   backdrop-filter: blur(10px);
 }
 
-/* BRAND COLORS */
+/* COLORS */
 .spotify { color: #1DB954; }
 .apple { color: #ffffff; }
-.audiomack { color: orange; }
+.audiomack { color: #ffb300; }
 .boomplay { color: #00d4ff; }
 
-/* YOUTUBE */
 .youtube {
   background: linear-gradient(135deg, #ff0033, #ff4b4b);
 }
 
-/* ICON */
+/* REAL LOGOS (BETTER SOURCES) */
 .logo {
-  width: 22px;
+  width: 24px;
+  height: 24px;
 }
 
-/* FOOTER */
+/* slight glow */
+.btn.platform:hover {
+  box-shadow: 0 0 20px rgba(255,255,255,0.15);
+}
+
 .footer {
   margin-top: 20px;
   font-size: 12px;
@@ -100,45 +100,42 @@ h1 {
 
 <div class="container">
 
-<!-- TITLE -->
 <h1>Benin To Lagos 🔥</h1>
 <div class="sub">Tap your platform below 🎧</div>
 
-<!-- IMAGE -->
 <div class="banner">
   <img src="https://raw.githubusercontent.com/omk-store/omk-website/main/914C5ED9-2BF8-4515-9320-9169F7E32FBB.png">
 </div>
 
 <!-- STREAMING -->
 <a href="https://open.spotify.com/track/0SooNM8i9p1UiE7HTTp5C4" class="btn platform spotify" target="_blank">
-  <img src="https://cdn-icons-png.flaticon.com/512/174/174872.png" class="logo">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/8/84/Spotify_icon.svg" class="logo">
   Spotify
 </a>
 
 <a href="https://music.apple.com/ng/album/benin-to-lagos/1866424075?i=1866424076" class="btn platform apple" target="_blank">
-  <img src="https://cdn-icons-png.flaticon.com/512/731/731985.png" class="logo">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" class="logo">
   Apple Music
 </a>
 
 <a href="https://audiomack.com/iam_omotaker/song/benin-to-lagos" class="btn platform audiomack" target="_blank">
-  <img src="https://cdn-icons-png.flaticon.com/512/5968/5968885.png" class="logo">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Audiomack_logo.png" class="logo">
   Audiomack
 </a>
 
 <a href="https://www.boomplay.com/songs/231357454" class="btn platform boomplay" target="_blank">
-  <img src="https://cdn-icons-png.flaticon.com/512/727/727269.png" class="logo">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/0/0d/Boomplay_logo.png" class="logo">
   Boomplay
 </a>
 
-<!-- YOUTUBE -->
-<a href="https://youtu.be/YOUR_VIDEO_LINK" class="btn youtube" target="_blank">
-  <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" class="logo">
+<!-- UPDATED LINKS -->
+<a href="https://youtube.com/shorts/KwfxKwpdqJM?feature=share" class="btn youtube" target="_blank">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg" class="logo">
   Watch on YouTube
 </a>
 
-<!-- TIKTOK -->
-<a href="https://vt.tiktok.com/YOUR_LINK" class="btn platform" target="_blank">
-  <img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png" class="logo">
+<a href="https://vt.tiktok.com/ZS9NeLSMvq35y-PgFND/" class="btn platform" target="_blank">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/TikTok_logo.svg" class="logo">
   Use on TikTok
 </a>
 
