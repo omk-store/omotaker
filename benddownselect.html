@@ -10,10 +10,7 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background:
-    radial-gradient(circle at 20% 20%, rgba(0,240,255,0.12), transparent 28%),
-    radial-gradient(circle at 80% 80%, rgba(255,0,200,0.12), transparent 30%),
-    #020617;
+  background: #020617;
   color: white;
   display: flex;
   justify-content: center;
@@ -30,7 +27,7 @@ body {
   border-radius: 20px;
   overflow: hidden;
   margin: 20px 0 15px;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+  box-shadow: 0 0 40px rgba(255,140,0,0.3);
 }
 .banner img {
   width: 100%;
@@ -39,12 +36,12 @@ body {
 
 /* TEXT */
 h1 {
-  font-size: 28px;
+  font-size: 26px;
   margin: 10px 0 5px;
 }
 .sub {
   opacity: 0.8;
-  margin-bottom: 18px;
+  margin-bottom: 20px;
 }
 
 /* BUTTON */
@@ -53,20 +50,30 @@ h1 {
   align-items: center;
   justify-content: center;
   gap: 12px;
-  padding: 16px;
-  margin: 12px 0;
-  border-radius: 20px;
+  padding: 20px;
+  margin: 14px 0;
+  border-radius: 25px;
   text-decoration: none;
   font-weight: bold;
   font-size: 18px;
   color: white;
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.08);
   transition: 0.3s ease;
 }
 
+/* SPOTIFY */
+.spotify {
+  background: linear-gradient(135deg, #1DB954, #1ed760);
+  box-shadow: 0 0 30px rgba(29,185,84,0.6);
+}
+
+/* APPLE */
+.apple {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
 .btn:hover {
-  transform: scale(1.05);
+  transform: scale(1.06);
 }
 
 /* LOGO */
@@ -74,44 +81,10 @@ h1 {
   width: 26px;
 }
 
-/* COLORS + GLOW */
-.spotify {
-  color: #1DB954;
-  border-color: #1DB954;
-  box-shadow: 0 0 18px rgba(29,185,84,0.25);
-}
-
-.apple {
-  color: #ffffff;
-  border-color: rgba(255,255,255,0.3);
-}
-
-.audiomack {
-  color: orange;
-  border-color: orange;
-  box-shadow: 0 0 18px rgba(255,165,0,0.25);
-}
-
-.boomplay {
-  color: #00d4ff;
-  border-color: #00d4ff;
-  box-shadow: 0 0 18px rgba(0,212,255,0.25);
-}
-
-.youtube {
-  background: linear-gradient(135deg, #ff0033, #ff4b4b);
-  border: none;
-  box-shadow: 0 0 25px rgba(255,0,0,0.4);
-}
-
-.tiktok {
-  border-color: rgba(255,255,255,0.2);
-}
-
 /* FOOTER */
 .footer {
-  margin-top: 20px;
-  font-size: 12px;
+  margin-top: 25px;
+  font-size: 13px;
   opacity: 0.6;
 }
 </style>
@@ -127,35 +100,19 @@ h1 {
 </div>
 
 <!-- TEXT -->
-<h1>Bend Down Select 🔥</h1>
-<div class="sub">Tap your platform below 🎧</div>
+<h1>Stream “Bend Down Select” 🔥</h1>
+<div class="sub">Choose your platform 👇</div>
 
-<!-- BUTTONS -->
+<!-- ONLY 2 BUTTONS -->
 
 <a href="https://open.spotify.com/track/591YkWluaQeC3tGMWhSFWu" class="btn spotify" target="_blank">
   <img src="https://upload.wikimedia.org/wikipedia/commons/8/84/Spotify_icon.svg" class="logo">
-  Spotify
+  Play on Spotify
 </a>
 
 <a href="https://music.apple.com/ng/album/bend-down-select/1829791125?i=1829791127" class="btn apple" target="_blank">
   <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" class="logo" style="filter:invert(1);">
-  Apple Music
-</a>
-
-<a href="https://audiomack.com/iam_omotaker/song/bend-down-select-1449797" class="btn audiomack" target="_blank">
-  🎧 Audiomack
-</a>
-
-<a href="https://www.boomplay.com/songs/212979254" class="btn boomplay" target="_blank">
-  🔊 Boomplay
-</a>
-
-<a href="https://youtu.be/7qlRs1gDnMI" class="btn youtube" target="_blank">
-  ▶️ Watch on YouTube
-</a>
-
-<a href="https://vt.tiktok.com/ZS9LFrn8pEQJE-RA0My/" class="btn tiktok" target="_blank">
-  🎵 Use on TikTok
+  Play on Apple Music
 </a>
 
 <!-- FOOTER -->
