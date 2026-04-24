@@ -27,16 +27,18 @@ body{
   width:100%;
   border-radius:20px;
   margin-top:20px;
+  box-shadow:0 0 40px rgba(255,60,0,.3);
 }
 
 /* TEXT */
 .title{
   font-size:26px;
   margin-top:15px;
+  font-weight:bold;
 }
 .sub{
-  opacity:.7;
-  margin-bottom:18px;
+  opacity:.8;
+  margin-bottom:20px;
 }
 
 /* BUTTON */
@@ -45,20 +47,31 @@ body{
   align-items:center;
   justify-content:center;
   gap:12px;
-  padding:18px;
-  margin:12px 0;
-  border-radius:22px;
+  padding:20px;
+  margin:14px 0;
+  border-radius:25px;
   text-decoration:none;
   font-weight:bold;
   font-size:18px;
   color:#fff;
-  background:rgba(255,255,255,.06);
-  border:1px solid rgba(255,255,255,.08);
   transition:.3s;
 }
 
+/* SPOTIFY (PRIMARY) */
+.spotify{
+  background:linear-gradient(135deg,#1DB954,#1ed760);
+  box-shadow:0 0 30px rgba(29,185,84,.6);
+}
+
+/* APPLE */
+.apple{
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.2);
+}
+
+/* HOVER */
 .btn:hover{
-  transform:scale(1.04);
+  transform:scale(1.06);
 }
 
 /* LOGO */
@@ -66,62 +79,11 @@ body{
   width:28px;
 }
 
-/* COLORS + GLOW */
-.spotify{
-  color:#1DB954;
-  border-color:#1DB954;
-  box-shadow:0 0 18px rgba(29,185,84,.25);
-}
-
-.apple{
-  color:#fff;
-  border-color:rgba(255,255,255,.3);
-}
-
-.audiomack{
-  color:#ffb300;
-  border-color:#ffb300;
-  box-shadow:0 0 18px rgba(255,179,0,.25);
-}
-
-.boomplay{
-  color:#00d4ff;
-  border-color:#00d4ff;
-  box-shadow:0 0 18px rgba(0,212,255,.25);
-}
-
-.youtube{
-  background:linear-gradient(135deg,#ff0033,#ff4b4b);
-  border:none;
-  box-shadow:0 0 25px rgba(255,0,0,.4);
-}
-
-.tiktok{
-  border-color:rgba(255,255,255,.2);
-}
-
 /* FOOTER */
 .footer{
-  margin-top:20px;
+  margin-top:25px;
   font-size:13px;
   opacity:.6;
-}
-
-.site{
-  margin-top:12px;
-  display:inline-block;
-  padding:10px 22px;
-  border-radius:20px;
-  background:rgba(255,255,255,.08);
-  color:#fff;
-  text-decoration:none;
-  font-weight:bold;
-  transition:.3s;
-}
-
-.site:hover{
-  background:rgba(255,255,255,.15);
-  transform:scale(1.05);
 }
 </style>
 </head>
@@ -136,44 +98,24 @@ body{
 </div>
 
 <!-- TEXT -->
-<div class="title">Benin To Lagos 🔥</div>
-<div class="sub">Tap your platform below 🎧</div>
+<div class="title">Stream “Benin To Lagos” 🔥</div>
+<div class="sub">Choose your platform 👇</div>
 
-<!-- BUTTONS -->
+<!-- ONLY 2 BUTTONS -->
 
 <a href="https://open.spotify.com/track/0SooNM8i9p1UiE7HTTp5C4" class="btn spotify" target="_blank">
   <img src="https://upload.wikimedia.org/wikipedia/commons/8/84/Spotify_icon.svg" class="logo">
-  Spotify
+  Play on Spotify
 </a>
 
 <a href="https://music.apple.com/ng/album/benin-to-lagos/1866424075?i=1866424076" class="btn apple" target="_blank">
   <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" class="logo" style="filter:invert(1);">
-  Apple Music
-</a>
-
-<a href="https://audiomack.com/iam_omotaker/song/benin-to-lagos" class="btn audiomack" target="_blank">
-  🎧 Audiomack
-</a>
-
-<a href="https://www.boomplay.com/songs/231357454" class="btn boomplay" target="_blank">
-  🔊 Boomplay
-</a>
-
-<a href="https://youtube.com/shorts/KwfxKwpdqJM?feature=share" class="btn youtube" target="_blank">
-  ▶️ Watch on YouTube
-</a>
-
-<a href="https://vt.tiktok.com/ZS9NeLSMvq35y-PgFND/" class="btn tiktok" target="_blank">
-  🎵 Use on TikTok
+  Play on Apple Music
 </a>
 
 <!-- FOOTER -->
 <div class="footer">
-  OMK • Omo Taker 🐺 <br>
-
-  <a href="https://omotaker.com/benddownselect.html" target="_blank" class="site">
-    🎧 Open Bend Down Select
-  </a>
+  OMK • Omo Taker 🐺
 </div>
 
 </div>
