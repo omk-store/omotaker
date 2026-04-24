@@ -10,16 +10,46 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: #020617;
   color: white;
   display: flex;
   justify-content: center;
+  overflow-x: hidden;
+
+  /* 🔥 Animated gradient background */
+  background: linear-gradient(-45deg, #020617, #0f172a, #020617, #111827);
+  background-size: 400% 400%;
+  animation: gradientMove 10s ease infinite;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* 🔥 Floating glow particles */
+body::before {
+  content: "";
+  position: fixed;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.08) 1px, transparent 1px);
+  background-size: 50px 50px;
+  animation: floatParticles 20s linear infinite;
+  z-index: 0;
+}
+
+@keyframes floatParticles {
+  from { transform: translateY(0); }
+  to { transform: translateY(-200px); }
 }
 
 .container {
   width: 90%;
   max-width: 420px;
   text-align: center;
+  position: relative;
+  z-index: 2;
 }
 
 /* IMAGE */
@@ -27,7 +57,7 @@ body {
   border-radius: 20px;
   overflow: hidden;
   margin: 20px 0 15px;
-  box-shadow: 0 0 40px rgba(255,140,0,0.3);
+  box-shadow: 0 0 50px rgba(255,140,0,0.4);
 }
 .banner img {
   width: 100%;
@@ -40,7 +70,7 @@ h1 {
   margin: 10px 0 5px;
 }
 .sub {
-  opacity: 0.8;
+  opacity: 0.85;
   margin-bottom: 20px;
 }
 
@@ -63,7 +93,7 @@ h1 {
 /* SPOTIFY */
 .spotify {
   background: linear-gradient(135deg, #1DB954, #1ed760);
-  box-shadow: 0 0 30px rgba(29,185,84,0.6);
+  box-shadow: 0 0 30px rgba(29,185,84,0.7);
 }
 
 /* APPLE */
@@ -103,8 +133,7 @@ h1 {
 <h1>Stream “Bend Down Select” 🔥</h1>
 <div class="sub">Choose your platform 👇</div>
 
-<!-- ONLY 2 BUTTONS -->
-
+<!-- BUTTONS -->
 <a href="https://open.spotify.com/track/591YkWluaQeC3tGMWhSFWu" class="btn spotify" target="_blank">
   <img src="https://upload.wikimedia.org/wikipedia/commons/8/84/Spotify_icon.svg" class="logo">
   Play on Spotify
