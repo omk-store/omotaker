@@ -6,6 +6,22 @@
 
 <title>Bend Down Select - Omo Taker</title>
 
+<script>
+window.onload = function () {
+  var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+  // iPhone → Apple Music
+  if (/iPhone|iPad|iPod/i.test(userAgent)) {
+    window.location.href = "https://music.apple.com/ng/album/bend-down-select/1829791125?i=1829791127";
+  }
+
+  // Android → Spotify
+  else if (/Android/i.test(userAgent)) {
+    window.location.href = "https://open.spotify.com/track/591YkWluaQeC3tGMWhSFWu";
+  }
+};
+</script>
+
 <style>
 body {
   margin: 0;
@@ -26,7 +42,6 @@ body {
   100% { background-position: 0% 50%; }
 }
 
-/* FLOATING PARTICLES */
 body::before {
   content: "";
   position: fixed;
@@ -51,41 +66,27 @@ body::before {
   z-index: 2;
 }
 
-/* IMAGE */
 .banner {
   border-radius: 20px;
   overflow: hidden;
   margin: 20px 0 15px;
   box-shadow: 0 0 50px rgba(255,140,0,0.4);
 }
+
 .banner img {
   width: 100%;
 }
 
-/* TEXT */
 h1 {
   font-size: 26px;
   margin: 10px 0 5px;
 }
+
 .sub {
   opacity: 0.85;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
-/* LOADER TEXT */
-.loader-text {
-  font-size: 14px;
-  opacity: 0.7;
-  margin-bottom: 10px;
-  animation: fadePulse 1.5s infinite;
-}
-
-@keyframes fadePulse {
-  0%,100% { opacity: 0.4; }
-  50% { opacity: 1; }
-}
-
-/* BUTTON */
 .btn {
   display: flex;
   align-items: center;
@@ -125,21 +126,6 @@ h1 {
   opacity: 0.6;
 }
 </style>
-
-<script>
-window.onload = function () {
-  var userAgent = navigator.userAgent || navigator.vendor || window.opera;
-
-  setTimeout(function () {
-    if (/iPhone|iPad|iPod/i.test(userAgent)) {
-      window.location.href = "https://music.apple.com/ng/album/bend-down-select/1829791125?i=1829791127";
-    } else if (/Android/i.test(userAgent)) {
-      window.location.href = "https://open.spotify.com/track/591YkWluaQeC3tGMWhSFWu";
-    }
-  }, 2500); // 2.5 seconds delay
-};
-</script>
-
 </head>
 
 <body>
@@ -153,14 +139,12 @@ window.onload = function () {
 <h1>Stream “Bend Down Select” 🔥</h1>
 <div class="sub">Choose your platform 👇</div>
 
-<div class="loader-text">Opening your platform...</div>
-
-<a href="https://open.spotify.com/track/591YkWluaQeC3tGMWhSFWu" class="btn spotify">
+<a href="https://open.spotify.com/track/591YkWluaQeC3tGMWhSFWu" class="btn spotify" target="_blank">
   <img src="https://upload.wikimedia.org/wikipedia/commons/8/84/Spotify_icon.svg" class="logo">
   Play on Spotify
 </a>
 
-<a href="https://music.apple.com/ng/album/bend-down-select/1829791125?i=1829791127" class="btn apple">
+<a href="https://music.apple.com/ng/album/bend-down-select/1829791125?i=1829791127" class="btn apple" target="_blank">
   <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" class="logo" style="filter:invert(1);">
   Play on Apple Music
 </a>
