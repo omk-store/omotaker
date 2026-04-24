@@ -10,19 +10,45 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background:
-    radial-gradient(circle at 20% 20%, rgba(0,240,255,0.12), transparent 28%),
-    radial-gradient(circle at 80% 80%, rgba(255,0,200,0.12), transparent 30%),
-    #020617;
   color: white;
   display: flex;
   justify-content: center;
+  overflow-x: hidden;
+
+  background: linear-gradient(-45deg, #020617, #0f172a, #020617, #111827);
+  background-size: 400% 400%;
+  animation: gradientMove 10s ease infinite;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* FLOATING PARTICLES */
+body::before {
+  content: "";
+  position: fixed;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.08) 1px, transparent 1px);
+  background-size: 50px 50px;
+  animation: floatParticles 20s linear infinite;
+  z-index: 0;
+}
+
+@keyframes floatParticles {
+  from { transform: translateY(0); }
+  to { transform: translateY(-200px); }
 }
 
 .container {
   width: 90%;
   max-width: 420px;
   text-align: center;
+  position: relative;
+  z-index: 2;
 }
 
 /* IMAGE */
@@ -30,21 +56,33 @@ body {
   border-radius: 20px;
   overflow: hidden;
   margin: 20px 0 15px;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+  box-shadow: 0 0 50px rgba(255,140,0,0.4);
 }
 .banner img {
   width: 100%;
-  display: block;
 }
 
 /* TEXT */
 h1 {
-  font-size: 28px;
+  font-size: 26px;
   margin: 10px 0 5px;
 }
 .sub {
-  opacity: 0.8;
-  margin-bottom: 18px;
+  opacity: 0.85;
+  margin-bottom: 10px;
+}
+
+/* LOADER TEXT */
+.loader-text {
+  font-size: 14px;
+  opacity: 0.7;
+  margin-bottom: 10px;
+  animation: fadePulse 1.5s infinite;
+}
+
+@keyframes fadePulse {
+  0%,100% { opacity: 0.4; }
+  50% { opacity: 1; }
 }
 
 /* BUTTON */
@@ -53,112 +91,80 @@ h1 {
   align-items: center;
   justify-content: center;
   gap: 12px;
-  padding: 16px;
-  margin: 12px 0;
-  border-radius: 20px;
+  padding: 20px;
+  margin: 14px 0;
+  border-radius: 25px;
   text-decoration: none;
   font-weight: bold;
   font-size: 18px;
   color: white;
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.08);
   transition: 0.3s ease;
 }
 
-.btn:hover {
-  transform: scale(1.05);
+.spotify {
+  background: linear-gradient(135deg, #1DB954, #1ed760);
+  box-shadow: 0 0 30px rgba(29,185,84,0.7);
 }
 
-/* LOGO */
+.apple {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+.btn:hover {
+  transform: scale(1.06);
+}
+
 .logo {
   width: 26px;
 }
 
-/* COLORS + GLOW */
-.spotify {
-  color: #1DB954;
-  border-color: #1DB954;
-  box-shadow: 0 0 18px rgba(29,185,84,0.25);
-}
-
-.apple {
-  color: #ffffff;
-  border-color: rgba(255,255,255,0.3);
-}
-
-.audiomack {
-  color: orange;
-  border-color: orange;
-  box-shadow: 0 0 18px rgba(255,165,0,0.25);
-}
-
-.boomplay {
-  color: #00d4ff;
-  border-color: #00d4ff;
-  box-shadow: 0 0 18px rgba(0,212,255,0.25);
-}
-
-.youtube {
-  background: linear-gradient(135deg, #ff0033, #ff4b4b);
-  border: none;
-  box-shadow: 0 0 25px rgba(255,0,0,0.4);
-}
-
-.tiktok {
-  border-color: rgba(255,255,255,0.2);
-}
-
-/* FOOTER */
 .footer {
-  margin-top: 20px;
-  font-size: 12px;
+  margin-top: 25px;
+  font-size: 13px;
   opacity: 0.6;
 }
 </style>
+
+<script>
+window.onload = function () {
+  var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+  setTimeout(function () {
+    if (/iPhone|iPad|iPod/i.test(userAgent)) {
+      window.location.href = "https://music.apple.com/ng/album/bend-down-select/1829791125?i=1829791127";
+    } else if (/Android/i.test(userAgent)) {
+      window.location.href = "https://open.spotify.com/track/591YkWluaQeC3tGMWhSFWu";
+    }
+  }, 2500); // 2.5 seconds delay
+};
+</script>
+
 </head>
 
 <body>
 
 <div class="container">
 
-<!-- IMAGE -->
 <div class="banner">
   <img src="https://raw.githubusercontent.com/omk-store/omotaker/main/A7D70F9C-D928-4A18-BAAD-ED8908BEBC77.png">
 </div>
 
-<!-- TEXT -->
-<h1>Bend Down Select 🔥</h1>
-<div class="sub">Tap your platform below 🎧</div>
+<h1>Stream “Bend Down Select” 🔥</h1>
+<div class="sub">Choose your platform 👇</div>
 
-<!-- BUTTONS -->
+<div class="loader-text">Opening your platform...</div>
 
-<a href="https://open.spotify.com/track/591YkWluaQeC3tGMWhSFWu" class="btn spotify" target="_blank">
+<a href="https://open.spotify.com/track/591YkWluaQeC3tGMWhSFWu" class="btn spotify">
   <img src="https://upload.wikimedia.org/wikipedia/commons/8/84/Spotify_icon.svg" class="logo">
-  Spotify
+  Play on Spotify
 </a>
 
-<a href="https://music.apple.com/ng/album/bend-down-select/1829791125?i=1829791127" class="btn apple" target="_blank">
+<a href="https://music.apple.com/ng/album/bend-down-select/1829791125?i=1829791127" class="btn apple">
   <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" class="logo" style="filter:invert(1);">
-  Apple Music
+  Play on Apple Music
 </a>
 
-<a href="https://audiomack.com/iam_omotaker/song/bend-down-select-1449797" class="btn audiomack" target="_blank">
-  🎧 Audiomack
-</a>
-
-<a href="https://www.boomplay.com/songs/212979254" class="btn boomplay" target="_blank">
-  🔊 Boomplay
-</a>
-
-<a href="https://youtu.be/7qlRs1gDnMI" class="btn youtube" target="_blank">
-  ▶️ Watch on YouTube
-</a>
-
-<a href="https://vt.tiktok.com/ZS9LFrn8pEQJE-RA0My/" class="btn tiktok" target="_blank">
-  🎵 Use on TikTok
-</a>
-
-<!-- FOOTER -->
 <div class="footer">
   OMK • Omo Taker 🐺
 </div>
