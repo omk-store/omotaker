@@ -15,7 +15,6 @@ body {
   justify-content: center;
   overflow-x: hidden;
 
-  /* 🔥 Animated gradient background */
   background: linear-gradient(-45deg, #020617, #0f172a, #020617, #111827);
   background-size: 400% 400%;
   animation: gradientMove 10s ease infinite;
@@ -27,7 +26,7 @@ body {
   100% { background-position: 0% 50%; }
 }
 
-/* 🔥 Floating glow particles */
+/* FLOATING PARTICLES */
 body::before {
   content: "";
   position: fixed;
@@ -61,7 +60,6 @@ body::before {
 }
 .banner img {
   width: 100%;
-  display: block;
 }
 
 /* TEXT */
@@ -71,7 +69,20 @@ h1 {
 }
 .sub {
   opacity: 0.85;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+}
+
+/* LOADER TEXT */
+.loader-text {
+  font-size: 14px;
+  opacity: 0.7;
+  margin-bottom: 10px;
+  animation: fadePulse 1.5s infinite;
+}
+
+@keyframes fadePulse {
+  0%,100% { opacity: 0.4; }
+  50% { opacity: 1; }
 }
 
 /* BUTTON */
@@ -90,13 +101,11 @@ h1 {
   transition: 0.3s ease;
 }
 
-/* SPOTIFY */
 .spotify {
   background: linear-gradient(135deg, #1DB954, #1ed760);
   box-shadow: 0 0 30px rgba(29,185,84,0.7);
 }
 
-/* APPLE */
 .apple {
   background: rgba(255,255,255,0.08);
   border: 1px solid rgba(255,255,255,0.2);
@@ -106,50 +115,8 @@ h1 {
   transform: scale(1.06);
 }
 
-/* LOGO */
 .logo {
   width: 26px;
 }
 
-/* FOOTER */
-.footer {
-  margin-top: 25px;
-  font-size: 13px;
-  opacity: 0.6;
-}
-</style>
-</head>
-
-<body>
-
-<div class="container">
-
-<!-- IMAGE -->
-<div class="banner">
-  <img src="https://raw.githubusercontent.com/omk-store/omotaker/main/A7D70F9C-D928-4A18-BAAD-ED8908BEBC77.png">
-</div>
-
-<!-- TEXT -->
-<h1>Stream “Bend Down Select” 🔥</h1>
-<div class="sub">Choose your platform 👇</div>
-
-<!-- BUTTONS -->
-<a href="https://open.spotify.com/track/591YkWluaQeC3tGMWhSFWu" class="btn spotify" target="_blank">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/8/84/Spotify_icon.svg" class="logo">
-  Play on Spotify
-</a>
-
-<a href="https://music.apple.com/ng/album/bend-down-select/1829791125?i=1829791127" class="btn apple" target="_blank">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" class="logo" style="filter:invert(1);">
-  Play on Apple Music
-</a>
-
-<!-- FOOTER -->
-<div class="footer">
-  OMK • Omo Taker 🐺
-</div>
-
-</div>
-
-</body>
-</html>
+.footer
