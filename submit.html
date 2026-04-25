@@ -15,18 +15,31 @@ body{
 }
 
 .container{
-  max-width:400px;
+  max-width:420px;
   margin:auto;
   padding:20px;
 }
 
 h1{
-  margin-top:30px;
+  margin-top:20px;
 }
 
 p{
   opacity:0.7;
   font-size:14px;
+}
+
+.plan{
+  background:rgba(255,255,255,0.05);
+  padding:15px;
+  margin:10px 0;
+  border-radius:12px;
+  text-align:left;
+}
+
+.plan strong{
+  display:block;
+  font-size:16px;
 }
 
 input{
@@ -35,19 +48,22 @@ input{
   margin:10px 0;
   border-radius:10px;
   border:none;
-  outline:none;
 }
 
 button{
   width:100%;
   padding:15px;
-  margin-top:15px;
+  margin-top:10px;
   border:none;
   border-radius:10px;
   background:#00ff9f;
   font-weight:bold;
   font-size:16px;
-  cursor:pointer;
+}
+
+.pay{
+  background:#111;
+  border:1px solid #00ff9f;
 }
 
 .footer{
@@ -56,6 +72,9 @@ button{
   opacity:0.5;
 }
 </style>
+
+<script src="https://js.paystack.co/v1/inline.js"></script>
+
 </head>
 
 <body>
@@ -63,30 +82,66 @@ button{
 <div class="container">
 
 <h1>Get Featured on Everyday Vibe 🏆</h1>
-
 <p>If your sound is hard… we push it 🔥</p>
 
+<!-- PRICING -->
+<div class="plan">
+<strong>⚡ Starter Promo — ₦30,000</strong>
+Playlist placement + exposure
+</div>
+
+<div class="plan">
+<strong>🚀 7-Day Push — ₦80,000</strong>
+Ads + playlist + promo content
+</div>
+
+<div class="plan">
+<strong>🏆 Premium Campaign — ₦120,000</strong>
+Full push + maximum reach
+</div>
+
+<!-- FORM -->
 <form action="https://formsubmit.co/activevibe65@gmail.com" method="POST">
 
 <input type="text" name="Artist Name" placeholder="Artist Name" required>
 
 <input type="text" name="Location" placeholder="Where are you based?" required>
 
-<input type="url" name="Song Link" placeholder="Song Link (Spotify / Apple / Audiomack)" required>
+<input type="url" name="Song Link" placeholder="Song Link" required>
 
-<input type="hidden" name="_subject" value="New Song Submission">
-
+<input type="hidden" name="_subject" value="New Paid Submission">
 <input type="hidden" name="_captcha" value="false">
 
-<button type="submit">Submit Song 🚀</button>
+<button type="submit">Submit Details 🚀</button>
 
 </form>
+
+<!-- PAYMENT BUTTON -->
+<button class="pay" onclick="payWithPaystack()">Pay & Get Featured 💳</button>
 
 <div class="footer">
 Powered by Everyday Vibe 🏆 | Viral Music Discovery
 </div>
 
 </div>
+
+<script>
+function payWithPaystack(){
+  let handler = PaystackPop.setup({
+    key: 'YOUR_PUBLIC_KEY',
+    email: 'customer@email.com',
+    amount: 3000000, // ₦30,000 (in kobo)
+    currency: 'NGN',
+    callback: function(response){
+      alert('Payment successful! Send proof on WhatsApp.');
+    },
+    onClose: function(){
+      alert('Payment cancelled');
+    }
+  });
+  handler.openIframe();
+}
+</script>
 
 </body>
 </html>
