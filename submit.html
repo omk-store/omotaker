@@ -34,21 +34,37 @@ h1{
 }
 
 .plan{
+  display:flex;
+  align-items:center;
+  gap:10px;
   background:rgba(255,255,255,0.05);
-  padding:12px;
+  padding:14px;
   border-radius:12px;
-  margin:8px 0;
+  margin:10px 0;
   text-align:left;
+  border:1px solid transparent;
+  transition:0.3s;
 }
 
-input{
+.plan input{
+  transform:scale(1.2);
+}
+
+.plan:has(input:checked){
+  border:1px solid #00ff9f;
+  box-shadow:0 0 15px rgba(0,255,159,0.2);
+}
+
+input[type="text"],
+input[type="url"]{
   width:100%;
   padding:15px;
-  margin:10px 0;
+  margin:12px 0;
   border-radius:12px;
   border:none;
   background:rgba(255,255,255,0.08);
   color:white;
+  outline:none;
 }
 
 button{
@@ -61,12 +77,21 @@ button{
   font-weight:bold;
   font-size:16px;
   margin-top:10px;
+  cursor:pointer;
 }
 
 .footer{
   margin-top:20px;
   font-size:12px;
   opacity:0.4;
+}
+
+/* LOADER */
+.loader{
+  display:none;
+  margin-top:15px;
+  font-size:14px;
+  opacity:0.7;
 }
 </style>
 
@@ -79,35 +104,31 @@ button{
 <h1>Get Featured on Everyday Vibe 🏆</h1>
 <p class="sub">If your sound is different… we push it to the right audience 🔥</p>
 
-<form action="https://formsubmit.co/activevibe65@gmail.com" method="POST">
+<form id="evForm">
 
 <!-- PLAN -->
-<div class="plan">
+<label class="plan">
 <input type="radio" name="Selected Plan" value="Starter Promo - ₦30,000" required>
 ⚡ Starter Promo — ₦30,000
-</div>
+</label>
 
-<div class="plan">
+<label class="plan">
 <input type="radio" name="Selected Plan" value="7-Day Push - ₦80,000">
 🚀 7-Day Push — ₦80,000
-</div>
+</label>
 
-<div class="plan">
+<label class="plan">
 <input type="radio" name="Selected Plan" value="Premium Campaign - ₦120,000">
 🏆 Premium Campaign — ₦120,000
-</div>
+</label>
 
 <input type="text" name="Artist Name" placeholder="Artist Name" required>
 <input type="text" name="Location" placeholder="Where are you based?" required>
 <input type="url" name="Song Link" placeholder="Song Link" required>
 
-<input type="hidden" name="_subject" value="New Artist Submission (With Plan)">
-<input type="hidden" name="_captcha" value="false">
-
-<!-- 🔥 REDIRECT AFTER SUBMIT -->
-<input type="hidden" name="_next" value="https://www.omotaker.com/">
-
 <button type="submit">Submit for Review 🚀</button>
+
+<div class="loader" id="loader">Submitting… 🚀</div>
 
 </form>
 
@@ -116,6 +137,28 @@ Powered by Everyday Vibe 🏆 | Viral Music Discovery
 </div>
 
 </div>
+
+<script>
+document.getElementById("evForm").addEventListener("submit", function(e){
+  e.preventDefault();
+
+  const loader = document.getElementById("loader");
+  loader.style.display = "block";
+
+  let formData = new FormData(this);
+
+  fetch("https://formsubmit.co/ajax/activevibe65@gmail.com", {
+    method: "POST",
+    body: formData
+  })
+  .then(() => {
+    window.location.href = "https://www.omotaker.com/ev-ultra.html";
+  })
+  .catch(() => {
+    loader.innerText = "Error. Try again.";
+  });
+});
+</script>
 
 </body>
 </html>
