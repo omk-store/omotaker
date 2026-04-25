@@ -23,67 +23,70 @@ body{
   padding:25px 20px;
 }
 
-/* TITLE */
 h1{
   font-size:28px;
-  margin-top:20px;
-  line-height:1.3;
 }
 
-/* SUBTEXT */
 .sub{
   opacity:0.7;
   font-size:14px;
   margin-bottom:20px;
 }
 
-/* CARD */
-.card{
-  background:rgba(255,255,255,0.05);
-  border:1px solid rgba(255,255,255,0.08);
-  padding:15px;
-  border-radius:15px;
+.plans{
+  text-align:left;
   margin-bottom:15px;
-  font-size:13px;
-  opacity:0.85;
 }
 
-/* INPUT */
-input{
+.plan{
+  background:rgba(255,255,255,0.05);
+  padding:12px;
+  border-radius:12px;
+  margin:8px 0;
+  border:1px solid transparent;
+}
+
+.plan input{
+  margin-right:10px;
+}
+
+.plan.active{
+  border:1px solid #00ff9f;
+}
+
+input, select{
   width:100%;
   padding:15px;
   margin:10px 0;
   border-radius:12px;
   border:none;
-  outline:none;
   background:rgba(255,255,255,0.08);
   color:white;
 }
 
-/* BUTTON */
 button{
   width:100%;
   padding:16px;
-  margin-top:10px;
   border:none;
   border-radius:12px;
   background:linear-gradient(90deg,#00ff9f,#00d4ff);
   color:black;
   font-weight:bold;
   font-size:16px;
-  box-shadow:0 10px 30px rgba(0,255,200,0.3);
-  cursor:pointer;
+  margin-top:10px;
 }
 
-/* SMALL TEXT */
-.note{
-  margin-top:12px;
-  font-size:12px;
-  opacity:0.6;
+.paybox{
+  margin-top:15px;
+  padding:15px;
+  background:rgba(255,255,255,0.05);
+  border-radius:12px;
+  font-size:13px;
+  opacity:0.85;
 }
 
 .footer{
-  margin-top:25px;
+  margin-top:20px;
   font-size:12px;
   opacity:0.4;
 }
@@ -96,33 +99,48 @@ button{
 <div class="container">
 
 <h1>Get Featured on Everyday Vibe 🏆</h1>
-
-<p class="sub">
-If your sound is different… we push it to the right audience 🔥
-</p>
-
-<div class="card">
-🎧 Playlist Placement • 📈 Music Promotion • 🚀 Artist Growth
-</div>
+<p class="sub">If your sound is different… we push it to the right audience 🔥</p>
 
 <form action="https://formsubmit.co/activevibe65@gmail.com" method="POST">
 
+<!-- PLAN SELECT -->
+<div class="plans">
+
+<label class="plan">
+<input type="radio" name="Selected Plan" value="Starter Promo - ₦30,000" required>
+⚡ Starter Promo — ₦30,000
+</label>
+
+<label class="plan">
+<input type="radio" name="Selected Plan" value="7-Day Push - ₦80,000">
+🚀 7-Day Push — ₦80,000
+</label>
+
+<label class="plan">
+<input type="radio" name="Selected Plan" value="Premium Campaign - ₦120,000">
+🏆 Premium Campaign — ₦120,000
+</label>
+
+</div>
+
 <input type="text" name="Artist Name" placeholder="Artist Name" required>
-
 <input type="text" name="Location" placeholder="Where are you based?" required>
+<input type="url" name="Song Link" placeholder="Song Link" required>
 
-<input type="url" name="Song Link" placeholder="Song Link (Spotify / Apple / Audiomack)" required>
-
-<input type="hidden" name="_subject" value="New Artist Submission">
+<input type="hidden" name="_subject" value="New Artist Submission (With Plan)">
 <input type="hidden" name="_captcha" value="false">
 
 <button type="submit">Submit for Review 🚀</button>
 
 </form>
 
-<p class="note">
-Selected artists will receive campaign details & payment info via email.
-</p>
+<!-- PAYMENT SECTION -->
+<div class="paybox">
+💳 After submission, you’ll receive payment instructions via email.<br><br>
+Or pay directly after approval:
+<br><br>
+👉 Contact on WhatsApp to confirm payment
+</div>
 
 <div class="footer">
 Powered by Everyday Vibe 🏆 | Viral Music Discovery
