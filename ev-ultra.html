@@ -88,19 +88,45 @@ body::after {
   margin-bottom: 12px;
 }
 
-/* TAP TEXT */
-.tap {
-  text-align: center;
-  font-size: 13px;
-  font-weight: 600;
-  margin-bottom: 16px;
-  color: #22c55e;
-  animation: blink 1.5s infinite;
+/* 🔥 NEW TAP BOX */
+.tap-box{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  font-size:13px;
+  font-weight:600;
+  margin-bottom:16px;
+  color:#22c55e;
+  background:rgba(34,197,94,0.08);
+  border:1px solid rgba(34,197,94,0.2);
+  padding:8px 14px;
+  border-radius:999px;
+  width:fit-content;
+  margin-left:auto;
+  margin-right:auto;
+  animation:fadeGlow 2s infinite;
 }
 
-@keyframes blink {
-  0%,100% { opacity: 0.5; }
-  50% { opacity: 1; }
+/* PULSE DOT */
+.live-dot{
+  width:8px;
+  height:8px;
+  background:#22c55e;
+  border-radius:50%;
+  box-shadow:0 0 10px #22c55e;
+  animation:pulseDot 1.2s infinite;
+}
+
+@keyframes pulseDot{
+  0%{ transform:scale(1); opacity:1; }
+  50%{ transform:scale(1.5); opacity:0.6; }
+  100%{ transform:scale(1); opacity:1; }
+}
+
+@keyframes fadeGlow{
+  0%,100%{ box-shadow:0 0 0px rgba(34,197,94,0.2); }
+  50%{ box-shadow:0 0 20px rgba(34,197,94,0.4); }
 }
 
 /* PLATFORM */
@@ -152,7 +178,7 @@ body::after {
   color: black;
 }
 
-/* SUBMIT SECTION (COMPACT) */
+/* SUBMIT SECTION */
 .submit-box {
   margin-top: 14px;
   padding: 14px;
@@ -205,7 +231,11 @@ body::after {
 <div class="title">Nigeria Top 100 Afrobeats 🇳🇬🔥</div>
 <div class="subtitle">Updated Daily • Real Hits Only</div>
 
-<div class="tap">Tap to stream 🎧👇</div>
+<!-- 🔥 UPGRADED TAP -->
+<div class="tap-box">
+  <span class="live-dot"></span>
+  Tap to stream 🎧👇
+</div>
 
 <div class="platform spotify">
   <span>Spotify</span>
