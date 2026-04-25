@@ -10,14 +10,20 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: radial-gradient(circle at 20% 20%, rgba(0,255,200,0.15), transparent 40%),
-              radial-gradient(circle at 80% 80%, rgba(255,0,150,0.15), transparent 40%),
-              #020617;
+  background: linear-gradient(270deg, #020617, #001f2f, #020617);
+  background-size: 600% 600%;
+  animation: bgMove 10s ease infinite;
   color: white;
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+}
+
+@keyframes bgMove {
+  0% {background-position:0% 50%;}
+  50% {background-position:100% 50%;}
+  100% {background-position:0% 50%;}
 }
 
 .container {
@@ -30,19 +36,37 @@ body {
   border-radius: 20px;
   overflow: hidden;
   margin-bottom: 20px;
+  animation: float 3s ease-in-out infinite;
 }
 
 .cover img {
   width: 100%;
 }
 
-h1 { margin: 10px 0 5px; }
-p { color: #aaa; }
+@keyframes float {
+  0% {transform: translateY(0px);}
+  50% {transform: translateY(-10px);}
+  100% {transform: translateY(0px);}
+}
+
+h1 {
+  font-size: 26px;
+  margin: 10px 0 5px;
+}
+
+p {
+  color: #aaa;
+}
 
 .counter {
   margin: 15px 0;
-  font-size: 14px;
+  font-size: 16px;
   color: #00ffc3;
+}
+
+.goal {
+  font-size: 13px;
+  color: #888;
 }
 
 .btn {
@@ -52,12 +76,15 @@ p { color: #aaa; }
   border-radius: 14px;
   text-decoration: none;
   font-weight: bold;
-  margin-top: 15px;
-}
-
-.apple {
+  margin-top: 20px;
   background: linear-gradient(135deg, #ff003c, #ff5e00);
   color: white;
+  box-shadow: 0 10px 40px rgba(255,0,60,0.5);
+  transition: 0.3s;
+}
+
+.btn:hover {
+  transform: scale(1.05);
 }
 
 </style>
@@ -68,31 +95,46 @@ p { color: #aaa; }
 <div class="container">
 
   <div class="cover">
-    <img src="PUT-YOUR-COVER-IMAGE-LINK-HERE">
+    <img src="PUT-YOUR-IMAGE-LINK-HERE">
   </div>
 
   <h1>Badt Guy</h1>
   <p>Omo Taker 🐺</p>
 
   <div class="counter">
-    🔥 <span id="clickCount">0</span> people tapped Play
+    🔥 <span id="count">0</span> plays
+  </div>
+
+  <div class="goal">
+    ⏳ <span id="remaining">2000</span> to reach 2,000 plays
   </div>
 
   <a href="https://music.apple.com/ng/album/badt-guy/1758752613?i=1758752614"
-     class="btn apple"
-     onclick="countClick()">
+     class="btn"
+     onclick="increaseCount()">
      🎧 Play on Apple Music
   </a>
 
 </div>
 
 <script>
-function countClick() {
-  let count = localStorage.getItem("clicks") || 0;
-  count++;
-  localStorage.setItem("clicks", count);
-  document.getElementById("clickCount").innerText = count;
+let count = localStorage.getItem("plays") || 0;
+count = parseInt(count);
+
+function updateUI() {
+  document.getElementById("count").innerText = count;
+  let remaining = 2000 - count;
+  if (remaining < 0) remaining = 0;
+  document.getElementById("remaining").innerText = remaining;
 }
+
+function increaseCount() {
+  count++;
+  localStorage.setItem("plays", count);
+  updateUI();
+}
+
+updateUI();
 </script>
 
 </body>
