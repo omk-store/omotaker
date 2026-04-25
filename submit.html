@@ -33,28 +33,15 @@ h1{
   margin-bottom:20px;
 }
 
-.plans{
-  text-align:left;
-  margin-bottom:15px;
-}
-
 .plan{
   background:rgba(255,255,255,0.05);
   padding:12px;
   border-radius:12px;
   margin:8px 0;
-  border:1px solid transparent;
+  text-align:left;
 }
 
-.plan input{
-  margin-right:10px;
-}
-
-.plan.active{
-  border:1px solid #00ff9f;
-}
-
-input, select{
+input{
   width:100%;
   padding:15px;
   margin:10px 0;
@@ -76,15 +63,6 @@ button{
   margin-top:10px;
 }
 
-.paybox{
-  margin-top:15px;
-  padding:15px;
-  background:rgba(255,255,255,0.05);
-  border-radius:12px;
-  font-size:13px;
-  opacity:0.85;
-}
-
 .footer{
   margin-top:20px;
   font-size:12px;
@@ -103,24 +81,20 @@ button{
 
 <form action="https://formsubmit.co/activevibe65@gmail.com" method="POST">
 
-<!-- PLAN SELECT -->
-<div class="plans">
-
-<label class="plan">
+<!-- PLAN -->
+<div class="plan">
 <input type="radio" name="Selected Plan" value="Starter Promo - ₦30,000" required>
 ⚡ Starter Promo — ₦30,000
-</label>
+</div>
 
-<label class="plan">
+<div class="plan">
 <input type="radio" name="Selected Plan" value="7-Day Push - ₦80,000">
 🚀 7-Day Push — ₦80,000
-</label>
+</div>
 
-<label class="plan">
+<div class="plan">
 <input type="radio" name="Selected Plan" value="Premium Campaign - ₦120,000">
 🏆 Premium Campaign — ₦120,000
-</label>
-
 </div>
 
 <input type="text" name="Artist Name" placeholder="Artist Name" required>
@@ -130,17 +104,12 @@ button{
 <input type="hidden" name="_subject" value="New Artist Submission (With Plan)">
 <input type="hidden" name="_captcha" value="false">
 
+<!-- 🔥 REDIRECT AFTER SUBMIT -->
+<input type="hidden" name="_next" value="https://www.omotaker.com/">
+
 <button type="submit">Submit for Review 🚀</button>
 
 </form>
-
-<!-- PAYMENT SECTION -->
-<div class="paybox">
-💳 After submission, you’ll receive payment instructions via email.<br><br>
-Or pay directly after approval:
-<br><br>
-👉 Contact on WhatsApp to confirm payment
-</div>
 
 <div class="footer">
 Powered by Everyday Vibe 🏆 | Viral Music Discovery
