@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Badt Guy – Omo Taker</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: radial-gradient(circle at 20% 20%, rgba(0,255,200,0.15), transparent 40%),
+              radial-gradient(circle at 80% 80%, rgba(255,0,150,0.15), transparent 40%),
+              #020617;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.container {
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.cover {
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.cover img {
+  width: 100%;
+}
+
+h1 { margin: 10px 0 5px; }
+p { color: #aaa; }
+
+.counter {
+  margin: 15px 0;
+  font-size: 14px;
+  color: #00ffc3;
+}
+
+.btn {
+  display: block;
+  width: 100%;
+  padding: 16px;
+  border-radius: 14px;
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: 15px;
+}
+
+.apple {
+  background: linear-gradient(135deg, #ff003c, #ff5e00);
+  color: white;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <div class="cover">
+    <img src="PUT-YOUR-COVER-IMAGE-LINK-HERE">
+  </div>
+
+  <h1>Badt Guy</h1>
+  <p>Omo Taker 🐺</p>
+
+  <div class="counter">
+    🔥 <span id="clickCount">0</span> people tapped Play
+  </div>
+
+  <a href="https://music.apple.com/ng/album/badt-guy/1758752613?i=1758752614"
+     class="btn apple"
+     onclick="countClick()">
+     🎧 Play on Apple Music
+  </a>
+
+</div>
+
+<script>
+function countClick() {
+  let count = localStorage.getItem("clicks") || 0;
+  count++;
+  localStorage.setItem("clicks", count);
+  document.getElementById("clickCount").innerText = count;
+}
+</script>
+
+</body>
+</html>
