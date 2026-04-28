@@ -10,7 +10,7 @@
 body{
   margin:0;
   font-family:-apple-system,Arial;
-  background:#000;
+  background:radial-gradient(circle at top,#0a0a0a,#000);
   color:white;
 }
 
@@ -26,7 +26,7 @@ body{
 .cover{
   border-radius:22px;
   overflow:hidden;
-  box-shadow:0 0 70px rgba(255,60,0,.35);
+  box-shadow:0 0 80px rgba(255,80,0,.45);
 }
 .cover img{width:100%;}
 
@@ -37,6 +37,7 @@ body{
   font-weight:900;
   margin-top:15px;
   letter-spacing:1px;
+  text-shadow:0 0 12px rgba(255,255,255,0.25);
 }
 
 /* STATS */
@@ -55,6 +56,7 @@ body{
   display:block;
   font-size:22px;
   color:#ff5e00;
+  text-shadow:0 0 10px rgba(255,94,0,0.6);
 }
 
 .stat span{
@@ -71,18 +73,21 @@ body{
   margin-top:18px;
   text-decoration:none;
   font-weight:800;
+  backdrop-filter:blur(10px);
 }
 
 /* APPLE */
 .apple{
   background:linear-gradient(135deg,#ff003c,#ff6a00);
   color:white;
+  box-shadow:0 0 25px rgba(255,60,0,0.6);
 }
 
 /* SPOTIFY */
 .spotify{
   border:1.5px solid #1DB954;
   color:#1DB954;
+  box-shadow:0 0 20px rgba(29,185,84,0.4);
 }
 
 /* MESSAGE */
@@ -114,11 +119,6 @@ body{
 
   <!-- MAIN NAME -->
   <div class="name">Omo Taker 🐺🎶📯</div>
-
-  <!-- STREAM TRIGGER -->
-  <p style="text-align:center; font-size:13px; color:#ff3b3b; margin-top:5px;">
-    🔥 Trending right now… tap PLAY before everyone catches it 🚀
-  </p>
 
   <!-- STATS -->
   <div class="stats">
@@ -177,7 +177,6 @@ function animate(id, target){
   }, 30);
 }
 
-/* REAL NUMBERS */
 animate("plays", 19000);
 animate("listeners", 12000);
 animate("shazams", 10000);
