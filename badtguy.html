@@ -69,6 +69,12 @@ p {
   color: #888;
 }
 
+.live {
+  font-size: 12px;
+  color: #ff5e00;
+  margin-top: 5px;
+}
+
 .btn {
   display: block;
   width: 100%;
@@ -86,7 +92,6 @@ p {
 .btn:hover {
   transform: scale(1.05);
 }
-
 </style>
 </head>
 
@@ -94,13 +99,16 @@ p {
 
 <div class="container">
 
+  <!-- COVER -->
   <div class="cover">
-    <img src="PUT-YOUR-IMAGE-LINK-HERE">
+    <img src="https://raw.githubusercontent.com/omk-store/omotaker/refs/heads/main/IMG_0934.jpeg">
   </div>
 
-  <h1>Badt Guy</h1>
-  <p>Omo Taker 🐺</p>
+  <!-- TITLE -->
+  <h1>Badt Guy 🔥</h1>
+  <p>No skips… just vibe 🎧🐺</p>
 
+  <!-- COUNTER -->
   <div class="counter">
     🔥 <span id="count">0</span> plays
   </div>
@@ -109,32 +117,73 @@ p {
     ⏳ <span id="remaining">2000</span> to reach 2,000 plays
   </div>
 
+  <div class="live">
+    🔴 <span id="live">23</span> people listening now
+  </div>
+
+  <!-- BUTTON -->
   <a href="https://music.apple.com/ng/album/badt-guy/1758752613?i=1758752614"
      class="btn"
      onclick="increaseCount()">
      🎧 Play on Apple Music
   </a>
 
+  <!-- PRESSURE TEXT -->
+  <div style="margin-top:10px; font-size:12px; color:#ff5e00;">
+    ⚡ Play it now… everyone’s tapping in
+  </div>
+
 </div>
 
 <script>
-let count = localStorage.getItem("plays") || 0;
-count = parseInt(count);
 
-function updateUI() {
-  document.getElementById("count").innerText = count;
-  let remaining = 2000 - count;
-  if (remaining < 0) remaining = 0;
-  document.getElementById("remaining").innerText = remaining;
+// START COUNT SMART
+let count = localStorage.getItem("plays");
+
+if (!count) {
+  count = 1347 + Math.floor(Math.random() * 200);
 }
 
+count = parseInt(count);
+
+// UPDATE UI
+function updateUI() {
+  document.getElementById("count").innerText = count;
+
+  let goal = 2000;
+  let remaining = goal - count;
+  if (remaining < 0) remaining = 0;
+
+  document.getElementById("remaining").innerText = remaining;
+
+  // URGENCY SWITCH
+  if (remaining <= 200) {
+    document.querySelector(".goal").innerText = "⚡ Almost there… don’t miss it";
+  }
+}
+
+// INCREASE ON CLICK
 function increaseCount() {
-  count++;
+  count += Math.floor(Math.random() * 3) + 1;
   localStorage.setItem("plays", count);
   updateUI();
 }
 
+// LIVE LISTENERS FAKE
+function updateLive() {
+  let live = 15 + Math.floor(Math.random() * 20);
+  document.getElementById("live").innerText = live;
+}
+
+setInterval(updateLive, 3000);
+
+// AUTO REDIRECT AFTER 5s
+setTimeout(() => {
+  window.location.href = "https://music.apple.com/ng/album/badt-guy/1758752613?i=1758752614";
+}, 5000);
+
 updateUI();
+
 </script>
 
 </body>
