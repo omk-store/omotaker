@@ -3,12 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Badt Guy – Omo Taker</title>
 
 <style>
 body{
   margin:0;
-  font-family:-apple-system,BlinkMacSystemFont,Arial,sans-serif;
+  font-family:-apple-system,Arial;
   background:#000;
   color:white;
 }
@@ -16,87 +17,95 @@ body{
   width:92%;
   max-width:420px;
   margin:auto;
-  padding:30px 0;
+  padding:25px 0;
 }
 .cover{
   border-radius:22px;
   overflow:hidden;
-  box-shadow:0 0 70px rgba(255,60,0,.35);
+  box-shadow:0 0 60px rgba(255,50,0,.4);
 }
-.cover img{width:100%;display:block;}
+.cover img{width:100%;}
+
+/* TEXT */
 .title{
-  font-size:30px;
+  font-size:28px;
   font-weight:800;
-  margin-top:18px;
+  margin-top:15px;
 }
 .artist{
-  font-size:18px;
   color:#aaa;
-  margin-top:4px;
 }
+
+/* LIVE */
 .live{
-  margin-top:14px;
+  margin-top:10px;
   color:#66f5b5;
-  font-size:17px;
+  font-size:16px;
 }
-.main-stat{
+
+/* MAIN NUMBER */
+.total{
   text-align:center;
-  margin:30px 0 22px;
+  margin:25px 0;
 }
-.main-stat h1{
+.total h1{
+  font-size:55px;
   margin:0;
-  font-size:58px;
   color:#ff4b22;
 }
-.main-stat span{
-  color:#999;
-  font-size:15px;
-}
+
+/* STATS */
 .stats{
   display:flex;
-  justify-content:space-between;
-  margin-bottom:28px;
+  justify-content:space-around;
+  margin-bottom:25px;
 }
-.stat{text-align:center;}
+.stat{
+  text-align:center;
+}
 .stat strong{
-  display:block;
   color:#ff6a2a;
-  font-size:24px;
+  font-size:22px;
 }
 .stat span{
-  color:#888;
-  font-size:14px;
+  display:block;
+  font-size:13px;
+  color:#777;
 }
+
+/* BUTTONS */
 .btn{
   display:flex;
   justify-content:space-between;
-  align-items:center;
   padding:18px;
-  border-radius:16px;
-  margin-top:16px;
+  border-radius:14px;
+  margin-top:15px;
   text-decoration:none;
   font-weight:800;
-  font-size:18px;
+}
+
+/* SPOTIFY FIRST */
+.spotify{
+  border:1.5px solid #1DB954;
+  color:#1DB954;
 }
 .apple{
   background:linear-gradient(135deg,#ff003c,#ff6a00);
   color:white;
 }
-.spotify{
-  border:1.5px solid #1DB954;
-  color:#1DB954;
-}
+
+/* PRESSURE */
 .pressure{
   text-align:center;
-  margin-top:25px;
+  margin-top:20px;
   color:#ff6a2a;
-  font-size:15px;
 }
+
 .brand{
   text-align:center;
+  margin-top:20px;
+  font-size:12px;
   color:#555;
-  margin-top:22px;
-  font-size:13px;
 }
 </style>
 </head>
@@ -105,49 +114,52 @@ body{
 
 <div class="container">
 
+  <!-- COVER -->
   <div class="cover">
     <img src="https://raw.githubusercontent.com/omk-store/omotaker/refs/heads/main/IMG_0934.jpeg">
   </div>
 
+  <!-- TITLE -->
   <div class="title">Badt Guy</div>
   <div class="artist">Omo Taker 🐺</div>
 
+  <!-- LIVE -->
   <div class="live">
     👀 <span id="liveCount">156</span> people listening now
   </div>
 
-  <div class="main-stat">
-    <h1 id="total">0</h1>
-    <span>Total Plays</span>
+  <!-- MAIN STAT -->
+  <div class="total">
+    <h1 id="total">19,000+</h1>
   </div>
 
+  <!-- ONLY REAL STATS -->
   <div class="stats">
     <div class="stat">
-      <strong id="plays">0</strong>
-      <span>Plays</span>
-    </div>
-    <div class="stat">
-      <strong id="listeners">0</strong>
+      <strong>12K+</strong>
       <span>Listeners</span>
     </div>
+
     <div class="stat">
-      <strong id="shazams">0</strong>
+      <strong>10K+</strong>
       <span>Shazams</span>
     </div>
   </div>
+
+  <!-- BUTTONS (SPOTIFY FIRST FOR VIRAL FLOW) -->
+  <a href="https://open.spotify.com/track/78ckyu0HPy4oOQPzee5rkx?si=tFaTY_AXTPGJ12laDn6cGw" class="btn spotify">
+    <span>Spotify</span>
+    <span>LISTEN ▶</span>
+  </a>
 
   <a href="https://music.apple.com/ng/album/badt-guy/1758752613?i=1758752614" class="btn apple">
     <span>Apple Music</span>
     <span>PLAY ▶</span>
   </a>
 
-  <a href="https://open.spotify.com/track/78ckyu0HPy4oOQPzee5rkx?si=tFaTY_AXTPGJ12laDn6cGw" class="btn spotify">
-    <span>Spotify</span>
-    <span>LISTEN ▶</span>
-  </a>
-
+  <!-- PRESSURE -->
   <div class="pressure">
-    🔥 19K+ total plays… this record is moving.
+    🔥 19K+ plays… people are tapping in right now.
   </div>
 
   <div class="brand">OMK Records 🐺</div>
@@ -155,34 +167,20 @@ body{
 </div>
 
 <script>
-function animate(id, target, suffix="+") {
-  let count = 0;
-  let step = target / 45;
-
-  let run = setInterval(() => {
-    count += step;
-    if (count >= target) {
-      count = target;
-      clearInterval(run);
-    }
-    document.getElementById(id).innerText =
-      Math.floor(count).toLocaleString() + suffix;
-  }, 25);
-}
-
-animate("total", 19000);
-animate("plays", 19000);
-animate("listeners", 12000);
-animate("shazams", 10000);
-
 let live = 156;
+
 function updateLive(){
-  live += Math.floor(Math.random() * 41) - 20;
-  if(live < 95) live = 121;
-  if(live > 260) live = 188;
+  // NEVER DROP TO 0
+  let change = Math.floor(Math.random()*30)-15;
+  live += change;
+
+  if(live < 120) live = 140;
+  if(live > 300) live = 200;
+
   document.getElementById("liveCount").innerText = live;
 }
-setInterval(updateLive, 2500);
+
+setInterval(updateLive, 2000);
 </script>
 
 </body>
