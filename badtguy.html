@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Badt Guy – Omo Taker</title>
+<title>OMK Records – Badt Guy</title>
 
 <style>
 body{
@@ -13,63 +13,67 @@ body{
   background:#000;
   color:white;
 }
+
 .container{
   width:92%;
   max-width:420px;
   margin:auto;
-  padding:25px 0;
+  padding-top:18px;
 }
+
+/* COVER */
 .cover{
-  border-radius:22px;
+  border-radius:20px;
   overflow:hidden;
-  box-shadow:0 0 60px rgba(255,50,0,.4);
 }
 .cover img{width:100%;}
 
-/* TEXT */
+/* OMK CENTER */
+.omk{
+  text-align:center;
+  font-size:12px;
+  color:#666;
+  margin-top:6px;
+}
+
+/* TITLE */
 .title{
-  font-size:28px;
+  font-size:26px;
   font-weight:800;
-  margin-top:15px;
+  margin-top:12px;
 }
 .artist{
   color:#aaa;
+  font-size:16px;
 }
 
 /* LIVE */
 .live{
-  margin-top:10px;
+  margin-top:6px;
   color:#66f5b5;
-  font-size:16px;
+  font-size:15px;
 }
 
-/* MAIN NUMBER */
-.total{
-  text-align:center;
-  margin:25px 0;
-}
-.total h1{
-  font-size:55px;
-  margin:0;
-  color:#ff4b22;
-}
-
-/* STATS */
+/* INLINE STATS */
 .stats{
   display:flex;
-  justify-content:space-around;
-  margin-bottom:25px;
+  justify-content:space-between;
+  margin-top:18px;
 }
+
 .stat{
   text-align:center;
+  flex:1;
 }
+
 .stat strong{
-  color:#ff6a2a;
-  font-size:22px;
-}
-.stat span{
   display:block;
-  font-size:13px;
+  font-size:20px;
+  color:#ff5a2a;
+}
+
+.stat span{
+  font-size:11px;
   color:#777;
 }
 
@@ -77,36 +81,26 @@ body{
 .btn{
   display:flex;
   justify-content:space-between;
-  padding:18px;
+  align-items:center;
+  padding:17px;
   border-radius:14px;
-  margin-top:15px;
+  margin-top:12px;
   text-decoration:none;
   font-weight:800;
 }
 
-/* SPOTIFY FIRST */
-.spotify{
-  border:1.5px solid #1DB954;
-  color:#1DB954;
-}
+/* APPLE */
 .apple{
   background:linear-gradient(135deg,#ff003c,#ff6a00);
   color:white;
 }
 
-/* PRESSURE */
-.pressure{
-  text-align:center;
-  margin-top:20px;
-  color:#ff6a2a;
+/* SPOTIFY */
+.spotify{
+  border:1.5px solid #1DB954;
+  color:#1DB954;
 }
 
-.brand{
-  text-align:center;
-  margin-top:20px;
-  font-size:12px;
-  color:#555;
-}
 </style>
 </head>
 
@@ -119,22 +113,26 @@ body{
     <img src="https://raw.githubusercontent.com/omk-store/omotaker/refs/heads/main/IMG_0934.jpeg">
   </div>
 
+  <!-- OMK CENTER -->
+  <div class="omk">OMK Records 🐺</div>
+
   <!-- TITLE -->
   <div class="title">Badt Guy</div>
   <div class="artist">Omo Taker 🐺</div>
 
   <!-- LIVE -->
   <div class="live">
-    👀 <span id="liveCount">156</span> people listening now
+    👀 <span id="liveCount">142</span> people listening now
   </div>
 
-  <!-- MAIN STAT -->
-  <div class="total">
-    <h1 id="total">19,000+</h1>
-  </div>
-
-  <!-- ONLY REAL STATS -->
+  <!-- INLINE STATS -->
   <div class="stats">
+
+    <div class="stat">
+      <strong>19K+</strong>
+      <span>Plays</span>
+    </div>
+
     <div class="stat">
       <strong>12K+</strong>
       <span>Listeners</span>
@@ -144,38 +142,31 @@ body{
       <strong>10K+</strong>
       <span>Shazams</span>
     </div>
+
   </div>
 
-  <!-- BUTTONS (SPOTIFY FIRST FOR VIRAL FLOW) -->
-  <a href="https://open.spotify.com/track/78ckyu0HPy4oOQPzee5rkx?si=tFaTY_AXTPGJ12laDn6cGw" class="btn spotify">
-    <span>Spotify</span>
-    <span>LISTEN ▶</span>
-  </a>
-
+  <!-- BUTTONS (PULLED UP) -->
   <a href="https://music.apple.com/ng/album/badt-guy/1758752613?i=1758752614" class="btn apple">
     <span>Apple Music</span>
     <span>PLAY ▶</span>
   </a>
 
-  <!-- PRESSURE -->
-  <div class="pressure">
-    🔥 19K+ plays… people are tapping in right now.
-  </div>
-
-  <div class="brand">OMK Records 🐺</div>
+  <a href="https://open.spotify.com/track/78ckyu0HPy4oOQPzee5rkx?si=tFaTY_AXTPGJ12laDn6cGw" class="btn spotify">
+    <span>Spotify</span>
+    <span>LISTEN ▶</span>
+  </a>
 
 </div>
 
 <script>
-let live = 156;
+let live = 142;
 
 function updateLive(){
-  // NEVER DROP TO 0
-  let change = Math.floor(Math.random()*30)-15;
+  let change = Math.floor(Math.random()*25)-12;
   live += change;
 
-  if(live < 120) live = 140;
-  if(live > 300) live = 200;
+  if(live < 120) live = 135;
+  if(live > 260) live = 180;
 
   document.getElementById("liveCount").innerText = live;
 }
