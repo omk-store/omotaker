@@ -10,18 +10,36 @@
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Arial, sans-serif;
-  background: #000;
+  background: radial-gradient(circle at top, #0a0a0a, #000);
   color: white;
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  overflow: hidden;
+}
+
+/* GLOW BACKGROUND */
+body::before {
+  content: "";
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(255,0,80,0.35), transparent);
+  filter: blur(140px);
+  animation: moveGlow 10s infinite alternate;
+}
+
+@keyframes moveGlow {
+  from { transform: translate(-120px, -120px); }
+  to { transform: translate(120px, 120px); }
 }
 
 /* CONTAINER */
 .container {
   width: 90%;
   max-width: 420px;
+  z-index: 2;
 }
 
 /* COVER */
@@ -33,19 +51,28 @@ body {
 
 .cover img {
   width: 100%;
-  display: block;
 }
 
-/* OVERLAY TEXT */
+/* OVERLAY */
 .overlay {
   position: absolute;
   bottom: 0;
-  left: 0;
-  right: 0;
   padding: 20px;
   background: linear-gradient(transparent, black);
+  width: 100%;
 }
 
+/* BADGE */
+.badge {
+  display: inline-block;
+  background: #ff003c;
+  padding: 6px 12px;
+  font-size: 11px;
+  border-radius: 20px;
+  margin-bottom: 10px;
+}
+
+/* TEXT */
 .title {
   font-size: 22px;
   font-weight: bold;
@@ -63,7 +90,14 @@ body {
   color: #00ffc3;
 }
 
-/* BUTTONS */
+/* SOCIAL PROOF */
+.proof {
+  font-size: 12px;
+  color: #888;
+  margin-top: 5px;
+}
+
+/* BUTTON */
 .btn {
   display: flex;
   justify-content: space-between;
@@ -76,30 +110,32 @@ body {
   transition: 0.3s;
 }
 
-/* APPLE MAIN */
 .apple {
   background: linear-gradient(135deg, #ff003c, #ff5e00);
-  box-shadow: 0 0 30px rgba(255,0,60,0.5);
+  box-shadow: 0 0 40px rgba(255,0,60,0.6);
 }
 
-/* SPOTIFY */
 .spotify {
   background: #111;
   color: #1DB954;
   border: 1px solid #1DB954;
 }
 
-/* HOVER */
-.btn:hover {
-  transform: scale(1.04);
+.shazam {
+  background: #0066ff;
 }
 
-/* PRESSURE */
+/* HOVER */
+.btn:hover {
+  transform: scale(1.05);
+}
+
+/* PRESSURE TEXT */
 .pressure {
-  font-size: 12px;
+  font-size: 13px;
   color: #ff5e00;
-  margin-top: 10px;
   text-align: center;
+  margin-top: 12px;
 }
 
 /* FOOTER */
@@ -121,7 +157,8 @@ body {
     <img src="https://raw.githubusercontent.com/omk-store/omotaker/refs/heads/main/IMG_0934.jpeg">
 
     <div class="overlay">
-      <div class="title">Badt Guy 🔥</div>
+      <div class="badge">🔥 13K+ Streams</div>
+      <div class="title">Badt Guy</div>
       <div class="artist">Omo Taker 🐺</div>
     </div>
   </div>
@@ -131,7 +168,11 @@ body {
     🔥 <span id="count">0</span> plays
   </div>
 
-  <!-- APPLE -->
+  <div class="proof">
+    ⚡ People are discovering this sound right now
+  </div>
+
+  <!-- APPLE (MAIN) -->
   <a href="https://music.apple.com/ng/album/badt-guy/1758752613?i=1758752614"
      class="btn apple"
      onclick="increaseCount()">
@@ -147,35 +188,40 @@ body {
      <span>LISTEN ▶</span>
   </a>
 
+  <!-- SHAZAM -->
+  <a href="https://www.shazam.com"
+     class="btn shazam"
+     onclick="increaseCount()">
+     <span>📡 Shazam</span>
+     <span>OPEN ▶</span>
+  </a>
+
   <!-- PRESSURE -->
   <div class="pressure">
-    ⚡ Play it now… don’t miss this vibe
+    🎧 If it hits… play it now. Don’t skip.
   </div>
 
-  <!-- FOOTER -->
-  <div class="footer">
-    OMK 🐺
-  </div>
+  <div class="footer">OMK 🐺</div>
 
 </div>
 
 <script>
 
-// SMART START
+/* START FROM REAL MOMENTUM */
 let count = localStorage.getItem("plays");
 
 if (!count) {
-  count = 1500 + Math.floor(Math.random() * 400);
+  count = 12000 + Math.floor(Math.random() * 1500);
 }
 
 count = parseInt(count);
 
 function updateUI() {
-  document.getElementById("count").innerText = count;
+  document.getElementById("count").innerText = count.toLocaleString();
 }
 
 function increaseCount() {
-  count += Math.floor(Math.random() * 3) + 1;
+  count += Math.floor(Math.random() * 5) + 1;
   localStorage.setItem("plays", count);
   updateUI();
 }
