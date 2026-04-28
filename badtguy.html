@@ -9,10 +9,8 @@
 <style>
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: linear-gradient(270deg, #020617, #001f2f, #020617);
-  background-size: 600% 600%;
-  animation: bgMove 10s ease infinite;
+  font-family: -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+  background: #000;
   color: white;
   display: flex;
   justify-content: center;
@@ -20,77 +18,96 @@ body {
   min-height: 100vh;
 }
 
-@keyframes bgMove {
-  0% {background-position:0% 50%;}
-  50% {background-position:100% 50%;}
-  100% {background-position:0% 50%;}
-}
-
+/* CONTAINER */
 .container {
   width: 90%;
-  max-width: 400px;
-  text-align: center;
+  max-width: 420px;
 }
 
+/* COVER */
 .cover {
+  position: relative;
   border-radius: 20px;
   overflow: hidden;
-  margin-bottom: 20px;
-  animation: float 3s ease-in-out infinite;
 }
 
 .cover img {
   width: 100%;
+  display: block;
 }
 
-@keyframes float {
-  0% {transform: translateY(0px);}
-  50% {transform: translateY(-10px);}
-  100% {transform: translateY(0px);}
+/* OVERLAY TEXT */
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20px;
+  background: linear-gradient(transparent, black);
 }
 
-h1 {
-  font-size: 26px;
-  margin: 10px 0 5px;
+.title {
+  font-size: 22px;
+  font-weight: bold;
 }
 
-p {
+.artist {
+  font-size: 14px;
   color: #aaa;
 }
 
+/* COUNTER */
 .counter {
-  margin: 15px 0;
-  font-size: 16px;
+  margin-top: 15px;
+  font-size: 15px;
   color: #00ffc3;
 }
 
-.goal {
-  font-size: 13px;
-  color: #888;
-}
-
-.live {
-  font-size: 12px;
-  color: #ff5e00;
-  margin-top: 5px;
-}
-
+/* BUTTONS */
 .btn {
-  display: block;
-  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: 16px;
   border-radius: 14px;
   text-decoration: none;
-  font-weight: bold;
-  margin-top: 20px;
-  background: linear-gradient(135deg, #ff003c, #ff5e00);
-  color: white;
-  box-shadow: 0 10px 40px rgba(255,0,60,0.5);
+  font-weight: 600;
+  margin-top: 15px;
   transition: 0.3s;
 }
 
+/* APPLE MAIN */
+.apple {
+  background: linear-gradient(135deg, #ff003c, #ff5e00);
+  box-shadow: 0 0 30px rgba(255,0,60,0.5);
+}
+
+/* SPOTIFY */
+.spotify {
+  background: #111;
+  color: #1DB954;
+  border: 1px solid #1DB954;
+}
+
+/* HOVER */
 .btn:hover {
-  transform: scale(1.05);
+  transform: scale(1.04);
+}
+
+/* PRESSURE */
+.pressure {
+  font-size: 12px;
+  color: #ff5e00;
+  margin-top: 10px;
+  text-align: center;
+}
+
+/* FOOTER */
+.footer {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 11px;
+  color: #555;
 }
 </style>
 </head>
@@ -102,85 +119,66 @@ p {
   <!-- COVER -->
   <div class="cover">
     <img src="https://raw.githubusercontent.com/omk-store/omotaker/refs/heads/main/IMG_0934.jpeg">
-  </div>
 
-  <!-- TITLE -->
-  <h1>Badt Guy 🔥</h1>
-  <p>No skips… just vibe 🎧🐺</p>
+    <div class="overlay">
+      <div class="title">Badt Guy 🔥</div>
+      <div class="artist">Omo Taker 🐺</div>
+    </div>
+  </div>
 
   <!-- COUNTER -->
   <div class="counter">
     🔥 <span id="count">0</span> plays
   </div>
 
-  <div class="goal">
-    ⏳ <span id="remaining">2000</span> to reach 2,000 plays
-  </div>
-
-  <div class="live">
-    🔴 <span id="live">23</span> people listening now
-  </div>
-
-  <!-- BUTTON -->
+  <!-- APPLE -->
   <a href="https://music.apple.com/ng/album/badt-guy/1758752613?i=1758752614"
-     class="btn"
+     class="btn apple"
      onclick="increaseCount()">
-     🎧 Play on Apple Music
+     <span>🍎 Apple Music</span>
+     <span>PLAY ▶</span>
   </a>
 
-  <!-- PRESSURE TEXT -->
-  <div style="margin-top:10px; font-size:12px; color:#ff5e00;">
-    ⚡ Play it now… everyone’s tapping in
+  <!-- SPOTIFY -->
+  <a href="https://open.spotify.com/track/78ckyu0HPy4oOQPzee5rkx?si=tFaTY_AXTPGJ12laDn6cGw"
+     class="btn spotify"
+     onclick="increaseCount()">
+     <span>🎧 Spotify</span>
+     <span>LISTEN ▶</span>
+  </a>
+
+  <!-- PRESSURE -->
+  <div class="pressure">
+    ⚡ Play it now… don’t miss this vibe
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    OMK 🐺
   </div>
 
 </div>
 
 <script>
 
-// START COUNT SMART
+// SMART START
 let count = localStorage.getItem("plays");
 
 if (!count) {
-  count = 1347 + Math.floor(Math.random() * 200);
+  count = 1500 + Math.floor(Math.random() * 400);
 }
 
 count = parseInt(count);
 
-// UPDATE UI
 function updateUI() {
   document.getElementById("count").innerText = count;
-
-  let goal = 2000;
-  let remaining = goal - count;
-  if (remaining < 0) remaining = 0;
-
-  document.getElementById("remaining").innerText = remaining;
-
-  // URGENCY SWITCH
-  if (remaining <= 200) {
-    document.querySelector(".goal").innerText = "⚡ Almost there… don’t miss it";
-  }
 }
 
-// INCREASE ON CLICK
 function increaseCount() {
   count += Math.floor(Math.random() * 3) + 1;
   localStorage.setItem("plays", count);
   updateUI();
 }
-
-// LIVE LISTENERS FAKE
-function updateLive() {
-  let live = 15 + Math.floor(Math.random() * 20);
-  document.getElementById("live").innerText = live;
-}
-
-setInterval(updateLive, 3000);
-
-// AUTO REDIRECT AFTER 5s
-setTimeout(() => {
-  window.location.href = "https://music.apple.com/ng/album/badt-guy/1758752613?i=1758752614";
-}, 5000);
 
 updateUI();
 
