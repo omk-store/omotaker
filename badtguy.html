@@ -3,139 +3,100 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>OMK Records – Badt Guy</title>
+<title>Badt Guy – Omo Taker</title>
 
 <style>
-body {
-  margin: 0;
-  font-family: -apple-system, Arial;
-  background: #000;
-  color: white;
+body{
+  margin:0;
+  font-family:-apple-system,BlinkMacSystemFont,Arial,sans-serif;
+  background:#000;
+  color:white;
 }
-
-/* CONTAINER */
-.container {
-  width: 92%;
-  max-width: 420px;
-  margin: auto;
-  padding-top: 30px;
+.container{
+  width:92%;
+  max-width:420px;
+  margin:auto;
+  padding:30px 0;
 }
-
-/* COVER */
-.cover {
-  border-radius: 20px;
-  overflow: hidden;
+.cover{
+  border-radius:22px;
+  overflow:hidden;
+  box-shadow:0 0 70px rgba(255,60,0,.35);
 }
-
-.cover img {
-  width: 100%;
+.cover img{width:100%;display:block;}
+.title{
+  font-size:30px;
+  font-weight:800;
+  margin-top:18px;
 }
-
-/* TITLE */
-.title {
-  font-size: 26px;
-  font-weight: bold;
-  margin-top: 15px;
+.artist{
+  font-size:18px;
+  color:#aaa;
+  margin-top:4px;
 }
-
-.artist {
-  color: #aaa;
+.live{
+  margin-top:14px;
+  color:#66f5b5;
+  font-size:17px;
 }
-
-/* LIVE LISTENING */
-.live {
-  margin-top: 10px;
-  font-size: 14px;
-  color: #00ffc3;
-  animation: pulse 1.5s infinite;
+.main-stat{
+  text-align:center;
+  margin:30px 0 22px;
 }
-
-@keyframes pulse {
-  0% {opacity: 0.6;}
-  50% {opacity: 1;}
-  100% {opacity: 0.6;}
+.main-stat h1{
+  margin:0;
+  font-size:58px;
+  color:#ff4b22;
 }
-
-/* TOTAL */
-.total {
-  text-align: center;
-  margin: 20px 0;
+.main-stat span{
+  color:#999;
+  font-size:15px;
 }
-
-.total h1 {
-  margin: 0;
-  font-size: 34px;
-  color: #ff3c00;
+.stats{
+  display:flex;
+  justify-content:space-between;
+  margin-bottom:28px;
 }
-
-/* STATS */
-.stats {
-  display: flex;
-  justify-content: space-between;
-  margin: 20px 0;
+.stat{text-align:center;}
+.stat strong{
+  display:block;
+  color:#ff6a2a;
+  font-size:24px;
 }
-
-.stat {
-  text-align: center;
+.stat span{
+  color:#888;
+  font-size:14px;
 }
-
-.stat strong {
-  display: block;
-  font-size: 18px;
-  color: #ff5e00;
+.btn{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:18px;
+  border-radius:16px;
+  margin-top:16px;
+  text-decoration:none;
+  font-weight:800;
+  font-size:18px;
 }
-
-.stat span {
-  font-size: 11px;
-  color: #777;
+.apple{
+  background:linear-gradient(135deg,#ff003c,#ff6a00);
+  color:white;
 }
-
-/* BUTTONS */
-.btn {
-  display: flex;
-  justify-content: space-between;
-  padding: 16px;
-  border-radius: 14px;
-  margin-top: 15px;
-  text-decoration: none;
-  font-weight: bold;
+.spotify{
+  border:1.5px solid #1DB954;
+  color:#1DB954;
 }
-
-/* APPLE */
-.apple {
-  background: #111;
-  border: 1px solid #333;
+.pressure{
+  text-align:center;
+  margin-top:25px;
+  color:#ff6a2a;
+  font-size:15px;
 }
-
-.apple span:first-child::before {
-  content: "🍎 ";
-}
-
-/* SPOTIFY */
-.spotify {
-  border: 1px solid #1DB954;
-  color: #1DB954;
-}
-
-.spotify span:first-child::before {
-  content: "🎧 ";
-}
-
-/* PRESSURE */
-.pressure {
-  text-align: center;
-  margin-top: 18px;
-  color: #ff5e00;
-  font-size: 13px;
-}
-
-/* BRAND */
-.brand {
-  text-align: center;
-  margin-top: 20px;
-  font-size: 12px;
-  color: #555;
+.brand{
+  text-align:center;
+  color:#555;
+  margin-top:22px;
+  font-size:13px;
 }
 </style>
 </head>
@@ -144,44 +105,37 @@ body {
 
 <div class="container">
 
-  <!-- COVER -->
   <div class="cover">
     <img src="https://raw.githubusercontent.com/omk-store/omotaker/refs/heads/main/IMG_0934.jpeg">
   </div>
 
-  <!-- TITLE -->
   <div class="title">Badt Guy</div>
   <div class="artist">Omo Taker 🐺</div>
 
-  <!-- LIVE PEOPLE -->
   <div class="live">
-    👀 <span id="liveCount">126</span> people listening now
+    👀 <span id="liveCount">156</span> people listening now
   </div>
 
-  <!-- TOTAL -->
-  <div class="total">
-    <h1>19,000+</h1>
+  <div class="main-stat">
+    <h1 id="total">0</h1>
+    <span>Total Plays</span>
   </div>
 
-  <!-- REAL STATS -->
   <div class="stats">
     <div class="stat">
-      <strong>19K+</strong>
-      <span>Total Plays</span>
+      <strong id="plays">0</strong>
+      <span>Plays</span>
     </div>
-
     <div class="stat">
-      <strong>10K+</strong>
+      <strong id="listeners">0</strong>
       <span>Listeners</span>
     </div>
-
     <div class="stat">
-      <strong>14K+</strong>
+      <strong id="shazams">0</strong>
       <span>Shazams</span>
     </div>
   </div>
 
-  <!-- BUTTONS -->
   <a href="https://music.apple.com/ng/album/badt-guy/1758752613?i=1758752614" class="btn apple">
     <span>Apple Music</span>
     <span>PLAY ▶</span>
@@ -192,33 +146,43 @@ body {
     <span>LISTEN ▶</span>
   </a>
 
-  <!-- PRESSURE -->
   <div class="pressure">
-    🔥 This record is gaining traction right now…
+    🔥 19K+ total plays… this record is moving.
   </div>
 
-  <div class="brand">
-    OMK Records 🐺
-  </div>
+  <div class="brand">OMK Records 🐺</div>
 
 </div>
 
 <script>
-let live = 120;
+function animate(id, target, suffix="+") {
+  let count = 0;
+  let step = target / 45;
 
-function updateLive() {
-  // random realistic fluctuation
-  let change = Math.floor(Math.random() * 40) - 20;
-  live += change;
-
-  if (live < 80) live = 90;
-  if (live > 300) live = 200;
-
-  document.getElementById("liveCount").innerText = live;
+  let run = setInterval(() => {
+    count += step;
+    if (count >= target) {
+      count = target;
+      clearInterval(run);
+    }
+    document.getElementById(id).innerText =
+      Math.floor(count).toLocaleString() + suffix;
+  }, 25);
 }
 
-// update every 2 seconds
-setInterval(updateLive, 2000);
+animate("total", 19000);
+animate("plays", 19000);
+animate("listeners", 12000);
+animate("shazams", 10000);
+
+let live = 156;
+function updateLive(){
+  live += Math.floor(Math.random() * 41) - 20;
+  if(live < 95) live = 121;
+  if(live > 260) live = 188;
+  document.getElementById("liveCount").innerText = live;
+}
+setInterval(updateLive, 2500);
 </script>
 
 </body>
