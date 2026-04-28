@@ -9,104 +9,76 @@
 <style>
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Arial, sans-serif;
-  background: radial-gradient(circle at top, #0a0a0a, #000);
+  font-family: -apple-system, BlinkMacSystemFont, Arial;
+  background: radial-gradient(circle at top, #050505, #000);
   color: white;
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  overflow: hidden;
-}
-
-/* GLOW BACKGROUND */
-body::before {
-  content: "";
-  position: absolute;
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, rgba(255,0,80,0.35), transparent);
-  filter: blur(140px);
-  animation: moveGlow 10s infinite alternate;
-}
-
-@keyframes moveGlow {
-  from { transform: translate(-120px, -120px); }
-  to { transform: translate(120px, 120px); }
 }
 
 /* CONTAINER */
 .container {
   width: 90%;
   max-width: 420px;
-  z-index: 2;
 }
 
 /* COVER */
 .cover {
-  position: relative;
-  border-radius: 20px;
+  border-radius: 22px;
   overflow: hidden;
+  margin-bottom: 20px;
+  box-shadow: 0 0 60px rgba(255,0,0,0.3);
 }
 
 .cover img {
   width: 100%;
 }
 
-/* OVERLAY */
-.overlay {
-  position: absolute;
-  bottom: 0;
-  padding: 20px;
-  background: linear-gradient(transparent, black);
-  width: 100%;
-}
-
-/* BADGE */
-.badge {
-  display: inline-block;
-  background: #ff003c;
-  padding: 6px 12px;
-  font-size: 11px;
-  border-radius: 20px;
-  margin-bottom: 10px;
-}
-
-/* TEXT */
+/* TITLE */
 .title {
-  font-size: 22px;
+  font-size: 24px;
   font-weight: bold;
 }
 
 .artist {
-  font-size: 14px;
   color: #aaa;
+  margin-bottom: 15px;
 }
 
-/* COUNTER */
-.counter {
-  margin-top: 15px;
-  font-size: 15px;
-  color: #00ffc3;
+/* BIG STATS */
+.stats {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
 }
 
-/* SOCIAL PROOF */
-.proof {
-  font-size: 12px;
-  color: #888;
-  margin-top: 5px;
+.stat-box {
+  flex: 1;
+  text-align: center;
+}
+
+.stat-number {
+  font-size: 20px;
+  font-weight: bold;
+  color: #ff3c00;
+}
+
+.stat-label {
+  font-size: 11px;
+  color: #777;
 }
 
 /* BUTTON */
 .btn {
   display: flex;
   justify-content: space-between;
-  align-items: center;
   padding: 16px;
   border-radius: 14px;
+  margin-top: 15px;
   text-decoration: none;
   font-weight: 600;
-  margin-top: 15px;
   transition: 0.3s;
 }
 
@@ -117,25 +89,20 @@ body::before {
 
 .spotify {
   background: #111;
-  color: #1DB954;
   border: 1px solid #1DB954;
+  color: #1DB954;
 }
 
-.shazam {
-  background: #0066ff;
-}
-
-/* HOVER */
 .btn:hover {
   transform: scale(1.05);
 }
 
 /* PRESSURE TEXT */
 .pressure {
+  text-align: center;
+  margin-top: 18px;
   font-size: 13px;
   color: #ff5e00;
-  text-align: center;
-  margin-top: 12px;
 }
 
 /* FOOTER */
@@ -155,80 +122,52 @@ body::before {
   <!-- COVER -->
   <div class="cover">
     <img src="https://raw.githubusercontent.com/omk-store/omotaker/refs/heads/main/IMG_0934.jpeg">
+  </div>
 
-    <div class="overlay">
-      <div class="badge">🔥 13K+ Streams</div>
-      <div class="title">Badt Guy</div>
-      <div class="artist">Omo Taker 🐺</div>
+  <!-- TITLE -->
+  <div class="title">Badt Guy</div>
+  <div class="artist">Omo Taker 🐺</div>
+
+  <!-- REAL STATS -->
+  <div class="stats">
+    <div class="stat-box">
+      <div class="stat-number">13K+</div>
+      <div class="stat-label">Streams</div>
+    </div>
+
+    <div class="stat-box">
+      <div class="stat-number">10K+</div>
+      <div class="stat-label">Listeners</div>
+    </div>
+
+    <div class="stat-box">
+      <div class="stat-number">14K+</div>
+      <div class="stat-label">Shazams</div>
     </div>
   </div>
 
-  <!-- COUNTER -->
-  <div class="counter">
-    🔥 <span id="count">0</span> plays
-  </div>
-
-  <div class="proof">
-    ⚡ People are discovering this sound right now
-  </div>
-
-  <!-- APPLE (MAIN) -->
+  <!-- APPLE -->
   <a href="https://music.apple.com/ng/album/badt-guy/1758752613?i=1758752614"
-     class="btn apple"
-     onclick="increaseCount()">
+     class="btn apple">
      <span>🍎 Apple Music</span>
      <span>PLAY ▶</span>
   </a>
 
   <!-- SPOTIFY -->
   <a href="https://open.spotify.com/track/78ckyu0HPy4oOQPzee5rkx?si=tFaTY_AXTPGJ12laDn6cGw"
-     class="btn spotify"
-     onclick="increaseCount()">
+     class="btn spotify">
      <span>🎧 Spotify</span>
      <span>LISTEN ▶</span>
   </a>
 
-  <!-- SHAZAM -->
-  <a href="https://www.shazam.com"
-     class="btn shazam"
-     onclick="increaseCount()">
-     <span>📡 Shazam</span>
-     <span>OPEN ▶</span>
-  </a>
-
   <!-- PRESSURE -->
   <div class="pressure">
-    🎧 If it hits… play it now. Don’t skip.
+    🔥 10,000+ people already tapped in… don’t miss this one.
   </div>
 
   <div class="footer">OMK 🐺</div>
 
 </div>
-
-<script>
-
-/* START FROM REAL MOMENTUM */
-let count = localStorage.getItem("plays");
-
-if (!count) {
-  count = 12000 + Math.floor(Math.random() * 1500);
-}
-
-count = parseInt(count);
-
-function updateUI() {
-  document.getElementById("count").innerText = count.toLocaleString();
-}
-
-function increaseCount() {
-  count += Math.floor(Math.random() * 5) + 1;
-  localStorage.setItem("plays", count);
-  updateUI();
-}
-
-updateUI();
-
-</script>
 
 </body>
 </html>
