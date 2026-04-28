@@ -9,28 +9,9 @@
 <style>
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Arial;
+  font-family: -apple-system, Arial;
   color: white;
-  overflow-x: hidden;
-}
-
-/* BACKGROUND VIDEO */
-.bg-video {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: -2;
-}
-
-.overlay {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle, rgba(0,0,0,0.6), black);
-  z-index: -1;
+  background: radial-gradient(circle at top, #050505, #000);
 }
 
 /* CONTAINER */
@@ -63,11 +44,28 @@ body {
   color: #aaa;
 }
 
-/* STATS */
+/* BIG MAIN STAT */
+.main-stat {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.main-number {
+  font-size: 36px;
+  font-weight: bold;
+  color: #ff3c00;
+}
+
+.main-label {
+  font-size: 12px;
+  color: #777;
+}
+
+/* SMALL STATS */
 .stats {
   display: flex;
   justify-content: space-between;
-  margin: 25px 0;
+  margin: 20px 0;
 }
 
 .stat {
@@ -75,13 +73,13 @@ body {
 }
 
 .number {
-  font-size: 22px;
+  font-size: 18px;
   font-weight: bold;
-  color: #ff3c00;
+  color: #ff5e00;
 }
 
 .label {
-  font-size: 12px;
+  font-size: 11px;
   color: #777;
 }
 
@@ -98,7 +96,6 @@ body {
 
 .apple {
   background: linear-gradient(135deg, #ff003c, #ff5e00);
-  box-shadow: 0 0 40px rgba(255,0,60,0.6);
 }
 
 .spotify {
@@ -106,7 +103,7 @@ body {
   color: #1DB954;
 }
 
-/* PRESSURE TEXT */
+/* PRESSURE */
 .pressure {
   text-align: center;
   margin-top: 18px;
@@ -126,23 +123,24 @@ body {
 
 <body>
 
-<!-- 🎬 BACKGROUND VIDEO (replace link with your own later) -->
-<video class="bg-video" autoplay muted loop>
-  <source src="YOUR_VIDEO_LINK_HERE.mp4" type="video/mp4">
-</video>
-
-<div class="overlay"></div>
-
 <div class="container">
 
+  <!-- COVER -->
   <div class="cover">
     <img src="https://raw.githubusercontent.com/omk-store/omotaker/refs/heads/main/IMG_0934.jpeg">
   </div>
 
+  <!-- TITLE -->
   <div class="title">Badt Guy</div>
   <div class="artist">Omo Taker 🐺</div>
 
-  <!-- STATS -->
+  <!-- MAIN FLEX -->
+  <div class="main-stat">
+    <div class="main-number" id="total">0</div>
+    <div class="main-label">Total Plays</div>
+  </div>
+
+  <!-- SECONDARY STATS -->
   <div class="stats">
     <div class="stat">
       <div class="number" id="streams">0</div>
@@ -171,8 +169,9 @@ body {
     <span>LISTEN ▶</span>
   </a>
 
+  <!-- PRESSURE -->
   <div class="pressure">
-    🔥 10,000+ people already tapped in… don’t miss this.
+    🔥 19,000+ total plays… this one is moving different.
   </div>
 
   <div class="brand">
@@ -193,10 +192,11 @@ function animate(id, target) {
       clearInterval(interval);
     }
     document.getElementById(id).innerText =
-      Math.floor(count).toLocaleString();
+      Math.floor(count).toLocaleString() + "+";
   }, 30);
 }
 
+animate("total", 19000);
 animate("streams", 13000);
 animate("listeners", 10000);
 animate("shazams", 14000);
