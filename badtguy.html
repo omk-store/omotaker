@@ -10,23 +10,22 @@
 body {
   margin: 0;
   font-family: -apple-system, Arial;
+  background: #000;
   color: white;
-  background: radial-gradient(circle at top, #050505, #000);
 }
 
 /* CONTAINER */
 .container {
-  width: 90%;
+  width: 92%;
   max-width: 420px;
   margin: auto;
-  padding-top: 40px;
+  padding-top: 30px;
 }
 
 /* COVER */
 .cover {
-  border-radius: 22px;
+  border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 0 80px rgba(255,0,0,0.4);
 }
 
 .cover img {
@@ -44,24 +43,33 @@ body {
   color: #aaa;
 }
 
-/* BIG MAIN STAT */
-.main-stat {
+/* LIVE LISTENING */
+.live {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #00ffc3;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% {opacity: 0.6;}
+  50% {opacity: 1;}
+  100% {opacity: 0.6;}
+}
+
+/* TOTAL */
+.total {
   text-align: center;
   margin: 20px 0;
 }
 
-.main-number {
-  font-size: 36px;
-  font-weight: bold;
+.total h1 {
+  margin: 0;
+  font-size: 34px;
   color: #ff3c00;
 }
 
-.main-label {
-  font-size: 12px;
-  color: #777;
-}
-
-/* SMALL STATS */
+/* STATS */
 .stats {
   display: flex;
   justify-content: space-between;
@@ -72,18 +80,18 @@ body {
   text-align: center;
 }
 
-.number {
+.stat strong {
+  display: block;
   font-size: 18px;
-  font-weight: bold;
   color: #ff5e00;
 }
 
-.label {
+.stat span {
   font-size: 11px;
   color: #777;
 }
 
-/* BUTTON */
+/* BUTTONS */
 .btn {
   display: flex;
   justify-content: space-between;
@@ -94,13 +102,24 @@ body {
   font-weight: bold;
 }
 
+/* APPLE */
 .apple {
-  background: linear-gradient(135deg, #ff003c, #ff5e00);
+  background: #111;
+  border: 1px solid #333;
 }
 
+.apple span:first-child::before {
+  content: "🍎 ";
+}
+
+/* SPOTIFY */
 .spotify {
   border: 1px solid #1DB954;
   color: #1DB954;
+}
+
+.spotify span:first-child::before {
+  content: "🎧 ";
 }
 
 /* PRESSURE */
@@ -134,44 +153,48 @@ body {
   <div class="title">Badt Guy</div>
   <div class="artist">Omo Taker 🐺</div>
 
-  <!-- MAIN FLEX -->
-  <div class="main-stat">
-    <div class="main-number" id="total">0</div>
-    <div class="main-label">Total Plays</div>
+  <!-- LIVE PEOPLE -->
+  <div class="live">
+    👀 <span id="liveCount">126</span> people listening now
   </div>
 
-  <!-- SECONDARY STATS -->
+  <!-- TOTAL -->
+  <div class="total">
+    <h1>19,000+</h1>
+  </div>
+
+  <!-- REAL STATS -->
   <div class="stats">
     <div class="stat">
-      <div class="number" id="streams">0</div>
-      <div class="label">Streams</div>
+      <strong>19K+</strong>
+      <span>Total Plays</span>
     </div>
 
     <div class="stat">
-      <div class="number" id="listeners">0</div>
-      <div class="label">Listeners</div>
+      <strong>10K+</strong>
+      <span>Listeners</span>
     </div>
 
     <div class="stat">
-      <div class="number" id="shazams">0</div>
-      <div class="label">Shazams</div>
+      <strong>14K+</strong>
+      <span>Shazams</span>
     </div>
   </div>
 
   <!-- BUTTONS -->
   <a href="https://music.apple.com/ng/album/badt-guy/1758752613?i=1758752614" class="btn apple">
-    <span>OMK Music</span>
+    <span>Apple Music</span>
     <span>PLAY ▶</span>
   </a>
 
   <a href="https://open.spotify.com/track/78ckyu0HPy4oOQPzee5rkx?si=tFaTY_AXTPGJ12laDn6cGw" class="btn spotify">
-    <span>OMK Stream</span>
+    <span>Spotify</span>
     <span>LISTEN ▶</span>
   </a>
 
   <!-- PRESSURE -->
   <div class="pressure">
-    🔥 19,000+ total plays… this one is moving different.
+    🔥 This record is gaining traction right now…
   </div>
 
   <div class="brand">
@@ -181,25 +204,21 @@ body {
 </div>
 
 <script>
-function animate(id, target) {
-  let count = 0;
-  let speed = target / 50;
+let live = 120;
 
-  let interval = setInterval(() => {
-    count += speed;
-    if (count >= target) {
-      count = target;
-      clearInterval(interval);
-    }
-    document.getElementById(id).innerText =
-      Math.floor(count).toLocaleString() + "+";
-  }, 30);
+function updateLive() {
+  // random realistic fluctuation
+  let change = Math.floor(Math.random() * 40) - 20;
+  live += change;
+
+  if (live < 80) live = 90;
+  if (live > 300) live = 200;
+
+  document.getElementById("liveCount").innerText = live;
 }
 
-animate("total", 19000);
-animate("streams", 13000);
-animate("listeners", 10000);
-animate("shazams", 14000);
+// update every 2 seconds
+setInterval(updateLive, 2000);
 </script>
 
 </body>
