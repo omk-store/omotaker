@@ -9,8 +9,8 @@
 <style>
 body{
   margin:0;
-  font-family:Arial, sans-serif;
-  background:#020617;
+  font-family:-apple-system,Arial;
+  background:radial-gradient(circle at top,#020617,#000);
   color:#fff;
   display:flex;
   justify-content:center;
@@ -25,20 +25,51 @@ body{
 /* IMAGE */
 .banner img{
   width:100%;
-  border-radius:20px;
+  border-radius:22px;
   margin-top:20px;
-  box-shadow:0 0 40px rgba(255,60,0,.3);
+  box-shadow:0 0 60px rgba(255,80,0,.5);
 }
 
-/* TEXT */
+/* TITLE */
 .title{
   font-size:26px;
   margin-top:15px;
-  font-weight:bold;
+  font-weight:900;
 }
+
 .sub{
-  opacity:.8;
+  opacity:.7;
+  margin-bottom:15px;
+}
+
+/* MOVEMENT */
+.movement{
+  font-size:13px;
+  color:#ff6a2a;
   margin-bottom:20px;
+}
+
+/* STATS */
+.stats{
+  display:flex;
+  justify-content:space-between;
+  margin:15px 0 10px;
+}
+
+.stat{
+  flex:1;
+  text-align:center;
+}
+
+.stat strong{
+  display:block;
+  font-size:18px;
+  color:#ff5e00;
+}
+
+.stat span{
+  font-size:11px;
+  opacity:.6;
 }
 
 /* BUTTON */
@@ -47,17 +78,17 @@ body{
   align-items:center;
   justify-content:center;
   gap:12px;
-  padding:20px;
+  padding:18px;
   margin:14px 0;
   border-radius:25px;
   text-decoration:none;
   font-weight:bold;
-  font-size:18px;
+  font-size:17px;
   color:#fff;
   transition:.3s;
 }
 
-/* SPOTIFY (PRIMARY) */
+/* SPOTIFY */
 .spotify{
   background:linear-gradient(135deg,#1DB954,#1ed760);
   box-shadow:0 0 30px rgba(29,185,84,.6);
@@ -69,20 +100,39 @@ body{
   border:1px solid rgba(255,255,255,.2);
 }
 
-/* HOVER */
 .btn:hover{
-  transform:scale(1.06);
+  transform:scale(1.05);
 }
 
 /* LOGO */
 .logo{
-  width:28px;
+  width:26px;
+}
+
+/* TOP SONGS */
+.songs{
+  margin-top:20px;
+  text-align:left;
+  font-size:13px;
+  opacity:.85;
+}
+
+.songs div{
+  padding:6px 0;
+  border-bottom:1px solid rgba(255,255,255,.05);
+}
+
+/* MESSAGE */
+.message{
+  margin-top:18px;
+  font-size:14px;
+  color:#ff6a2a;
 }
 
 /* FOOTER */
 .footer{
   margin-top:25px;
-  font-size:13px;
+  font-size:12px;
   opacity:.6;
 }
 </style>
@@ -97,21 +147,53 @@ body{
   <img src="https://raw.githubusercontent.com/omk-store/omk-website/main/914C5ED9-2BF8-4515-9320-9169F7E32FBB.png">
 </div>
 
-<!-- TEXT -->
-<div class="title">Stream “Benin To Lagos” 🔥</div>
-<div class="sub">Choose your platform 👇</div>
+<!-- TITLE -->
+<div class="title">Benin To Lagos 🔥</div>
+<div class="sub">Omo Taker 🐺</div>
 
-<!-- ONLY 2 BUTTONS -->
+<!-- MOVEMENT -->
+<div class="movement">
+  📍 Lagos Active 🔥 • Benin Roots 🐺 • Nigeria Growing 📈
+</div>
 
+<!-- STATS -->
+<div class="stats">
+  <div class="stat">
+    <strong id="plays">0</strong>
+    <span>Plays</span>
+  </div>
+  <div class="stat">
+    <strong id="listeners">0</strong>
+    <span>Listeners</span>
+  </div>
+  <div class="stat">
+    <strong id="shazams">0</strong>
+    <span>Shazams</span>
+  </div>
+</div>
+
+<!-- BUTTONS -->
 <a href="https://open.spotify.com/track/0SooNM8i9p1UiE7HTTp5C4" class="btn spotify" target="_blank">
   <img src="https://upload.wikimedia.org/wikipedia/commons/8/84/Spotify_icon.svg" class="logo">
-  Play on Spotify
+  Stream on Spotify 🔥
 </a>
 
 <a href="https://music.apple.com/ng/album/benin-to-lagos/1866424075?i=1866424076" class="btn apple" target="_blank">
   <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" class="logo" style="filter:invert(1);">
-  Play on Apple Music
+  Play on Apple Music 🎧
 </a>
+
+<!-- TOP SONGS -->
+<div class="songs">
+  <div>🔥 Bend Down Select — 86K+</div>
+  <div>🔥 Bad Guy — 38K+</div>
+  <div>🔥 My Door — 32K+</div>
+</div>
+
+<!-- MESSAGE -->
+<div class="message">
+  🔥 This sound is already moving across Lagos & Benin… don’t miss it.
+</div>
 
 <!-- FOOTER -->
 <div class="footer">
@@ -119,6 +201,28 @@ body{
 </div>
 
 </div>
+
+<script>
+function animate(id, target){
+  let count = 0;
+  let step = target / 40;
+
+  let run = setInterval(()=>{
+    count += step;
+    if(count >= target){
+      count = target;
+      clearInterval(run);
+    }
+    document.getElementById(id).innerText =
+      Math.floor(count).toLocaleString() + "+";
+  }, 30);
+}
+
+/* REAL DATA */
+animate("plays", 43143);     // Verified plays
+animate("listeners", 2145);  // Monthly listeners
+animate("shazams", 438);     // Shazam
+</script>
 
 </body>
 </html>
