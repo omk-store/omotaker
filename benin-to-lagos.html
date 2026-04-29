@@ -27,19 +27,28 @@ body{
   width:100%;
   border-radius:22px;
   margin-top:20px;
-  box-shadow:0 0 60px rgba(255,80,0,.5);
+  box-shadow:0 0 80px rgba(255,80,0,.6);
 }
 
 /* TITLE */
 .title{
-  font-size:26px;
+  font-size:28px;
   margin-top:15px;
   font-weight:900;
 }
 
 .sub{
   opacity:.7;
-  margin-bottom:15px;
+  margin-bottom:10px;
+}
+
+/* MAIN STAT (DOMINANT) */
+.main-stat{
+  font-size:32px;
+  font-weight:900;
+  margin:10px 0;
+  color:#ff5e00;
+  text-shadow:0 0 25px rgba(255,80,0,.7);
 }
 
 /* MOVEMENT */
@@ -49,11 +58,11 @@ body{
   margin-bottom:20px;
 }
 
-/* STATS */
+/* SECONDARY STATS */
 .stats{
   display:flex;
   justify-content:space-between;
-  margin:15px 0 10px;
+  margin:10px 0 20px;
 }
 
 .stat{
@@ -63,13 +72,13 @@ body{
 
 .stat strong{
   display:block;
-  font-size:18px;
-  color:#ff5e00;
+  font-size:16px;
+  color:#fff;
 }
 
 .stat span{
   font-size:11px;
-  opacity:.6;
+  opacity:.5;
 }
 
 /* BUTTON */
@@ -91,7 +100,7 @@ body{
 /* SPOTIFY */
 .spotify{
   background:linear-gradient(135deg,#1DB954,#1ed760);
-  box-shadow:0 0 30px rgba(29,185,84,.6);
+  box-shadow:0 0 40px rgba(29,185,84,.7);
 }
 
 /* APPLE */
@@ -101,7 +110,7 @@ body{
 }
 
 .btn:hover{
-  transform:scale(1.05);
+  transform:scale(1.06);
 }
 
 /* LOGO */
@@ -114,7 +123,7 @@ body{
   margin-top:20px;
   text-align:left;
   font-size:13px;
-  opacity:.85;
+  opacity:.9;
 }
 
 .songs div{
@@ -151,20 +160,19 @@ body{
 <div class="title">Benin To Lagos 🔥</div>
 <div class="sub">Omo Taker 🐺</div>
 
+<!-- BIG SOCIAL PROOF -->
+<div class="main-stat" id="listeners">0</div>
+
 <!-- MOVEMENT -->
 <div class="movement">
-  📍 Lagos Active 🔥 • Benin Roots 🐺 • Nigeria Growing 📈
+  📍 Lagos • Benin • Nigeria 🌍 Movement Growing
 </div>
 
-<!-- STATS -->
+<!-- SECONDARY STATS -->
 <div class="stats">
   <div class="stat">
-    <strong id="plays">0</strong>
-    <span>Plays</span>
-  </div>
-  <div class="stat">
-    <strong id="listeners">0</strong>
-    <span>Listeners</span>
+    <strong id="streams">0</strong>
+    <span>Streams</span>
   </div>
   <div class="stat">
     <strong id="shazams">0</strong>
@@ -218,10 +226,10 @@ function animate(id, target){
   }, 30);
 }
 
-/* REAL DATA */
-animate("plays", 43143);     // Verified plays
-animate("listeners", 2145);  // Monthly listeners
-animate("shazams", 438);     // Shazam
+/* REAL STRONG DATA */
+animate("listeners", 136000);
+animate("streams", 260749);
+animate("shazams", 438);
 </script>
 
 </body>
