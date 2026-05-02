@@ -6,6 +6,15 @@
 
 <title>OMOTEKA – Badt Guy</title>
 
+<!-- 🔥 GOOGLE ANALYTICS -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HX57BRN5ET"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-HX57BRN5ET');
+</script>
+
 <style>
 body{
   margin:0;
@@ -77,7 +86,6 @@ body{
   transition:0.2s;
 }
 
-/* HOVER */
 .btn:hover{
   transform:scale(1.03);
 }
@@ -97,7 +105,6 @@ body{
   animation:pulse 2s infinite;
 }
 
-/* PULSE ANIMATION */
 @keyframes pulse{
   0%{box-shadow:0 0 10px rgba(29,185,84,0.4);}
   50%{box-shadow:0 0 25px rgba(29,185,84,0.8);}
@@ -152,13 +159,21 @@ body{
     </div>
   </div>
 
-  <!-- BUTTONS -->
-  <a href="https://music.apple.com/ng/album/badt-guy/1758752613?i=1758752614" target="_blank" class="btn apple">
+  <!-- 🍎 APPLE BUTTON (TRACKED) -->
+  <a href="https://music.apple.com/ng/album/badt-guy/1758752613?i=1758752614"
+     target="_blank"
+     class="btn apple"
+     onclick="gtag('event','apple_click',{event_category:'music',event_label:'badtguy'});">
     <span>Apple Music</span>
     <span>PLAY ▶</span>
   </a>
 
-  <a id="spotifyBtn" href="https://open.spotify.com/album/126dI3vQGGZSuKxkQ8nVs9" target="_blank" class="btn spotify">
+  <!-- 🎧 SPOTIFY BUTTON (TRACKED) -->
+  <a id="spotifyBtn"
+     href="https://open.spotify.com/album/126dI3vQGGZSuKxkQ8nVs9"
+     target="_blank"
+     class="btn spotify"
+     onclick="gtag('event','spotify_click',{event_category:'music',event_label:'badtguy'});">
     <span>Spotify</span>
     <span>PLAY NOW ▶</span>
   </a>
@@ -195,10 +210,8 @@ animate("plays", 19000);
 animate("listeners", 12000);
 animate("shazams", 10000);
 
-/* AUTO OPEN SPOTIFY AFTER 2.5s */
-setTimeout(()=>{
-  window.open(document.getElementById("spotifyBtn").href, "_blank");
-}, 2500);
+/* ⚠️ AUTO OPEN REMOVED (IMPORTANT FOR ADS & TRACKING) */
+/* It was hurting conversion + tracking accuracy */
 </script>
 
 </body>
