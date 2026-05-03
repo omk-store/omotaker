@@ -23,7 +23,6 @@ body{
   color:white;
 }
 
-/* CONTAINER */
 .container{
   width:92%;
   max-width:420px;
@@ -31,7 +30,6 @@ body{
   padding-top:20px;
 }
 
-/* COVER */
 .cover{
   border-radius:22px;
   overflow:hidden;
@@ -39,7 +37,6 @@ body{
 }
 .cover img{width:100%;}
 
-/* NAME */
 .name{
   text-align:center;
   font-size:34px;
@@ -49,7 +46,6 @@ body{
   text-shadow:0 0 12px rgba(255,255,255,0.25);
 }
 
-/* STATS */
 .stats{
   display:flex;
   justify-content:space-between;
@@ -73,7 +69,6 @@ body{
   color:#777;
 }
 
-/* BUTTONS */
 .btn{
   display:flex;
   justify-content:space-between;
@@ -105,13 +100,20 @@ body{
   animation:pulse 2s infinite;
 }
 
+/* WHATSAPP (🔥 NEW) */
+.whatsapp{
+  background:linear-gradient(135deg,#25D366,#128C7E);
+  color:white;
+  box-shadow:0 0 25px rgba(37,211,102,0.6);
+}
+
+/* PULSE */
 @keyframes pulse{
   0%{box-shadow:0 0 10px rgba(29,185,84,0.4);}
   50%{box-shadow:0 0 25px rgba(29,185,84,0.8);}
   100%{box-shadow:0 0 10px rgba(29,185,84,0.4);}
 }
 
-/* MESSAGE */
 .message{
   text-align:center;
   margin-top:20px;
@@ -119,7 +121,6 @@ body{
   font-size:14px;
 }
 
-/* FOOTER */
 .footer{
   text-align:center;
   margin-top:25px;
@@ -133,15 +134,12 @@ body{
 
 <div class="container">
 
-  <!-- COVER -->
   <div class="cover">
     <img src="https://raw.githubusercontent.com/omk-store/omotaker/refs/heads/main/IMG_0934.jpeg">
   </div>
 
-  <!-- MAIN NAME -->
   <div class="name">Omo Taker 🐺🎶📯</div>
 
-  <!-- STATS -->
   <div class="stats">
     <div class="stat">
       <strong id="plays">0</strong>
@@ -159,31 +157,37 @@ body{
     </div>
   </div>
 
-  <!-- 🍎 APPLE BUTTON (TRACKED) -->
+  <!-- 🍎 APPLE -->
   <a href="https://music.apple.com/ng/album/badt-guy/1758752613?i=1758752614"
      target="_blank"
      class="btn apple"
-     onclick="gtag('event','apple_click',{event_category:'music',event_label:'badtguy'});">
+     onclick="gtag('event','apple_click',{event_category:'music'});">
     <span>Apple Music</span>
     <span>PLAY ▶</span>
   </a>
 
-  <!-- 🎧 SPOTIFY BUTTON (TRACKED) -->
-  <a id="spotifyBtn"
-     href="https://open.spotify.com/album/126dI3vQGGZSuKxkQ8nVs9"
+  <!-- 🎧 SPOTIFY -->
+  <a href="https://open.spotify.com/album/126dI3vQGGZSuKxkQ8nVs9"
      target="_blank"
      class="btn spotify"
-     onclick="gtag('event','spotify_click',{event_category:'music',event_label:'badtguy'});">
+     onclick="gtag('event','spotify_click',{event_category:'music'});">
     <span>Spotify</span>
     <span>PLAY NOW ▶</span>
   </a>
 
-  <!-- MESSAGE -->
+  <!-- 🐺 WHATSAPP ARMY -->
+  <a href="https://chat.whatsapp.com/YOUR-LINK"
+     target="_blank"
+     class="btn whatsapp"
+     onclick="gtag('event','army_join_click',{event_category:'fanbase'});">
+    <span>OMK ARMY 🐺🔥</span>
+    <span>JOIN ▶</span>
+  </a>
+
   <div class="message">
     🔥 19,000+ people already tapped in… hit PLAY & feel it now.
   </div>
 
-  <!-- FOOTER -->
   <div class="footer">
     OMK Records 🐺
   </div>
@@ -209,9 +213,6 @@ function animate(id, target){
 animate("plays", 19000);
 animate("listeners", 12000);
 animate("shazams", 10000);
-
-/* ⚠️ AUTO OPEN REMOVED (IMPORTANT FOR ADS & TRACKING) */
-/* It was hurting conversion + tracking accuracy */
 </script>
 
 </body>
