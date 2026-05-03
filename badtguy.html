@@ -100,7 +100,7 @@ body{
   animation:pulse 2s infinite;
 }
 
-/* WHATSAPP (🔥 NEW) */
+/* WHATSAPP */
 .whatsapp{
   background:linear-gradient(135deg,#25D366,#128C7E);
   color:white;
@@ -119,6 +119,7 @@ body{
   margin-top:20px;
   color:#ff6a2a;
   font-size:14px;
+  line-height:1.5;
 }
 
 .footer{
@@ -134,12 +135,15 @@ body{
 
 <div class="container">
 
+  <!-- COVER -->
   <div class="cover">
     <img src="https://raw.githubusercontent.com/omk-store/omotaker/refs/heads/main/IMG_0934.jpeg">
   </div>
 
+  <!-- NAME -->
   <div class="name">Omo Taker 🐺🎶📯</div>
 
+  <!-- STATS -->
   <div class="stats">
     <div class="stat">
       <strong id="plays">0</strong>
@@ -161,7 +165,10 @@ body{
   <a href="https://music.apple.com/ng/album/badt-guy/1758752613?i=1758752614"
      target="_blank"
      class="btn apple"
-     onclick="gtag('event','apple_click',{event_category:'music'});">
+     onclick="gtag('event','apple_click',{
+       event_category:'music',
+       event_label:'badtguy_apple'
+     });">
     <span>Apple Music</span>
     <span>PLAY ▶</span>
   </a>
@@ -170,24 +177,33 @@ body{
   <a href="https://open.spotify.com/album/126dI3vQGGZSuKxkQ8nVs9"
      target="_blank"
      class="btn spotify"
-     onclick="gtag('event','spotify_click',{event_category:'music'});">
+     onclick="gtag('event','spotify_click',{
+       event_category:'music',
+       event_label:'badtguy_spotify'
+     });">
     <span>Spotify</span>
     <span>PLAY NOW ▶</span>
   </a>
 
   <!-- 🐺 WHATSAPP ARMY -->
-  <a href="https://chat.whatsapp.com/YOUR-LINK"
+  <a href="https://chat.whatsapp.com/BlcD6vr5mImK0ZQ0VkPAZF?mode=hqctswi"
      target="_blank"
      class="btn whatsapp"
-     onclick="gtag('event','army_join_click',{event_category:'fanbase'});">
+     onclick="gtag('event','army_join_click',{
+       event_category:'fanbase',
+       event_label:'omk_army_join'
+     });">
     <span>OMK ARMY 🐺🔥</span>
-    <span>JOIN ▶</span>
+    <span>TAP TO JOIN ▶</span>
   </a>
 
+  <!-- MESSAGE -->
   <div class="message">
-    🔥 19,000+ people already tapped in… hit PLAY & feel it now.
+    🚨 Don’t just listen… join the movement 🐺🔥<br>
+    🔥 19,000+ already tapped in.
   </div>
 
+  <!-- FOOTER -->
   <div class="footer">
     OMK Records 🐺
   </div>
