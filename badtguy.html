@@ -9,10 +9,10 @@
 <!-- 🔥 GOOGLE ANALYTICS -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-HX57BRN5ET"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-HX57BRN5ET');
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-HX57BRN5ET');
 </script>
 
 <style>
@@ -30,6 +30,7 @@ body{
   padding-top:20px;
 }
 
+/* COVER */
 .cover{
   border-radius:22px;
   overflow:hidden;
@@ -37,96 +38,70 @@ body{
 }
 .cover img{width:100%;}
 
+/* NAME */
 .name{
   text-align:center;
-  font-size:34px;
+  font-size:32px;
   font-weight:900;
   margin-top:15px;
-  letter-spacing:1px;
-  text-shadow:0 0 12px rgba(255,255,255,0.25);
 }
 
-.stats{
-  display:flex;
-  justify-content:space-between;
-  margin-top:25px;
-}
-
-.stat{
+/* 🔥 MAIN CTA TEXT */
+.cta{
   text-align:center;
-  flex:1;
+  margin-top:12px;
+  font-size:15px;
+  color:#ff6a2a;
+  line-height:1.4;
+  font-weight:600;
 }
 
-.stat strong{
-  display:block;
-  font-size:22px;
-  color:#ff5e00;
-  text-shadow:0 0 10px rgba(255,94,0,0.6);
-}
-
-.stat span{
-  font-size:12px;
-  color:#777;
-}
-
+/* BUTTONS */
 .btn{
   display:flex;
   justify-content:space-between;
-  padding:17px;
-  border-radius:15px;
+  align-items:center;
+  padding:18px;
+  border-radius:16px;
   margin-top:18px;
   text-decoration:none;
-  font-weight:800;
-  backdrop-filter:blur(10px);
+  font-weight:900;
   transition:0.2s;
 }
 
 .btn:hover{
-  transform:scale(1.03);
+  transform:scale(1.04);
 }
 
-/* APPLE */
-.apple{
-  background:linear-gradient(135deg,#ff003c,#ff6a00);
+/* 🔥 MAIN BUTTON (SPOTIFY) */
+.main{
+  background:linear-gradient(135deg,#1DB954,#0f7a3c);
   color:white;
-  box-shadow:0 0 25px rgba(255,60,0,0.6);
+  box-shadow:0 0 30px rgba(29,185,84,0.8);
+  font-size:18px;
+  animation:pulse 1.8s infinite;
 }
 
-/* SPOTIFY */
-.spotify{
-  border:1.5px solid #1DB954;
-  color:#1DB954;
-  box-shadow:0 0 20px rgba(29,185,84,0.4);
-  animation:pulse 2s infinite;
+/* SECONDARY */
+.secondary{
+  border:1.5px solid #ff5e00;
+  color:#ff5e00;
+  box-shadow:0 0 20px rgba(255,94,0,0.4);
 }
 
-/* WHATSAPP */
-.whatsapp{
-  background:linear-gradient(135deg,#25D366,#128C7E);
-  color:white;
-  box-shadow:0 0 25px rgba(37,211,102,0.6);
+/* SMALL JOIN (LOW PRIORITY) */
+.join{
+  margin-top:25px;
+  font-size:13px;
+  text-align:center;
+  color:#777;
 }
 
 /* PULSE */
 @keyframes pulse{
-  0%{box-shadow:0 0 10px rgba(29,185,84,0.4);}
-  50%{box-shadow:0 0 25px rgba(29,185,84,0.8);}
-  100%{box-shadow:0 0 10px rgba(29,185,84,0.4);}
-}
-
-.message{
-  text-align:center;
-  margin-top:20px;
-  color:#ff6a2a;
-  font-size:14px;
-  line-height:1.5;
-}
-
-.footer{
-  text-align:center;
-  margin-top:25px;
-  font-size:12px;
-  color:#555;
+  0%{box-shadow:0 0 15px rgba(29,185,84,0.6);}
+  50%{box-shadow:0 0 35px rgba(29,185,84,1);}
+  100%{box-shadow:0 0 15px rgba(29,185,84,0.6);}
 }
 </style>
 </head>
@@ -141,95 +116,52 @@ body{
   </div>
 
   <!-- NAME -->
-  <div class="name">Omo Taker 🐺🎶📯</div>
+  <div class="name">Omo Taker 🐺</div>
 
-  <!-- STATS -->
-  <div class="stats">
-    <div class="stat">
-      <strong id="plays">0</strong>
-      <span>Total Plays</span>
-    </div>
-
-    <div class="stat">
-      <strong id="listeners">0</strong>
-      <span>Listeners</span>
-    </div>
-
-    <div class="stat">
-      <strong id="shazams">0</strong>
-      <span>Shazams</span>
-    </div>
+  <!-- 🔥 STRONG CTA -->
+  <div class="cta">
+    This sound is going crazy… tap play 🎧🔥
   </div>
 
-  <!-- 🍎 APPLE -->
-  <a href="https://music.apple.com/ng/album/badt-guy/1758752613?i=1758752614"
-     target="_blank"
-     class="btn apple"
-     onclick="gtag('event','apple_click',{
-       event_category:'music',
-       event_label:'badtguy_apple'
-     });">
-    <span>Apple Music</span>
-    <span>PLAY ▶</span>
-  </a>
-
-  <!-- 🎧 SPOTIFY -->
+  <!-- 🎧 MAIN BUTTON -->
   <a href="https://open.spotify.com/album/126dI3vQGGZSuKxkQ8nVs9"
      target="_blank"
-     class="btn spotify"
+     class="btn main"
      onclick="gtag('event','spotify_click',{
        event_category:'music',
        event_label:'badtguy_spotify'
      });">
-    <span>Spotify</span>
-    <span>PLAY NOW ▶</span>
+    <span>PLAY NOW</span>
+    <span>▶</span>
   </a>
 
-  <!-- 🐺 WHATSAPP ARMY -->
-  <a href="https://chat.whatsapp.com/BlcD6vr5mImK0ZQ0VkPAZF?mode=hqctswi"
+  <!-- 🍎 SECOND OPTION -->
+  <a href="https://music.apple.com/ng/album/badt-guy/1758752613?i=1758752614"
      target="_blank"
-     class="btn whatsapp"
-     onclick="gtag('event','army_join_click',{
-       event_category:'fanbase',
-       event_label:'omk_army_join'
+     class="btn secondary"
+     onclick="gtag('event','apple_click',{
+       event_category:'music',
+       event_label:'badtguy_apple'
      });">
-    <span>OMK ARMY 🐺🔥</span>
-    <span>TAP TO JOIN ▶</span>
+    <span>Also on Apple Music</span>
+    <span>▶</span>
   </a>
 
-  <!-- MESSAGE -->
-  <div class="message">
-    🚨 Don’t just listen… join the movement 🐺🔥<br>
-    🔥 19,000+ already tapped in.
-  </div>
-
-  <!-- FOOTER -->
-  <div class="footer">
-    OMK Records 🐺
+  <!-- LOW PRIORITY JOIN -->
+  <div class="join">
+    🐺 Join OMK Army later → 
+    <a href="https://chat.whatsapp.com/BlcD6vr5mImK0ZQ0VkPAZF?mode=hqctswi"
+       target="_blank"
+       style="color:#1DB954; text-decoration:none;"
+       onclick="gtag('event','army_join_click',{
+         event_category:'fanbase',
+         event_label:'omk_army_join'
+       });">
+       Tap here
+    </a>
   </div>
 
 </div>
-
-<script>
-function animate(id, target){
-  let count = 0;
-  let step = target / 40;
-
-  let run = setInterval(()=>{
-    count += step;
-    if(count >= target){
-      count = target;
-      clearInterval(run);
-    }
-    document.getElementById(id).innerText =
-      Math.floor(count).toLocaleString() + "+";
-  }, 30);
-}
-
-animate("plays", 19000);
-animate("listeners", 12000);
-animate("shazams", 10000);
-</script>
 
 </body>
 </html>
