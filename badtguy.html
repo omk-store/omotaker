@@ -30,13 +30,36 @@ body{
   padding-top:20px;
 }
 
+/* 🔥 TRENDING TEXT */
+.trending{
+  text-align:center;
+  font-size:14px;
+  color:#ff6a2a;
+  font-weight:800;
+  margin-bottom:10px;
+  animation:fade 2s infinite;
+}
+
+@keyframes fade{
+  0%{opacity:0.5;}
+  50%{opacity:1;}
+  100%{opacity:0.5;}
+}
+
 /* COVER */
 .cover{
   border-radius:22px;
   overflow:hidden;
   box-shadow:0 0 80px rgba(255,80,0,.45);
+  animation:zoom 6s infinite ease-in-out;
 }
 .cover img{width:100%;}
+
+@keyframes zoom{
+  0%{transform:scale(1);}
+  50%{transform:scale(1.05);}
+  100%{transform:scale(1);}
+}
 
 /* NAME */
 .name{
@@ -46,7 +69,7 @@ body{
   margin-top:15px;
 }
 
-/* 🔥 MAIN CTA TEXT */
+/* CTA */
 .cta{
   text-align:center;
   margin-top:12px;
@@ -73,13 +96,13 @@ body{
   transform:scale(1.04);
 }
 
-/* 🔥 MAIN BUTTON (SPOTIFY) */
+/* MAIN BUTTON */
 .main{
   background:linear-gradient(135deg,#1DB954,#0f7a3c);
   color:white;
   box-shadow:0 0 30px rgba(29,185,84,0.8);
   font-size:18px;
-  animation:pulse 1.8s infinite;
+  animation:pulse 1.5s infinite;
 }
 
 /* SECONDARY */
@@ -89,7 +112,15 @@ body{
   box-shadow:0 0 20px rgba(255,94,0,0.4);
 }
 
-/* SMALL JOIN (LOW PRIORITY) */
+/* URGENCY */
+.urgency{
+  text-align:center;
+  margin-top:12px;
+  font-size:13px;
+  color:#aaa;
+}
+
+/* JOIN */
 .join{
   margin-top:25px;
   font-size:13px;
@@ -100,7 +131,7 @@ body{
 /* PULSE */
 @keyframes pulse{
   0%{box-shadow:0 0 15px rgba(29,185,84,0.6);}
-  50%{box-shadow:0 0 35px rgba(29,185,84,1);}
+  50%{box-shadow:0 0 40px rgba(29,185,84,1);}
   100%{box-shadow:0 0 15px rgba(29,185,84,0.6);}
 }
 </style>
@@ -110,6 +141,9 @@ body{
 
 <div class="container">
 
+  <!-- 🔥 TRENDING -->
+  <div class="trending">🔥 TRENDING RIGHT NOW</div>
+
   <!-- COVER -->
   <div class="cover">
     <img src="https://raw.githubusercontent.com/omk-store/omotaker/refs/heads/main/IMG_0934.jpeg">
@@ -118,12 +152,12 @@ body{
   <!-- NAME -->
   <div class="name">Omo Taker 🐺</div>
 
-  <!-- 🔥 STRONG CTA -->
+  <!-- CTA -->
   <div class="cta">
-    This sound is going crazy… tap play 🎧🔥
+    Everybody is using this sound… don’t miss it 🎧🔥
   </div>
 
-  <!-- 🎧 MAIN BUTTON -->
+  <!-- MAIN BUTTON -->
   <a href="https://open.spotify.com/album/126dI3vQGGZSuKxkQ8nVs9"
      target="_blank"
      class="btn main"
@@ -131,11 +165,14 @@ body{
        event_category:'music',
        event_label:'badtguy_spotify'
      });">
-    <span>PLAY NOW</span>
-    <span>▶</span>
+    <span>▶ PLAY ON SPOTIFY</span>
+    <span>🔥</span>
   </a>
 
-  <!-- 🍎 SECOND OPTION -->
+  <!-- URGENCY -->
+  <div class="urgency">🚨 Tap now before it blows</div>
+
+  <!-- SECONDARY -->
   <a href="https://music.apple.com/ng/album/badt-guy/1758752613?i=1758752614"
      target="_blank"
      class="btn secondary"
@@ -147,7 +184,7 @@ body{
     <span>▶</span>
   </a>
 
-  <!-- LOW PRIORITY JOIN -->
+  <!-- JOIN -->
   <div class="join">
     🐺 Join OMK Army later → 
     <a href="https://chat.whatsapp.com/BlcD6vr5mImK0ZQ0VkPAZF?mode=hqctswi"
