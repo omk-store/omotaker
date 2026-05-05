@@ -30,7 +30,7 @@ body{
   padding-top:20px;
 }
 
-/* 🔥 TRENDING TEXT */
+/* 🔥 TRENDING */
 .trending{
   text-align:center;
   font-size:14px;
@@ -79,7 +79,7 @@ body{
   font-weight:600;
 }
 
-/* BUTTONS */
+/* BUTTON */
 .btn{
   display:flex;
   justify-content:space-between;
@@ -105,27 +105,12 @@ body{
   animation:pulse 1.5s infinite;
 }
 
-/* SECONDARY */
-.secondary{
-  border:1.5px solid #ff5e00;
-  color:#ff5e00;
-  box-shadow:0 0 20px rgba(255,94,0,0.4);
-}
-
 /* URGENCY */
 .urgency{
   text-align:center;
   margin-top:12px;
   font-size:13px;
   color:#aaa;
-}
-
-/* JOIN */
-.join{
-  margin-top:25px;
-  font-size:13px;
-  text-align:center;
-  color:#777;
 }
 
 /* PULSE */
@@ -157,7 +142,7 @@ body{
     Everybody is using this sound… don’t miss it 🎧🔥
   </div>
 
-  <!-- MAIN BUTTON -->
+  <!-- 🎧 SPOTIFY BUTTON -->
   <a href="https://open.spotify.com/album/126dI3vQGGZSuKxkQ8nVs9"
      target="_blank"
      class="btn main"
@@ -169,36 +154,18 @@ body{
     <span>🔥</span>
   </a>
 
-  <!-- URGENCY -->
-  <div class="urgency">🚨 Tap now before it blows</div>
-
-  <!-- SECONDARY -->
-  <a href="https://music.apple.com/ng/album/badt-guy/1758752613?i=1758752614"
-     target="_blank"
-     class="btn secondary"
-     onclick="gtag('event','apple_click',{
-       event_category:'music',
-       event_label:'badtguy_apple'
-     });">
-    <span>Also on Apple Music</span>
-    <span>▶</span>
-  </a>
-
-  <!-- JOIN -->
-  <div class="join">
-    🐺 Join OMK Army later → 
-    <a href="https://chat.whatsapp.com/BlcD6vr5mImK0ZQ0VkPAZF?mode=hqctswi"
-       target="_blank"
-       style="color:#1DB954; text-decoration:none;"
-       onclick="gtag('event','army_join_click',{
-         event_category:'fanbase',
-         event_label:'omk_army_join'
-       });">
-       Tap here
-    </a>
-  </div>
+  <!-- 🔥 URGENCY -->
+  <div class="urgency">🚨 Thousands already listening… don’t miss out</div>
+  <div class="urgency" style="color:#1DB954;">🎧 Opens directly in Spotify app</div>
 
 </div>
+
+<!-- ⚡ AUTO REDIRECT (OPTIONAL POWER MOVE) -->
+<script>
+setTimeout(function(){
+  window.location.href="https://open.spotify.com/album/126dI3vQGGZSuKxkQ8nVs9";
+},4000);
+</script>
 
 </body>
 </html>
