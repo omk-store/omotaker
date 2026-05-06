@@ -6,7 +6,7 @@
 
 <title>Follow Follow - Omo Taker</title>
 
-<meta name="theme-color" content="#ff6a00">
+<meta name="theme-color" content="#ff7a00">
 
 <style>
 
@@ -16,31 +16,26 @@ padding:0;
 box-sizing:border-box;
 }
 
-html{
-scroll-behavior:smooth;
-}
-
 body{
 font-family:Arial,sans-serif;
 background:#000;
 color:#fff;
 overflow-x:hidden;
 text-align:center;
-position:relative;
 }
 
-/* 🔥 PREMIUM BACKGROUND */
+/* 🔥 BACKGROUND */
 
 body::before{
 content:"";
 position:fixed;
 width:220%;
 height:220%;
-top:-60%;
-left:-60%;
+top:-50%;
+left:-50%;
 background:
 radial-gradient(circle,
-rgba(255,120,0,.20),
+rgba(255,120,0,.18),
 transparent 60%);
 animation:bgMove 12s linear infinite;
 z-index:-3;
@@ -52,77 +47,20 @@ position:fixed;
 inset:0;
 background:
 linear-gradient(to bottom,
-rgba(0,0,0,.35),
-rgba(0,0,0,.95));
+rgba(0,0,0,.25),
+rgba(0,0,0,.96));
 z-index:-2;
 }
 
 @keyframes bgMove{
-0%{transform:translate(-15%,-15%) rotate(0deg);}
-50%{transform:translate(15%,15%) rotate(180deg);}
-100%{transform:translate(-15%,-15%) rotate(360deg);}
-}
-
-/* 🔥 FLOATING PARTICLES */
-
-.particles{
-position:fixed;
-inset:0;
-overflow:hidden;
-z-index:-1;
-}
-
-.particles span{
-position:absolute;
-display:block;
-width:4px;
-height:4px;
-background:rgba(255,140,0,.7);
-border-radius:50%;
-animation:float 12s linear infinite;
-bottom:-20px;
-}
-
-.particles span:nth-child(1){
-left:10%;
-animation-duration:10s;
-}
-
-.particles span:nth-child(2){
-left:25%;
-animation-duration:14s;
-width:6px;
-height:6px;
-}
-
-.particles span:nth-child(3){
-left:50%;
-animation-duration:12s;
-}
-
-.particles span:nth-child(4){
-left:75%;
-animation-duration:16s;
-width:5px;
-height:5px;
-}
-
-.particles span:nth-child(5){
-left:90%;
-animation-duration:11s;
-}
-
-@keyframes float{
 0%{
-transform:translateY(0) scale(1);
-opacity:0;
+transform:translate(-10%,-10%) rotate(0deg);
 }
-10%{
-opacity:1;
+50%{
+transform:translate(10%,10%) rotate(180deg);
 }
 100%{
-transform:translateY(-110vh) scale(0);
-opacity:0;
+transform:translate(-10%,-10%) rotate(360deg);
 }
 }
 
@@ -131,7 +69,7 @@ opacity:0;
 .container{
 max-width:520px;
 margin:auto;
-padding:20px 18px 60px;
+padding:22px 18px 60px;
 }
 
 /* OMK */
@@ -139,10 +77,9 @@ padding:20px 18px 60px;
 .omk{
 font-size:12px;
 letter-spacing:4px;
-color:#ff9a2f;
-margin-top:10px;
-margin-bottom:20px;
-opacity:.9;
+color:#ff9a3d;
+margin-bottom:18px;
+opacity:.8;
 }
 
 /* COVER */
@@ -167,26 +104,19 @@ z-index:-1;
 width:100%;
 border-radius:28px;
 display:block;
-animation:coverFloat 4s ease-in-out infinite;
 box-shadow:
-0 0 40px rgba(255,120,0,.35),
-0 0 100px rgba(255,80,0,.15);
-}
-
-@keyframes coverFloat{
-0%{transform:translateY(0);}
-50%{transform:translateY(-6px);}
-100%{transform:translateY(0);}
+0 0 40px rgba(255,120,0,.30),
+0 0 100px rgba(255,80,0,.10);
 }
 
 /* LABEL */
 
 .label{
 display:inline-block;
-padding:8px 16px;
+padding:8px 18px;
 border-radius:999px;
-background:rgba(255,120,0,.12);
-border:1px solid rgba(255,120,0,.25);
+background:rgba(255,120,0,.10);
+border:1px solid rgba(255,120,0,.18);
 font-size:12px;
 font-weight:700;
 letter-spacing:1px;
@@ -198,19 +128,17 @@ color:#ffb15a;
 
 h1{
 font-size:56px;
-line-height:.95;
 font-weight:900;
+line-height:.95;
 margin-bottom:12px;
-background:linear-gradient(to bottom,#fff,#ffb15a);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
 text-transform:uppercase;
+letter-spacing:-2px;
 }
 
 .artist{
 font-size:22px;
-margin-bottom:22px;
-color:#e7e7e7;
+color:#d9d9d9;
+margin-bottom:24px;
 }
 
 /* TEXT */
@@ -218,9 +146,8 @@ color:#e7e7e7;
 .tag{
 font-size:17px;
 line-height:1.8;
-color:#cfcfcf;
-margin-bottom:34px;
-padding:0 8px;
+color:#c5c5c5;
+margin-bottom:36px;
 }
 
 /* STATS */
@@ -229,16 +156,15 @@ padding:0 8px;
 display:grid;
 grid-template-columns:repeat(3,1fr);
 gap:12px;
-margin-bottom:34px;
+margin-bottom:36px;
 }
 
 .stat{
 padding:18px 10px;
 border-radius:22px;
 background:rgba(255,255,255,.04);
-border:1px solid rgba(255,120,0,.12);
+border:1px solid rgba(255,255,255,.05);
 backdrop-filter:blur(10px);
-box-shadow:0 0 25px rgba(255,120,0,.08);
 }
 
 .stat h3{
@@ -249,50 +175,48 @@ color:#ffb15a;
 
 .stat p{
 font-size:11px;
-line-height:1.5;
 color:#bdbdbd;
+line-height:1.5;
 }
 
-/* AUDIO PLAYER */
+/* PLAYER */
 
 .player{
-padding:24px;
+padding:26px;
 border-radius:30px;
 background:
 linear-gradient(135deg,
-rgba(255,255,255,.06),
-rgba(255,120,0,.08));
-border:1px solid rgba(255,120,0,.18);
-margin-bottom:34px;
-box-shadow:0 0 30px rgba(255,120,0,.12);
+rgba(255,255,255,.03),
+rgba(255,120,0,.05));
+border:1px solid rgba(255,120,0,.10);
+margin-bottom:36px;
 }
 
 .player-title{
-font-size:15px;
-margin-bottom:18px;
-color:#ffb15a;
+font-size:16px;
 font-weight:700;
+color:#ffb15a;
+margin-bottom:22px;
 }
 
 .wave{
 display:flex;
 justify-content:center;
 align-items:flex-end;
-gap:4px;
-height:55px;
-margin-bottom:18px;
+gap:5px;
+height:50px;
 }
 
 .wave span{
-width:6px;
+width:7px;
 border-radius:20px;
-background:#ff8c1f;
-animation:wave 1.2s infinite ease-in-out;
+background:#ff8a1d;
+animation:wave 1.1s infinite ease-in-out;
 }
 
-.wave span:nth-child(1){height:20px;}
-.wave span:nth-child(2){height:35px;animation-delay:.1s;}
-.wave span:nth-child(3){height:50px;animation-delay:.2s;}
+.wave span:nth-child(1){height:18px;}
+.wave span:nth-child(2){height:34px;animation-delay:.1s;}
+.wave span:nth-child(3){height:48px;animation-delay:.2s;}
 .wave span:nth-child(4){height:28px;animation-delay:.3s;}
 .wave span:nth-child(5){height:42px;animation-delay:.4s;}
 .wave span:nth-child(6){height:20px;animation-delay:.5s;}
@@ -306,105 +230,147 @@ transform:scaleY(1.2);
 }
 }
 
+/* STREAM TITLE */
+
+.stream-title{
+font-size:34px;
+font-weight:900;
+margin-bottom:10px;
+letter-spacing:-1px;
+}
+
+.stream-sub{
+font-size:14px;
+color:#9f9f9f;
+margin-bottom:28px;
+}
+
 /* BUTTONS */
 
-.btn{
+.stream-btn{
 display:flex;
-justify-content:center;
+justify-content:space-between;
 align-items:center;
-gap:10px;
-width:100%;
 padding:22px;
-margin:16px 0;
-border-radius:24px;
+margin:14px 0;
+border-radius:26px;
 text-decoration:none;
-font-size:17px;
-font-weight:700;
 color:#fff;
-position:relative;
-overflow:hidden;
 background:
 linear-gradient(135deg,
-rgba(15,15,15,.92),
-rgba(255,120,0,.40));
-border:1px solid rgba(255,150,50,.22);
-backdrop-filter:blur(16px);
+rgba(12,12,12,.96),
+rgba(24,24,24,.96));
+border:1px solid rgba(255,255,255,.06);
 box-shadow:
-0 0 20px rgba(255,120,0,.12),
-inset 0 0 20px rgba(255,255,255,.03);
-transition:.3s ease;
+0 0 25px rgba(0,0,0,.45);
+transition:.25s ease;
 }
 
-.btn::before{
-content:"";
-position:absolute;
-top:0;
-left:-120%;
-width:120%;
-height:100%;
-background:
-linear-gradient(
-90deg,
-transparent,
-rgba(255,255,255,.20),
-transparent);
-animation:shine 3s linear infinite;
-}
-
-@keyframes shine{
-0%{left:-120%;}
-100%{left:120%;}
-}
-
-.btn:hover{
+.stream-btn:hover{
 transform:translateY(-2px);
-box-shadow:
-0 0 30px rgba(255,120,0,.25);
 }
 
-.btn:active{
-transform:scale(.97);
+.left{
+display:flex;
+align-items:center;
+gap:14px;
+font-size:18px;
+font-weight:700;
+}
+
+.icon{
+font-size:24px;
+}
+
+.right{
+font-size:12px;
+font-weight:800;
+padding:8px 14px;
+border-radius:999px;
+background:rgba(255,255,255,.08);
+}
+
+/* PLATFORM COLORS */
+
+.spotify{
+border-color:rgba(30,215,96,.14);
+}
+
+.spotify .right{
+background:rgba(30,215,96,.12);
+color:#1ed760;
+}
+
+.apple{
+border-color:rgba(255,255,255,.08);
+}
+
+.apple .right{
+background:rgba(255,255,255,.08);
+}
+
+.tiktok{
+border-color:rgba(255,0,140,.12);
+}
+
+.tiktok .right{
+background:rgba(255,0,140,.10);
+color:#ff5ca8;
+}
+
+.youtube{
+border-color:rgba(255,0,0,.12);
+}
+
+.youtube .right{
+background:rgba(255,0,0,.10);
+color:#ff5f5f;
+}
+
+.audiomack{
+border-color:rgba(255,170,0,.14);
+}
+
+.audiomack .right{
+background:rgba(255,170,0,.10);
+color:#ffb12b;
 }
 
 /* VIRAL BOX */
 
 .viral{
 margin-top:40px;
-padding:30px 24px;
-border-radius:32px;
+padding:34px 24px;
+border-radius:34px;
 background:
 linear-gradient(135deg,
-rgba(255,255,255,.04),
-rgba(255,120,0,.06));
-border:1px solid rgba(255,120,0,.16);
-backdrop-filter:blur(18px);
-box-shadow:0 0 35px rgba(255,120,0,.12);
+rgba(255,255,255,.03),
+rgba(255,120,0,.05));
+border:1px solid rgba(255,120,0,.10);
 }
 
 .viral h2{
-font-size:34px;
-line-height:1.1;
-margin-bottom:20px;
+font-size:48px;
+line-height:1;
+margin-bottom:24px;
 }
 
 .viral p{
-font-size:15px;
+font-size:16px;
 line-height:2;
-color:#cfcfcf;
+color:#c9c9c9;
 }
 
 /* DOMAIN */
 
 .domain{
-margin-top:30px;
 display:inline-block;
-padding:14px 28px;
+margin-top:28px;
+padding:14px 26px;
 border-radius:999px;
 background:rgba(255,255,255,.05);
-border:1px solid rgba(255,120,0,.18);
+border:1px solid rgba(255,255,255,.08);
 font-size:15px;
-color:#fff;
-box-shadow:0 0 20px rgba(255,120,0,.10);
 }
 
 /* SOCIALS */
@@ -420,12 +386,11 @@ flex-wrap:wrap;
 .socials a{
 text-decoration:none;
 color:#fff;
-padding:14px 20px;
+padding:14px 18px;
 border-radius:999px;
-background:rgba(255,255,255,.05);
-border:1px solid rgba(255,120,0,.15);
+background:rgba(255,255,255,.04);
+border:1px solid rgba(255,255,255,.06);
 font-size:13px;
-backdrop-filter:blur(10px);
 }
 
 /* FOOTER */
@@ -445,21 +410,16 @@ h1{
 font-size:48px;
 }
 
-.artist{
-font-size:20px;
-}
-
-.tag{
-font-size:16px;
-}
-
 .stats{
 grid-template-columns:1fr;
 }
 
-.btn{
-font-size:16px;
-padding:20px;
+.stream-title{
+font-size:30px;
+}
+
+.viral h2{
+font-size:40px;
 }
 
 }
@@ -468,16 +428,6 @@ padding:20px;
 </head>
 
 <body>
-
-<!-- PARTICLES -->
-
-<div class="particles">
-<span></span>
-<span></span>
-<span></span>
-<span></span>
-<span></span>
-</div>
 
 <div class="container">
 
@@ -505,7 +455,7 @@ NEW SINGLE • VIRAL ENERGY
 <!-- TITLE -->
 
 <h1>
-FOLLOW<br>FOLLOW
+FOLLOW FOLLOW
 </h1>
 
 <div class="artist">
@@ -557,29 +507,57 @@ Afro-fusion energy from Benin to Lagos.
 
 </div>
 
-<!-- STREAM BUTTONS -->
+<!-- STREAM -->
 
-<a href="#" class="btn">
-🎧 Spotify — Pre-Save Soon
+<div class="stream-title">
+STREAM FOLLOW FOLLOW
+</div>
+
+<div class="stream-sub">
+Choose your platform
+</div>
+
+<a href="#" class="stream-btn spotify">
+<div class="left">
+<span class="icon">🎧</span>
+<span>Spotify</span>
+</div>
+<div class="right">OPEN</div>
 </a>
 
-<a href="#" class="btn">
-🍎 Apple Music — Available Soon
+<a href="#" class="stream-btn apple">
+<div class="left">
+<span class="icon">🍎</span>
+<span>Apple Music</span>
+</div>
+<div class="right">OPEN</div>
 </a>
 
-<a href="#" class="btn">
-🎵 TikTok Sound — Use Soon
+<a href="#" class="stream-btn tiktok">
+<div class="left">
+<span class="icon">🎵</span>
+<span>TikTok Sound</span>
+</div>
+<div class="right">USE</div>
 </a>
 
-<a href="#" class="btn">
-▶ YouTube Music — Available Soon
+<a href="#" class="stream-btn youtube">
+<div class="left">
+<span class="icon">▶</span>
+<span>YouTube Music</span>
+</div>
+<div class="right">OPEN</div>
 </a>
 
-<a href="#" class="btn">
-🔥 Audiomack — Available Soon
+<a href="#" class="stream-btn audiomack">
+<div class="left">
+<span class="icon">🔥</span>
+<span>Audiomack</span>
+</div>
+<div class="right">OPEN</div>
 </a>
 
-<!-- VIRAL BOX -->
+<!-- VIRAL -->
 
 <div class="viral">
 
