@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Follow Follow - Omo Taker</title>
+<title>Follow Follow — Omo Taker</title>
 
-<meta name="theme-color" content="#ff7a00">
+<meta name="theme-color" content="#111111">
 
 <style>
 
@@ -18,10 +18,9 @@ box-sizing:border-box;
 
 body{
 font-family:Arial,sans-serif;
-background:#000;
+background:#0d0d0d;
 color:#fff;
 overflow-x:hidden;
-text-align:center;
 }
 
 /* BACKGROUND */
@@ -29,28 +28,15 @@ text-align:center;
 body::before{
 content:"";
 position:fixed;
-width:220%;
-height:220%;
-top:-50%;
-left:-50%;
+inset:0;
 background:
-radial-gradient(circle,
-rgba(255,120,0,.15),
-transparent 60%);
-animation:bgMove 14s linear infinite;
+linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.92)),
+url('https://raw.githubusercontent.com/omk-store/omotaker/refs/heads/main/9C635876-12E8-416C-9320-6F62D0C831D8.png');
+background-size:cover;
+background-position:center;
+filter:blur(18px);
+transform:scale(1.1);
 z-index:-2;
-}
-
-@keyframes bgMove{
-0%{
-transform:translate(-10%,-10%) rotate(0deg);
-}
-50%{
-transform:translate(10%,10%) rotate(180deg);
-}
-100%{
-transform:translate(-10%,-10%) rotate(360deg);
-}
 }
 
 /* CONTAINER */
@@ -58,254 +44,126 @@ transform:translate(-10%,-10%) rotate(360deg);
 .container{
 max-width:520px;
 margin:auto;
-padding:20px 18px 60px;
-}
-
-/* OMK */
-
-.omk{
-font-size:12px;
-letter-spacing:4px;
-color:#ff9a3d;
-margin-bottom:18px;
-opacity:.8;
+padding:22px 16px 60px;
 }
 
 /* COVER */
 
-.cover-wrap{
-position:relative;
-margin-bottom:28px;
-}
-
-.cover-glow{
-position:absolute;
-inset:-10px;
-background:
-radial-gradient(circle,
-rgba(255,120,0,.45),
-transparent 70%);
-filter:blur(35px);
-z-index:-1;
-}
-
 .cover{
 width:100%;
-border-radius:28px;
+border-radius:24px;
 display:block;
-box-shadow:
-0 0 40px rgba(255,120,0,.30),
-0 0 100px rgba(255,80,0,.10);
+box-shadow:0 10px 40px rgba(0,0,0,.45);
 }
 
-/* LABEL */
+/* INFO */
 
-.label{
-display:inline-block;
-padding:8px 18px;
-border-radius:999px;
-background:rgba(255,120,0,.10);
-border:1px solid rgba(255,120,0,.18);
-font-size:12px;
-font-weight:700;
-letter-spacing:1px;
-margin-bottom:20px;
-color:#ffb15a;
+.info{
+background:#1a1a1a;
+padding:30px 24px;
+text-align:center;
+border-radius:0 0 24px 24px;
+margin-top:-5px;
+margin-bottom:26px;
 }
 
-/* TITLE */
+.logo{
+width:42px;
+height:42px;
+margin:auto;
+margin-bottom:18px;
+opacity:.95;
+}
 
 h1{
-font-size:56px;
+font-size:38px;
 font-weight:900;
-line-height:.95;
+line-height:1;
 margin-bottom:12px;
-text-transform:uppercase;
-letter-spacing:-2px;
 }
 
 .artist{
-font-size:22px;
-color:#d9d9d9;
-margin-bottom:22px;
+font-size:18px;
+color:#d5d5d5;
+line-height:1.6;
+margin-bottom:10px;
 }
 
-/* TEXT */
-
-.tag{
-font-size:16px;
-line-height:1.8;
-color:#c8c8c8;
-margin-bottom:32px;
+.caption{
+font-size:15px;
+color:#b8b8b8;
+line-height:1.7;
 }
 
-/* PLAYER */
+/* STREAMING */
 
-.player{
-padding:24px;
-border-radius:28px;
-background:
-linear-gradient(135deg,
-rgba(255,255,255,.03),
-rgba(255,120,0,.05));
-border:1px solid rgba(255,120,0,.10);
-margin-bottom:36px;
+.stream-box{
+width:100%;
+background:#fff;
+border-radius:24px;
+overflow:hidden;
+box-shadow:0 10px 40px rgba(0,0,0,.35);
 }
 
-.player-title{
-font-size:16px;
-font-weight:700;
-color:#ffb15a;
-margin-bottom:18px;
-}
-
-/* STREAM TITLE */
-
-.stream-title{
-font-size:34px;
-font-weight:900;
-margin-bottom:8px;
-letter-spacing:-1px;
-}
-
-.stream-sub{
-font-size:14px;
-color:#9f9f9f;
-margin-bottom:28px;
-}
-
-/* BUTTONS */
-
-.stream-btn{
+.stream-row{
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:22px;
-margin:14px 0;
-border-radius:26px;
+padding:22px 18px;
+border-bottom:1px solid #ececec;
 text-decoration:none;
-color:#fff;
-background:
-linear-gradient(135deg,
-rgba(12,12,12,.96),
-rgba(24,24,24,.96));
-border:1px solid rgba(255,255,255,.06);
-box-shadow:
-0 0 25px rgba(0,0,0,.45);
-transition:.25s ease;
+background:#fff;
 }
 
-.stream-btn:hover{
-transform:translateY(-2px);
+.stream-row:last-child{
+border-bottom:none;
 }
 
-.left{
+.stream-left{
 display:flex;
 align-items:center;
 gap:14px;
-font-size:18px;
+}
+
+.stream-left img{
+width:38px;
+height:38px;
+object-fit:contain;
+}
+
+.stream-left span{
+font-size:20px;
 font-weight:700;
+color:#111;
 }
 
-.icon{
-font-size:24px;
-}
-
-.right{
-font-size:12px;
-font-weight:800;
-padding:8px 14px;
-border-radius:999px;
-background:rgba(255,255,255,.08);
-}
-
-/* PLATFORM COLORS */
-
-.spotify{
-border-color:rgba(30,215,96,.14);
-}
-
-.spotify .right{
-background:rgba(30,215,96,.12);
-color:#1ed760;
-}
-
-.apple{
-border-color:rgba(255,255,255,.08);
-}
-
-.apple .right{
-background:rgba(255,255,255,.08);
-}
-
-.tiktok{
-border-color:rgba(255,0,140,.12);
-}
-
-.tiktok .right{
-background:rgba(255,0,140,.10);
-color:#ff5ca8;
-}
-
-.youtube{
-border-color:rgba(255,0,0,.12);
-}
-
-.youtube .right{
-background:rgba(255,0,0,.10);
-color:#ff5f5f;
-}
-
-.audiomack{
-border-color:rgba(255,170,0,.14);
-}
-
-.audiomack .right{
-background:rgba(255,170,0,.10);
-color:#ffb12b;
-}
-
-/* SOCIALS */
-
-.socials{
-margin-top:40px;
-display:flex;
-justify-content:center;
-gap:12px;
-flex-wrap:wrap;
-}
-
-.socials a{
-text-decoration:none;
-color:#fff;
-padding:14px 18px;
-border-radius:999px;
-background:rgba(255,255,255,.04);
-border:1px solid rgba(255,255,255,.06);
-font-size:13px;
+.stream-play{
+padding:12px 26px;
+border:1px solid #dcdcdc;
+border-radius:14px;
+font-size:16px;
+font-weight:600;
+color:#444;
+background:#fafafa;
 }
 
 /* FOOTER */
 
 .footer{
-margin-top:45px;
-font-size:12px;
+text-align:center;
+margin-top:28px;
+font-size:13px;
+color:#b5b5b5;
 line-height:2;
-color:#777;
 }
 
-/* MOBILE */
-
-@media(max-width:480px){
-
-h1{
-font-size:48px;
-}
-
-.stream-title{
-font-size:30px;
-}
-
+.domain{
+display:inline-block;
+margin-top:12px;
+padding:12px 24px;
+background:#1c1c1c;
+border-radius:999px;
+font-size:14px;
 }
 
 </style>
@@ -315,127 +173,72 @@ font-size:30px;
 
 <div class="container">
 
-<div class="omk">
-OMK RECORDS
-</div>
-
 <!-- COVER -->
-
-<div class="cover-wrap">
-
-<div class="cover-glow"></div>
 
 <img src="https://raw.githubusercontent.com/omk-store/omotaker/refs/heads/main/9C635876-12E8-416C-9320-6F62D0C831D8.png"
 class="cover">
 
-</div>
+<!-- INFO -->
 
-<!-- LABEL -->
+<div class="info">
 
-<div class="label">
-NEW SINGLE • FOLLOW FOLLOW
-</div>
+<img src="https://upload.wikimedia.org/wikipedia/commons/8/84/Spotify_icon.svg"
+class="logo">
 
-<!-- TITLE -->
-
-<h1>
-FOLLOW FOLLOW
-</h1>
+<h1>FOLLOW FOLLOW</h1>
 
 <div class="artist">
 Omo Taker 🐺📯🔥
 </div>
 
-<div class="tag">
-“The sound everybody dey FOLLOW FOLLOW.”
+<div class="caption">
+The sound everybody dey FOLLOW FOLLOW.
 </div>
-
-<!-- REAL PLAYER -->
-
-<div class="player">
-
-<div class="player-title">
-▶ PLAY FOLLOW FOLLOW
-</div>
-
-<audio controls style="
-width:100%;
-border-radius:18px;
-filter: invert(1) hue-rotate(180deg);
-">
-<source src="YOUR-MP3-LINK-HERE" type="audio/mpeg">
-</audio>
 
 </div>
 
-<!-- STREAM -->
+<!-- STREAM LINKS -->
 
-<div class="stream-title">
-STREAM NOW
-</div>
+<div class="stream-box">
 
-<div class="stream-sub">
-Choose your platform
-</div>
-
-<a href="#" class="stream-btn spotify">
-<div class="left">
-<span class="icon">🎧</span>
+<a href="#" class="stream-row">
+<div class="stream-left">
+<img src="https://upload.wikimedia.org/wikipedia/commons/8/84/Spotify_icon.svg">
 <span>Spotify</span>
 </div>
-<div class="right">OPEN</div>
+<div class="stream-play">Play</div>
 </a>
 
-<a href="#" class="stream-btn apple">
-<div class="left">
-<span class="icon">🍎</span>
+<a href="#" class="stream-row">
+<div class="stream-left">
+<img src="https://upload.wikimedia.org/wikipedia/commons/d/de/Apple_Music_icon.svg">
 <span>Apple Music</span>
 </div>
-<div class="right">OPEN</div>
+<div class="stream-play">Play</div>
 </a>
 
-<a href="#" class="stream-btn tiktok">
-<div class="left">
-<span class="icon">🎵</span>
-<span>TikTok Sound</span>
-</div>
-<div class="right">USE</div>
-</a>
-
-<a href="#" class="stream-btn youtube">
-<div class="left">
-<span class="icon">▶</span>
+<a href="#" class="stream-row">
+<div class="stream-left">
+<img src="https://upload.wikimedia.org/wikipedia/commons/2/20/YouTube_2024.svg">
 <span>YouTube Music</span>
 </div>
-<div class="right">OPEN</div>
+<div class="stream-play">Play</div>
 </a>
 
-<a href="#" class="stream-btn audiomack">
-<div class="left">
-<span class="icon">🔥</span>
+<a href="#" class="stream-row">
+<div class="stream-left">
+<img src="https://upload.wikimedia.org/wikipedia/commons/a/a2/Audiomack-logo.png">
 <span>Audiomack</span>
 </div>
-<div class="right">OPEN</div>
+<div class="stream-play">Play</div>
 </a>
 
-<!-- SOCIALS -->
-
-<div class="socials">
-
-<a href="https://instagram.com/iam_omotaker">
-Instagram
-</a>
-
-<a href="https://www.tiktok.com">
-TikTok
-</a>
-
-<a href="#">
-Snapchat
-</a>
-
-<a href="#">
-Everyday Vibe
+<a href="#" class="stream-row">
+<div class="stream-left">
+<img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Boomplay_logo.png">
+<span>Boomplay</span>
+</div>
+<div class="stream-play">Play</div>
 </a>
 
 </div>
@@ -443,8 +246,13 @@ Everyday Vibe
 <!-- FOOTER -->
 
 <div class="footer">
-OMK RECORDS © 2026<br>
-FOLLOW FOLLOW — Omo Taker
+
+FOLLOW FOLLOW — OUT NOW 🔥
+
+<div class="domain">
+omotaker.com
+</div>
+
 </div>
 
 </div>
