@@ -3,125 +3,225 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Benin To Lagos - Omo Taker</title>
+
+<title>Follow Follow - Omo Taker</title>
+
+<meta name="theme-color" content="#ff6a00">
+<meta name="description" content="Follow Follow by Omo Taker — stream now. OMK Records.">
 
 <style>
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #000;
-  color: #fff;
-  text-align: center;
-  overflow-x: hidden;
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
 }
 
-/* 🔥 ANIMATED BACKGROUND */
-body::before {
-  content: "";
-  position: fixed;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle, rgba(255,100,0,0.2), transparent 60%);
-  animation: moveGlow 8s infinite linear;
-  z-index: -1;
+body{
+font-family:Arial,sans-serif;
+background:#000;
+color:#fff;
+overflow-x:hidden;
+text-align:center;
 }
 
-@keyframes moveGlow {
-  0% { transform: translate(-25%, -25%); }
-  50% { transform: translate(25%, 25%); }
-  100% { transform: translate(-25%, -25%); }
+/* 🔥 BACKGROUND */
+body::before{
+content:"";
+position:fixed;
+width:200%;
+height:200%;
+background:
+radial-gradient(circle at center,
+rgba(255,120,0,.20),
+transparent 60%);
+animation:bgMove 10s linear infinite;
+z-index:-2;
 }
 
-/* Container */
-.container {
-  max-width: 500px;
-  margin: auto;
-  padding: 20px;
+body::after{
+content:"";
+position:fixed;
+inset:0;
+background:
+linear-gradient(to bottom,
+rgba(0,0,0,.35),
+rgba(0,0,0,.92));
+z-index:-1;
 }
 
-/* Cover */
-.cover {
-  width: 100%;
-  border-radius: 22px;
-  margin-bottom: 20px;
-  box-shadow: 0 0 60px rgba(255,120,0,0.7);
+@keyframes bgMove{
+0%{transform:translate(-20%,-20%);}
+50%{transform:translate(20%,20%);}
+100%{transform:translate(-20%,-20%);}
 }
 
-/* Title */
-h1 {
-  font-size: 26px;
-  margin: 10px 0;
+.container{
+max-width:520px;
+margin:auto;
+padding:24px 18px 50px;
 }
 
-/* Caption */
-.caption {
-  font-size: 14px;
-  color: #bbb;
-  margin-bottom: 25px;
+/* OMK */
+.omk{
+font-size:12px;
+letter-spacing:4px;
+color:#ff8c2a;
+margin-top:10px;
+margin-bottom:18px;
+opacity:.9;
 }
 
-/* 🔥 GLOW BUTTONS */
-.btn {
-  display: block;
-  padding: 20px;
-  margin: 14px 0;
-  border-radius: 16px;
-  text-decoration: none;
-  color: #fff;
-  font-size: 16px;
-  font-weight: 500;
-  background: linear-gradient(135deg, #1a1a1a, #000);
-  box-shadow: 0 0 15px rgba(255,100,0,0.3);
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
+/* COVER */
+.cover{
+width:100%;
+border-radius:28px;
+box-shadow:
+0 0 60px rgba(255,120,0,.45),
+0 0 120px rgba(255,80,0,.20);
+margin-bottom:25px;
 }
 
-/* glow animation */
-.btn::before {
-  content: "";
-  position: absolute;
-  width: 120%;
-  height: 120%;
-  background: linear-gradient(90deg, transparent, rgba(255,120,0,0.6), transparent);
-  top: 0;
-  left: -100%;
-  animation: glowMove 3s infinite;
+/* TITLE */
+h1{
+font-size:42px;
+font-weight:900;
+line-height:1;
+margin-bottom:10px;
+text-transform:uppercase;
 }
 
-@keyframes glowMove {
-  0% { left: -100%; }
-  100% { left: 100%; }
+.artist{
+font-size:18px;
+color:#d7d7d7;
+margin-bottom:18px;
 }
 
-.btn:active {
-  transform: scale(0.96);
+/* TAG */
+.tag{
+font-size:15px;
+line-height:1.7;
+color:#bfbfbf;
+margin-bottom:30px;
+padding:0 10px;
 }
 
-/* TikTok box */
-.tiktok-box {
-  margin-top: 30px;
-  padding: 20px;
-  border-radius: 20px;
-  background: rgba(255,255,255,0.05);
-  box-shadow: 0 0 20px rgba(255,120,0,0.3);
+/* 🔥 MAIN BUTTONS */
+.btn{
+display:flex;
+align-items:center;
+justify-content:center;
+gap:10px;
+width:100%;
+padding:20px;
+margin:14px 0;
+border-radius:18px;
+text-decoration:none;
+color:#fff;
+font-size:16px;
+font-weight:700;
+background:linear-gradient(135deg,#151515,#050505);
+border:1px solid rgba(255,120,0,.25);
+box-shadow:0 0 25px rgba(255,120,0,.15);
+position:relative;
+overflow:hidden;
+transition:.3s ease;
 }
 
-.tiktok-text {
-  font-size: 14px;
-  margin-bottom: 12px;
+/* moving glow */
+.btn::before{
+content:"";
+position:absolute;
+top:0;
+left:-120%;
+width:120%;
+height:100%;
+background:linear-gradient(
+90deg,
+transparent,
+rgba(255,140,0,.45),
+transparent
+);
+animation:shine 3s linear infinite;
 }
 
-.tiktok-btn {
-  display: inline-block;
-  padding: 14px 24px;
-  border-radius: 30px;
-  background: linear-gradient(135deg, #ff7a00, #ff3c00);
-  color: #fff;
-  text-decoration: none;
-  font-size: 14px;
-  box-shadow: 0 0 25px rgba(255,100,0,0.7);
+@keyframes shine{
+0%{left:-120%;}
+100%{left:120%;}
 }
+
+.btn:hover{
+transform:translateY(-2px);
+box-shadow:0 0 35px rgba(255,120,0,.35);
+}
+
+.btn:active{
+transform:scale(.97);
+}
+
+/* VIRAL BOX */
+.viral-box{
+margin-top:34px;
+padding:24px;
+border-radius:24px;
+background:rgba(255,255,255,.04);
+border:1px solid rgba(255,120,0,.12);
+box-shadow:0 0 30px rgba(255,120,0,.12);
+}
+
+.viral-title{
+font-size:17px;
+font-weight:700;
+margin-bottom:12px;
+}
+
+.viral-text{
+font-size:14px;
+line-height:1.8;
+color:#c8c8c8;
+}
+
+/* SOCIALS */
+.socials{
+margin-top:32px;
+display:flex;
+justify-content:center;
+gap:12px;
+flex-wrap:wrap;
+}
+
+.socials a{
+text-decoration:none;
+color:#fff;
+padding:12px 18px;
+border-radius:999px;
+background:rgba(255,255,255,.05);
+font-size:13px;
+border:1px solid rgba(255,120,0,.18);
+}
+
+/* FOOTER */
+.footer{
+margin-top:40px;
+font-size:12px;
+color:#777;
+line-height:1.7;
+}
+
+/* MOBILE */
+@media(max-width:480px){
+
+h1{
+font-size:36px;
+}
+
+.btn{
+font-size:15px;
+padding:18px;
+}
+
+}
+
 </style>
 </head>
 
@@ -129,22 +229,84 @@ h1 {
 
 <div class="container">
 
-<img src="https://raw.githubusercontent.com/omk-store/omotaker/refs/heads/main/6066994F-0E77-4ACE-AB1C-4E1445E4457F.png" class="cover">
+<div class="omk">
+OMK RECORDS
+</div>
 
-<h1>Omo Taker — Benin To Lagos</h1>
+<img src="https://raw.githubusercontent.com/omk-store/omotaker/refs/heads/main/9C635876-12E8-416C-9320-6F62D0C831D8.png"
+class="cover">
 
-<p class="caption">
-🔥 This one hits different — stream now 🐺🌍
-</p>
+<h1>FOLLOW FOLLOW</h1>
 
-<a href="https://open.spotify.com/track/0SooNM8i9p1UiE7HTTp5C4" class="btn">Tap to Stream on Spotify</a>
-<a href="https://music.apple.com/ng/album/benin-to-lagos/1866424075?i=1866424076" class="btn">Tap to Stream on Apple Music</a>
-<a href="https://audiomack.com/iam_omotaker/song/benin-to-lagos" class="btn">Tap to Stream on Audiomack</a>
-<a href="https://www.boomplay.com/songs/231357454" class="btn">Tap to Stream on Boomplay</a>
+<div class="artist">
+Omo Taker 🐺📯🔥
+</div>
 
-<div class="tiktok-box">
-  <div class="tiktok-text">🎵 Create with this sound on TikTok</div>
-  <a href="https://vt.tiktok.com/ZS9LVe3Bd7aPN-1FPjx/" class="tiktok-btn">Use Sound</a>
+<div class="tag">
+“The sound everybody dey FOLLOW FOLLOW.”<br><br>
+Afro-fusion energy from Benin to Lagos.
+</div>
+
+<!-- STREAM BUTTONS -->
+
+<a href="#" class="btn">
+🎧 Spotify — Available Soon
+</a>
+
+<a href="#" class="btn">
+🍎 Apple Music — Available Soon
+</a>
+
+<a href="#" class="btn">
+🎵 TikTok Sound — Available Soon
+</a>
+
+<a href="#" class="btn">
+▶ YouTube Music — Available Soon
+</a>
+
+<a href="#" class="btn">
+🔥 Audiomack — Available Soon
+</a>
+
+<!-- VIRAL BOX -->
+
+<div class="viral-box">
+
+<div class="viral-title">
+🔥 FOLLOW FOLLOW IS ACTIVE
+</div>
+
+<div class="viral-text">
+100K+ preview plays already moving.<br>
+The sound is spreading before release.<br><br>
+
+Tap your favorite platform and join the movement.
+</div>
+
+</div>
+
+<!-- SOCIALS -->
+
+<div class="socials">
+
+<a href="https://instagram.com/iam_omotaker">
+Instagram
+</a>
+
+<a href="https://www.tiktok.com/@iam_omotaker">
+TikTok
+</a>
+
+<a href="https://snapchat.com">
+Snapchat
+</a>
+
+</div>
+
+<div class="footer">
+© 2026 OMK RECORDS<br>
+FOLLOW FOLLOW — Omo Taker
 </div>
 
 </div>
