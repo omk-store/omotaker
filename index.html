@@ -24,7 +24,7 @@ overflow-x:hidden;
 text-align:center;
 }
 
-/* 🔥 BACKGROUND */
+/* BACKGROUND */
 
 body::before{
 content:"";
@@ -35,20 +35,9 @@ top:-50%;
 left:-50%;
 background:
 radial-gradient(circle,
-rgba(255,120,0,.18),
+rgba(255,120,0,.15),
 transparent 60%);
-animation:bgMove 12s linear infinite;
-z-index:-3;
-}
-
-body::after{
-content:"";
-position:fixed;
-inset:0;
-background:
-linear-gradient(to bottom,
-rgba(0,0,0,.25),
-rgba(0,0,0,.96));
+animation:bgMove 14s linear infinite;
 z-index:-2;
 }
 
@@ -69,7 +58,7 @@ transform:translate(-10%,-10%) rotate(360deg);
 .container{
 max-width:520px;
 margin:auto;
-padding:22px 18px 60px;
+padding:20px 18px 60px;
 }
 
 /* OMK */
@@ -138,52 +127,23 @@ letter-spacing:-2px;
 .artist{
 font-size:22px;
 color:#d9d9d9;
-margin-bottom:24px;
+margin-bottom:22px;
 }
 
 /* TEXT */
 
 .tag{
-font-size:17px;
+font-size:16px;
 line-height:1.8;
-color:#c5c5c5;
-margin-bottom:36px;
-}
-
-/* STATS */
-
-.stats{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:12px;
-margin-bottom:36px;
-}
-
-.stat{
-padding:18px 10px;
-border-radius:22px;
-background:rgba(255,255,255,.04);
-border:1px solid rgba(255,255,255,.05);
-backdrop-filter:blur(10px);
-}
-
-.stat h3{
-font-size:18px;
-margin-bottom:8px;
-color:#ffb15a;
-}
-
-.stat p{
-font-size:11px;
-color:#bdbdbd;
-line-height:1.5;
+color:#c8c8c8;
+margin-bottom:32px;
 }
 
 /* PLAYER */
 
 .player{
-padding:26px;
-border-radius:30px;
+padding:24px;
+border-radius:28px;
 background:
 linear-gradient(135deg,
 rgba(255,255,255,.03),
@@ -196,38 +156,7 @@ margin-bottom:36px;
 font-size:16px;
 font-weight:700;
 color:#ffb15a;
-margin-bottom:22px;
-}
-
-.wave{
-display:flex;
-justify-content:center;
-align-items:flex-end;
-gap:5px;
-height:50px;
-}
-
-.wave span{
-width:7px;
-border-radius:20px;
-background:#ff8a1d;
-animation:wave 1.1s infinite ease-in-out;
-}
-
-.wave span:nth-child(1){height:18px;}
-.wave span:nth-child(2){height:34px;animation-delay:.1s;}
-.wave span:nth-child(3){height:48px;animation-delay:.2s;}
-.wave span:nth-child(4){height:28px;animation-delay:.3s;}
-.wave span:nth-child(5){height:42px;animation-delay:.4s;}
-.wave span:nth-child(6){height:20px;animation-delay:.5s;}
-
-@keyframes wave{
-0%,100%{
-transform:scaleY(.6);
-}
-50%{
-transform:scaleY(1.2);
-}
+margin-bottom:18px;
 }
 
 /* STREAM TITLE */
@@ -235,7 +164,7 @@ transform:scaleY(1.2);
 .stream-title{
 font-size:34px;
 font-weight:900;
-margin-bottom:10px;
+margin-bottom:8px;
 letter-spacing:-1px;
 }
 
@@ -336,43 +265,6 @@ background:rgba(255,170,0,.10);
 color:#ffb12b;
 }
 
-/* VIRAL BOX */
-
-.viral{
-margin-top:40px;
-padding:34px 24px;
-border-radius:34px;
-background:
-linear-gradient(135deg,
-rgba(255,255,255,.03),
-rgba(255,120,0,.05));
-border:1px solid rgba(255,120,0,.10);
-}
-
-.viral h2{
-font-size:48px;
-line-height:1;
-margin-bottom:24px;
-}
-
-.viral p{
-font-size:16px;
-line-height:2;
-color:#c9c9c9;
-}
-
-/* DOMAIN */
-
-.domain{
-display:inline-block;
-margin-top:28px;
-padding:14px 26px;
-border-radius:999px;
-background:rgba(255,255,255,.05);
-border:1px solid rgba(255,255,255,.08);
-font-size:15px;
-}
-
 /* SOCIALS */
 
 .socials{
@@ -410,16 +302,8 @@ h1{
 font-size:48px;
 }
 
-.stats{
-grid-template-columns:1fr;
-}
-
 .stream-title{
 font-size:30px;
-}
-
-.viral h2{
-font-size:40px;
 }
 
 }
@@ -449,7 +333,7 @@ class="cover">
 <!-- LABEL -->
 
 <div class="label">
-NEW SINGLE • VIRAL ENERGY
+NEW SINGLE • FOLLOW FOLLOW
 </div>
 
 <!-- TITLE -->
@@ -463,54 +347,31 @@ Omo Taker 🐺📯🔥
 </div>
 
 <div class="tag">
-“The sound everybody dey FOLLOW FOLLOW.”<br><br>
-Afro-fusion energy from Benin to Lagos.
+“The sound everybody dey FOLLOW FOLLOW.”
 </div>
 
-<!-- STATS -->
-
-<div class="stats">
-
-<div class="stat">
-<h3>100K+</h3>
-<p>Preview Plays</p>
-</div>
-
-<div class="stat">
-<h3>Viral</h3>
-<p>TikTok Movement</p>
-</div>
-
-<div class="stat">
-<h3>OMK</h3>
-<p>Afro-Fusion Energy</p>
-</div>
-
-</div>
-
-<!-- PLAYER -->
+<!-- REAL PLAYER -->
 
 <div class="player">
 
 <div class="player-title">
-🔥 Preview The Viral Sound
+▶ PLAY FOLLOW FOLLOW
 </div>
 
-<div class="wave">
-<span></span>
-<span></span>
-<span></span>
-<span></span>
-<span></span>
-<span></span>
-</div>
+<audio controls style="
+width:100%;
+border-radius:18px;
+filter: invert(1) hue-rotate(180deg);
+">
+<source src="YOUR-MP3-LINK-HERE" type="audio/mpeg">
+</audio>
 
 </div>
 
 <!-- STREAM -->
 
 <div class="stream-title">
-STREAM FOLLOW FOLLOW
+STREAM NOW
 </div>
 
 <div class="stream-sub">
@@ -556,27 +417,6 @@ Choose your platform
 </div>
 <div class="right">OPEN</div>
 </a>
-
-<!-- VIRAL -->
-
-<div class="viral">
-
-<h2>
-🔥 FOLLOW FOLLOW IS ACTIVE
-</h2>
-
-<p>
-100K+ preview plays already moving.<br>
-The sound is spreading before release.<br><br>
-
-Tap your favorite platform and join the movement.
-</p>
-
-<div class="domain">
-omotaker.com
-</div>
-
-</div>
 
 <!-- SOCIALS -->
 
