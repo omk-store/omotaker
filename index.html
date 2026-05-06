@@ -7,309 +7,301 @@
 <title>Follow Follow - Omo Taker</title>
 
 <meta name="theme-color" content="#ff6a00">
-<meta name="description" content="Follow Follow by Omo Taker — stream now. OMK Records.">
+<meta name="description" content="Follow Follow by Omo Taker — OMK Records. Stream, save, and join the movement.">
 
 <style>
-
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
 
 body{
-font-family:Arial,sans-serif;
-background:#000;
-color:#fff;
-overflow-x:hidden;
-text-align:center;
+  font-family:Arial, Helvetica, sans-serif;
+  background:#030100;
+  color:#fff;
+  overflow-x:hidden;
+  text-align:center;
 }
 
-/* 🔥 BACKGROUND */
-body::before{
-content:"";
-position:fixed;
-width:200%;
-height:200%;
-background:
-radial-gradient(circle at center,
-rgba(255,120,0,.20),
-transparent 60%);
-animation:bgMove 10s linear infinite;
-z-index:-2;
+/* BACKGROUND */
+.bg{
+  position:fixed;
+  inset:0;
+  z-index:-3;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(255,120,0,.35), transparent 34%),
+    radial-gradient(circle at 15% 30%, rgba(255,70,0,.18), transparent 35%),
+    radial-gradient(circle at 85% 60%, rgba(255,160,40,.18), transparent 35%),
+    linear-gradient(180deg,#080300,#000);
 }
 
-body::after{
-content:"";
-position:fixed;
-inset:0;
-background:
-linear-gradient(to bottom,
-rgba(0,0,0,.35),
-rgba(0,0,0,.92));
-z-index:-1;
+.bg::before{
+  content:"";
+  position:absolute;
+  inset:-50%;
+  background:
+    conic-gradient(from 90deg, transparent, rgba(255,115,0,.20), transparent, rgba(255,180,70,.12), transparent);
+  animation:spin 18s linear infinite;
+  opacity:.55;
 }
 
-@keyframes bgMove{
-0%{transform:translate(-20%,-20%);}
-50%{transform:translate(20%,20%);}
-100%{transform:translate(-20%,-20%);}
+.bg::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(to bottom, rgba(0,0,0,.1), rgba(0,0,0,.96)),
+    repeating-linear-gradient(
+      90deg,
+      rgba(255,255,255,.025) 0px,
+      rgba(255,255,255,.025) 1px,
+      transparent 1px,
+      transparent 80px
+    );
+}
+
+@keyframes spin{
+  from{transform:rotate(0deg);}
+  to{transform:rotate(360deg);}
+}
+
+/* FLOATING FIRE DOTS */
+.particles{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:-2;
+  overflow:hidden;
+}
+
+.particles span{
+  position:absolute;
+  bottom:-40px;
+  width:6px;
+  height:6px;
+  border-radius:50%;
+  background:#ff8a00;
+  box-shadow:0 0 18px #ff6a00;
+  animation:floatUp 9s linear infinite;
+  opacity:.5;
+}
+
+.particles span:nth-child(1){left:12%;animation-delay:0s;}
+.particles span:nth-child(2){left:30%;animation-delay:2s;}
+.particles span:nth-child(3){left:48%;animation-delay:4s;}
+.particles span:nth-child(4){left:66%;animation-delay:1s;}
+.particles span:nth-child(5){left:84%;animation-delay:3s;}
+
+@keyframes floatUp{
+  0%{transform:translateY(0) scale(.7);opacity:0;}
+  20%{opacity:.6;}
+  100%{transform:translateY(-110vh) scale(1.5);opacity:0;}
 }
 
 .container{
-max-width:520px;
-margin:auto;
-padding:24px 18px 50px;
+  width:100%;
+  max-width:560px;
+  margin:auto;
+  padding:22px 18px 55px;
 }
 
-/* OMK */
-.omk{
-font-size:12px;
-letter-spacing:4px;
-color:#ff8c2a;
-margin-top:10px;
-margin-bottom:18px;
-opacity:.9;
+/* HERO */
+.badge{
+  display:inline-block;
+  margin-top:8px;
+  margin-bottom:18px;
+  padding:10px 16px;
+  border-radius:999px;
+  font-size:11px;
+  letter-spacing:3px;
+  color:#ffd6a1;
+  background:rgba(255,120,0,.09);
+  border:1px solid rgba(255,140,0,.25);
+  box-shadow:0 0 28px rgba(255,120,0,.18);
 }
 
-/* COVER */
+.cover-wrap{
+  position:relative;
+  margin-bottom:22px;
+}
+
+.cover-wrap::before{
+  content:"";
+  position:absolute;
+  inset:12%;
+  background:#ff7300;
+  filter:blur(70px);
+  opacity:.45;
+  z-index:-1;
+}
+
 .cover{
-width:100%;
-border-radius:28px;
-box-shadow:
-0 0 60px rgba(255,120,0,.45),
-0 0 120px rgba(255,80,0,.20);
-margin-bottom:25px;
+  width:100%;
+  border-radius:30px;
+  box-shadow:
+    0 25px 80px rgba(0,0,0,.75),
+    0 0 80px rgba(255,110,0,.45);
+  border:1px solid rgba(255,150,60,.25);
+  animation:floatCover 4s ease-in-out infinite;
 }
 
-/* TITLE */
+@keyframes floatCover{
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(-8px);}
+}
+
+.kicker{
+  font-size:12px;
+  color:#ff9b39;
+  letter-spacing:4px;
+  margin-bottom:10px;
+  font-weight:800;
+}
+
 h1{
-font-size:42px;
-font-weight:900;
-line-height:1;
-margin-bottom:10px;
-text-transform:uppercase;
+  font-size:46px;
+  line-height:.95;
+  font-weight:900;
+  text-transform:uppercase;
+  margin-bottom:12px;
+  background:linear-gradient(180deg,#fff,#ffd7a5,#ff7a00);
+  -webkit-background-clip:text;
+  color:transparent;
+  text-shadow:0 0 35px rgba(255,120,0,.28);
 }
 
 .artist{
-font-size:18px;
-color:#d7d7d7;
-margin-bottom:18px;
+  font-size:20px;
+  color:#f4f4f4;
+  margin-bottom:18px;
 }
 
-/* TAG */
 .tag{
-font-size:15px;
-line-height:1.7;
-color:#bfbfbf;
-margin-bottom:30px;
-padding:0 10px;
+  font-size:15px;
+  line-height:1.8;
+  color:#cfcfcf;
+  margin-bottom:26px;
 }
 
-/* 🔥 MAIN BUTTONS */
+/* PLAYER */
+.player{
+  margin:26px 0;
+  padding:20px;
+  border-radius:26px;
+  background:rgba(255,255,255,.055);
+  border:1px solid rgba(255,150,70,.22);
+  box-shadow:0 0 38px rgba(255,115,0,.15);
+  backdrop-filter:blur(12px);
+}
+
+.player-title{
+  font-weight:800;
+  font-size:15px;
+  margin-bottom:14px;
+}
+
+.wave{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:5px;
+  height:58px;
+  margin-bottom:15px;
+}
+
+.wave span{
+  width:5px;
+  border-radius:99px;
+  background:linear-gradient(#fff,#ff8c00);
+  box-shadow:0 0 12px rgba(255,120,0,.4);
+  animation:wave 1.2s infinite ease-in-out;
+}
+
+.wave span:nth-child(1){height:18px;animation-delay:.1s;}
+.wave span:nth-child(2){height:34px;animation-delay:.2s;}
+.wave span:nth-child(3){height:24px;animation-delay:.3s;}
+.wave span:nth-child(4){height:48px;animation-delay:.4s;}
+.wave span:nth-child(5){height:28px;animation-delay:.5s;}
+.wave span:nth-child(6){height:40px;animation-delay:.6s;}
+.wave span:nth-child(7){height:20px;animation-delay:.7s;}
+
+@keyframes wave{
+  0%,100%{transform:scaleY(.65);opacity:.6;}
+  50%{transform:scaleY(1.2);opacity:1;}
+}
+
+/* BUTTONS */
 .btn{
-display:flex;
-align-items:center;
-justify-content:center;
-gap:10px;
-width:100%;
-padding:20px;
-margin:14px 0;
-border-radius:18px;
-text-decoration:none;
-color:#fff;
-font-size:16px;
-font-weight:700;
-background:linear-gradient(135deg,#151515,#050505);
-border:1px solid rgba(255,120,0,.25);
-box-shadow:0 0 25px rgba(255,120,0,.15);
-position:relative;
-overflow:hidden;
-transition:.3s ease;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+  width:100%;
+  padding:19px 20px;
+  margin:14px 0;
+  border-radius:22px;
+  text-decoration:none;
+  color:#fff;
+  font-size:16px;
+  font-weight:800;
+  background:
+    linear-gradient(135deg, rgba(255,255,255,.08), rgba(255,120,0,.14)),
+    linear-gradient(135deg,#090909,#1a0a00);
+  border:1px solid rgba(255,150,60,.28);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.08),
+    0 0 28px rgba(255,115,0,.16);
+  position:relative;
+  overflow:hidden;
 }
 
-/* moving glow */
 .btn::before{
-content:"";
-position:absolute;
-top:0;
-left:-120%;
-width:120%;
-height:100%;
-background:linear-gradient(
-90deg,
-transparent,
-rgba(255,140,0,.45),
-transparent
-);
-animation:shine 3s linear infinite;
+  content:"";
+  position:absolute;
+  top:0;
+  left:-140%;
+  width:140%;
+  height:100%;
+  background:linear-gradient(90deg, transparent, rgba(255,170,70,.35), transparent);
+  animation:shine 3.4s linear infinite;
 }
 
 @keyframes shine{
-0%{left:-120%;}
-100%{left:120%;}
+  0%{left:-140%;}
+  100%{left:140%;}
 }
 
-.btn:hover{
-transform:translateY(-2px);
-box-shadow:0 0 35px rgba(255,120,0,.35);
+.btn span{
+  position:relative;
+  z-index:1;
 }
 
-.btn:active{
-transform:scale(.97);
+.btn small{
+  position:relative;
+  z-index:1;
+  font-size:12px;
+  color:#ffc27a;
+  font-weight:700;
 }
 
-/* VIRAL BOX */
-.viral-box{
-margin-top:34px;
-padding:24px;
-border-radius:24px;
-background:rgba(255,255,255,.04);
-border:1px solid rgba(255,120,0,.12);
-box-shadow:0 0 30px rgba(255,120,0,.12);
+.main-cta{
+  background:linear-gradient(135deg,#ff7a00,#ff3d00);
+  color:#fff;
+  box-shadow:0 0 38px rgba(255,100,0,.45);
 }
 
-.viral-title{
-font-size:17px;
-font-weight:700;
-margin-bottom:12px;
+.main-cta small{
+  color:#fff3e6;
 }
 
-.viral-text{
-font-size:14px;
-line-height:1.8;
-color:#c8c8c8;
+/* STATS */
+.stats{
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  gap:10px;
+  margin:30px 0;
 }
 
-/* SOCIALS */
-.socials{
-margin-top:32px;
-display:flex;
-justify-content:center;
-gap:12px;
-flex-wrap:wrap;
-}
-
-.socials a{
-text-decoration:none;
-color:#fff;
-padding:12px 18px;
-border-radius:999px;
-background:rgba(255,255,255,.05);
-font-size:13px;
-border:1px solid rgba(255,120,0,.18);
-}
-
-/* FOOTER */
-.footer{
-margin-top:40px;
-font-size:12px;
-color:#777;
-line-height:1.7;
-}
-
-/* MOBILE */
-@media(max-width:480px){
-
-h1{
-font-size:36px;
-}
-
-.btn{
-font-size:15px;
-padding:18px;
-}
-
-}
-
-</style>
-</head>
-
-<body>
-
-<div class="container">
-
-<div class="omk">
-OMK RECORDS
-</div>
-
-<img src="https://raw.githubusercontent.com/omk-store/omotaker/refs/heads/main/9C635876-12E8-416C-9320-6F62D0C831D8.png"
-class="cover">
-
-<h1>FOLLOW FOLLOW</h1>
-
-<div class="artist">
-Omo Taker 🐺📯🔥
-</div>
-
-<div class="tag">
-“The sound everybody dey FOLLOW FOLLOW.”<br><br>
-Afro-fusion energy from Benin to Lagos.
-</div>
-
-<!-- STREAM BUTTONS -->
-
-<a href="#" class="btn">
-🎧 Spotify — Available Soon
-</a>
-
-<a href="#" class="btn">
-🍎 Apple Music — Available Soon
-</a>
-
-<a href="#" class="btn">
-🎵 TikTok Sound — Available Soon
-</a>
-
-<a href="#" class="btn">
-▶ YouTube Music — Available Soon
-</a>
-
-<a href="#" class="btn">
-🔥 Audiomack — Available Soon
-</a>
-
-<!-- VIRAL BOX -->
-
-<div class="viral-box">
-
-<div class="viral-title">
-🔥 FOLLOW FOLLOW IS ACTIVE
-</div>
-
-<div class="viral-text">
-100K+ preview plays already moving.<br>
-The sound is spreading before release.<br><br>
-
-Tap your favorite platform and join the movement.
-</div>
-
-</div>
-
-<!-- SOCIALS -->
-
-<div class="socials">
-
-<a href="https://instagram.com/iam_omotaker">
-Instagram
-</a>
-
-<a href="https://www.tiktok.com/@iam_omotaker">
-TikTok
-</a>
-
-<a href="https://snapchat.com">
-Snapchat
-</a>
-
-</div>
-
-<div class="footer">
-© 2026 OMK RECORDS<br>
-FOLLOW FOLLOW — Omo Taker
-</div>
-
-</div>
-
-</body>
-</html>
+.stat{
+  padding:15px 8px;
