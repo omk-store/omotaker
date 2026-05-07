@@ -20,7 +20,6 @@ font-family:Arial,sans-serif;
 background:#050505;
 color:#fff;
 overflow-x:hidden;
-cursor:pointer;
 }
 
 /* BACKGROUND */
@@ -54,6 +53,7 @@ width:100%;
 border-radius:32px;
 display:block;
 box-shadow:0 15px 50px rgba(0,0,0,.55);
+cursor:pointer;
 }
 
 /* INFO */
@@ -66,6 +66,7 @@ border-radius:0 0 32px 32px;
 margin-top:-5px;
 margin-bottom:20px;
 border:1px solid rgba(255,255,255,.04);
+cursor:pointer;
 }
 
 .omk{
@@ -76,47 +77,49 @@ color:#ff6200;
 text-transform:uppercase;
 }
 
-/* SPOTIFY BOX */
+/* PLATFORM BOX */
 
-.spotify-box{
+.platform-box{
 width:100%;
 background:#fff;
 border-radius:34px;
 padding:22px;
 box-shadow:0 15px 50px rgba(0,0,0,.35);
+display:flex;
+flex-direction:column;
+gap:16px;
 }
 
-/* SPOTIFY BUTTON */
+/* BUTTON */
 
-.spotify-btn{
+.platform-btn{
 display:flex;
 justify-content:space-between;
 align-items:center;
 text-decoration:none;
-background:#1ed760;
-padding:24px 20px;
-border-radius:26px;
+padding:20px;
+border-radius:24px;
 transition:.2s ease;
 }
 
-.spotify-btn:active{
+.platform-btn:active{
 transform:scale(.98);
 }
 
-.spotify-left{
+.platform-left{
 display:flex;
 align-items:center;
 gap:16px;
 }
 
-.spotify-left img{
-width:50px;
-height:50px;
+.platform-left img{
+width:44px;
+height:44px;
 object-fit:contain;
 }
 
-.spotify-left span{
-font-size:26px;
+.platform-left span{
+font-size:22px;
 font-weight:900;
 color:#fff;
 }
@@ -124,13 +127,40 @@ color:#fff;
 .play-btn{
 background:#fff;
 color:#111;
-padding:14px 28px;
-border-radius:18px;
-font-size:20px;
+padding:12px 22px;
+border-radius:16px;
+font-size:16px;
 font-weight:900;
 }
 
-/* INSTRUCTION TEXT */
+/* PLATFORM COLORS */
+
+.spotify{
+background:#1ed760;
+}
+
+.apple{
+background:#fc3c44;
+}
+
+.audiomack{
+background:#ffb300;
+}
+
+.boomplay{
+background:#00c853;
+}
+
+.youtube{
+background:#ff0000;
+}
+
+.tiktok{
+background:#111;
+border:1px solid rgba(255,255,255,.08);
+}
+
+/* TEXT */
 
 .save-text{
 text-align:center;
@@ -161,18 +191,21 @@ letter-spacing:1px;
 </style>
 </head>
 
-<body onclick="window.location.href='https://open.spotify.com/album/4wQrUmEzJO2ex7AszfSq0e?si=tYcZUNZwQZ2Ip_AbRZ3U4Q'">
+<body>
 
 <div class="container">
 
 <!-- COVER -->
 
-<img src="https://raw.githubusercontent.com/omk-store/omotaker/refs/heads/main/9C635876-12E8-416C-9320-6F62D0C831D8.png"
+<img 
+onclick="window.open('https://open.spotify.com/album/4wQrUmEzJO2ex7AszfSq0e?si=o8p-1V1-Q6KtPMI0aWr5kA','_blank')"
+src="https://raw.githubusercontent.com/omk-store/omotaker/refs/heads/main/9C635876-12E8-416C-9320-6F62D0C831D8.png"
 class="cover">
 
 <!-- INFO -->
 
-<div class="info">
+<div class="info"
+onclick="window.open('https://open.spotify.com/album/4wQrUmEzJO2ex7AszfSq0e?si=o8p-1V1-Q6KtPMI0aWr5kA','_blank')">
 
 <div class="omk">
 OMK RECORDS
@@ -180,15 +213,17 @@ OMK RECORDS
 
 </div>
 
+<!-- PLATFORM BOX -->
+
+<div class="platform-box">
+
 <!-- SPOTIFY -->
 
-<div class="spotify-box">
-
-<a href="https://open.spotify.com/album/4wQrUmEzJO2ex7AszfSq0e?si=tYcZUNZwQZ2Ip_AbRZ3U4Q"
+<a href="https://open.spotify.com/album/4wQrUmEzJO2ex7AszfSq0e?si=o8p-1V1-Q6KtPMI0aWr5kA"
 target="_blank"
-class="spotify-btn">
+class="platform-btn spotify">
 
-<div class="spotify-left">
+<div class="platform-left">
 <img src="https://upload.wikimedia.org/wikipedia/commons/8/84/Spotify_icon.svg">
 <span>Spotify</span>
 </div>
@@ -199,13 +234,81 @@ PLAY
 
 </a>
 
+<!-- AUDIOMACK -->
+
+<a href="https://audiomack.com/iam_omotaker"
+target="_blank"
+class="platform-btn audiomack">
+
+<div class="platform-left">
+<img src="https://upload.wikimedia.org/wikipedia/commons/f/f7/Audiomack_logo.png">
+<span>Audiomack</span>
+</div>
+
+<div class="play-btn">
+PLAY
+</div>
+
+</a>
+
+<!-- BOOMPLAY -->
+
+<a href="https://www.boomplay.com/songs/249153637?srModel=COPYLINK&srList=WEB&share_content=music&share_channel=copylink&share_platform=web"
+target="_blank"
+class="platform-btn boomplay">
+
+<div class="platform-left">
+<img src="https://upload.wikimedia.org/wikipedia/commons/5/5d/Boomplay_logo.png">
+<span>Boomplay</span>
+</div>
+
+<div class="play-btn">
+PLAY
+</div>
+
+</a>
+
+<!-- YOUTUBE MUSIC -->
+
+<a href="https://music.youtube.com/playlist?list=OLAK5uy_lUFhBv8dqamp0CiKzUaumhqOknPo5_h9g&si=Jh8J098Y-ificzBn"
+target="_blank"
+class="platform-btn youtube">
+
+<div class="platform-left">
+<img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Youtube_Music_icon.svg">
+<span>YouTube Music</span>
+</div>
+
+<div class="play-btn">
+PLAY
+</div>
+
+</a>
+
+<!-- TIKTOK -->
+
+<a href="https://vt.tiktok.com/ZS9FSSoALvEf9-PXIkz/"
+target="_blank"
+class="platform-btn tiktok">
+
+<div class="platform-left">
+<img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/TikTok_logo.svg">
+<span>TikTok</span>
+</div>
+
+<div class="play-btn">
+USE
+</div>
+
+</a>
+
 </div>
 
 <!-- SAVE TEXT -->
 
 <div class="save-text">
-When you get to Spotify tap play<br>
-and the <span class="plus">+</span> icon to save.
+FOLLOW FOLLOW 🐺📯🔥<br>
+Tap your favorite platform and stream now.
 </div>
 
 <!-- FOOTER -->
