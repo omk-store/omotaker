@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Omo Taker</title>
+<title>Follow Follow — Omo Taker</title>
 
 <style>
 
@@ -16,7 +16,7 @@ box-sizing:border-box;
 
 body{
 font-family:Arial,sans-serif;
-background:#0d0d0d;
+background:#050505;
 color:#fff;
 overflow-x:hidden;
 }
@@ -28,12 +28,12 @@ content:"";
 position:fixed;
 inset:0;
 background:
-linear-gradient(rgba(0,0,0,.72),rgba(0,0,0,.92)),
+linear-gradient(rgba(0,0,0,.76),rgba(0,0,0,.94)),
 url('https://raw.githubusercontent.com/omk-store/omotaker/refs/heads/main/9C635876-12E8-416C-9320-6F62D0C831D8.png');
 background-size:cover;
 background-position:center;
-filter:blur(18px);
-transform:scale(1.1);
+filter:blur(22px);
+transform:scale(1.15);
 z-index:-1;
 }
 
@@ -49,96 +49,132 @@ padding:22px 16px 60px;
 
 .cover{
 width:100%;
-border-radius:28px;
+border-radius:30px;
 display:block;
-box-shadow:0 10px 40px rgba(0,0,0,.45);
+box-shadow:0 15px 50px rgba(0,0,0,.5);
 }
 
 /* INFO */
 
 .info{
-background:#151515;
-padding:26px 22px;
+background:#111;
+padding:30px 22px;
 text-align:center;
-border-radius:0 0 28px 28px;
+border-radius:0 0 30px 30px;
 margin-top:-5px;
 margin-bottom:26px;
+border:1px solid rgba(255,255,255,.05);
 }
 
 .omk{
 font-size:13px;
 font-weight:800;
-letter-spacing:3px;
-color:#ff5a00;
-margin-bottom:14px;
+letter-spacing:4px;
+color:#ff6200;
+margin-bottom:18px;
 text-transform:uppercase;
 }
 
-.caption{
-font-size:16px;
-color:#bdbdbd;
-line-height:1.7;
+.song{
+font-size:42px;
+font-weight:900;
+line-height:1;
+margin-bottom:10px;
 }
 
-/* STREAMING */
+.artist{
+font-size:18px;
+color:#bdbdbd;
+margin-bottom:22px;
+}
 
-.stream-box{
+.caption{
+font-size:15px;
+color:#c8c8c8;
+line-height:1.8;
+}
+
+/* SPOTIFY BOX */
+
+.spotify-box{
 width:100%;
 background:#fff;
-border-radius:28px;
+border-radius:30px;
 overflow:hidden;
-box-shadow:0 10px 40px rgba(0,0,0,.35);
+box-shadow:0 15px 50px rgba(0,0,0,.35);
+padding:20px;
 }
 
-.stream-row{
+/* SPOTIFY BUTTON */
+
+.spotify-btn{
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:24px 18px;
-border-bottom:1px solid #ececec;
 text-decoration:none;
-background:#fff;
+background:#1ed760;
+padding:24px 20px;
+border-radius:24px;
+transition:.25s ease;
 }
 
-.stream-row:last-child{
-border-bottom:none;
+.spotify-btn:hover{
+transform:scale(.985);
 }
 
-.stream-left{
+.spotify-left{
 display:flex;
 align-items:center;
 gap:16px;
 }
 
-.stream-left img{
-width:42px;
-height:42px;
+.spotify-left img{
+width:48px;
+height:48px;
 object-fit:contain;
 }
 
-.stream-left span{
-font-size:21px;
-font-weight:700;
-color:#111;
+.spotify-left span{
+font-size:24px;
+font-weight:900;
+color:#fff;
 }
 
-.stream-play{
-padding:13px 28px;
-border:1px solid #d8d8d8;
-border-radius:16px;
-font-size:17px;
-font-weight:700;
-color:#444;
-background:#fafafa;
+.play-btn{
+background:#fff;
+color:#111;
+padding:14px 26px;
+border-radius:18px;
+font-size:18px;
+font-weight:900;
+}
+
+/* ACTIONS */
+
+.actions{
+margin-top:22px;
+display:flex;
+flex-direction:column;
+gap:14px;
+}
+
+.action{
+background:#111;
+border:1px solid rgba(255,255,255,.08);
+padding:18px;
+border-radius:20px;
+font-size:15px;
+line-height:1.6;
+color:#d4d4d4;
 }
 
 /* FOOTER */
 
 .footer{
 text-align:center;
-margin-top:28px;
+margin-top:30px;
 font-size:13px;
-color:#b5b5b5;
+color:#9f9f9f;
 }
 
 </style>
@@ -161,55 +197,57 @@ class="cover">
 OMK RECORDS
 </div>
 
+<div class="song">
+FOLLOW FOLLOW
+</div>
+
+<div class="artist">
+Omo Taker 🐺
+</div>
+
 <div class="caption">
-Choose your preferred music service below.
+Press play ▶️<br>
+Save the song ➕<br>
+Share with friends 📤<br>
+Run up FOLLOW FOLLOW 🔥
 </div>
 
 </div>
 
-<!-- STREAM LINKS -->
+<!-- SPOTIFY -->
 
-<div class="stream-box">
+<div class="spotify-box">
 
-<a href="#" class="stream-row">
-<div class="stream-left">
+<a href="https://open.spotify.com/album/4wQrUmEzJO2ex7AszfSq0e?si=tYcZUNZwQZ2Ip_AbRZ3U4Q"
+target="_blank"
+class="spotify-btn">
+
+<div class="spotify-left">
 <img src="https://upload.wikimedia.org/wikipedia/commons/8/84/Spotify_icon.svg">
 <span>Spotify</span>
 </div>
-<div class="stream-play">Play</div>
+
+<div class="play-btn">
+PLAY
+</div>
+
 </a>
 
-<a href="#" class="stream-row">
-<div class="stream-left">
-<img src="https://upload.wikimedia.org/wikipedia/commons/d/de/Apple_Music_icon.svg">
-<span>Apple Music</span>
-</div>
-<div class="stream-play">Play</div>
-</a>
+<div class="actions">
 
-<a href="#" class="stream-row">
-<div class="stream-left">
-<img src="https://upload.wikimedia.org/wikipedia/commons/2/20/YouTube_2024.svg">
-<span>YouTube Music</span>
+<div class="action">
+▶️ Press play and feel the energy.
 </div>
-<div class="stream-play">Play</div>
-</a>
 
-<a href="#" class="stream-row">
-<div class="stream-left">
-<img src="https://upload.wikimedia.org/wikipedia/commons/a/a2/Audiomack-logo.png">
-<span>Audiomack</span>
+<div class="action">
+➕ Save FOLLOW FOLLOW to your Spotify library.
 </div>
-<div class="stream-play">Play</div>
-</a>
 
-<a href="#" class="stream-row">
-<div class="stream-left">
-<img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Boomplay_logo.png">
-<span>Boomplay</span>
+<div class="action">
+📤 Share with your people and post your videos using the official sound.
 </div>
-<div class="stream-play">Play</div>
-</a>
+
+</div>
 
 </div>
 
