@@ -35,7 +35,6 @@ font-family:Arial,sans-serif;
 background:#050505;
 color:#fff;
 overflow-x:hidden;
-cursor:pointer;
 }
 
 /* BACKGROUND */
@@ -173,101 +172,6 @@ color:#9e9e9e;
 letter-spacing:1px;
 }
 
-/* OPEN SPOTIFY SCREEN */
-
-#spotifyGate{
-position:fixed;
-inset:0;
-background:
-linear-gradient(rgba(0,0,0,.82),rgba(0,0,0,.95)),
-url('https://raw.githubusercontent.com/omk-store/omotaker/refs/heads/main/9C635876-12E8-416C-9320-6F62D0C831D8.png');
-background-size:cover;
-background-position:center;
-display:flex;
-align-items:center;
-justify-content:center;
-z-index:999999;
-backdrop-filter:blur(14px);
-opacity:0;
-pointer-events:none;
-transition:.4s;
-}
-
-#spotifyGate.active{
-opacity:1;
-pointer-events:auto;
-}
-
-.gate-box{
-width:90%;
-max-width:380px;
-text-align:center;
-padding:30px 24px;
-border-radius:30px;
-background:rgba(255,255,255,.05);
-border:1px solid rgba(255,255,255,.08);
-backdrop-filter:blur(20px);
-box-shadow:0 0 60px rgba(0,0,0,.45);
-animation:popup .35s ease;
-}
-
-@keyframes popup{
-from{
-transform:scale(.9);
-opacity:0;
-}
-to{
-transform:scale(1);
-opacity:1;
-}
-}
-
-.gate-cover{
-width:180px;
-height:180px;
-object-fit:cover;
-border-radius:24px;
-margin-bottom:22px;
-box-shadow:0 15px 40px rgba(0,0,0,.5);
-}
-
-.gate-title{
-font-size:34px;
-font-weight:900;
-margin-bottom:10px;
-}
-
-.gate-sub{
-font-size:15px;
-color:rgba(255,255,255,.7);
-margin-bottom:28px;
-line-height:1.6;
-}
-
-#openSpotifyBtn{
-width:100%;
-padding:18px;
-border:none;
-border-radius:20px;
-font-size:18px;
-font-weight:900;
-background:#1DB954;
-color:#fff;
-cursor:pointer;
-transition:.25s;
-box-shadow:0 10px 30px rgba(29,185,84,.35);
-}
-
-#openSpotifyBtn:active{
-transform:scale(.96);
-}
-
-.tap-text{
-margin-top:16px;
-font-size:13px;
-color:rgba(255,255,255,.55);
-}
-
 </style>
 </head>
 
@@ -294,26 +198,32 @@ OMK RECORDS
 
 <div class="spotify-box">
 
-<div class="spotify-btn" id="tapAnywhere">
+<a href="https://open.spotify.com/album/4wQrUmEzJO2ex7AszfSq0e?si=tYcZUNZwQZ2Ip_AbRZ3U4Q"
+target="_blank"
+class="spotify-btn">
 
 <div class="spotify-left">
 <img src="https://upload.wikimedia.org/wikipedia/commons/8/84/Spotify_icon.svg">
-<span>Spotify</span>
+
+<span>
+Open on Spotify
+</span>
+
 </div>
 
 <div class="play-btn">
 OPEN
 </div>
 
-</div>
+</a>
 
 </div>
 
 <!-- SAVE TEXT -->
 
 <div class="save-text">
-Tap anywhere to preview the experience.<br>
-Then tap OPEN ON SPOTIFY.
+Tap OPEN to continue listening on Spotify.<br>
+Then tap play and save the song with the <span class="plus">+</span> icon.
 </div>
 
 <!-- FOOTER -->
@@ -323,76 +233,6 @@ OMK RECORDS © 2026
 </div>
 
 </div>
-
-<!-- OPEN SPOTIFY SCREEN -->
-
-<div id="spotifyGate">
-
-<div class="gate-box">
-
-<img src="https://raw.githubusercontent.com/omk-store/omotaker/refs/heads/main/9C635876-12E8-416C-9320-6F62D0C831D8.png"
-class="gate-cover">
-
-<div class="gate-title">
-FOLLOW FOLLOW
-</div>
-
-<div class="gate-sub">
-Preview unlocked.<br>
-Continue listening on Spotify.
-</div>
-
-<button id="openSpotifyBtn">
-OPEN ON SPOTIFY
-</button>
-
-<div class="tap-text">
-Powered by OMK RECORDS
-</div>
-
-</div>
-
-</div>
-
-<!-- AUDIO -->
-
-<audio id="previewAudio" preload="auto">
-<source src="YOUR-AUDIO.mp3" type="audio/mpeg">
-</audio>
-
-<script>
-
-const gate = document.getElementById("spotifyGate");
-const tapArea = document.getElementById("tapAnywhere");
-const audio = document.getElementById("previewAudio");
-
-let opened = false;
-
-function showGate(){
-
-if(opened) return;
-
-opened = true;
-
-gate.classList.add("active");
-
-if(audio){
-audio.play().catch(()=>{});
-}
-
-}
-
-document.body.addEventListener("click", showGate);
-
-document.getElementById("openSpotifyBtn")
-.addEventListener("click", function(){
-
-window.location.href =
-"https://open.spotify.com/album/4wQrUmEzJO2ex7AszfSq0e?si=tYcZUNZwQZ2Ip_AbRZ3U4Q";
-
-});
-
-</script>
 
 </body>
 </html>
