@@ -6,15 +6,23 @@
 
 <title>Follow Follow — Omo Taker</title>
 
+<!-- GOOGLE ANALYTICS -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-HX57BRN5ET"></script>
+
 <script>
 window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
+
+function gtag(){
+dataLayer.push(arguments);
+}
+
 gtag('js', new Date());
+
 gtag('config', 'G-HX57BRN5ET');
 </script>
 
 <style>
+
 *{
 margin:0;
 padding:0;
@@ -23,67 +31,64 @@ box-sizing:border-box;
 }
 
 body{
-font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
-background:#030303;
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+background:#050505;
 color:#fff;
 overflow-x:hidden;
 }
+
+/* BACKGROUND */
 
 body::before{
 content:"";
 position:fixed;
 inset:0;
 background:
-linear-gradient(rgba(0,0,0,.80),rgba(0,0,0,.96)),
+linear-gradient(rgba(0,0,0,.72),rgba(0,0,0,.96)),
 url('https://raw.githubusercontent.com/omk-store/omotaker/refs/heads/main/9C635876-12E8-416C-9320-6F62D0C831D8.png');
 background-size:cover;
 background-position:center;
-filter:blur(30px);
-transform:scale(1.2);
-z-index:-2;
-}
-
-body::after{
-content:"";
-position:fixed;
-inset:0;
-background:
-radial-gradient(circle at top,#ff660030,transparent 42%),
-radial-gradient(circle at bottom,#1ed76018,transparent 40%);
+filter:blur(28px);
+transform:scale(1.15);
 z-index:-1;
 }
 
+/* CONTAINER */
+
 .container{
-width:92%;
 max-width:520px;
 margin:auto;
-padding:18px 0 50px;
+padding:20px 16px 50px;
 }
+
+/* TRENDING */
 
 .trending{
 text-align:center;
 font-size:15px;
 font-weight:900;
-letter-spacing:2px;
+letter-spacing:4px;
 color:#ff6a00;
-margin-bottom:16px;
-animation:flash 1.7s infinite;
+margin-bottom:14px;
+animation:pulseText 2s infinite;
 }
 
-@keyframes flash{
-0%{opacity:.45;}
+@keyframes pulseText{
+0%{opacity:.5;}
 50%{opacity:1;}
-100%{opacity:.45;}
+100%{opacity:.5;}
 }
 
-.cover-box{
-background:#0b0b0b;
+/* COVER */
+
+.cover-wrap{
 border-radius:34px;
 overflow:hidden;
-border:1px solid rgba(255,255,255,.06);
+background:#0b0b0b;
 box-shadow:
-0 0 90px rgba(255,98,0,.18),
-0 25px 80px rgba(0,0,0,.65);
+0 0 80px rgba(255,90,0,.18),
+0 25px 70px rgba(0,0,0,.65);
+border:1px solid rgba(255,255,255,.04);
 }
 
 .cover{
@@ -91,44 +96,89 @@ width:100%;
 display:block;
 }
 
+/* INFO */
+
 .info{
-padding:22px 18px 26px;
+padding:24px 20px 28px;
 text-align:center;
-background:linear-gradient(180deg,#0a0a0a,#050505);
+background:linear-gradient(to bottom,#090909,#050505);
 }
 
 .omk{
-font-size:13px;
+font-size:14px;
 font-weight:900;
 letter-spacing:8px;
 color:#ff6a00;
-margin-bottom:16px;
+margin-bottom:18px;
+}
+
+.song{
+font-size:58px;
+font-weight:1000;
+line-height:.92;
+margin-bottom:10px;
+}
+
+.artist{
+font-size:20px;
+font-weight:700;
+color:#d7d7d7;
+margin-bottom:22px;
 }
 
 .cta{
 font-size:17px;
-line-height:1.7;
-font-weight:800;
-color:#ff9a61;
+line-height:1.6;
+font-weight:700;
+color:#ff9a62;
 }
 
+/* BUTTONS */
+
 .buttons{
-margin-top:24px;
+margin-top:22px;
 display:flex;
 flex-direction:column;
-gap:18px;
+gap:15px;
 }
 
 .stream-btn{
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:22px 20px;
-border-radius:28px;
+padding:17px 18px;
+border-radius:24px;
 text-decoration:none;
-transition:.2s ease;
-border:1px solid rgba(255,255,255,.08);
-backdrop-filter:blur(14px);
+backdrop-filter:blur(18px);
+background:rgba(18,18,18,.82);
+border:1px solid rgba(255,255,255,.06);
+box-shadow:
+0 10px 30px rgba(0,0,0,.45),
+0 0 20px rgba(255,255,255,.03);
+transition:.22s ease;
+overflow:hidden;
+position:relative;
+}
+
+.stream-btn::before{
+content:"";
+position:absolute;
+top:0;
+left:-120%;
+width:70%;
+height:100%;
+background:linear-gradient(
+90deg,
+transparent,
+rgba(255,255,255,.08),
+transparent
+);
+transform:skewX(-20deg);
+transition:.7s;
+}
+
+.stream-btn:hover::before{
+left:140%;
 }
 
 .stream-btn:active{
@@ -139,75 +189,96 @@ transform:scale(.98);
 display:flex;
 align-items:center;
 gap:15px;
+z-index:2;
 }
 
-.icon-box{
-width:54px;
-height:54px;
+.platform-logo{
+width:46px;
+height:46px;
+border-radius:14px;
 background:#fff;
-border-radius:16px;
-display:flex;
-justify-content:center;
-align-items:center;
-flex-shrink:0;
-font-size:30px;
-font-weight:900;
-color:#111;
+padding:10px;
+object-fit:contain;
 }
 
-.left span{
-font-size:24px;
+.platform-name{
+font-size:20px;
 font-weight:900;
+letter-spacing:.2px;
 color:#fff;
 }
 
-.open{
+.open-btn{
 background:#fff;
 color:#111;
-padding:12px 24px;
-border-radius:15px;
-font-size:15px;
-font-weight:900;
+padding:11px 18px;
+border-radius:14px;
+font-size:13px;
+font-weight:1000;
+letter-spacing:1px;
+z-index:2;
 }
 
+/* GLOWS */
+
 .apple{
-background:linear-gradient(135deg,#ff2d55,#c400ff);
-box-shadow:0 0 35px rgba(255,0,120,.32);
+box-shadow:
+0 0 35px rgba(255,0,140,.18),
+0 10px 30px rgba(0,0,0,.45);
 }
 
 .spotify{
-background:linear-gradient(135deg,#1ed760,#0b8c3d);
-box-shadow:0 0 35px rgba(30,215,96,.32);
+box-shadow:
+0 0 35px rgba(30,215,96,.18),
+0 10px 30px rgba(0,0,0,.45);
 }
 
 .audiomack{
-background:linear-gradient(135deg,#ffb100,#ff6600);
-box-shadow:0 0 35px rgba(255,166,0,.28);
+box-shadow:
+0 0 35px rgba(255,145,0,.18),
+0 10px 30px rgba(0,0,0,.45);
 }
 
 .boomplay{
-background:linear-gradient(135deg,#00d26a,#00994d);
-box-shadow:0 0 35px rgba(0,210,106,.28);
+box-shadow:
+0 0 35px rgba(0,255,140,.16),
+0 10px 30px rgba(0,0,0,.45);
 }
 
 .youtube{
-background:linear-gradient(135deg,#ff0000,#a80000);
-box-shadow:0 0 35px rgba(255,0,0,.28);
+box-shadow:
+0 0 35px rgba(255,0,0,.16),
+0 10px 30px rgba(0,0,0,.45);
 }
+
+/* FOOTER */
 
 .footer{
 text-align:center;
-margin-top:30px;
-font-size:12px;
-letter-spacing:2px;
+margin-top:34px;
+font-size:13px;
+letter-spacing:5px;
 color:#8d8d8d;
 }
 
+/* MOBILE */
+
 @media(max-width:480px){
-.left span{font-size:20px;}
-.open{padding:10px 18px;font-size:14px;}
-.icon-box{width:48px;height:48px;font-size:27px;}
+
+.song{
+font-size:46px;
 }
+
+.platform-name{
+font-size:18px;
+}
+
+.open-btn{
+padding:10px 15px;
+}
+
+}
+
 </style>
 </head>
 
@@ -215,47 +286,164 @@ color:#8d8d8d;
 
 <div class="container">
 
-<div class="trending">🔥 TRENDING RIGHT NOW</div>
+<div class="trending">
+🔥 TRENDING RIGHT NOW
+</div>
 
-<div class="cover-box">
-<img src="https://raw.githubusercontent.com/omk-store/omotaker/refs/heads/main/9C635876-12E8-416C-9320-6F62D0C831D8.png" class="cover">
+<div class="cover-wrap">
+
+<img
+src="https://raw.githubusercontent.com/omk-store/omotaker/refs/heads/main/9C635876-12E8-416C-9320-6F62D0C831D8.png"
+class="cover">
 
 <div class="info">
-<div class="omk">OMK RECORDS</div>
-<div class="cta">Everybody is using this sound… don’t miss it 🎧🔥</div>
+
+<div class="omk">
+OMK RECORDS
 </div>
+
+<div class="song">
+FOLLOW<br>FOLLOW
 </div>
+
+<div class="artist">
+Omo Taker 🐺
+</div>
+
+<div class="cta">
+Everybody is using this sound… don’t miss it 🎧🔥
+</div>
+
+</div>
+
+</div>
+
+<!-- BUTTONS -->
 
 <div class="buttons">
 
-<a href="YOUR_APPLE_MUSIC_LINK" target="_blank" class="stream-btn apple" onclick="gtag('event','apple_click');">
-<div class="left"><div class="icon-box"></div><span>Apple Music</span></div>
-<div class="open">OPEN</div>
+<!-- APPLE -->
+
+<a href="YOUR_APPLE_LINK"
+target="_blank"
+class="stream-btn apple"
+onclick="gtag('event','apple_click');">
+
+<div class="left">
+
+<img class="platform-logo"
+src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg">
+
+<div class="platform-name">
+Apple Music
+</div>
+
+</div>
+
+<div class="open-btn">
+OPEN
+</div>
+
 </a>
 
-<a href="https://open.spotify.com/album/4wQrUmEzJO2ex7AszfSq0e?si=tYcZUNZwQZ2Ip_AbRZ3U4Q" target="_blank" class="stream-btn spotify" onclick="gtag('event','spotify_click');">
-<div class="left"><div class="icon-box">♬</div><span>Spotify</span></div>
-<div class="open">OPEN</div>
+<!-- SPOTIFY -->
+
+<a href="https://open.spotify.com/album/4wQrUmEzJO2ex7AszfSq0e?si=tYcZUNZwQZ2Ip_AbRZ3U4Q"
+target="_blank"
+class="stream-btn spotify"
+onclick="gtag('event','spotify_click');">
+
+<div class="left">
+
+<img class="platform-logo"
+src="https://upload.wikimedia.org/wikipedia/commons/8/84/Spotify_icon.svg">
+
+<div class="platform-name">
+Spotify
+</div>
+
+</div>
+
+<div class="open-btn">
+OPEN
+</div>
+
 </a>
 
-<a href="YOUR_AUDIOMACK_LINK" target="_blank" class="stream-btn audiomack" onclick="gtag('event','audiomack_click');">
-<div class="left"><div class="icon-box">A</div><span>Audiomack</span></div>
-<div class="open">OPEN</div>
+<!-- AUDIOMACK -->
+
+<a href="YOUR_AUDIOMACK_LINK"
+target="_blank"
+class="stream-btn audiomack">
+
+<div class="left">
+
+<img class="platform-logo"
+src="https://upload.wikimedia.org/wikipedia/commons/d/d7/Audiomack_logo.png">
+
+<div class="platform-name">
+Audiomack
+</div>
+
+</div>
+
+<div class="open-btn">
+OPEN
+</div>
+
 </a>
 
-<a href="YOUR_BOOMPLAY_LINK" target="_blank" class="stream-btn boomplay" onclick="gtag('event','boomplay_click');">
-<div class="left"><div class="icon-box">B</div><span>Boomplay</span></div>
-<div class="open">OPEN</div>
+<!-- BOOMPLAY -->
+
+<a href="YOUR_BOOMPLAY_LINK"
+target="_blank"
+class="stream-btn boomplay">
+
+<div class="left">
+
+<img class="platform-logo"
+src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Boomplay_logo.png">
+
+<div class="platform-name">
+Boomplay
+</div>
+
+</div>
+
+<div class="open-btn">
+OPEN
+</div>
+
 </a>
 
-<a href="YOUR_YOUTUBE_LINK" target="_blank" class="stream-btn youtube" onclick="gtag('event','youtube_click');">
-<div class="left"><div class="icon-box">▶</div><span>YouTube</span></div>
-<div class="open">OPEN</div>
+<!-- YOUTUBE -->
+
+<a href="YOUR_YOUTUBE_LINK"
+target="_blank"
+class="stream-btn youtube">
+
+<div class="left">
+
+<img class="platform-logo"
+src="https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg">
+
+<div class="platform-name">
+YouTube
+</div>
+
+</div>
+
+<div class="open-btn">
+OPEN
+</div>
+
 </a>
 
 </div>
 
-<div class="footer">OMK RECORDS © 2026</div>
+<div class="footer">
+OMK RECORDS © 2026
+</div>
 
 </div>
 
