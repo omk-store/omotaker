@@ -31,7 +31,7 @@ box-sizing:border-box;
 }
 
 body{
-font-family:Arial,sans-serif;
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
 background:#050505;
 color:#fff;
 overflow-x:hidden;
@@ -44,12 +44,27 @@ content:"";
 position:fixed;
 inset:0;
 background:
-linear-gradient(rgba(0,0,0,.76),rgba(0,0,0,.94)),
+linear-gradient(rgba(0,0,0,.72),rgba(0,0,0,.94)),
 url('https://raw.githubusercontent.com/omk-store/omotaker/refs/heads/main/9C635876-12E8-416C-9320-6F62D0C831D8.png');
 background-size:cover;
 background-position:center;
-filter:blur(22px);
+filter:blur(24px);
 transform:scale(1.15);
+z-index:-2;
+}
+
+/* ORANGE GLOW */
+
+body::after{
+content:"";
+position:fixed;
+width:450px;
+height:450px;
+background:rgba(255,98,0,.18);
+filter:blur(120px);
+top:-120px;
+left:50%;
+transform:translateX(-50%);
 z-index:-1;
 }
 
@@ -58,29 +73,63 @@ z-index:-1;
 .container{
 max-width:520px;
 margin:auto;
-padding:22px 16px 50px;
+padding:20px 16px 60px;
+}
+
+/* TRENDING */
+
+.trending{
+text-align:center;
+font-size:15px;
+font-weight:900;
+color:#ff6200;
+letter-spacing:1px;
+margin-bottom:16px;
+animation:flash 1.8s infinite;
+}
+
+@keyframes flash{
+0%{opacity:.4;}
+50%{opacity:1;}
+100%{opacity:.4;}
 }
 
 /* COVER */
 
+.cover-wrap{
+position:relative;
+border-radius:34px;
+overflow:hidden;
+box-shadow:
+0 0 80px rgba(255,98,0,.18),
+0 20px 70px rgba(0,0,0,.7);
+animation:zoom 7s ease-in-out infinite;
+}
+
 .cover{
 width:100%;
-border-radius:32px;
 display:block;
-box-shadow:0 15px 50px rgba(0,0,0,.55);
+}
+
+@keyframes zoom{
+0%{transform:scale(1);}
+50%{transform:scale(1.02);}
+100%{transform:scale(1);}
 }
 
 /* INFO */
 
 .info{
-background:#0e0e0e;
-padding:18px;
+background:rgba(14,14,14,.92);
+backdrop-filter:blur(10px);
+padding:22px 20px;
 text-align:center;
-border-radius:0 0 32px 32px;
-margin-top:-5px;
-margin-bottom:20px;
-border:1px solid rgba(255,255,255,.04);
+border-radius:0 0 34px 34px;
+margin-top:-6px;
+border:1px solid rgba(255,255,255,.05);
 }
+
+/* OMK */
 
 .omk{
 font-size:13px;
@@ -88,34 +137,92 @@ font-weight:900;
 letter-spacing:5px;
 color:#ff6200;
 text-transform:uppercase;
+margin-bottom:12px;
 }
 
-/* SPOTIFY BOX */
+/* SONG */
+
+.song{
+font-size:42px;
+font-weight:1000;
+line-height:1;
+margin-bottom:10px;
+}
+
+/* ARTIST */
+
+.artist{
+font-size:18px;
+font-weight:700;
+color:#d0d0d0;
+}
+
+/* CTA */
+
+.cta{
+margin-top:18px;
+font-size:15px;
+line-height:1.6;
+color:#ff934d;
+font-weight:700;
+}
+
+/* STREAM BOX */
 
 .spotify-box{
 width:100%;
-background:#fff;
+background:rgba(255,255,255,.06);
+backdrop-filter:blur(10px);
 border-radius:34px;
-padding:22px;
+padding:20px;
+margin-top:22px;
+border:1px solid rgba(255,255,255,.06);
 box-shadow:0 15px 50px rgba(0,0,0,.35);
 }
 
-/* SPOTIFY BUTTON */
+/* BUTTONS */
 
-.spotify-btn{
+.spotify-btn,
+.apple-btn{
 display:flex;
 justify-content:space-between;
 align-items:center;
 text-decoration:none;
-background:#1ed760;
-padding:24px 20px;
+padding:22px 20px;
 border-radius:26px;
 transition:.2s ease;
+margin-bottom:16px;
 }
 
-.spotify-btn:active{
+/* SPOTIFY */
+
+.spotify-btn{
+background:linear-gradient(135deg,#1ed760,#0d8e3d);
+box-shadow:0 0 35px rgba(30,215,96,.45);
+animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+0%{box-shadow:0 0 15px rgba(30,215,96,.4);}
+50%{box-shadow:0 0 40px rgba(30,215,96,.9);}
+100%{box-shadow:0 0 15px rgba(30,215,96,.4);}
+}
+
+/* APPLE */
+
+.apple-btn{
+background:linear-gradient(135deg,#ff4d7a,#a800ff);
+box-shadow:0 0 35px rgba(255,0,140,.28);
+}
+
+/* ACTIVE */
+
+.spotify-btn:active,
+.apple-btn:active{
 transform:scale(.98);
 }
+
+/* LEFT */
 
 .spotify-left{
 display:flex;
@@ -130,27 +237,29 @@ object-fit:contain;
 }
 
 .spotify-left span{
-font-size:26px;
+font-size:24px;
 font-weight:900;
 color:#fff;
 }
 
+/* OPEN BUTTON */
+
 .play-btn{
 background:#fff;
 color:#111;
-padding:14px 28px;
+padding:14px 26px;
 border-radius:18px;
-font-size:20px;
-font-weight:900;
+font-size:18px;
+font-weight:1000;
 }
 
-/* INSTRUCTION TEXT */
+/* INSTRUCTION */
 
 .save-text{
 text-align:center;
-margin-top:22px;
+margin-top:18px;
 font-size:14px;
-line-height:1.7;
+line-height:1.8;
 color:#bdbdbd;
 font-weight:500;
 }
@@ -166,10 +275,16 @@ vertical-align:middle;
 
 .footer{
 text-align:center;
-margin-top:28px;
+margin-top:30px;
 font-size:13px;
 color:#9e9e9e;
 letter-spacing:1px;
+line-height:1.7;
+}
+
+.green{
+color:#1ed760;
+font-weight:700;
 }
 
 </style>
@@ -179,10 +294,20 @@ letter-spacing:1px;
 
 <div class="container">
 
+<!-- TRENDING -->
+
+<div class="trending">
+🔥 TRENDING RIGHT NOW
+</div>
+
 <!-- COVER -->
+
+<div class="cover-wrap">
 
 <img src="https://raw.githubusercontent.com/omk-store/omotaker/refs/heads/main/9C635876-12E8-416C-9320-6F62D0C831D8.png"
 class="cover">
+
+</div>
 
 <!-- INFO -->
 
@@ -192,21 +317,58 @@ class="cover">
 OMK RECORDS
 </div>
 
+<div class="song">
+FOLLOW FOLLOW
 </div>
 
-<!-- SPOTIFY -->
+<div class="artist">
+Omo Taker 🐺
+</div>
+
+<div class="cta">
+Everybody is using this sound… don’t miss it 🎧🔥
+</div>
+
+</div>
+
+<!-- STREAM BOX -->
 
 <div class="spotify-box">
+
+<!-- SPOTIFY -->
 
 <a href="https://open.spotify.com/album/4wQrUmEzJO2ex7AszfSq0e?si=tYcZUNZwQZ2Ip_AbRZ3U4Q"
 target="_blank"
 class="spotify-btn">
 
 <div class="spotify-left">
+
 <img src="https://upload.wikimedia.org/wikipedia/commons/8/84/Spotify_icon.svg">
 
 <span>
-Open on Spotify
+Play on Spotify
+</span>
+
+</div>
+
+<div class="play-btn">
+OPEN
+</div>
+
+</a>
+
+<!-- APPLE -->
+
+<a href="https://music.apple.com/"
+target="_blank"
+class="apple-btn">
+
+<div class="spotify-left">
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg">
+
+<span>
+Apple Music
 </span>
 
 </div>
@@ -222,14 +384,25 @@ OPEN
 <!-- SAVE TEXT -->
 
 <div class="save-text">
-Tap OPEN to continue listening on Spotify.<br>
+
+🚨 Thousands already listening… don’t miss out<br>
+
+Tap OPEN to continue listening.<br>
+
 Then tap play and save the song with the <span class="plus">+</span> icon.
+
 </div>
 
 <!-- FOOTER -->
 
 <div class="footer">
+
+<div class="green">
+🎧 Opens directly in Spotify & Apple Music
+</div>
+
 OMK RECORDS © 2026
+
 </div>
 
 </div>
