@@ -6,8 +6,8 @@
 
 <title>Follow Follow — Omo Taker</title>
 
-<!-- GOOGLE ANALYTICS -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<!-- 🔥 GOOGLE ANALYTICS -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HX57BRN5ET"></script>
 
 <script>
 window.dataLayer = window.dataLayer || [];
@@ -18,7 +18,7 @@ dataLayer.push(arguments);
 
 gtag('js', new Date());
 
-gtag('config', 'G-XXXXXXXXXX');
+gtag('config', 'G-HX57BRN5ET');
 </script>
 
 <style>
@@ -31,40 +31,25 @@ box-sizing:border-box;
 }
 
 body{
-font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+font-family:Arial,sans-serif;
 background:#050505;
 color:#fff;
 overflow-x:hidden;
 }
 
-/* BACKGROUND */
+/* 🔥 BACKGROUND */
 
 body::before{
 content:"";
 position:fixed;
 inset:0;
 background:
-linear-gradient(rgba(0,0,0,.72),rgba(0,0,0,.94)),
+linear-gradient(rgba(0,0,0,.78),rgba(0,0,0,.94)),
 url('https://raw.githubusercontent.com/omk-store/omotaker/refs/heads/main/9C635876-12E8-416C-9320-6F62D0C831D8.png');
 background-size:cover;
 background-position:center;
 filter:blur(24px);
 transform:scale(1.15);
-z-index:-2;
-}
-
-/* ORANGE GLOW */
-
-body::after{
-content:"";
-position:fixed;
-width:450px;
-height:450px;
-background:rgba(255,98,0,.18);
-filter:blur(120px);
-top:-120px;
-left:50%;
-transform:translateX(-50%);
 z-index:-1;
 }
 
@@ -73,37 +58,35 @@ z-index:-1;
 .container{
 max-width:520px;
 margin:auto;
-padding:20px 16px 60px;
+padding:22px 16px 60px;
 }
 
-/* TRENDING */
+/* 🔥 TRENDING */
 
 .trending{
 text-align:center;
 font-size:15px;
 font-weight:900;
-color:#ff6200;
-letter-spacing:1px;
+letter-spacing:2px;
+color:#ff6a00;
 margin-bottom:16px;
-animation:flash 1.8s infinite;
+animation:flash 1.6s infinite;
 }
 
 @keyframes flash{
-0%{opacity:.4;}
+0%{opacity:.5;}
 50%{opacity:1;}
-100%{opacity:.4;}
+100%{opacity:.5;}
 }
 
 /* COVER */
 
 .cover-wrap{
-position:relative;
+background:#0d0d0d;
 border-radius:34px;
 overflow:hidden;
-box-shadow:
-0 0 80px rgba(255,98,0,.18),
-0 20px 70px rgba(0,0,0,.7);
-animation:zoom 7s ease-in-out infinite;
+box-shadow:0 0 70px rgba(255,98,0,.25);
+border:1px solid rgba(255,255,255,.04);
 }
 
 .cover{
@@ -111,164 +94,133 @@ width:100%;
 display:block;
 }
 
-@keyframes zoom{
-0%{transform:scale(1);}
-50%{transform:scale(1.02);}
-100%{transform:scale(1);}
-}
-
 /* INFO */
 
 .info{
-background:rgba(14,14,14,.92);
-backdrop-filter:blur(10px);
-padding:22px 20px;
+padding:24px 20px;
 text-align:center;
-border-radius:0 0 34px 34px;
-margin-top:-6px;
-border:1px solid rgba(255,255,255,.05);
 }
-
-/* OMK */
 
 .omk{
 font-size:13px;
 font-weight:900;
-letter-spacing:5px;
-color:#ff6200;
-text-transform:uppercase;
-margin-bottom:12px;
+letter-spacing:7px;
+color:#ff6a00;
+margin-bottom:18px;
 }
-
-/* SONG */
 
 .song{
-font-size:42px;
-font-weight:1000;
-line-height:1;
-margin-bottom:10px;
+font-size:58px;
+font-weight:900;
+line-height:0.9;
+margin-bottom:16px;
 }
-
-/* ARTIST */
 
 .artist{
-font-size:18px;
-font-weight:700;
-color:#d0d0d0;
+font-size:22px;
+font-weight:800;
+margin-bottom:18px;
 }
 
-/* CTA */
-
 .cta{
-margin-top:18px;
-font-size:15px;
+font-size:16px;
 line-height:1.6;
-color:#ff934d;
 font-weight:700;
+color:#ff914d;
 }
 
 /* STREAM BOX */
 
-.spotify-box{
-width:100%;
-background:rgba(255,255,255,.06);
-backdrop-filter:blur(10px);
-border-radius:34px;
-padding:20px;
-margin-top:22px;
-border:1px solid rgba(255,255,255,.06);
-box-shadow:0 15px 50px rgba(0,0,0,.35);
+.stream-box{
+margin-top:26px;
+display:flex;
+flex-direction:column;
+gap:16px;
 }
 
-/* BUTTONS */
+/* BUTTON */
 
-.spotify-btn,
-.apple-btn{
+.stream-btn{
 display:flex;
 justify-content:space-between;
 align-items:center;
-text-decoration:none;
 padding:22px 20px;
-border-radius:26px;
+border-radius:24px;
+text-decoration:none;
+font-weight:900;
 transition:.2s ease;
-margin-bottom:16px;
+backdrop-filter:blur(10px);
 }
 
-/* SPOTIFY */
-
-.spotify-btn{
-background:linear-gradient(135deg,#1ed760,#0d8e3d);
-box-shadow:0 0 35px rgba(30,215,96,.45);
-animation:pulse 2s infinite;
-}
-
-@keyframes pulse{
-0%{box-shadow:0 0 15px rgba(30,215,96,.4);}
-50%{box-shadow:0 0 40px rgba(30,215,96,.9);}
-100%{box-shadow:0 0 15px rgba(30,215,96,.4);}
-}
-
-/* APPLE */
-
-.apple-btn{
-background:linear-gradient(135deg,#ff4d7a,#a800ff);
-box-shadow:0 0 35px rgba(255,0,140,.28);
-}
-
-/* ACTIVE */
-
-.spotify-btn:active,
-.apple-btn:active{
+.stream-btn:active{
 transform:scale(.98);
 }
 
-/* LEFT */
-
-.spotify-left{
+.left{
 display:flex;
 align-items:center;
 gap:16px;
 }
 
-.spotify-left img{
-width:50px;
-height:50px;
+.left img{
+width:38px;
+height:38px;
 object-fit:contain;
+background:#fff;
+padding:6px;
+border-radius:10px;
 }
 
-.spotify-left span{
+.left span{
 font-size:24px;
 font-weight:900;
 color:#fff;
 }
 
-/* OPEN BUTTON */
+/* RIGHT */
 
-.play-btn{
+.open{
 background:#fff;
 color:#111;
-padding:14px 26px;
-border-radius:18px;
-font-size:18px;
-font-weight:1000;
-}
-
-/* INSTRUCTION */
-
-.save-text{
-text-align:center;
-margin-top:18px;
-font-size:14px;
-line-height:1.8;
-color:#bdbdbd;
-font-weight:500;
-}
-
-.save-text .plus{
-color:#1ed760;
-font-size:24px;
+padding:12px 22px;
+border-radius:14px;
+font-size:16px;
 font-weight:900;
-vertical-align:middle;
+}
+
+/* 🍎 APPLE */
+
+.apple{
+background:linear-gradient(135deg,#ff2d55,#a100ff);
+box-shadow:0 0 40px rgba(255,0,120,.35);
+}
+
+/* 🎧 SPOTIFY */
+
+.spotify{
+background:linear-gradient(135deg,#1ed760,#0d8e3d);
+box-shadow:0 0 40px rgba(30,215,96,.35);
+}
+
+/* 🎵 AUDIOMACK */
+
+.audiomack{
+background:linear-gradient(135deg,#ffb000,#ff6a00);
+box-shadow:0 0 40px rgba(255,166,0,.30);
+}
+
+/* 💥 BOOMPLAY */
+
+.boomplay{
+background:linear-gradient(135deg,#00d26a,#00a94f);
+box-shadow:0 0 40px rgba(0,210,106,.30);
+}
+
+/* ▶️ YOUTUBE */
+
+.youtube{
+background:linear-gradient(135deg,#ff0000,#b30000);
+box-shadow:0 0 40px rgba(255,0,0,.30);
 }
 
 /* FOOTER */
@@ -277,14 +229,27 @@ vertical-align:middle;
 text-align:center;
 margin-top:30px;
 font-size:13px;
-color:#9e9e9e;
 letter-spacing:1px;
-line-height:1.7;
+color:#8c8c8c;
 }
 
-.green{
-color:#1ed760;
-font-weight:700;
+/* MOBILE */
+
+@media(max-width:480px){
+
+.song{
+font-size:48px;
+}
+
+.left span{
+font-size:20px;
+}
+
+.open{
+padding:10px 18px;
+font-size:14px;
+}
+
 }
 
 </style>
@@ -294,7 +259,7 @@ font-weight:700;
 
 <div class="container">
 
-<!-- TRENDING -->
+<!-- 🔥 TRENDING -->
 
 <div class="trending">
 🔥 TRENDING RIGHT NOW
@@ -307,10 +272,6 @@ font-weight:700;
 <img src="https://raw.githubusercontent.com/omk-store/omotaker/refs/heads/main/9C635876-12E8-416C-9320-6F62D0C831D8.png"
 class="cover">
 
-</div>
-
-<!-- INFO -->
-
 <div class="info">
 
 <div class="omk">
@@ -318,7 +279,7 @@ OMK RECORDS
 </div>
 
 <div class="song">
-FOLLOW FOLLOW
+FOLLOW<br>FOLLOW
 </div>
 
 <div class="artist">
@@ -331,39 +292,19 @@ Everybody is using this sound… don’t miss it 🎧🔥
 
 </div>
 
-<!-- STREAM BOX -->
-
-<div class="spotify-box">
-
-<!-- SPOTIFY -->
-
-<a href="https://open.spotify.com/album/4wQrUmEzJO2ex7AszfSq0e?si=tYcZUNZwQZ2Ip_AbRZ3U4Q"
-target="_blank"
-class="spotify-btn">
-
-<div class="spotify-left">
-
-<img src="https://upload.wikimedia.org/wikipedia/commons/8/84/Spotify_icon.svg">
-
-<span>
-Play on Spotify
-</span>
-
 </div>
 
-<div class="play-btn">
-OPEN
-</div>
+<!-- 🎵 STREAMING -->
 
-</a>
+<div class="stream-box">
 
-<!-- APPLE -->
+<!-- 🍎 APPLE -->
 
-<a href="https://music.apple.com/"
+<a href="YOUR_APPLE_LINK"
 target="_blank"
-class="apple-btn">
+class="stream-btn apple">
 
-<div class="spotify-left">
+<div class="left">
 
 <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg">
 
@@ -373,7 +314,95 @@ Apple Music
 
 </div>
 
-<div class="play-btn">
+<div class="open">
+OPEN
+</div>
+
+</a>
+
+<!-- 🎧 SPOTIFY -->
+
+<a href="https://open.spotify.com/album/4wQrUmEzJO2ex7AszfSq0e?si=tYcZUNZwQZ2Ip_AbRZ3U4Q"
+target="_blank"
+class="stream-btn spotify">
+
+<div class="left">
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/8/84/Spotify_icon.svg">
+
+<span>
+Spotify
+</span>
+
+</div>
+
+<div class="open">
+OPEN
+</div>
+
+</a>
+
+<!-- 🎵 AUDIOMACK -->
+
+<a href="YOUR_AUDIOMACK_LINK"
+target="_blank"
+class="stream-btn audiomack">
+
+<div class="left">
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/2/26/Audiomack_logo.png">
+
+<span>
+Audiomack
+</span>
+
+</div>
+
+<div class="open">
+OPEN
+</div>
+
+</a>
+
+<!-- 💥 BOOMPLAY -->
+
+<a href="YOUR_BOOMPLAY_LINK"
+target="_blank"
+class="stream-btn boomplay">
+
+<div class="left">
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Boomplay_logo.png">
+
+<span>
+Boomplay
+</span>
+
+</div>
+
+<div class="open">
+OPEN
+</div>
+
+</a>
+
+<!-- ▶️ YOUTUBE -->
+
+<a href="YOUR_YOUTUBE_LINK"
+target="_blank"
+class="stream-btn youtube">
+
+<div class="left">
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg">
+
+<span>
+YouTube
+</span>
+
+</div>
+
+<div class="open">
 OPEN
 </div>
 
@@ -381,28 +410,10 @@ OPEN
 
 </div>
 
-<!-- SAVE TEXT -->
-
-<div class="save-text">
-
-🚨 Thousands already listening… don’t miss out<br>
-
-Tap OPEN to continue listening.<br>
-
-Then tap play and save the song with the <span class="plus">+</span> icon.
-
-</div>
-
 <!-- FOOTER -->
 
 <div class="footer">
-
-<div class="green">
-🎧 Opens directly in Spotify & Apple Music
-</div>
-
 OMK RECORDS © 2026
-
 </div>
 
 </div>
