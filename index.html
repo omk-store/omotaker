@@ -6,32 +6,20 @@
 
 <title>Follow Follow — Omo Taker</title>
 
-<!-- 🔥 GOOGLE ANALYTICS -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-HX57BRN5ET"></script>
-
 <script>
 window.dataLayer = window.dataLayer || [];
-
-function gtag(){
-dataLayer.push(arguments);
-}
-
+function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
-
 gtag('config', 'G-HX57BRN5ET');
 </script>
 
 <style>
-
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
 -webkit-tap-highlight-color:transparent;
-}
-
-html{
-scroll-behavior:smooth;
 }
 
 body{
@@ -41,14 +29,12 @@ color:#fff;
 overflow-x:hidden;
 }
 
-/* 🔥 FUTURE FM STYLE BACKGROUND */
-
 body::before{
 content:"";
 position:fixed;
 inset:0;
 background:
-linear-gradient(rgba(0,0,0,.80),rgba(0,0,0,.95)),
+linear-gradient(rgba(0,0,0,.80),rgba(0,0,0,.96)),
 url('https://raw.githubusercontent.com/omk-store/omotaker/refs/heads/main/9C635876-12E8-416C-9320-6F62D0C831D8.png');
 background-size:cover;
 background-position:center;
@@ -62,12 +48,10 @@ content:"";
 position:fixed;
 inset:0;
 background:
-radial-gradient(circle at top,#ff660020,transparent 40%),
-radial-gradient(circle at bottom,#ff330010,transparent 40%);
+radial-gradient(circle at top,#ff660030,transparent 42%),
+radial-gradient(circle at bottom,#1ed76018,transparent 40%);
 z-index:-1;
 }
-
-/* MAIN */
 
 .container{
 width:92%;
@@ -75,8 +59,6 @@ max-width:520px;
 margin:auto;
 padding:18px 0 50px;
 }
-
-/* TRENDING */
 
 .trending{
 text-align:center;
@@ -94,16 +76,14 @@ animation:flash 1.7s infinite;
 100%{opacity:.45;}
 }
 
-/* COVER */
-
 .cover-box{
 background:#0b0b0b;
 border-radius:34px;
 overflow:hidden;
-border:1px solid rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.06);
 box-shadow:
-0 0 80px rgba(255,98,0,.15),
-0 25px 80px rgba(0,0,0,.55);
+0 0 90px rgba(255,98,0,.18),
+0 25px 80px rgba(0,0,0,.65);
 }
 
 .cover{
@@ -111,10 +91,8 @@ width:100%;
 display:block;
 }
 
-/* INFO */
-
 .info{
-padding:24px 18px 28px;
+padding:22px 18px 26px;
 text-align:center;
 background:linear-gradient(180deg,#0a0a0a,#050505);
 }
@@ -124,17 +102,15 @@ font-size:13px;
 font-weight:900;
 letter-spacing:8px;
 color:#ff6a00;
-margin-bottom:18px;
+margin-bottom:16px;
 }
 
 .cta{
 font-size:17px;
 line-height:1.7;
-font-weight:700;
+font-weight:800;
 color:#ff9a61;
 }
-
-/* BUTTONS */
 
 .buttons{
 margin-top:24px;
@@ -142,8 +118,6 @@ display:flex;
 flex-direction:column;
 gap:18px;
 }
-
-/* STREAM BUTTON */
 
 .stream-btn{
 display:flex;
@@ -153,19 +127,13 @@ padding:22px 20px;
 border-radius:28px;
 text-decoration:none;
 transition:.2s ease;
-border:1px solid rgba(255,255,255,.06);
+border:1px solid rgba(255,255,255,.08);
 backdrop-filter:blur(14px);
-}
-
-.stream-btn:hover{
-transform:translateY(-2px);
 }
 
 .stream-btn:active{
 transform:scale(.98);
 }
-
-/* LEFT */
 
 .left{
 display:flex;
@@ -182,12 +150,9 @@ display:flex;
 justify-content:center;
 align-items:center;
 flex-shrink:0;
-}
-
-.icon-box img{
-width:30px;
-height:30px;
-object-fit:contain;
+font-size:30px;
+font-weight:900;
+color:#111;
 }
 
 .left span{
@@ -195,8 +160,6 @@ font-size:24px;
 font-weight:900;
 color:#fff;
 }
-
-/* OPEN BUTTON */
 
 .open{
 background:#fff;
@@ -207,34 +170,30 @@ font-size:15px;
 font-weight:900;
 }
 
-/* INDIVIDUAL COLORS */
-
 .apple{
 background:linear-gradient(135deg,#ff2d55,#c400ff);
-box-shadow:0 0 35px rgba(255,0,120,.28);
+box-shadow:0 0 35px rgba(255,0,120,.32);
 }
 
 .spotify{
 background:linear-gradient(135deg,#1ed760,#0b8c3d);
-box-shadow:0 0 35px rgba(30,215,96,.28);
+box-shadow:0 0 35px rgba(30,215,96,.32);
 }
 
 .audiomack{
 background:linear-gradient(135deg,#ffb100,#ff6600);
-box-shadow:0 0 35px rgba(255,166,0,.25);
+box-shadow:0 0 35px rgba(255,166,0,.28);
 }
 
 .boomplay{
 background:linear-gradient(135deg,#00d26a,#00994d);
-box-shadow:0 0 35px rgba(0,210,106,.25);
+box-shadow:0 0 35px rgba(0,210,106,.28);
 }
 
 .youtube{
 background:linear-gradient(135deg,#ff0000,#a80000);
-box-shadow:0 0 35px rgba(255,0,0,.25);
+box-shadow:0 0 35px rgba(255,0,0,.28);
 }
-
-/* FOOTER */
 
 .footer{
 text-align:center;
@@ -244,26 +203,11 @@ letter-spacing:2px;
 color:#8d8d8d;
 }
 
-/* MOBILE */
-
 @media(max-width:480px){
-
-.left span{
-font-size:20px;
+.left span{font-size:20px;}
+.open{padding:10px 18px;font-size:14px;}
+.icon-box{width:48px;height:48px;font-size:27px;}
 }
-
-.open{
-padding:10px 18px;
-font-size:14px;
-}
-
-.icon-box{
-width:48px;
-height:48px;
-}
-
-}
-
 </style>
 </head>
 
@@ -271,166 +215,47 @@ height:48px;
 
 <div class="container">
 
-<!-- 🔥 TRENDING -->
-
-<div class="trending">
-🔥 TRENDING RIGHT NOW
-</div>
-
-<!-- COVER -->
+<div class="trending">🔥 TRENDING RIGHT NOW</div>
 
 <div class="cover-box">
-
-<img src="https://raw.githubusercontent.com/omk-store/omotaker/refs/heads/main/9C635876-12E8-416C-9320-6F62D0C831D8.png"
-class="cover">
+<img src="https://raw.githubusercontent.com/omk-store/omotaker/refs/heads/main/9C635876-12E8-416C-9320-6F62D0C831D8.png" class="cover">
 
 <div class="info">
-
-<div class="omk">
-OMK RECORDS
+<div class="omk">OMK RECORDS</div>
+<div class="cta">Everybody is using this sound… don’t miss it 🎧🔥</div>
 </div>
-
-<div class="cta">
-Everybody is using this sound… don’t miss it 🎧🔥
 </div>
-
-</div>
-
-</div>
-
-<!-- 🎵 BUTTONS -->
 
 <div class="buttons">
 
-<!-- 🍎 APPLE -->
-
-<a href="YOUR_APPLE_MUSIC_LINK"
-target="_blank"
-class="stream-btn apple"
-onclick="gtag('event','apple_click');">
-
-<div class="left">
-
-<div class="icon-box">
-<img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg">
-</div>
-
-<span>
-Apple Music
-</span>
-
-</div>
-
-<div class="open">
-OPEN
-</div>
-
+<a href="YOUR_APPLE_MUSIC_LINK" target="_blank" class="stream-btn apple" onclick="gtag('event','apple_click');">
+<div class="left"><div class="icon-box"></div><span>Apple Music</span></div>
+<div class="open">OPEN</div>
 </a>
 
-<!-- 🎧 SPOTIFY -->
-
-<a href="https://open.spotify.com/album/4wQrUmEzJO2ex7AszfSq0e?si=tYcZUNZwQZ2Ip_AbRZ3U4Q"
-target="_blank"
-class="stream-btn spotify"
-onclick="gtag('event','spotify_click');">
-
-<div class="left">
-
-<div class="icon-box">
-<img src="https://upload.wikimedia.org/wikipedia/commons/8/84/Spotify_icon.svg">
-</div>
-
-<span>
-Spotify
-</span>
-
-</div>
-
-<div class="open">
-OPEN
-</div>
-
+<a href="https://open.spotify.com/album/4wQrUmEzJO2ex7AszfSq0e?si=tYcZUNZwQZ2Ip_AbRZ3U4Q" target="_blank" class="stream-btn spotify" onclick="gtag('event','spotify_click');">
+<div class="left"><div class="icon-box">♬</div><span>Spotify</span></div>
+<div class="open">OPEN</div>
 </a>
 
-<!-- 🎵 AUDIOMACK -->
-
-<a href="YOUR_AUDIOMACK_LINK"
-target="_blank"
-class="stream-btn audiomack">
-
-<div class="left">
-
-<div class="icon-box">
-<img src="https://cdn-icons-png.flaticon.com/512/5968/5968898.png">
-</div>
-
-<span>
-Audiomack
-</span>
-
-</div>
-
-<div class="open">
-OPEN
-</div>
-
+<a href="YOUR_AUDIOMACK_LINK" target="_blank" class="stream-btn audiomack" onclick="gtag('event','audiomack_click');">
+<div class="left"><div class="icon-box">A</div><span>Audiomack</span></div>
+<div class="open">OPEN</div>
 </a>
 
-<!-- 💥 BOOMPLAY -->
-
-<a href="YOUR_BOOMPLAY_LINK"
-target="_blank"
-class="stream-btn boomplay">
-
-<div class="left">
-
-<div class="icon-box">
-<img src="https://cdn-icons-png.flaticon.com/512/5968/5968852.png">
-</div>
-
-<span>
-Boomplay
-</span>
-
-</div>
-
-<div class="open">
-OPEN
-</div>
-
+<a href="YOUR_BOOMPLAY_LINK" target="_blank" class="stream-btn boomplay" onclick="gtag('event','boomplay_click');">
+<div class="left"><div class="icon-box">B</div><span>Boomplay</span></div>
+<div class="open">OPEN</div>
 </a>
 
-<!-- ▶️ YOUTUBE -->
-
-<a href="YOUR_YOUTUBE_LINK"
-target="_blank"
-class="stream-btn youtube">
-
-<div class="left">
-
-<div class="icon-box">
-<img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg">
-</div>
-
-<span>
-YouTube
-</span>
-
-</div>
-
-<div class="open">
-OPEN
-</div>
-
+<a href="YOUR_YOUTUBE_LINK" target="_blank" class="stream-btn youtube" onclick="gtag('event','youtube_click');">
+<div class="left"><div class="icon-box">▶</div><span>YouTube</span></div>
+<div class="open">OPEN</div>
 </a>
 
 </div>
 
-<!-- FOOTER -->
-
-<div class="footer">
-OMK RECORDS © 2026
-</div>
+<div class="footer">OMK RECORDS © 2026</div>
 
 </div>
 
