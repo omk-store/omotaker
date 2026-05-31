@@ -21,34 +21,44 @@
       box-sizing: border-box;
       margin: 0;
       padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html, body {
+      width: 100%;
+      min-height: 100%;
+      background: #000;
     }
 
     body {
       min-height: 100vh;
       font-family: Arial, sans-serif;
       background:
-        radial-gradient(circle at top, rgba(30, 215, 96, 0.35), transparent 30%),
+        radial-gradient(circle at top, rgba(30, 215, 96, 0.28), transparent 32%),
         linear-gradient(180deg, #121212, #000000);
       color: #fff;
       display: flex;
       align-items: center;
       justify-content: center;
       padding: 22px;
+      cursor: pointer;
+      overflow-x: hidden;
     }
 
     .card {
       width: 100%;
       max-width: 430px;
       text-align: center;
-      background: rgba(18, 18, 18, 0.92);
-      border: 1px solid rgba(30, 215, 96, 0.25);
-      border-radius: 28px;
+      background: rgba(18, 18, 18, 0.94);
+      border: 1px solid rgba(30, 215, 96, 0.22);
+      border-radius: 30px;
       padding: 24px;
-      box-shadow: 0 25px 70px rgba(0,0,0,0.7);
+      box-shadow: 0 25px 80px rgba(0,0,0,0.75);
+      pointer-events: none;
     }
 
     .logo {
-      font-size: 14px;
+      font-size: 13px;
       letter-spacing: 3px;
       color: #1DB954;
       font-weight: bold;
@@ -57,76 +67,79 @@
 
     .cover {
       width: 100%;
-      border-radius: 22px;
+      display: block;
+      border-radius: 24px;
       margin-bottom: 22px;
-      box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+      box-shadow:
+        0 20px 55px rgba(0,0,0,0.7),
+        0 0 45px rgba(30, 215, 96, 0.18);
     }
 
     h1 {
-      font-size: 32px;
+      font-size: 34px;
+      line-height: 1.1;
       margin-bottom: 8px;
+      font-weight: 900;
     }
 
     .artist {
       color: #b3b3b3;
       font-size: 17px;
       margin-bottom: 18px;
+      font-weight: 600;
     }
 
-    .tag {
+    .play-text {
       display: inline-block;
       background: rgba(30, 215, 96, 0.13);
       color: #1DB954;
-      padding: 8px 14px;
+      padding: 9px 15px;
       border-radius: 999px;
       font-size: 13px;
-      margin-bottom: 22px;
-      font-weight: bold;
-    }
-
-    .btn {
-      display: block;
-      width: 100%;
-      background: #1DB954;
-      color: #000;
-      text-decoration: none;
-      padding: 17px;
-      border-radius: 999px;
-      font-size: 18px;
+      margin-bottom: 18px;
       font-weight: 900;
-      margin-bottom: 14px;
-      box-shadow: 0 10px 25px rgba(30, 215, 96, 0.35);
+      letter-spacing: 0.5px;
     }
 
-    .btn:active {
-      transform: scale(0.98);
+    .loader {
+      margin: 10px auto 8px;
+      width: 32px;
+      height: 32px;
+      border: 4px solid rgba(255,255,255,0.13);
+      border-top: 4px solid #1DB954;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
     }
 
     .small {
       color: #aaa;
       font-size: 13px;
       line-height: 1.5;
-      margin-top: 12px;
-    }
-
-    .loader {
-      margin: 18px auto 5px;
-      width: 34px;
-      height: 34px;
-      border: 4px solid rgba(255,255,255,0.15);
-      border-top: 4px solid #1DB954;
-      border-radius: 50%;
-      animation: spin 1s linear infinite;
+      margin-top: 10px;
     }
 
     @keyframes spin {
       to { transform: rotate(360deg); }
     }
 
-    .spotify-frame {
-      margin-top: 20px;
-      border-radius: 14px;
-      overflow: hidden;
+    @media (max-width: 480px) {
+      body {
+        padding: 16px;
+      }
+
+      .card {
+        padding: 18px;
+        border-radius: 26px;
+      }
+
+      h1 {
+        font-size: 30px;
+      }
+
+      .logo {
+        font-size: 12px;
+        margin-bottom: 14px;
+      }
     }
   </style>
 </head>
@@ -135,59 +148,55 @@
   <main class="card">
     <div class="logo">OMK · SPOTIFY RELEASE</div>
 
-    <img src="cover.jpg" alt="Follow Follow Cover Art" class="cover" />
+    <img
+      src="https://raw.githubusercontent.com/omk-store/omotaker/refs/heads/main/9C635876-12E8-416C-9320-6F62D0C831D8.png"
+      alt="Follow Follow Cover Art"
+      class="cover"
+    />
 
     <h1>Follow Follow</h1>
     <p class="artist">Omo Taker</p>
 
-    <div class="tag">Out Now · Tap to Stream</div>
-
-    <a
-      class="btn"
-      id="spotifyBtn"
-      href="https://open.spotify.com/track/7L4J10wzvkcuTB1zhguCMr"
-    >
-      Play on Spotify
-    </a>
+    <div class="play-text">PLAYING ON SPOTIFY</div>
 
     <div class="loader"></div>
 
     <p class="small">
-      Opening Spotify automatically. If it does not open, tap the green button.
+      Tap anywhere if Spotify does not open automatically.
     </p>
-
-    <div class="spotify-frame">
-      <iframe
-        style="border-radius:12px"
-        src="https://open.spotify.com/embed/track/7L4J10wzvkcuTB1zhguCMr?utm_source=generator"
-        width="100%"
-        height="152"
-        frameborder="0"
-        allowfullscreen=""
-        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-        loading="lazy">
-      </iframe>
-    </div>
   </main>
 
   <script>
     const spotifyUrl = "https://open.spotify.com/track/7L4J10wzvkcuTB1zhguCMr";
-    const btn = document.getElementById("spotifyBtn");
+    let hasOpened = false;
 
-    btn.addEventListener("click", function () {
-      gtag("event", "spotify_click", {
-        event_category: "music",
-        event_label: "Follow Follow - Omo Taker"
-      });
+    function trackEvent(eventName) {
+      if (typeof gtag === "function") {
+        gtag("event", eventName, {
+          event_category: "music",
+          event_label: "Follow Follow - Omo Taker"
+        });
+      }
+    }
+
+    function openSpotify(eventName) {
+      if (hasOpened) return;
+      hasOpened = true;
+
+      trackEvent(eventName);
+      window.location.href = spotifyUrl;
+    }
+
+    document.body.addEventListener("click", function () {
+      openSpotify("tap_anywhere_spotify_open");
     });
 
-    setTimeout(function () {
-      gtag("event", "auto_redirect_attempt", {
-        event_category: "music",
-        event_label: "Follow Follow - Spotify"
-      });
+    document.body.addEventListener("touchstart", function () {
+      openSpotify("tap_anywhere_spotify_open");
+    }, { passive: true });
 
-      window.location.href = spotifyUrl;
+    setTimeout(function () {
+      openSpotify("auto_redirect_attempt");
     }, 1800);
   </script>
 </body>
