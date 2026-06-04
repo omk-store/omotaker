@@ -4,15 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Omo Taker | My Truth EP | Follow Follow</title>
+  <title>Omo Taker | Follow Follow | The Journey</title>
 
-  <meta name="description" content="Official My Truth EP page by Omo Taker. Stream Follow Follow, Badt Guy, Bend Down Select, Benin To Lagos and more." />
-  <meta name="keywords" content="Omo Taker, Follow Follow, My Truth EP, Benin To Lagos, Bend Down Select, Afrobeats, Nigerian Music, OMK Record" />
+  <meta name="description" content="Follow Follow by Omo Taker. Stream the latest release and follow the journey from Benin City to Lagos." />
+  <meta name="keywords" content="Omo Taker, Follow Follow, Benin To Lagos, Bend Down Select, Badt Guy, Afrobeats, Nigerian Music, OMK Record" />
 
-  <meta property="og:title" content="Omo Taker - My Truth EP" />
-  <meta property="og:description" content="Stream Follow Follow and join the wolf movement." />
-  <meta property="og:image" content="https://raw.githubusercontent.com/omk-store/omotaker/refs/heads/main/IMG_4260.jpeg" />
-  <meta property="og:type" content="music.album" />
+  <meta property="og:title" content="Omo Taker - Follow Follow" />
+  <meta property="og:description" content="Stream Follow Follow and follow the journey of Omo Taker." />
+  <meta property="og:image" content="https://raw.githubusercontent.com/omk-store/omotaker/refs/heads/main/9C635876-12E8-416C-9320-6F62D0C831D8.png" />
+  <meta property="og:type" content="music.song" />
 
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -46,13 +46,13 @@
 
     .hero {
       min-height: 100vh;
-      padding: 90px 18px 40px;
+      padding: 95px 18px 45px;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
       background:
-        linear-gradient(rgba(0,0,0,.58), rgba(0,0,0,.96)),
+        linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.96)),
         url("https://raw.githubusercontent.com/omk-store/omotaker/refs/heads/main/IMG_4260.jpeg") center/cover no-repeat;
       position: relative;
     }
@@ -62,8 +62,8 @@
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(circle at top, rgba(255,204,0,.25), transparent 35%),
-        radial-gradient(circle at bottom, rgba(255,0,0,.13), transparent 35%);
+        radial-gradient(circle at top, rgba(255,204,0,.22), transparent 35%),
+        radial-gradient(circle at bottom, rgba(255,0,0,.12), transparent 35%);
       pointer-events: none;
     }
 
@@ -74,14 +74,14 @@
     }
 
     .profile-pic {
-      width: 185px;
-      height: 185px;
+      width: 175px;
+      height: 175px;
       object-fit: cover;
       border-radius: 50%;
       border: 4px solid #ffcc00;
       box-shadow: 0 0 45px rgba(255,204,0,.5);
       display: block;
-      margin: 0 auto 25px;
+      margin: 0 auto 22px;
     }
 
     .badge {
@@ -98,14 +98,14 @@
     }
 
     h1 {
-      font-size: clamp(46px, 10vw, 96px);
+      font-size: clamp(48px, 12vw, 105px);
       line-height: .9;
       letter-spacing: -3px;
       margin-bottom: 10px;
     }
 
     h2 {
-      font-size: clamp(26px, 5vw, 44px);
+      font-size: clamp(26px, 5vw, 46px);
       color: #ffcc00;
       margin-bottom: 14px;
     }
@@ -148,6 +148,16 @@
       border: 1px solid rgba(255,204,0,.7);
     }
 
+    .pulse {
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.035); }
+      100% { transform: scale(1); }
+    }
+
     section {
       padding: 70px 18px;
       max-width: 1100px;
@@ -176,6 +186,16 @@
       padding: 38px 22px;
       text-align: center;
       box-shadow: 0 0 50px rgba(255,204,0,.12);
+    }
+
+    .cover {
+      width: 100%;
+      max-width: 360px;
+      display: block;
+      margin: 18px auto 24px;
+      border-radius: 26px;
+      border: 1px solid rgba(255,204,0,.35);
+      box-shadow: 0 0 45px rgba(0,0,0,.5);
     }
 
     .embed {
@@ -209,6 +229,22 @@
     }
 
     .proof span { color: #bbb; }
+
+    .story-box {
+      max-width: 850px;
+      margin: 30px auto 0;
+      background: linear-gradient(180deg, #121212, #080808);
+      border: 1px solid rgba(255,204,0,.25);
+      border-radius: 26px;
+      padding: 28px 22px;
+      text-align: center;
+    }
+
+    .story-box p {
+      color: #ddd;
+      margin-bottom: 16px;
+      font-size: 17px;
+    }
 
     .grid {
       display: grid;
@@ -275,21 +311,6 @@
       white-space: nowrap;
     }
 
-    .platform-card {
-      text-align: center;
-    }
-
-    .platform-card a {
-      display: inline-block;
-      margin-top: 12px;
-      color: #000;
-      background: #ffcc00;
-      padding: 10px 18px;
-      border-radius: 999px;
-      text-decoration: none;
-      font-weight: 900;
-    }
-
     .community {
       background:
         linear-gradient(rgba(0,0,0,.84), rgba(0,0,0,.96)),
@@ -328,9 +349,7 @@
       border-top: 1px solid #151515;
     }
 
-    footer strong {
-      color: #ffcc00;
-    }
+    footer strong { color: #ffcc00; }
 
     @media (max-width: 620px) {
       .hero { padding-top: 100px; }
@@ -364,7 +383,7 @@
 <body>
 
   <div class="top-bar">
-    🔥 FOLLOW FOLLOW OUT NOW • STREAM EVERYWHERE • JOIN THE WOLF COMMUNITY
+    🔥 FOLLOW FOLLOW OUT NOW • STREAM EVERYWHERE • FOLLOW THE JOURNEY
   </div>
 
   <main>
@@ -379,19 +398,19 @@
 
         <div class="badge">OMK RECORD • BENIN TALK • WOLF ENERGY</div>
 
-        <h1>OMO TAKER</h1>
-        <h2>MY TRUTH EP</h2>
+        <h1>FOLLOW FOLLOW</h1>
+        <h2>THE JOURNEY OF OMO TAKER</h2>
 
         <p>
-          From Benin City to Lagos, Omo Taker is building his sound, his story,
-          and his own movement. My Truth is pain, pressure, confidence, growth,
-          and the voice of an independent artist refusing to stop.
+          From Benin City to Lagos, Omo Taker is turning pressure into sound,
+          pain into movement, and real-life experience into music. Follow Follow
+          is not just a song — it is a new chapter.
         </p>
 
         <div class="btns">
-          <a class="btn" href="#followfollow">🔥 Follow Follow</a>
+          <a class="btn pulse" href="#followfollow">🔥 Stream Follow Follow</a>
+          <a class="btn dark" href="#journey">My Journey</a>
           <a class="btn dark" href="https://open.spotify.com/artist/6CWfr8X54oFUSpKVsbAh1t" target="_blank">Spotify</a>
-          <a class="btn dark" href="https://music.apple.com/ng/artist/omo-taker/1725001610" target="_blank">Apple Music</a>
         </div>
       </div>
     </section>
@@ -402,10 +421,14 @@
 
         <h2>🔥 FOLLOW FOLLOW</h2>
 
+        <img
+          src="https://raw.githubusercontent.com/omk-store/omotaker/refs/heads/main/9C635876-12E8-416C-9320-6F62D0C831D8.png"
+          alt="Follow Follow Cover Art"
+          class="cover">
+
         <p class="lead">
-          Everybody don follow wrong person before. Follow Follow is the new chapter
-          from Omo Taker — built from pressure, real experience, street rhythm,
-          and the hunger to keep moving.
+          Everybody don follow wrong person before. Follow Follow carries street rhythm,
+          confidence, pain, growth, and the hunger to keep moving forward.
         </p>
 
         <div class="embed">
@@ -423,13 +446,45 @@
         <div class="btns">
           <a class="btn" href="https://open.spotify.com/track/7L4J10wzvkcuTB1zhguCMr" target="_blank">Spotify</a>
           <a class="btn dark" href="https://music.apple.com/ng/artist/omo-taker/1725001610" target="_blank">Apple Music</a>
-          <a class="btn dark" href="#about">Learn More</a>
+          <a class="btn dark" href="#journey">Learn More</a>
         </div>
       </div>
     </section>
 
+    <section id="journey" class="center">
+      <h2 class="section-title">My Journey</h2>
+
+      <div class="story-box">
+        <p>
+          I started with a dream, a sound, and the belief that my story could travel
+          beyond where I came from.
+        </p>
+
+        <p>
+          My first year in music, I pushed my name into the Apple Music Nigeria Top 200
+          with Badt Guy.
+        </p>
+
+        <p>
+          My second year, Bend Down Select moved stronger and crossed 50,000+ streams.
+        </p>
+
+        <p>
+          Now, Follow Follow is the next chapter — built from pressure, lessons,
+          and the hunger to keep going.
+        </p>
+      </div>
+
+      <div class="proof">
+        <div><strong>Benin City</strong><span>Origin</span></div>
+        <div><strong>Lagos</strong><span>Movement</span></div>
+        <div><strong>OMK</strong><span>Vision</span></div>
+        <div><strong>Wolf Energy</strong><span>Community</span></div>
+      </div>
+    </section>
+
     <section class="center">
-      <h2 class="section-title">The Numbers Behind The Movement</h2>
+      <h2 class="section-title">Career Highlights</h2>
 
       <div class="proof">
         <div><strong>100K+</strong><span>TikTok Followers</span></div>
@@ -439,63 +494,49 @@
       </div>
     </section>
 
-    <section id="about" class="center">
-      <h2 class="section-title">The Truth Behind The Sound</h2>
-
-      <p class="lead">
-        Omo Taker is an Afrobeats/Afro-pop artist from Benin City, Nigeria.
-        His music carries street rhythm, personal truth, emotional energy,
-        and the confidence of an artist building everything from the ground up.
-      </p>
-
-      <p class="lead">
-        My Truth EP connects the artist, the lifestyle, the sound, and the OMK movement.
-        This is not just music. This is the foundation of the wolf community.
-      </p>
-
-      <div class="proof">
-        <div><strong>Benin City</strong><span>Origin</span></div>
-        <div><strong>OMK</strong><span>Movement</span></div>
-        <div><strong>Afrobeats</strong><span>Sound</span></div>
-        <div><strong>My Truth</strong><span>Story</span></div>
-      </div>
-    </section>
-
     <section>
-      <h2 class="section-title">Career Timeline</h2>
+      <h2 class="section-title">The Sound So Far</h2>
 
       <div class="grid">
         <div class="card">
-          <h3>Badt Guy Era</h3>
-          <p>The confidence stage. The beginning of the Omo Taker identity and wolf energy.</p>
+          <h3>Badt Guy</h3>
+          <p>The confidence era. The record that helped introduce the Omo Taker identity.</p>
         </div>
 
         <div class="card">
           <h3>Bend Down Select</h3>
-          <p>The street energy. A record that pushed the sound and movement forward.</p>
+          <p>The street energy. A song that pushed the movement and proved the sound could travel.</p>
         </div>
 
         <div class="card">
           <h3>Benin To Lagos</h3>
-          <p>The journey. A sound that carries ambition, movement, and city-to-city pressure.</p>
+          <p>The journey record. A sound carrying ambition, movement, and city-to-city pressure.</p>
         </div>
 
         <div class="card">
           <h3>Follow Follow</h3>
-          <p>The new chapter. Built from learning, testing, recording, and pushing harder.</p>
+          <p>The new chapter. The song leading people into the story, the movement, and the future.</p>
         </div>
       </div>
     </section>
 
     <section>
-      <h2 class="section-title">My Truth EP Tracklist</h2>
-      <p class="lead">Tap any song title to listen and connect with the Omo Taker sound.</p>
+      <h2 class="section-title">Listen To The Journey</h2>
+      <p class="lead">Follow Follow is the focus, but every song is part of the story.</p>
 
       <div class="tracklist">
 
         <div class="track">
           <div>
-            <span>1. Bend Down Select</span>
+            <span>1. Follow Follow</span>
+            <small>Latest release</small>
+          </div>
+          <a href="https://open.spotify.com/track/7L4J10wzvkcuTB1zhguCMr" target="_blank">Play</a>
+        </div>
+
+        <div class="track">
+          <div>
+            <span>2. Bend Down Select</span>
             <small>Street energy</small>
           </div>
           <a href="https://open.spotify.com/track/591YkWluaQeC3tGMWhSFWu" target="_blank">Play</a>
@@ -503,7 +544,7 @@
 
         <div class="track">
           <div>
-            <span>2. Badt Guy</span>
+            <span>3. Badt Guy</span>
             <small>Confidence era</small>
           </div>
           <a href="https://open.spotify.com/track/78ckyu0HPy4oOQPzee5rkx" target="_blank">Play</a>
@@ -511,42 +552,10 @@
 
         <div class="track">
           <div>
-            <span>3. You + You</span>
-            <small>Love and feeling</small>
+            <span>4. Benin To Lagos</span>
+            <small>The journey</small>
           </div>
-          <a href="https://music.apple.com/ng/artist/omo-taker/1725001610" target="_blank">Play</a>
-        </div>
-
-        <div class="track">
-          <div>
-            <span>4. 24/7</span>
-            <small>Pressure and focus</small>
-          </div>
-          <a href="https://music.apple.com/ng/artist/omo-taker/1725001610" target="_blank">Play</a>
-        </div>
-
-        <div class="track">
-          <div>
-            <span>5. Matter</span>
-            <small>Real-life emotion</small>
-          </div>
-          <a href="https://music.apple.com/ng/artist/omo-taker/1725001610" target="_blank">Play</a>
-        </div>
-
-        <div class="track">
-          <div>
-            <span>6. UDE</span>
-            <small>Native energy</small>
-          </div>
-          <a href="https://music.apple.com/ng/artist/omo-taker/1725001610" target="_blank">Play</a>
-        </div>
-
-        <div class="track">
-          <div>
-            <span>7. My Door</span>
-            <small>Personal truth</small>
-          </div>
-          <a href="https://music.apple.com/ng/artist/omo-taker/1725001610" target="_blank">Play</a>
+          <a href="https://open.spotify.com/track/0SooNM8i9p1UiE7HTTp5C4" target="_blank">Play</a>
         </div>
 
       </div>
@@ -557,28 +566,36 @@
       <p class="lead">Choose your platform and stay connected to the sound.</p>
 
       <div class="grid">
-        <div class="card platform-card">
+        <div class="card center">
           <h3>Spotify</h3>
           <p>Follow Omo Taker and stream Follow Follow.</p>
-          <a href="https://open.spotify.com/artist/6CWfr8X54oFUSpKVsbAh1t" target="_blank">Open Spotify</a>
+          <div class="btns">
+            <a class="btn" href="https://open.spotify.com/artist/6CWfr8X54oFUSpKVsbAh1t" target="_blank">Open Spotify</a>
+          </div>
         </div>
 
-        <div class="card platform-card">
+        <div class="card center">
           <h3>Apple Music</h3>
           <p>Listen to Omo Taker on Apple Music.</p>
-          <a href="https://music.apple.com/ng/artist/omo-taker/1725001610" target="_blank">Open Apple</a>
+          <div class="btns">
+            <a class="btn" href="https://music.apple.com/ng/artist/omo-taker/1725001610" target="_blank">Open Apple</a>
+          </div>
         </div>
 
-        <div class="card platform-card">
+        <div class="card center">
           <h3>Audiomack</h3>
           <p>Connect with the Omo Taker sound.</p>
-          <a href="https://audiomack.com/omotaker" target="_blank">Open Audiomack</a>
+          <div class="btns">
+            <a class="btn" href="https://audiomack.com/omotaker" target="_blank">Audiomack</a>
+          </div>
         </div>
 
-        <div class="card platform-card">
+        <div class="card center">
           <h3>Boomplay</h3>
           <p>Stream the movement on Boomplay.</p>
-          <a href="https://www.boomplay.com/artists/78598031" target="_blank">Open Boomplay</a>
+          <div class="btns">
+            <a class="btn" href="https://www.boomplay.com/artists/78598031" target="_blank">Boomplay</a>
+          </div>
         </div>
       </div>
     </section>
@@ -610,7 +627,7 @@
   <footer>
     <strong>© 2026 Omo Taker / OMK Record</strong><br>
     Benin City → Lagos → World<br>
-    Built for My Truth EP and the Wolf Community 🐺
+    Follow Follow • Music • Fashion • Lifestyle • Wolf Community 🐺
   </footer>
 
 </body>
