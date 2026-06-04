@@ -4,12 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Omo Taker - My Truth EP</title>
-  <meta name="description" content="My Truth EP by Omo Taker. Stream Follow Follow, Badt Guy, Bend Down Select, Benin To Lagos and more." />
+  <title>Omo Taker | My Truth EP | Follow Follow</title>
+
+  <meta name="description" content="Official My Truth EP page by Omo Taker. Stream Follow Follow, Badt Guy, Bend Down Select, Benin To Lagos and more." />
+  <meta name="keywords" content="Omo Taker, Follow Follow, My Truth EP, Benin To Lagos, Bend Down Select, Afrobeats, Nigerian Music, OMK Record" />
 
   <meta property="og:title" content="Omo Taker - My Truth EP" />
-  <meta property="og:description" content="The official My Truth EP page by Omo Taker. Stream Follow Follow and join the wolf movement." />
-  <meta property="og:image" content="YOUR-COVER-IMAGE.jpg" />
+  <meta property="og:description" content="Stream Follow Follow and join the wolf movement." />
+  <meta property="og:image" content="https://raw.githubusercontent.com/omk-store/omotaker/refs/heads/main/IMG_4260.jpeg" />
   <meta property="og:type" content="music.album" />
 
   <style>
@@ -27,16 +29,31 @@
 
     a { color: inherit; }
 
+    .top-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: #ffcc00;
+      color: #000;
+      text-align: center;
+      padding: 10px 14px;
+      font-size: 13px;
+      font-weight: 900;
+      z-index: 9999;
+      letter-spacing: .5px;
+    }
+
     .hero {
       min-height: 100vh;
-      padding: 30px 18px;
+      padding: 90px 18px 40px;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
       background:
-        linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.95)),
-        url("YOUR-COVER-IMAGE.jpg") center/cover no-repeat;
+        linear-gradient(rgba(0,0,0,.58), rgba(0,0,0,.96)),
+        url("https://raw.githubusercontent.com/omk-store/omotaker/refs/heads/main/IMG_4260.jpeg") center/cover no-repeat;
       position: relative;
     }
 
@@ -45,8 +62,8 @@
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(circle at top, rgba(255,204,0,.22), transparent 35%),
-        radial-gradient(circle at bottom, rgba(255,0,0,.12), transparent 35%);
+        radial-gradient(circle at top, rgba(255,204,0,.25), transparent 35%),
+        radial-gradient(circle at bottom, rgba(255,0,0,.13), transparent 35%);
       pointer-events: none;
     }
 
@@ -56,17 +73,28 @@
       z-index: 2;
     }
 
+    .profile-pic {
+      width: 185px;
+      height: 185px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid #ffcc00;
+      box-shadow: 0 0 45px rgba(255,204,0,.5);
+      display: block;
+      margin: 0 auto 25px;
+    }
+
     .badge {
       display: inline-block;
       padding: 8px 16px;
-      border: 1px solid rgba(255,204,0,.5);
+      border: 1px solid rgba(255,204,0,.55);
       border-radius: 999px;
       color: #ffcc00;
       font-weight: 900;
       letter-spacing: 1.5px;
       font-size: 12px;
       margin-bottom: 18px;
-      background: rgba(0,0,0,.55);
+      background: rgba(0,0,0,.6);
     }
 
     h1 {
@@ -115,7 +143,7 @@
     }
 
     .btn.dark {
-      background: rgba(255,255,255,.06);
+      background: rgba(255,255,255,.07);
       color: #fff;
       border: 1px solid rgba(255,204,0,.7);
     }
@@ -141,13 +169,13 @@
 
     .truth-box {
       background:
-        linear-gradient(rgba(0,0,0,.82), rgba(0,0,0,.96)),
-        radial-gradient(circle at center, rgba(255,204,0,.22), transparent 45%);
-      border: 1px solid rgba(255,204,0,.35);
+        linear-gradient(rgba(0,0,0,.84), rgba(0,0,0,.97)),
+        radial-gradient(circle at center, rgba(255,204,0,.24), transparent 45%);
+      border: 1px solid rgba(255,204,0,.38);
       border-radius: 30px;
       padding: 38px 22px;
       text-align: center;
-      box-shadow: 0 0 45px rgba(255,204,0,.10);
+      box-shadow: 0 0 50px rgba(255,204,0,.12);
     }
 
     .embed {
@@ -247,10 +275,25 @@
       white-space: nowrap;
     }
 
+    .platform-card {
+      text-align: center;
+    }
+
+    .platform-card a {
+      display: inline-block;
+      margin-top: 12px;
+      color: #000;
+      background: #ffcc00;
+      padding: 10px 18px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 900;
+    }
+
     .community {
       background:
-        linear-gradient(rgba(0,0,0,.82), rgba(0,0,0,.95)),
-        radial-gradient(circle at top, rgba(255,204,0,.20), transparent 40%);
+        linear-gradient(rgba(0,0,0,.84), rgba(0,0,0,.96)),
+        radial-gradient(circle at top, rgba(255,204,0,.22), transparent 40%);
       border-top: 1px solid #1b1b1b;
       border-bottom: 1px solid #1b1b1b;
       max-width: 100%;
@@ -278,17 +321,26 @@
 
     footer {
       text-align: center;
-      padding: 36px 18px 90px;
+      padding: 36px 18px 95px;
       background: #000;
       color: #aaa;
       font-size: 14px;
       border-top: 1px solid #151515;
     }
 
+    footer strong {
+      color: #ffcc00;
+    }
+
     @media (max-width: 620px) {
-      .hero { padding-top: 45px; }
+      .hero { padding-top: 100px; }
 
       h1 { letter-spacing: -2px; }
+
+      .profile-pic {
+        width: 155px;
+        height: 155px;
+      }
 
       .track {
         align-items: flex-start;
@@ -311,10 +363,20 @@
 
 <body>
 
+  <div class="top-bar">
+    🔥 FOLLOW FOLLOW OUT NOW • STREAM EVERYWHERE • JOIN THE WOLF COMMUNITY
+  </div>
+
   <main>
 
     <section class="hero">
       <div class="hero-content">
+
+        <img
+          src="https://raw.githubusercontent.com/omk-store/omotaker/refs/heads/main/IMG_4260.jpeg"
+          alt="Omo Taker"
+          class="profile-pic">
+
         <div class="badge">OMK RECORD • BENIN TALK • WOLF ENERGY</div>
 
         <h1>OMO TAKER</h1>
@@ -370,25 +432,10 @@
       <h2 class="section-title">The Numbers Behind The Movement</h2>
 
       <div class="proof">
-        <div>
-          <strong>100K+</strong>
-          <span>TikTok Followers</span>
-        </div>
-
-        <div>
-          <strong>1.9M+</strong>
-          <span>TikTok Likes</span>
-        </div>
-
-        <div>
-          <strong>50K+</strong>
-          <span>Bend Down Select Streams</span>
-        </div>
-
-        <div>
-          <strong>Top 200</strong>
-          <span>Apple Music Nigeria</span>
-        </div>
+        <div><strong>100K+</strong><span>TikTok Followers</span></div>
+        <div><strong>1.9M+</strong><span>TikTok Likes</span></div>
+        <div><strong>50K+</strong><span>Bend Down Select Streams</span></div>
+        <div><strong>Top 200</strong><span>Apple Music Nigeria</span></div>
       </div>
     </section>
 
@@ -505,6 +552,37 @@
       </div>
     </section>
 
+    <section>
+      <h2 class="section-title">Stream Omo Taker Everywhere</h2>
+      <p class="lead">Choose your platform and stay connected to the sound.</p>
+
+      <div class="grid">
+        <div class="card platform-card">
+          <h3>Spotify</h3>
+          <p>Follow Omo Taker and stream Follow Follow.</p>
+          <a href="https://open.spotify.com/artist/6CWfr8X54oFUSpKVsbAh1t" target="_blank">Open Spotify</a>
+        </div>
+
+        <div class="card platform-card">
+          <h3>Apple Music</h3>
+          <p>Listen to Omo Taker on Apple Music.</p>
+          <a href="https://music.apple.com/ng/artist/omo-taker/1725001610" target="_blank">Open Apple</a>
+        </div>
+
+        <div class="card platform-card">
+          <h3>Audiomack</h3>
+          <p>Connect with the Omo Taker sound.</p>
+          <a href="https://audiomack.com/omotaker" target="_blank">Open Audiomack</a>
+        </div>
+
+        <div class="card platform-card">
+          <h3>Boomplay</h3>
+          <p>Stream the movement on Boomplay.</p>
+          <a href="https://www.boomplay.com/artists/78598031" target="_blank">Open Boomplay</a>
+        </div>
+      </div>
+    </section>
+
     <section class="community">
       <div class="community-inner">
         <h2>Join The Wolf Community</h2>
@@ -530,7 +608,9 @@
   </a>
 
   <footer>
-    © 2026 Omo Taker / OMK Record. Built for My Truth EP and the wolf community.
+    <strong>© 2026 Omo Taker / OMK Record</strong><br>
+    Benin City → Lagos → World<br>
+    Built for My Truth EP and the Wolf Community 🐺
   </footer>
 
 </body>
