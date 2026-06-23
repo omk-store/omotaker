@@ -1,596 +1,108 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<section id="music" class="center">
+  <div class="badge">MAIN FOCUS</div>
+  <h2>Benin Talk Piano</h2>
 
-  <title>Omo Taker | OMK World</title>
+  <p class="lead">
+    No words, just feeling. 🎹 Benin Talk Piano is the new sound of OMK —
+    emotional, cinematic, deep, and built for late nights, deep thoughts, and real dreamers.
+  </p>
 
-  <meta name="description" content="Official website of Omo Taker. Music, movement, fashion, EV World and the OMK journey from Benin City to Lagos and beyond." />
-  <meta name="keywords" content="Omo Taker, OMK, Only My Kind, Follow Follow, Benin Talk Piano, Benin To Lagos, Afrobeat, Afrobeats, Nigerian Artist" />
+  <div class="release">
+    <img class="cover"
+      src="https://raw.githubusercontent.com/omk-store/omotaker/refs/heads/main/BENIN-TALK-PIANO.png"
+      alt="Benin Talk Piano Cover Art"
+      loading="lazy">
 
-  <meta property="og:title" content="Omo Taker | OMK World" />
-  <meta property="og:description" content="Music. Movement. Fashion. Wolf Energy. Welcome to OMK World." />
-  <meta property="og:image" content="https://raw.githubusercontent.com/omk-store/omotaker/refs/heads/main/IMG_4260.jpeg" />
-  <meta property="og:type" content="website" />
+    <p class="lead">
+      A few years ago, I entered music with nothing but a dream.
+      Now Benin Talk Piano carries the journey, the pressure, and the sound of Omo Taker x Everyday Vibe.
+    </p>
 
-  <style>
-    *{margin:0;padding:0;box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      font-family:Arial, Helvetica, sans-serif;
-      background:#030303;
-      color:#fff;
-      line-height:1.6;
-      overflow-x:hidden;
-    }
-    a{text-decoration:none;color:inherit}
-    img{max-width:100%;display:block}
+    <div class="btns">
+      <a class="btn" href="https://distrokid.com/hyperfollow/omotaker/benin-talk-piano-feat-everyday-vibe-2/" target="_blank">
+        🎹 Stream Benin Talk Piano
+      </a>
 
-    :root{
-      --gold:#ffcc00;
-      --red:#9b0000;
-      --dark:#050505;
-      --soft:#d9d9d9;
-    }
-
-    .topbar{
-      position:fixed;
-      top:0;
-      left:0;
-      width:100%;
-      z-index:9999;
-      background:linear-gradient(90deg,var(--gold),#fff1a6,var(--gold));
-      color:#000;
-      text-align:center;
-      padding:10px 12px;
-      font-size:13px;
-      font-weight:900;
-      letter-spacing:.5px;
-    }
-
-    nav{
-      position:fixed;
-      top:38px;
-      left:0;
-      width:100%;
-      z-index:9998;
-      background:rgba(0,0,0,.62);
-      backdrop-filter:blur(14px);
-      border-bottom:1px solid rgba(255,204,0,.12);
-      padding:12px 18px;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-    }
-
-    .logo{
-      font-weight:900;
-      letter-spacing:1px;
-      color:var(--gold);
-    }
-
-    .navlinks{
-      display:flex;
-      gap:16px;
-      font-size:13px;
-      color:#ddd;
-      font-weight:700;
-    }
-
-    .navlinks a:hover{color:var(--gold)}
-
-    .hero{
-      min-height:100vh;
-      padding:130px 18px 70px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      text-align:center;
-      background:
-        linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.98)),
-        url("https://raw.githubusercontent.com/omk-store/omotaker/refs/heads/main/IMG_4260.jpeg") center/cover no-repeat;
-      position:relative;
-    }
-
-    .hero:after{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:
-        radial-gradient(circle at top,rgba(255,204,0,.28),transparent 35%),
-        radial-gradient(circle at right,rgba(155,0,0,.35),transparent 45%),
-        radial-gradient(circle at bottom,rgba(255,0,0,.18),transparent 40%);
-      pointer-events:none;
-    }
-
-    .hero-inner{
-      position:relative;
-      z-index:2;
-      max-width:980px;
-    }
-
-    .profile{
-      width:165px;
-      height:165px;
-      border-radius:50%;
-      object-fit:cover;
-      border:4px solid var(--gold);
-      margin:0 auto 22px;
-      box-shadow:0 0 55px rgba(255,204,0,.45);
-    }
-
-    .badge{
-      display:inline-block;
-      padding:8px 16px;
-      border-radius:999px;
-      border:1px solid rgba(255,204,0,.55);
-      background:rgba(0,0,0,.62);
-      color:var(--gold);
-      font-size:12px;
-      font-weight:900;
-      letter-spacing:1px;
-      margin-bottom:18px;
-    }
-
-    h1{
-      font-size:clamp(54px,13vw,120px);
-      line-height:.86;
-      letter-spacing:-4px;
-      margin-bottom:15px;
-    }
-
-    h2{
-      font-size:clamp(30px,6vw,58px);
-      line-height:1.05;
-      color:var(--gold);
-      margin-bottom:15px;
-    }
-
-    h3{font-size:22px;margin-bottom:10px}
-
-    p{
-      color:#d8d8d8;
-      font-size:16px;
-    }
-
-    .lead{
-      max-width:820px;
-      margin:0 auto 24px;
-      font-size:18px;
-    }
-
-    .btns{
-      display:flex;
-      justify-content:center;
-      flex-wrap:wrap;
-      gap:12px;
-      margin-top:25px;
-    }
-
-    .btn{
-      display:inline-block;
-      background:var(--gold);
-      color:#000;
-      padding:14px 24px;
-      border-radius:999px;
-      font-weight:900;
-      box-shadow:0 0 28px rgba(255,204,0,.25);
-      transition:.25s ease;
-    }
-
-    .btn:hover{transform:translateY(-3px)}
-
-    .btn.dark{
-      background:rgba(255,255,255,.08);
-      color:#fff;
-      border:1px solid rgba(255,204,0,.45);
-    }
-
-    section{
-      padding:78px 18px;
-      max-width:1120px;
-      margin:auto;
-    }
-
-    .center{text-align:center}
-
-    .grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-      gap:18px;
-      margin-top:34px;
-    }
-
-    .card{
-      background:linear-gradient(180deg,#151515,#060606);
-      border:1px solid rgba(255,255,255,.08);
-      border-radius:24px;
-      padding:25px;
-      text-align:left;
-      box-shadow:0 0 35px rgba(0,0,0,.35);
-    }
-
-    .card h3{
-      color:var(--gold);
-    }
-
-    .card p{
-      font-size:15px;
-      color:#cfcfcf;
-    }
-
-    .release{
-      background:
-        linear-gradient(rgba(0,0,0,.84),rgba(0,0,0,.98)),
-        radial-gradient(circle at top,rgba(255,204,0,.25),transparent 42%);
-      border:1px solid rgba(255,204,0,.35);
-      border-radius:32px;
-      padding:40px 22px;
-      text-align:center;
-      box-shadow:0 0 60px rgba(255,204,0,.08);
-      margin-top:30px;
-    }
-
-    .cover{
-      width:100%;
-      max-width:360px;
-      border-radius:28px;
-      margin:24px auto;
-      border:1px solid rgba(255,204,0,.35);
-      box-shadow:0 0 45px rgba(0,0,0,.65);
-    }
-
-    .embed{
-      max-width:760px;
-      margin:28px auto 0;
-      border-radius:18px;
-      overflow:hidden;
-      background:#111;
-      border:1px solid #222;
-    }
-
-    .split{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:28px;
-      align-items:center;
-    }
-
-    .image-card{
-      border-radius:30px;
-      overflow:hidden;
-      border:1px solid rgba(255,204,0,.25);
-      box-shadow:0 0 50px rgba(155,0,0,.12);
-    }
-
-    .story-box{
-      background:linear-gradient(180deg,#141414,#050505);
-      border:1px solid rgba(255,204,0,.25);
-      border-radius:30px;
-      padding:34px 24px;
-      box-shadow:0 0 45px rgba(255,204,0,.08);
-    }
-
-    .story-box p{
-      margin-bottom:18px;
-      font-size:17px;
-    }
-
-    .proof{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
-      gap:14px;
-      margin-top:30px;
-    }
-
-    .proof div{
-      background:linear-gradient(180deg,#151515,#070707);
-      border:1px solid #252525;
-      border-radius:18px;
-      padding:20px;
-      text-align:center;
-    }
-
-    .proof strong{
-      display:block;
-      color:var(--gold);
-      font-size:25px;
-      margin-bottom:4px;
-    }
-
-    .proof span{
-      color:#bbb;
-      font-size:14px;
-    }
-
-    .ev{
-      max-width:100%;
-      background:
-        linear-gradient(rgba(0,0,0,.88),rgba(0,0,0,.96)),
-        radial-gradient(circle at top,rgba(155,0,0,.35),transparent 42%);
-      border-top:1px solid rgba(255,204,0,.12);
-      border-bottom:1px solid rgba(255,204,0,.12);
-    }
-
-    .ev-inner{
-      max-width:1000px;
-      margin:auto;
-      text-align:center;
-    }
-
-    .store{
-      background:
-        linear-gradient(rgba(0,0,0,.88),rgba(0,0,0,.96)),
-        radial-gradient(circle at top,rgba(255,204,0,.18),transparent 40%);
-      border-radius:32px;
-      padding:38px 22px;
-      border:1px solid rgba(255,204,0,.28);
-      text-align:center;
-    }
-
-    .sticky{
-      position:fixed;
-      right:16px;
-      bottom:16px;
-      z-index:9999;
-      background:var(--gold);
-      color:#000;
-      padding:14px 20px;
-      border-radius:999px;
-      font-weight:900;
-      box-shadow:0 0 30px rgba(255,204,0,.4);
-    }
-
-    footer{
-      text-align:center;
-      padding:40px 18px 95px;
-      background:#000;
-      color:#aaa;
-      border-top:1px solid #151515;
-      font-size:14px;
-    }
-
-    footer strong{color:var(--gold)}
-
-    @media(max-width:760px){
-      nav{display:none}
-      .hero{padding-top:95px}
-      .profile{width:140px;height:140px}
-      h1{letter-spacing:-2px}
-      .split{grid-template-columns:1fr}
-      .btn{width:100%;text-align:center}
-      .card{text-align:center}
-      .sticky{left:14px;right:14px;text-align:center}
-    }
-  </style>
-</head>
-
-<body>
-
-  <div class="topbar">🐺 OMO TAKER • OMK WORLD • MUSIC • FASHION • EV ENERGY</div>
-
-  <nav>
-    <div class="logo">OMK WORLD</div>
-    <div class="navlinks">
-      <a href="#music">Music</a>
-      <a href="#story">Story</a>
-      <a href="#ev">EV World</a>
-      <a href="#store">Only My Kind</a>
-      <a href="#connect">Connect</a>
+      <a class="btn dark" href="https://ffm.to/benintalkpiano" target="_blank">
+        Open Smart Link
+      </a>
     </div>
-  </nav>
+  </div>
+</section>
 
-  <main>
+<section id="followfollow" class="center">
+  <div class="badge">ALSO STREAM</div>
+  <h2>Follow Follow</h2>
 
-    <section class="hero">
-      <div class="hero-inner">
-        <img class="profile" src="https://raw.githubusercontent.com/omk-store/omotaker/refs/heads/main/IMG_4260.jpeg" alt="Omo Taker" loading="eager">
+  <p class="lead">
+    Everybody don follow wrong person before. Follow Follow carries street rhythm,
+    confidence, pain, growth, and the energy to keep moving.
+  </p>
 
-        <div class="badge">OMK RECORD • BENIN TALK • WOLF ENERGY</div>
+  <div class="release">
+    <img class="cover"
+      src="https://raw.githubusercontent.com/omk-store/omotaker/refs/heads/main/9C635876-12E8-416C-9320-6F62D0C831D8.png"
+      alt="Follow Follow Cover Art"
+      loading="lazy">
 
-        <h1>OMO TAKER</h1>
-        <h2>From Benin To Lagos. To The World.</h2>
+    <div class="embed">
+      <iframe
+        style="border-radius:12px"
+        src="https://open.spotify.com/embed/track/7L4J10wzvkcuTB1zhguCMr?utm_source=generator"
+        width="100%"
+        height="152"
+        frameborder="0"
+        allowfullscreen
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        loading="lazy">
+      </iframe>
+    </div>
 
-        <p class="lead">
-          Music. Movement. Fashion. Wolf Energy. Welcome to the official OMK World —
-          built by pressure, powered by vision, and carried by the people.
-        </p>
+    <div class="btns">
+      <a class="btn" href="https://open.spotify.com/track/7L4J10wzvkcuTB1zhguCMr" target="_blank">
+        Play Follow Follow
+      </a>
+    </div>
+  </div>
+</section>
 
-        <div class="btns">
-          <a class="btn" href="#music">🎵 Enter The Music</a>
-          <a class="btn dark" href="#story">🐺 Read My Story</a>
-          <a class="btn dark" href="#connect">📲 Join The Movement</a>
-        </div>
-      </div>
-    </section>
+<section class="center">
+  <div class="badge">BENIN TO LAGOS ERA</div>
+  <h2>Stream The Journey</h2>
 
-    <section id="music" class="center">
-      <div class="badge">LATEST RELEASE</div>
-      <h2>Follow Follow</h2>
-      <p class="lead">
-        Everybody don follow wrong person before. This is street rhythm, confidence,
-        pain, growth, and the energy to keep moving.
-      </p>
+  <p class="lead">
+    Every chapter tells part of the story. Tap any song below to stream.
+  </p>
 
-      <div class="release">
-        <img class="cover" src="https://raw.githubusercontent.com/omk-store/omotaker/refs/heads/main/9C635876-12E8-416C-9320-6F62D0C831D8.png" alt="Follow Follow Cover Art" loading="lazy">
+  <div class="grid">
+    <a class="card" href="https://distrokid.com/hyperfollow/omotaker/benin-talk-piano-feat-everyday-vibe-2/" target="_blank">
+      <h3>Benin Talk Piano</h3>
+      <p>The main sound now. Emotional piano, deep thoughts, and OMK energy.</p>
+    </a>
 
-        <div class="embed">
-          <iframe
-            style="border-radius:12px"
-            src="https://open.spotify.com/embed/track/7L4J10wzvkcuTB1zhguCMr?utm_source=generator"
-            width="100%"
-            height="152"
-            frameborder="0"
-            allowfullscreen
-            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-            loading="lazy">
-          </iframe>
-        </div>
+    <a class="card" href="https://open.spotify.com/track/7L4J10wzvkcuTB1zhguCMr" target="_blank">
+      <h3>Follow Follow</h3>
+      <p>A record about wrong paths, lessons, street energy, and moving forward.</p>
+    </a>
 
-        <div class="btns">
-          <a class="btn" href="https://open.spotify.com/track/7L4J10wzvkcuTB1zhguCMr" target="_blank">Open On Spotify</a>
-          <a class="btn dark" href="https://www.tiktok.com/@iam.omotaker" target="_blank">Watch On TikTok</a>
-        </div>
-      </div>
-    </section>
+    <a class="card" href="https://open.spotify.com/track/0SooNM8i9p1UiE7HTTp5C4" target="_blank">
+      <h3>Benin To Lagos</h3>
+      <p>The journey record. Roots, pressure, movement, and ambition.</p>
+    </a>
 
-    <section class="center">
-      <div class="badge">OMK CATALOG</div>
-      <h2>The Sound So Far</h2>
+    <a class="card" href="https://open.spotify.com/track/591YkWluaQeC3tGMWhSFWu" target="_blank">
+      <h3>Bend Down Select</h3>
+      <p>The breakthrough sound that proved the movement could travel.</p>
+    </a>
 
-      <div class="grid">
-        <div class="card">
-          <h3>Follow Follow</h3>
-          <p>The latest chapter. A record about wrong paths, lessons, street energy, and moving forward.</p>
-        </div>
+    <a class="card" href="https://music.apple.com/ng/album/badt-guy/1758752613?i=1758752614" target="_blank">
+      <h3>Badt Guy</h3>
+      <p>The confidence era that helped push the Omo Taker identity forward.</p>
+    </a>
 
-        <div class="card">
-          <h3>Benin Talk Piano</h3>
-          <p>The piano side of OMK. Emotional, deep, simple, and built for feeling.</p>
-        </div>
-
-        <div class="card">
-          <h3>Benin To Lagos</h3>
-          <p>The journey record. Roots, movement, ambition, and the dream of a bigger life.</p>
-        </div>
-
-        <div class="card">
-          <h3>Bend Down Select</h3>
-          <p>The breakthrough sound that proved the movement could travel.</p>
-        </div>
-
-        <div class="card">
-          <h3>Badt Guy</h3>
-          <p>The confidence era that helped push the Omo Taker identity forward.</p>
-        </div>
-
-        <div class="card">
-          <h3>If Earth Could Talk</h3>
-          <p>A deeper sound. Emotion, reflection, and the question of what the earth would say.</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="story">
-      <div class="split">
-        <div>
-          <div class="badge">THE REAL STORY</div>
-          <h2>Built By Pressure</h2>
-          <p class="lead">
-            Before the followers, before the streams, before the movement,
-            there was just a dream and the courage to keep going.
-          </p>
-        </div>
-
-        <div class="story-box">
-          <p>A few years ago, I entered music with nothing but a dream.</p>
-          <p>No major label. No big machine. Just belief, hunger, and pressure.</p>
-          <p>I come from Benin City, Nigeria. Every step into music came with lessons, sacrifice, and the need to prove that my sound could travel beyond where I started.</p>
-          <p><strong>Badt Guy</strong> reached Apple Music Nigeria Top 200. <strong>Bend Down Select</strong> found its audience. <strong>Benin To Lagos</strong> carried my journey. Now <strong>Follow Follow</strong> is the next chapter.</p>
-          <p>This is more than music. This is OMK. Only My Kind. 🐺</p>
-        </div>
-      </div>
-
-      <div class="proof">
-        <div><strong>127K+</strong><span>TikTok Followers</span></div>
-        <div><strong>2.4M+</strong><span>TikTok Likes</span></div>
-        <div><strong>Top 200</strong><span>Apple Music Nigeria</span></div>
-        <div><strong>OMK</strong><span>Independent Movement</span></div>
-      </div>
-    </section>
-
-    <section id="ev" class="ev">
-      <div class="ev-inner">
-        <div class="badge">EV WORLD</div>
-        <h2>Everyday Vibe Universe</h2>
-        <p class="lead">
-          EV is the visual world of Omo Taker — wolf energy, cinematic stories,
-          African street culture, AI visuals, dance, fashion, and music promotion.
-        </p>
-
-        <div class="grid">
-          <div class="card">
-            <h3>EV Wolf</h3>
-            <p>The cinematic wolf character representing pressure, survival, vision, and power.</p>
-          </div>
-
-          <div class="card">
-            <h3>EV Destiny</h3>
-            <p>The playful character bringing humor, dance, village energy, and viral storytelling.</p>
-          </div>
-
-          <div class="card">
-            <h3>Benin Talk Piano</h3>
-            <p>A visual and emotional piano world connected to African movement and deep feeling.</p>
-          </div>
-        </div>
-
-        <div class="btns">
-          <a class="btn" href="https://www.tiktok.com/@iam.omotaker" target="_blank">Watch EV Content</a>
-        </div>
-      </div>
-    </section>
-
-    <section id="store" class="center">
-      <div class="store">
-        <div class="badge">ONLY MY KIND</div>
-        <h2>OMK Fashion</h2>
-        <p class="lead">
-          Only My Kind is the fashion side of the movement.
-          Built for the ones who don't follow everybody — they create their own path.
-        </p>
-
-        <div class="grid">
-          <div class="card">
-            <h3>OMK Hoodies</h3>
-            <p>Streetwear for the wolf energy era. Clean, bold, dark, and personal.</p>
-          </div>
-
-          <div class="card">
-            <h3>Only My Kind Tees</h3>
-            <p>Simple front. Strong message. Made for the ones who know themselves.</p>
-          </div>
-
-          <div class="card">
-            <h3>Future Drops</h3>
-            <p>Limited pieces, music-inspired releases, and OMK lifestyle designs coming soon.</p>
-          </div>
-        </div>
-
-        <div class="btns">
-          <a class="btn dark" href="#connect">Join For Drops</a>
-        </div>
-      </div>
-    </section>
-
-    <section id="connect" class="center">
-      <div class="badge">JOIN THE MOVEMENT</div>
-      <h2>Stay Connected</h2>
-      <p class="lead">
-        Follow the journey, stream the music, watch the videos, and join the OMK community.
-      </p>
-
-      <div class="btns">
-        <a class="btn" href="https://open.spotify.com/artist/6CWfr8X54oFUSpKVsbAh1t" target="_blank">Spotify</a>
-        <a class="btn dark" href="https://www.instagram.com/iam__omotaker" target="_blank">Instagram</a>
-        <a class="btn dark" href="https://www.tiktok.com/@iam.omotaker" target="_blank">TikTok</a>
-        <a class="btn dark" href="https://www.youtube.com/" target="_blank">YouTube</a>
-      </div>
-    </section>
-
-  </main>
-
-  <a class="sticky" href="https://open.spotify.com/track/7L4J10wzvkcuTB1zhguCMr" target="_blank">
-    🎵 Play Follow Follow
-  </a>
-
-  <footer>
-    <strong>© 2026 Omo Taker / OMK Record</strong><br>
-    Benin City → Lagos → World<br>
-    Music • Fashion • Lifestyle • EV World • Wolf Community 🐺
-  </footer>
-
-</body>
-</html>
+    <a class="card" href="https://open.spotify.com/track/7mifEtIK9OPGWD9EyOOLnq" target="_blank">
+      <h3>If Earth Could Talk</h3>
+      <p>A deeper sound. Emotion, reflection, and the voice of the earth.</p>
+    </a>
+  </div>
+</section>
