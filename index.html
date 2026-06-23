@@ -6,11 +6,11 @@
 
   <title>Benin Talk Piano | Omo Taker</title>
 
-  <meta name="description" content="Stream Benin Talk Piano by Omo Taker x Everyday Vibe. No words, just feeling. Tap listen now and feel the mood." />
-  <meta name="keywords" content="Benin Talk Piano, Omo Taker, Everyday Vibe, OMK, Nigerian Music, Afro Piano, Benin Talk" />
+  <meta name="description" content="Stream Benin Talk Piano by Omo Taker. No words, just feelings. Listen on Spotify, Apple Music and all platforms." />
+  <meta name="keywords" content="Benin Talk Piano, Omo Taker, OMK, Benin Talk, Nigerian Music, Afro Piano, Spotify, Apple Music" />
 
   <meta property="og:title" content="Benin Talk Piano - Omo Taker" />
-  <meta property="og:description" content="No words. Just feeling. Stream Benin Talk Piano now." />
+  <meta property="og:description" content="No words. Just feelings. Stream Benin Talk Piano now." />
   <meta property="og:image" content="https://raw.githubusercontent.com/omk-store/omotaker/refs/heads/main/IMG_4260.jpeg" />
   <meta property="og:type" content="website" />
 
@@ -26,81 +26,157 @@
     }
     a{text-decoration:none;color:inherit}
     img{max-width:100%;display:block}
-    :root{--gold:#ffcc00;--red:#8b0000}
+
+    :root{
+      --gold:#ffcc00;
+      --dark:#050505;
+      --soft:#d8d8d8;
+    }
 
     .topbar{
-      position:fixed;top:0;left:0;width:100%;z-index:9999;
-      background:linear-gradient(90deg,#ffcc00,#fff2a8,#ffcc00);
-      color:#000;text-align:center;padding:10px 12px;
-      font-size:13px;font-weight:900;letter-spacing:.5px;
+      position:fixed;
+      top:0;
+      left:0;
+      width:100%;
+      z-index:9999;
+      background:linear-gradient(90deg,#ffcc00,#fff1a6,#ffcc00);
+      color:#000;
+      text-align:center;
+      padding:10px 12px;
+      font-size:13px;
+      font-weight:900;
+      letter-spacing:.5px;
     }
 
     nav{
-      position:fixed;top:38px;left:0;width:100%;z-index:9998;
-      background:rgba(0,0,0,.7);backdrop-filter:blur(14px);
+      position:fixed;
+      top:38px;
+      left:0;
+      width:100%;
+      z-index:9998;
+      background:rgba(0,0,0,.72);
+      backdrop-filter:blur(14px);
       border-bottom:1px solid rgba(255,204,0,.14);
-      padding:12px 18px;display:flex;justify-content:space-between;align-items:center;
+      padding:12px 18px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
     }
 
-    .logo{color:var(--gold);font-weight:900;letter-spacing:1px}
-    .navlinks{display:flex;gap:15px;font-size:13px;font-weight:700;color:#ddd}
+    .logo{
+      color:var(--gold);
+      font-weight:900;
+      letter-spacing:1px;
+    }
+
+    .navlinks{
+      display:flex;
+      gap:16px;
+      font-size:13px;
+      font-weight:700;
+      color:#ddd;
+    }
+
     .navlinks a:hover{color:var(--gold)}
 
     .hero{
-      min-height:100vh;padding:135px 18px 70px;
-      display:flex;align-items:center;justify-content:center;text-align:center;
+      min-height:100vh;
+      padding:135px 18px 70px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
       background:
-        linear-gradient(rgba(0,0,0,.42),rgba(0,0,0,.98)),
+        linear-gradient(rgba(0,0,0,.48),rgba(0,0,0,.98)),
         url("https://raw.githubusercontent.com/omk-store/omotaker/refs/heads/main/IMG_4260.jpeg") center/cover no-repeat;
       position:relative;
     }
 
     .hero:after{
-      content:"";position:absolute;inset:0;
+      content:"";
+      position:absolute;
+      inset:0;
       background:
-        radial-gradient(circle at top,rgba(255,204,0,.28),transparent 35%),
-        radial-gradient(circle at right,rgba(139,0,0,.45),transparent 45%),
-        radial-gradient(circle at bottom,rgba(255,255,255,.08),transparent 35%);
+        radial-gradient(circle at top,rgba(255,204,0,.28),transparent 36%),
+        radial-gradient(circle at bottom,rgba(255,255,255,.08),transparent 38%);
       pointer-events:none;
     }
 
-    .hero-inner{position:relative;z-index:2;max-width:980px}
+    .hero-inner{
+      position:relative;
+      z-index:2;
+      max-width:920px;
+    }
 
     .profile{
-      width:160px;height:160px;border-radius:50%;object-fit:cover;
-      border:4px solid var(--gold);margin:0 auto 22px;
-      box-shadow:0 0 55px rgba(255,204,0,.45);
+      width:155px;
+      height:155px;
+      border-radius:50%;
+      object-fit:cover;
+      border:4px solid var(--gold);
+      margin:0 auto 22px;
+      box-shadow:0 0 55px rgba(255,204,0,.4);
     }
 
     .badge{
-      display:inline-block;padding:8px 16px;border-radius:999px;
+      display:inline-block;
+      padding:8px 16px;
+      border-radius:999px;
       border:1px solid rgba(255,204,0,.55);
-      background:rgba(0,0,0,.65);color:var(--gold);
-      font-size:12px;font-weight:900;letter-spacing:1px;margin-bottom:18px;
+      background:rgba(0,0,0,.65);
+      color:var(--gold);
+      font-size:12px;
+      font-weight:900;
+      letter-spacing:1px;
+      margin-bottom:18px;
     }
 
     h1{
       font-size:clamp(48px,12vw,110px);
-      line-height:.86;letter-spacing:-4px;margin-bottom:15px;
+      line-height:.86;
+      letter-spacing:-4px;
+      margin-bottom:15px;
     }
 
     h2{
-      font-size:clamp(30px,6vw,58px);
-      line-height:1.05;color:var(--gold);margin-bottom:15px;
+      font-size:clamp(30px,6vw,56px);
+      line-height:1.05;
+      color:var(--gold);
+      margin-bottom:15px;
     }
 
-    h3{font-size:22px;margin-bottom:10px;color:var(--gold)}
-    p{color:#d8d8d8;font-size:16px}
-    .lead{max-width:820px;margin:0 auto 24px;font-size:18px}
+    h3{
+      font-size:22px;
+      margin-bottom:10px;
+      color:var(--gold);
+    }
+
+    p{
+      color:var(--soft);
+      font-size:16px;
+    }
+
+    .lead{
+      max-width:760px;
+      margin:0 auto 24px;
+      font-size:18px;
+    }
 
     .btns{
-      display:flex;justify-content:center;flex-wrap:wrap;
-      gap:12px;margin-top:25px;
+      display:flex;
+      justify-content:center;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-top:25px;
     }
 
     .btn{
-      display:inline-block;background:var(--gold);color:#000;
-      padding:14px 24px;border-radius:999px;font-weight:900;
+      display:inline-block;
+      background:var(--gold);
+      color:#000;
+      padding:14px 24px;
+      border-radius:999px;
+      font-weight:900;
       box-shadow:0 0 28px rgba(255,204,0,.25);
       transition:.25s ease;
     }
@@ -109,99 +185,115 @@
 
     .btn.dark{
       background:rgba(255,255,255,.08);
-      color:#fff;border:1px solid rgba(255,204,0,.45);
+      color:#fff;
+      border:1px solid rgba(255,204,0,.45);
     }
 
-    section{padding:78px 18px;max-width:1120px;margin:auto}
+    section{
+      padding:78px 18px;
+      max-width:1080px;
+      margin:auto;
+    }
+
     .center{text-align:center}
 
     .release{
       background:
-        linear-gradient(rgba(0,0,0,.85),rgba(0,0,0,.98)),
-        radial-gradient(circle at top,rgba(255,204,0,.25),transparent 42%),
-        radial-gradient(circle at bottom,rgba(139,0,0,.25),transparent 42%);
+        linear-gradient(rgba(0,0,0,.86),rgba(0,0,0,.98)),
+        radial-gradient(circle at top,rgba(255,204,0,.22),transparent 42%);
       border:1px solid rgba(255,204,0,.35);
-      border-radius:34px;padding:42px 22px;text-align:center;
-      box-shadow:0 0 65px rgba(255,204,0,.1);margin-top:30px;
+      border-radius:34px;
+      padding:42px 22px;
+      text-align:center;
+      box-shadow:0 0 65px rgba(255,204,0,.08);
+      margin-top:30px;
     }
 
     .cover{
-      width:100%;max-width:370px;border-radius:28px;margin:24px auto;
+      width:100%;
+      max-width:370px;
+      border-radius:28px;
+      margin:24px auto;
       border:1px solid rgba(255,204,0,.35);
       box-shadow:0 0 50px rgba(0,0,0,.65);
     }
 
     .embed{
-      max-width:760px;margin:28px auto 0;border-radius:18px;overflow:hidden;
-      background:#111;border:1px solid #222;
+      max-width:760px;
+      margin:28px auto 0;
+      border-radius:18px;
+      overflow:hidden;
+      background:#111;
+      border:1px solid #222;
     }
-
-    .grid{
-      display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-      gap:18px;margin-top:34px;
-    }
-
-    .card{
-      background:linear-gradient(180deg,#151515,#060606);
-      border:1px solid rgba(255,255,255,.08);
-      border-radius:24px;padding:25px;text-align:left;
-      box-shadow:0 0 35px rgba(0,0,0,.35);
-    }
-
-    .card p{font-size:15px;color:#cfcfcf}
 
     .split{
-      display:grid;grid-template-columns:1fr 1fr;
-      gap:28px;align-items:center;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:28px;
+      align-items:center;
     }
 
     .story-box{
       background:linear-gradient(180deg,#141414,#050505);
       border:1px solid rgba(255,204,0,.25);
-      border-radius:30px;padding:34px 24px;
+      border-radius:30px;
+      padding:34px 24px;
       box-shadow:0 0 45px rgba(255,204,0,.08);
     }
 
-    .story-box p{margin-bottom:18px;font-size:17px}
+    .story-box p{
+      margin-bottom:18px;
+      font-size:17px;
+    }
 
     .proof{
-      display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
-      gap:14px;margin-top:30px;
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+      gap:14px;
+      margin-top:30px;
     }
 
     .proof div{
       background:linear-gradient(180deg,#151515,#070707);
-      border:1px solid #252525;border-radius:18px;
-      padding:20px;text-align:center;
+      border:1px solid #252525;
+      border-radius:18px;
+      padding:20px;
+      text-align:center;
     }
 
     .proof strong{
-      display:block;color:var(--gold);font-size:25px;margin-bottom:4px;
+      display:block;
+      color:var(--gold);
+      font-size:25px;
+      margin-bottom:4px;
     }
 
-    .proof span{color:#bbb;font-size:14px}
-
-    .ev{
-      max-width:100%;
-      background:
-        linear-gradient(rgba(0,0,0,.88),rgba(0,0,0,.96)),
-        radial-gradient(circle at top,rgba(139,0,0,.35),transparent 42%);
-      border-top:1px solid rgba(255,204,0,.12);
-      border-bottom:1px solid rgba(255,204,0,.12);
+    .proof span{
+      color:#bbb;
+      font-size:14px;
     }
-
-    .ev-inner{max-width:1000px;margin:auto;text-align:center}
 
     .sticky{
-      position:fixed;right:16px;bottom:16px;z-index:9999;
-      background:var(--gold);color:#000;padding:14px 20px;
-      border-radius:999px;font-weight:900;
+      position:fixed;
+      right:16px;
+      bottom:16px;
+      z-index:9999;
+      background:var(--gold);
+      color:#000;
+      padding:14px 20px;
+      border-radius:999px;
+      font-weight:900;
       box-shadow:0 0 30px rgba(255,204,0,.4);
     }
 
     footer{
-      text-align:center;padding:40px 18px 95px;background:#000;
-      color:#aaa;border-top:1px solid #151515;font-size:14px;
+      text-align:center;
+      padding:40px 18px 95px;
+      background:#000;
+      color:#aaa;
+      border-top:1px solid #151515;
+      font-size:14px;
     }
 
     footer strong{color:var(--gold)}
@@ -213,7 +305,6 @@
       h1{letter-spacing:-2px}
       .split{grid-template-columns:1fr}
       .btn{width:100%;text-align:center}
-      .card{text-align:center}
       .sticky{left:14px;right:14px;text-align:center}
     }
   </style>
@@ -221,13 +312,12 @@
 
 <body>
 
-  <div class="topbar">🎹 BENIN TALK PIANO OUT NOW • TAP LISTEN NOW 🎹</div>
+  <div class="topbar">🎹 BENIN TALK PIANO OUT NOW • LISTEN NOW 🎹</div>
 
   <nav>
     <div class="logo">BENIN TALK PIANO</div>
     <div class="navlinks">
       <a href="#listen">Listen</a>
-      <a href="#use">Use Sound</a>
       <a href="#story">Story</a>
       <a href="#connect">Connect</a>
     </div>
@@ -240,32 +330,32 @@
 
         <img class="profile" src="https://raw.githubusercontent.com/omk-store/omotaker/refs/heads/main/IMG_4260.jpeg" alt="Omo Taker" loading="eager">
 
-        <div class="badge">OMO TAKER x EVERYDAY VIBE</div>
+        <div class="badge">OMO TAKER</div>
 
         <h1>BENIN TALK PIANO</h1>
         <h2>No Words. Just Feelings.</h2>
 
         <p class="lead">
-          The piano mood from Benin to the world. Tap listen now, feel the sound,
-          and use Benin Talk Piano for your videos.
+          An emotional piano journey inspired by Benin City, late-night thoughts,
+          dreams, pressure, growth, and peace.
         </p>
 
         <div class="btns">
-          <a class="btn" href="https://ffm.to/benin-talk-piano" target="_blank">🎹 Listen Now</a>
-          <a class="btn dark" href="https://distrokid.com/hyperfollow/omotaker/benin-talk-piano-feat-everyday-vibe-2" target="_blank">Open DistroKid</a>
-          <a class="btn dark" href="#story">🐺 My Story</a>
+          <a class="btn" href="https://open.spotify.com/artist/6CWfr8X54oFUSpKVsbAh1t" target="_blank">🎧 Spotify</a>
+          <a class="btn dark" href="https://music.apple.com/ng/artist/omo-taker/1758752613" target="_blank">🍎 Apple Music</a>
+          <a class="btn dark" href="https://ffm.to/benin-talk-piano" target="_blank">🌍 More Platforms</a>
         </div>
 
       </div>
     </section>
 
     <section id="listen" class="center">
-      <div class="badge">MAIN FOCUS</div>
-      <h2>Stream Benin Talk Piano</h2>
+      <div class="badge">LISTEN NOW</div>
+      <h2>Benin Talk Piano</h2>
 
       <p class="lead">
-        No long talk. This page is built for one thing:
-        make people hear the piano and connect with the mood.
+        No words. Just feelings. Press play, feel the mood,
+        and let the piano speak.
       </p>
 
       <div class="release">
@@ -289,50 +379,18 @@
         </div>
 
         <div class="btns">
-          <a class="btn" href="https://ffm.to/benin-talk-piano" target="_blank">🎧 Stream Everywhere</a>
-          <a class="btn dark" href="https://ffm.to/benintalkpiano" target="_blank">Alternative Link</a>
-          <a class="btn dark" href="https://open.spotify.com/artist/6CWfr8X54oFUSpKVsbAh1t" target="_blank">Follow On Spotify</a>
+          <a class="btn" href="https://open.spotify.com/artist/6CWfr8X54oFUSpKVsbAh1t" target="_blank">🎧 Listen On Spotify</a>
+          <a class="btn dark" href="https://music.apple.com/ng/artist/omo-taker/1758752613" target="_blank">🍎 Listen On Apple Music</a>
+          <a class="btn dark" href="https://ffm.to/benin-talk-piano" target="_blank">🌍 Future FM / More</a>
         </div>
 
-      </div>
-    </section>
-
-    <section id="use" class="center">
-      <div class="badge">MAKE IT A SOUND</div>
-      <h2>Use Benin Talk Piano</h2>
-
-      <p class="lead">
-        This song is for mood videos, silent pain, late nights, soft flex,
-        deep thoughts, dance, memories, and cinematic EV visuals.
-      </p>
-
-      <div class="grid">
-        <div class="card">
-          <h3>🎹 Mood Videos</h3>
-          <p>Use it for videos that feel emotional, calm, deep, lonely, peaceful, or cinematic.</p>
-        </div>
-
-        <div class="card">
-          <h3>🔥 Viral POV</h3>
-          <p>Post short clips with simple text like: “POV: nobody understands the plan yet.”</p>
-        </div>
-
-        <div class="card">
-          <h3>🐺 EV Energy</h3>
-          <p>Perfect for EV Wolf, Benin visuals, night scenes, dance clips, and story videos.</p>
-        </div>
-      </div>
-
-      <div class="btns">
-        <a class="btn" href="https://www.tiktok.com/@iam.omotaker" target="_blank">Use Sound On TikTok</a>
-        <a class="btn dark" href="https://www.instagram.com/iam__omotaker" target="_blank">Watch On Instagram</a>
       </div>
     </section>
 
     <section id="story">
       <div class="split">
         <div>
-          <div class="badge">THE REAL STORY</div>
+          <div class="badge">MY STORY</div>
           <h2>Built By Pressure</h2>
           <p class="lead">
             Before the followers, before the streams, before the movement,
@@ -352,51 +410,22 @@
       <div class="proof">
         <div><strong>136K+</strong><span>TikTok Followers</span></div>
         <div><strong>2.5M+</strong><span>TikTok Likes</span></div>
-        <div><strong>11K+</strong><span>EV TikTok Followers</span></div>
-        <div><strong>OMK</strong><span>Independent Movement</span></div>
-      </div>
-    </section>
-
-    <section class="ev">
-      <div class="ev-inner">
-        <div class="badge">EV WORLD</div>
-        <h2>Everyday Vibe Push</h2>
-
-        <p class="lead">
-          Benin Talk Piano is being pushed through Omo Taker, EV, and VibeCheck —
-          music, visuals, mood, and movement working together.
-        </p>
-
-        <div class="grid">
-          <div class="card">
-            <h3>Omo Taker</h3>
-            <p>The main artist page. Story, identity, music, and direct connection with fans.</p>
-          </div>
-
-          <div class="card">
-            <h3>Everyday Vibe</h3>
-            <p>The EV world for cinematic visuals, wolf energy, AI stories, and sound promotion.</p>
-          </div>
-
-          <div class="card">
-            <h3>VibeCheck</h3>
-            <p>The viral discovery page for reposts, trends, moods, and attention.</p>
-          </div>
-        </div>
+        <div><strong>Top 200</strong><span>Apple Music Nigeria</span></div>
+        <div><strong>Independent</strong><span>Artist Movement</span></div>
       </div>
     </section>
 
     <section id="connect" class="center">
-      <div class="badge">JOIN THE MOVEMENT</div>
-      <h2>Stream. Share. Follow.</h2>
+      <div class="badge">CONNECT</div>
+      <h2>Follow Omo Taker</h2>
 
       <p class="lead">
-        Support Benin Talk Piano, use the sound, and follow the OMK journey.
+        Stream Benin Talk Piano, follow the journey, and stay connected.
       </p>
 
       <div class="btns">
-        <a class="btn" href="https://ffm.to/benin-talk-piano" target="_blank">🎹 Listen Now</a>
-        <a class="btn dark" href="https://open.spotify.com/artist/6CWfr8X54oFUSpKVsbAh1t" target="_blank">Spotify</a>
+        <a class="btn" href="https://open.spotify.com/artist/6CWfr8X54oFUSpKVsbAh1t" target="_blank">Spotify</a>
+        <a class="btn dark" href="https://music.apple.com/ng/artist/omo-taker/1758752613" target="_blank">Apple Music</a>
         <a class="btn dark" href="https://www.instagram.com/iam__omotaker" target="_blank">Instagram</a>
         <a class="btn dark" href="https://www.tiktok.com/@iam.omotaker" target="_blank">TikTok</a>
       </div>
@@ -411,7 +440,7 @@
   <footer>
     <strong>© 2026 Omo Taker / OMK Record</strong><br>
     Benin City → Lagos → World<br>
-    Benin Talk Piano • Everyday Vibe • OMK • Wolf Community 🐺
+    Benin Talk Piano • No Words, Just Feelings 🎹
   </footer>
 
 </body>
