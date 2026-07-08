@@ -1,220 +1,269 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Follow Follow | OmoTeka Link</title>
 
 <style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-body{
-background:
-radial-gradient(circle at top left,#ff0048 0%,transparent 35%),
-radial-gradient(circle at bottom right,#0048ff 0%,transparent 35%),
-#050505;
-min-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-padding:25px;
-color:#fff;
+body {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top, rgba(255, 90, 0, 0.35), transparent 35%),
+    radial-gradient(circle at bottom, rgba(255, 90, 0, 0.22), transparent 35%),
+    #030303;
+  color: #fff;
+  padding: 18px;
 }
 
-.card{
-width:100%;
-max-width:430px;
-background:rgba(255,255,255,.08);
-backdrop-filter:blur(30px);
-border:1px solid rgba(255,255,255,.12);
-border-radius:35px;
-padding:22px;
-box-shadow:0 20px 60px rgba(0,0,0,.45);
+.page {
+  max-width: 520px;
+  margin: auto;
+  text-align: center;
 }
 
-.badge{
-display:inline-block;
-padding:8px 18px;
-border-radius:50px;
-background:rgba(255,255,255,.08);
-color:#ffc857;
-font-size:12px;
-letter-spacing:2px;
-margin-bottom:18px;
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #ff7a00;
+  font-weight: 800;
+  font-size: 13px;
+  letter-spacing: 1px;
+  margin-bottom: 22px;
 }
 
-.cover{
-width:100%;
-border-radius:28px;
-display:block;
-box-shadow:0 15px 40px rgba(0,0,0,.45);
+.domain {
+  color: #ddd;
+  font-size: 16px;
+  font-weight: 500;
 }
 
-.visualizer{
-display:flex;
-justify-content:center;
-gap:5px;
-margin:22px 0;
+.cover {
+  width: 100%;
+  border-radius: 28px;
+  box-shadow: 0 0 45px rgba(255, 102, 0, 0.45);
+  border: 1px solid rgba(255, 102, 0, 0.5);
 }
 
-.visualizer span{
-width:6px;
-background:#ffc857;
-border-radius:20px;
-animation:wave 1s infinite ease-in-out;
+.badge {
+  display: inline-block;
+  margin: 24px 0 14px;
+  padding: 8px 18px;
+  border-radius: 30px;
+  background: rgba(255, 102, 0, 0.15);
+  color: #ff7a00;
+  font-size: 12px;
+  letter-spacing: 4px;
 }
 
-.visualizer span:nth-child(1){height:18px;}
-.visualizer span:nth-child(2){height:34px;animation-delay:.15s;}
-.visualizer span:nth-child(3){height:48px;animation-delay:.3s;}
-.visualizer span:nth-child(4){height:28px;animation-delay:.45s;}
-
-@keyframes wave{
-50%{transform:scaleY(.55);}
+h1 {
+  font-size: 46px;
+  margin-bottom: 8px;
 }
 
-h1{
-font-size:58px;
-font-weight:800;
-text-align:center;
-margin-bottom:8px;
+.artist {
+  font-size: 24px;
+  color: #ff7a00;
+  margin-bottom: 14px;
 }
 
-.artist{
-text-align:center;
-font-size:20px;
-color:#d6d6d6;
-margin-bottom:28px;
+.visualizer {
+  color: #ff7a00;
+  font-size: 34px;
+  letter-spacing: 4px;
+  margin-bottom: 26px;
 }
 
-.title{
-text-align:center;
-font-size:14px;
-letter-spacing:3px;
-color:#ffc857;
-margin-bottom:18px;
+.choose {
+  color: #ff7a00;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 7px;
+  margin-bottom: 20px;
 }
 
-.button{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:18px 22px;
-margin-bottom:15px;
-border-radius:22px;
-text-decoration:none;
-color:#fff;
-font-size:18px;
-font-weight:700;
-background:rgba(255,255,255,.10);
-border:1px solid rgba(255,255,255,.12);
-transition:.25s;
+.links {
+  display: grid;
+  gap: 14px;
 }
 
-.button:hover{
-transform:translateY(-3px);
-background:#fff;
-color:#111;
+.btn {
+  text-decoration: none;
+  color: white;
+  padding: 17px;
+  border-radius: 18px;
+  background: rgba(255,255,255,0.07);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid rgba(255,255,255,0.15);
+  box-shadow: 0 0 25px rgba(255, 102, 0, 0.08);
 }
 
-.button small{
-font-size:15px;
-opacity:.8;
+.left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-align: left;
 }
 
-.apple{
-box-shadow:inset 6px 0 #ff2d55;
+.icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  font-size: 24px;
+  font-weight: 900;
 }
 
-.spotify{
-box-shadow:inset 6px 0 #1ed760;
+.apple .icon { background: #fa2d48; }
+.spotify .icon { background: #1db954; }
+.boomplay .icon { background: #ffd400; color: #000; }
+.audiomack .icon { background: #ff8800; }
+
+.platform {
+  font-size: 18px;
+  font-weight: 800;
 }
 
-.boomplay{
-box-shadow:inset 6px 0 #ffd400;
+.small {
+  font-size: 13px;
+  color: #bdbdbd;
+  margin-top: 3px;
 }
 
-.audiomack{
-box-shadow:inset 6px 0 #ff9f00;
+.action {
+  font-weight: 900;
 }
 
-.footer{
-text-align:center;
-margin-top:22px;
-font-size:12px;
-color:#999;
+.apple { border-color: #fa2d48; }
+.spotify { border-color: #1db954; }
+.boomplay { border-color: #ffd400; }
+.audiomack { border-color: #ff8800; }
+
+.apple .action { color: #fa2d48; }
+.spotify .action { color: #1db954; }
+.boomplay .action { color: #ffd400; }
+.audiomack .action { color: #ff8800; }
+
+.features {
+  margin-top: 24px;
+  padding: 18px;
+  border-radius: 18px;
+  background: rgba(255,255,255,0.06);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  font-size: 12px;
+  color: #ccc;
+}
+
+.features strong {
+  display: block;
+  color: #fff;
+  margin-bottom: 5px;
+}
+
+.footer {
+  margin: 28px 0 10px;
+  color: #999;
+  font-size: 12px;
+  letter-spacing: 2px;
 }
 </style>
-
 </head>
 
 <body>
+  <main class="page">
 
-<div class="card">
+    <div class="top">
+      <div>OMOTEKA<br>LINK</div>
+      <div class="domain">omotaker.com</div>
+      <div>FUTURE<br>STREAM</div>
+    </div>
 
-<div class="badge">
-OMOTEKA LINK • FUTURE STREAM
-</div>
+    <img
+      class="cover"
+      src="https://raw.githubusercontent.com/omk-store/omotaker/refs/heads/main/F2D3D9CF-71CA-484E-8008-B1CA9314FADD.png"
+      alt="Follow Follow Cover"
+    />
 
-<img class="cover"
-src="https://raw.githubusercontent.com/omk-store/omotaker/refs/heads/main/F2D3D9CF-71CA-484E-8008-B1CA9314FADD.png">
+    <div class="badge">NOW STREAMING</div>
 
-<div class="visualizer">
-<span></span>
-<span></span>
-<span></span>
-<span></span>
-</div>
+    <h1>Follow Follow</h1>
+    <div class="artist">Omo Taker ✓</div>
 
-<h1>Follow Follow</h1>
+    <div class="visualizer">▁▃▅▇▅▃▁</div>
 
-<div class="artist">
-Omo Taker
-</div>
+    <div class="choose">CHOOSE YOUR PLATFORM</div>
 
-<div class="title">
-CHOOSE YOUR PLATFORM
-</div>
+    <section class="links">
 
-<a class="button apple"
-href="https://music.apple.com/ng/album/follow-follow-single/1896458191"
-target="_blank">
-Apple Music
-<small>Listen</small>
-</a>
+      <a class="btn apple" href="https://music.apple.com/ng/album/follow-follow-single/1896458191" target="_blank">
+        <div class="left">
+          <div class="icon">♪</div>
+          <div>
+            <div class="platform">Apple Music</div>
+            <div class="small">Listen on Apple Music</div>
+          </div>
+        </div>
+        <div class="action">Listen ›</div>
+      </a>
 
-<a class="button spotify"
-href="https://open.spotify.com/track/7L4J10wzvkcuTB1zhguCMr"
-target="_blank">
-Spotify
-<small>Play</small>
-</a>
+      <a class="btn spotify" href="https://open.spotify.com/track/7L4J10wzvkcuTB1zhguCMr" target="_blank">
+        <div class="left">
+          <div class="icon">S</div>
+          <div>
+            <div class="platform">Spotify</div>
+            <div class="small">Play on Spotify</div>
+          </div>
+        </div>
+        <div class="action">Play ›</div>
+      </a>
 
-<a class="button boomplay"
-href="https://www.boomplay.com/albums/130816953?srModel=openapi_featurefm"
-target="_blank">
-Boomplay
-<small>Stream</small>
-</a>
+      <a class="btn boomplay" href="https://www.boomplay.com/albums/130816953?srModel=openapi_featurefm" target="_blank">
+        <div class="left">
+          <div class="icon">B</div>
+          <div>
+            <div class="platform">Boomplay</div>
+            <div class="small">Stream on Boomplay</div>
+          </div>
+        </div>
+        <div class="action">Stream ›</div>
+      </a>
 
-<a class="button audiomack"
-href="https://audiomack.com/iam_omotaker/song/follow-follow?utm_source=featurefm&utm_campaign=onelink&utm_medium=website&ffm=FFM_4330625b808d8887e2e119dd75a4d67e"
-target="_blank">
-Audiomack
-<small>Open</small>
-</a>
+      <a class="btn audiomack" href="https://audiomack.com/iam_omotaker/song/follow-follow?utm_source=featurefm&utm_campaign=onelink&utm_medium=website&ffm=FFM_4330625b808d8887e2e119dd75a4d67e" target="_blank">
+        <div class="left">
+          <div class="icon">〽</div>
+          <div>
+            <div class="platform">Audiomack</div>
+            <div class="small">Listen on Audiomack</div>
+          </div>
+        </div>
+        <div class="action">Open ›</div>
+      </a>
 
-<div class="footer">
-Powered by OMK RECORD • OmoTeka Link
-</div>
+    </section>
 
-</div>
+    <div class="features">
+      <div><strong>⚡ High Quality</strong>Best Sound</div>
+      <div><strong>🎧 Instant Access</strong>No Limits</div>
+      <div><strong>⭐ All Platforms</strong>One Link</div>
+    </div>
 
+    <div class="footer">
+      Powered by OMK RECORD • OmoTeka Link
+    </div>
+
+  </main>
 </body>
 </html>
