@@ -3,111 +3,112 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>OmoTeka Link | Follow Follow - Omo Taker</title>
+  <title>Follow Follow | OmoTeka Link</title>
 
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: Arial, sans-serif;
+      font-family: Arial, Helvetica, sans-serif;
     }
 
     body {
       min-height: 100vh;
       background:
-        radial-gradient(circle at top, #7a0018, transparent 35%),
-        radial-gradient(circle at bottom, #001aff, transparent 35%),
-        #050505;
+        radial-gradient(circle at top left, #ff003c, transparent 35%),
+        radial-gradient(circle at bottom right, #003cff, transparent 35%),
+        linear-gradient(135deg, #020202, #0b0b16);
       color: white;
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 25px;
+      padding: 22px;
+      overflow-x: hidden;
     }
 
     .page {
       width: 100%;
-      max-width: 430px;
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.18);
-      border-radius: 30px;
+      max-width: 440px;
       padding: 24px;
-      backdrop-filter: blur(22px);
-      box-shadow: 0 0 60px rgba(255,0,70,0.35);
+      border-radius: 34px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      backdrop-filter: blur(24px);
+      box-shadow: 0 0 70px rgba(255, 0, 70, 0.32);
       text-align: center;
-      position: relative;
-      overflow: hidden;
     }
 
     .badge {
       display: inline-block;
-      padding: 8px 14px;
-      border-radius: 50px;
-      background: rgba(255,255,255,0.12);
-      font-size: 12px;
-      letter-spacing: 1px;
-      color: #ffd66b;
       margin-bottom: 18px;
+      padding: 8px 15px;
+      border-radius: 40px;
+      background: rgba(255, 255, 255, 0.12);
+      color: #ffd66b;
+      font-size: 12px;
+      letter-spacing: 1.4px;
     }
 
     .cover {
       width: 100%;
-      aspect-ratio: 1/1;
-      border-radius: 25px;
-      background:
-        linear-gradient(135deg, rgba(255,0,70,0.65), rgba(0,26,255,0.65)),
-        url("follow-follow-cover.jpg");
-      background-size: cover;
-      background-position: center;
-      box-shadow: 0 0 45px rgba(255,255,255,0.18);
+      aspect-ratio: 1 / 1;
+      border-radius: 28px;
+      object-fit: cover;
       margin-bottom: 22px;
+      box-shadow: 0 0 45px rgba(255, 255, 255, 0.22);
     }
 
     h1 {
-      font-size: 34px;
-      margin-bottom: 6px;
+      font-size: 38px;
+      margin-bottom: 5px;
+      letter-spacing: -1px;
     }
 
     h2 {
       font-size: 16px;
+      color: #d6d6d6;
       font-weight: 400;
-      color: #ccc;
-      margin-bottom: 14px;
+      margin-bottom: 16px;
     }
 
     .story {
       font-size: 14px;
       line-height: 1.6;
-      color: #ddd;
-      margin-bottom: 22px;
+      color: #dddddd;
+      margin-bottom: 23px;
     }
 
-    .stream-title {
-      font-size: 13px;
+    .now {
+      margin-bottom: 14px;
       color: #ffd66b;
-      margin-bottom: 12px;
+      font-size: 12px;
       text-transform: uppercase;
-      letter-spacing: 1.5px;
+      letter-spacing: 1.6px;
     }
 
     .links {
       display: grid;
-      gap: 12px;
+      gap: 13px;
     }
 
     .btn {
       text-decoration: none;
       color: white;
-      padding: 16px 18px;
-      border-radius: 18px;
-      background: rgba(255,255,255,0.12);
-      border: 1px solid rgba(255,255,255,0.18);
+      padding: 17px 18px;
+      border-radius: 19px;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.18);
       display: flex;
       justify-content: space-between;
       align-items: center;
+      font-weight: 800;
       transition: 0.25s ease;
-      font-weight: 700;
+    }
+
+    .btn span {
+      font-size: 13px;
+      opacity: 0.8;
     }
 
     .btn:hover {
@@ -116,44 +117,55 @@
       color: black;
     }
 
-    .apple { box-shadow: inset 4px 0 #fa2d48; }
-    .spotify { box-shadow: inset 4px 0 #1db954; }
-    .boomplay { box-shadow: inset 4px 0 #ffcc00; }
-    .audiomack { box-shadow: inset 4px 0 #ff8800; }
+    .apple { box-shadow: inset 5px 0 #fa2d48; }
+    .spotify { box-shadow: inset 5px 0 #1db954; }
+    .boomplay { box-shadow: inset 5px 0 #ffcc00; }
+    .audiomack { box-shadow: inset 5px 0 #ff8800; }
 
-    .deep-search {
+    .search-box {
       margin-top: 20px;
-      padding: 14px;
-      border-radius: 18px;
-      background: rgba(0,0,0,0.28);
+      padding: 15px;
+      border-radius: 20px;
+      background: rgba(0, 0, 0, 0.32);
       font-size: 13px;
-      color: #ccc;
+      color: #cccccc;
+      line-height: 1.6;
     }
 
-    .deep-search a {
+    .search-box a {
       color: #ffd66b;
+      font-weight: 700;
       text-decoration: none;
-      font-weight: bold;
     }
 
     .footer {
       margin-top: 22px;
       font-size: 12px;
-      color: #aaa;
+      color: #aaaaaa;
     }
 
-    .pulse {
-      width: 14px;
-      height: 14px;
-      background: #00ff88;
-      border-radius: 50%;
-      box-shadow: 0 0 20px #00ff88;
-      animation: pulse 1.4s infinite;
+    .visualizer {
+      display: flex;
+      justify-content: center;
+      gap: 5px;
+      margin-bottom: 18px;
     }
 
-    @keyframes pulse {
-      0% { transform: scale(1); opacity: 1; }
-      100% { transform: scale(1.8); opacity: 0; }
+    .bar {
+      width: 5px;
+      height: 18px;
+      border-radius: 10px;
+      background: #ffd66b;
+      animation: bounce 1s infinite ease-in-out;
+    }
+
+    .bar:nth-child(2) { animation-delay: 0.15s; }
+    .bar:nth-child(3) { animation-delay: 0.3s; }
+    .bar:nth-child(4) { animation-delay: 0.45s; }
+
+    @keyframes bounce {
+      0%, 100% { height: 10px; }
+      50% { height: 28px; }
     }
   </style>
 </head>
@@ -162,21 +174,31 @@
   <main class="page">
     <div class="badge">OMOTEKA LINK • FUTURE STREAM</div>
 
-    <div class="cover"></div>
+    <img
+      class="cover"
+      src="https://raw.githubusercontent.com/omk-store/omotaker/refs/heads/main/F2D3D9CF-71CA-484E-8008-B1CA9314FADD.png"
+      alt="Follow Follow by Omo Taker cover"
+    />
+
+    <div class="visualizer">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
 
     <h1>Follow Follow</h1>
     <h2>Omo Taker</h2>
 
     <p class="story">
       Everybody don follow wrong person before.  
-      This is street truth, Benin energy, and OMK movement.
-      Choose your platform and stream now.
+      Stream “Follow Follow” now on your favorite platform.
     </p>
 
-    <div class="stream-title">Choose Your Streaming App</div>
+    <div class="now">Choose your platform</div>
 
     <section class="links">
-      <a class="btn apple" href="#" target="_blank">
+      <a class="btn apple" href="https://music.apple.com/ng/album/follow-follow-single/1896458191" target="_blank">
         Apple Music <span>Listen</span>
       </a>
 
@@ -184,19 +206,18 @@
         Spotify <span>Play</span>
       </a>
 
-      <a class="btn boomplay" href="#" target="_blank">
+      <a class="btn boomplay" href="https://www.boomplay.com/albums/130816953?srModel=openapi_featurefm" target="_blank">
         Boomplay <span>Stream</span>
       </a>
 
-      <a class="btn audiomack" href="https://audiomack.com/iam_omotaker/song/follow-follow" target="_blank">
+      <a class="btn audiomack" href="https://audiomack.com/iam_omotaker/song/follow-follow?utm_source=featurefm&utm_campaign=onelink&utm_medium=website&ffm=FFM_4330625b808d8887e2e119dd75a4d67e" target="_blank">
         Audiomack <span>Open</span>
       </a>
     </section>
 
-    <div class="deep-search">
-      <div class="pulse"></div>
-      <br>
-      Deep Search:  
+    <div class="search-box">
+      Deep Search:
+      <br />
       <a href="https://www.google.com/search?q=Omo+Taker+Follow+Follow" target="_blank">
         Find Follow Follow everywhere
       </a>
