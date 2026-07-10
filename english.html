@@ -7,9 +7,8 @@
 <title>English — Omo Taker feat. Everyday Vibe</title>
 
 <meta name="description"
-content="Listen to English by Omo Taker featuring Everyday Vibe on Spotify, Apple Music and Audiomack.">
+content="Listen to English by Omo Taker featuring Everyday Vibe.">
 
-<!-- GOOGLE ANALYTICS -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-HX57BRN5ET"></script>
 
 <script>
@@ -33,12 +32,9 @@ gtag("config", "G-HX57BRN5ET");
 body{
   min-height:100vh;
   font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
-  background:
-    radial-gradient(circle at top, rgba(255,90,0,.42), transparent 35%),
-    radial-gradient(circle at bottom, rgba(255,90,0,.22), transparent 40%),
-    #030303;
+  background:#050505;
   color:#fff;
-  padding:20px 16px 40px;
+  padding:22px 16px 40px;
 }
 
 .page{
@@ -47,120 +43,45 @@ body{
   margin:auto;
 }
 
-.trending{
-  width:max-content;
-  margin:0 auto 15px;
-  padding:9px 15px;
-  border:1px solid rgba(255,115,45,.5);
-  border-radius:999px;
-  background:rgba(255,90,0,.12);
-  color:#ff762f;
-  font-size:12px;
-  font-weight:900;
-  letter-spacing:1px;
-  animation:fade 1.8s infinite;
-}
-
-@keyframes fade{
-  0%,100%{
-    opacity:.55;
-  }
-
-  50%{
-    opacity:1;
-  }
-}
+/* COVER */
 
 .cover{
-  position:relative;
   width:100%;
   aspect-ratio:1/1;
-  border-radius:25px;
-  overflow:hidden;
   display:flex;
   align-items:center;
   justify-content:center;
+  border-radius:24px;
+  overflow:hidden;
   text-align:center;
   background:
-    radial-gradient(circle at top left, #ff7a00, transparent 40%),
-    radial-gradient(circle at bottom right, #571600, transparent 45%),
-    linear-gradient(145deg,#160500,#050505);
-  box-shadow:
-    0 25px 80px rgba(0,0,0,.75),
-    0 0 60px rgba(255,83,0,.38);
-  animation:coverPulse 6s ease-in-out infinite;
-}
-
-@keyframes coverPulse{
-  0%,100%{
-    transform:scale(1);
-  }
-
-  50%{
-    transform:scale(1.025);
-  }
-}
-
-.cover::before{
-  content:"";
-  position:absolute;
-  width:240px;
-  height:240px;
-  border:1px solid rgba(255,255,255,.12);
-  border-radius:50%;
-  animation:rotate 12s linear infinite;
-}
-
-.cover::after{
-  content:"";
-  position:absolute;
-  width:170px;
-  height:170px;
-  border:1px solid rgba(255,255,255,.09);
-  border-radius:50%;
-}
-
-@keyframes rotate{
-  from{
-    transform:rotate(0deg);
-  }
-
-  to{
-    transform:rotate(360deg);
-  }
+    radial-gradient(circle at top left,#9e3100,transparent 45%),
+    linear-gradient(145deg,#180700,#050505);
 }
 
 .cover-content{
-  position:relative;
-  z-index:2;
   padding:25px;
 }
 
-.cover-small{
-  font-size:12px;
-  font-weight:800;
-  letter-spacing:3px;
-  color:#ffaf7a;
-}
-
 .cover-title{
-  margin-top:10px;
   font-size:54px;
-  line-height:.95;
+  line-height:1;
   font-weight:950;
   letter-spacing:-3px;
 }
 
 .cover-artist{
-  margin-top:15px;
+  margin-top:14px;
+  color:#ddd;
   font-size:14px;
   font-weight:700;
-  color:#ddd;
 }
 
+/* SONG DETAILS */
+
 .song-info{
+  padding:24px 5px 18px;
   text-align:center;
-  padding:22px 8px 5px;
 }
 
 .song-title{
@@ -171,134 +92,89 @@ body{
 
 .artist{
   margin-top:8px;
+  color:#aaa;
   font-size:15px;
   font-weight:700;
-  color:#ccc;
 }
 
-.tagline{
-  margin-top:13px;
-  color:#ff7834;
-  font-size:14px;
-  font-weight:800;
-  line-height:1.5;
-}
+/* STREAMING BUTTONS */
 
 .platforms{
-  margin-top:22px;
   display:flex;
   flex-direction:column;
-  gap:13px;
+  gap:12px;
 }
 
 .platform-btn{
-  display:flex;
-  align-items:center;
-  gap:14px;
   width:100%;
   min-height:68px;
-  padding:14px 17px;
-  border-radius:18px;
-  text-decoration:none;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 22px;
+  border:1px solid #272727;
+  border-radius:16px;
+  background:#111;
   color:#fff;
-  font-weight:900;
-  transition:.2s ease;
-  box-shadow:0 12px 35px rgba(0,0,0,.35);
+  text-decoration:none;
+  transition:.15s ease;
 }
 
 .platform-btn:active{
   transform:scale(.97);
 }
 
-.icon{
-  width:43px;
-  height:43px;
-  flex-shrink:0;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  border-radius:50%;
-  background:rgba(255,255,255,.16);
-  font-size:20px;
+.platform-name{
+  font-size:17px;
+  font-weight:900;
 }
 
-.btn-text{
-  flex:1;
+.play{
+  min-width:70px;
+  padding:10px 16px;
+  border-radius:999px;
+  background:#fff;
+  color:#000;
+  text-align:center;
+  font-size:12px;
+  font-weight:950;
+  letter-spacing:1px;
 }
 
-.btn-text strong{
-  display:block;
-  font-size:16px;
-}
-
-.btn-text small{
-  display:block;
-  margin-top:4px;
-  font-size:11px;
-  font-weight:700;
-  color:rgba(255,255,255,.72);
-}
-
-.arrow{
-  font-size:24px;
-}
+/* PLATFORM ACCENTS */
 
 .spotify{
-  background:linear-gradient(135deg,#1DB954,#087c36);
-  box-shadow:0 0 28px rgba(29,185,84,.38);
+  border-color:#1db954;
+}
+
+.spotify .platform-name{
+  color:#1ed760;
 }
 
 .apple{
-  background:linear-gradient(135deg,#fa3150,#9d1027);
-  box-shadow:0 0 28px rgba(250,49,80,.32);
+  border-color:#d8d8d8;
+}
+
+.apple .platform-name{
+  color:#fff;
 }
 
 .audiomack{
-  background:linear-gradient(135deg,#ff8a00,#d94d00);
-  box-shadow:0 0 28px rgba(255,125,0,.35);
+  border-color:#ff7a00;
 }
 
-.tiktok{
-  background:linear-gradient(135deg,#171717,#000);
-  border:1px solid rgba(255,255,255,.15);
+.audiomack .platform-name{
+  color:#ff8a00;
 }
 
-.support{
-  margin-top:18px;
-  padding:16px;
-  border-radius:17px;
-  background:rgba(255,255,255,.05);
-  border:1px solid rgba(255,255,255,.08);
-  text-align:center;
-}
-
-.support strong{
-  display:block;
-  font-size:14px;
-}
-
-.support p{
-  margin-top:6px;
-  color:#999;
-  font-size:12px;
-  line-height:1.5;
-}
+/* FOOTER */
 
 .footer{
-  margin-top:25px;
+  margin-top:28px;
   text-align:center;
-  color:#666;
-  font-size:11px;
-}
-
-.footer strong{
-  color:#999;
-}
-
-@media(min-width:700px){
-  body{
-    padding-top:35px;
-  }
+  color:#555;
+  font-size:10px;
+  letter-spacing:1px;
 }
 </style>
 </head>
@@ -307,17 +183,9 @@ body{
 
 <main class="page">
 
-  <div class="trending">
-    🔥 ENGLISH OUT NOW
-  </div>
-
   <section class="cover">
 
     <div class="cover-content">
-
-      <div class="cover-small">
-        OMK RECORD
-      </div>
 
       <div class="cover-title">
         ENGLISH
@@ -341,15 +209,9 @@ body{
       Omo Taker feat. Everyday Vibe
     </p>
 
-    <p class="tagline">
-      Choose your platform and listen now 🎧🔥
-    </p>
-
   </section>
 
   <section class="platforms">
-
-    <!-- SPOTIFY -->
 
     <a
       href="https://open.spotify.com/album/3S5hKnoQOsy6KhsldVDscK"
@@ -358,19 +220,9 @@ body{
       class="platform-btn spotify"
       onclick="trackClick('spotify');"
     >
-
-      <span class="icon">▶</span>
-
-      <span class="btn-text">
-        <strong>Play on Spotify</strong>
-        <small>Open English directly on Spotify</small>
-      </span>
-
-      <span class="arrow">›</span>
-
+      <span class="platform-name">Spotify</span>
+      <span class="play">PLAY</span>
     </a>
-
-    <!-- APPLE MUSIC -->
 
     <a
       href="https://music.apple.com/us/album/english-feat-everyday-vibe-single/6787016827"
@@ -379,19 +231,9 @@ body{
       class="platform-btn apple"
       onclick="trackClick('apple_music');"
     >
-
-      <span class="icon">♪</span>
-
-      <span class="btn-text">
-        <strong>Play on Apple Music</strong>
-        <small>Open English directly on Apple Music</small>
-      </span>
-
-      <span class="arrow">›</span>
-
+      <span class="platform-name">Apple Music</span>
+      <span class="play">PLAY</span>
     </a>
-
-    <!-- AUDIOMACK -->
 
     <a
       href="https://audiomack.com/iam_omotaker"
@@ -400,54 +242,14 @@ body{
       class="platform-btn audiomack"
       onclick="trackClick('audiomack');"
     >
-
-      <span class="icon">A</span>
-
-      <span class="btn-text">
-        <strong>Play on Audiomack</strong>
-        <small>Open Omo Taker on Audiomack</small>
-      </span>
-
-      <span class="arrow">›</span>
-
+      <span class="platform-name">Audiomack</span>
+      <span class="play">PLAY</span>
     </a>
-
-    <!-- TIKTOK -->
-
-    <a
-      href="https://vt.tiktok.com/ZS9MBPT2Tq6Ua-BJInl/"
-      target="_blank"
-      rel="noopener noreferrer"
-      class="platform-btn tiktok"
-      onclick="trackClick('tiktok_sound');"
-    >
-
-      <span class="icon">♪</span>
-
-      <span class="btn-text">
-        <strong>Use the Sound on TikTok</strong>
-        <small>Create a video with English</small>
-      </span>
-
-      <span class="arrow">›</span>
-
-    </a>
-
-  </section>
-
-  <section class="support">
-
-    <strong>Support “English” 🎹</strong>
-
-    <p>
-      Listen, save the song and share it with someone.
-    </p>
 
   </section>
 
   <footer class="footer">
-    <strong>OMK RECORD</strong><br>
-    © 2026 Omo Taker
+    OMK RECORD © 2026
   </footer>
 
 </main>
@@ -457,13 +259,11 @@ function trackClick(platform){
 
   if(typeof gtag === "function"){
 
-    gtag("event", "platform_click", {
-
-      event_category: "English streaming page",
-      event_label: platform,
-      song_name: "English",
-      artist_name: "Omo Taker feat. Everyday Vibe"
-
+    gtag("event","platform_click",{
+      event_category:"English streaming page",
+      event_label:platform,
+      song_name:"English",
+      artist_name:"Omo Taker feat. Everyday Vibe"
     });
 
   }
