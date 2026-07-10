@@ -6,7 +6,7 @@
 
 <title>English — Omo Taker ft Everyday Vibe</title>
 
-<meta name="description" content="Choose your preferred streaming platform below.">
+<meta name="description" content="Listen to English by Omo Taker ft Everyday Vibe.">
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-HX57BRN5ET"></script>
 <script>
@@ -17,37 +17,63 @@ gtag("config","G-HX57BRN5ET");
 </script>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
 body{
 background:#050505;
 color:#fff;
 font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
 padding:20px;
 }
+
 .page{
 max-width:430px;
 margin:auto;
 }
+
 .cover{
 width:100%;
 aspect-ratio:1;
 overflow:hidden;
 border-radius:22px;
-margin-bottom:22px;
+margin-bottom:24px;
 }
+
 .cover img{
 width:100%;
 height:100%;
 object-fit:cover;
 display:block;
 }
-.text{
+
+.info{
 text-align:center;
+margin-bottom:24px;
+}
+
+.info h1{
+font-size:42px;
+font-weight:900;
+margin-bottom:8px;
+}
+
+.info h2{
+font-size:18px;
+font-weight:700;
 color:#bdbdbd;
+margin-bottom:12px;
+}
+
+.info p{
 font-size:15px;
 font-weight:700;
-margin-bottom:20px;
+color:#9a9a9a;
 }
+
 .btn{
 display:flex;
 justify-content:space-between;
@@ -55,30 +81,63 @@ align-items:center;
 padding:18px 22px;
 margin-bottom:12px;
 border-radius:16px;
-text-decoration:none;
-font-weight:900;
 background:#111;
-color:#fff;
+text-decoration:none;
 border:1px solid #2b2b2b;
+transition:.2s;
 }
-.spotify{border-color:#1DB954;color:#1DB954;}
-.apple{border-color:#fff;color:#fff;}
-.audiomack{border-color:#ff8a00;color:#ff8a00;}
+
+.btn:active{
+transform:scale(.97);
+}
+
+.name{
+font-size:17px;
+font-weight:900;
+}
+
 .play{
 background:#fff;
 color:#000;
-padding:9px 16px;
+padding:10px 18px;
 border-radius:999px;
 font-size:12px;
+font-weight:900;
 letter-spacing:1px;
 }
+
+.spotify{
+border-color:#1DB954;
+}
+
+.spotify .name{
+color:#1DB954;
+}
+
+.apple{
+border-color:#fff;
+}
+
+.apple .name{
+color:#fff;
+}
+
+.audiomack{
+border-color:#ff8a00;
+}
+
+.audiomack .name{
+color:#ff8a00;
+}
+
 .footer{
-margin-top:24px;
+margin-top:25px;
 text-align:center;
 color:#666;
 font-size:10px;
 }
 </style>
+
 </head>
 
 <body>
@@ -89,32 +148,47 @@ font-size:10px;
 <img src="https://raw.githubusercontent.com/omk-store/omotaker/refs/heads/main/84B5B9BE-CEAA-45EB-9D56-23E4CDA073EA.png" alt="English Cover">
 </div>
 
-<div class="text">
-Choose your preferred streaming platform below.
+<div class="info">
+
+<h1>English</h1>
+
+<h2>Omo Taker ft Everyday Vibe</h2>
+
+<p>Choose your preferred streaming platform below.</p>
+
 </div>
 
 <a class="btn spotify"
 href="https://open.spotify.com/album/3S5hKnoQOsy6KhsldVDscK"
 target="_blank"
 onclick="gtag('event','spotify');">
-<span>Spotify</span>
+
+<span class="name">Spotify</span>
+
 <span class="play">PLAY</span>
+
 </a>
 
 <a class="btn apple"
 href="https://music.apple.com/us/album/english-feat-everyday-vibe-single/6787016827"
 target="_blank"
-onclick="gtag('event','apple');">
-<span>Apple Music</span>
+onclick="gtag('event','apple_music');">
+
+<span class="name">Apple Music</span>
+
 <span class="play">PLAY</span>
+
 </a>
 
 <a class="btn audiomack"
 href="https://audiomack.com/iam_omotaker"
 target="_blank"
 onclick="gtag('event','audiomack');">
-<span>Audiomack</span>
+
+<span class="name">Audiomack</span>
+
 <span class="play">PLAY</span>
+
 </a>
 
 <div class="footer">
