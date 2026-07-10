@@ -4,10 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>FTEV — Choose Your Streaming Platform</title>
+<title>English — Omo Taker ft Everyday Vibe</title>
 
 <meta name="description"
-content="Choose your streaming platform and listen now.">
+content="Listen to English by Omo Taker ft Everyday Vibe. Choose your streaming platform below.">
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-HX57BRN5ET"></script>
 
@@ -55,6 +55,13 @@ body{
   background:
     radial-gradient(circle at top left,#9e3100,transparent 45%),
     linear-gradient(145deg,#180700,#050505);
+}
+
+.cover img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
 }
 
 .cover-content{
@@ -183,27 +190,23 @@ body{
 
 <section class="cover">
 
-<div class="cover-content">
-
-<div class="cover-title">
-FTEV
-</div>
-
-<div class="cover-artist">
-Choose your streaming platform below.
-</div>
-
-</div>
+<img
+src="https://raw.githubusercontent.com/omk-store/omotaker/refs/heads/main/84B5B9BE-CEAA-45EB-9D56-23E4CDA073EA.png"
+alt="English by Omo Taker ft Everyday Vibe">
 
 </section>
 
 <section class="song-info">
 
 <h1 class="song-title">
-FTEV
+English
 </h1>
 
 <p class="artist">
+Omo Taker ft Everyday Vibe
+</p>
+
+<p class="artist" style="margin-top:6px;">
 Choose your streaming platform below.
 </p>
 
@@ -242,7 +245,7 @@ onclick="trackClick('audiomack');">
 </a>
 
 <a
-href="https://www.boomplay.com/share/music/110231149"
+href="https://www.boomplay.com/albums/134932435?from="
 target="_blank"
 rel="noopener noreferrer"
 class="platform-btn boomplay"
@@ -265,8 +268,10 @@ function trackClick(platform){
 if(typeof gtag==="function"){
 
 gtag("event","platform_click",{
-event_category:"FTEV streaming page",
-event_label:platform
+event_category:"English streaming page",
+event_label:platform,
+song_name:"English",
+artist_name:"Omo Taker ft Everyday Vibe"
 });
 
 }
