@@ -7,12 +7,7 @@
 <title>English — Omo Taker feat. Everyday Vibe</title>
 
 <meta name="description"
-content="Listen to English by Omo Taker featuring Everyday Vibe. Choose your favourite music platform.">
-
-<meta property="og:title" content="English — Omo Taker feat. Everyday Vibe">
-<meta property="og:description" content="The new sound is out now. Tap to listen.">
-<meta property="og:image" content="YOUR_ENGLISH_COVER_URL_HERE">
-<meta property="og:type" content="music.song">
+content="Listen to English by Omo Taker featuring Everyday Vibe on Spotify, Apple Music and Audiomack.">
 
 <!-- GOOGLE ANALYTICS -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-HX57BRN5ET"></script>
@@ -35,16 +30,12 @@ gtag("config", "G-HX57BRN5ET");
   box-sizing:border-box;
 }
 
-html{
-  scroll-behavior:smooth;
-}
-
 body{
   min-height:100vh;
   font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
   background:
-    radial-gradient(circle at top, rgba(255,92,0,.32), transparent 38%),
-    radial-gradient(circle at bottom, rgba(255,92,0,.18), transparent 38%),
+    radial-gradient(circle at top, rgba(255,90,0,.42), transparent 35%),
+    radial-gradient(circle at bottom, rgba(255,90,0,.22), transparent 40%),
     #030303;
   color:#fff;
   padding:20px 16px 40px;
@@ -52,296 +43,249 @@ body{
 
 .page{
   width:100%;
-  max-width:440px;
+  max-width:430px;
   margin:auto;
 }
 
-/* TOP BADGE */
-
-.release-badge{
+.trending{
   width:max-content;
   margin:0 auto 15px;
   padding:9px 15px;
-  border:1px solid rgba(255,115,45,.45);
+  border:1px solid rgba(255,115,45,.5);
   border-radius:999px;
-  background:rgba(255,89,0,.10);
+  background:rgba(255,90,0,.12);
   color:#ff762f;
   font-size:12px;
   font-weight:900;
   letter-spacing:1px;
-  text-transform:uppercase;
-  animation:badgePulse 1.8s infinite;
+  animation:fade 1.8s infinite;
 }
 
-@keyframes badgePulse{
+@keyframes fade{
   0%,100%{
-    opacity:.65;
-    transform:scale(1);
+    opacity:.55;
   }
 
   50%{
     opacity:1;
-    transform:scale(1.03);
   }
-}
-
-/* COVER */
-
-.cover-wrap{
-  position:relative;
-}
-
-.cover-glow{
-  position:absolute;
-  inset:12%;
-  background:#ff5b00;
-  filter:blur(70px);
-  opacity:.38;
 }
 
 .cover{
   position:relative;
   width:100%;
   aspect-ratio:1/1;
-  border-radius:26px;
+  border-radius:25px;
   overflow:hidden;
-  background:#151515;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  background:
+    radial-gradient(circle at top left, #ff7a00, transparent 40%),
+    radial-gradient(circle at bottom right, #571600, transparent 45%),
+    linear-gradient(145deg,#160500,#050505);
   box-shadow:
-    0 25px 80px rgba(0,0,0,.7),
-    0 0 45px rgba(255,82,0,.25);
+    0 25px 80px rgba(0,0,0,.75),
+    0 0 60px rgba(255,83,0,.38);
+  animation:coverPulse 6s ease-in-out infinite;
 }
 
-.cover img{
-  width:100%;
-  height:100%;
-  display:block;
-  object-fit:cover;
-  animation:coverMove 8s ease-in-out infinite;
-}
-
-@keyframes coverMove{
+@keyframes coverPulse{
   0%,100%{
     transform:scale(1);
   }
 
   50%{
-    transform:scale(1.045);
+    transform:scale(1.025);
   }
 }
 
-/* SONG INFORMATION */
+.cover::before{
+  content:"";
+  position:absolute;
+  width:240px;
+  height:240px;
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:50%;
+  animation:rotate 12s linear infinite;
+}
+
+.cover::after{
+  content:"";
+  position:absolute;
+  width:170px;
+  height:170px;
+  border:1px solid rgba(255,255,255,.09);
+  border-radius:50%;
+}
+
+@keyframes rotate{
+  from{
+    transform:rotate(0deg);
+  }
+
+  to{
+    transform:rotate(360deg);
+  }
+}
+
+.cover-content{
+  position:relative;
+  z-index:2;
+  padding:25px;
+}
+
+.cover-small{
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:3px;
+  color:#ffaf7a;
+}
+
+.cover-title{
+  margin-top:10px;
+  font-size:54px;
+  line-height:.95;
+  font-weight:950;
+  letter-spacing:-3px;
+}
+
+.cover-artist{
+  margin-top:15px;
+  font-size:14px;
+  font-weight:700;
+  color:#ddd;
+}
 
 .song-info{
   text-align:center;
-  padding:22px 10px 0;
+  padding:22px 8px 5px;
 }
 
 .song-title{
-  font-size:38px;
-  line-height:1;
+  font-size:36px;
   font-weight:950;
-  letter-spacing:-1.5px;
+  letter-spacing:-1px;
 }
 
 .artist{
-  margin-top:10px;
-  color:#d8d8d8;
+  margin-top:8px;
   font-size:15px;
   font-weight:700;
+  color:#ccc;
 }
 
 .tagline{
-  margin:16px auto 0;
-  max-width:350px;
-  color:#ff7b35;
-  font-size:15px;
+  margin-top:13px;
+  color:#ff7834;
+  font-size:14px;
   font-weight:800;
   line-height:1.5;
 }
 
-/* MAIN CTA */
-
-.main-button{
-  position:relative;
+.platforms{
+  margin-top:22px;
   display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:12px;
-  width:100%;
-  margin-top:24px;
-  padding:19px 20px;
-  border-radius:18px;
-  text-decoration:none;
-  background:linear-gradient(135deg,#ff6b1a,#d93d00);
-  color:#fff;
-  font-size:17px;
-  font-weight:950;
-  box-shadow:0 0 32px rgba(255,80,0,.55);
-  overflow:hidden;
-  animation:buttonPulse 1.7s infinite;
-  transition:transform .2s ease;
+  flex-direction:column;
+  gap:13px;
 }
 
-.main-button:active{
+.platform-btn{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  width:100%;
+  min-height:68px;
+  padding:14px 17px;
+  border-radius:18px;
+  text-decoration:none;
+  color:#fff;
+  font-weight:900;
+  transition:.2s ease;
+  box-shadow:0 12px 35px rgba(0,0,0,.35);
+}
+
+.platform-btn:active{
   transform:scale(.97);
 }
 
-.main-button::before{
-  content:"";
-  position:absolute;
-  top:0;
-  left:-120%;
-  width:70%;
-  height:100%;
-  background:linear-gradient(
-    90deg,
-    transparent,
-    rgba(255,255,255,.28),
-    transparent
-  );
-  animation:shine 3s infinite;
-}
-
-@keyframes shine{
-  0%{
-    left:-120%;
-  }
-
-  45%,100%{
-    left:150%;
-  }
-}
-
-@keyframes buttonPulse{
-  0%,100%{
-    box-shadow:0 0 20px rgba(255,80,0,.40);
-  }
-
-  50%{
-    box-shadow:0 0 42px rgba(255,80,0,.90);
-  }
-}
-
-.play-icon{
+.icon{
+  width:43px;
+  height:43px;
+  flex-shrink:0;
   display:flex;
   align-items:center;
   justify-content:center;
-  width:40px;
-  height:40px;
-  flex-shrink:0;
   border-radius:50%;
-  background:rgba(255,255,255,.18);
-  font-size:17px;
+  background:rgba(255,255,255,.16);
+  font-size:20px;
 }
 
-.button-text{
+.btn-text{
   flex:1;
 }
 
-.button-text strong{
+.btn-text strong{
   display:block;
-  font-size:17px;
+  font-size:16px;
 }
 
-.button-text small{
+.btn-text small{
   display:block;
-  margin-top:3px;
-  color:rgba(255,255,255,.78);
+  margin-top:4px;
   font-size:11px;
   font-weight:700;
+  color:rgba(255,255,255,.72);
 }
 
 .arrow{
-  font-size:23px;
+  font-size:24px;
 }
 
-/* SUPPORT TEXT */
+.spotify{
+  background:linear-gradient(135deg,#1DB954,#087c36);
+  box-shadow:0 0 28px rgba(29,185,84,.38);
+}
 
-.platform-text{
-  margin-top:12px;
+.apple{
+  background:linear-gradient(135deg,#fa3150,#9d1027);
+  box-shadow:0 0 28px rgba(250,49,80,.32);
+}
+
+.audiomack{
+  background:linear-gradient(135deg,#ff8a00,#d94d00);
+  box-shadow:0 0 28px rgba(255,125,0,.35);
+}
+
+.tiktok{
+  background:linear-gradient(135deg,#171717,#000);
+  border:1px solid rgba(255,255,255,.15);
+}
+
+.support{
+  margin-top:18px;
+  padding:16px;
+  border-radius:17px;
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.08);
   text-align:center;
-  color:#a9a9a9;
+}
+
+.support strong{
+  display:block;
+  font-size:14px;
+}
+
+.support p{
+  margin-top:6px;
+  color:#999;
   font-size:12px;
   line-height:1.5;
 }
 
-/* ACTION CARD */
-
-.action-card{
-  margin-top:20px;
-  padding:18px;
-  border:1px solid rgba(255,255,255,.09);
-  border-radius:20px;
-  background:rgba(255,255,255,.045);
-  backdrop-filter:blur(12px);
-}
-
-.action-title{
-  text-align:center;
-  color:#fff;
-  font-size:14px;
-  font-weight:900;
-}
-
-.actions{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:10px;
-  margin-top:14px;
-}
-
-.small-button{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  min-height:50px;
-  padding:12px;
-  border:1px solid rgba(255,255,255,.11);
-  border-radius:14px;
-  background:#111;
-  color:#fff;
-  text-decoration:none;
-  text-align:center;
-  font-size:13px;
-  font-weight:850;
-  transition:.2s ease;
-}
-
-.small-button:active{
-  transform:scale(.96);
-}
-
-.spotify{
-  border-color:rgba(29,185,84,.4);
-}
-
-.tiktok{
-  border-color:rgba(255,255,255,.25);
-}
-
-/* SOCIAL PROOF */
-
-.proof{
-  display:flex;
-  justify-content:center;
-  gap:8px;
-  flex-wrap:wrap;
-  margin-top:20px;
-}
-
-.proof span{
-  padding:8px 11px;
-  border-radius:999px;
-  background:rgba(255,255,255,.06);
-  color:#cfcfcf;
-  font-size:11px;
-  font-weight:750;
-}
-
-/* FOOTER */
-
 .footer{
-  padding-top:27px;
+  margin-top:25px;
   text-align:center;
   color:#666;
   font-size:11px;
@@ -350,8 +294,6 @@ body{
 .footer strong{
   color:#999;
 }
-
-/* DESKTOP */
 
 @media(min-width:700px){
   body{
@@ -365,99 +307,143 @@ body{
 
 <main class="page">
 
-  <div class="release-badge">
-    🔥 New release out now
+  <div class="trending">
+    🔥 ENGLISH OUT NOW
   </div>
 
-  <section class="cover-wrap">
-    <div class="cover-glow"></div>
+  <section class="cover">
 
-    <div class="cover">
-      <img
-        src="YOUR_ENGLISH_COVER_URL_HERE"
-        alt="English by Omo Taker featuring Everyday Vibe"
-      >
+    <div class="cover-content">
+
+      <div class="cover-small">
+        OMK RECORD
+      </div>
+
+      <div class="cover-title">
+        ENGLISH
+      </div>
+
+      <div class="cover-artist">
+        Omo Taker feat. Everyday Vibe
+      </div>
+
     </div>
+
   </section>
 
   <section class="song-info">
 
-    <h1 class="song-title">English</h1>
+    <h1 class="song-title">
+      English
+    </h1>
 
     <p class="artist">
       Omo Taker feat. Everyday Vibe
     </p>
 
     <p class="tagline">
-      No translation needed — just feel the sound 🎹🔥
+      Choose your platform and listen now 🎧🔥
     </p>
 
   </section>
 
-  <!-- MAIN SMART LINK -->
+  <section class="platforms">
 
-  <a
-    href="https://ffm.to/english-se41"
-    class="main-button"
-    target="_blank"
-    rel="noopener noreferrer"
-    onclick="trackMusicClick('main_smartlink');"
-  >
+    <!-- SPOTIFY -->
 
-    <span class="play-icon">▶</span>
+    <a
+      href="https://open.spotify.com/album/3S5hKnoQOsy6KhsldVDscK"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="platform-btn spotify"
+      onclick="trackClick('spotify');"
+    >
 
-    <span class="button-text">
-      <strong>LISTEN TO ENGLISH</strong>
-      <small>Choose Spotify, Apple Music, Boomplay or Audiomack</small>
-    </span>
+      <span class="icon">▶</span>
 
-    <span class="arrow">›</span>
+      <span class="btn-text">
+        <strong>Play on Spotify</strong>
+        <small>Open English directly on Spotify</small>
+      </span>
 
-  </a>
+      <span class="arrow">›</span>
 
-  <p class="platform-text">
-    Tap once and select the music app you already use.
-  </p>
+    </a>
 
-  <!-- EXTRA ACTIONS -->
+    <!-- APPLE MUSIC -->
 
-  <section class="action-card">
+    <a
+      href="https://music.apple.com/us/album/english-feat-everyday-vibe-single/6787016827"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="platform-btn apple"
+      onclick="trackClick('apple_music');"
+    >
 
-    <div class="action-title">
-      Support the song 🎧
-    </div>
+      <span class="icon">♪</span>
 
-    <div class="actions">
+      <span class="btn-text">
+        <strong>Play on Apple Music</strong>
+        <small>Open English directly on Apple Music</small>
+      </span>
 
-      <a
-        href="https://distrokid.com/hyperfollow/omotaker/english-feat-everyday-vibe/"
-        class="small-button spotify"
-        target="_blank"
-        rel="noopener noreferrer"
-        onclick="trackMusicClick('hyperfollow');"
-      >
-        🎵 More platforms
-      </a>
+      <span class="arrow">›</span>
 
-      <a
-        href="https://vt.tiktok.com/ZS9MBPT2Tq6Ua-BJInl/"
-        class="small-button tiktok"
-        target="_blank"
-        rel="noopener noreferrer"
-        onclick="trackMusicClick('tiktok_sound');"
-      >
-        ♪ Use the sound
-      </a>
+    </a>
 
-    </div>
+    <!-- AUDIOMACK -->
+
+    <a
+      href="https://audiomack.com/iam_omotaker"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="platform-btn audiomack"
+      onclick="trackClick('audiomack');"
+    >
+
+      <span class="icon">A</span>
+
+      <span class="btn-text">
+        <strong>Play on Audiomack</strong>
+        <small>Open Omo Taker on Audiomack</small>
+      </span>
+
+      <span class="arrow">›</span>
+
+    </a>
+
+    <!-- TIKTOK -->
+
+    <a
+      href="https://vt.tiktok.com/ZS9MBPT2Tq6Ua-BJInl/"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="platform-btn tiktok"
+      onclick="trackClick('tiktok_sound');"
+    >
+
+      <span class="icon">♪</span>
+
+      <span class="btn-text">
+        <strong>Use the Sound on TikTok</strong>
+        <small>Create a video with English</small>
+      </span>
+
+      <span class="arrow">›</span>
+
+    </a>
 
   </section>
 
-  <div class="proof">
-    <span>🎹 Benin Talk</span>
-    <span>🐺 OMK World</span>
-    <span>🔥 Everyday Vibe</span>
-  </div>
+  <section class="support">
+
+    <strong>Support “English” 🎹</strong>
+
+    <p>
+      Listen, save the song and share it with someone.
+    </p>
+
+  </section>
 
   <footer class="footer">
     <strong>OMK RECORD</strong><br>
@@ -467,15 +453,19 @@ body{
 </main>
 
 <script>
-function trackMusicClick(destination){
+function trackClick(platform){
 
   if(typeof gtag === "function"){
-    gtag("event", "music_link_click", {
-      event_category: "English promotion",
-      event_label: destination,
+
+    gtag("event", "platform_click", {
+
+      event_category: "English streaming page",
+      event_label: platform,
       song_name: "English",
       artist_name: "Omo Taker feat. Everyday Vibe"
+
     });
+
   }
 
 }
