@@ -4,61 +4,55 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Badt Guy — Omo Taker</title>
+<title>OMOTEKA – Badt Guy</title>
 
-<meta name="description" content="Listen to Badt Guy by Omo Taker on your favourite streaming platform.">
-
-<!-- Google Analytics -->
+<!-- 🔥 GOOGLE ANALYTICS -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-HX57BRN5ET"></script>
 <script>
 window.dataLayer = window.dataLayer || [];
-
-function gtag(){
-  dataLayer.push(arguments);
-}
-
-gtag("js", new Date());
-gtag("config", "G-HX57BRN5ET");
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-HX57BRN5ET');
 </script>
 
 <style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
-
 body{
-  min-height:100vh;
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
-  background:
-    radial-gradient(circle at top,rgba(255,90,20,.20),transparent 35%),
-    #050505;
-  color:#fff;
-  padding:20px 16px 40px;
+  margin:0;
+  font-family:-apple-system,Arial;
+  background:radial-gradient(circle at top,#0a0a0a,#000);
+  color:white;
 }
 
 .container{
-  width:100%;
-  max-width:430px;
-  margin:0 auto;
+  width:92%;
+  max-width:420px;
+  margin:auto;
+  padding-top:20px;
+  padding-bottom:35px;
 }
 
+/* 🔥 TRENDING */
 .trending{
   text-align:center;
+  font-size:14px;
   color:#ff6a2a;
-  font-size:13px;
   font-weight:800;
-  letter-spacing:.8px;
-  margin-bottom:14px;
+  margin-bottom:10px;
+  animation:fade 2s infinite;
 }
 
+@keyframes fade{
+  0%{opacity:0.5;}
+  50%{opacity:1;}
+  100%{opacity:0.5;}
+}
+
+/* COVER */
 .cover{
-  width:100%;
-  overflow:hidden;
   border-radius:22px;
-  background:#111;
-  box-shadow:0 20px 60px rgba(255,90,20,.24);
+  overflow:hidden;
+  box-shadow:0 0 80px rgba(255,80,0,.45);
+  animation:zoom 6s infinite ease-in-out;
 }
 
 .cover img{
@@ -66,191 +60,170 @@ body{
   display:block;
 }
 
-.song-title{
-  margin-top:20px;
-  text-align:center;
-  font-size:29px;
-  font-weight:900;
+@keyframes zoom{
+  0%{transform:scale(1);}
+  50%{transform:scale(1.05);}
+  100%{transform:scale(1);}
 }
 
-.artist{
-  margin-top:6px;
+/* NAME */
+.name{
   text-align:center;
-  color:#aaa;
+  font-size:32px;
+  font-weight:900;
+  margin-top:15px;
+}
+
+/* CTA */
+.cta{
+  text-align:center;
+  margin-top:12px;
   font-size:15px;
+  color:#ff6a2a;
+  line-height:1.4;
   font-weight:600;
 }
 
-.cta{
-  margin:14px auto 22px;
-  max-width:340px;
-  text-align:center;
-  color:#ddd;
-  font-size:14px;
-  line-height:1.5;
-}
-
-.platforms{
-  display:flex;
-  flex-direction:column;
-  gap:13px;
-}
-
+/* BUTTON */
 .btn{
-  width:100%;
-  min-height:64px;
   display:flex;
-  align-items:center;
   justify-content:space-between;
-  padding:0 20px;
-  border:1px solid rgba(255,255,255,.12);
-  border-radius:15px;
-  background:#121212;
-  color:#fff;
+  align-items:center;
+  padding:18px;
+  border-radius:16px;
+  margin-top:18px;
   text-decoration:none;
-  box-shadow:0 8px 25px rgba(0,0,0,.35);
-  transition:transform .15s ease,background .15s ease;
-  -webkit-tap-highlight-color:transparent;
-}
-
-.btn:active{
-  transform:scale(.98);
-  background:#1a1a1a;
-}
-
-.platform{
-  font-size:17px;
-  font-weight:800;
-}
-
-.play{
-  min-width:72px;
-  padding:10px 16px;
-  border-radius:30px;
-  background:#fff;
-  color:#000;
-  text-align:center;
-  font-size:13px;
   font-weight:900;
+  transition:0.2s;
 }
 
-.footer{
-  margin-top:27px;
+.btn:hover{
+  transform:scale(1.04);
+}
+
+/* MAIN BUTTON */
+.main{
+  background:linear-gradient(135deg,#1DB954,#0f7a3c);
+  color:white;
+  box-shadow:0 0 30px rgba(29,185,84,0.8);
+  font-size:18px;
+  animation:pulse 1.5s infinite;
+}
+
+/* URGENCY */
+.urgency{
   text-align:center;
-  color:#777;
-  font-size:12px;
+  margin-top:12px;
+  font-size:13px;
+  color:#aaa;
 }
 
-@media (hover:hover){
-  .btn:hover{
-    transform:translateY(-2px);
-    background:#191919;
-  }
+/* PULSE */
+@keyframes pulse{
+  0%{box-shadow:0 0 15px rgba(29,185,84,0.6);}
+  50%{box-shadow:0 0 40px rgba(29,185,84,1);}
+  100%{box-shadow:0 0 15px rgba(29,185,84,0.6);}
 }
 </style>
 </head>
 
 <body>
 
-<main class="container">
+<div class="container">
 
-  <div class="trending">
-    TRENDING RIGHT NOW
-  </div>
+  <!-- 🔥 TRENDING -->
+  <div class="trending">🔥 TRENDING RIGHT NOW</div>
 
+  <!-- COVER -->
   <div class="cover">
     <img
       src="https://raw.githubusercontent.com/omk-store/omotaker/refs/heads/main/IMG_0934.jpeg"
-      alt="Badt Guy by Omo Taker"
-    >
+      alt="Badt Guy by Omo Taker">
   </div>
 
-  <h1 class="song-title">Badt Guy</h1>
+  <!-- NAME -->
+  <div class="name">Omo Taker 🐺</div>
 
-  <div class="artist">
-    Omo Taker
-  </div>
-
+  <!-- CTA -->
   <div class="cta">
-    Choose your favourite platform and listen now.
+    Everybody is using this sound… don’t miss it 🎧🔥
   </div>
 
-  <div class="platforms">
+  <!-- APPLE BUTTON -->
+  <a href="https://music.apple.com/ng/song/badt-guy/1758752614"
+     target="_blank"
+     rel="noopener"
+     class="btn main"
+     onclick="gtag('event','apple_click',{
+       event_category:'music',
+       event_label:'badtguy_apple'
+     });">
+    <span>APPLE</span>
+    <span>PLAY ▶</span>
+  </a>
 
-    <a
-      href="https://music.apple.com/ng/song/badt-guy/1758752614"
-      target="_blank"
-      rel="noopener"
-      class="btn"
-      onclick="trackPlatform('Apple')"
-    >
-      <span class="platform">Apple</span>
-      <span class="play">PLAY</span>
-    </a>
+  <!-- SPOTIFY BUTTON -->
+  <a href="https://open.spotify.com/album/126dI3vQGGZSuKxkQ8nVs9"
+     target="_blank"
+     rel="noopener"
+     class="btn main"
+     onclick="gtag('event','spotify_click',{
+       event_category:'music',
+       event_label:'badtguy_spotify'
+     });">
+    <span>SPOTIFY</span>
+    <span>PLAY ▶</span>
+  </a>
 
-    <a
-      href="https://open.spotify.com/album/126dI3vQGGZSuKxkQ8nVs9"
-      target="_blank"
-      rel="noopener"
-      class="btn"
-      onclick="trackPlatform('Spotify')"
-    >
-      <span class="platform">Spotify</span>
-      <span class="play">PLAY</span>
-    </a>
+  <!-- AUDIOMACK BUTTON -->
+  <a href="https://audiomack.com/iam_omotaker/song/badt-guy"
+     target="_blank"
+     rel="noopener"
+     class="btn main"
+     onclick="gtag('event','audiomack_click',{
+       event_category:'music',
+       event_label:'badtguy_audiomack'
+     });">
+    <span>AUDIOMACK</span>
+    <span>PLAY ▶</span>
+  </a>
 
-    <a
-      href="https://audiomack.com/iam_omotaker/song/badt-guy"
-      target="_blank"
-      rel="noopener"
-      class="btn"
-      onclick="trackPlatform('Audiomack')"
-    >
-      <span class="platform">Audiomack</span>
-      <span class="play">PLAY</span>
-    </a>
+  <!-- BOOMPLAY BUTTON -->
+  <a href="https://www.boomplay.com/search/Badt%20Guy%20Omo%20Taker"
+     target="_blank"
+     rel="noopener"
+     class="btn main"
+     onclick="gtag('event','boomplay_click',{
+       event_category:'music',
+       event_label:'badtguy_boomplay'
+     });">
+    <span>BOOMPLAY</span>
+    <span>PLAY ▶</span>
+  </a>
 
-    <a
-      href="https://www.boomplay.com/search/Badt%20Guy%20Omo%20Taker"
-      target="_blank"
-      rel="noopener"
-      class="btn"
-      onclick="trackPlatform('Boomplay')"
-    >
-      <span class="platform">Boomplay</span>
-      <span class="play">PLAY</span>
-    </a>
+  <!-- DEEZER BUTTON -->
+  <a href="https://www.deezer.com/artist/250295022"
+     target="_blank"
+     rel="noopener"
+     class="btn main"
+     onclick="gtag('event','deezer_click',{
+       event_category:'music',
+       event_label:'badtguy_deezer'
+     });">
+    <span>DEEZER</span>
+    <span>PLAY ▶</span>
+  </a>
 
-    <a
-      href="https://www.deezer.com/artist/250295022"
-      target="_blank"
-      rel="noopener"
-      class="btn"
-      onclick="trackPlatform('Deezer')"
-    >
-      <span class="platform">Deezer</span>
-      <span class="play">PLAY</span>
-    </a>
-
+  <!-- 🔥 URGENCY -->
+  <div class="urgency">
+    🚨 Thousands already listening… don’t miss out
   </div>
 
-  <div class="footer">
-    OMOTEKA
+  <div class="urgency" style="color:#1DB954;">
+    🎧 Choose your platform and tap play
   </div>
 
-</main>
-
-<script>
-function trackPlatform(platform){
-  if(typeof gtag === "function"){
-    gtag("event","platform_play_click",{
-      event_category:"music",
-      event_label:"badt_guy",
-      platform_name:platform
-    });
-  }
-}
-</script>
+</div>
 
 </body>
 </html>
