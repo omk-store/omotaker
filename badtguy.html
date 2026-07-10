@@ -28,6 +28,7 @@ body{
   max-width:420px;
   margin:auto;
   padding-top:20px;
+  padding-bottom:35px;
 }
 
 /* 🔥 TRENDING */
@@ -53,7 +54,11 @@ body{
   box-shadow:0 0 80px rgba(255,80,0,.45);
   animation:zoom 6s infinite ease-in-out;
 }
-.cover img{width:100%;}
+
+.cover img{
+  width:100%;
+  display:block;
+}
 
 @keyframes zoom{
   0%{transform:scale(1);}
@@ -131,7 +136,9 @@ body{
 
   <!-- COVER -->
   <div class="cover">
-    <img src="https://raw.githubusercontent.com/omk-store/omotaker/refs/heads/main/IMG_0934.jpeg">
+    <img
+      src="https://raw.githubusercontent.com/omk-store/omotaker/refs/heads/main/IMG_0934.jpeg"
+      alt="Badt Guy by Omo Taker">
   </div>
 
   <!-- NAME -->
@@ -142,30 +149,81 @@ body{
     Everybody is using this sound… don’t miss it 🎧🔥
   </div>
 
-  <!-- 🎧 SPOTIFY BUTTON -->
+  <!-- APPLE BUTTON -->
+  <a href="https://music.apple.com/ng/song/badt-guy/1758752614"
+     target="_blank"
+     rel="noopener"
+     class="btn main"
+     onclick="gtag('event','apple_click',{
+       event_category:'music',
+       event_label:'badtguy_apple'
+     });">
+    <span>APPLE</span>
+    <span>PLAY ▶</span>
+  </a>
+
+  <!-- SPOTIFY BUTTON -->
   <a href="https://open.spotify.com/album/126dI3vQGGZSuKxkQ8nVs9"
      target="_blank"
+     rel="noopener"
      class="btn main"
      onclick="gtag('event','spotify_click',{
        event_category:'music',
        event_label:'badtguy_spotify'
      });">
-    <span>▶ PLAY ON SPOTIFY</span>
-    <span>🔥</span>
+    <span>SPOTIFY</span>
+    <span>PLAY ▶</span>
+  </a>
+
+  <!-- AUDIOMACK BUTTON -->
+  <a href="https://audiomack.com/iam_omotaker/song/badt-guy"
+     target="_blank"
+     rel="noopener"
+     class="btn main"
+     onclick="gtag('event','audiomack_click',{
+       event_category:'music',
+       event_label:'badtguy_audiomack'
+     });">
+    <span>AUDIOMACK</span>
+    <span>PLAY ▶</span>
+  </a>
+
+  <!-- BOOMPLAY BUTTON -->
+  <a href="https://www.boomplay.com/search/Badt%20Guy%20Omo%20Taker"
+     target="_blank"
+     rel="noopener"
+     class="btn main"
+     onclick="gtag('event','boomplay_click',{
+       event_category:'music',
+       event_label:'badtguy_boomplay'
+     });">
+    <span>BOOMPLAY</span>
+    <span>PLAY ▶</span>
+  </a>
+
+  <!-- DEEZER BUTTON -->
+  <a href="https://www.deezer.com/artist/250295022"
+     target="_blank"
+     rel="noopener"
+     class="btn main"
+     onclick="gtag('event','deezer_click',{
+       event_category:'music',
+       event_label:'badtguy_deezer'
+     });">
+    <span>DEEZER</span>
+    <span>PLAY ▶</span>
   </a>
 
   <!-- 🔥 URGENCY -->
-  <div class="urgency">🚨 Thousands already listening… don’t miss out</div>
-  <div class="urgency" style="color:#1DB954;">🎧 Opens directly in Spotify app</div>
+  <div class="urgency">
+    🚨 Thousands already listening… don’t miss out
+  </div>
+
+  <div class="urgency" style="color:#1DB954;">
+    🎧 Choose your platform and tap play
+  </div>
 
 </div>
-
-<!-- ⚡ AUTO REDIRECT (OPTIONAL POWER MOVE) -->
-<script>
-setTimeout(function(){
-  window.location.href="https://open.spotify.com/album/126dI3vQGGZSuKxkQ8nVs9";
-},4000);
-</script>
 
 </body>
 </html>
