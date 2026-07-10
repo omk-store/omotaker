@@ -4,10 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>English — Omo Taker feat. Everyday Vibe</title>
+<title>FTEV — Choose Your Streaming Platform</title>
 
 <meta name="description"
-content="Listen to English by Omo Taker featuring Everyday Vibe.">
+content="Choose your streaming platform and listen now.">
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-HX57BRN5ET"></script>
 
@@ -31,7 +31,7 @@ gtag("config", "G-HX57BRN5ET");
 
 body{
   min-height:100vh;
-  font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
   background:#050505;
   color:#fff;
   padding:22px 16px 40px;
@@ -42,8 +42,6 @@ body{
   max-width:430px;
   margin:auto;
 }
-
-/* COVER */
 
 .cover{
   width:100%;
@@ -77,8 +75,6 @@ body{
   font-weight:700;
 }
 
-/* SONG DETAILS */
-
 .song-info{
   padding:24px 5px 18px;
   text-align:center;
@@ -96,8 +92,6 @@ body{
   font-size:15px;
   font-weight:700;
 }
-
-/* STREAMING BUTTONS */
 
 .platforms{
   display:flex;
@@ -141,33 +135,37 @@ body{
   letter-spacing:1px;
 }
 
-/* PLATFORM ACCENTS */
-
 .spotify{
-  border-color:#1db954;
+  border-color:#1DB954;
 }
 
 .spotify .platform-name{
-  color:#1ed760;
+  color:#1DB954;
 }
 
 .apple{
-  border-color:#d8d8d8;
+  border-color:#ffffff;
 }
 
 .apple .platform-name{
-  color:#fff;
+  color:#ffffff;
 }
 
 .audiomack{
-  border-color:#ff7a00;
+  border-color:#ff8a00;
 }
 
 .audiomack .platform-name{
   color:#ff8a00;
 }
 
-/* FOOTER */
+.boomplay{
+  border-color:#00c853;
+}
+
+.boomplay .platform-name{
+  color:#00c853;
+}
 
 .footer{
   margin-top:28px;
@@ -183,90 +181,95 @@ body{
 
 <main class="page">
 
-  <section class="cover">
+<section class="cover">
 
-    <div class="cover-content">
+<div class="cover-content">
 
-      <div class="cover-title">
-        ENGLISH
-      </div>
+<div class="cover-title">
+FTEV
+</div>
 
-      <div class="cover-artist">
-        Omo Taker feat. Everyday Vibe
-      </div>
+<div class="cover-artist">
+Choose your streaming platform below.
+</div>
 
-    </div>
+</div>
 
-  </section>
+</section>
 
-  <section class="song-info">
+<section class="song-info">
 
-    <h1 class="song-title">
-      English
-    </h1>
+<h1 class="song-title">
+FTEV
+</h1>
 
-    <p class="artist">
-      Omo Taker feat. Everyday Vibe
-    </p>
+<p class="artist">
+Choose your streaming platform below.
+</p>
 
-  </section>
+</section>
 
-  <section class="platforms">
+<section class="platforms">
 
-    <a
-      href="https://open.spotify.com/album/3S5hKnoQOsy6KhsldVDscK"
-      target="_blank"
-      rel="noopener noreferrer"
-      class="platform-btn spotify"
-      onclick="trackClick('spotify');"
-    >
-      <span class="platform-name">Spotify</span>
-      <span class="play">PLAY</span>
-    </a>
+<a
+href="https://open.spotify.com/album/3S5hKnoQOsy6KhsldVDscK"
+target="_blank"
+rel="noopener noreferrer"
+class="platform-btn spotify"
+onclick="trackClick('spotify');">
+<span class="platform-name">Spotify</span>
+<span class="play">PLAY</span>
+</a>
 
-    <a
-      href="https://music.apple.com/us/album/english-feat-everyday-vibe-single/6787016827"
-      target="_blank"
-      rel="noopener noreferrer"
-      class="platform-btn apple"
-      onclick="trackClick('apple_music');"
-    >
-      <span class="platform-name">Apple Music</span>
-      <span class="play">PLAY</span>
-    </a>
+<a
+href="https://music.apple.com/us/album/english-feat-everyday-vibe-single/6787016827"
+target="_blank"
+rel="noopener noreferrer"
+class="platform-btn apple"
+onclick="trackClick('apple_music');">
+<span class="platform-name">Apple Music</span>
+<span class="play">PLAY</span>
+</a>
 
-    <a
-      href="https://audiomack.com/iam_omotaker"
-      target="_blank"
-      rel="noopener noreferrer"
-      class="platform-btn audiomack"
-      onclick="trackClick('audiomack');"
-    >
-      <span class="platform-name">Audiomack</span>
-      <span class="play">PLAY</span>
-    </a>
+<a
+href="https://audiomack.com/iam_omotaker"
+target="_blank"
+rel="noopener noreferrer"
+class="platform-btn audiomack"
+onclick="trackClick('audiomack');">
+<span class="platform-name">Audiomack</span>
+<span class="play">PLAY</span>
+</a>
 
-  </section>
+<a
+href="https://www.boomplay.com/share/music/110231149"
+target="_blank"
+rel="noopener noreferrer"
+class="platform-btn boomplay"
+onclick="trackClick('boomplay');">
+<span class="platform-name">Boomplay</span>
+<span class="play">PLAY</span>
+</a>
 
-  <footer class="footer">
-    OMK RECORD © 2026
-  </footer>
+</section>
+
+<footer class="footer">
+OMK RECORD © 2026
+</footer>
 
 </main>
 
 <script>
 function trackClick(platform){
 
-  if(typeof gtag === "function"){
+if(typeof gtag==="function"){
 
-    gtag("event","platform_click",{
-      event_category:"English streaming page",
-      event_label:platform,
-      song_name:"English",
-      artist_name:"Omo Taker feat. Everyday Vibe"
-    });
+gtag("event","platform_click",{
+event_category:"FTEV streaming page",
+event_label:platform
+});
 
-  }
+}
 
 }
 </script>
