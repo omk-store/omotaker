@@ -6,7 +6,7 @@
 
 <title>OMOTEKA – Badt Guy</title>
 
-<!-- 🔥 GOOGLE ANALYTICS -->
+<!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-HX57BRN5ET"></script>
 <script>
 window.dataLayer = window.dataLayer || [];
@@ -16,156 +16,215 @@ gtag('config', 'G-HX57BRN5ET');
 </script>
 
 <style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
 body{
-  margin:0;
-  font-family:-apple-system,Arial;
-  background:radial-gradient(circle at top,#0a0a0a,#000);
-  color:white;
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+background:radial-gradient(circle at top,#111,#000);
+color:#fff;
 }
 
 .container{
-  width:92%;
-  max-width:420px;
-  margin:auto;
-  padding-top:20px;
+width:92%;
+max-width:430px;
+margin:auto;
+padding:20px 0 40px;
 }
 
-/* 🔥 TRENDING */
 .trending{
-  text-align:center;
-  font-size:14px;
-  color:#ff6a2a;
-  font-weight:800;
-  margin-bottom:10px;
-  animation:fade 2s infinite;
+text-align:center;
+font-size:14px;
+font-weight:800;
+color:#ff6a2a;
+margin-bottom:12px;
+animation:fade 2s infinite;
 }
 
 @keyframes fade{
-  0%{opacity:0.5;}
-  50%{opacity:1;}
-  100%{opacity:0.5;}
+0%{opacity:.5;}
+50%{opacity:1;}
+100%{opacity:.5;}
 }
 
-/* COVER */
 .cover{
-  border-radius:22px;
-  overflow:hidden;
-  box-shadow:0 0 80px rgba(255,80,0,.45);
-  animation:zoom 6s infinite ease-in-out;
+overflow:hidden;
+border-radius:22px;
+box-shadow:0 0 70px rgba(255,80,0,.45);
+animation:zoom 6s infinite ease-in-out;
 }
-.cover img{width:100%;}
+
+.cover img{
+width:100%;
+display:block;
+}
 
 @keyframes zoom{
-  0%{transform:scale(1);}
-  50%{transform:scale(1.05);}
-  100%{transform:scale(1);}
+0%{transform:scale(1);}
+50%{transform:scale(1.04);}
+100%{transform:scale(1);}
 }
 
-/* NAME */
 .name{
-  text-align:center;
-  font-size:32px;
-  font-weight:900;
-  margin-top:15px;
+text-align:center;
+font-size:32px;
+font-weight:900;
+margin-top:18px;
 }
 
-/* CTA */
 .cta{
-  text-align:center;
-  margin-top:12px;
-  font-size:15px;
-  color:#ff6a2a;
-  line-height:1.4;
-  font-weight:600;
+text-align:center;
+margin-top:12px;
+font-size:15px;
+color:#ff6a2a;
+font-weight:600;
+line-height:1.5;
 }
 
-/* BUTTON */
 .btn{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:18px;
-  border-radius:16px;
-  margin-top:18px;
-  text-decoration:none;
-  font-weight:900;
-  transition:0.2s;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px;
+margin-top:16px;
+border-radius:16px;
+text-decoration:none;
+font-weight:800;
+transition:.25s;
 }
 
 .btn:hover{
-  transform:scale(1.04);
+transform:scale(1.03);
 }
 
-/* MAIN BUTTON */
-.main{
-  background:linear-gradient(135deg,#1DB954,#0f7a3c);
-  color:white;
-  box-shadow:0 0 30px rgba(29,185,84,0.8);
-  font-size:18px;
-  animation:pulse 1.5s infinite;
+.spotify{
+background:linear-gradient(135deg,#1DB954,#12863f);
+color:#fff;
+box-shadow:0 0 25px rgba(29,185,84,.6);
 }
 
-/* URGENCY */
+.apple{
+background:#FA243C;
+color:#fff;
+}
+
+.audiomack{
+background:#F7A600;
+color:#000;
+}
+
+.boomplay{
+background:#00B050;
+color:#fff;
+}
+
+.deezer{
+background:#7A3CFF;
+color:#fff;
+}
+
 .urgency{
-  text-align:center;
-  margin-top:12px;
-  font-size:13px;
-  color:#aaa;
+margin-top:18px;
+text-align:center;
+font-size:13px;
+color:#aaa;
+line-height:1.5;
 }
 
-/* PULSE */
-@keyframes pulse{
-  0%{box-shadow:0 0 15px rgba(29,185,84,0.6);}
-  50%{box-shadow:0 0 40px rgba(29,185,84,1);}
-  100%{box-shadow:0 0 15px rgba(29,185,84,0.6);}
+.footer{
+margin-top:30px;
+text-align:center;
+font-size:12px;
+color:#666;
 }
 </style>
+
 </head>
 
 <body>
 
 <div class="container">
 
-  <!-- 🔥 TRENDING -->
-  <div class="trending">🔥 TRENDING RIGHT NOW</div>
-
-  <!-- COVER -->
-  <div class="cover">
-    <img src="https://raw.githubusercontent.com/omk-store/omotaker/refs/heads/main/IMG_0934.jpeg">
-  </div>
-
-  <!-- NAME -->
-  <div class="name">Omo Taker 🐺</div>
-
-  <!-- CTA -->
-  <div class="cta">
-    Everybody is using this sound… don’t miss it 🎧🔥
-  </div>
-
-  <!-- 🎧 SPOTIFY BUTTON -->
-  <a href="https://open.spotify.com/album/126dI3vQGGZSuKxkQ8nVs9"
-     target="_blank"
-     class="btn main"
-     onclick="gtag('event','spotify_click',{
-       event_category:'music',
-       event_label:'badtguy_spotify'
-     });">
-    <span>▶ PLAY ON SPOTIFY</span>
-    <span>🔥</span>
-  </a>
-
-  <!-- 🔥 URGENCY -->
-  <div class="urgency">🚨 Thousands already listening… don’t miss out</div>
-  <div class="urgency" style="color:#1DB954;">🎧 Opens directly in Spotify app</div>
-
+<div class="trending">
+🔥 TRENDING RIGHT NOW
 </div>
 
-<!-- ⚡ AUTO REDIRECT (OPTIONAL POWER MOVE) -->
-<script>
-setTimeout(function(){
-  window.location.href="https://open.spotify.com/album/126dI3vQGGZSuKxkQ8nVs9";
-},4000);
-</script>
+<div class="cover">
+<img src="https://raw.githubusercontent.com/omk-store/omotaker/refs/heads/main/IMG_0934.jpeg" alt="Badt Guy Cover">
+</div>
+
+<div class="name">
+Omo Taker 🐺
+</div>
+
+<div class="cta">
+Everybody is using this sound…<br>
+Choose your favourite music app and start listening. 🎧🔥
+</div>
+
+<!-- Spotify -->
+<a
+class="btn spotify"
+target="_blank"
+href="https://open.spotify.com/album/126dI3vQGGZSuKxkQ8nVs9"
+onclick="gtag('event','spotify_click');">
+<span>💚 Spotify</span>
+<span>▶</span>
+</a>
+
+<!-- Apple Music -->
+<a
+class="btn apple"
+target="_blank"
+href="https://music.apple.com/ng/song/badt-guy/1758752614"
+onclick="gtag('event','apple_music_click');">
+<span> Apple Music</span>
+<span>▶</span>
+</a>
+
+<!-- Audiomack -->
+<a
+class="btn audiomack"
+target="_blank"
+href="https://audiomack.com/iam_omotaker/song/badt-guy"
+onclick="gtag('event','audiomack_click');">
+<span>🎵 Audiomack</span>
+<span>▶</span>
+</a>
+
+<!-- Boomplay -->
+<a
+class="btn boomplay"
+target="_blank"
+href="https://www.boomplay.com/search/Badt%20Guy%20Omo%20Taker"
+onclick="gtag('event','boomplay_click');">
+<span>▶ Boomplay</span>
+<span>▶</span>
+</a>
+
+<!-- Deezer -->
+<a
+class="btn deezer"
+target="_blank"
+href="https://www.deezer.com/artist/250295022"
+onclick="gtag('event','deezer_click');">
+<span>🎶 Deezer</span>
+<span>▶</span>
+</a>
+
+<div class="urgency">
+🚀 Stream on your favourite platform.<br>
+Thanks for supporting Omo Taker ❤️
+</div>
+
+<div class="footer">
+Powered by OMOTEKA
+</div>
+
+</div>
 
 </body>
 </html>
