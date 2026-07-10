@@ -6,11 +6,15 @@
 
 <title>OMOTEKA – Badt Guy</title>
 
-<!-- 🔥 GOOGLE ANALYTICS -->
+<!-- GOOGLE ANALYTICS -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-HX57BRN5ET"></script>
 <script>
 window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
+
+function gtag(){
+  dataLayer.push(arguments);
+}
+
 gtag('js', new Date());
 gtag('config', 'G-HX57BRN5ET');
 </script>
@@ -18,7 +22,7 @@ gtag('config', 'G-HX57BRN5ET');
 <style>
 body{
   margin:0;
-  font-family:-apple-system,Arial;
+  font-family:-apple-system,Arial,sans-serif;
   background:radial-gradient(circle at top,#0a0a0a,#000);
   color:white;
 }
@@ -31,7 +35,7 @@ body{
   padding-bottom:35px;
 }
 
-/* 🔥 TRENDING */
+/* TRENDING */
 .trending{
   text-align:center;
   font-size:14px;
@@ -84,6 +88,16 @@ body{
   font-weight:600;
 }
 
+/* CHOOSE PLATFORM TEXT */
+.choose{
+  text-align:center;
+  margin-top:18px;
+  margin-bottom:4px;
+  font-size:14px;
+  color:#ddd;
+  font-weight:700;
+}
+
 /* BUTTON */
 .btn{
   display:flex;
@@ -94,35 +108,84 @@ body{
   margin-top:18px;
   text-decoration:none;
   font-weight:900;
+  font-size:18px;
   transition:0.2s;
+  border:1px solid rgba(255,255,255,.12);
+  box-shadow:0 8px 24px rgba(0,0,0,.35);
 }
 
 .btn:hover{
   transform:scale(1.04);
 }
 
-/* MAIN BUTTON */
-.main{
-  background:linear-gradient(135deg,#1DB954,#0f7a3c);
+.btn:active{
+  transform:scale(.98);
+}
+
+/* APPLE */
+.apple{
+  background:linear-gradient(135deg,#242424,#080808);
   color:white;
-  box-shadow:0 0 30px rgba(29,185,84,0.8);
-  font-size:18px;
-  animation:pulse 1.5s infinite;
 }
 
-/* URGENCY */
-.urgency{
-  text-align:center;
-  margin-top:12px;
+/* SPOTIFY */
+.spotify{
+  background:linear-gradient(135deg,#1DB954,#12833f);
+  color:white;
+}
+
+/* AUDIOMACK */
+.audiomack{
+  background:linear-gradient(135deg,#ffb000,#f27b00);
+  color:#111;
+}
+
+/* BOOMPLAY */
+.boomplay{
+  background:linear-gradient(135deg,#18c66b,#087c44);
+  color:white;
+}
+
+/* DEEZER */
+.deezer{
+  background:linear-gradient(135deg,#8a2be2,#4b168c);
+  color:white;
+}
+
+/* AMAZON MUSIC */
+.amazon{
+  background:linear-gradient(135deg,#25d1da,#1688a7);
+  color:white;
+}
+
+/* ITUNES */
+.itunes{
+  background:linear-gradient(135deg,#ff375f,#b31245);
+  color:white;
+}
+
+/* PLAY */
+.play{
+  background:rgba(255,255,255,.16);
+  padding:8px 14px;
+  border-radius:20px;
   font-size:13px;
-  color:#aaa;
+  letter-spacing:.5px;
 }
 
-/* PULSE */
-@keyframes pulse{
-  0%{box-shadow:0 0 15px rgba(29,185,84,0.6);}
-  50%{box-shadow:0 0 40px rgba(29,185,84,1);}
-  100%{box-shadow:0 0 15px rgba(29,185,84,0.6);}
+.audiomack .play{
+  background:rgba(0,0,0,.12);
+}
+
+/* FOOTER */
+.footer{
+  text-align:center;
+  margin-top:28px;
+  padding-top:18px;
+  border-top:1px solid rgba(255,255,255,.10);
+  font-size:13px;
+  color:#888;
+  font-weight:600;
 }
 </style>
 </head>
@@ -131,7 +194,7 @@ body{
 
 <div class="container">
 
-  <!-- 🔥 TRENDING -->
+  <!-- TRENDING -->
   <div class="trending">🔥 TRENDING RIGHT NOW</div>
 
   <!-- COVER -->
@@ -149,81 +212,99 @@ body{
     Everybody is using this sound… don’t miss it 🎧🔥
   </div>
 
-  <!-- APPLE BUTTON -->
-  <a href="https://music.apple.com/ng/song/badt-guy/1758752614"
-     target="_blank"
-     rel="noopener"
-     class="btn main"
-     onclick="gtag('event','apple_click',{
-       event_category:'music',
-       event_label:'badtguy_apple'
-     });">
-    <span>APPLE</span>
-    <span>PLAY ▶</span>
-  </a>
-
-  <!-- SPOTIFY BUTTON -->
-  <a href="https://open.spotify.com/album/126dI3vQGGZSuKxkQ8nVs9"
-     target="_blank"
-     rel="noopener"
-     class="btn main"
-     onclick="gtag('event','spotify_click',{
-       event_category:'music',
-       event_label:'badtguy_spotify'
-     });">
-    <span>SPOTIFY</span>
-    <span>PLAY ▶</span>
-  </a>
-
-  <!-- AUDIOMACK BUTTON -->
-  <a href="https://audiomack.com/iam_omotaker/song/badt-guy"
-     target="_blank"
-     rel="noopener"
-     class="btn main"
-     onclick="gtag('event','audiomack_click',{
-       event_category:'music',
-       event_label:'badtguy_audiomack'
-     });">
-    <span>AUDIOMACK</span>
-    <span>PLAY ▶</span>
-  </a>
-
-  <!-- BOOMPLAY BUTTON -->
-  <a href="https://www.boomplay.com/search/Badt%20Guy%20Omo%20Taker"
-     target="_blank"
-     rel="noopener"
-     class="btn main"
-     onclick="gtag('event','boomplay_click',{
-       event_category:'music',
-       event_label:'badtguy_boomplay'
-     });">
-    <span>BOOMPLAY</span>
-    <span>PLAY ▶</span>
-  </a>
-
-  <!-- DEEZER BUTTON -->
-  <a href="https://www.deezer.com/artist/250295022"
-     target="_blank"
-     rel="noopener"
-     class="btn main"
-     onclick="gtag('event','deezer_click',{
-       event_category:'music',
-       event_label:'badtguy_deezer'
-     });">
-    <span>DEEZER</span>
-    <span>PLAY ▶</span>
-  </a>
-
-  <!-- 🔥 URGENCY -->
-  <div class="urgency">
-    🚨 Thousands already listening… don’t miss out
+  <!-- TEXT ABOVE BUTTONS -->
+  <div class="choose">
+    Choose your platform and tap play
   </div>
 
-  <div class="urgency" style="color:#1DB954;">
-    🎧 Choose your platform and tap play
+  <!-- APPLE -->
+  <a href="https://music.apple.com/ng/album/badt-guy/1758752613?i=1758752614"
+     target="_blank"
+     rel="noopener"
+     class="btn apple"
+     onclick="trackPlatform('apple');">
+    <span>APPLE</span>
+    <span class="play">PLAY ▶</span>
+  </a>
+
+  <!-- SPOTIFY -->
+  <a href="https://open.spotify.com/album/126dI3vQGGZSuKxkQ8nVs9?si=H-s_1r39SHiF7_GzcAYd7g&amp;utm_source=copy-link"
+     target="_blank"
+     rel="noopener"
+     class="btn spotify"
+     onclick="trackPlatform('spotify');">
+    <span>SPOTIFY</span>
+    <span class="play">PLAY ▶</span>
+  </a>
+
+  <!-- AUDIOMACK -->
+  <a href="https://audiomack.com/iam_omotaker/song/badt-guy?share-user-id=111838460"
+     target="_blank"
+     rel="noopener"
+     class="btn audiomack"
+     onclick="trackPlatform('audiomack');">
+    <span>AUDIOMACK</span>
+    <span class="play">PLAY ▶</span>
+  </a>
+
+  <!-- BOOMPLAY -->
+  <a href="https://www.boomplay.com/albums/94583617?srModel=openapi_featurefm"
+     target="_blank"
+     rel="noopener"
+     class="btn boomplay"
+     onclick="trackPlatform('boomplay');">
+    <span>BOOMPLAY</span>
+    <span class="play">PLAY ▶</span>
+  </a>
+
+  <!-- DEEZER -->
+  <a href="https://www.deezer.com/album/618995921"
+     target="_blank"
+     rel="noopener"
+     class="btn deezer"
+     onclick="trackPlatform('deezer');">
+    <span>DEEZER</span>
+    <span class="play">PLAY ▶</span>
+  </a>
+
+  <!-- AMAZON MUSIC -->
+  <a href="https://music.amazon.com/albums/B0D9WJBJ1B?ref=dm_ff_amazonmusic_3p"
+     target="_blank"
+     rel="noopener"
+     class="btn amazon"
+     onclick="trackPlatform('amazon_music');">
+    <span>AMAZON MUSIC</span>
+    <span class="play">PLAY ▶</span>
+  </a>
+
+  <!-- ITUNES -->
+  <a href="https://geo.music.apple.com/us/album/badt-guy-single/1758752613?app=itunes&amp;ls=1"
+     target="_blank"
+     rel="noopener"
+     class="btn itunes"
+     onclick="trackPlatform('itunes');">
+    <span>ITUNES</span>
+    <span class="play">PLAY ▶</span>
+  </a>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    Powered by OMK Record
   </div>
 
 </div>
+
+<script>
+function trackPlatform(platform){
+  if(typeof gtag === "function"){
+    gtag('event','platform_click',{
+      event_category:'music',
+      event_label:'badtguy_' + platform,
+      platform_name:platform
+    });
+  }
+}
+</script>
 
 </body>
 </html>
