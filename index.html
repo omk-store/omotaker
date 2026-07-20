@@ -1,233 +1,920 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Follow Follow | OmoTeka Link</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
-}
+  <title>Omo Taker | OMK World</title>
 
-body {
-  min-height: 100vh;
-  background:
-    radial-gradient(circle at top, rgba(255, 90, 0, 0.35), transparent 35%),
-    radial-gradient(circle at bottom, rgba(255, 90, 0, 0.22), transparent 35%),
-    #030303;
-  color: #fff;
-  padding: 18px;
-}
+  <meta
+    name="description"
+    content="Omo Taker — Nigerian Afrobeats artist, dancer and creator. Listen to Lucky and explore the OMK world."
+  />
 
-.page {
-  max-width: 520px;
-  margin: auto;
-  text-align: center;
-}
+  <style>
+    :root {
+      --black: #050505;
+      --card: #111111;
+      --soft: #191919;
+      --gold: #f5b942;
+      --white: #ffffff;
+      --muted: #b5b5b5;
+      --line: rgba(255,255,255,.1);
+    }
 
-.cover {
-  width: 100%;
-  border-radius: 28px;
-  box-shadow: 0 0 45px rgba(255, 102, 0, 0.45);
-  border: 1px solid rgba(255, 102, 0, 0.5);
-}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-h1 {
-  font-size: 46px;
-  margin: 28px 0 8px;
-}
+    html {
+      scroll-behavior: smooth;
+    }
 
-.artist {
-  font-size: 24px;
-  color: #ff7a00;
-  margin-bottom: 14px;
-}
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(245,185,66,.12), transparent 35%),
+        var(--black);
+      color: var(--white);
+      line-height: 1.6;
+    }
 
-.visualizer {
-  color: #ff7a00;
-  font-size: 34px;
-  letter-spacing: 4px;
-  margin-bottom: 26px;
-}
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-.choose {
-  color: #ff7a00;
-  font-size: 14px;
-  font-weight: 800;
-  letter-spacing: 7px;
-  margin-bottom: 20px;
-}
+    img {
+      width: 100%;
+      display: block;
+    }
 
-.links {
-  display: grid;
-  gap: 14px;
-}
+    .container {
+      width: min(92%, 1150px);
+      margin: auto;
+    }
 
-.btn {
-  text-decoration: none;
-  color: white;
-  padding: 17px;
-  border-radius: 18px;
-  background: rgba(255,255,255,0.07);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border: 1px solid rgba(255,255,255,0.15);
-  box-shadow: 0 0 25px rgba(255, 102, 0, 0.08);
-}
+    .topbar {
+      background: var(--gold);
+      color: #111;
+      text-align: center;
+      padding: 9px 15px;
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
 
-.left {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  text-align: left;
-}
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      background: rgba(5,5,5,.88);
+      backdrop-filter: blur(15px);
+      border-bottom: 1px solid var(--line);
+    }
 
-.icon {
-  width: 44px;
-  height: 44px;
-  border-radius: 14px;
-  display: grid;
-  place-items: center;
-  font-size: 24px;
-  font-weight: 900;
-}
+    nav {
+      min-height: 72px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
 
-.apple .icon { background: #fa2d48; }
-.spotify .icon { background: #1db954; }
-.boomplay .icon { background: #ffd400; color: #000; }
-.audiomack .icon { background: #ff8800; }
+    .logo {
+      font-size: 21px;
+      font-weight: 1000;
+      letter-spacing: 2px;
+    }
 
-.platform {
-  font-size: 18px;
-  font-weight: 800;
-}
+    .logo span {
+      color: var(--gold);
+    }
 
-.small {
-  font-size: 13px;
-  color: #bdbdbd;
-  margin-top: 3px;
-}
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      font-size: 14px;
+      font-weight: 700;
+    }
 
-.action {
-  font-weight: 900;
-}
+    .nav-links a:hover {
+      color: var(--gold);
+    }
 
-.apple { border-color: #fa2d48; }
-.spotify { border-color: #1db954; }
-.boomplay { border-color: #ffd400; }
-.audiomack { border-color: #ff8800; }
+    .menu {
+      display: none;
+      background: var(--soft);
+      color: white;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      width: 44px;
+      height: 44px;
+      font-size: 20px;
+      cursor: pointer;
+    }
 
-.apple .action { color: #fa2d48; }
-.spotify .action { color: #1db954; }
-.boomplay .action { color: #ffd400; }
-.audiomack .action { color: #ff8800; }
+    .hero {
+      min-height: 88vh;
+      display: grid;
+      align-items: center;
+      padding: 70px 0;
+    }
 
-.features {
-  margin-top: 24px;
-  padding: 18px;
-  border-radius: 18px;
-  background: rgba(255,255,255,0.06);
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
-  font-size: 12px;
-  color: #ccc;
-}
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 50px;
+      align-items: center;
+    }
 
-.features strong {
-  display: block;
-  color: #fff;
-  margin-bottom: 5px;
-}
+    .tag {
+      display: inline-block;
+      border: 1px solid rgba(245,185,66,.3);
+      background: rgba(245,185,66,.08);
+      color: var(--gold);
+      padding: 8px 13px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
 
-.footer {
-  margin: 28px 0 10px;
-  color: #999;
-  font-size: 12px;
-  letter-spacing: 2px;
-}
-</style>
+    h1 {
+      font-size: clamp(55px, 9vw, 105px);
+      line-height: .9;
+      letter-spacing: -5px;
+    }
+
+    h1 span {
+      color: var(--gold);
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 17px;
+      max-width: 620px;
+      margin: 25px 0;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 13px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 0 22px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      font-weight: 900;
+      transition: .25s;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+    }
+
+    .btn-gold {
+      background: var(--gold);
+      color: #111;
+      border-color: var(--gold);
+    }
+
+    .btn-dark {
+      background: rgba(255,255,255,.04);
+    }
+
+    .hero-image {
+      aspect-ratio: 4 / 5;
+      border-radius: 30px;
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(to top, rgba(0,0,0,.7), transparent),
+        url("omotaker.jpg") center/cover no-repeat,
+        linear-gradient(145deg, #222, #080808);
+      box-shadow: 0 25px 70px rgba(0,0,0,.5);
+    }
+
+    section {
+      padding: 85px 0;
+    }
+
+    .section-title {
+      margin-bottom: 32px;
+    }
+
+    .section-title h2 {
+      font-size: clamp(38px, 6vw, 65px);
+      line-height: 1;
+      letter-spacing: -3px;
+    }
+
+    .section-title p {
+      color: var(--muted);
+      margin-top: 12px;
+    }
+
+    .latest {
+      display: grid;
+      grid-template-columns: .85fr 1.15fr;
+      gap: 35px;
+      align-items: center;
+      background: linear-gradient(145deg, #151515, #090909);
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      padding: 25px;
+    }
+
+    .cover {
+      aspect-ratio: 1;
+      border-radius: 22px;
+      background:
+        linear-gradient(to top, rgba(0,0,0,.4), transparent),
+        url("lucky-cover.jpg") center/cover no-repeat,
+        linear-gradient(145deg, #2a2a2a, #101010);
+    }
+
+    .latest h2 {
+      font-size: clamp(52px, 8vw, 90px);
+      line-height: .9;
+      letter-spacing: -4px;
+      margin: 10px 0;
+    }
+
+    .latest p {
+      color: var(--muted);
+      margin-bottom: 22px;
+    }
+
+    .platforms {
+      display: grid;
+      gap: 11px;
+    }
+
+    .platform {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      min-height: 57px;
+      padding: 0 17px;
+      border: 1px solid var(--line);
+      border-radius: 15px;
+      background: rgba(255,255,255,.03);
+      font-weight: 800;
+    }
+
+    .platform:hover {
+      border-color: var(--gold);
+      background: rgba(245,185,66,.07);
+    }
+
+    .platform span:last-child {
+      color: var(--gold);
+    }
+
+    .music-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .music-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      overflow: hidden;
+      transition: .25s;
+    }
+
+    .music-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(245,185,66,.45);
+    }
+
+    .music-cover {
+      aspect-ratio: 1;
+      overflow: hidden;
+      background: linear-gradient(145deg, #262626, #0d0d0d);
+    }
+
+    .music-cover img {
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .music-info {
+      padding: 18px;
+    }
+
+    .music-info h3 {
+      font-size: 21px;
+      margin-bottom: 4px;
+    }
+
+    .music-info p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .listen {
+      display: inline-block;
+      color: var(--gold);
+      font-weight: 900;
+      margin-top: 13px;
+    }
+
+    .story {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 45px;
+      align-items: center;
+    }
+
+    .story-image {
+      aspect-ratio: 4 / 5;
+      border-radius: 28px;
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(to top, rgba(0,0,0,.7), transparent),
+        url("omotaker-story.jpg") center/cover no-repeat,
+        linear-gradient(145deg, #252525, #0b0b0b);
+    }
+
+    .story h2 {
+      font-size: clamp(42px, 7vw, 76px);
+      line-height: .95;
+      letter-spacing: -4px;
+      margin-bottom: 22px;
+    }
+
+    .story p {
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .quote {
+      color: white !important;
+      border-left: 3px solid var(--gold);
+      padding-left: 17px;
+      font-weight: 800;
+    }
+
+    .cta {
+      text-align: center;
+      padding: 75px 25px;
+      border-radius: 30px;
+      border: 1px solid var(--line);
+      background:
+        radial-gradient(circle at top, rgba(245,185,66,.15), transparent 45%),
+        #101010;
+    }
+
+    .cta h2 {
+      font-size: clamp(43px, 7vw, 78px);
+      line-height: .95;
+      letter-spacing: -4px;
+      margin-bottom: 15px;
+    }
+
+    .cta p {
+      color: var(--muted);
+      max-width: 620px;
+      margin: 0 auto 25px;
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 30px 0;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    @media (max-width: 850px) {
+      .menu {
+        display: block;
+      }
+
+      .nav-links {
+        position: fixed;
+        top: 110px;
+        left: 4%;
+        right: 4%;
+        display: none;
+        flex-direction: column;
+        background: #101010;
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        padding: 12px;
+      }
+
+      .nav-links.show {
+        display: flex;
+      }
+
+      .nav-links a {
+        padding: 12px;
+      }
+
+      .hero-grid,
+      .latest,
+      .story {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-image {
+        order: -1;
+      }
+
+      .music-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 560px) {
+      section {
+        padding: 65px 0;
+      }
+
+      .music-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .buttons {
+        display: grid;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .latest {
+        padding: 15px;
+      }
+    }
+  </style>
 </head>
 
 <body>
-  <main class="page">
 
-    <img
-      class="cover"
-      src="https://raw.githubusercontent.com/omk-store/omotaker/refs/heads/main/F2D3D9CF-71CA-484E-8008-B1CA9314FADD.png"
-      alt="Follow Follow Cover"
-    />
+  <div class="topbar">
+    Lucky by Omo Taker — Listen Now 🐺🔊🔥💯
+  </div>
 
-    <h1>Follow Follow</h1>
-    <div class="artist">Omo Taker</div>
+  <header>
+    <div class="container">
+      <nav>
+        <a href="#home" class="logo">OMO <span>TAKER</span></a>
 
-    <div class="visualizer">▁▃▅▇▅▃▁</div>
+        <button class="menu" id="menuBtn">☰</button>
 
-    <div class="choose">CHOOSE YOUR PLATFORM</div>
+        <div class="nav-links" id="navLinks">
+          <a href="#music">Music</a>
+          <a href="#story">Story</a>
+          <a href="#connect">Connect</a>
+        </div>
+      </nav>
+    </div>
+  </header>
 
-    <section class="links">
+  <main>
 
-      <a class="btn apple" href="https://music.apple.com/ng/album/follow-follow-single/1896458191" target="_blank">
-        <div class="left">
-          <div class="icon">♪</div>
-          <div>
-            <div class="platform">Apple Music</div>
-            <div class="small">Listen on Apple Music</div>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+
+        <div>
+          <div class="tag">OMK Record • Wolf Energy</div>
+
+          <h1>OMO <span>TAKER.</span></h1>
+
+          <p>
+            Independent Afrobeats artist, dancer and creator from Nigeria.
+            Music, dance, lifestyle and a vision built from Benin to Lagos.
+          </p>
+
+          <div class="buttons">
+            <a
+              href="https://open.spotify.com/search/Lucky%20Omo%20Taker"
+              target="_blank"
+              class="btn btn-gold"
+            >
+              Listen to Lucky 🔊
+            </a>
+
+            <a href="#story" class="btn btn-dark">
+              Read My Story
+            </a>
           </div>
         </div>
-        <div class="action">Listen ›</div>
-      </a>
 
-      <a class="btn spotify" href="https://open.spotify.com/track/7L4J10wzvkcuTB1zhguCMr" target="_blank">
-        <div class="left">
-          <div class="icon">S</div>
-          <div>
-            <div class="platform">Spotify</div>
-            <div class="small">Play on Spotify</div>
-          </div>
-        </div>
-        <div class="action">Play ›</div>
-      </a>
+        <div class="hero-image"></div>
 
-      <a class="btn boomplay" href="https://www.boomplay.com/albums/130816953?srModel=openapi_featurefm" target="_blank">
-        <div class="left">
-          <div class="icon">B</div>
-          <div>
-            <div class="platform">Boomplay</div>
-            <div class="small">Stream on Boomplay</div>
-          </div>
-        </div>
-        <div class="action">Stream ›</div>
-      </a>
-
-      <a class="btn audiomack" href="https://audiomack.com/iam_omotaker/song/follow-follow?utm_source=featurefm&utm_campaign=onelink&utm_medium=website&ffm=FFM_4330625b808d8887e2e119dd75a4d67e" target="_blank">
-        <div class="left">
-          <div class="icon">〽</div>
-          <div>
-            <div class="platform">Audiomack</div>
-            <div class="small">Listen on Audiomack</div>
-          </div>
-        </div>
-        <div class="action">Open ›</div>
-      </a>
-
+      </div>
     </section>
 
-    <div class="features">
-      <div><strong>⚡ High Quality</strong>Best Sound</div>
-      <div><strong>🎧 Instant Access</strong>No Limits</div>
-      <div><strong>⭐ All Platforms</strong>One Link</div>
-    </div>
+    <section id="music">
+      <div class="container">
 
-    <div class="footer">
-      Powered by OMK RECORD • OmoTeka Link
-    </div>
+        <div class="section-title">
+          <div class="tag">Latest Release</div>
+          <h2>Feel the mood.</h2>
+          <p>Search Lucky — Omo Taker on your favourite platform.</p>
+        </div>
+
+        <div class="latest">
+
+          <a
+            href="https://open.spotify.com/search/Lucky%20Omo%20Taker"
+            target="_blank"
+            class="cover"
+            aria-label="Listen to Lucky by Omo Taker"
+          ></a>
+
+          <div>
+            <div class="tag">Out Now</div>
+
+            <h2>
+              <a
+                href="https://open.spotify.com/search/Lucky%20Omo%20Taker"
+                target="_blank"
+              >
+                LUCKY
+              </a>
+            </h2>
+
+            <p>
+              Listen now on all platforms. Search Lucky Omo Taker and feel the mood.
+              🐺🔊🔥💯
+            </p>
+
+            <div class="platforms">
+
+              <a
+                class="platform"
+                href="https://open.spotify.com/search/Lucky%20Omo%20Taker"
+                target="_blank"
+              >
+                <span>Spotify</span>
+                <span>Play →</span>
+              </a>
+
+              <a
+                class="platform"
+                href="https://music.apple.com/ng/search?term=Lucky%20Omo%20Taker"
+                target="_blank"
+              >
+                <span>Apple Music</span>
+                <span>Play →</span>
+              </a>
+
+              <a
+                class="platform"
+                href="https://audiomack.com/search?q=Lucky%20Omo%20Taker"
+                target="_blank"
+              >
+                <span>Audiomack</span>
+                <span>Play →</span>
+              </a>
+
+              <a
+                class="platform"
+                href="https://www.youtube.com/results?search_query=Lucky+Omo+Taker"
+                target="_blank"
+              >
+                <span>YouTube</span>
+                <span>Play →</span>
+              </a>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+
+        <div class="section-title">
+          <div class="tag">The Sound So Far</div>
+          <h2>More Music</h2>
+        </div>
+
+        <div class="music-grid">
+
+          <article class="music-card">
+            <a
+              href="https://audiomack.com/iam_omotaker/song/english?share-user-id=111838460"
+              target="_blank"
+              class="music-cover"
+            >
+              <img src="english-cover.jpg" alt="English cover" />
+            </a>
+
+            <div class="music-info">
+              <h3>
+                <a
+                  href="https://audiomack.com/iam_omotaker/song/english?share-user-id=111838460"
+                  target="_blank"
+                >
+                  English
+                </a>
+              </h3>
+
+              <p>Omo Taker feat. Everyday Vibe</p>
+
+              <a
+                href="https://audiomack.com/iam_omotaker/song/english?share-user-id=111838460"
+                target="_blank"
+                class="listen"
+              >
+                Listen now →
+              </a>
+            </div>
+          </article>
+
+          <article class="music-card">
+            <a
+              href="https://ffm.to/benintalkpiano"
+              target="_blank"
+              class="music-cover"
+            >
+              <img src="benin-talk-piano-cover.jpg" alt="Benin Talk Piano cover" />
+            </a>
+
+            <div class="music-info">
+              <h3>
+                <a href="https://ffm.to/benintalkpiano" target="_blank">
+                  Benin Talk Piano
+                </a>
+              </h3>
+
+              <p>Omo Taker feat. Everyday Vibe</p>
+
+              <a
+                href="https://ffm.to/benintalkpiano"
+                target="_blank"
+                class="listen"
+              >
+                Listen now →
+              </a>
+            </div>
+          </article>
+
+          <article class="music-card">
+            <a
+              href="https://open.spotify.com/track/7L4J10wzvkcuTB1zhguCMr"
+              target="_blank"
+              class="music-cover"
+            >
+              <img src="follow-follow-cover.jpg" alt="Follow Follow cover" />
+            </a>
+
+            <div class="music-info">
+              <h3>
+                <a
+                  href="https://open.spotify.com/track/7L4J10wzvkcuTB1zhguCMr"
+                  target="_blank"
+                >
+                  Follow Follow
+                </a>
+              </h3>
+
+              <p>Everybody don follow wrong person before.</p>
+
+              <a
+                href="https://open.spotify.com/track/7L4J10wzvkcuTB1zhguCMr"
+                target="_blank"
+                class="listen"
+              >
+                Listen now →
+              </a>
+            </div>
+          </article>
+
+          <article class="music-card">
+            <a
+              href="https://open.spotify.com/track/591YkWluaQeC3tGMWhSFWu"
+              target="_blank"
+              class="music-cover"
+            >
+              <img src="bend-down-select-cover.jpg" alt="Bend Down Select cover" />
+            </a>
+
+            <div class="music-info">
+              <h3>
+                <a
+                  href="https://open.spotify.com/track/591YkWluaQeC3tGMWhSFWu"
+                  target="_blank"
+                >
+                  Bend Down Select
+                </a>
+              </h3>
+
+              <p>One of the records that pushed the movement forward.</p>
+
+              <a
+                href="https://open.spotify.com/track/591YkWluaQeC3tGMWhSFWu"
+                target="_blank"
+                class="listen"
+              >
+                Listen now →
+              </a>
+            </div>
+          </article>
+
+          <article class="music-card">
+            <a
+              href="https://open.spotify.com/track/0SooNM8i9p1UiE7HTTp5C4"
+              target="_blank"
+              class="music-cover"
+            >
+              <img src="benin-to-lagos-cover.jpg" alt="Benin To Lagos cover" />
+            </a>
+
+            <div class="music-info">
+              <h3>
+                <a
+                  href="https://open.spotify.com/track/0SooNM8i9p1UiE7HTTp5C4"
+                  target="_blank"
+                >
+                  Benin To Lagos
+                </a>
+              </h3>
+
+              <p>The journey, the pressure and the dream.</p>
+
+              <a
+                href="https://open.spotify.com/track/0SooNM8i9p1UiE7HTTp5C4"
+                target="_blank"
+                class="listen"
+              >
+                Listen now →
+              </a>
+            </div>
+          </article>
+
+          <article class="music-card">
+            <a
+              href="https://music.apple.com/ng/album/badt-guy/1758752613?i=1758752614"
+              target="_blank"
+              class="music-cover"
+            >
+              <img src="badt-guy-cover.jpg" alt="Badt Guy cover" />
+            </a>
+
+            <div class="music-info">
+              <h3>
+                <a
+                  href="https://music.apple.com/ng/album/badt-guy/1758752613?i=1758752614"
+                  target="_blank"
+                >
+                  Badt Guy
+                </a>
+              </h3>
+
+              <p>One of the songs from the OMK journey.</p>
+
+              <a
+                href="https://music.apple.com/ng/album/badt-guy/1758752613?i=1758752614"
+                target="_blank"
+                class="listen"
+              >
+                Listen now →
+              </a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="story">
+      <div class="container story">
+
+        <div class="story-image"></div>
+
+        <div>
+          <div class="tag">Built By Pressure</div>
+
+          <h2>From Benin to Lagos.</h2>
+
+          <p>
+            Omo Taker is an independent Nigerian artist, dancer and creator
+            building a world around music, movement, fashion and real-life experience.
+          </p>
+
+          <p>
+            Every release, every visual and every performance carries the same message:
+            keep moving, keep creating and never let the dream die.
+          </p>
+
+          <p class="quote">
+            No pressure, just consistency. Building something bigger, one step at a time. 🐺
+          </p>
+
+          <p>
+            OMK means <strong>Only My Kind</strong> — for people who move differently,
+            stay original and create their own lane.
+          </p>
+
+          <div class="buttons">
+            <a
+              href="https://www.instagram.com/iam__omotaker"
+              target="_blank"
+              class="btn btn-gold"
+            >
+              Follow the Journey
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="connect">
+      <div class="container">
+
+        <div class="cta">
+          <div class="tag">OMK World</div>
+
+          <h2>Music. Dance. Lifestyle.</h2>
+
+          <p>
+            Follow Omo Taker for new music, dance videos, visuals and everything
+            happening inside the OMK world.
+          </p>
+
+          <div class="buttons" style="justify-content:center;">
+
+            <a
+              href="https://www.instagram.com/iam__omotaker"
+              target="_blank"
+              class="btn btn-gold"
+            >
+              Instagram
+            </a>
+
+            <a
+              href="https://www.tiktok.com/@iam.omotaker"
+              target="_blank"
+              class="btn btn-dark"
+            >
+              TikTok
+            </a>
+
+            <a
+              href="https://www.youtube.com/@Everydayvibe-01"
+              target="_blank"
+              class="btn btn-dark"
+            >
+              YouTube
+            </a>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
 
   </main>
+
+  <footer>
+    © <span id="year"></span> Omo Taker. Powered by OMK Record.
+  </footer>
+
+  <script>
+    const menuBtn = document.getElementById("menuBtn");
+    const navLinks = document.getElementById("navLinks");
+
+    menuBtn.addEventListener("click", function () {
+      navLinks.classList.toggle("show");
+
+      if (navLinks.classList.contains("show")) {
+        menuBtn.textContent = "✕";
+      } else {
+        menuBtn.textContent = "☰";
+      }
+    });
+
+    document.querySelectorAll(".nav-links a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        navLinks.classList.remove("show");
+        menuBtn.textContent = "☰";
+      });
+    });
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
 </body>
 </html>
