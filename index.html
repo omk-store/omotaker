@@ -38,6 +38,7 @@ html {
 
 body {
   min-height: 100vh;
+  overflow-x: hidden;
   background:
     radial-gradient(
       circle at 50% -10%,
@@ -60,13 +61,17 @@ body {
   line-height: 1.6;
 }
 
-a {
-  color: inherit;
+body.modal-open {
+  overflow: hidden;
 }
 
-button,
-a {
+a,
+button {
   -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  font-family: inherit;
 }
 
 .page {
@@ -85,7 +90,7 @@ a {
   padding: 12px 14px;
   border: 1px solid var(--border);
   border-radius: 20px;
-  background: rgba(5, 5, 5, 0.82);
+  background: rgba(5, 5, 5, 0.84);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
   display: flex;
@@ -95,6 +100,7 @@ a {
 
 .logo {
   text-decoration: none;
+  color: #ffffff;
   font-size: 21px;
   font-weight: 950;
   letter-spacing: -1px;
@@ -127,20 +133,20 @@ a {
 
 .hero {
   position: relative;
-  min-height: 600px;
-  border-radius: 34px;
+  min-height: 640px;
   overflow: hidden;
+  border-radius: 34px;
   border: 1px solid rgba(255, 115, 0, 0.4);
   box-shadow: 0 25px 80px rgba(255, 90, 0, 0.2);
   background:
     linear-gradient(
       to top,
       rgba(0, 0, 0, 0.98) 3%,
-      rgba(0, 0, 0, 0.62) 48%,
-      rgba(0, 0, 0, 0.1) 100%
+      rgba(0, 0, 0, 0.55) 48%,
+      rgba(0, 0, 0, 0.06) 100%
     ),
-    url("https://raw.githubusercontent.com/omk-store/omotaker/refs/heads/main/F2D3D9CF-71CA-484E-8008-B1CA9314FADD.png")
-    center / cover no-repeat;
+    url("https://raw.githubusercontent.com/omk-store/omotaker/refs/heads/main/IMG_4260.jpeg")
+    center 20% / cover no-repeat;
 }
 
 .hero::before {
@@ -209,6 +215,7 @@ a {
   padding: 0 20px;
   border-radius: 15px;
   text-decoration: none;
+  color: #ffffff;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -217,11 +224,12 @@ a {
 }
 
 .primary-btn {
-  background: linear-gradient(
-    135deg,
-    var(--orange),
-    #ff3700
-  );
+  background:
+    linear-gradient(
+      135deg,
+      var(--orange),
+      #ff3700
+    );
   box-shadow: 0 12px 30px rgba(255, 90, 0, 0.3);
 }
 
@@ -253,9 +261,9 @@ a {
 }
 
 .section-intro {
+  max-width: 620px;
   color: var(--text-soft);
   font-size: 15px;
-  max-width: 620px;
 }
 
 /* Story */
@@ -284,8 +292,8 @@ a {
 }
 
 .story-highlight {
-  color: #ffffff;
-  font-size: 24px;
+  color: #ffffff !important;
+  font-size: 24px !important;
   font-weight: 950;
   line-height: 1.2;
 }
@@ -365,11 +373,12 @@ a {
   display: grid;
   place-items: center;
   color: #000000;
-  background: linear-gradient(
-    135deg,
-    var(--gold),
-    var(--orange)
-  );
+  background:
+    linear-gradient(
+      135deg,
+      var(--gold),
+      var(--orange)
+    );
   font-weight: 950;
   font-size: 18px;
 }
@@ -392,159 +401,34 @@ a {
 .music-link {
   position: relative;
   z-index: 3;
-  text-decoration: none;
+  border: 0;
+  background: transparent;
   color: var(--orange-light);
   font-size: 13px;
   font-weight: 900;
   white-space: nowrap;
+  cursor: pointer;
 }
 
-/* Featured release */
-
-.featured-release {
-  margin-top: 24px;
-  padding: 17px;
-  border-radius: 29px;
-  background:
-    linear-gradient(
-      145deg,
-      rgba(255, 106, 0, 0.12),
-      rgba(255, 255, 255, 0.04)
-    );
-  border: 1px solid rgba(255, 106, 0, 0.35);
-}
-
-.release-cover {
-  width: 100%;
-  display: block;
-  border-radius: 22px;
-  border: 1px solid rgba(255, 106, 0, 0.36);
-}
-
-.release-info {
-  padding: 22px 5px 5px;
-}
-
-.release-info h3 {
-  font-size: 36px;
-  line-height: 1;
-  letter-spacing: -2px;
-}
-
-.release-info > p {
-  color: var(--text-soft);
-  font-size: 14px;
-  margin-top: 8px;
-}
-
-.visualizer {
-  color: var(--orange);
-  font-size: 29px;
-  letter-spacing: 5px;
-  margin: 16px 0 19px;
-}
-
-.platform-links {
-  display: grid;
-  gap: 11px;
-}
-
-.platform-btn {
-  min-height: 70px;
-  padding: 13px 15px;
-  border-radius: 17px;
+.external-music-link {
   text-decoration: none;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid var(--border);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  transition: transform 0.2s ease;
 }
 
-.platform-btn:hover {
-  transform: translateY(-2px);
-}
+/* Player message */
 
-.platform-left {
-  display: flex;
-  align-items: center;
-  gap: 13px;
-}
-
-.platform-icon {
-  width: 44px;
-  height: 44px;
-  border-radius: 14px;
-  display: grid;
-  place-items: center;
-  font-size: 20px;
-  font-weight: 950;
-}
-
-.platform-name {
-  font-weight: 900;
-  font-size: 16px;
-}
-
-.platform-small {
-  color: #9d9d9d;
-  font-size: 11px;
-  margin-top: 2px;
-}
-
-.platform-action {
+.player-note {
+  margin-top: 20px;
+  padding: 14px 16px;
+  border-radius: 17px;
+  background: rgba(255, 106, 0, 0.08);
+  border: 1px solid rgba(255, 106, 0, 0.22);
+  color: #d0d0d0;
   font-size: 12px;
-  font-weight: 950;
+  text-align: center;
 }
 
-.apple {
-  border-color: rgba(250, 45, 72, 0.5);
-}
-
-.apple .platform-icon {
-  background: #fa2d48;
-}
-
-.apple .platform-action {
-  color: #ff7185;
-}
-
-.spotify {
-  border-color: rgba(29, 185, 84, 0.5);
-}
-
-.spotify .platform-icon {
-  background: #1db954;
-}
-
-.spotify .platform-action {
-  color: #48dd7c;
-}
-
-.boomplay {
-  border-color: rgba(255, 212, 0, 0.5);
-}
-
-.boomplay .platform-icon {
-  color: #000;
-  background: #ffd400;
-}
-
-.boomplay .platform-action {
-  color: #ffd400;
-}
-
-.audiomack {
-  border-color: rgba(255, 136, 0, 0.5);
-}
-
-.audiomack .platform-icon {
-  background: #ff8800;
-}
-
-.audiomack .platform-action {
-  color: #ff9c2c;
+.player-note strong {
+  color: #ffffff;
 }
 
 /* Journey */
@@ -603,7 +487,7 @@ a {
   font-size: 13px;
 }
 
-/* OMK world */
+/* OMK World */
 
 .world-grid {
   margin-top: 23px;
@@ -635,6 +519,15 @@ a {
 .world-card p {
   color: var(--text-soft);
   font-size: 12px;
+}
+
+.world-card-link {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.world-card-link:hover {
+  border-color: rgba(255, 106, 0, 0.5);
 }
 
 /* Connect */
@@ -676,12 +569,17 @@ a {
 
 .socials a {
   text-decoration: none;
+  color: #ffffff;
   padding: 12px 16px;
   border-radius: 13px;
   border: 1px solid var(--border);
   background: rgba(255, 255, 255, 0.07);
   font-size: 12px;
   font-weight: 900;
+}
+
+.socials a:hover {
+  border-color: rgba(255, 106, 0, 0.55);
 }
 
 /* Footer */
@@ -708,6 +606,135 @@ a {
   margin-top: 8px;
 }
 
+/* Feature.fm Pop-up */
+
+.player-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  padding: 14px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.player-modal.active {
+  display: flex;
+}
+
+.player-box {
+  width: min(100%, 620px);
+  height: min(88vh, 760px);
+  overflow: hidden;
+  border-radius: 25px;
+  border: 1px solid rgba(255, 106, 0, 0.55);
+  background: #090909;
+  box-shadow: 0 0 80px rgba(255, 90, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+}
+
+.player-header {
+  min-height: 64px;
+  padding: 12px 14px 12px 18px;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 106, 0, 0.2),
+      rgba(255, 255, 255, 0.04)
+    );
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.player-title-area {
+  min-width: 0;
+}
+
+.player-small {
+  color: var(--orange-light);
+  font-size: 9px;
+  font-weight: 950;
+  letter-spacing: 2px;
+}
+
+.player-title {
+  overflow: hidden;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 900;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.close-player {
+  min-width: 42px;
+  height: 42px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.09);
+  color: #ffffff;
+  font-size: 22px;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.close-player:hover {
+  background: var(--orange);
+}
+
+.player-frame-wrap {
+  position: relative;
+  flex: 1;
+  background: #ffffff;
+}
+
+.player-frame {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: #ffffff;
+}
+
+.player-loading {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  background: #090909;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.player-loading.hidden {
+  display: none;
+}
+
+.open-new-tab {
+  min-height: 52px;
+  padding: 0 18px;
+  border-top: 1px solid var(--border);
+  background: #080808;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.open-new-tab a {
+  color: var(--orange-light);
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 900;
+}
+
 /* Responsive */
 
 @media (max-width: 560px) {
@@ -725,8 +752,9 @@ a {
   }
 
   .hero {
-    min-height: 570px;
+    min-height: 620px;
     border-radius: 27px;
+    background-position: center top;
   }
 
   .hero-content {
@@ -760,6 +788,38 @@ a {
   .music-link {
     margin-top: 4px;
   }
+
+  .player-modal {
+    padding: 8px;
+  }
+
+  .player-box {
+    width: 100%;
+    height: 92vh;
+    border-radius: 20px;
+  }
+}
+
+@media (max-width: 430px) {
+  .music-top {
+    display: grid;
+    grid-template-columns: 54px 1fr;
+  }
+
+  .music-link {
+    grid-column: 1 / -1;
+    width: 100%;
+    min-height: 43px;
+    border-radius: 12px;
+    background: rgba(255, 106, 0, 0.11);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .external-music-link {
+    display: flex;
+  }
 }
 
 @media (max-width: 390px) {
@@ -775,14 +835,6 @@ a {
   .world-grid {
     grid-template-columns: 1fr;
   }
-
-  .platform-name {
-    font-size: 14px;
-  }
-
-  .platform-action {
-    font-size: 10px;
-  }
 }
 </style>
 </head>
@@ -794,6 +846,7 @@ a {
   <!-- Navigation -->
 
   <nav class="nav">
+
     <a href="#home" class="logo">
       OMO<span>TAKER</span>
     </a>
@@ -804,11 +857,13 @@ a {
       <a href="#journey">Journey</a>
       <a href="#connect">Connect</a>
     </div>
+
   </nav>
 
   <!-- Hero -->
 
   <section class="hero" id="home">
+
     <div class="hero-content">
 
       <div class="hero-badge">
@@ -827,6 +882,7 @@ a {
       </p>
 
       <div class="hero-actions">
+
         <a href="#music" class="primary-btn">
           Explore The Music ♪
         </a>
@@ -834,16 +890,20 @@ a {
         <a href="#story" class="secondary-btn">
           Read My Story
         </a>
+
       </div>
 
     </div>
+
   </section>
 
   <!-- Story -->
 
   <section class="section" id="story">
 
-    <div class="section-label">BEFORE YOU PRESS PLAY</div>
+    <div class="section-label">
+      BEFORE YOU PRESS PLAY
+    </div>
 
     <h2 class="section-title">
       Read the story.
@@ -932,11 +992,13 @@ a {
 
   </section>
 
-  <!-- Music catalogue -->
+  <!-- Music -->
 
   <section class="section" id="music">
 
-    <div class="section-label">THE SOUND SO FAR</div>
+    <div class="section-label">
+      THE SOUND SO FAR
+    </div>
 
     <h2 class="section-title">
       Music from my journey.
@@ -944,35 +1006,23 @@ a {
 
     <p class="section-intro">
       Different sounds. Different feelings. One artist.
-      Tap any release to listen.
+      Tap Play to open the song without leaving this page.
     </p>
+
+    <div class="player-note">
+      <strong>Tap Play:</strong> The song page will open in
+      front of this website. Tap the ✕ button to close it.
+    </div>
 
     <div class="music-grid">
 
+      <!-- Bend Down Select -->
+
       <article class="music-card">
+
         <div class="music-top">
 
           <div class="music-number">01</div>
-
-          <div class="music-info">
-            <h3>Follow Follow</h3>
-            <p>
-              A song about following the wrong person and
-              learning from the experience.
-            </p>
-          </div>
-
-          <a href="#follow-follow" class="music-link">
-            Listen ›
-          </a>
-
-        </div>
-      </article>
-
-      <article class="music-card">
-        <div class="music-top">
-
-          <div class="music-number">02</div>
 
           <div class="music-info">
             <h3>Bend Down Select</h3>
@@ -982,22 +1032,26 @@ a {
             </p>
           </div>
 
-          <a
-            href="https://open.spotify.com/track/591YkWluaQeC3tGMWhSFWu"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="music-link"
+          <button
+            class="music-link open-player"
+            type="button"
+            data-song="Bend Down Select"
+            data-link="https://ffm.to/bend-down-select"
           >
             Play ›
-          </a>
+          </button>
 
         </div>
+
       </article>
 
+      <!-- Badt Guy -->
+
       <article class="music-card">
+
         <div class="music-top">
 
-          <div class="music-number">03</div>
+          <div class="music-number">02</div>
 
           <div class="music-info">
             <h3>Badt Guy</h3>
@@ -1008,21 +1062,25 @@ a {
           </div>
 
           <a
+            class="music-link external-music-link"
             href="https://music.apple.com/ng/album/badt-guy/1758752613?i=1758752614"
             target="_blank"
             rel="noopener noreferrer"
-            class="music-link"
           >
-            Play ›
+            Stream ›
           </a>
 
         </div>
+
       </article>
 
+      <!-- You + You -->
+
       <article class="music-card">
+
         <div class="music-top">
 
-          <div class="music-number">04</div>
+          <div class="music-number">03</div>
 
           <div class="music-info">
             <h3>You + You</h3>
@@ -1033,43 +1091,80 @@ a {
           </div>
 
           <a
-            href="https://open.spotify.com/"
+            class="music-link external-music-link"
+            href="https://open.spotify.com/search/You%20%2B%20You%20Omo%20Taker"
             target="_blank"
             rel="noopener noreferrer"
-            class="music-link"
           >
-            Search ›
+            Stream ›
           </a>
 
         </div>
+
       </article>
 
+      <!-- English -->
+
       <article class="music-card">
+
+        <div class="music-top">
+
+          <div class="music-number">04</div>
+
+          <div class="music-info">
+            <h3>English</h3>
+            <p>
+              Omo Taker featuring Everyday Vibe. Fresh energy,
+              personality and playful expression.
+            </p>
+          </div>
+
+          <button
+            class="music-link open-player"
+            type="button"
+            data-song="English"
+            data-link="https://ffm.to/english-se41"
+          >
+            Play ›
+          </button>
+
+        </div>
+
+      </article>
+
+      <!-- Benin Talk Piano -->
+
+      <article class="music-card">
+
         <div class="music-top">
 
           <div class="music-number">05</div>
 
           <div class="music-info">
-            <h3>Benin To Lagos</h3>
+            <h3>Benin Talk Piano</h3>
             <p>
-              The sound of leaving home, chasing a vision and
-              carrying Benin everywhere.
+              Benin culture and street expression carried by
+              amapiano energy.
             </p>
           </div>
 
-          <a
-            href="https://open.spotify.com/track/0SooNM8i9p1UiE7HTTp5C4"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="music-link"
+          <button
+            class="music-link open-player"
+            type="button"
+            data-song="Benin Talk Piano"
+            data-link="https://ffm.to/benin-talk-piano-xlus"
           >
             Play ›
-          </a>
+          </button>
 
         </div>
+
       </article>
 
+      <!-- If Earth Could Talk -->
+
       <article class="music-card">
+
         <div class="music-top">
 
           <div class="music-number">06</div>
@@ -1082,198 +1177,76 @@ a {
             </p>
           </div>
 
-          <a
-            href="https://open.spotify.com/track/7mifEtIK9OPGWD9EyOOLnq"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="music-link"
+          <button
+            class="music-link open-player"
+            type="button"
+            data-song="If Earth Could Talk"
+            data-link="https://ffm.to/if-earth-could-talk"
           >
             Play ›
-          </a>
+          </button>
 
         </div>
+
       </article>
 
+      <!-- Follow Follow -->
+
       <article class="music-card">
+
         <div class="music-top">
 
           <div class="music-number">07</div>
 
           <div class="music-info">
-            <h3>Benin Talk Piano</h3>
+            <h3>Follow Follow</h3>
             <p>
-              Benin culture and street expression carried by
-              amapiano energy.
+              Everybody don follow wrong person before.
+              A song about experience and learning.
             </p>
           </div>
 
           <a
-            href="https://ffm.to/benintalkpiano"
+            class="music-link external-music-link"
+            href="https://open.spotify.com/track/7L4J10wzvkcuTB1zhguCMr"
             target="_blank"
             rel="noopener noreferrer"
-            class="music-link"
           >
-            Play ›
+            Stream ›
           </a>
 
         </div>
+
       </article>
 
+      <!-- Benin To Lagos -->
+
       <article class="music-card">
+
         <div class="music-top">
 
           <div class="music-number">08</div>
 
           <div class="music-info">
-            <h3>English</h3>
+            <h3>Benin To Lagos</h3>
             <p>
-              Omo Taker featuring Everyday Vibe. A playful
-              record with personality and fresh energy.
+              The sound of leaving home, chasing a vision and
+              carrying Benin everywhere.
             </p>
           </div>
 
           <a
-            href="https://audiomack.com/iam_omotaker/song/english?share-user-id=111838460"
+            class="music-link external-music-link"
+            href="https://open.spotify.com/track/0SooNM8i9p1UiE7HTTp5C4"
             target="_blank"
             rel="noopener noreferrer"
-            class="music-link"
           >
-            Play ›
+            Stream ›
           </a>
 
         </div>
+
       </article>
-
-    </div>
-
-  </section>
-
-  <!-- Featured Follow Follow -->
-
-  <section class="section" id="follow-follow">
-
-    <div class="section-label">FEATURED RELEASE</div>
-
-    <h2 class="section-title">
-      Follow Follow
-    </h2>
-
-    <p class="section-intro">
-      Everybody don follow wrong person before. Choose your
-      preferred platform and press play.
-    </p>
-
-    <div class="featured-release">
-
-      <img
-        class="release-cover"
-        src="https://raw.githubusercontent.com/omk-store/omotaker/refs/heads/main/F2D3D9CF-71CA-484E-8008-B1CA9314FADD.png"
-        alt="Follow Follow by Omo Taker"
-      />
-
-      <div class="release-info">
-
-        <h3>Follow Follow</h3>
-
-        <p>Omo Taker • OMK Record</p>
-
-        <div class="visualizer">
-          ▁▃▅▇▅▃▁
-        </div>
-
-        <div class="platform-links">
-
-          <a
-            class="platform-btn apple"
-            href="https://music.apple.com/ng/album/follow-follow-single/1896458191"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <div class="platform-left">
-
-              <div class="platform-icon">♪</div>
-
-              <div>
-                <div class="platform-name">Apple Music</div>
-                <div class="platform-small">
-                  Listen on Apple Music
-                </div>
-              </div>
-
-            </div>
-
-            <div class="platform-action">LISTEN ›</div>
-          </a>
-
-          <a
-            class="platform-btn spotify"
-            href="https://open.spotify.com/track/7L4J10wzvkcuTB1zhguCMr"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <div class="platform-left">
-
-              <div class="platform-icon">S</div>
-
-              <div>
-                <div class="platform-name">Spotify</div>
-                <div class="platform-small">
-                  Play on Spotify
-                </div>
-              </div>
-
-            </div>
-
-            <div class="platform-action">PLAY ›</div>
-          </a>
-
-          <a
-            class="platform-btn boomplay"
-            href="https://www.boomplay.com/albums/130816953?srModel=openapi_featurefm"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <div class="platform-left">
-
-              <div class="platform-icon">B</div>
-
-              <div>
-                <div class="platform-name">Boomplay</div>
-                <div class="platform-small">
-                  Stream on Boomplay
-                </div>
-              </div>
-
-            </div>
-
-            <div class="platform-action">STREAM ›</div>
-          </a>
-
-          <a
-            class="platform-btn audiomack"
-            href="https://audiomack.com/iam_omotaker/song/follow-follow?utm_source=featurefm&utm_campaign=onelink&utm_medium=website&ffm=FFM_4330625b808d8887e2e119dd75a4d67e"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <div class="platform-left">
-
-              <div class="platform-icon">〽</div>
-
-              <div>
-                <div class="platform-name">Audiomack</div>
-                <div class="platform-small">
-                  Listen on Audiomack
-                </div>
-              </div>
-
-            </div>
-
-            <div class="platform-action">OPEN ›</div>
-          </a>
-
-        </div>
-
-      </div>
 
     </div>
 
@@ -1283,7 +1256,9 @@ a {
 
   <section class="section" id="journey">
 
-    <div class="section-label">BUILT BY PRESSURE</div>
+    <div class="section-label">
+      BUILT BY PRESSURE
+    </div>
 
     <h2 class="section-title">
       The journey continues.
@@ -1297,52 +1272,82 @@ a {
     <div class="timeline">
 
       <div class="timeline-item">
-        <div class="timeline-year">THE BEGINNING</div>
+
+        <div class="timeline-year">
+          THE BEGINNING
+        </div>
+
         <h3>Benin City</h3>
+
         <p>
           The vision started in Benin, where the culture,
           language, movement and energy shaped the foundation
           of the Omo Taker sound.
         </p>
+
       </div>
 
       <div class="timeline-item">
-        <div class="timeline-year">THE MOVE</div>
+
+        <div class="timeline-year">
+          THE MOVE
+        </div>
+
         <h3>From Benin To Lagos</h3>
+
         <p>
           A bigger city, bigger pressure and a bigger reason
           to keep working. The move became part of the music
           and the story.
         </p>
+
       </div>
 
       <div class="timeline-item">
-        <div class="timeline-year">THE BREAKTHROUGH</div>
+
+        <div class="timeline-year">
+          THE BREAKTHROUGH
+        </div>
+
         <h3>Music Reaching New People</h3>
+
         <p>
           Badt Guy entered the Apple Music Nigeria Top 200,
           while Bend Down Select crossed 50,000 streams.
         </p>
+
       </div>
 
       <div class="timeline-item">
-        <div class="timeline-year">THE MOVEMENT</div>
+
+        <div class="timeline-year">
+          THE MOVEMENT
+        </div>
+
         <h3>OMK — Only My Kind</h3>
+
         <p>
           What started as an artist identity became a wider
           world connecting music, dance, fashion, visual
           storytelling and community.
         </p>
+
       </div>
 
       <div class="timeline-item">
-        <div class="timeline-year">RIGHT NOW</div>
+
+        <div class="timeline-year">
+          RIGHT NOW
+        </div>
+
         <h3>Still Building</h3>
+
         <p>
           More records, more visuals, more stories and a
           bigger vision. This is not the ending—it is another
           chapter.
         </p>
+
       </div>
 
     </div>
@@ -1353,7 +1358,9 @@ a {
 
   <section class="section">
 
-    <div class="section-label">MORE THAN MUSIC</div>
+    <div class="section-label">
+      MORE THAN MUSIC
+    </div>
 
     <h2 class="section-title">
       Welcome to OMK World.
@@ -1367,6 +1374,7 @@ a {
     <div class="world-grid">
 
       <div class="world-card">
+
         <div class="world-icon">🎵</div>
 
         <div>
@@ -1376,9 +1384,11 @@ a {
             stories taken from real life.
           </p>
         </div>
+
       </div>
 
       <div class="world-card">
+
         <div class="world-icon">🐺</div>
 
         <div>
@@ -1388,9 +1398,11 @@ a {
             moving with your own vision.
           </p>
         </div>
+
       </div>
 
       <div class="world-card">
+
         <div class="world-icon">🎬</div>
 
         <div>
@@ -1400,19 +1412,27 @@ a {
             content made to move culture.
           </p>
         </div>
+
       </div>
 
-      <div class="world-card">
+      <a
+        class="world-card world-card-link"
+        href="https://omkdrip.com/newdrop.html"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+
         <div class="world-icon">👕</div>
 
         <div>
           <h3>OMK Drip</h3>
           <p>
-            Fashion created around the Only My Kind identity
-            and the world behind the music.
+            Shop the new Only My Kind clothing collection.
+            Tap to view the latest drop.
           </p>
         </div>
-      </div>
+
+      </a>
 
     </div>
 
@@ -1424,7 +1444,9 @@ a {
 
     <div class="connect-card">
 
-      <div class="section-label">JOIN THE JOURNEY</div>
+      <div class="section-label">
+        JOIN THE JOURNEY
+      </div>
 
       <h3>
         From Benin to the world.
@@ -1439,7 +1461,7 @@ a {
       <div class="socials">
 
         <a
-          href="https://www.instagram.com/iam__omotaker"
+          href="https://www.instagram.com/iam_omotaker?igsh=NXhvNXdyb2JvcnQx&utm_source=qr"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -1447,7 +1469,7 @@ a {
         </a>
 
         <a
-          href="https://www.tiktok.com/@iam.omotaker"
+          href="https://www.tiktok.com/@omotaker?_r=1&_t=ZS-98HCauPhJZ3"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -1455,7 +1477,7 @@ a {
         </a>
 
         <a
-          href="https://www.youtube.com/"
+          href="https://m.youtube.com/@Iam_omotaker/shorts?ra=m"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -1471,7 +1493,7 @@ a {
         </a>
 
         <a
-          href="https://shopomk.com"
+          href="https://omkdrip.com/newdrop.html"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -1499,6 +1521,149 @@ a {
   </footer>
 
 </main>
+
+<!-- Feature.fm Pop-up Player -->
+
+<div
+  class="player-modal"
+  id="playerModal"
+  aria-hidden="true"
+>
+
+  <div
+    class="player-box"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="playerTitle"
+  >
+
+    <div class="player-header">
+
+      <div class="player-title-area">
+
+        <div class="player-small">
+          NOW OPENING
+        </div>
+
+        <div class="player-title" id="playerTitle">
+          Omo Taker
+        </div>
+
+      </div>
+
+      <button
+        class="close-player"
+        id="closePlayer"
+        type="button"
+        aria-label="Close player"
+      >
+        ✕
+      </button>
+
+    </div>
+
+    <div class="player-frame-wrap">
+
+      <div
+        class="player-loading"
+        id="playerLoading"
+      >
+        Opening song...
+      </div>
+
+      <iframe
+        class="player-frame"
+        id="playerFrame"
+        title="Omo Taker music player"
+        src="about:blank"
+        allow="autoplay; encrypted-media; fullscreen"
+        loading="eager"
+      ></iframe>
+
+    </div>
+
+    <div class="open-new-tab">
+
+      <a
+        href="#"
+        id="externalPlayerLink"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Open full streaming page ↗
+      </a>
+
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+const playerModal = document.getElementById("playerModal");
+const playerFrame = document.getElementById("playerFrame");
+const playerTitle = document.getElementById("playerTitle");
+const playerLoading = document.getElementById("playerLoading");
+const closePlayer = document.getElementById("closePlayer");
+const externalPlayerLink =
+  document.getElementById("externalPlayerLink");
+
+const playerButtons =
+  document.querySelectorAll(".open-player");
+
+function openMusicPlayer(songName, songLink) {
+  playerTitle.textContent = songName;
+  playerLoading.classList.remove("hidden");
+
+  externalPlayerLink.href = songLink;
+  playerFrame.src = songLink;
+
+  playerModal.classList.add("active");
+  playerModal.setAttribute("aria-hidden", "false");
+  document.body.classList.add("modal-open");
+}
+
+function closeMusicPlayer() {
+  playerModal.classList.remove("active");
+  playerModal.setAttribute("aria-hidden", "true");
+  document.body.classList.remove("modal-open");
+
+  playerFrame.src = "about:blank";
+  playerLoading.classList.remove("hidden");
+}
+
+playerButtons.forEach(function(button) {
+  button.addEventListener("click", function() {
+    const songName = button.getAttribute("data-song");
+    const songLink = button.getAttribute("data-link");
+
+    openMusicPlayer(songName, songLink);
+  });
+});
+
+playerFrame.addEventListener("load", function() {
+  if (playerFrame.src !== "about:blank") {
+    playerLoading.classList.add("hidden");
+  }
+});
+
+closePlayer.addEventListener("click", closeMusicPlayer);
+
+playerModal.addEventListener("click", function(event) {
+  if (event.target === playerModal) {
+    closeMusicPlayer();
+  }
+});
+
+document.addEventListener("keydown", function(event) {
+  if (
+    event.key === "Escape" &&
+    playerModal.classList.contains("active")
+  ) {
+    closeMusicPlayer();
+  }
+});
+</script>
 
 </body>
 </html>
