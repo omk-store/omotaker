@@ -2,232 +2,1503 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Follow Follow | OmoTeka Link</title>
+
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0"
+/>
+
+<meta
+  name="description"
+  content="The official world of Omo Taker — Nigerian Afrobeats artist, dancer and creator. Discover the music, story and OMK movement."
+/>
+
+<title>Omo Taker | Music, Story & OMK World</title>
 
 <style>
+:root {
+  --orange: #ff6a00;
+  --orange-light: #ff9d43;
+  --gold: #ffc85c;
+  --black: #030303;
+  --card: rgba(255, 255, 255, 0.065);
+  --border: rgba(255, 255, 255, 0.12);
+  --text-soft: #b9b9b9;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   min-height: 100vh;
   background:
-    radial-gradient(circle at top, rgba(255, 90, 0, 0.35), transparent 35%),
-    radial-gradient(circle at bottom, rgba(255, 90, 0, 0.22), transparent 35%),
-    #030303;
-  color: #fff;
-  padding: 18px;
+    radial-gradient(
+      circle at 50% -10%,
+      rgba(255, 106, 0, 0.34),
+      transparent 34%
+    ),
+    radial-gradient(
+      circle at 0% 45%,
+      rgba(255, 106, 0, 0.13),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 100% 80%,
+      rgba(255, 160, 0, 0.1),
+      transparent 30%
+    ),
+    var(--black);
+  color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
 }
 
 .page {
-  max-width: 520px;
+  width: min(100%, 760px);
   margin: auto;
-  text-align: center;
+  padding: 18px;
 }
 
-.cover {
-  width: 100%;
-  border-radius: 28px;
-  box-shadow: 0 0 45px rgba(255, 102, 0, 0.45);
-  border: 1px solid rgba(255, 102, 0, 0.5);
+/* Navigation */
+
+.nav {
+  position: sticky;
+  top: 12px;
+  z-index: 100;
+  margin-bottom: 18px;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: rgba(5, 5, 5, 0.82);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-h1 {
-  font-size: 46px;
-  margin: 28px 0 8px;
+.logo {
+  text-decoration: none;
+  font-size: 21px;
+  font-weight: 950;
+  letter-spacing: -1px;
 }
 
-.artist {
-  font-size: 24px;
-  color: #ff7a00;
-  margin-bottom: 14px;
+.logo span {
+  color: var(--orange);
 }
 
-.visualizer {
-  color: #ff7a00;
-  font-size: 34px;
-  letter-spacing: 4px;
-  margin-bottom: 26px;
+.nav-links {
+  display: flex;
+  gap: 8px;
 }
 
-.choose {
-  color: #ff7a00;
-  font-size: 14px;
+.nav-links a {
+  text-decoration: none;
+  color: #d8d8d8;
+  font-size: 11px;
   font-weight: 800;
-  letter-spacing: 7px;
+  padding: 8px 9px;
+  border-radius: 10px;
+}
+
+.nav-links a:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* Hero */
+
+.hero {
+  position: relative;
+  min-height: 600px;
+  border-radius: 34px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 115, 0, 0.4);
+  box-shadow: 0 25px 80px rgba(255, 90, 0, 0.2);
+  background:
+    linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.98) 3%,
+      rgba(0, 0, 0, 0.62) 48%,
+      rgba(0, 0, 0, 0.1) 100%
+    ),
+    url("https://raw.githubusercontent.com/omk-store/omotaker/refs/heads/main/F2D3D9CF-71CA-484E-8008-B1CA9314FADD.png")
+    center / cover no-repeat;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 106, 0, 0.18),
+      transparent 42%
+    );
+}
+
+.hero-content {
+  position: absolute;
+  z-index: 2;
+  left: 24px;
+  right: 24px;
+  bottom: 28px;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 12px;
+  margin-bottom: 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 145, 60, 0.45);
+  background: rgba(255, 106, 0, 0.13);
+  color: #ffb66f;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 1.4px;
+}
+
+.hero h1 {
+  max-width: 600px;
+  font-size: clamp(48px, 12vw, 78px);
+  line-height: 0.88;
+  letter-spacing: -5px;
+  margin-bottom: 16px;
+}
+
+.hero h1 span {
+  color: var(--orange);
+}
+
+.hero-description {
+  max-width: 540px;
+  color: #dddddd;
+  font-size: 15px;
   margin-bottom: 20px;
 }
 
-.links {
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.primary-btn,
+.secondary-btn {
+  min-height: 52px;
+  padding: 0 20px;
+  border-radius: 15px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.primary-btn {
+  background: linear-gradient(
+    135deg,
+    var(--orange),
+    #ff3700
+  );
+  box-shadow: 0 12px 30px rgba(255, 90, 0, 0.3);
+}
+
+.secondary-btn {
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.09);
+  backdrop-filter: blur(10px);
+}
+
+/* General sections */
+
+.section {
+  padding-top: 66px;
+}
+
+.section-label {
+  color: var(--orange);
+  font-size: 11px;
+  font-weight: 950;
+  letter-spacing: 4px;
+  margin-bottom: 10px;
+}
+
+.section-title {
+  font-size: clamp(32px, 8vw, 48px);
+  line-height: 1;
+  letter-spacing: -2px;
+  margin-bottom: 16px;
+}
+
+.section-intro {
+  color: var(--text-soft);
+  font-size: 15px;
+  max-width: 620px;
+}
+
+/* Story */
+
+.story-card {
+  margin-top: 22px;
+  padding: 25px;
+  border-radius: 26px;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 106, 0, 0.11),
+      rgba(255, 255, 255, 0.04)
+    );
+  border: 1px solid rgba(255, 120, 20, 0.25);
+}
+
+.story-card p {
+  color: #d2d2d2;
+  font-size: 15px;
+  margin-bottom: 17px;
+}
+
+.story-card p:last-child {
+  margin-bottom: 0;
+}
+
+.story-highlight {
+  color: #ffffff;
+  font-size: 24px;
+  font-weight: 950;
+  line-height: 1.2;
+}
+
+/* Stats */
+
+.stats {
+  margin-top: 22px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.stat {
+  min-height: 130px;
+  padding: 20px;
+  border-radius: 22px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.stat-number {
+  color: var(--orange-light);
+  font-size: 31px;
+  font-weight: 950;
+  letter-spacing: -1px;
+}
+
+.stat-text {
+  color: var(--text-soft);
+  font-size: 12px;
+}
+
+/* Music cards */
+
+.music-grid {
+  margin-top: 24px;
   display: grid;
   gap: 14px;
 }
 
-.btn {
+.music-card {
+  position: relative;
+  overflow: hidden;
+  padding: 21px;
+  border-radius: 24px;
+  background: var(--card);
+  border: 1px solid var(--border);
+}
+
+.music-card::after {
+  content: "♪";
+  position: absolute;
+  right: -4px;
+  bottom: -35px;
+  color: rgba(255, 106, 0, 0.08);
+  font-size: 130px;
+  font-weight: 900;
+  transform: rotate(-12deg);
+}
+
+.music-top {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.music-number {
+  min-width: 54px;
+  height: 54px;
+  border-radius: 16px;
+  display: grid;
+  place-items: center;
+  color: #000000;
+  background: linear-gradient(
+    135deg,
+    var(--gold),
+    var(--orange)
+  );
+  font-weight: 950;
+  font-size: 18px;
+}
+
+.music-info {
+  flex: 1;
+}
+
+.music-info h3 {
+  font-size: 20px;
+  line-height: 1.1;
+}
+
+.music-info p {
+  color: var(--text-soft);
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.music-link {
+  position: relative;
+  z-index: 3;
   text-decoration: none;
-  color: white;
+  color: var(--orange-light);
+  font-size: 13px;
+  font-weight: 900;
+  white-space: nowrap;
+}
+
+/* Featured release */
+
+.featured-release {
+  margin-top: 24px;
   padding: 17px;
-  border-radius: 18px;
-  background: rgba(255,255,255,0.07);
+  border-radius: 29px;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 106, 0, 0.12),
+      rgba(255, 255, 255, 0.04)
+    );
+  border: 1px solid rgba(255, 106, 0, 0.35);
+}
+
+.release-cover {
+  width: 100%;
+  display: block;
+  border-radius: 22px;
+  border: 1px solid rgba(255, 106, 0, 0.36);
+}
+
+.release-info {
+  padding: 22px 5px 5px;
+}
+
+.release-info h3 {
+  font-size: 36px;
+  line-height: 1;
+  letter-spacing: -2px;
+}
+
+.release-info > p {
+  color: var(--text-soft);
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+.visualizer {
+  color: var(--orange);
+  font-size: 29px;
+  letter-spacing: 5px;
+  margin: 16px 0 19px;
+}
+
+.platform-links {
+  display: grid;
+  gap: 11px;
+}
+
+.platform-btn {
+  min-height: 70px;
+  padding: 13px 15px;
+  border-radius: 17px;
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border: 1px solid rgba(255,255,255,0.15);
-  box-shadow: 0 0 25px rgba(255, 102, 0, 0.08);
+  transition: transform 0.2s ease;
 }
 
-.left {
+.platform-btn:hover {
+  transform: translateY(-2px);
+}
+
+.platform-left {
   display: flex;
   align-items: center;
-  gap: 14px;
-  text-align: left;
+  gap: 13px;
 }
 
-.icon {
+.platform-icon {
   width: 44px;
   height: 44px;
   border-radius: 14px;
   display: grid;
   place-items: center;
-  font-size: 24px;
+  font-size: 20px;
+  font-weight: 950;
+}
+
+.platform-name {
   font-weight: 900;
+  font-size: 16px;
 }
 
-.apple .icon { background: #fa2d48; }
-.spotify .icon { background: #1db954; }
-.boomplay .icon { background: #ffd400; color: #000; }
-.audiomack .icon { background: #ff8800; }
-
-.platform {
-  font-size: 18px;
-  font-weight: 800;
+.platform-small {
+  color: #9d9d9d;
+  font-size: 11px;
+  margin-top: 2px;
 }
 
-.small {
-  font-size: 13px;
-  color: #bdbdbd;
-  margin-top: 3px;
-}
-
-.action {
-  font-weight: 900;
-}
-
-.apple { border-color: #fa2d48; }
-.spotify { border-color: #1db954; }
-.boomplay { border-color: #ffd400; }
-.audiomack { border-color: #ff8800; }
-
-.apple .action { color: #fa2d48; }
-.spotify .action { color: #1db954; }
-.boomplay .action { color: #ffd400; }
-.audiomack .action { color: #ff8800; }
-
-.features {
-  margin-top: 24px;
-  padding: 18px;
-  border-radius: 18px;
-  background: rgba(255,255,255,0.06);
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
+.platform-action {
   font-size: 12px;
-  color: #ccc;
+  font-weight: 950;
 }
 
-.features strong {
-  display: block;
-  color: #fff;
+.apple {
+  border-color: rgba(250, 45, 72, 0.5);
+}
+
+.apple .platform-icon {
+  background: #fa2d48;
+}
+
+.apple .platform-action {
+  color: #ff7185;
+}
+
+.spotify {
+  border-color: rgba(29, 185, 84, 0.5);
+}
+
+.spotify .platform-icon {
+  background: #1db954;
+}
+
+.spotify .platform-action {
+  color: #48dd7c;
+}
+
+.boomplay {
+  border-color: rgba(255, 212, 0, 0.5);
+}
+
+.boomplay .platform-icon {
+  color: #000;
+  background: #ffd400;
+}
+
+.boomplay .platform-action {
+  color: #ffd400;
+}
+
+.audiomack {
+  border-color: rgba(255, 136, 0, 0.5);
+}
+
+.audiomack .platform-icon {
+  background: #ff8800;
+}
+
+.audiomack .platform-action {
+  color: #ff9c2c;
+}
+
+/* Journey */
+
+.timeline {
+  position: relative;
+  margin-top: 26px;
+  padding-left: 25px;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: 8px;
+  bottom: 8px;
+  width: 2px;
+  background:
+    linear-gradient(
+      var(--orange),
+      rgba(255, 106, 0, 0.05)
+    );
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 28px;
+}
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  top: 6px;
+  left: -24px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--orange);
+  box-shadow: 0 0 18px rgba(255, 106, 0, 0.8);
+}
+
+.timeline-year {
+  color: var(--orange-light);
+  font-size: 11px;
+  font-weight: 950;
+  letter-spacing: 2px;
+}
+
+.timeline-item h3 {
+  font-size: 20px;
+  margin: 5px 0;
+}
+
+.timeline-item p {
+  color: var(--text-soft);
+  font-size: 13px;
+}
+
+/* OMK world */
+
+.world-grid {
+  margin-top: 23px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.world-card {
+  min-height: 190px;
+  padding: 20px;
+  border-radius: 23px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.world-icon {
+  font-size: 32px;
+}
+
+.world-card h3 {
+  font-size: 21px;
   margin-bottom: 5px;
 }
 
-.footer {
-  margin: 28px 0 10px;
-  color: #999;
+.world-card p {
+  color: var(--text-soft);
   font-size: 12px;
-  letter-spacing: 2px;
+}
+
+/* Connect */
+
+.connect-card {
+  margin-top: 24px;
+  padding: 28px 22px;
+  text-align: center;
+  border-radius: 30px;
+  background:
+    radial-gradient(
+      circle at top,
+      rgba(255, 157, 67, 0.25),
+      transparent 45%
+    ),
+    rgba(255, 255, 255, 0.055);
+  border: 1px solid rgba(255, 106, 0, 0.3);
+}
+
+.connect-card h3 {
+  font-size: 34px;
+  line-height: 1;
+  letter-spacing: -2px;
+}
+
+.connect-card p {
+  max-width: 480px;
+  margin: 13px auto 20px;
+  color: var(--text-soft);
+  font-size: 14px;
+}
+
+.socials {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 9px;
+}
+
+.socials a {
+  text-decoration: none;
+  padding: 12px 16px;
+  border-radius: 13px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.07);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+/* Footer */
+
+.footer {
+  padding: 55px 10px 18px;
+  text-align: center;
+}
+
+.footer-logo {
+  font-size: 24px;
+  font-weight: 950;
+  letter-spacing: -1px;
+}
+
+.footer-logo span {
+  color: var(--orange);
+}
+
+.footer p {
+  color: #747474;
+  font-size: 10px;
+  letter-spacing: 1.6px;
+  margin-top: 8px;
+}
+
+/* Responsive */
+
+@media (max-width: 560px) {
+  .page {
+    padding: 12px;
+  }
+
+  .nav {
+    top: 8px;
+  }
+
+  .nav-links a:nth-child(2),
+  .nav-links a:nth-child(3) {
+    display: none;
+  }
+
+  .hero {
+    min-height: 570px;
+    border-radius: 27px;
+  }
+
+  .hero-content {
+    left: 19px;
+    right: 19px;
+    bottom: 22px;
+  }
+
+  .hero h1 {
+    letter-spacing: -3px;
+  }
+
+  .stats,
+  .world-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .stat {
+    min-height: 120px;
+    padding: 16px;
+  }
+
+  .stat-number {
+    font-size: 25px;
+  }
+
+  .music-top {
+    align-items: flex-start;
+  }
+
+  .music-link {
+    margin-top: 4px;
+  }
+}
+
+@media (max-width: 390px) {
+  .hero-actions {
+    display: grid;
+  }
+
+  .primary-btn,
+  .secondary-btn {
+    width: 100%;
+  }
+
+  .world-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .platform-name {
+    font-size: 14px;
+  }
+
+  .platform-action {
+    font-size: 10px;
+  }
 }
 </style>
 </head>
 
 <body>
-  <main class="page">
 
-    <img
-      class="cover"
-      src="https://raw.githubusercontent.com/omk-store/omotaker/refs/heads/main/F2D3D9CF-71CA-484E-8008-B1CA9314FADD.png"
-      alt="Follow Follow Cover"
-    />
+<main class="page">
 
-    <h1>Follow Follow</h1>
-    <div class="artist">Omo Taker</div>
+  <!-- Navigation -->
 
-    <div class="visualizer">▁▃▅▇▅▃▁</div>
+  <nav class="nav">
+    <a href="#home" class="logo">
+      OMO<span>TAKER</span>
+    </a>
 
-    <div class="choose">CHOOSE YOUR PLATFORM</div>
+    <div class="nav-links">
+      <a href="#story">Story</a>
+      <a href="#music">Music</a>
+      <a href="#journey">Journey</a>
+      <a href="#connect">Connect</a>
+    </div>
+  </nav>
 
-    <section class="links">
+  <!-- Hero -->
 
-      <a class="btn apple" href="https://music.apple.com/ng/album/follow-follow-single/1896458191" target="_blank">
-        <div class="left">
-          <div class="icon">♪</div>
-          <div>
-            <div class="platform">Apple Music</div>
-            <div class="small">Listen on Apple Music</div>
-          </div>
-        </div>
-        <div class="action">Listen ›</div>
-      </a>
+  <section class="hero" id="home">
+    <div class="hero-content">
 
-      <a class="btn spotify" href="https://open.spotify.com/track/7L4J10wzvkcuTB1zhguCMr" target="_blank">
-        <div class="left">
-          <div class="icon">S</div>
-          <div>
-            <div class="platform">Spotify</div>
-            <div class="small">Play on Spotify</div>
-          </div>
-        </div>
-        <div class="action">Play ›</div>
-      </a>
+      <div class="hero-badge">
+        🐺 OMK RECORD • BENIN TO THE WORLD
+      </div>
 
-      <a class="btn boomplay" href="https://www.boomplay.com/albums/130816953?srModel=openapi_featurefm" target="_blank">
-        <div class="left">
-          <div class="icon">B</div>
-          <div>
-            <div class="platform">Boomplay</div>
-            <div class="small">Stream on Boomplay</div>
-          </div>
-        </div>
-        <div class="action">Stream ›</div>
-      </a>
+      <h1>
+        THIS IS<br />
+        <span>OMO TAKER.</span>
+      </h1>
 
-      <a class="btn audiomack" href="https://audiomack.com/iam_omotaker/song/follow-follow?utm_source=featurefm&utm_campaign=onelink&utm_medium=website&ffm=FFM_4330625b808d8887e2e119dd75a4d67e" target="_blank">
-        <div class="left">
-          <div class="icon">〽</div>
-          <div>
-            <div class="platform">Audiomack</div>
-            <div class="small">Listen on Audiomack</div>
-          </div>
-        </div>
-        <div class="action">Open ›</div>
-      </a>
+      <p class="hero-description">
+        Nigerian Afrobeats artist, dancer and creator building
+        a world through music, movement, fashion and real-life
+        stories.
+      </p>
 
-    </section>
+      <div class="hero-actions">
+        <a href="#music" class="primary-btn">
+          Explore The Music ♪
+        </a>
 
-    <div class="features">
-      <div><strong>⚡ High Quality</strong>Best Sound</div>
-      <div><strong>🎧 Instant Access</strong>No Limits</div>
-      <div><strong>⭐ All Platforms</strong>One Link</div>
+        <a href="#story" class="secondary-btn">
+          Read My Story
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Story -->
+
+  <section class="section" id="story">
+
+    <div class="section-label">BEFORE YOU PRESS PLAY</div>
+
+    <h2 class="section-title">
+      Read the story.
+    </h2>
+
+    <p class="section-intro">
+      Omo Taker is more than one song. This is a journey from
+      Benin City to Lagos, built through pressure, belief,
+      movement and a refusal to stop.
+    </p>
+
+    <div class="story-card">
+
+      <p class="story-highlight">
+        From Benin City with a dream bigger than where
+        I started.
+      </p>
+
+      <p>
+        My name is Omo Taker. I am an independent Nigerian
+        artist, dancer and creator. Music has always been my
+        way of turning real experiences into something people
+        can feel.
+      </p>
+
+      <p>
+        I moved with a vision, carrying my sound from Benin to
+        Lagos. There was no perfect team waiting for me and no
+        easy road. I learned, invested, created content,
+        promoted myself and continued building even when the
+        results did not come immediately.
+      </p>
+
+      <p>
+        Every release represents a different part of my life.
+        Some songs carry pain, some carry energy, some carry
+        love, and some are made for people to dance and forget
+        their problems.
+      </p>
+
+      <p>
+        OMK means <strong>Only My Kind</strong>. It is not just
+        a name. It represents originality, confidence and
+        becoming the person you were created to be.
+      </p>
+
+      <p>
+        This page is not about one moment or one record. It is
+        the full world of Omo Taker—and the journey is still
+        being written.
+      </p>
+
     </div>
 
-    <div class="footer">
-      Powered by OMK RECORD • OmoTeka Link
+    <div class="stats">
+
+      <div class="stat">
+        <div class="stat-number">100K+</div>
+        <div class="stat-text">
+          Community built through music, dance and content.
+        </div>
+      </div>
+
+      <div class="stat">
+        <div class="stat-number">2M+</div>
+        <div class="stat-text">
+          Social media likes and growing support worldwide.
+        </div>
+      </div>
+
+      <div class="stat">
+        <div class="stat-number">50K+</div>
+        <div class="stat-text">
+          Streams reached by Bend Down Select.
+        </div>
+      </div>
+
+      <div class="stat">
+        <div class="stat-number">Top 200</div>
+        <div class="stat-text">
+          Badt Guy entered the Apple Music Nigeria chart.
+        </div>
+      </div>
+
     </div>
 
-  </main>
+  </section>
+
+  <!-- Music catalogue -->
+
+  <section class="section" id="music">
+
+    <div class="section-label">THE SOUND SO FAR</div>
+
+    <h2 class="section-title">
+      Music from my journey.
+    </h2>
+
+    <p class="section-intro">
+      Different sounds. Different feelings. One artist.
+      Tap any release to listen.
+    </p>
+
+    <div class="music-grid">
+
+      <article class="music-card">
+        <div class="music-top">
+
+          <div class="music-number">01</div>
+
+          <div class="music-info">
+            <h3>Follow Follow</h3>
+            <p>
+              A song about following the wrong person and
+              learning from the experience.
+            </p>
+          </div>
+
+          <a href="#follow-follow" class="music-link">
+            Listen ›
+          </a>
+
+        </div>
+      </article>
+
+      <article class="music-card">
+        <div class="music-top">
+
+          <div class="music-number">02</div>
+
+          <div class="music-info">
+            <h3>Bend Down Select</h3>
+            <p>
+              Dance energy made for movement, parties and
+              unforgettable moments.
+            </p>
+          </div>
+
+          <a
+            href="https://open.spotify.com/track/591YkWluaQeC3tGMWhSFWu"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="music-link"
+          >
+            Play ›
+          </a>
+
+        </div>
+      </article>
+
+      <article class="music-card">
+        <div class="music-top">
+
+          <div class="music-number">03</div>
+
+          <div class="music-info">
+            <h3>Badt Guy</h3>
+            <p>
+              The record that entered the Apple Music Nigeria
+              Top 200.
+            </p>
+          </div>
+
+          <a
+            href="https://music.apple.com/ng/album/badt-guy/1758752613?i=1758752614"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="music-link"
+          >
+            Play ›
+          </a>
+
+        </div>
+      </article>
+
+      <article class="music-card">
+        <div class="music-top">
+
+          <div class="music-number">04</div>
+
+          <div class="music-info">
+            <h3>You + You</h3>
+            <p>
+              Love, emotion and a sound made for two people
+              choosing each other.
+            </p>
+          </div>
+
+          <a
+            href="https://open.spotify.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="music-link"
+          >
+            Search ›
+          </a>
+
+        </div>
+      </article>
+
+      <article class="music-card">
+        <div class="music-top">
+
+          <div class="music-number">05</div>
+
+          <div class="music-info">
+            <h3>Benin To Lagos</h3>
+            <p>
+              The sound of leaving home, chasing a vision and
+              carrying Benin everywhere.
+            </p>
+          </div>
+
+          <a
+            href="https://open.spotify.com/track/0SooNM8i9p1UiE7HTTp5C4"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="music-link"
+          >
+            Play ›
+          </a>
+
+        </div>
+      </article>
+
+      <article class="music-card">
+        <div class="music-top">
+
+          <div class="music-number">06</div>
+
+          <div class="music-info">
+            <h3>If Earth Could Talk</h3>
+            <p>
+              A reflective record inspired by life, humanity
+              and the world around us.
+            </p>
+          </div>
+
+          <a
+            href="https://open.spotify.com/track/7mifEtIK9OPGWD9EyOOLnq"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="music-link"
+          >
+            Play ›
+          </a>
+
+        </div>
+      </article>
+
+      <article class="music-card">
+        <div class="music-top">
+
+          <div class="music-number">07</div>
+
+          <div class="music-info">
+            <h3>Benin Talk Piano</h3>
+            <p>
+              Benin culture and street expression carried by
+              amapiano energy.
+            </p>
+          </div>
+
+          <a
+            href="https://ffm.to/benintalkpiano"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="music-link"
+          >
+            Play ›
+          </a>
+
+        </div>
+      </article>
+
+      <article class="music-card">
+        <div class="music-top">
+
+          <div class="music-number">08</div>
+
+          <div class="music-info">
+            <h3>English</h3>
+            <p>
+              Omo Taker featuring Everyday Vibe. A playful
+              record with personality and fresh energy.
+            </p>
+          </div>
+
+          <a
+            href="https://audiomack.com/iam_omotaker/song/english?share-user-id=111838460"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="music-link"
+          >
+            Play ›
+          </a>
+
+        </div>
+      </article>
+
+    </div>
+
+  </section>
+
+  <!-- Featured Follow Follow -->
+
+  <section class="section" id="follow-follow">
+
+    <div class="section-label">FEATURED RELEASE</div>
+
+    <h2 class="section-title">
+      Follow Follow
+    </h2>
+
+    <p class="section-intro">
+      Everybody don follow wrong person before. Choose your
+      preferred platform and press play.
+    </p>
+
+    <div class="featured-release">
+
+      <img
+        class="release-cover"
+        src="https://raw.githubusercontent.com/omk-store/omotaker/refs/heads/main/F2D3D9CF-71CA-484E-8008-B1CA9314FADD.png"
+        alt="Follow Follow by Omo Taker"
+      />
+
+      <div class="release-info">
+
+        <h3>Follow Follow</h3>
+
+        <p>Omo Taker • OMK Record</p>
+
+        <div class="visualizer">
+          ▁▃▅▇▅▃▁
+        </div>
+
+        <div class="platform-links">
+
+          <a
+            class="platform-btn apple"
+            href="https://music.apple.com/ng/album/follow-follow-single/1896458191"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div class="platform-left">
+
+              <div class="platform-icon">♪</div>
+
+              <div>
+                <div class="platform-name">Apple Music</div>
+                <div class="platform-small">
+                  Listen on Apple Music
+                </div>
+              </div>
+
+            </div>
+
+            <div class="platform-action">LISTEN ›</div>
+          </a>
+
+          <a
+            class="platform-btn spotify"
+            href="https://open.spotify.com/track/7L4J10wzvkcuTB1zhguCMr"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div class="platform-left">
+
+              <div class="platform-icon">S</div>
+
+              <div>
+                <div class="platform-name">Spotify</div>
+                <div class="platform-small">
+                  Play on Spotify
+                </div>
+              </div>
+
+            </div>
+
+            <div class="platform-action">PLAY ›</div>
+          </a>
+
+          <a
+            class="platform-btn boomplay"
+            href="https://www.boomplay.com/albums/130816953?srModel=openapi_featurefm"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div class="platform-left">
+
+              <div class="platform-icon">B</div>
+
+              <div>
+                <div class="platform-name">Boomplay</div>
+                <div class="platform-small">
+                  Stream on Boomplay
+                </div>
+              </div>
+
+            </div>
+
+            <div class="platform-action">STREAM ›</div>
+          </a>
+
+          <a
+            class="platform-btn audiomack"
+            href="https://audiomack.com/iam_omotaker/song/follow-follow?utm_source=featurefm&utm_campaign=onelink&utm_medium=website&ffm=FFM_4330625b808d8887e2e119dd75a4d67e"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div class="platform-left">
+
+              <div class="platform-icon">〽</div>
+
+              <div>
+                <div class="platform-name">Audiomack</div>
+                <div class="platform-small">
+                  Listen on Audiomack
+                </div>
+              </div>
+
+            </div>
+
+            <div class="platform-action">OPEN ›</div>
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- Journey -->
+
+  <section class="section" id="journey">
+
+    <div class="section-label">BUILT BY PRESSURE</div>
+
+    <h2 class="section-title">
+      The journey continues.
+    </h2>
+
+    <p class="section-intro">
+      No overnight story. Every step, release and result has
+      added another part to the OMK journey.
+    </p>
+
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <div class="timeline-year">THE BEGINNING</div>
+        <h3>Benin City</h3>
+        <p>
+          The vision started in Benin, where the culture,
+          language, movement and energy shaped the foundation
+          of the Omo Taker sound.
+        </p>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-year">THE MOVE</div>
+        <h3>From Benin To Lagos</h3>
+        <p>
+          A bigger city, bigger pressure and a bigger reason
+          to keep working. The move became part of the music
+          and the story.
+        </p>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-year">THE BREAKTHROUGH</div>
+        <h3>Music Reaching New People</h3>
+        <p>
+          Badt Guy entered the Apple Music Nigeria Top 200,
+          while Bend Down Select crossed 50,000 streams.
+        </p>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-year">THE MOVEMENT</div>
+        <h3>OMK — Only My Kind</h3>
+        <p>
+          What started as an artist identity became a wider
+          world connecting music, dance, fashion, visual
+          storytelling and community.
+        </p>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-year">RIGHT NOW</div>
+        <h3>Still Building</h3>
+        <p>
+          More records, more visuals, more stories and a
+          bigger vision. This is not the ending—it is another
+          chapter.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- OMK World -->
+
+  <section class="section">
+
+    <div class="section-label">MORE THAN MUSIC</div>
+
+    <h2 class="section-title">
+      Welcome to OMK World.
+    </h2>
+
+    <p class="section-intro">
+      The music is the heartbeat, but the vision reaches
+      further.
+    </p>
+
+    <div class="world-grid">
+
+      <div class="world-card">
+        <div class="world-icon">🎵</div>
+
+        <div>
+          <h3>Music</h3>
+          <p>
+            Afrobeats, Afro-fusion, amapiano energy and
+            stories taken from real life.
+          </p>
+        </div>
+      </div>
+
+      <div class="world-card">
+        <div class="world-icon">🐺</div>
+
+        <div>
+          <h3>OMK</h3>
+          <p>
+            Only My Kind represents identity, originality and
+            moving with your own vision.
+          </p>
+        </div>
+      </div>
+
+      <div class="world-card">
+        <div class="world-icon">🎬</div>
+
+        <div>
+          <h3>Everyday Vibe</h3>
+          <p>
+            Creative videos, dance, visual storytelling and
+            content made to move culture.
+          </p>
+        </div>
+      </div>
+
+      <div class="world-card">
+        <div class="world-icon">👕</div>
+
+        <div>
+          <h3>OMK Drip</h3>
+          <p>
+            Fashion created around the Only My Kind identity
+            and the world behind the music.
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- Connect -->
+
+  <section class="section" id="connect">
+
+    <div class="connect-card">
+
+      <div class="section-label">JOIN THE JOURNEY</div>
+
+      <h3>
+        From Benin to the world.
+      </h3>
+
+      <p>
+        Follow Omo Taker for new music, videos, dance,
+        behind-the-scenes moments and the next chapter of the
+        OMK movement.
+      </p>
+
+      <div class="socials">
+
+        <a
+          href="https://www.instagram.com/iam__omotaker"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Instagram
+        </a>
+
+        <a
+          href="https://www.tiktok.com/@iam.omotaker"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          TikTok
+        </a>
+
+        <a
+          href="https://www.youtube.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          YouTube
+        </a>
+
+        <a
+          href="https://omotaker.com"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Official Website
+        </a>
+
+        <a
+          href="https://shopomk.com"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Shop OMK
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- Footer -->
+
+  <footer class="footer">
+
+    <div class="footer-logo">
+      OMO<span>TAKER</span>
+    </div>
+
+    <p>
+      POWERED BY OMK RECORD • OMOTEKA • ONLY MY KIND
+    </p>
+
+  </footer>
+
+</main>
+
 </body>
 </html>
