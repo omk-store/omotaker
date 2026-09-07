@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#05070b">
+<title>Work Hard — Omo Taker</title>
+<meta name="description" content="Listen to Work Hard by Omo Taker on all major streaming platforms.">
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+
+html{scroll-behavior:smooth}
+
+body{
+  min-height:100vh;
+  background:
+    radial-gradient(circle at 50% 10%,rgba(30,105,255,.2),transparent 32%),
+    #05070b;
+  color:#fff;
+  font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+
+.page{
+  width:min(100%,720px);
+  margin:auto;
+  padding:18px;
+}
+
+.card{
+  position:relative;
+  overflow:hidden;
+  min-height:calc(100vh - 36px);
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:32px;
+  background:linear-gradient(
+    180deg,
+    rgba(15,19,29,.95),
+    rgba(5,7,11,.99)
+  );
+  box-shadow:0 30px 100px rgba(0,0,0,.55);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  padding:24px 20px 30px;
+}
+
+.card:before{
+  content:"";
+  position:absolute;
+  width:420px;
+  height:420px;
+  top:-170px;
+  left:50%;
+  transform:translateX(-50%);
+  background:rgba(24,101,255,.18);
+  filter:blur(80px);
+  border-radius:50%;
+  pointer-events:none;
+}
+
+.top,
+.cover,
+.content,
+.footer{
+  position:relative;
+  z-index:2;
+}
+
+.top{
+  width:100%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:28px;
+}
+
+.logo{
+  font-size:20px;
+  font-weight:950;
+  letter-spacing:-1.2px;
+}
+
+.logo span{
+  color:#ff5b18;
+}
+
+.badge{
+  border:1px solid rgba(255,255,255,.13);
+  background:rgba(255,255,255,.05);
+  border-radius:999px;
+  padding:8px 12px;
+  color:#b9c1d0;
+  font-size:10px;
+  font-weight:850;
+  letter-spacing:1.4px;
+}
+
+.cover{
+  width:min(78vw,390px);
+  aspect-ratio:1;
+  border-radius:24px;
+  overflow:hidden;
+  box-shadow:
+    0 30px 70px rgba(0,0,0,.58),
+    0 0 55px rgba(30,105,255,.16);
+}
+
+.cover img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.content{
+  width:100%;
+  max-width:510px;
+  text-align:center;
+  padding-top:28px;
+}
+
+.kicker{
+  color:#79a9ff;
+  font-size:10px;
+  font-weight:950;
+  letter-spacing:3px;
+  margin-bottom:10px;
+}
+
+h1{
+  font-size:clamp(42px,10vw,68px);
+  line-height:.92;
+  letter-spacing:-3.5px;
+}
+
+.artist{
+  margin-top:8px;
+  color:#b5bbc7;
+  font-size:14px;
+}
+
+.cta{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  margin-top:25px;
+}
+
+.btn{
+  min-height:54px;
+  border-radius:15px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
+  font-size:14px;
+  font-weight:900;
+  border:1px solid rgba(255,255,255,.12);
+  background:#141923;
+  color:#fff;
+  transition:.2s ease;
+}
+
+.btn:hover{
+  transform:translateY(-2px);
+  background:#1b2230;
+}
+
+.btn.primary{
+  background:#fff;
+  color:#05070b;
+  border-color:#fff;
+  box-shadow:0 10px 35px rgba(255,255,255,.08);
+}
+
+.btn.primary:hover{
+  background:#e9eef7;
+}
+
+.platforms{
+  margin-top:24px;
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:9px;
+}
+
+.platform{
+  min-height:47px;
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:13px;
+  background:rgba(255,255,255,.045);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#e7e9ed;
+  text-decoration:none;
+  font-size:12px;
+  font-weight:800;
+  transition:.2s ease;
+}
+
+.platform:hover{
+  background:rgba(255,255,255,.10);
+  transform:translateY(-2px);
+}
+
+.footer{
+  margin-top:auto;
+  padding-top:30px;
+  color:#626a78;
+  font-size:9px;
+  font-weight:800;
+  letter-spacing:1.7px;
+  text-align:center;
+}
+
+@media(max-width:430px){
+
+  .page{
+    padding:10px;
+  }
+
+  .card{
+    min-height:calc(100vh - 20px);
+    border-radius:27px;
+    padding:19px 15px 24px;
+  }
+
+  .cover{
+    width:min(82vw,340px);
+    border-radius:21px;
+  }
+
+}
+</style>
+</head>
+
+<body>
+
+<main class="page">
+
+<section class="card">
+
+<div class="top">
+
+<div class="logo">
+OMO<span>TAKER</span>
+</div>
+
+<div class="badge">
+ONLY MY KIND
+</div>
+
+</div>
+
+
+<div class="cover">
+
+<img
+src="https://raw.githubusercontent.com/omk-store/omotaker/refs/heads/main/CFC9C620-39B2-4308-83EA-DA63B4B2B665.png"
+alt="Work Hard by Omo Taker cover artwork"
+>
+
+</div>
+
+
+<div class="content">
+
+<div class="kicker">
+NEW RELEASE • OUT NOW
+</div>
+
+<h1>
+Work Hard
+</h1>
+
+<div class="artist">
+Omo Taker • Single
+</div>
+
+
+<div class="cta">
+
+<a
+class="btn primary"
+href="https://open.spotify.com/album/3Fl2WM9a0tOKUdzcbsiK2E?si=2ZxViGZmTiKfdDA8FF_1hA&utm_source=copy-link"
+target="_blank"
+rel="noopener noreferrer"
+>
+▶ &nbsp; STREAM WORK HARD
+</a>
+
+</div>
+
+
+<div class="platforms">
+
+<a
+class="platform"
+href="https://music.apple.com/ng/album/work-hard-single/6808988385"
+target="_blank"
+rel="noopener noreferrer"
+>
+Apple Music
+</a>
+
+<a
+class="platform"
+href="https://open.spotify.com/album/3Fl2WM9a0tOKUdzcbsiK2E?si=2ZxViGZmTiKfdDA8FF_1hA&utm_source=copy-link"
+target="_blank"
+rel="noopener noreferrer"
+>
+Spotify
+</a>
+
+<a
+class="platform"
+href="https://audiomack.com/iam_omotaker/song/work-hard?share-user-id=111838460"
+target="_blank"
+rel="noopener noreferrer"
+>
+Audiomack
+</a>
+
+<a
+class="platform"
+href="https://www.boomplay.com/share/album/EQU5SNbgs04WQgScvWRJwfI7?srModel=Linkfire&srList=eeffdc963721d692e77fb31ce3ce9caf"
+target="_blank"
+rel="noopener noreferrer"
+>
+Boomplay
+</a>
+
+<a
+class="platform"
+href="https://www.deezer.com/en/album/1071738522?app_id=140685&utm_source=partner_linkfire&utm_campaign=eeffdc963721d692e77fb31ce3ce9caf&utm_medium=Original&utm_term=omo-taker-4529&utm_content=album-1071738522"
+target="_blank"
+rel="noopener noreferrer"
+>
+Deezer
+</a>
+
+<a
+class="platform"
+href="https://music.youtube.com/playlist?list=OLAK5uy_mWzhgDqNxaGNH9PkNrwuzE_EwPAWl2R4M"
+target="_blank"
+rel="noopener noreferrer"
+>
+YouTube Music
+</a>
+
+</div>
+
+</div>
+
+
+<div class="footer">
+POWERED BY OMK RECORD • ONLY MY KIND
+</div>
+
+</section>
+
+</main>
+
+</body>
+</html>
