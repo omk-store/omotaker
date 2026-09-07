@@ -2,11 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-
-<meta
-  name="viewport"
-  content="width=device-width, initial-scale=1.0"
-/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 <meta
   name="description"
@@ -46,6 +42,7 @@ html {
 body {
   min-height: 100vh;
   overflow-x: hidden;
+
   background:
     radial-gradient(
       circle at 50% 0%,
@@ -53,7 +50,9 @@ body {
       transparent 28%
     ),
     var(--black);
+
   color: var(--white);
+
   font-family:
     Inter,
     -apple-system,
@@ -61,7 +60,9 @@ body {
     "Segoe UI",
     Arial,
     sans-serif;
+
   line-height: 1.6;
+
   -webkit-font-smoothing: antialiased;
 }
 
@@ -292,6 +293,7 @@ img {
   background: var(--orange);
 
   display: grid;
+
   place-items: center;
 
   font-size: 11px;
@@ -417,7 +419,7 @@ img {
 
 
 /* =========================================================
-   WORK HARD — UPDATED
+   WORK HARD
 ========================================================= */
 
 .featured-release {
@@ -467,7 +469,8 @@ img {
 
   border-radius: 50%;
 
-  background: rgba(255, 91, 24, 0.08);
+  background:
+    rgba(255, 91, 24, 0.08);
 
   filter: blur(2px);
 
@@ -497,7 +500,7 @@ img {
 
 
 /* =========================================================
-   FEATURED CONTENT
+   WORK HARD CONTENT
 ========================================================= */
 
 .featured-content {
@@ -553,7 +556,7 @@ img {
 
   letter-spacing: -3px;
 
-  margin-bottom: 8px;
+  margin-bottom: 12px;
 }
 
 .featured-subtitle {
@@ -562,6 +565,25 @@ img {
   font-size: 14px;
 
   margin-bottom: 17px;
+}
+
+
+/* =========================================================
+   PLATFORM LABEL
+========================================================= */
+
+.featured-platform-label {
+  color: #777777;
+
+  font-size: 10px;
+
+  font-weight: 850;
+
+  letter-spacing: 3px;
+
+  margin-bottom: 13px;
+
+  text-transform: uppercase;
 }
 
 
@@ -618,7 +640,7 @@ img {
 
 
 /* =========================================================
-   POWERED BY OMK RECORD
+   POWERED BY
 ========================================================= */
 
 .featured-powered {
@@ -1280,6 +1302,196 @@ img {
 
 
 /* =========================================================
+   MUSIC POP-UP
+========================================================= */
+
+.player-modal {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 9999;
+
+  padding: 14px;
+
+  display: none;
+
+  align-items: center;
+
+  justify-content: center;
+
+  background: rgba(0, 0, 0, 0.9);
+
+  backdrop-filter: blur(18px);
+
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.player-modal.active {
+  display: flex;
+}
+
+.player-box {
+  width: min(100%, 650px);
+
+  height: min(88vh, 780px);
+
+  overflow: hidden;
+
+  border: 1px solid var(--line);
+
+  border-radius: 24px;
+
+  background: #111111;
+
+  box-shadow:
+    0 30px 100px rgba(0, 0, 0, 0.7);
+
+  display: flex;
+
+  flex-direction: column;
+}
+
+.player-header {
+  min-height: 66px;
+
+  padding:
+    11px
+    13px
+    11px
+    19px;
+
+  border-bottom: 1px solid var(--line);
+
+  background: #101010;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+}
+
+.player-heading {
+  min-width: 0;
+}
+
+.player-label {
+  color: var(--orange);
+
+  font-size: 9px;
+
+  font-weight: 900;
+
+  letter-spacing: 2px;
+}
+
+.player-title {
+  overflow: hidden;
+
+  font-size: 16px;
+
+  font-weight: 850;
+
+  text-overflow: ellipsis;
+
+  white-space: nowrap;
+}
+
+.close-player {
+  width: 43px;
+  height: 43px;
+
+  border: 1px solid var(--line);
+
+  border-radius: 50%;
+
+  background: #242424;
+
+  color: var(--white);
+
+  font-size: 20px;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.close-player:hover {
+  background: var(--orange);
+
+  transform: rotate(5deg);
+}
+
+.frame-wrap {
+  position: relative;
+
+  flex: 1;
+
+  background: #ffffff;
+}
+
+.player-frame {
+  width: 100%;
+  height: 100%;
+
+  border: 0;
+
+  background: #ffffff;
+}
+
+.player-loading {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 2;
+
+  background: #111111;
+
+  color: #cfcfcf;
+
+  display: grid;
+
+  place-items: center;
+
+  font-size: 13px;
+}
+
+.player-loading.hidden {
+  display: none;
+}
+
+.player-footer {
+  min-height: 55px;
+
+  padding: 10px 17px;
+
+  border-top: 1px solid var(--line);
+
+  background: #101010;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+}
+
+.player-footer a {
+  color: var(--orange-light);
+
+  text-decoration: none;
+
+  font-size: 12px;
+
+  font-weight: 850;
+}
+
+
+/* =========================================================
    MOBILE
 ========================================================= */
 
@@ -1315,6 +1527,7 @@ img {
 
   .hero-content {
     left: 21px;
+
     right: 21px;
 
     bottom: 29px;
@@ -1325,7 +1538,8 @@ img {
   }
 
   .featured-content {
-    grid-template-columns: 105px 1fr;
+    grid-template-columns:
+      105px 1fr;
 
     gap: 16px;
   }
@@ -1346,6 +1560,12 @@ img {
     font-size: 12px;
   }
 
+  .featured-platform-label {
+    font-size: 9px;
+
+    letter-spacing: 2px;
+  }
+
   .stream-button {
     min-height: 39px;
 
@@ -1355,7 +1575,8 @@ img {
   }
 
   .artist-stats {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns:
+      repeat(2, 1fr);
 
     gap: 21px 10px;
   }
@@ -1383,10 +1604,6 @@ img {
 }
 
 
-/* =========================================================
-   SMALL PHONES
-========================================================= */
-
 @media (max-width: 500px) {
 
   .section {
@@ -1406,6 +1623,7 @@ img {
 
   .release-art {
     width: 58px;
+
     height: 58px;
   }
 
@@ -1419,6 +1637,7 @@ img {
 
   .play-button {
     width: 43px;
+
     height: 43px;
   }
 
@@ -1428,12 +1647,18 @@ img {
     gap: 8px;
   }
 
+  .player-modal {
+    padding: 7px;
+  }
+
+  .player-box {
+    height: 93vh;
+
+    border-radius: 19px;
+  }
+
 }
 
-
-/* =========================================================
-   VERY SMALL PHONES
-========================================================= */
 
 @media (max-width: 390px) {
 
@@ -1473,22 +1698,8 @@ img {
 
 }
 
-
-/* =========================================================
-   REDUCE MOTION
-========================================================= */
-
-@media (prefers-reduced-motion: reduce) {
-
-  html {
-    scroll-behavior: auto;
-  }
-
-}
-
 </style>
 </head>
-
 
 <body>
 
@@ -1497,7 +1708,7 @@ img {
 
 <!-- =======================================================
      NAVIGATION
-======================================================== -->
+======================================================= -->
 
 <div class="nav-wrap">
 
@@ -1533,7 +1744,7 @@ img {
 
 <!-- =======================================================
      ARTIST HERO
-======================================================== -->
+======================================================= -->
 
 <section
   class="hero"
@@ -1598,12 +1809,12 @@ Read My Story
 
 
 <!-- =======================================================
-     WORK HARD — UPDATED
-======================================================== -->
+     WORK HARD — STREAMING DESTINATION
+======================================================= -->
 
 <section
   class="featured-release"
-  aria-label="Work Hard new release"
+  aria-label="Work Hard streaming platforms"
 >
 
 
@@ -1622,13 +1833,13 @@ Read My Story
   alt="Work Hard cover artwork"
 >
 
-
 </div>
 
 
 <!-- WORK HARD INFORMATION -->
 
 <div class="featured-info">
+
 
 <h2>
 Work Hard
@@ -1637,12 +1848,19 @@ Work Hard
 
 <p class="featured-subtitle">
 
-Omo Taker • Single
+OMO TAKER • SINGLE
 
 </p>
 
 
-<!-- STREAMING PLATFORMS -->
+<div class="featured-platform-label">
+
+LISTEN ON YOUR FAVORITE PLATFORM
+
+</div>
+
+
+<!-- ONLY THE FOUR PLATFORMS -->
 
 <div class="featured-buttons">
 
@@ -1710,11 +1928,11 @@ Audiomack
 </div>
 
 
-<!-- ONLY POWERED BY OMK RECORD -->
+<!-- ONLY THIS BELOW THE PLATFORMS -->
 
 <div class="featured-powered">
 
-Powered by OMK Record
+POWERED BY OMK RECORD
 
 </div>
 
@@ -1724,7 +1942,7 @@ Powered by OMK Record
 
 <!-- =======================================================
      ACHIEVEMENTS
-======================================================== -->
+======================================================= -->
 
 <section class="artist-stats">
 
@@ -1786,7 +2004,7 @@ Top 200
 
 <!-- =======================================================
      MUSIC
-======================================================== -->
+======================================================= -->
 
 <section
   class="section"
@@ -1891,17 +2109,17 @@ OMO TAKER • SINGLE
 
 </div>
 
-<a
-  class="play-button release-link"
-  href="https://ffm.to/bend-down-select"
-  target="_blank"
-  rel="noopener noreferrer"
-  aria-label="Stream Bend Down Select"
+<button
+  class="play-button open-player"
+  type="button"
+  aria-label="Play Bend Down Select"
+  data-song="Bend Down Select"
+  data-link="https://ffm.to/bend-down-select"
 >
 
 ▶
 
-</a>
+</button>
 
 </article>
 
@@ -2008,17 +2226,17 @@ OMO TAKER FT. EVERYDAY VIBE
 
 </div>
 
-<a
-  class="play-button release-link"
-  href="https://ffm.to/english-se41"
-  target="_blank"
-  rel="noopener noreferrer"
-  aria-label="Stream English"
+<button
+  class="play-button open-player"
+  type="button"
+  aria-label="Play English"
+  data-song="English"
+  data-link="https://ffm.to/english-se41"
 >
 
 ▶
 
-</a>
+</button>
 
 </article>
 
@@ -2047,17 +2265,17 @@ OMO TAKER FT. EVERYDAY VIBE
 
 </div>
 
-<a
-  class="play-button release-link"
-  href="https://ffm.to/benin-talk-piano-xlus"
-  target="_blank"
-  rel="noopener noreferrer"
-  aria-label="Stream Benin Talk Piano"
+<button
+  class="play-button open-player"
+  type="button"
+  aria-label="Play Benin Talk Piano"
+  data-song="Benin Talk Piano"
+  data-link="https://ffm.to/benin-talk-piano-xlus"
 >
 
 ▶
 
-</a>
+</button>
 
 </article>
 
@@ -2086,17 +2304,17 @@ OMO TAKER • SINGLE
 
 </div>
 
-<a
-  class="play-button release-link"
-  href="https://ffm.to/if-earth-could-talk"
-  target="_blank"
-  rel="noopener noreferrer"
-  aria-label="Stream If Earth Could Talk"
+<button
+  class="play-button open-player"
+  type="button"
+  aria-label="Play If Earth Could Talk"
+  data-song="If Earth Could Talk"
+  data-link="https://ffm.to/if-earth-could-talk"
 >
 
 ▶
 
-</a>
+</button>
 
 </article>
 
@@ -2186,7 +2404,7 @@ OMO TAKER • SINGLE
 
 <!-- =======================================================
      STORY
-======================================================== -->
+======================================================= -->
 
 <section
   class="section"
@@ -2283,7 +2501,7 @@ written.
 
 <!-- =======================================================
      JOURNEY
-======================================================== -->
+======================================================= -->
 
 <section
   class="section"
@@ -2445,7 +2663,7 @@ This is another chapter, not the ending.
 
 <!-- =======================================================
      OMK WORLD
-======================================================== -->
+======================================================= -->
 
 <section class="section">
 
@@ -2569,7 +2787,7 @@ Shop the new drop →
 
 <!-- =======================================================
      CONNECT
-======================================================== -->
+======================================================= -->
 
 <section
   class="section"
@@ -2647,7 +2865,7 @@ OMK Drip
 
 <!-- =======================================================
      FOOTER
-======================================================== -->
+======================================================= -->
 
 <footer class="footer">
 
@@ -2666,6 +2884,274 @@ POWERED BY OMK RECORD • ONLY MY KIND
 
 
 </main>
+
+
+<!-- =======================================================
+     MUSIC POP-UP
+======================================================= -->
+
+<div
+  class="player-modal"
+  id="playerModal"
+  aria-hidden="true"
+>
+
+
+<div
+  class="player-box"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="playerTitle"
+>
+
+
+<div class="player-header">
+
+
+<div class="player-heading">
+
+
+<div class="player-label">
+NOW PLAYING
+</div>
+
+
+<div
+  class="player-title"
+  id="playerTitle"
+>
+Omo Taker
+</div>
+
+
+</div>
+
+
+<button
+  class="close-player"
+  id="closePlayer"
+  type="button"
+  aria-label="Close music player"
+>
+✕
+</button>
+
+
+</div>
+
+
+<div class="frame-wrap">
+
+
+<div
+  class="player-loading"
+  id="playerLoading"
+>
+Opening streaming page...
+</div>
+
+
+<iframe
+  class="player-frame"
+  id="playerFrame"
+  src="about:blank"
+  title="Omo Taker streaming player"
+  allow="autoplay; encrypted-media; fullscreen"
+></iframe>
+
+
+</div>
+
+
+<div class="player-footer">
+
+
+<a
+  id="externalPlayerLink"
+  href="#"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+Open full streaming page ↗
+</a>
+
+
+</div>
+
+
+</div>
+
+</div>
+
+
+<script>
+
+const playerModal =
+  document.getElementById("playerModal");
+
+const playerFrame =
+  document.getElementById("playerFrame");
+
+const playerTitle =
+  document.getElementById("playerTitle");
+
+const playerLoading =
+  document.getElementById("playerLoading");
+
+const closePlayerButton =
+  document.getElementById("closePlayer");
+
+const externalPlayerLink =
+  document.getElementById("externalPlayerLink");
+
+const playerButtons =
+  document.querySelectorAll(".open-player");
+
+
+function openMusicPlayer(songName, songLink) {
+
+  playerTitle.textContent =
+    songName;
+
+  externalPlayerLink.href =
+    songLink;
+
+  playerLoading.classList.remove(
+    "hidden"
+  );
+
+  playerFrame.src =
+    songLink;
+
+  playerModal.classList.add(
+    "active"
+  );
+
+  playerModal.setAttribute(
+    "aria-hidden",
+    "false"
+  );
+
+  document.body.classList.add(
+    "modal-open"
+  );
+}
+
+
+function closeMusicPlayer() {
+
+  playerModal.classList.remove(
+    "active"
+  );
+
+  playerModal.setAttribute(
+    "aria-hidden",
+    "true"
+  );
+
+  document.body.classList.remove(
+    "modal-open"
+  );
+
+  playerFrame.src =
+    "about:blank";
+
+  playerLoading.classList.remove(
+    "hidden"
+  );
+}
+
+
+playerButtons.forEach(
+  function(button) {
+
+    button.addEventListener(
+      "click",
+      function() {
+
+        const songName =
+          button.getAttribute(
+            "data-song"
+          );
+
+        const songLink =
+          button.getAttribute(
+            "data-link"
+          );
+
+        openMusicPlayer(
+          songName,
+          songLink
+        );
+
+      }
+    );
+
+  }
+);
+
+
+playerFrame.addEventListener(
+  "load",
+  function() {
+
+    if (
+      playerFrame.getAttribute(
+        "src"
+      ) !== "about:blank"
+    ) {
+
+      playerLoading.classList.add(
+        "hidden"
+      );
+
+    }
+
+  }
+);
+
+
+closePlayerButton.addEventListener(
+  "click",
+  closeMusicPlayer
+);
+
+
+playerModal.addEventListener(
+  "click",
+  function(event) {
+
+    if (
+      event.target === playerModal
+    ) {
+
+      closeMusicPlayer();
+
+    }
+
+  }
+);
+
+
+document.addEventListener(
+  "keydown",
+  function(event) {
+
+    if (
+      event.key === "Escape" &&
+      playerModal.classList.contains(
+        "active"
+      )
+    ) {
+
+      closeMusicPlayer();
+
+    }
+
+  }
+);
+
+</script>
 
 </body>
 </html>
