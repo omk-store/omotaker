@@ -1,43 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 
 <meta
   name="viewport"
   content="width=device-width, initial-scale=1.0, viewport-fit=cover"
-/>
+>
 
 <meta
   name="description"
-  content="Listen to Work Hard by Omo Taker on Spotify, Apple Music, Boomplay and Audiomack."
+  content="Listen to Work Hard by Omo Taker on Apple Music, Spotify, Boomplay and Audiomack."
 >
 
 <meta name="theme-color" content="#050505">
 
 <title>Work Hard | Omo Taker</title>
 
-<link rel="preconnect" href="https://raw.githubusercontent.com" crossorigin>
-
 <style>
-
-/* =========================================================
-   ROOT
-========================================================= */
-
-:root {
-  --black: #050505;
-  --surface: #101010;
-  --surface-light: #181818;
-
-  --white: #ffffff;
-  --muted: #9a9a9a;
-
-  --line: rgba(255,255,255,.11);
-
-  --blue: #76aaff;
-}
-
 
 /* =========================================================
    RESET
@@ -58,7 +39,6 @@ body {
   overflow-x: hidden;
 
   background: #050505;
-
   color: #ffffff;
 
   font-family:
@@ -89,27 +69,20 @@ a {
 
 .page {
   width: min(100%, 760px);
-
   margin: auto;
-
-  padding:
-    0
-    14px
-    28px;
+  padding: 0 14px 28px;
 }
 
 
 /* =========================================================
-   TOP BAR
+   TOP LOGO
 ========================================================= */
 
 .top-bar {
   min-height: 64px;
 
   display: flex;
-
   align-items: center;
-
   justify-content: center;
 
   padding: 9px 0;
@@ -117,11 +90,9 @@ a {
 
 .logo {
   color: #ffffff;
-
   text-decoration: none;
 
   font-size: 20px;
-
   font-weight: 950;
 
   letter-spacing: -1.2px;
@@ -133,17 +104,13 @@ a {
 
 
 /* =========================================================
-   MAIN MUSIC CARD
+   MAIN CARD
 ========================================================= */
 
 .music-card {
-
   overflow: hidden;
 
-  border:
-    1px solid
-    rgba(255,255,255,.10);
-
+  border: 1px solid rgba(255,255,255,.10);
   border-radius: 28px;
 
   background:
@@ -154,27 +121,21 @@ a {
     );
 
   box-shadow:
-    0 25px 80px
-    rgba(0,0,0,.45);
-
+    0 25px 80px rgba(0,0,0,.45);
 }
 
 
 /* =========================================================
-   ARTWORK
+   COVER ART
 ========================================================= */
 
 .artwork-wrapper {
-
   width: 100%;
-
   padding: 14px 14px 0;
 }
 
 .artwork {
-
   width: 100%;
-
   aspect-ratio: 1 / 1;
 
   overflow: hidden;
@@ -185,32 +146,27 @@ a {
 }
 
 .artwork img {
-
   width: 100%;
   height: 100%;
 
   object-fit: cover;
-
-  display: block;
 }
 
 
 /* =========================================================
-   SONG INFORMATION
+   SONG TITLE
 ========================================================= */
 
 .song-info {
-
   text-align: center;
 
   padding:
     28px
     20px
-    10px;
+    8px;
 }
 
 .song-title {
-
   color: #ffffff;
 
   font-size:
@@ -224,7 +180,6 @@ a {
 }
 
 .artist-name {
-
   color: #a9a9a9;
 
   font-size: 15px;
@@ -234,11 +189,10 @@ a {
 
 
 /* =========================================================
-   PLATFORM TITLE
+   PLATFORM HEADING
 ========================================================= */
 
 .platform-heading {
-
   text-align: center;
 
   color: #737b8d;
@@ -257,15 +211,14 @@ a {
 
 
 /* =========================================================
-   STREAMING PLATFORMS
+   PLATFORMS
 ========================================================= */
 
 .platforms {
-
   display: grid;
 
   grid-template-columns:
-    repeat(2, minmax(0,1fr));
+    repeat(2, minmax(0, 1fr));
 
   gap: 10px;
 
@@ -276,11 +229,10 @@ a {
 
 
 /* =========================================================
-   PLATFORM BUTTON
+   PLATFORM BUTTONS
 ========================================================= */
 
 .platform-button {
-
   min-height: 62px;
 
   padding: 0 18px;
@@ -291,13 +243,6 @@ a {
 
   border-radius: 17px;
 
-  background:
-    linear-gradient(
-      145deg,
-      #1b1d22,
-      #111216
-    );
-
   color: #ffffff;
 
   text-decoration: none;
@@ -305,13 +250,11 @@ a {
   display: flex;
 
   align-items: center;
-
   justify-content: center;
 
   text-align: center;
 
   font-size: 14px;
-
   font-weight: 800;
 
   transition:
@@ -321,21 +264,17 @@ a {
 }
 
 .platform-button:active {
-
   transform: scale(.97);
 }
 
 .platform-button:hover {
-
-  background: #22252c;
-
   border-color:
-    rgba(255,255,255,.2);
+    rgba(255,255,255,.20);
 }
 
 
 /* =========================================================
-   PLATFORM INDIVIDUAL ACCENTS
+   APPLE MUSIC
 ========================================================= */
 
 .platform-button.apple {
@@ -347,6 +286,11 @@ a {
     );
 }
 
+
+/* =========================================================
+   SPOTIFY
+========================================================= */
+
 .platform-button.spotify {
   background:
     linear-gradient(
@@ -356,6 +300,11 @@ a {
     );
 }
 
+
+/* =========================================================
+   BOOMPLAY
+========================================================= */
+
 .platform-button.boomplay {
   background:
     linear-gradient(
@@ -364,6 +313,11 @@ a {
       #101214
     );
 }
+
+
+/* =========================================================
+   AUDIOMACK
+========================================================= */
 
 .platform-button.audiomack {
   background:
@@ -376,11 +330,10 @@ a {
 
 
 /* =========================================================
-   FOOTER
+   ONLY FOOTER TEXT
 ========================================================= */
 
 .card-footer {
-
   padding:
     31px
     20px
@@ -390,7 +343,6 @@ a {
 }
 
 .powered {
-
   color: #687083;
 
   font-size: 9px;
@@ -480,11 +432,12 @@ a {
       15px
       24px;
   }
+
 }
 
 
 /* =========================================================
-   VERY SMALL PHONES
+   SMALL PHONES
 ========================================================= */
 
 @media (max-width: 380px) {
@@ -495,7 +448,6 @@ a {
 
   .platform-button {
     min-height: 56px;
-
     font-size: 12px;
   }
 
@@ -503,7 +455,7 @@ a {
 
 
 /* =========================================================
-   REDUCE MOTION
+   REDUCED MOTION
 ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
@@ -523,202 +475,153 @@ a {
 <main class="page">
 
 
+<!-- =======================================================
+     TOP
+======================================================== -->
+
+<header class="top-bar">
+
+  <a
+    class="logo"
+    href="https://omotaker.com"
+  >
+    OMO<span>TAKER</span>
+  </a>
+
+</header>
+
+
+<!-- =======================================================
+     WORK HARD
+======================================================== -->
+
+<section
+  class="music-card"
+  aria-label="Work Hard by Omo Taker"
+>
+
+
+  <!-- COVER -->
+
+  <div class="artwork-wrapper">
+
+    <div class="artwork">
+
+      <img
+        src="https://raw.githubusercontent.com/omk-store/omotaker/refs/heads/main/CFC9C620-39B2-4308-83EA-DA63B4B2B665.png"
+        alt="Work Hard by Omo Taker cover artwork"
+        width="700"
+        height="700"
+        fetchpriority="high"
+        decoding="async"
+      >
+
+    </div>
+
+  </div>
+
+
+  <!-- SONG -->
+
+  <div class="song-info">
+
+    <h1 class="song-title">
+      Work Hard
+    </h1>
+
+    <p class="artist-name">
+      Omo Taker • Single
+    </p>
+
+  </div>
+
+
+  <!-- ONE INSTRUCTION ONLY -->
+
+  <div class="platform-heading">
+    LISTEN ON YOUR FAVORITE PLATFORM
+  </div>
+
+
   <!-- =====================================================
-       TOP
+       STREAMING PLATFORMS
   ====================================================== -->
 
-  <header class="top-bar">
+  <div class="platforms">
+
+
+    <!-- APPLE MUSIC -->
 
     <a
-      class="logo"
-      href="https://omotaker.com"
+      class="platform-button apple"
+      href="https://music.apple.com/ng/album/work-hard-single/6808988385"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Listen to Work Hard on Apple Music"
     >
-      OMO<span>TAKER</span>
+      Apple Music
     </a>
 
-  </header>
+
+    <!-- SPOTIFY -->
+
+    <a
+      class="platform-button spotify"
+      href="https://open.spotify.com/album/3Fl2WM9a0tOKUdzcbsiK2E?si=2ZxViGZmTiKfdDA8FF_1hA&utm_source=copy-link"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Listen to Work Hard on Spotify"
+    >
+      Spotify
+    </a>
+
+
+    <!-- BOOMPLAY -->
+
+    <a
+      class="platform-button boomplay"
+      href="https://www.boomplay.com/share/album/EQU5SNbgs04WQgScvWRJwfI7?srModel=Linkfire&srList=eeffdc963721d692e77fb31ce3ce9caf"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Listen to Work Hard on Boomplay"
+    >
+      Boomplay
+    </a>
+
+
+    <!-- AUDIOMACK -->
+
+    <a
+      class="platform-button audiomack"
+      href="https://audiomack.com/iam_omotaker/song/work-hard?share-user-id=111838460"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Listen to Work Hard on Audiomack"
+    >
+      Audiomack
+    </a>
+
+
+  </div>
 
 
   <!-- =====================================================
-       WORK HARD
+       ONLY TEXT BELOW PLATFORMS
   ====================================================== -->
 
-  <section
-    class="music-card"
-    aria-label="Work Hard by Omo Taker"
-  >
+  <footer class="card-footer">
 
-
-    <!-- ARTWORK -->
-
-    <div class="artwork-wrapper">
-
-      <div class="artwork">
-
-        <img
-          src="https://raw.githubusercontent.com/omk-store/omotaker/refs/heads/main/CFC9C620-39B2-4308-83EA-DA63B4B2B665.png"
-          alt="Work Hard by Omo Taker cover artwork"
-          width="700"
-          height="700"
-          fetchpriority="high"
-          decoding="async"
-        >
-
-      </div>
-
+    <div class="powered">
+      POWERED BY OMK RECORD
     </div>
 
-
-    <!-- SONG INFORMATION -->
-
-    <div class="song-info">
-
-      <h1 class="song-title">
-        Work Hard
-      </h1>
-
-      <p class="artist-name">
-        Omo Taker • Single
-      </p>
-
-    </div>
+  </footer>
 
 
-    <!-- =================================================
-         PLATFORM HEADING
-    ================================================== -->
-
-    <div class="platform-heading">
-      LISTEN ON YOUR FAVORITE PLATFORM
-    </div>
-
-
-    <!-- =================================================
-         STREAMING BUTTONS
-    ================================================== -->
-
-    <div class="platforms">
-
-
-      <!-- APPLE MUSIC -->
-
-      <a
-        class="platform-button apple"
-        href="https://music.apple.com/ng/album/work-hard-single/6808988385"
-        target="_blank"
-        rel="noopener noreferrer"
-        data-platform="Apple Music"
-        aria-label="Listen to Work Hard on Apple Music"
-      >
-        Apple Music
-      </a>
-
-
-      <!-- SPOTIFY -->
-
-      <a
-        class="platform-button spotify"
-        href="https://open.spotify.com/album/3Fl2WM9a0tOKUdzcbsiK2E?si=2ZxViGZmTiKfdDA8FF_1hA&utm_source=copy-link"
-        target="_blank"
-        rel="noopener noreferrer"
-        data-platform="Spotify"
-        aria-label="Listen to Work Hard on Spotify"
-      >
-        Spotify
-      </a>
-
-
-      <!-- BOOMPLAY -->
-
-      <a
-        class="platform-button boomplay"
-        href="https://www.boomplay.com/share/album/EQU5SNbgs04WQgScvWRJwfI7?srModel=Linkfire&srList=eeffdc963721d692e77fb31ce3ce9caf"
-        target="_blank"
-        rel="noopener noreferrer"
-        data-platform="Boomplay"
-        aria-label="Listen to Work Hard on Boomplay"
-      >
-        Boomplay
-      </a>
-
-
-      <!-- AUDIOMACK -->
-
-      <a
-        class="platform-button audiomack"
-        href="https://audiomack.com/iam_omotaker/song/work-hard?share-user-id=111838460"
-        target="_blank"
-        rel="noopener noreferrer"
-        data-platform="Audiomack"
-        aria-label="Listen to Work Hard on Audiomack"
-      >
-        Audiomack
-      </a>
-
-
-    </div>
-
-
-    <!-- =================================================
-         FOOTER
-    ================================================== -->
-
-    <footer class="card-footer">
-
-      <div class="powered">
-        POWERED BY OMK RECORD
-      </div>
-
-    </footer>
-
-
-  </section>
+</section>
 
 
 </main>
-
-
-<!-- =====================================================
-     LIGHTWEIGHT CLICK TRACKING
-====================================================== -->
-
-<script>
-
-document.addEventListener(
-  "click",
-  function(event) {
-
-    const button =
-      event.target.closest(
-        "[data-platform]"
-      );
-
-    if (!button) {
-      return;
-    }
-
-    const platform =
-      button.getAttribute(
-        "data-platform"
-      );
-
-    /*
-      Lightweight tracking only.
-      It does not delay the platform redirect.
-    */
-
-    console.log(
-      "Work Hard click:",
-      platform
-    );
-
-  },
-  {
-    passive: true
-  }
-);
-
-</script>
 
 </body>
 </html>
