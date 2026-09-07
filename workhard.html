@@ -2,366 +2,799 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<meta name="theme-color" content="#05070b">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Work Hard — Omo Taker</title>
-<meta name="description" content="Listen to Work Hard by Omo Taker on all major streaming platforms.">
+
+<meta name="description"
+content="Stream Work Hard by Omo Taker. Out now on Spotify, Apple Music, Audiomack, Boomplay, Deezer and YouTube Music.">
+
+<meta name="theme-color" content="#06132d">
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
 
-html{scroll-behavior:smooth}
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
 
 body{
   min-height:100vh;
-  background:
-    radial-gradient(circle at 50% 10%,rgba(30,105,255,.2),transparent 32%),
-    #05070b;
+  background:#030509;
   color:#fff;
-  font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Arial,
+    sans-serif;
   -webkit-font-smoothing:antialiased;
 }
 
+a{
+  -webkit-tap-highlight-color:transparent;
+}
+
 .page{
-  width:min(100%,720px);
-  margin:auto;
+  width:100%;
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
   padding:18px;
 }
 
-.card{
+.release-page{
+
   position:relative;
-  overflow:hidden;
+
+  width:min(100%,720px);
+
   min-height:calc(100vh - 36px);
-  border:1px solid rgba(255,255,255,.12);
-  border-radius:32px;
-  background:linear-gradient(
-    180deg,
-    rgba(15,19,29,.95),
-    rgba(5,7,11,.99)
-  );
-  box-shadow:0 30px 100px rgba(0,0,0,.55);
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  padding:24px 20px 30px;
+
+  overflow:hidden;
+
+  border-radius:34px;
+
+  border:1px solid rgba(255,255,255,.13);
+
+  background:
+    radial-gradient(
+      circle at 50% 12%,
+      rgba(0,93,255,.22),
+      transparent 32%
+    ),
+    linear-gradient(
+      180deg,
+      #0b1730 0%,
+      #060a12 45%,
+      #030509 100%
+    );
+
+  box-shadow:
+    0 35px 100px rgba(0,0,0,.65);
+
+  padding:26px 24px 30px;
+
 }
 
-.card:before{
+.release-page::before{
+
   content:"";
+
   position:absolute;
-  width:420px;
-  height:420px;
-  top:-170px;
+
+  width:500px;
+  height:500px;
+
+  top:-250px;
   left:50%;
+
   transform:translateX(-50%);
-  background:rgba(24,101,255,.18);
-  filter:blur(80px);
+
   border-radius:50%;
+
+  background:rgba(0,101,255,.16);
+
+  filter:blur(90px);
+
   pointer-events:none;
+
 }
 
-.top,
-.cover,
-.content,
-.footer{
+.release-page::after{
+
+  content:"";
+
+  position:absolute;
+
+  inset:0;
+
+  background:
+    linear-gradient(
+      120deg,
+      transparent 30%,
+      rgba(255,255,255,.018) 50%,
+      transparent 70%
+    );
+
+  pointer-events:none;
+
+}
+
+
+/* HEADER */
+
+.header{
+
   position:relative;
-  z-index:2;
-}
 
-.top{
+  z-index:2;
+
   width:100%;
+
   display:flex;
-  justify-content:space-between;
+
   align-items:center;
+
+  justify-content:space-between;
+
   margin-bottom:28px;
+
 }
 
 .logo{
-  font-size:20px;
+
+  font-size:21px;
+
   font-weight:950;
-  letter-spacing:-1.2px;
+
+  letter-spacing:-1.4px;
+
 }
 
 .logo span{
+
   color:#ff5b18;
+
 }
 
-.badge{
-  border:1px solid rgba(255,255,255,.13);
-  background:rgba(255,255,255,.05);
+.omk{
+
+  padding:9px 15px;
+
   border-radius:999px;
-  padding:8px 12px;
-  color:#b9c1d0;
+
+  border:1px solid rgba(255,255,255,.14);
+
+  background:rgba(255,255,255,.045);
+
+  color:#cbd4e5;
+
   font-size:10px;
+
   font-weight:850;
-  letter-spacing:1.4px;
+
+  letter-spacing:2.3px;
+
+}
+
+
+/* COVER */
+
+.cover-wrap{
+
+  position:relative;
+
+  z-index:2;
+
+  width:100%;
+
+  display:flex;
+
+  justify-content:center;
+
 }
 
 .cover{
-  width:min(78vw,390px);
+
+  position:relative;
+
+  width:min(88vw,470px);
+
   aspect-ratio:1;
-  border-radius:24px;
+
   overflow:hidden;
+
+  border-radius:25px;
+
+  background:#111;
+
   box-shadow:
-    0 30px 70px rgba(0,0,0,.58),
-    0 0 55px rgba(30,105,255,.16);
+
+    0 35px 80px rgba(0,0,0,.6),
+
+    0 0 70px rgba(0,82,255,.18);
+
 }
 
 .cover img{
+
   width:100%;
+
   height:100%;
+
+  display:block;
+
   object-fit:cover;
+
 }
 
-.content{
-  width:100%;
-  max-width:510px;
+
+/* INFO */
+
+.info{
+
+  position:relative;
+
+  z-index:2;
+
   text-align:center;
-  padding-top:28px;
+
+  padding-top:29px;
+
 }
 
 .kicker{
-  color:#79a9ff;
+
+  color:#72a9ff;
+
   font-size:10px;
+
   font-weight:950;
-  letter-spacing:3px;
-  margin-bottom:10px;
+
+  letter-spacing:4px;
+
+  margin-bottom:11px;
+
 }
 
-h1{
-  font-size:clamp(42px,10vw,68px);
-  line-height:.92;
-  letter-spacing:-3.5px;
+.title{
+
+  font-size:clamp(43px,10vw,70px);
+
+  line-height:.9;
+
+  letter-spacing:-4px;
+
+  font-weight:950;
+
 }
 
 .artist{
-  margin-top:8px;
-  color:#b5bbc7;
-  font-size:14px;
+
+  margin-top:10px;
+
+  color:#aeb6c5;
+
+  font-size:15px;
+
 }
 
-.cta{
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-  margin-top:25px;
-}
 
-.btn{
-  min-height:54px;
-  border-radius:15px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-decoration:none;
-  font-size:14px;
-  font-weight:900;
-  border:1px solid rgba(255,255,255,.12);
-  background:#141923;
-  color:#fff;
-  transition:.2s ease;
-}
+/* MAIN CTA */
 
-.btn:hover{
-  transform:translateY(-2px);
-  background:#1b2230;
-}
+.main-button{
 
-.btn.primary{
+  position:relative;
+
+  z-index:2;
+
+  width:100%;
+
+  max-width:580px;
+
+  min-height:61px;
+
+  margin:27px auto 0;
+
+  border-radius:17px;
+
   background:#fff;
+
   color:#05070b;
-  border-color:#fff;
-  box-shadow:0 10px 35px rgba(255,255,255,.08);
+
+  text-decoration:none;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  gap:10px;
+
+  font-size:15px;
+
+  font-weight:950;
+
+  letter-spacing:.2px;
+
+  box-shadow:
+
+    0 15px 40px rgba(255,255,255,.08);
+
+  transition:
+
+    transform .2s ease,
+
+    background .2s ease,
+
+    box-shadow .2s ease;
+
 }
 
-.btn.primary:hover{
-  background:#e9eef7;
+.main-button:hover{
+
+  transform:translateY(-3px);
+
+  background:#eaf0fa;
+
+  box-shadow:
+
+    0 18px 48px rgba(255,255,255,.14);
+
+}
+
+
+/* PLATFORMS */
+
+.platform-section{
+
+  position:relative;
+
+  z-index:2;
+
+  width:100%;
+
+  max-width:580px;
+
+  margin:22px auto 0;
+
+}
+
+.platform-label{
+
+  text-align:center;
+
+  color:#687286;
+
+  font-size:9px;
+
+  font-weight:900;
+
+  letter-spacing:2.5px;
+
+  margin-bottom:10px;
+
 }
 
 .platforms{
-  margin-top:24px;
+
   display:grid;
+
   grid-template-columns:repeat(2,1fr);
-  gap:9px;
+
+  gap:10px;
+
 }
 
 .platform{
-  min-height:47px;
-  border:1px solid rgba(255,255,255,.1);
-  border-radius:13px;
-  background:rgba(255,255,255,.045);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color:#e7e9ed;
+
+  min-height:54px;
+
+  padding:0 12px;
+
+  border-radius:15px;
+
+  border:1px solid rgba(255,255,255,.105);
+
+  background:
+
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.075),
+      rgba(255,255,255,.025)
+    );
+
+  color:#e8ebf1;
+
   text-decoration:none;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  text-align:center;
+
   font-size:12px;
-  font-weight:800;
-  transition:.2s ease;
+
+  font-weight:850;
+
+  transition:
+
+    transform .2s ease,
+
+    background .2s ease,
+
+    border-color .2s ease;
+
 }
 
 .platform:hover{
-  background:rgba(255,255,255,.10);
+
   transform:translateY(-2px);
+
+  background:rgba(255,255,255,.11);
+
+  border-color:rgba(255,255,255,.2);
+
 }
+
+
+/* SMALL DETAILS */
+
+.release-details{
+
+  position:relative;
+
+  z-index:2;
+
+  display:flex;
+
+  justify-content:center;
+
+  align-items:center;
+
+  flex-wrap:wrap;
+
+  gap:8px;
+
+  margin-top:21px;
+
+}
+
+.detail{
+
+  color:#788296;
+
+  font-size:10px;
+
+  font-weight:750;
+
+}
+
+.dot{
+
+  width:3px;
+
+  height:3px;
+
+  border-radius:50%;
+
+  background:#526077;
+
+}
+
+
+/* FOOTER */
 
 .footer{
-  margin-top:auto;
-  padding-top:30px;
-  color:#626a78;
-  font-size:9px;
-  font-weight:800;
-  letter-spacing:1.7px;
+
+  position:relative;
+
+  z-index:2;
+
   text-align:center;
+
+  margin-top:34px;
+
+  color:#555f71;
+
+  font-size:8px;
+
+  font-weight:850;
+
+  letter-spacing:1.8px;
+
 }
 
-@media(max-width:430px){
+
+/* MOBILE */
+
+@media(max-width:520px){
 
   .page{
-    padding:10px;
+
+    padding:8px;
+
   }
 
-  .card{
-    min-height:calc(100vh - 20px);
-    border-radius:27px;
-    padding:19px 15px 24px;
+  .release-page{
+
+    min-height:calc(100vh - 16px);
+
+    border-radius:29px;
+
+    padding:20px 14px 25px;
+
+  }
+
+  .header{
+
+    margin-bottom:24px;
+
+  }
+
+  .logo{
+
+    font-size:19px;
+
+  }
+
+  .omk{
+
+    padding:8px 11px;
+
+    font-size:9px;
+
+    letter-spacing:1.7px;
+
   }
 
   .cover{
-    width:min(82vw,340px);
-    border-radius:21px;
+
+    width:min(88vw,390px);
+
+    border-radius:22px;
+
+  }
+
+  .title{
+
+    letter-spacing:-3px;
+
+  }
+
+  .artist{
+
+    font-size:14px;
+
+  }
+
+  .main-button{
+
+    min-height:58px;
+
+    border-radius:16px;
+
+  }
+
+  .platform{
+
+    min-height:51px;
+
+    border-radius:14px;
+
+    font-size:11px;
+
   }
 
 }
+
+@media(max-width:350px){
+
+  .platforms{
+
+    grid-template-columns:1fr;
+
+  }
+
+}
+
 </style>
 </head>
 
+
 <body>
 
-<main class="page">
+<div class="page">
 
-<section class="card">
-
-<div class="top">
-
-<div class="logo">
-OMO<span>TAKER</span>
-</div>
-
-<div class="badge">
-ONLY MY KIND
-</div>
-
-</div>
+<section class="release-page">
 
 
-<div class="cover">
+<!-- HEADER -->
 
-<img
-src="https://raw.githubusercontent.com/omk-store/omotaker/refs/heads/main/CFC9C620-39B2-4308-83EA-DA63B4B2B665.png"
-alt="Work Hard by Omo Taker cover artwork"
->
+<header class="header">
 
-</div>
+  <div class="logo">
+    OMO<span>TAKER</span>
+  </div>
+
+  <div class="omk">
+    ONLY MY KIND
+  </div>
+
+</header>
 
 
-<div class="content">
+<!-- COVER -->
 
-<div class="kicker">
-NEW RELEASE • OUT NOW
-</div>
+<div class="cover-wrap">
 
-<h1>
-Work Hard
-</h1>
+  <div class="cover">
 
-<div class="artist">
-Omo Taker • Single
+    <img
+      src="https://raw.githubusercontent.com/omk-store/omotaker/refs/heads/main/CFC9C620-39B2-4308-83EA-DA63B4B2B665.png"
+      alt="Work Hard — Omo Taker"
+    >
+
+  </div>
+
 </div>
 
 
-<div class="cta">
+<!-- SONG INFO -->
+
+<div class="info">
+
+  <div class="kicker">
+    NEW RELEASE • OUT NOW
+  </div>
+
+  <h1 class="title">
+    Work Hard
+  </h1>
+
+  <div class="artist">
+    Omo Taker • Single
+  </div>
+
+</div>
+
+
+<!-- MAIN STREAM BUTTON -->
 
 <a
-class="btn primary"
-href="https://open.spotify.com/album/3Fl2WM9a0tOKUdzcbsiK2E?si=2ZxViGZmTiKfdDA8FF_1hA&utm_source=copy-link"
-target="_blank"
-rel="noopener noreferrer"
+  class="main-button"
+  href="https://open.spotify.com/album/3Fl2WM9a0tOKUdzcbsiK2E?si=2ZxViGZmTiKfdDA8FF_1hA&utm_source=copy-link"
+  target="_blank"
+  rel="noopener noreferrer"
 >
-▶ &nbsp; STREAM WORK HARD
+
+  ▶
+  STREAM WORK HARD
+
 </a>
+
+
+<!-- STREAMING SERVICES -->
+
+<div class="platform-section">
+
+  <div class="platform-label">
+    LISTEN ON YOUR FAVORITE PLATFORM
+  </div>
+
+  <div class="platforms">
+
+
+    <a
+      class="platform"
+      href="https://music.apple.com/ng/album/work-hard-single/6808988385"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Apple Music
+    </a>
+
+
+    <a
+      class="platform"
+      href="https://open.spotify.com/album/3Fl2WM9a0tOKUdzcbsiK2E?si=2ZxViGZmTiKfdDA8FF_1hA&utm_source=copy-link"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Spotify
+    </a>
+
+
+    <a
+      class="platform"
+      href="https://audiomack.com/iam_omotaker/song/work-hard?share-user-id=111838460"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Audiomack
+    </a>
+
+
+    <a
+      class="platform"
+      href="https://www.boomplay.com/share/album/EQU5SNbgs04WQgScvWRJwfI7?srModel=Linkfire&srList=eeffdc963721d692e77fb31ce3ce9caf"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Boomplay
+    </a>
+
+
+    <a
+      class="platform"
+      href="https://www.deezer.com/en/album/1071738522?app_id=140685&utm_source=partner_linkfire&utm_campaign=eeffdc963721d692e77fb31ce3ce9caf&utm_medium=Original&utm_term=omo-taker-4529&utm_content=album-1071738522"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Deezer
+    </a>
+
+
+    <a
+      class="platform"
+      href="https://music.youtube.com/playlist?list=OLAK5uy_mWzhgDqNxaGNH9PkNrwuzE_EwPAWl2R4M"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      YouTube Music
+    </a>
+
+  </div>
 
 </div>
 
 
-<div class="platforms">
+<!-- DETAILS -->
 
-<a
-class="platform"
-href="https://music.apple.com/ng/album/work-hard-single/6808988385"
-target="_blank"
-rel="noopener noreferrer"
->
-Apple Music
-</a>
+<div class="release-details">
 
-<a
-class="platform"
-href="https://open.spotify.com/album/3Fl2WM9a0tOKUdzcbsiK2E?si=2ZxViGZmTiKfdDA8FF_1hA&utm_source=copy-link"
-target="_blank"
-rel="noopener noreferrer"
->
-Spotify
-</a>
+  <span class="detail">
+    OMO TAKER
+  </span>
 
-<a
-class="platform"
-href="https://audiomack.com/iam_omotaker/song/work-hard?share-user-id=111838460"
-target="_blank"
-rel="noopener noreferrer"
->
-Audiomack
-</a>
+  <span class="dot"></span>
 
-<a
-class="platform"
-href="https://www.boomplay.com/share/album/EQU5SNbgs04WQgScvWRJwfI7?srModel=Linkfire&srList=eeffdc963721d692e77fb31ce3ce9caf"
-target="_blank"
-rel="noopener noreferrer"
->
-Boomplay
-</a>
+  <span class="detail">
+    WORK HARD
+  </span>
 
-<a
-class="platform"
-href="https://www.deezer.com/en/album/1071738522?app_id=140685&utm_source=partner_linkfire&utm_campaign=eeffdc963721d692e77fb31ce3ce9caf&utm_medium=Original&utm_term=omo-taker-4529&utm_content=album-1071738522"
-target="_blank"
-rel="noopener noreferrer"
->
-Deezer
-</a>
+  <span class="dot"></span>
 
-<a
-class="platform"
-href="https://music.youtube.com/playlist?list=OLAK5uy_mWzhgDqNxaGNH9PkNrwuzE_EwPAWl2R4M"
-target="_blank"
-rel="noopener noreferrer"
->
-YouTube Music
-</a>
-
-</div>
+  <span class="detail">
+    OUT NOW
+  </span>
 
 </div>
 
 
-<div class="footer">
-POWERED BY OMK RECORD • ONLY MY KIND
-</div>
+<!-- FOOTER -->
+
+<footer class="footer">
+
+  POWERED BY OMK RECORD • ONLY MY KIND
+
+</footer>
+
 
 </section>
 
-</main>
+</div>
 
 </body>
 </html>
