@@ -37,26 +37,27 @@
 }
 
 html {
-  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
   min-height: 100vh;
+  overflow-x: hidden;
 
   background:
     radial-gradient(
-      circle at 50% 18%,
-      rgba(0, 74, 255, 0.18),
-      transparent 34%
+      circle at 50% 15%,
+      rgba(0, 76, 255, 0.17),
+      transparent 35%
     ),
     radial-gradient(
       circle at 50% 55%,
-      rgba(0, 42, 130, 0.10),
-      transparent 40%
+      rgba(0, 45, 130, 0.10),
+      transparent 42%
     ),
     #03060d;
 
-  color: #fff;
+  color: #ffffff;
 
   font-family:
     -apple-system,
@@ -67,12 +68,11 @@ body {
     sans-serif;
 
   -webkit-font-smoothing: antialiased;
-
-  overflow-x: hidden;
+  text-rendering: optimizeSpeed;
 }
 
 /* =====================================================
-   PAGE
+   MAIN PAGE
 ===================================================== */
 
 .page {
@@ -82,60 +82,16 @@ body {
   margin: 0 auto;
 
   padding:
-    14px
-    12px
-    35px;
-}
-
-/* =====================================================
-   TOP BAR
-===================================================== */
-
-.topbar {
-  height: 52px;
-
-  display: flex;
-
-  align-items: center;
-
-  justify-content: center;
-
-  position: relative;
-}
-
-.top-logo {
-  font-size: 13px;
-
-  font-weight: 900;
-
-  letter-spacing: 2px;
-
-  color: #ffffff;
-}
-
-.top-logo span {
-  color: #ff5b18;
-}
-
-.top-right {
-  position: absolute;
-
-  right: 4px;
-
-  color: #626b7d;
-
-  font-size: 8px;
-
-  font-weight: 800;
-
-  letter-spacing: 2px;
+    10px
+    10px
+    32px;
 }
 
 /* =====================================================
    MAIN CARD
 ===================================================== */
 
-.main-card {
+.card {
   width: 100%;
 
   overflow: hidden;
@@ -150,27 +106,27 @@ body {
     linear-gradient(
       180deg,
       #07101f 0%,
-      #050912 48%,
+      #050912 47%,
       #03050a 100%
     );
 
   box-shadow:
-    0 30px 90px
-    rgba(0,0,0,.48);
+    0 28px 90px rgba(0,0,0,.48);
 }
 
 /* =====================================================
-   ARTWORK
+   WORK HARD ARTWORK
 ===================================================== */
 
-.art-container {
+.artwork-wrap {
   padding: 12px 12px 0;
 }
 
-.cover {
+.artwork {
   display: block;
 
   width: 100%;
+  height: auto;
 
   aspect-ratio: 1 / 1;
 
@@ -178,15 +134,11 @@ body {
 
   border-radius: 21px;
 
-  background: #07101e;
-
-  box-shadow:
-    0 15px 50px
-    rgba(0,0,0,.30);
+  background: #07101d;
 
   /*
-    Important:
-    The artwork is the main image, so load it first.
+    The cover is the first important visual,
+    so the browser loads it with high priority.
   */
 
   fetchpriority: high;
@@ -195,29 +147,31 @@ body {
 }
 
 /* =====================================================
-   SONG TITLE
+   SONG INFORMATION
 ===================================================== */
 
 .song-info {
   text-align: center;
 
   padding:
-    32px
+    31px
     18px
     4px;
 }
 
 .song-title {
+  color: #ffffff;
+
   font-size:
     clamp(
-      42px,
+      43px,
       10vw,
-      65px
+      66px
     );
 
   line-height: .92;
 
-  letter-spacing: -3.5px;
+  letter-spacing: -3.6px;
 
   font-weight: 950;
 }
@@ -233,51 +187,49 @@ body {
 }
 
 /* =====================================================
-   INSTRUCTION
+   LISTEN TEXT
 ===================================================== */
 
-.listen-title {
-  text-align: center;
-
+.listen-heading {
   padding:
     27px
-    15px
-    14px;
+    14px
+    15px;
+
+  text-align: center;
 
   color: #8ea7d9;
 
   font-size: 10px;
 
+  line-height: 1.2;
+
   font-weight: 900;
 
-  letter-spacing: 3.2px;
+  letter-spacing: 3px;
 
   text-transform: uppercase;
 }
 
 /* =====================================================
-   PLATFORM LIST
+   STREAMING PLATFORM BUTTONS
 ===================================================== */
 
-.platforms {
-  padding:
-    0
-    18px
-    10px;
-
+.platform-list {
   display: grid;
 
   gap: 11px;
+
+  padding:
+    0
+    18px
+    8px;
 }
 
-/* =====================================================
-   PLATFORM BUTTON
-===================================================== */
-
 .platform {
-  min-height: 67px;
-
   width: 100%;
+
+  min-height: 67px;
 
   display: flex;
 
@@ -291,7 +243,7 @@ body {
 
   border:
     1px solid
-    rgba(255,255,255,.11);
+    rgba(255,255,255,.10);
 
   border-radius: 18px;
 
@@ -309,15 +261,15 @@ body {
   -webkit-tap-highlight-color: transparent;
 
   transition:
-    transform .15s ease,
-    background .15s ease;
+    transform .12s ease,
+    background .12s ease;
 }
 
 .platform:hover {
   background:
     linear-gradient(
       90deg,
-      #151d2a,
+      #151d29,
       #202b3c
     );
 }
@@ -327,7 +279,7 @@ body {
 }
 
 /* =====================================================
-   PLATFORM ICONS
+   ICON
 ===================================================== */
 
 .platform-icon {
@@ -344,67 +296,57 @@ body {
 
   justify-content: center;
 
-  overflow: hidden;
+  font-weight: 900;
 }
 
-/* Apple */
+/* Apple Music */
 
-.apple-icon {
+.apple {
   background: #ff375f;
 
-  color: #fff;
+  color: #ffffff;
 
   font-size: 25px;
-
-  font-weight: 500;
 }
 
 /* Spotify */
 
-.spotify-icon {
+.spotify {
   background: #1ed760;
 
-  color: #050505;
+  color: #07100b;
 
-  font-size: 22px;
-
-  font-weight: 900;
+  font-size: 21px;
 }
 
 /* Audiomack */
 
-.audiomack-icon {
+.audiomack {
   background: #111111;
 
-  color: #ff9d00;
+  color: #ff9800;
 
   font-size: 25px;
-
-  font-weight: 900;
 }
 
 /* Boomplay */
 
-.boomplay-icon {
-  background: #00d9e8;
+.boomplay {
+  background: #08d9e8;
 
   color: #061017;
 
   font-size: 25px;
-
-  font-weight: 950;
 }
 
-/* YouTube */
+/* YouTube Music */
 
-.youtube-icon {
+.youtube {
   background: #ff0000;
 
-  color: #fff;
+  color: #ffffff;
 
-  font-size: 19px;
-
-  font-weight: 900;
+  font-size: 18px;
 }
 
 /* =====================================================
@@ -416,6 +358,8 @@ body {
 
   font-size: 17px;
 
+  line-height: 1;
+
   font-weight: 750;
 
   letter-spacing: -.25px;
@@ -425,7 +369,7 @@ body {
    ARROW
 ===================================================== */
 
-.arrow {
+.platform-arrow {
   color: #ffffff;
 
   font-size: 28px;
@@ -433,6 +377,8 @@ body {
   line-height: 1;
 
   font-weight: 300;
+
+  opacity: .95;
 }
 
 /* =====================================================
@@ -448,25 +394,14 @@ body {
   text-align: center;
 }
 
-.footer-decoration {
-  display: flex;
-
-  align-items: center;
-
-  justify-content: center;
-
-  gap: 18px;
-
-  margin-bottom: 12px;
-}
-
-.footer-decoration::before,
-.footer-decoration::after {
-  content: "";
-
+.footer-line {
   width: 72px;
 
   height: 1px;
+
+  margin:
+    0 auto
+    12px;
 
   background:
     rgba(255,255,255,.18);
@@ -492,35 +427,23 @@ body {
 
   .page {
     padding:
-      8px
+      7px
       8px
       25px;
   }
 
-  .topbar {
-    height: 48px;
-  }
-
-  .top-logo {
-    font-size: 12px;
-  }
-
-  .top-right {
-    display: none;
-  }
-
-  .main-card {
+  .card {
     border-radius: 24px;
   }
 
-  .art-container {
+  .artwork-wrap {
     padding:
       9px
       9px
       0;
   }
 
-  .cover {
+  .artwork {
     border-radius: 19px;
   }
 
@@ -536,7 +459,7 @@ body {
     font-size: 15px;
   }
 
-  .listen-title {
+  .listen-heading {
     padding-top: 25px;
 
     font-size: 9px;
@@ -544,11 +467,11 @@ body {
     letter-spacing: 2.7px;
   }
 
-  .platforms {
+  .platform-list {
     padding:
       0
       13px
-      8px;
+      7px;
 
     gap: 10px;
   }
@@ -576,12 +499,8 @@ body {
     font-size: 16px;
   }
 
-  .arrow {
+  .platform-arrow {
     font-size: 26px;
-  }
-
-  .footer {
-    padding-bottom: 25px;
   }
 
 }
@@ -593,7 +512,7 @@ body {
 @media (max-width: 370px) {
 
   .song-title {
-    font-size: 39px;
+    font-size: 40px;
   }
 
   .platform {
@@ -612,14 +531,10 @@ body {
 }
 
 /* =====================================================
-   REDUCE MOTION
+   REDUCED MOTION
 ===================================================== */
 
 @media (prefers-reduced-motion: reduce) {
-
-  html {
-    scroll-behavior: auto;
-  }
 
   .platform {
     transition: none;
@@ -635,38 +550,16 @@ body {
 
 <main class="page">
 
-  <!-- ===============================================
-       TOP
-  ================================================ -->
+  <section class="card">
 
-  <header class="topbar">
+    <!-- ===============================================
+         WORK HARD COVER
+    ================================================ -->
 
-    <div class="top-logo">
-      OMO TAKER
-    </div>
-
-    <div class="top-right">
-      OFFICIAL
-    </div>
-
-  </header>
-
-
-  <!-- ===============================================
-       MAIN CARD
-  ================================================ -->
-
-  <section class="main-card">
-
-
-    <!-- =============================================
-         WORK HARD ARTWORK
-    ============================================== -->
-
-    <div class="art-container">
+    <div class="artwork-wrap">
 
       <img
-        class="cover"
+        class="artwork"
         src="https://raw.githubusercontent.com/omk-store/omotaker/refs/heads/main/CFC9C620-39B2-4308-83EA-DA63B4B2B665.png"
         alt="Work Hard by Omo Taker"
         width="700"
@@ -678,9 +571,9 @@ body {
     </div>
 
 
-    <!-- =============================================
-         TITLE
-    ============================================== -->
+    <!-- ===============================================
+         SONG TITLE
+    ================================================ -->
 
     <div class="song-info">
 
@@ -695,20 +588,20 @@ body {
     </div>
 
 
-    <!-- =============================================
-         ONLY INSTRUCTION
-    ============================================== -->
+    <!-- ===============================================
+         ONE INSTRUCTION ONLY
+    ================================================ -->
 
-    <div class="listen-title">
+    <div class="listen-heading">
       Listen on your favorite platform
     </div>
 
 
-    <!-- =============================================
-         STREAMING PLATFORMS
-    ============================================== -->
+    <!-- ===============================================
+         PLATFORMS
+    ================================================ -->
 
-    <div class="platforms">
+    <div class="platform-list">
 
 
       <!-- APPLE MUSIC -->
@@ -718,11 +611,10 @@ body {
         href="https://music.apple.com/ng/album/work-hard-single/6808988385"
         target="_blank"
         rel="noopener noreferrer"
-        data-platform="Apple Music"
         aria-label="Listen to Work Hard on Apple Music"
       >
 
-        <span class="platform-icon apple-icon">
+        <span class="platform-icon apple">
           ♪
         </span>
 
@@ -730,7 +622,7 @@ body {
           Apple Music
         </span>
 
-        <span class="arrow">
+        <span class="platform-arrow">
           ›
         </span>
 
@@ -744,11 +636,10 @@ body {
         href="https://open.spotify.com/album/3Fl2WM9a0tOKUdzcbsiK2E?si=2ZxViGZmTiKfdDA8FF_1hA&utm_source=copy-link"
         target="_blank"
         rel="noopener noreferrer"
-        data-platform="Spotify"
         aria-label="Listen to Work Hard on Spotify"
       >
 
-        <span class="platform-icon spotify-icon">
+        <span class="platform-icon spotify">
           ●
         </span>
 
@@ -756,7 +647,7 @@ body {
           Spotify
         </span>
 
-        <span class="arrow">
+        <span class="platform-arrow">
           ›
         </span>
 
@@ -770,11 +661,10 @@ body {
         href="https://audiomack.com/iam_omotaker/song/work-hard?share-user-id=111838460"
         target="_blank"
         rel="noopener noreferrer"
-        data-platform="Audiomack"
         aria-label="Listen to Work Hard on Audiomack"
       >
 
-        <span class="platform-icon audiomack-icon">
+        <span class="platform-icon audiomack">
           〽
         </span>
 
@@ -782,7 +672,7 @@ body {
           Audiomack
         </span>
 
-        <span class="arrow">
+        <span class="platform-arrow">
           ›
         </span>
 
@@ -796,11 +686,10 @@ body {
         href="https://www.boomplay.com/share/album/EQU5SNbgs04WQgScvWRJwfI7?srModel=Linkfire&srList=eeffdc963721d692e77fb31ce3ce9caf"
         target="_blank"
         rel="noopener noreferrer"
-        data-platform="Boomplay"
         aria-label="Listen to Work Hard on Boomplay"
       >
 
-        <span class="platform-icon boomplay-icon">
+        <span class="platform-icon boomplay">
           B
         </span>
 
@@ -808,7 +697,7 @@ body {
           Boomplay
         </span>
 
-        <span class="arrow">
+        <span class="platform-arrow">
           ›
         </span>
 
@@ -822,11 +711,10 @@ body {
         href="https://music.youtube.com/playlist?list=OLAK5uy_mWzhgDqNxaGNH9PkNrwuzE_EwPAWl2R4M"
         target="_blank"
         rel="noopener noreferrer"
-        data-platform="YouTube Music"
         aria-label="Listen to Work Hard on YouTube Music"
       >
 
-        <span class="platform-icon youtube-icon">
+        <span class="platform-icon youtube">
           ▶
         </span>
 
@@ -834,7 +722,7 @@ body {
           YouTube Music
         </span>
 
-        <span class="arrow">
+        <span class="platform-arrow">
           ›
         </span>
 
@@ -844,13 +732,13 @@ body {
     </div>
 
 
-    <!-- =============================================
-         FOOTER
-    ============================================== -->
+    <!-- ===============================================
+         ONLY FOOTER TEXT
+    ================================================ -->
 
     <footer class="footer">
 
-      <div class="footer-decoration"></div>
+      <div class="footer-line"></div>
 
       <div class="footer-text">
         Powered by OMK Record
@@ -858,51 +746,9 @@ body {
 
     </footer>
 
-
   </section>
 
 </main>
-
-
-<!-- ===============================================
-     LIGHTWEIGHT CLICK TRACKING
-================================================ -->
-
-<script>
-
-document.addEventListener(
-  "click",
-  function(event) {
-
-    const link =
-      event.target.closest(
-        "[data-platform]"
-      );
-
-    if (!link) return;
-
-    const platform =
-      link.getAttribute(
-        "data-platform"
-      );
-
-    /*
-      Lightweight tracking only.
-      It does not hold up the redirect.
-    */
-
-    console.log(
-      "Work Hard streaming click:",
-      platform
-    );
-
-  },
-  {
-    passive: true
-  }
-);
-
-</script>
 
 </body>
 </html>
