@@ -22,10 +22,10 @@
   --white: #ffffff;
   --text: #eeeeee;
   --muted: #9a9a9a;
-  --line: rgba(255, 255, 255, 0.1);
+  --line: rgba(255,255,255,0.10);
   --orange: #ff5b18;
   --orange-light: #ff8a4c;
-  --glow: rgba(255, 91, 24, 0.18);
+  --glow: rgba(255,91,24,0.18);
 }
 
 * {
@@ -41,14 +41,17 @@ html {
 body {
   min-height: 100vh;
   overflow-x: hidden;
+
   background:
     radial-gradient(
       circle at 50% 0%,
-      rgba(255, 91, 24, 0.035),
-      transparent 28%
+      rgba(255,91,24,0.045),
+      transparent 30%
     ),
     var(--black);
+
   color: var(--white);
+
   font-family:
     Inter,
     -apple-system,
@@ -56,6 +59,7 @@ body {
     "Segoe UI",
     Arial,
     sans-serif;
+
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }
@@ -78,45 +82,54 @@ img {
 .page {
   width: min(100%, 920px);
   margin: auto;
-  padding: 0 18px 30px;
+  padding: 0 18px 35px;
 }
 
-/* =========================
+/* =========================================================
    NAVIGATION
-========================= */
+========================================================= */
 
 .nav-wrap {
   position: sticky;
   top: 0;
   z-index: 500;
+
   padding: 12px 0;
+
   background:
     linear-gradient(
       to bottom,
-      rgba(5, 5, 5, 0.98),
-      rgba(5, 5, 5, 0.82),
+      rgba(5,5,5,0.98),
+      rgba(5,5,5,0.82),
       transparent
     );
 }
 
 .nav {
   min-height: 68px;
+
   padding: 0 20px;
+
   border: 1px solid var(--line);
   border-radius: 20px;
-  background: rgba(12, 12, 12, 0.88);
+
+  background: rgba(12,12,12,0.88);
+
   backdrop-filter: blur(22px);
   -webkit-backdrop-filter: blur(22px);
+
   display: flex;
   align-items: center;
   justify-content: space-between;
+
   box-shadow:
-    0 10px 40px rgba(0, 0, 0, 0.25);
+    0 10px 40px rgba(0,0,0,0.25);
 }
 
 .logo {
   color: var(--white);
   text-decoration: none;
+
   font-size: 22px;
   font-weight: 950;
   letter-spacing: -1.4px;
@@ -134,24 +147,33 @@ img {
 
 .nav-links a {
   position: relative;
+
   color: #d2d2d2;
   text-decoration: none;
+
   font-size: 13px;
   font-weight: 750;
-  transition: color 0.2s ease;
+
+  transition: color .2s ease;
 }
 
 .nav-links a::after {
   content: "";
+
   position: absolute;
+
   left: 0;
   right: 0;
   bottom: -7px;
+
   height: 1px;
+
   background: var(--orange);
+
   transform: scaleX(0);
   transform-origin: center;
-  transition: transform 0.2s ease;
+
+  transition: transform .2s ease;
 }
 
 .nav-links a:hover {
@@ -162,42 +184,48 @@ img {
   transform: scaleX(1);
 }
 
-/* =========================
+/* =========================================================
    HERO
-========================= */
+========================================================= */
 
 .hero {
   position: relative;
+
   min-height: 680px;
+
   overflow: hidden;
+
   border-radius: 30px;
+
   isolation: isolate;
 
   background:
     linear-gradient(
       to top,
       #050505 2%,
-      rgba(5, 5, 5, 0.94) 15%,
-      rgba(5, 5, 5, 0.48) 52%,
-      rgba(5, 5, 5, 0.12) 100%
+      rgba(5,5,5,.94) 15%,
+      rgba(5,5,5,.48) 52%,
+      rgba(5,5,5,.12) 100%
     ),
     url("https://raw.githubusercontent.com/omk-store/omotaker/refs/heads/main/IMG_4260.jpeg")
     center top / cover no-repeat;
 
   box-shadow:
-    0 30px 90px rgba(0, 0, 0, 0.35);
+    0 30px 90px rgba(0,0,0,.35);
 }
 
 .hero::before {
   content: "";
+
   position: absolute;
   inset: 0;
+
   z-index: -1;
 
   background:
     radial-gradient(
       circle at 78% 22%,
-      rgba(255, 255, 255, 0.08),
+      rgba(255,255,255,.08),
       transparent 24%
     );
 
@@ -206,8 +234,11 @@ img {
 
 .hero::after {
   content: "";
+
   position: absolute;
+
   inset: auto 0 0;
+
   height: 38%;
 
   background:
@@ -222,7 +253,9 @@ img {
 
 .hero-content {
   position: absolute;
+
   z-index: 2;
+
   left: 30px;
   right: 30px;
   bottom: 42px;
@@ -231,9 +264,13 @@ img {
 .verified {
   display: inline-flex;
   align-items: center;
+
   gap: 8px;
+
   margin-bottom: 14px;
+
   color: #ededed;
+
   font-size: 12px;
   font-weight: 750;
 }
@@ -241,124 +278,149 @@ img {
 .verified-badge {
   width: 19px;
   height: 19px;
+
   border-radius: 50%;
+
   background: var(--orange);
+
   display: grid;
   place-items: center;
+
   font-size: 11px;
+
   box-shadow:
-    0 0 20px rgba(255, 91, 24, 0.35);
+    0 0 20px rgba(255,91,24,.35);
 }
 
 .hero h1 {
   max-width: 700px;
-  font-size: clamp(54px, 12vw, 92px);
-  line-height: 0.89;
+
+  font-size: clamp(54px,12vw,92px);
+
+  line-height: .89;
+
   letter-spacing: -5px;
+
   margin-bottom: 18px;
 }
 
 .hero-description {
   max-width: 560px;
+
   color: #d0d0d0;
+
   font-size: 15px;
+
   margin-bottom: 24px;
 }
 
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
+
   align-items: center;
+
   gap: 12px;
 }
 
-.main-play {
+.main-play,
+.story-button {
   min-height: 54px;
-  padding: 0 23px;
-  border: 0;
+
   border-radius: 999px;
-  background: var(--orange);
-  color: var(--white);
-  font-size: 14px;
-  font-weight: 900;
+
   text-decoration: none;
 
   display: inline-flex;
+
   align-items: center;
   justify-content: center;
+}
+
+.main-play {
+  padding: 0 23px;
+
+  border: 0;
+
+  background: var(--orange);
+
+  color: var(--white);
+
+  font-size: 14px;
+  font-weight: 900;
+
   gap: 9px;
 
   box-shadow:
-    0 10px 30px rgba(255, 91, 24, 0.18);
+    0 10px 30px rgba(255,91,24,.18);
 
   transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease,
-    background 0.2s ease;
+    transform .2s ease,
+    box-shadow .2s ease,
+    background .2s ease;
 }
 
 .main-play:hover {
   background: #ff7139;
+
   transform: translateY(-2px);
 
   box-shadow:
-    0 14px 38px rgba(255, 91, 24, 0.27);
+    0 14px 38px rgba(255,91,24,.27);
 }
 
 .story-button {
-  min-height: 54px;
   padding: 0 22px;
 
-  border: 1px solid rgba(255, 255, 255, 0.22);
-  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.22);
 
-  background: rgba(12, 12, 12, 0.48);
+  background: rgba(12,12,12,.48);
+
   color: var(--white);
 
   font-size: 14px;
   font-weight: 800;
-  text-decoration: none;
-
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
 
   backdrop-filter: blur(12px);
 
   transition:
-    transform 0.2s ease,
-    background 0.2s ease;
+    transform .2s ease,
+    background .2s ease;
 }
 
 .story-button:hover {
-  background: rgba(255, 255, 255, 0.09);
+  background: rgba(255,255,255,.09);
+
   transform: translateY(-2px);
 }
 
-/* =========================
-   NEW RELEASE
-========================= */
+/* =========================================================
+   FEATURED RELEASE
+========================================================= */
 
 .featured-release {
   position: relative;
+
   overflow: hidden;
 
   margin-top: 20px;
-  padding: 22px;
 
-  border: 1px solid rgba(255, 255, 255, 0.13);
-  border-radius: 26px;
+  padding: 25px;
+
+  border: 1px solid rgba(255,255,255,.13);
+
+  border-radius: 27px;
 
   background:
     radial-gradient(
       circle at 85% 15%,
-      rgba(255, 91, 24, 0.2),
+      rgba(255,91,24,.20),
       transparent 34%
     ),
 
     radial-gradient(
       circle at 15% 100%,
-      rgba(255, 255, 255, 0.035),
+      rgba(255,255,255,.035),
       transparent 28%
     ),
 
@@ -369,7 +431,7 @@ img {
     );
 
   box-shadow:
-    0 25px 80px rgba(0, 0, 0, 0.25);
+    0 25px 80px rgba(0,0,0,.25);
 }
 
 .featured-release::before {
@@ -377,15 +439,16 @@ img {
 
   position: absolute;
 
-  width: 240px;
-  height: 240px;
+  width: 260px;
+  height: 260px;
 
-  right: -100px;
-  bottom: -120px;
+  right: -110px;
+  bottom: -130px;
 
   border-radius: 50%;
 
-  background: rgba(255, 91, 24, 0.08);
+  background:
+    rgba(255,91,24,.08);
 
   filter: blur(2px);
 
@@ -400,7 +463,7 @@ img {
   top: 0;
   left: 0;
 
-  width: 120px;
+  width: 150px;
   height: 1px;
 
   background:
@@ -409,107 +472,156 @@ img {
       var(--orange),
       transparent
     );
-
-  opacity: 0.8;
 }
 
 .featured-label {
   position: relative;
+
   z-index: 1;
 
   color: var(--orange);
 
   font-size: 10px;
+
   font-weight: 950;
+
   letter-spacing: 3px;
 
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
 .featured-content {
   position: relative;
+
   z-index: 1;
 
   display: grid;
 
-  grid-template-columns: 170px 1fr;
+  grid-template-columns: 190px minmax(0,1fr);
 
-  gap: 22px;
+  gap: 28px;
 
   align-items: center;
 }
 
 .featured-art {
-  width: 170px;
+  width: 190px;
+
   aspect-ratio: 1;
 
   overflow: hidden;
 
-  border-radius: 18px;
+  border-radius: 20px;
 
   background: #202020;
 
-  display: grid;
-  place-items: center;
-
-  font-size: 45px;
-  font-weight: 950;
-
-  color: var(--orange);
-
   box-shadow:
-    0 18px 45px rgba(0, 0, 0, 0.45);
+    0 20px 55px rgba(0,0,0,.5);
+
+  transform: rotate(-1deg);
+
+  transition:
+    transform .3s ease;
+}
+
+.featured-art:hover {
+  transform:
+    rotate(0deg)
+    scale(1.02);
 }
 
 .featured-art img {
   width: 100%;
   height: 100%;
+
   object-fit: cover;
 }
 
-.featured-info h2 {
-  font-size: clamp(35px, 7vw, 58px);
-
-  line-height: 0.92;
-
-  letter-spacing: -3px;
-
-  margin-bottom: 17px;
+.featured-info {
+  min-width: 0;
 }
+
+.featured-info h2 {
+  font-size: clamp(40px,7vw,62px);
+
+  line-height: .9;
+
+  letter-spacing: -3.5px;
+
+  margin-bottom: 20px;
+}
+
+/* =========================================================
+   STREAMING BUTTONS
+========================================================= */
 
 .featured-buttons {
   display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
+
+  flex-direction: column;
+
+  gap: 10px;
+
+  width: 100%;
+
+  max-width: 280px;
 }
 
 .stream-button {
-  min-height: 42px;
+  position: relative;
 
-  padding: 0 15px;
+  width: 100%;
 
-  border: 1px solid var(--line);
+  min-height: 51px;
 
-  border-radius: 999px;
+  padding: 0 18px;
 
-  background: #202020;
+  border: 1px solid rgba(255,255,255,.12);
+
+  border-radius: 15px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,.07),
+      rgba(255,255,255,.025)
+    );
 
   color: var(--white);
 
   text-decoration: none;
 
-  font-size: 11px;
+  font-size: 13px;
+
   font-weight: 850;
 
-  display: inline-flex;
+  display: flex;
 
   align-items: center;
-  justify-content: center;
+
+  justify-content: space-between;
+
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.04),
+    0 8px 25px rgba(0,0,0,.15);
 
   transition:
-    transform 0.2s ease,
-    background 0.2s ease,
-    border-color 0.2s ease;
+    transform .2s ease,
+    background .2s ease,
+    border-color .2s ease,
+    box-shadow .2s ease;
+}
+
+.stream-button::after {
+  content: "↗";
+
+  font-size: 17px;
+
+  color: var(--orange);
+
+  transition:
+    transform .2s ease,
+    color .2s ease;
 }
 
 .stream-button:hover {
@@ -517,30 +629,40 @@ img {
 
   border-color: var(--orange);
 
-  transform: translateY(-2px);
+  transform: translateX(4px);
+
+  box-shadow:
+    0 10px 30px rgba(255,91,24,.2);
 }
 
-/* =========================
-   ARTIST STATISTICS
-========================= */
+.stream-button:hover::after {
+  color: white;
+
+  transform:
+    translate(2px,-2px);
+}
+
+/* =========================================================
+   ARTIST STATS
+========================================================= */
 
 .artist-stats {
   margin-top: 20px;
 
-  padding: 21px 24px;
+  padding: 23px 24px;
 
   border: 1px solid var(--line);
 
-  border-radius: 20px;
+  border-radius: 21px;
 
   background: var(--surface);
 
   display: grid;
 
   grid-template-columns:
-    repeat(4, 1fr);
+    repeat(4,1fr);
 
-  gap: 12px;
+  gap: 18px 12px;
 }
 
 .stat {
@@ -548,7 +670,7 @@ img {
 }
 
 .stat-number {
-  font-size: 23px;
+  font-size: 24px;
 
   font-weight: 950;
 
@@ -560,14 +682,14 @@ img {
 
   font-size: 11px;
 
-  margin-top: 2px;
+  margin-top: 3px;
 
   line-height: 1.35;
 }
 
-/* =========================
+/* =========================================================
    GENERAL SECTIONS
-========================= */
+========================================================= */
 
 .section {
   padding-top: 82px;
@@ -598,9 +720,9 @@ img {
 }
 
 .section-title {
-  font-size: clamp(34px, 7vw, 53px);
+  font-size: clamp(34px,7vw,53px);
 
-  line-height: 0.98;
+  line-height: .98;
 
   letter-spacing: -2.8px;
 }
@@ -615,9 +737,9 @@ img {
   margin-top: 13px;
 }
 
-/* =========================
-   RELEASES
-========================= */
+/* =========================================================
+   MUSIC
+========================================================= */
 
 .release-list {
   overflow: hidden;
@@ -629,7 +751,7 @@ img {
   background: var(--surface);
 
   box-shadow:
-    0 20px 60px rgba(0, 0, 0, 0.18);
+    0 20px 60px rgba(0,0,0,.18);
 }
 
 .release {
@@ -642,15 +764,14 @@ img {
   display: grid;
 
   grid-template-columns:
-    64px minmax(0, 1fr) auto;
+    64px minmax(0,1fr) auto;
 
   align-items: center;
 
   gap: 16px;
 
   transition:
-    background 0.2s ease,
-    transform 0.2s ease;
+    background .2s ease;
 }
 
 .release:last-child {
@@ -665,7 +786,7 @@ img {
   width: 64px;
   height: 64px;
 
-  border-radius: 10px;
+  border-radius: 11px;
 
   overflow: hidden;
 
@@ -673,7 +794,7 @@ img {
     linear-gradient(
       145deg,
       #2b2b2b,
-      #111111
+      #111
     );
 
   display: grid;
@@ -690,6 +811,7 @@ img {
 .release-art img {
   width: 100%;
   height: 100%;
+
   object-fit: cover;
 }
 
@@ -724,7 +846,7 @@ img {
 }
 
 .release-meta {
-  color: #777777;
+  color: #777;
 
   font-size: 10px;
 
@@ -732,7 +854,7 @@ img {
 
   margin-top: 5px;
 
-  letter-spacing: 0.7px;
+  letter-spacing: .7px;
 }
 
 .play-button {
@@ -749,7 +871,7 @@ img {
 
   color: var(--white);
 
-  cursor: pointer;
+  text-decoration: none;
 
   display: grid;
 
@@ -758,9 +880,9 @@ img {
   font-size: 16px;
 
   transition:
-    background 0.2s ease,
-    transform 0.2s ease,
-    border-color 0.2s ease;
+    background .2s ease,
+    transform .2s ease,
+    border-color .2s ease;
 }
 
 .play-button:hover {
@@ -768,16 +890,12 @@ img {
 
   border-color: var(--orange);
 
-  transform: scale(1.05);
+  transform: scale(1.06);
 }
 
-.release-link {
-  text-decoration: none;
-}
-
-/* =========================
+/* =========================================================
    ABOUT
-========================= */
+========================================================= */
 
 .about {
   overflow: hidden;
@@ -791,10 +909,10 @@ img {
   display: grid;
 
   grid-template-columns:
-    0.9fr 1.1fr;
+    .9fr 1.1fr;
 
   box-shadow:
-    0 20px 70px rgba(0, 0, 0, 0.2);
+    0 20px 70px rgba(0,0,0,.2);
 }
 
 .about-image {
@@ -803,7 +921,7 @@ img {
   background:
     linear-gradient(
       to top,
-      rgba(5, 5, 5, 0.62),
+      rgba(5,5,5,.62),
       transparent
     ),
 
@@ -822,7 +940,7 @@ img {
 }
 
 .about-content h3 {
-  font-size: clamp(31px, 5vw, 48px);
+  font-size: clamp(31px,5vw,48px);
 
   line-height: 1.02;
 
@@ -847,9 +965,9 @@ img {
   color: var(--white);
 }
 
-/* =========================
+/* =========================================================
    JOURNEY
-========================= */
+========================================================= */
 
 .journey-list {
   display: grid;
@@ -878,7 +996,7 @@ img {
   gap: 20px;
 
   transition:
-    background 0.2s ease;
+    background .2s ease;
 }
 
 .journey-item:hover {
@@ -907,15 +1025,15 @@ img {
   font-size: 13px;
 }
 
-/* =========================
+/* =========================================================
    OMK WORLD
-========================= */
+========================================================= */
 
 .world-grid {
   display: grid;
 
   grid-template-columns:
-    repeat(3, 1fr);
+    repeat(3,1fr);
 
   gap: 13px;
 }
@@ -942,9 +1060,9 @@ img {
   justify-content: space-between;
 
   transition:
-    background 0.2s ease,
-    transform 0.2s ease,
-    border-color 0.2s ease;
+    background .2s ease,
+    transform .2s ease,
+    border-color .2s ease;
 }
 
 .world-card:hover {
@@ -953,7 +1071,7 @@ img {
   transform: translateY(-4px);
 
   border-color:
-    rgba(255, 91, 24, 0.22);
+    rgba(255,91,24,.22);
 }
 
 .world-icon {
@@ -993,23 +1111,23 @@ img {
   margin-top: 12px;
 }
 
-/* =========================
+/* =========================================================
    CONNECT
-========================= */
+========================================================= */
 
 .connect {
   position: relative;
 
   overflow: hidden;
 
-  padding: 44px 28px;
+  padding: 48px 28px;
 
   border-radius: 28px;
 
   background:
     radial-gradient(
       circle at 50% 0%,
-      rgba(255, 91, 24, 0.13),
+      rgba(255,91,24,.13),
       transparent 45%
     ),
 
@@ -1038,7 +1156,7 @@ img {
   border-radius: 50%;
 
   background:
-    rgba(255, 91, 24, 0.06);
+    rgba(255,91,24,.06);
 
   pointer-events: none;
 }
@@ -1048,9 +1166,9 @@ img {
 
   z-index: 1;
 
-  font-size: clamp(35px, 7vw, 58px);
+  font-size: clamp(35px,7vw,58px);
 
-  line-height: 0.95;
+  line-height: .95;
 
   letter-spacing: -3px;
 }
@@ -1086,7 +1204,7 @@ img {
 .social-links a {
   min-height: 45px;
 
-  padding: 0 17px;
+  padding: 0 18px;
 
   border: 1px solid var(--line);
 
@@ -1109,19 +1227,22 @@ img {
   justify-content: center;
 
   transition:
-    background 0.2s ease,
-    transform 0.2s ease;
+    background .2s ease,
+    transform .2s ease,
+    border-color .2s ease;
 }
 
 .social-links a:hover {
   background: var(--orange);
 
+  border-color: var(--orange);
+
   transform: translateY(-2px);
 }
 
-/* =========================
+/* =========================================================
    FOOTER
-========================= */
+========================================================= */
 
 .footer {
   padding: 60px 10px 22px;
@@ -1139,9 +1260,9 @@ img {
   margin-top: 8px;
 }
 
-/* =========================
-   MOBILE
-========================= */
+/* =========================================================
+   TABLET
+========================================================= */
 
 @media (max-width: 720px) {
 
@@ -1183,39 +1304,62 @@ img {
     letter-spacing: -3.5px;
   }
 
-  .featured-content {
-    grid-template-columns:
-      105px 1fr;
+  /* FEATURED */
 
-    gap: 16px;
+  .featured-release {
+    margin-top: 16px;
+
+    padding: 20px;
+
+    border-radius: 24px;
+  }
+
+  .featured-content {
+    grid-template-columns: 1fr;
+
+    gap: 20px;
   }
 
   .featured-art {
-    width: 105px;
+    width: 145px;
 
-    border-radius: 13px;
+    border-radius: 17px;
   }
 
   .featured-info h2 {
-    font-size: 38px;
+    font-size: 45px;
 
-    letter-spacing: -2px;
+    letter-spacing: -2.5px;
+
+    margin-bottom: 18px;
+  }
+
+  .featured-buttons {
+    max-width: 100%;
+
+    gap: 9px;
   }
 
   .stream-button {
-    min-height: 39px;
+    min-height: 52px;
 
-    padding: 0 12px;
+    border-radius: 15px;
 
-    font-size: 10px;
+    font-size: 12px;
+
+    padding: 0 17px;
   }
+
+  /* STATS */
 
   .artist-stats {
     grid-template-columns:
-      repeat(2, 1fr);
+      repeat(2,1fr);
 
     gap: 21px 10px;
   }
+
+  /* ABOUT */
 
   .about {
     grid-template-columns: 1fr;
@@ -1229,6 +1373,8 @@ img {
     padding: 28px 23px;
   }
 
+  /* WORLD */
+
   .world-grid {
     grid-template-columns: 1fr;
   }
@@ -1238,6 +1384,10 @@ img {
   }
 }
 
+/* =========================================================
+   SMALL PHONES
+========================================================= */
+
 @media (max-width: 500px) {
 
   .section {
@@ -1246,7 +1396,7 @@ img {
 
   .release {
     grid-template-columns:
-      58px minmax(0, 1fr) 44px;
+      58px minmax(0,1fr) 44px;
 
     gap: 12px;
 
@@ -1276,12 +1426,34 @@ img {
 
     gap: 8px;
   }
+
+  .connect {
+    padding:
+      40px 20px;
+  }
+
+  .social-links {
+    display: grid;
+
+    grid-template-columns:
+      1fr 1fr;
+  }
+
+  .social-links a {
+    width: 100%;
+  }
 }
+
+/* =========================================================
+   VERY SMALL PHONES
+========================================================= */
 
 @media (max-width: 390px) {
 
   .hero-actions {
     display: grid;
+
+    width: 100%;
   }
 
   .main-play,
@@ -1293,13 +1465,22 @@ img {
     display: none;
   }
 
-  .featured-content {
-    grid-template-columns: 1fr;
-  }
-
   .featured-art {
     width: 100%;
+
     max-width: 210px;
+  }
+
+  .featured-info h2 {
+    font-size: 40px;
+  }
+
+  .artist-stats {
+    padding: 20px;
+  }
+
+  .stat-number {
+    font-size: 21px;
   }
 }
 </style>
@@ -1309,1073 +1490,1028 @@ img {
 
 <main class="page">
 
-  <!-- =========================
-       NAVIGATION
-  ========================== -->
+<!-- =========================================================
+     NAVIGATION
+========================================================= -->
 
-  <div class="nav-wrap">
+<div class="nav-wrap">
 
-    <nav class="nav">
+<nav class="nav">
 
-      <a class="logo" href="#home">
-        OMO<span>TAKER</span>
-      </a>
+<a class="logo" href="#home">
+  OMO<span>TAKER</span>
+</a>
 
-      <div class="nav-links">
+<div class="nav-links">
 
-        <a href="#music">
-          Music
-        </a>
+<a href="#music">
+  Music
+</a>
 
-        <a href="#story">
-          Story
-        </a>
+<a href="#story">
+  Story
+</a>
 
-        <a href="#connect">
-          Connect
-        </a>
+<a href="#connect">
+  Connect
+</a>
 
-      </div>
+</div>
 
-    </nav>
+</nav>
 
-  </div>
+</div>
 
 
-  <!-- =========================
-       HERO
-  ========================== -->
+<!-- =========================================================
+     HERO
+========================================================= -->
 
-  <section class="hero" id="home">
+<section class="hero" id="home">
 
-    <div class="hero-content">
+<div class="hero-content">
 
-      <div class="verified">
+<div class="verified">
 
-        <span class="verified-badge">
-          ✓
-        </span>
+<span class="verified-badge">
+  ✓
+</span>
 
-        Official artist platform
+Official artist platform
 
-      </div>
+</div>
 
-      <h1>
-        Omo Taker
-      </h1>
+<h1>
+Omo Taker
+</h1>
 
-      <p class="hero-description">
+<p class="hero-description">
+Nigerian Afrobeats artist, dancer and creator.
+From Benin City to Lagos, building a world through
+music, movement, fashion and real-life stories.
+</p>
 
-        Nigerian Afrobeats artist, dancer and creator.
-        From Benin City to Lagos, building a world through
-        music, movement, fashion and real-life stories.
+<div class="hero-actions">
 
-      </p>
+<a
+  class="main-play"
+  href="#music"
+>
+  <span>▶</span>
+  Listen Now
+</a>
 
-      <div class="hero-actions">
+<a
+  class="story-button"
+  href="#story"
+>
+  Read My Story
+</a>
 
-        <a
-          class="main-play"
-          href="#music"
-        >
-          <span>▶</span>
-          Listen Now
-        </a>
+</div>
 
-        <a
-          class="story-button"
-          href="#story"
-        >
-          Read My Story
-        </a>
+</div>
 
-      </div>
+</section>
 
-    </div>
 
-  </section>
+<!-- =========================================================
+     FEATURED WORK HARD
+========================================================= -->
 
+<section
+class="featured-release"
+aria-label="Work Hard"
+>
 
-  <!-- =========================
-       WORK HARD
-  ========================== -->
+<div class="featured-label">
+NEW RELEASE • OUT NOW
+</div>
 
-  <section
-    class="featured-release"
-    aria-label="Work Hard"
-  >
+<div class="featured-content">
 
-    <div class="featured-label">
-      NEW RELEASE • OUT NOW
-    </div>
+<div
+class="featured-art"
+aria-label="Work Hard artwork"
+>
 
-    <div class="featured-content">
+<img
+src="https://raw.githubusercontent.com/omk-store/omotaker/refs/heads/main/CFC9C620-39B2-4308-83EA-DA63B4B2B665.png"
+alt="Work Hard cover artwork"
+loading="eager"
+/>
 
-      <div
-        class="featured-art"
-        aria-label="Work Hard artwork"
-      >
+</div>
 
-        <img
-          src="https://raw.githubusercontent.com/omk-store/omotaker/refs/heads/main/CFC9C620-39B2-4308-83EA-DA63B4B2B665.png"
-          alt="Work Hard cover artwork"
-          loading="eager"
-        />
+<div class="featured-info">
 
-      </div>
+<h2>
+Work Hard
+</h2>
 
-      <div class="featured-info">
+<div class="featured-buttons">
 
-        <h2>
-          Work Hard
-        </h2>
+<a
+class="stream-button"
+href="https://open.spotify.com/album/3Fl2WM9a0tOKUdzcbsiK2E?si=2ZxViGZmTiKfdDA8FF_1hA&utm_source=copy-link"
+target="_blank"
+rel="noopener noreferrer"
+>
+Spotify
+</a>
 
-        <div class="featured-buttons">
+<a
+class="stream-button"
+href="https://music.apple.com/ng/album/work-hard-single/6808988385"
+target="_blank"
+rel="noopener noreferrer"
+>
+Apple Music
+</a>
 
-          <!-- Spotify -->
+<a
+class="stream-button"
+href="https://audiomack.com/iam_omotaker/song/work-hard?share-user-id=111838460"
+target="_blank"
+rel="noopener noreferrer"
+>
+Audiomack
+</a>
 
-          <a
-            class="stream-button"
-            href="https://open.spotify.com/album/3Fl2WM9a0tOKUdzcbsiK2E?si=2ZxViGZmTiKfdDA8FF_1hA&utm_source=copy-link"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Spotify
-          </a>
+<a
+class="stream-button"
+href="https://www.boomplay.com/share/album/EQU5SNbgs04WQgScvWRJwfI7?srModel=Linkfire&srList=eeffdc963721d692e77fb31ce3ce9caf"
+target="_blank"
+rel="noopener noreferrer"
+>
+Boomplay
+</a>
 
+</div>
 
-          <!-- Apple Music -->
+</div>
 
-          <a
-            class="stream-button"
-            href="https://music.apple.com/ng/album/work-hard-single/6808988385"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Apple Music
-          </a>
+</div>
 
+</section>
 
-          <!-- Audiomack -->
 
-          <a
-            class="stream-button"
-            href="https://audiomack.com/iam_omotaker/song/work-hard?share-user-id=111838460"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Audiomack
-          </a>
+<!-- =========================================================
+     ACHIEVEMENTS
+========================================================= -->
 
+<section class="artist-stats">
 
-          <!-- Boomplay -->
+<div class="stat">
 
-          <a
-            class="stream-button"
-            href="https://www.boomplay.com/share/album/EQU5SNbgs04WQgScvWRJwfI7?srModel=Linkfire&srList=eeffdc963721d692e77fb31ce3ce9caf"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Boomplay
-          </a>
+<div class="stat-number">
+5M
+</div>
 
-        </div>
+<div class="stat-label">
+Community
+</div>
 
-      </div>
+</div>
 
-    </div>
+<div class="stat">
 
-  </section>
+<div class="stat-number">
+12M
+</div>
 
+<div class="stat-label">
+Social likes
+</div>
 
-  <!-- =========================
-       ACHIEVEMENTS
-  ========================== -->
+</div>
 
-  <section class="artist-stats">
+<div class="stat">
 
-    <div class="stat">
+<div class="stat-number">
+87.6K+
+</div>
 
-      <div class="stat-number">
-        5M
-      </div>
+<div class="stat-label">
+Bend Down Select
+</div>
 
-      <div class="stat-label">
-        Community
-      </div>
+</div>
 
-    </div>
+<div class="stat">
 
-    <div class="stat">
+<div class="stat-number">
+Top 200
+</div>
 
-      <div class="stat-number">
-        12M
-      </div>
+<div class="stat-label">
+#199 on Apple Music Charts Nigeria
+</div>
 
-      <div class="stat-label">
-        Social likes
-      </div>
+</div>
 
-    </div>
+</section>
 
-    <div class="stat">
 
-      <div class="stat-number">
-        87.6K+
-      </div>
+<!-- =========================================================
+     MUSIC
+========================================================= -->
 
-      <div class="stat-label">
-        Bend Down Select
-      </div>
+<section
+class="section"
+id="music"
+>
 
-    </div>
+<div class="section-header">
 
-    <div class="stat">
+<div>
 
-      <div class="stat-number">
-        Top 200
-      </div>
+<div class="section-label">
+DISCOGRAPHY
+</div>
 
-      <div class="stat-label">
-        #199 on Apple Music Charts Nigeria
-      </div>
+<h2 class="section-title">
+Music from my journey.
+</h2>
 
-    </div>
+<p class="section-copy">
+Different sounds. Different feelings. One artist.
+Tap the play button to open each release.
+</p>
 
-  </section>
+</div>
 
+</div>
 
-  <!-- =========================
-       MUSIC
-  ========================== -->
 
-  <section
-    class="section"
-    id="music"
-  >
+<div class="release-list">
 
-    <div class="section-header">
 
-      <div>
+<!-- WORK HARD -->
 
-        <div class="section-label">
-          DISCOGRAPHY
-        </div>
+<article class="release">
 
-        <h2 class="section-title">
-          Music from my journey.
-        </h2>
+<div class="release-art">
 
-        <p class="section-copy">
+<img
+src="https://raw.githubusercontent.com/omk-store/omotaker/refs/heads/main/CFC9C620-39B2-4308-83EA-DA63B4B2B665.png"
+alt="Work Hard cover artwork"
+loading="lazy"
+/>
 
-          Different sounds. Different feelings. One artist.
-          Tap the play button to open each release.
+</div>
 
-        </p>
+<div class="release-info">
 
-      </div>
+<div class="release-title">
+Work Hard
+</div>
 
-    </div>
+<div class="release-description">
+The new Omo Taker single. Out now on all major platforms.
+</div>
 
+<div class="release-meta">
+OMO TAKER • NEW SINGLE
+</div>
 
-    <div class="release-list">
+</div>
 
+<a
+class="play-button"
+href="https://open.spotify.com/album/3Fl2WM9a0tOKUdzcbsiK2E?si=2ZxViGZmTiKfdDA8FF_1hA&utm_source=copy-link"
+target="_blank"
+rel="noopener noreferrer"
+aria-label="Open Work Hard on Spotify"
+>
+▶
+</a>
 
-      <!-- WORK HARD -->
+</article>
 
-      <article class="release">
 
-        <div class="release-art">
+<!-- BEND DOWN SELECT -->
 
-          <img
-            src="https://raw.githubusercontent.com/omk-store/omotaker/refs/heads/main/CFC9C620-39B2-4308-83EA-DA63B4B2B665.png"
-            alt="Work Hard cover artwork"
-            loading="lazy"
-          />
+<article class="release">
 
-        </div>
+<div class="release-art">
+♪
+</div>
 
-        <div class="release-info">
+<div class="release-info">
 
-          <div class="release-title">
-            Work Hard
-          </div>
+<div class="release-title">
+Bend Down Select
+</div>
 
-          <div class="release-description">
-            The new Omo Taker single. Out now on all major platforms.
-          </div>
+<div class="release-description">
+Dance energy made for movement and unforgettable moments.
+</div>
 
-          <div class="release-meta">
-            OMO TAKER • NEW SINGLE
-          </div>
+<div class="release-meta">
+OMO TAKER • SINGLE
+</div>
 
-        </div>
+</div>
 
-        <a
-          class="play-button release-link"
-          href="https://open.spotify.com/album/3Fl2WM9a0tOKUdzcbsiK2E?si=2ZxViGZmTiKfdDA8FF_1hA&utm_source=copy-link"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Open Work Hard on Spotify"
-        >
-          ▶
-        </a>
+<a
+class="play-button"
+href="https://ffm.to/bend-down-select"
+target="_blank"
+rel="noopener noreferrer"
+aria-label="Open Bend Down Select"
+>
+▶
+</a>
 
-      </article>
+</article>
 
 
-      <!-- BEND DOWN SELECT -->
+<!-- BADT GUY -->
 
-      <article class="release">
+<article class="release">
 
-        <div class="release-art">
-          ♪
-        </div>
+<div class="release-art">
+♪
+</div>
 
-        <div class="release-info">
+<div class="release-info">
 
-          <div class="release-title">
-            Bend Down Select
-          </div>
+<div class="release-title">
+Badt Guy
+</div>
 
-          <div class="release-description">
-            Dance energy made for movement and unforgettable moments.
-          </div>
+<div class="release-description">
+The record that entered the Apple Music Nigeria Top 200.
+</div>
 
-          <div class="release-meta">
-            OMO TAKER • SINGLE
-          </div>
+<div class="release-meta">
+OMO TAKER • SINGLE
+</div>
 
-        </div>
+</div>
 
-        <a
-          class="play-button release-link"
-          href="https://ffm.to/bend-down-select"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Open Bend Down Select"
-        >
-          ▶
-        </a>
+<a
+class="play-button"
+href="https://music.apple.com/ng/album/badt-guy/1758752613?i=1758752614"
+target="_blank"
+rel="noopener noreferrer"
+aria-label="Open Badt Guy"
+>
+▶
+</a>
 
-      </article>
+</article>
 
 
-      <!-- BADT GUY -->
+<!-- YOU + YOU -->
 
-      <article class="release">
+<article class="release">
 
-        <div class="release-art">
-          ♪
-        </div>
+<div class="release-art">
+♪
+</div>
 
-        <div class="release-info">
+<div class="release-info">
 
-          <div class="release-title">
-            Badt Guy
-          </div>
+<div class="release-title">
+You + You
+</div>
 
-          <div class="release-description">
-            The record that entered the Apple Music Nigeria Top 200.
-          </div>
+<div class="release-description">
+Love, emotion and two people choosing each other.
+</div>
 
-          <div class="release-meta">
-            OMO TAKER • SINGLE
-          </div>
+<div class="release-meta">
+OMO TAKER • MY TRUTH
+</div>
 
-        </div>
+</div>
 
-        <a
-          class="play-button release-link"
-          href="https://music.apple.com/ng/album/badt-guy/1758752613?i=1758752614"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Open Badt Guy"
-        >
-          ▶
-        </a>
+<a
+class="play-button"
+href="https://open.spotify.com/search/You%20%2B%20You%20Omo%20Taker"
+target="_blank"
+rel="noopener noreferrer"
+aria-label="Open You Plus You"
+>
+▶
+</a>
 
-      </article>
+</article>
 
 
-      <!-- YOU + YOU -->
+<!-- ENGLISH -->
 
-      <article class="release">
+<article class="release">
 
-        <div class="release-art">
-          ♪
-        </div>
+<div class="release-art">
+♪
+</div>
 
-        <div class="release-info">
+<div class="release-info">
 
-          <div class="release-title">
-            You + You
-          </div>
+<div class="release-title">
+English
+</div>
 
-          <div class="release-description">
-            Love, emotion and two people choosing each other.
-          </div>
+<div class="release-description">
+Omo Taker featuring Everyday Vibe.
+</div>
 
-          <div class="release-meta">
-            OMO TAKER • MY TRUTH
-          </div>
+<div class="release-meta">
+OMO TAKER FT. EVERYDAY VIBE
+</div>
 
-        </div>
+</div>
 
-        <a
-          class="play-button release-link"
-          href="https://open.spotify.com/search/You%20%2B%20You%20Omo%20Taker"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Open You Plus You"
-        >
-          ▶
-        </a>
+<a
+class="play-button"
+href="https://ffm.to/english-se41"
+target="_blank"
+rel="noopener noreferrer"
+aria-label="Open English"
+>
+▶
+</a>
 
-      </article>
+</article>
 
 
-      <!-- ENGLISH -->
+<!-- BENIN TALK PIANO -->
 
-      <article class="release">
+<article class="release">
 
-        <div class="release-art">
-          ♪
-        </div>
+<div class="release-art">
+♪
+</div>
 
-        <div class="release-info">
+<div class="release-info">
 
-          <div class="release-title">
-            English
-          </div>
+<div class="release-title">
+Benin Talk Piano
+</div>
 
-          <div class="release-description">
-            Omo Taker featuring Everyday Vibe.
-          </div>
+<div class="release-description">
+Benin culture carried by amapiano energy.
+</div>
 
-          <div class="release-meta">
-            OMO TAKER FT. EVERYDAY VIBE
-          </div>
+<div class="release-meta">
+OMO TAKER FT. EVERYDAY VIBE
+</div>
 
-        </div>
+</div>
 
-        <a
-          class="play-button release-link"
-          href="https://ffm.to/english-se41"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Open English"
-        >
-          ▶
-        </a>
+<a
+class="play-button"
+href="https://ffm.to/benin-talk-piano-xlus"
+target="_blank"
+rel="noopener noreferrer"
+aria-label="Open Benin Talk Piano"
+>
+▶
+</a>
 
-      </article>
+</article>
 
 
-      <!-- BENIN TALK PIANO -->
+<!-- IF EARTH COULD TALK -->
 
-      <article class="release">
+<article class="release">
 
-        <div class="release-art">
-          ♪
-        </div>
+<div class="release-art">
+♪
+</div>
 
-        <div class="release-info">
+<div class="release-info">
 
-          <div class="release-title">
-            Benin Talk Piano
-          </div>
+<div class="release-title">
+If Earth Could Talk
+</div>
 
-          <div class="release-description">
-            Benin culture carried by amapiano energy.
-          </div>
+<div class="release-description">
+A reflective record inspired by life and humanity.
+</div>
 
-          <div class="release-meta">
-            OMO TAKER FT. EVERYDAY VIBE
-          </div>
+<div class="release-meta">
+OMO TAKER • SINGLE
+</div>
 
-        </div>
+</div>
 
-        <a
-          class="play-button release-link"
-          href="https://ffm.to/benin-talk-piano-xlus"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Open Benin Talk Piano"
-        >
-          ▶
-        </a>
+<a
+class="play-button"
+href="https://ffm.to/if-earth-could-talk"
+target="_blank"
+rel="noopener noreferrer"
+aria-label="Open If Earth Could Talk"
+>
+▶
+</a>
 
-      </article>
+</article>
 
 
-      <!-- IF EARTH COULD TALK -->
+<!-- FOLLOW FOLLOW -->
 
-      <article class="release">
+<article class="release">
 
-        <div class="release-art">
-          ♪
-        </div>
+<div class="release-art">
+♪
+</div>
 
-        <div class="release-info">
+<div class="release-info">
 
-          <div class="release-title">
-            If Earth Could Talk
-          </div>
+<div class="release-title">
+Follow Follow
+</div>
 
-          <div class="release-description">
-            A reflective record inspired by life and humanity.
-          </div>
+<div class="release-description">
+Everybody don follow wrong person before.
+</div>
 
-          <div class="release-meta">
-            OMO TAKER • SINGLE
-          </div>
+<div class="release-meta">
+OMO TAKER • SINGLE
+</div>
 
-        </div>
+</div>
 
-        <a
-          class="play-button release-link"
-          href="https://ffm.to/if-earth-could-talk"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Open If Earth Could Talk"
-        >
-          ▶
-        </a>
+<a
+class="play-button"
+href="https://open.spotify.com/track/7L4J10wzvkcuTB1zhguCMr"
+target="_blank"
+rel="noopener noreferrer"
+aria-label="Open Follow Follow"
+>
+▶
+</a>
 
-      </article>
+</article>
 
 
-      <!-- FOLLOW FOLLOW -->
+<!-- BENIN TO LAGOS -->
 
-      <article class="release">
+<article class="release">
 
-        <div class="release-art">
-          ♪
-        </div>
+<div class="release-art">
+♪
+</div>
 
-        <div class="release-info">
+<div class="release-info">
 
-          <div class="release-title">
-            Follow Follow
-          </div>
+<div class="release-title">
+Benin To Lagos
+</div>
 
-          <div class="release-description">
-            Everybody don follow wrong person before.
-          </div>
+<div class="release-description">
+Leaving home, chasing a vision and carrying Benin everywhere.
+</div>
 
-          <div class="release-meta">
-            OMO TAKER • SINGLE
-          </div>
+<div class="release-meta">
+OMO TAKER • SINGLE
+</div>
 
-        </div>
+</div>
 
-        <a
-          class="play-button release-link"
-          href="https://open.spotify.com/track/7L4J10wzvkcuTB1zhguCMr"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Open Follow Follow"
-        >
-          ▶
-        </a>
+<a
+class="play-button"
+href="https://open.spotify.com/track/0SooNM8i9p1UiE7HTTp5C4"
+target="_blank"
+rel="noopener noreferrer"
+aria-label="Open Benin To Lagos"
+>
+▶
+</a>
 
-      </article>
+</article>
 
+</div>
 
-      <!-- BENIN TO LAGOS -->
+</section>
 
-      <article class="release">
 
-        <div class="release-art">
-          ♪
-        </div>
+<!-- =========================================================
+     STORY
+========================================================= -->
 
-        <div class="release-info">
+<section
+class="section"
+id="story"
+>
 
-          <div class="release-title">
-            Benin To Lagos
-          </div>
+<div class="section-header">
 
-          <div class="release-description">
-            Leaving home, chasing a vision and carrying Benin everywhere.
-          </div>
+<div>
 
-          <div class="release-meta">
-            OMO TAKER • SINGLE
-          </div>
+<div class="section-label">
+ABOUT THE ARTIST
+</div>
 
-        </div>
+<h2 class="section-title">
+From Benin with a bigger dream.
+</h2>
 
-        <a
-          class="play-button release-link"
-          href="https://open.spotify.com/track/0SooNM8i9p1UiE7HTTp5C4"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Open Benin To Lagos"
-        >
-          ▶
-        </a>
+</div>
 
-      </article>
+</div>
 
-    </div>
 
-  </section>
+<div class="about">
 
+<div
+class="about-image"
+role="img"
+aria-label="Omo Taker artist portrait"
+></div>
 
-  <!-- =========================
-       STORY
-  ========================== -->
 
-  <section
-    class="section"
-    id="story"
-  >
+<div class="about-content">
 
-    <div class="section-header">
+<h3>
+Music built from real experiences.
+</h3>
 
-      <div>
+<p>
+My name is Omo Taker. I am an independent Nigerian
+artist, dancer and creator. Music has always been my
+way of turning real experiences into something people
+can feel.
+</p>
 
-        <div class="section-label">
-          ABOUT THE ARTIST
-        </div>
+<p>
+I moved with a vision, carrying my sound from Benin
+City to Lagos. There was no perfect team waiting for
+me and no easy road. I learned, invested, created,
+promoted myself and continued building.
+</p>
 
-        <h2 class="section-title">
-          From Benin with a bigger dream.
-        </h2>
+<p>
+Every release represents a different part of my life.
+Some songs carry pain, some carry love, while others
+are made for people to dance and forget their problems.
+</p>
 
-      </div>
+<p>
+<strong>OMK means Only My Kind.</strong> It represents
+originality, confidence and becoming the person you
+were created to be.
+</p>
 
-    </div>
+<p>
+This is not about one moment or one record. It is the
+full world of Omo Taker, and the journey is still being
+written.
+</p>
 
+</div>
 
-    <div class="about">
+</div>
 
-      <div
-        class="about-image"
-        role="img"
-        aria-label="Omo Taker artist portrait"
-      ></div>
+</section>
 
 
-      <div class="about-content">
+<!-- =========================================================
+     JOURNEY
+========================================================= -->
 
-        <h3>
-          Music built from real experiences.
-        </h3>
+<section
+class="section"
+id="journey"
+>
 
-        <p>
+<div class="section-header">
 
-          My name is Omo Taker. I am an independent Nigerian
-          artist, dancer and creator. Music has always been my
-          way of turning real experiences into something people
-          can feel.
+<div>
 
-        </p>
+<div class="section-label">
+THE JOURNEY
+</div>
 
-        <p>
+<h2 class="section-title">
+Built through pressure.
+</h2>
 
-          I moved with a vision, carrying my sound from Benin
-          City to Lagos. There was no perfect team waiting for
-          me and no easy road. I learned, invested, created,
-          promoted myself and continued building.
+<p class="section-copy">
+No overnight story. Every move and every release added
+another chapter to the journey.
+</p>
 
-        </p>
+</div>
 
-        <p>
+</div>
 
-          Every release represents a different part of my life.
-          Some songs carry pain, some carry love, while others
-          are made for people to dance and forget their problems.
 
-        </p>
+<div class="journey-list">
 
-        <p>
 
-          <strong>OMK means Only My Kind.</strong> It represents
-          originality, confidence and becoming the person you
-          were created to be.
+<article class="journey-item">
 
-        </p>
+<div class="journey-stage">
+THE BEGINNING
+</div>
 
-        <p>
+<div class="journey-info">
 
-          This is not about one moment or one record. It is the
-          full world of Omo Taker, and the journey is still being
-          written.
+<h3>
+Benin City
+</h3>
 
-        </p>
+<p>
+The culture, language, movement and energy of Benin
+shaped the foundation of the Omo Taker sound.
+</p>
 
-      </div>
+</div>
 
-    </div>
+</article>
 
-  </section>
 
+<article class="journey-item">
 
-  <!-- =========================
-       JOURNEY
-  ========================== -->
+<div class="journey-stage">
+THE MOVE
+</div>
 
-  <section
-    class="section"
-    id="journey"
-  >
+<div class="journey-info">
 
-    <div class="section-header">
+<h3>
+From Benin To Lagos
+</h3>
 
-      <div>
+<p>
+A bigger city, bigger pressure and a bigger reason
+to keep working. The move became part of the music.
+</p>
 
-        <div class="section-label">
-          THE JOURNEY
-        </div>
+</div>
 
-        <h2 class="section-title">
-          Built through pressure.
-        </h2>
+</article>
 
-        <p class="section-copy">
 
-          No overnight story. Every move and every release added
-          another chapter to the journey.
+<article class="journey-item">
 
-        </p>
+<div class="journey-stage">
+BREAKTHROUGH
+</div>
 
-      </div>
+<div class="journey-info">
 
-    </div>
+<h3>
+Music Reaching New People
+</h3>
 
+<p>
+Badt Guy entered the Apple Music Nigeria Top 200,
+while Bend Down Select crossed 50,000 streams.
+</p>
 
-    <div class="journey-list">
+</div>
 
+</article>
 
-      <article class="journey-item">
 
-        <div class="journey-stage">
-          THE BEGINNING
-        </div>
+<article class="journey-item">
 
-        <div class="journey-info">
+<div class="journey-stage">
+THE MOVEMENT
+</div>
 
-          <h3>
-            Benin City
-          </h3>
+<div class="journey-info">
 
-          <p>
+<h3>
+OMK — Only My Kind
+</h3>
 
-            The culture, language, movement and energy of Benin
-            shaped the foundation of the Omo Taker sound.
+<p>
+The identity expanded into music, dance, fashion,
+visual storytelling and community.
+</p>
 
-          </p>
+</div>
 
-        </div>
+</article>
 
-      </article>
 
+<article class="journey-item">
 
-      <article class="journey-item">
+<div class="journey-stage">
+RIGHT NOW
+</div>
 
-        <div class="journey-stage">
-          THE MOVE
-        </div>
+<div class="journey-info">
 
-        <div class="journey-info">
+<h3>
+Still Building
+</h3>
 
-          <h3>
-            From Benin To Lagos
-          </h3>
+<p>
+More records, more visuals and a bigger vision.
+This is another chapter, not the ending.
+</p>
 
-          <p>
+</div>
 
-            A bigger city, bigger pressure and a bigger reason
-            to keep working. The move became part of the music.
+</article>
 
-          </p>
+</div>
 
-        </div>
+</section>
 
-      </article>
 
+<!-- =========================================================
+     OMK WORLD
+========================================================= -->
 
-      <article class="journey-item">
+<section class="section">
 
-        <div class="journey-stage">
-          BREAKTHROUGH
-        </div>
+<div class="section-header">
 
-        <div class="journey-info">
+<div>
 
-          <h3>
-            Music Reaching New People
-          </h3>
+<div class="section-label">
+OMK WORLD
+</div>
 
-          <p>
+<h2 class="section-title">
+More than music.
+</h2>
 
-            Badt Guy entered the Apple Music Nigeria Top 200,
-            while Bend Down Select crossed 50,000 streams.
+</div>
 
-          </p>
+</div>
 
-        </div>
 
-      </article>
+<div class="world-grid">
 
 
-      <article class="journey-item">
+<a
+class="world-card"
+href="#music"
+>
 
-        <div class="journey-stage">
-          THE MOVEMENT
-        </div>
+<div class="world-icon">
+♪
+</div>
 
-        <div class="journey-info">
+<div>
 
-          <h3>
-            OMK — Only My Kind
-          </h3>
+<h3>
+Music
+</h3>
 
-          <p>
+<p>
+Afrobeats, Afro-fusion, amapiano and stories taken
+from real life.
+</p>
 
-            The identity expanded into music, dance, fashion,
-            visual storytelling and community.
+<div class="world-action">
+Explore releases →
+</div>
 
-          </p>
+</div>
 
-        </div>
+</a>
 
-      </article>
 
+<div class="world-card">
 
-      <article class="journey-item">
+<div class="world-icon">
+🐺
+</div>
 
-        <div class="journey-stage">
-          RIGHT NOW
-        </div>
+<div>
 
-        <div class="journey-info">
+<h3>
+Only My Kind
+</h3>
 
-          <h3>
-            Still Building
-          </h3>
+<p>
+An identity built around originality, confidence
+and moving with your own vision.
+</p>
 
-          <p>
+<div class="world-action">
+OMK movement
+</div>
 
-            More records, more visuals and a bigger vision.
-            This is another chapter, not the ending.
+</div>
 
-          </p>
+</div>
 
-        </div>
 
-      </article>
+<a
+class="world-card"
+href="https://omkdrip.com/newdrop.html"
+target="_blank"
+rel="noopener noreferrer"
+>
 
-    </div>
+<div class="world-icon">
+◈
+</div>
 
-  </section>
+<div>
 
+<h3>
+OMK Drip
+</h3>
 
-  <!-- =========================
-       OMK WORLD
-  ========================== -->
+<p>
+Fashion created around the Only My Kind identity
+and the world behind the music.
+</p>
 
-  <section class="section">
+<div class="world-action">
+Shop the new drop →
+</div>
 
-    <div class="section-header">
+</div>
 
-      <div>
+</a>
 
-        <div class="section-label">
-          OMK WORLD
-        </div>
+</div>
 
-        <h2 class="section-title">
-          More than music.
-        </h2>
+</section>
 
-      </div>
 
-    </div>
+<!-- =========================================================
+     CONNECT
+========================================================= -->
 
+<section
+class="section"
+id="connect"
+>
 
-    <div class="world-grid">
+<div class="connect">
 
+<div class="section-label">
+FOLLOW THE JOURNEY
+</div>
 
-      <a
-        class="world-card"
-        href="#music"
-      >
+<h2>
+Benin to the world.
+</h2>
 
-        <div class="world-icon">
-          ♪
-        </div>
+<p>
+Follow Omo Taker for new music, visual stories,
+dance videos, behind-the-scenes moments and the next
+chapter of the OMK movement.
+</p>
 
-        <div>
 
-          <h3>
-            Music
-          </h3>
+<div class="social-links">
 
-          <p>
+<a
+href="https://www.instagram.com/iam_omotaker?igsh=NXhvNXdyb2JvcnQx&utm_source=qr"
+target="_blank"
+rel="noopener noreferrer"
+>
+Instagram
+</a>
 
-            Afrobeats, Afro-fusion, amapiano and stories taken
-            from real life.
+<a
+href="https://www.tiktok.com/@omotaker?_r=1&_t=ZS-98HCauPhJZ3"
+target="_blank"
+rel="noopener noreferrer"
+>
+TikTok
+</a>
 
-          </p>
+<a
+href="https://m.youtube.com/@Iam_omotaker/shorts?ra=m"
+target="_blank"
+rel="noopener noreferrer"
+>
+YouTube
+</a>
 
-          <div class="world-action">
-            Explore releases →
-          </div>
+<a
+href="https://omkdrip.com/newdrop.html"
+target="_blank"
+rel="noopener noreferrer"
+>
+OMK Drip
+</a>
 
-        </div>
+</div>
 
-      </a>
+</div>
 
+</section>
 
-      <div class="world-card">
 
-        <div class="world-icon">
-          🐺
-        </div>
+<!-- =========================================================
+     FOOTER
+========================================================= -->
 
-        <div>
+<footer class="footer">
 
-          <h3>
-            Only My Kind
-          </h3>
+<p>
+POWERED BY OMK RECORD
+</p>
 
-          <p>
-
-            An identity built around originality, confidence
-            and moving with your own vision.
-
-          </p>
-
-          <div class="world-action">
-            OMK movement
-          </div>
-
-        </div>
-
-      </div>
-
-
-      <a
-        class="world-card"
-        href="https://omkdrip.com/newdrop.html"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-
-        <div class="world-icon">
-          ◈
-        </div>
-
-        <div>
-
-          <h3>
-            OMK Drip
-          </h3>
-
-          <p>
-
-            Fashion created around the Only My Kind identity
-            and the world behind the music.
-
-          </p>
-
-          <div class="world-action">
-            Shop the new drop →
-          </div>
-
-        </div>
-
-      </a>
-
-    </div>
-
-  </section>
-
-
-  <!-- =========================
-       CONNECT
-  ========================== -->
-
-  <section
-    class="section"
-    id="connect"
-  >
-
-    <div class="connect">
-
-      <div class="section-label">
-        FOLLOW THE JOURNEY
-      </div>
-
-      <h2>
-        Benin to the world.
-      </h2>
-
-      <p>
-
-        Follow Omo Taker for new music, visual stories,
-        dance videos, behind-the-scenes moments and the next
-        chapter of the OMK movement.
-
-      </p>
-
-
-      <div class="social-links">
-
-        <a
-          href="https://www.instagram.com/iam_omotaker?igsh=NXhvNXdyb2JvcnQx&utm_source=qr"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Instagram
-        </a>
-
-        <a
-          href="https://www.tiktok.com/@omotaker?_r=1&_t=ZS-98HCauPhJZ3"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          TikTok
-        </a>
-
-        <a
-          href="https://m.youtube.com/@Iam_omotaker/shorts?ra=m"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          YouTube
-        </a>
-
-        <a
-          href="https://omkdrip.com/newdrop.html"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          OMK Drip
-        </a>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- =========================
-       FOOTER
-  ========================== -->
-
-  <footer class="footer">
-
-    <p>
-      POWERED BY OMK RECORD
-    </p>
-
-  </footer>
+</footer>
 
 </main>
 
