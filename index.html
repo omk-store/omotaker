@@ -41,7 +41,7 @@ img{
 }
 
 /* =========================================================
-   HEADER
+HEADER
 ========================================================= */
 
 header{
@@ -94,11 +94,10 @@ header{
   display:none;
   font-size:28px;
   cursor:pointer;
-  color:#fff;
 }
 
 /* =========================================================
-   HERO
+HERO
 ========================================================= */
 
 .hero{
@@ -207,7 +206,7 @@ header{
 }
 
 /* =========================================================
-   GENERAL
+GENERAL
 ========================================================= */
 
 section{
@@ -250,8 +249,8 @@ section{
 }
 
 /* =========================================================
-   FEATURED
-   DO NOT CHANGE
+WORK HARD
+KEPT AS REQUESTED
 ========================================================= */
 
 .featured{
@@ -336,12 +335,13 @@ section{
 }
 
 /* =========================================================
-   FIND OMO TAKER
+FIND OMO TAKER
+NO ARROWS
+NO SYMBOLS
 ========================================================= */
 
 .platforms{
   background:#050505;
-  position:relative;
 }
 
 .platform-grid{
@@ -353,20 +353,15 @@ section{
 }
 
 .platform-card{
-  min-height:165px;
-  background:
-    linear-gradient(
-      145deg,
-      rgba(255,106,0,.07),
-      rgba(255,255,255,.025)
-    );
-
+  min-height:150px;
+  background:#0d0d0d;
   border:1px solid rgba(255,255,255,.09);
   border-radius:22px;
-  padding:30px;
+  padding:35px;
   display:flex;
   align-items:center;
-  gap:22px;
+  justify-content:center;
+  text-align:center;
   transition:.35s;
 }
 
@@ -376,49 +371,30 @@ section{
   box-shadow:0 18px 50px rgba(0,0,0,.35);
 }
 
-.platform-logo{
-  width:65px;
-  height:65px;
-  flex:0 0 65px;
-  border-radius:50%;
-  background:#111;
-  border:1px solid rgba(255,255,255,.12);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:28px;
-  font-weight:1000;
-  color:#ff6a00;
-}
-
-.platform-info{
-  text-align:left;
-}
-
 .platform-info small{
   display:block;
-  color:#777;
+  color:#ff6a00;
   font-size:10px;
-  font-weight:900;
-  letter-spacing:2px;
+  font-weight:1000;
+  letter-spacing:3px;
   text-transform:uppercase;
-  margin-bottom:7px;
+  margin-bottom:10px;
 }
 
 .platform-info h3{
-  font-size:24px;
+  font-size:28px;
   font-weight:1000;
-  letter-spacing:-.5px;
+  letter-spacing:-1px;
 }
 
 .platform-info p{
-  color:#888;
+  color:#777;
   font-size:12px;
-  margin-top:7px;
+  margin-top:8px;
 }
 
 /* =========================================================
-   STATS
+STATS
 ========================================================= */
 
 .stats{
@@ -461,7 +437,7 @@ section{
 }
 
 /* =========================================================
-   STORY
+STORY
 ========================================================= */
 
 .story{
@@ -490,6 +466,7 @@ section{
   min-height:300px;
   border:1px solid rgba(255,255,255,.08);
   border-radius:25px;
+
   background:
     radial-gradient(
       circle at center,
@@ -504,12 +481,6 @@ section{
   justify-content:center;
   text-align:center;
   padding:40px;
-}
-
-.wolf-mark{
-  font-size:60px;
-  margin-bottom:15px;
-  filter:grayscale(1);
 }
 
 .story-box h3{
@@ -530,7 +501,7 @@ section{
 }
 
 /* =========================================================
-   JOURNEY
+JOURNEY
 ========================================================= */
 
 .journey{
@@ -572,7 +543,8 @@ section{
 }
 
 /* =========================================================
-   CONNECT
+CONNECT
+NO SYMBOLS
 ========================================================= */
 
 .connect{
@@ -588,11 +560,11 @@ section{
 }
 
 .social-card{
-  min-height:130px;
+  min-height:145px;
   background:#0d0d0d;
   border:1px solid rgba(255,255,255,.08);
   border-radius:22px;
-  padding:28px;
+  padding:30px;
   display:flex;
   flex-direction:column;
   align-items:center;
@@ -606,27 +578,22 @@ section{
   border-color:#ff6a00;
 }
 
-.social-icon{
-  font-size:30px;
-  margin-bottom:12px;
-}
-
 .social-card small{
-  color:#777;
+  color:#ff6a00;
   font-size:10px;
-  font-weight:900;
-  letter-spacing:2px;
+  font-weight:1000;
+  letter-spacing:3px;
   text-transform:uppercase;
 }
 
 .social-card h3{
-  margin-top:7px;
-  font-size:23px;
+  margin-top:10px;
+  font-size:28px;
   font-weight:1000;
 }
 
 /* =========================================================
-   FOOTER
+FOOTER
 ========================================================= */
 
 footer{
@@ -640,6 +607,7 @@ footer{
   align-items:center;
   justify-content:space-between;
   gap:20px;
+  text-align:center;
 }
 
 .footer-inner p{
@@ -658,7 +626,7 @@ footer{
 }
 
 /* =========================================================
-   STREAMING POPUP
+POPUP
 ========================================================= */
 
 .stream-popup{
@@ -758,7 +726,7 @@ footer{
 }
 
 /* =========================================================
-   MOBILE
+MOBILE
 ========================================================= */
 
 @media(max-width:850px){
@@ -850,18 +818,11 @@ footer{
 
   .platform-card{
     min-height:140px;
-    padding:23px;
-  }
-
-  .platform-logo{
-    width:55px;
-    height:55px;
-    flex-basis:55px;
-    font-size:23px;
+    padding:28px 20px;
   }
 
   .platform-info h3{
-    font-size:20px;
+    font-size:23px;
   }
 
   .stats-grid{
@@ -899,9 +860,7 @@ footer{
 
 <body>
 
-<!-- =========================================================
-     HEADER
-========================================================= -->
+<!-- HEADER -->
 
 <header>
 
@@ -913,30 +872,16 @@ footer{
 
     <ul class="nav-links" id="navLinks">
 
-      <li>
-        <a href="#home">Home</a>
-      </li>
-
-      <li>
-        <a href="#music">Music</a>
-      </li>
-
-      <li>
-        <a href="#story">Story</a>
-      </li>
-
-      <li>
-        <a href="#journey">Journey</a>
-      </li>
-
-      <li>
-        <a href="#connect">Connect</a>
-      </li>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#music">Music</a></li>
+      <li><a href="#story">Story</a></li>
+      <li><a href="#journey">Journey</a></li>
+      <li><a href="#connect">Connect</a></li>
 
     </ul>
 
     <div class="menu" id="menuBtn">
-      ☰
+      MENU
     </div>
 
   </div>
@@ -944,9 +889,7 @@ footer{
 </header>
 
 
-<!-- =========================================================
-     HERO
-========================================================= -->
+<!-- HERO -->
 
 <section class="hero" id="home">
 
@@ -985,10 +928,7 @@ footer{
 </section>
 
 
-<!-- =========================================================
-     FEATURED MUSIC
-     KEPT THE SAME
-========================================================= -->
+<!-- WORK HARD -->
 
 <section class="featured" id="music">
 
@@ -1027,7 +967,6 @@ footer{
           <a
             class="stream-button"
             href="https://open.spotify.com/album/3Fl2WM9a0tOKUdzcbsiK2E?si=2ZxViGZmTiKfdDA8FF_1hA&utm_source=copy-link"
-            target="_blank"
           >
             <span>Spotify</span>
             <span>↗</span>
@@ -1036,7 +975,6 @@ footer{
           <a
             class="stream-button"
             href="https://music.apple.com/ng/album/work-hard-single/6808988385"
-            target="_blank"
           >
             <span>Apple Music</span>
             <span>↗</span>
@@ -1045,7 +983,6 @@ footer{
           <a
             class="stream-button"
             href="https://audiomack.com/iam_omotaker/song/work-hard?share-user-id=111838460"
-            target="_blank"
           >
             <span>Audiomack</span>
             <span>↗</span>
@@ -1054,7 +991,6 @@ footer{
           <a
             class="stream-button"
             href="https://www.boomplay.com/share/album/EQU5SNbgs04WQgScvWRJwfI7?srModel=Linkfire&srList=eeffdc963721d692e77fb31ce3ce9caf"
-            target="_blank"
           >
             <span>Boomplay</span>
             <span>↗</span>
@@ -1071,9 +1007,7 @@ footer{
 </section>
 
 
-<!-- =========================================================
-     FIND OMO TAKER
-========================================================= -->
+<!-- FIND OMO TAKER -->
 
 <section class="platforms">
 
@@ -1100,151 +1034,97 @@ footer{
 
       <a
         href="https://music.apple.com/ng/artist/omo-taker/1725001610"
-        target="_blank"
         class="platform-card"
       >
-
-        <div class="platform-logo">
-          ♫
-        </div>
-
         <div class="platform-info">
 
-          <small>Listen & Follow</small>
+          <small>Listen and Follow</small>
 
           <h3>Apple Music</h3>
 
-          <p>
-            Omo Taker official artist profile
-          </p>
+          <p>Omo Taker official artist profile</p>
 
         </div>
-
       </a>
 
 
       <a
         href="https://open.spotify.com/artist/6CWfr8X54oFUSpKVsbAh1t?si=qlP61iJpR1Oug_TG60UWNQ&utm_source=copy-link"
-        target="_blank"
         class="platform-card"
       >
-
-        <div class="platform-logo">
-          ●
-        </div>
-
         <div class="platform-info">
 
-          <small>Listen & Follow</small>
+          <small>Listen and Follow</small>
 
           <h3>Spotify</h3>
 
-          <p>
-            Omo Taker official artist profile
-          </p>
+          <p>Omo Taker official artist profile</p>
 
         </div>
-
       </a>
 
 
       <a
         href="https://audiomack.com/iam_omotaker"
-        target="_blank"
         class="platform-card"
       >
-
-        <div class="platform-logo">
-          ♪
-        </div>
-
         <div class="platform-info">
 
-          <small>Listen & Follow</small>
+          <small>Listen and Follow</small>
 
           <h3>Audiomack</h3>
 
-          <p>
-            Omo Taker official artist profile
-          </p>
+          <p>Omo Taker official artist profile</p>
 
         </div>
-
       </a>
 
 
       <a
         href="https://www.boomplay.com/share/artist/EQKHJmoiUbeo6JT2atthCqvg"
-        target="_blank"
         class="platform-card"
       >
-
-        <div class="platform-logo">
-          B
-        </div>
-
         <div class="platform-info">
 
-          <small>Listen & Follow</small>
+          <small>Listen and Follow</small>
 
           <h3>Boomplay</h3>
 
-          <p>
-            Omo Taker official artist profile
-          </p>
+          <p>Omo Taker official artist profile</p>
 
         </div>
-
       </a>
 
 
       <a
         href="https://music.youtube.com/@Iam_omotaker"
-        target="_blank"
         class="platform-card"
       >
-
-        <div class="platform-logo">
-          ▶
-        </div>
-
         <div class="platform-info">
 
-          <small>Listen & Follow</small>
+          <small>Listen and Follow</small>
 
           <h3>YouTube Music</h3>
 
-          <p>
-            Omo Taker official music profile
-          </p>
+          <p>Omo Taker official music profile</p>
 
         </div>
-
       </a>
 
 
       <a
         href="https://omkdrip.com/newdrop.html"
-        target="_blank"
         class="platform-card"
       >
-
-        <div class="platform-logo">
-          🐺
-        </div>
-
         <div class="platform-info">
 
           <small>Official Brand</small>
 
           <h3>OMK Drip</h3>
 
-          <p>
-            Enter the Only My Kind world
-          </p>
+          <p>Enter the Only My Kind world</p>
 
         </div>
-
       </a>
 
     </div>
@@ -1254,9 +1134,7 @@ footer{
 </section>
 
 
-<!-- =========================================================
-     STATS
-========================================================= -->
+<!-- STATS -->
 
 <section class="stats">
 
@@ -1282,46 +1160,23 @@ footer{
     <div class="stats-grid">
 
       <div class="stat">
-
         <h3>5M</h3>
-
-        <p>
-          Community
-        </p>
-
+        <p>Community</p>
       </div>
 
-
       <div class="stat">
-
         <h3>12M</h3>
-
-        <p>
-          Social Likes
-        </p>
-
+        <p>Social Likes</p>
       </div>
 
-
       <div class="stat">
-
         <h3>87.6K+</h3>
-
-        <p>
-          Bend Down Select
-        </p>
-
+        <p>Bend Down Select</p>
       </div>
 
-
       <div class="stat">
-
         <h3>#199</h3>
-
-        <p>
-          Apple Music Nigeria
-        </p>
-
+        <p>Apple Music Nigeria</p>
       </div>
 
     </div>
@@ -1331,9 +1186,7 @@ footer{
 </section>
 
 
-<!-- =========================================================
-     STORY
-========================================================= -->
+<!-- STORY -->
 
 <section class="story" id="story">
 
@@ -1367,10 +1220,6 @@ footer{
 
       <div class="story-box">
 
-        <div class="wolf-mark">
-          🐺
-        </div>
-
         <h3>
           Only <span>My Kind.</span>
         </h3>
@@ -1389,9 +1238,7 @@ footer{
 </section>
 
 
-<!-- =========================================================
-     JOURNEY
-========================================================= -->
+<!-- JOURNEY -->
 
 <section class="journey" id="journey">
 
@@ -1485,9 +1332,7 @@ footer{
 </section>
 
 
-<!-- =========================================================
-     CONNECT
-========================================================= -->
+<!-- CONNECT -->
 
 <section class="connect" id="connect">
 
@@ -1514,17 +1359,10 @@ footer{
 
       <a
         href="https://www.instagram.com/iam_omotaker?igsh=NXhvNXdyb2JvcnQx&utm_source=qr"
-        target="_blank"
         class="social-card"
       >
 
-        <div class="social-icon">
-          ◎
-        </div>
-
-        <small>
-          Follow
-        </small>
+        <small>Follow</small>
 
         <h3>
           Instagram
@@ -1535,17 +1373,10 @@ footer{
 
       <a
         href="https://www.tiktok.com/@omotaker?_r=1&_t=ZS-98HCauPhJZ3"
-        target="_blank"
         class="social-card"
       >
 
-        <div class="social-icon">
-          ♪
-        </div>
-
-        <small>
-          Follow
-        </small>
+        <small>Follow</small>
 
         <h3>
           TikTok
@@ -1556,17 +1387,10 @@ footer{
 
       <a
         href="https://m.youtube.com/@Iam_omotaker/shorts?ra=m"
-        target="_blank"
         class="social-card"
       >
 
-        <div class="social-icon">
-          ▶
-        </div>
-
-        <small>
-          Watch
-        </small>
+        <small>Watch</small>
 
         <h3>
           YouTube
@@ -1577,17 +1401,10 @@ footer{
 
       <a
         href="https://omkdrip.com/newdrop.html"
-        target="_blank"
         class="social-card"
       >
 
-        <div class="social-icon">
-          🐺
-        </div>
-
-        <small>
-          Official Brand
-        </small>
+        <small>Official Brand</small>
 
         <h3>
           OMK Drip
@@ -1602,9 +1419,7 @@ footer{
 </section>
 
 
-<!-- =========================================================
-     FOOTER
-========================================================= -->
+<!-- FOOTER -->
 
 <footer>
 
@@ -1627,9 +1442,7 @@ footer{
 </footer>
 
 
-<!-- =========================================================
-     STREAMING POPUP
-========================================================= -->
+<!-- STREAMING POPUP -->
 
 <div class="stream-popup" id="streamPopup">
 
@@ -1650,7 +1463,7 @@ footer{
     </div>
 
     <h2>
-      Stream WORK HARD 🎶
+      Stream WORK HARD
     </h2>
 
     <p>
@@ -1659,31 +1472,19 @@ footer{
 
     <div class="popup-links">
 
-      <a
-        href="https://open.spotify.com/album/3Fl2WM9a0tOKUdzcbsiK2E?si=2ZxViGZmTiKfdDA8FF_1hA&utm_source=copy-link"
-        target="_blank"
-      >
+      <a href="https://open.spotify.com/album/3Fl2WM9a0tOKUdzcbsiK2E?si=2ZxViGZmTiKfdDA8FF_1hA&utm_source=copy-link">
         Spotify
       </a>
 
-      <a
-        href="https://music.apple.com/ng/album/work-hard-single/6808988385"
-        target="_blank"
-      >
+      <a href="https://music.apple.com/ng/album/work-hard-single/6808988385">
         Apple Music
       </a>
 
-      <a
-        href="https://audiomack.com/iam_omotaker/song/work-hard?share-user-id=111838460"
-        target="_blank"
-      >
+      <a href="https://audiomack.com/iam_omotaker/song/work-hard?share-user-id=111838460">
         Audiomack
       </a>
 
-      <a
-        href="https://www.boomplay.com/share/album/EQU5SNbgs04WQgScvWRJwfI7?srModel=Linkfire&srList=eeffdc963721d692e77fb31ce3ce9caf"
-        target="_blank"
-      >
+      <a href="https://www.boomplay.com/share/album/EQU5SNbgs04WQgScvWRJwfI7?srModel=Linkfire&srList=eeffdc963721d692e77fb31ce3ce9caf">
         Boomplay
       </a>
 
@@ -1700,9 +1501,7 @@ footer{
 
 <script>
 
-/* =========================================================
-   MOBILE MENU
-========================================================= */
+/* MOBILE MENU */
 
 const menuBtn = document.getElementById("menuBtn");
 const navLinks = document.getElementById("navLinks");
@@ -1720,9 +1519,7 @@ document.querySelectorAll(".nav-links a").forEach(link => {
 });
 
 
-/* =========================================================
-   STREAMING POPUP
-========================================================= */
+/* STREAMING POPUP */
 
 const streamPopup = document.getElementById("streamPopup");
 const popupClose = document.getElementById("popupClose");
@@ -1768,7 +1565,7 @@ streamPopup.addEventListener("click", function(e){
 });
 
 
-/* SHOW POPUP AFTER 10 SECONDS */
+/* POPUP AFTER 10 SECONDS */
 
 setTimeout(
   openStreamPopup,
