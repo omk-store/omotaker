@@ -1,0 +1,3296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Born in Nigeria — Life, Hustle & Music</title>
+
+<style>
+*{box-sizing:border-box}
+
+:root{
+  --green:#075c38;
+  --green2:#0b7a4a;
+  --dark:#06130d;
+  --panel:#0c2419;
+  --gold:#ffd34e;
+  --white:#fff;
+  --muted:#aabdb3;
+  --danger:#e85b5b;
+}
+
+body{
+  margin:0;
+  background:#020806;
+  color:var(--white);
+  font-family:Arial,Helvetica,sans-serif;
+}
+
+button,input,select{
+  font:inherit;
+}
+
+button{
+  cursor:pointer;
+}
+
+.hidden{
+  display:none!important;
+}
+
+/* =========================
+   AUTH
+========================= */
+
+#authGate{
+  position:fixed;
+  inset:0;
+  z-index:9999;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  background:
+    radial-gradient(circle at top,#168653,#061a10 55%,#020806);
+}
+
+.authBox{
+  width:min(460px,100%);
+  padding:30px;
+  border-radius:25px;
+  background:#071a11ee;
+  border:1px solid #ffffff25;
+  box-shadow:0 25px 80px #000b;
+  text-align:center;
+}
+
+.authLogo{
+  font-size:60px;
+}
+
+.authBox h1{
+  margin:5px 0;
+  font-size:34px;
+}
+
+.authSubtitle{
+  color:var(--muted);
+}
+
+.authTabs{
+  display:flex;
+  gap:8px;
+  margin:25px 0;
+}
+
+.authTab{
+  flex:1;
+  border:0;
+  padding:13px;
+  border-radius:10px;
+  background:#ffffff12;
+  color:#fff;
+}
+
+.authTab.active{
+  background:var(--gold);
+  color:#111;
+}
+
+.formGroup{
+  text-align:left;
+  margin:13px 0;
+}
+
+.formGroup label{
+  display:block;
+  margin-bottom:6px;
+  font-weight:bold;
+}
+
+input,select{
+  width:100%;
+  padding:13px;
+  border:0;
+  border-radius:10px;
+  background:#f4f4f4;
+  color:#111;
+}
+
+.authButton{
+  width:100%;
+  padding:14px;
+  margin-top:10px;
+  border:0;
+  border-radius:12px;
+  background:var(--gold);
+  color:#111;
+  font-weight:900;
+}
+
+.authMessage{
+  min-height:20px;
+  color:var(--gold);
+  margin-top:12px;
+  font-size:14px;
+}
+
+/* =========================
+   APP
+========================= */
+
+#app{
+  display:none;
+  min-height:100vh;
+  background:
+    linear-gradient(#075c38,#073d28);
+}
+
+.topbar{
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:#061a10ee;
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid #ffffff18;
+  padding:10px 15px;
+}
+
+.topbarInner{
+  max-width:1200px;
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+}
+
+.brand{
+  font-weight:900;
+}
+
+.balance{
+  display:flex;
+  gap:6px;
+  flex-wrap:wrap;
+}
+
+.balance span{
+  background:#ffffff12;
+  border-radius:9px;
+  padding:8px;
+  font-size:13px;
+}
+
+.page{
+  max-width:1200px;
+  margin:auto;
+  padding:16px;
+}
+
+.screen{
+  display:none;
+}
+
+.screen.active{
+  display:block;
+}
+
+.panel{
+  background:#071d13cc;
+  border:1px solid #ffffff18;
+  border-radius:18px;
+  padding:18px;
+  margin-bottom:15px;
+  box-shadow:0 10px 35px #0002;
+}
+
+.panel h2{
+  margin-top:0;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+  gap:12px;
+}
+
+.card{
+  background:#ffffff0d;
+  border:1px solid #ffffff18;
+  border-radius:15px;
+  padding:15px;
+}
+
+.card h3{
+  margin-top:0;
+}
+
+.action{
+  width:100%;
+  text-align:left;
+  border:0;
+  padding:15px;
+  border-radius:13px;
+  background:#fff;
+  color:#111;
+}
+
+.action:hover{
+  transform:translateY(-2px);
+}
+
+.primary{
+  background:var(--gold);
+  color:#111;
+}
+
+.danger{
+  background:var(--danger);
+  color:#fff;
+}
+
+.muted{
+  color:var(--muted);
+}
+
+.stats{
+  display:flex;
+  flex-wrap:wrap;
+  gap:7px;
+}
+
+.stat{
+  padding:8px 10px;
+  background:#06291a;
+  border-radius:9px;
+  font-size:13px;
+}
+
+.money{
+  color:#8dffbc;
+}
+
+/* =========================
+   CHARACTER CREATION
+========================= */
+
+#creationWorld{
+  height:340px;
+  position:relative;
+  overflow:hidden;
+  border-radius:18px;
+  background:
+    linear-gradient(#72c9ff 0 55%,#d3a45f 55%);
+}
+
+.house{
+  position:absolute;
+  bottom:65px;
+  left:9%;
+  width:230px;
+  height:145px;
+  background:#c85e3d;
+}
+
+.roof{
+  position:absolute;
+  top:-68px;
+  left:-25px;
+  border-left:140px solid transparent;
+  border-right:140px solid transparent;
+  border-bottom:78px solid #563628;
+}
+
+.road{
+  position:absolute;
+  bottom:0;
+  left:0;
+  width:100%;
+  height:65px;
+  background:#4c4c4c;
+}
+
+.motherCharacter{
+  position:absolute;
+  bottom:62px;
+  left:42%;
+  font-size:70px;
+}
+
+.fatherCharacter{
+  position:absolute;
+  bottom:62px;
+  left:55%;
+  font-size:70px;
+}
+
+/* =========================
+   LIVE WORLD
+========================= */
+
+.world{
+  position:relative;
+  min-height:430px;
+  border-radius:20px;
+  overflow:hidden;
+  background:
+    linear-gradient(#64bfff 0 48%,#bd9558 48% 100%);
+}
+
+.cloud{
+  position:absolute;
+  font-size:40px;
+}
+
+.cloud.one{
+  top:30px;
+  left:10%;
+}
+
+.cloud.two{
+  top:65px;
+  right:15%;
+}
+
+.sun{
+  position:absolute;
+  top:20px;
+  right:8%;
+  font-size:55px;
+}
+
+.cityBuilding{
+  position:absolute;
+  bottom:80px;
+  width:90px;
+  background:#666;
+  border-radius:5px 5px 0 0;
+}
+
+.building1{
+  left:40%;
+  height:190px;
+}
+
+.building2{
+  left:51%;
+  height:150px;
+}
+
+.building3{
+  left:62%;
+  height:220px;
+}
+
+.street{
+  position:absolute;
+  left:0;
+  bottom:0;
+  width:100%;
+  height:80px;
+  background:#454545;
+}
+
+.character{
+  position:absolute;
+  bottom:78px;
+  font-size:58px;
+  animation:walk 5s infinite linear;
+}
+
+.person1{
+  left:12%;
+}
+
+.person2{
+  left:35%;
+  animation-delay:1s;
+}
+
+.person3{
+  left:60%;
+  animation-delay:2s;
+}
+
+.person4{
+  left:80%;
+  animation-delay:3s;
+}
+
+@keyframes walk{
+  0%{transform:translateX(-20px)}
+  50%{transform:translateX(70px)}
+  100%{transform:translateX(-20px)}
+}
+
+/* =========================
+   RUBBER GAME
+========================= */
+
+.rubberArena{
+  height:310px;
+  position:relative;
+  overflow:hidden;
+  border-radius:18px;
+  background:
+    linear-gradient(#78c9ff 0 52%,#b78b55 52%);
+}
+
+.childPlayer,
+.childOpponent{
+  position:absolute;
+  bottom:50px;
+  font-size:85px;
+}
+
+.childPlayer{
+  left:22%;
+}
+
+.childOpponent{
+  right:22%;
+}
+
+.rubber{
+  position:absolute;
+  left:48%;
+  bottom:100px;
+  font-size:35px;
+}
+
+/* =========================
+   CLUB
+========================= */
+
+.clubScene{
+  min-height:330px;
+  border-radius:20px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  background:
+    radial-gradient(circle,#743a94,#20183f 45%,#070713 75%);
+}
+
+.clubStage{
+  font-size:90px;
+}
+
+.musicControls{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+}
+
+/* =========================
+   LIVE FEED
+========================= */
+
+.feed{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
+.post{
+  padding:15px;
+  border-radius:15px;
+  background:#ffffff0d;
+  border:1px solid #ffffff18;
+}
+
+.postHeader{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.avatar{
+  width:40px;
+  height:40px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#ffffff15;
+  border-radius:50%;
+}
+
+/* =========================
+   PAYMENT
+========================= */
+
+.coinPack{
+  border:1px solid #ffffff18;
+  border-radius:16px;
+  padding:18px;
+  background:#ffffff0d;
+}
+
+.coinPack strong{
+  font-size:25px;
+}
+
+.payButton{
+  width:100%;
+  padding:13px;
+  border:0;
+  border-radius:10px;
+  background:var(--gold);
+  font-weight:900;
+}
+
+.paymentBox{
+  padding:15px;
+  border-radius:14px;
+  background:#0005;
+}
+
+.paymentMethod{
+  padding:13px;
+  border-radius:10px;
+  border:1px solid #ffffff20;
+  background:#ffffff08;
+  margin:7px 0;
+  cursor:pointer;
+}
+
+.paymentMethod.selected{
+  border-color:var(--gold);
+  background:#ffd34e15;
+}
+
+/* =========================
+   MODAL
+========================= */
+
+.modal{
+  position:fixed;
+  inset:0;
+  z-index:1000;
+  background:#000b;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+}
+
+.modal.show{
+  display:flex;
+}
+
+.modalBox{
+  width:min(500px,100%);
+  max-height:90vh;
+  overflow:auto;
+  background:#092116;
+  border:1px solid #ffffff25;
+  border-radius:20px;
+  padding:20px;
+}
+
+.close{
+  float:right;
+  border:0;
+  background:#ffffff15;
+  color:#fff;
+  border-radius:8px;
+  padding:8px 12px;
+}
+
+/* =========================
+   MOBILE NAV
+========================= */
+
+.bottomNav{
+  position:sticky;
+  bottom:0;
+  z-index:90;
+  display:grid;
+  grid-template-columns:repeat(6,1fr);
+  background:#061a10ee;
+  border-top:1px solid #ffffff18;
+  backdrop-filter:blur(12px);
+}
+
+.bottomNav button{
+  border:0;
+  background:none;
+  color:#fff;
+  padding:11px 3px;
+  font-size:11px;
+}
+
+.bottomNav button.active{
+  color:var(--gold);
+}
+
+.notice{
+  padding:12px;
+  background:#ffd34e15;
+  border:1px solid #ffd34e30;
+  border-radius:10px;
+  margin-top:10px;
+}
+
+@media(max-width:650px){
+  .topbarInner{
+    align-items:flex-start;
+    flex-direction:column;
+  }
+
+  .world{
+    min-height:350px;
+  }
+
+  .bottomNav{
+    grid-template-columns:repeat(3,1fr);
+  }
+
+  .house{
+    transform:scale(.75);
+    transform-origin:bottom left;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- =====================================================
+     LOGIN / SIGN UP
+===================================================== -->
+
+<div id="authGate">
+
+  <div class="authBox">
+
+    <div class="authLogo">🇳🇬</div>
+
+    <h1>BORN IN NIGERIA</h1>
+
+    <p class="authSubtitle">
+      New Life • New Struggle • Work • Culture • Music
+    </p>
+
+    <div class="authTabs">
+      <button id="loginTab" class="authTab active" onclick="showAuth('login')">
+        Log In
+      </button>
+
+      <button id="signupTab" class="authTab" onclick="showAuth('signup')">
+        Sign Up
+      </button>
+    </div>
+
+    <!-- LOGIN -->
+
+    <form id="loginForm" onsubmit="login(event)">
+
+      <div class="formGroup">
+        <label>Email or Username</label>
+        <input
+          id="loginIdentifier"
+          required
+          placeholder="Email or username"
+        >
+      </div>
+
+      <div class="formGroup">
+        <label>Password</label>
+        <input
+          id="loginPassword"
+          type="password"
+          required
+          placeholder="Password"
+        >
+      </div>
+
+      <button class="authButton">
+        Log In →
+      </button>
+
+      <p class="muted">
+        New player?
+        <button
+          type="button"
+          style="background:none;color:#ffd34e;border:0"
+          onclick="showAuth('signup')"
+        >
+          Create account
+        </button>
+      </p>
+
+    </form>
+
+
+    <!-- SIGN UP -->
+
+    <form
+      id="signupForm"
+      class="hidden"
+      onsubmit="signup(event)"
+    >
+
+      <div class="formGroup">
+        <label>Username</label>
+        <input
+          id="signupUsername"
+          required
+          minlength="3"
+          placeholder="Choose username"
+        >
+      </div>
+
+      <div class="formGroup">
+        <label>Email</label>
+        <input
+          id="signupEmail"
+          type="email"
+          required
+          placeholder="you@example.com"
+        >
+      </div>
+
+      <div class="formGroup">
+        <label>Password</label>
+        <input
+          id="signupPassword"
+          type="password"
+          minlength="6"
+          required
+          placeholder="Create password"
+        >
+      </div>
+
+      <div class="formGroup">
+        <label>Confirm Password</label>
+        <input
+          id="signupConfirm"
+          type="password"
+          minlength="6"
+          required
+          placeholder="Confirm password"
+        >
+      </div>
+
+      <div class="formGroup">
+        <label>Country</label>
+
+        <select id="signupCountry">
+          <option>Nigeria</option>
+          <option>Ghana</option>
+          <option>Kenya</option>
+          <option>South Africa</option>
+          <option>Uganda</option>
+          <option>Tanzania</option>
+          <option>Other African Country</option>
+        </select>
+
+      </div>
+
+      <button class="authButton">
+        Create Account →
+      </button>
+
+      <p class="muted">
+        Already registered?
+        <button
+          type="button"
+          style="background:none;color:#ffd34e;border:0"
+          onclick="showAuth('login')"
+        >
+          Log in
+        </button>
+      </p>
+
+    </form>
+
+    <div id="authMessage" class="authMessage"></div>
+
+  </div>
+
+</div>
+
+
+<!-- =====================================================
+     APPLICATION
+===================================================== -->
+
+<div id="app">
+
+  <header class="topbar">
+
+    <div class="topbarInner">
+
+      <div class="brand">
+        🇳🇬 BORN IN NIGERIA
+      </div>
+
+      <div class="balance">
+
+        <span>
+          💰 ₦<b id="moneyTop">0</b>
+        </span>
+
+        <span>
+          🪙 <b id="coinsTop">0</b>
+        </span>
+
+        <span>
+          🪢 <b id="rubberTop">0</b>
+        </span>
+
+        <span>
+          ⭐ <b id="repTop">0</b>
+        </span>
+
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <main class="page">
+
+
+    <!-- =================================================
+         WELCOME / PROFILE CREATION
+    ================================================== -->
+
+    <section id="creationScreen" class="screen active">
+
+      <div class="panel">
+
+        <h2>👋 Welcome to your new life</h2>
+
+        <p class="muted">
+          Before the journey starts, tell us who you are.
+          Your choices become the foundation of your character.
+        </p>
+
+        <div class="grid">
+
+          <div>
+
+            <div class="formGroup">
+              <label>Your Name</label>
+              <input id="playerName" placeholder="Enter your name">
+            </div>
+
+            <div class="formGroup">
+              <label>Your State</label>
+
+              <select id="playerState">
+
+                <option>Lagos</option>
+                <option>Edo</option>
+                <option>Rivers</option>
+                <option>Delta</option>
+                <option>Oyo</option>
+                <option>Ogun</option>
+                <option>Ondo</option>
+                <option>Enugu</option>
+                <option>Kano</option>
+                <option>Kaduna</option>
+                <option>Cross River</option>
+                <option>Abuja (FCT)</option>
+
+              </select>
+
+            </div>
+
+            <div class="formGroup">
+
+              <label>What are you currently doing?</label>
+
+              <select id="playerCurrent">
+
+                <option>Student</option>
+                <option>Working</option>
+                <option>Looking for work</option>
+                <option>Running a small business</option>
+                <option>Making music</option>
+                <option>Creating content</option>
+                <option>Just starting life</option>
+
+              </select>
+
+            </div>
+
+            <button
+              class="primary"
+              style="padding:14px;width:100%"
+              onclick="saveProfile()"
+            >
+              Continue →
+            </button>
+
+          </div>
+
+
+          <div>
+
+            <div id="creationWorld">
+
+              <div class="sun">☀️</div>
+
+              <div class="cloud one">☁️</div>
+
+              <div class="cloud two">☁️</div>
+
+              <div class="house">
+                <div class="roof"></div>
+              </div>
+
+              <div class="road"></div>
+
+              <div class="motherCharacter">
+                👩🏾
+              </div>
+
+              <div class="fatherCharacter">
+                👨🏾
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =================================================
+         MOTHER
+    ================================================== -->
+
+    <section id="motherScreen" class="screen">
+
+      <div class="panel">
+
+        <h2>👩🏾 Choose your mother</h2>
+
+        <p class="muted">
+          Every family begins differently.
+          Your choice determines your starting environment.
+        </p>
+
+        <div id="motherGrid" class="grid"></div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =================================================
+         LIFE TYPE
+    ================================================== -->
+
+    <section id="lifeTypeScreen" class="screen">
+
+      <div class="panel">
+
+        <h2>🪢 Choose your beginning</h2>
+
+        <p id="motherDescription"></p>
+
+        <div class="grid">
+
+          <button
+            class="action"
+            onclick="chooseLife('Struggle')"
+          >
+
+            <h3>🪢 Struggle</h3>
+
+            <p>
+              Very little money.
+              Small home.
+              Strong community.
+              You learn survival early.
+            </p>
+
+          </button>
+
+
+          <button
+            class="action"
+            onclick="chooseLife('Hustler')"
+          >
+
+            <h3>💼 Hustler</h3>
+
+            <p>
+              Modest family.
+              Some opportunities.
+              You learn how to make money early.
+            </p>
+
+          </button>
+
+
+          <button
+            class="action"
+            onclick="chooseLife('Comfort')"
+          >
+
+            <h3>🏠 Comfort</h3>
+
+            <p>
+              More support.
+              Better starting resources.
+              Higher expectations.
+            </p>
+
+          </button>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =================================================
+         BIRTH
+    ================================================== -->
+
+    <section id="birthScreen" class="screen">
+
+      <div class="panel">
+
+        <h2 id="birthTitle">
+          Your story begins...
+        </h2>
+
+        <div id="birthWorld" class="world">
+
+          <div class="sun">☀️</div>
+
+          <div class="house">
+            <div class="roof"></div>
+          </div>
+
+          <div class="street"></div>
+
+          <div class="motherCharacter">
+            👩🏾
+          </div>
+
+          <div class="fatherCharacter">
+            👨🏾
+          </div>
+
+        </div>
+
+        <p id="birthText"></p>
+
+        <button
+          class="primary"
+          onclick="enterWorld()"
+        >
+          Enter My Life →
+        </button>
+
+      </div>
+
+    </section>
+
+
+    <!-- =================================================
+         HOME
+    ================================================== -->
+
+    <section id="homeScreen" class="screen">
+
+      <div class="panel">
+
+        <h2>
+          🌍 Welcome home,
+          <span id="homeName"></span>
+        </h2>
+
+        <div class="stats">
+
+          <span class="stat">
+            📍 <b id="homeState"></b>
+          </span>
+
+          <span class="stat">
+            👩🏾 <b id="homeMother"></b>
+          </span>
+
+          <span class="stat">
+            💼 <b id="homeJob"></b>
+          </span>
+
+          <span class="stat">
+            🏠 <b id="homeHouse"></b>
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <div class="panel">
+
+        <h2>🏙️ Your Living World</h2>
+
+        <div class="world">
+
+          <div class="sun">☀️</div>
+
+          <div class="cloud one">☁️</div>
+          <div class="cloud two">☁️</div>
+
+          <div class="cityBuilding building1"></div>
+          <div class="cityBuilding building2"></div>
+          <div class="cityBuilding building3"></div>
+
+          <div class="street"></div>
+
+          <div class="character person1">
+            🧒🏾
+          </div>
+
+          <div class="character person2">
+            👩🏾
+          </div>
+
+          <div class="character person3">
+            🧑🏾
+          </div>
+
+          <div class="character person4">
+            🚶🏾
+          </div>
+
+        </div>
+
+        <div class="notice">
+          Children are playing.
+          Vendors are working.
+          Cars are moving.
+          Music is coming from somewhere down the street.
+          Your life is beginning.
+        </div>
+
+      </div>
+
+
+      <div class="panel">
+
+        <h2>⚡ What do you want to do?</h2>
+
+        <div class="grid">
+
+          <button class="action" onclick="go('activityScreen')">
+            <h3>🎯 Activities</h3>
+            <p>Play, work, school, explore and build skills.</p>
+          </button>
+
+          <button class="action" onclick="go('jobScreen')">
+            <h3>💼 Work</h3>
+            <p>Choose jobs and make money.</p>
+          </button>
+
+          <button class="action" onclick="go('rubberScreen')">
+            <h3>🪢 Rubber Game</h3>
+            <p>Play the childhood game and build your first economy.</p>
+          </button>
+
+          <button class="action" onclick="go('musicScreen')">
+            <h3>🎤 Music</h3>
+            <p>Build an artist career and promote music.</p>
+          </button>
+
+          <button class="action" onclick="go('liveScreen')">
+            <h3>🔴 Live</h3>
+            <p>See what is happening around the world.</p>
+          </button>
+
+          <button class="action" onclick="openCoins()">
+            <h3>🪙 Buy Coins</h3>
+            <p>Purchase game coins through checkout.</p>
+          </button>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =================================================
+         ACTIVITIES
+    ================================================== -->
+
+    <section id="activityScreen" class="screen">
+
+      <div class="panel">
+
+        <h2>🎯 Activities</h2>
+
+        <p class="muted">
+          Your daily choices affect your money, energy and reputation.
+        </p>
+
+        <div class="grid">
+
+          <button class="action" onclick="activity('School',25,4)">
+            <h3>🏫 School</h3>
+            <p>Learn and build skills.</p>
+          </button>
+
+          <button class="action" onclick="activity('Football',20,3)">
+            <h3>⚽ Football</h3>
+            <p>Play with the community.</p>
+          </button>
+
+          <button class="action" onclick="activity('Help Mama',40,5)">
+            <h3>🧺 Help Mama</h3>
+            <p>Help with the family business.</p>
+          </button>
+
+          <button class="action" onclick="activity('Street Content',30,6)">
+            <h3>📱 Street Content</h3>
+            <p>Create a video around the neighborhood.</p>
+          </button>
+
+          <button class="action" onclick="activity('Market',45,4)">
+            <h3>🛒 Market</h3>
+            <p>Help a trader and learn business.</p>
+          </button>
+
+          <button class="action" onclick="activity('Rest',0,0)">
+            <h3>😴 Rest</h3>
+            <p>Recover your energy.</p>
+          </button>
+
+        </div>
+
+        <div id="activityMessage" class="notice"></div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =================================================
+         JOBS
+    ================================================== -->
+
+    <section id="jobScreen" class="screen">
+
+      <div class="panel">
+
+        <h2>💼 Jobs & Hustles</h2>
+
+        <p class="muted">
+          Your profession determines how you make money and what equipment you need.
+        </p>
+
+        <div class="grid">
+
+          <button class="action" onclick="work('Mechanic',70)">
+            <h3>🔧 Mechanic</h3>
+            <p>Repair vehicles.</p>
+          </button>
+
+          <button class="action" onclick="work('Barber',60)">
+            <h3>💈 Barber</h3>
+            <p>Cut hair and build customers.</p>
+          </button>
+
+          <button class="action" onclick="work('Food Seller',55)">
+            <h3>🍲 Food Seller</h3>
+            <p>Sell akara, bread, rice and snacks.</p>
+          </button>
+
+          <button class="action" onclick="work('Delivery Rider',90)">
+            <h3>🏍️ Delivery Rider</h3>
+            <p>Deliver goods around the city.</p>
+          </button>
+
+          <button class="action" onclick="work('Fashion Designer',80)">
+            <h3>🧵 Fashion Designer</h3>
+            <p>Create clothes.</p>
+          </button>
+
+          <button class="action" onclick="work('Trader',75)">
+            <h3>🛒 Trader</h3>
+            <p>Buy and sell goods.</p>
+          </button>
+
+          <button class="action" onclick="work('Content Creator',45)">
+            <h3>📱 Content Creator</h3>
+            <p>Create videos and grow an audience.</p>
+          </button>
+
+          <button class="action" onclick="work('Musician',100)">
+            <h3>🎤 Musician</h3>
+            <p>Perform and promote music.</p>
+          </button>
+
+          <button class="action" onclick="work('DJ',120)">
+            <h3>🎧 DJ</h3>
+            <p>Play music at events.</p>
+          </button>
+
+          <button class="action" onclick="work('Photographer',80)">
+            <h3>📷 Photographer</h3>
+            <p>Capture events and people.</p>
+          </button>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =================================================
+         RUBBER GAME
+    ================================================== -->
+
+    <section id="rubberScreen" class="screen">
+
+      <div class="panel">
+
+        <h2>🪢 Rubber Game</h2>
+
+        <p>
+          This is where your first economy begins.
+          Challenge another player, practice or trade rubber.
+        </p>
+
+        <div class="rubberArena">
+
+          <div class="childPlayer">
+            🧒🏾
+          </div>
+
+          <div class="rubber">
+            🪢
+          </div>
+
+          <div class="childOpponent">
+            🧒🏿
+          </div>
+
+        </div>
+
+        <div class="grid">
+
+          <button
+            class="action"
+            onclick="playRubber()"
+          >
+            <h3>🪢 Play Match</h3>
+            <p>Risk rubber to win rubber and reputation.</p>
+          </button>
+
+          <button
+            class="action"
+            onclick="practiceRubber()"
+          >
+            <h3>🎯 Practice</h3>
+            <p>Improve your skill without risking much.</p>
+          </button>
+
+          <button
+            class="action"
+            onclick="tradeRubber()"
+          >
+            <h3>🤝 Trade Rubber</h3>
+            <p>Convert rubber into money.</p>
+          </button>
+
+        </div>
+
+        <div id="rubberMessage" class="notice"></div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =================================================
+         MUSIC
+    ================================================== -->
+
+    <section id="musicScreen" class="screen">
+
+      <div class="panel">
+
+        <h2>🎤 Artist World</h2>
+
+        <p>
+          Build your music career. Record songs, promote your artist,
+          perform at events and play music in clubs.
+        </p>
+
+        <div class="clubScene">
+
+          <div class="clubStage">
+            🎤 🎶 💃🏾 🕺🏾
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="panel">
+
+        <h2>🎵 Your Music Player</h2>
+
+        <p class="muted">
+          Load music you own or have permission to use.
+        </p>
+
+        <input
+          id="musicUpload"
+          type="file"
+          accept="audio/*"
+          onchange="loadMusic(event)"
+        >
+
+        <audio
+          id="musicPlayer"
+          controls
+          style="width:100%;margin-top:12px"
+        ></audio>
+
+        <div class="musicControls">
+
+          <button
+            class="primary"
+            onclick="playMusic()"
+          >
+            ▶ Play
+          </button>
+
+          <button
+            onclick="pauseMusic()"
+          >
+            ⏸ Pause
+          </button>
+
+          <button
+            onclick="promoteSong()"
+          >
+            📱 Promote Song
+          </button>
+
+          <button
+            onclick="performShow()"
+          >
+            🎤 Perform
+          </button>
+
+          <button
+            onclick="goClub()"
+          >
+            🌃 Go To Club
+          </button>
+
+        </div>
+
+        <div id="musicMessage" class="notice"></div>
+
+      </div>
+
+
+      <div class="panel">
+
+        <h2>📈 Artist Progress</h2>
+
+        <div class="stats">
+
+          <span class="stat">
+            🎤 Artist Reputation:
+            <b id="artistRep">0</b>
+          </span>
+
+          <span class="stat">
+            👥 Fans:
+            <b id="fans">0</b>
+          </span>
+
+          <span class="stat">
+            🎶 Songs:
+            <b id="songs">0</b>
+          </span>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =================================================
+         LIVE
+    ================================================== -->
+
+    <section id="liveScreen" class="screen">
+
+      <div class="panel">
+
+        <h2>🔴 Live Nigeria</h2>
+
+        <p class="muted">
+          The city keeps moving. Players and NPCs create activity throughout the world.
+        </p>
+
+        <div class="feed">
+
+          <div class="post">
+
+            <div class="postHeader">
+
+              <div class="avatar">
+                🧒🏾
+              </div>
+
+              <div>
+                <b>Neighborhood Kids</b>
+                <div class="small">Lagos • Just now</div>
+              </div>
+
+            </div>
+
+            <p>
+              🪢 Rubber competition starting at the street corner!
+            </p>
+
+          </div>
+
+
+          <div class="post">
+
+            <div class="postHeader">
+
+              <div class="avatar">
+                🎤
+              </div>
+
+              <div>
+                <b>Everyday Vibe</b>
+                <div class="small">Music • Live</div>
+              </div>
+
+            </div>
+
+            <p>
+              🎶 New music is playing at the community event tonight.
+            </p>
+
+          </div>
+
+
+          <div class="post">
+
+            <div class="postHeader">
+
+              <div class="avatar">
+                🍲
+              </div>
+
+              <div>
+                <b>Mama's Food Stand</b>
+                <div class="small">Market • Live</div>
+              </div>
+
+            </div>
+
+            <p>
+              🍲 Akara is hot. The neighborhood is busy.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =================================================
+         SHOP
+    ================================================== -->
+
+    <section id="shopScreen" class="screen">
+
+      <div class="panel">
+
+        <h2>🛍️ Life Shop</h2>
+
+        <div class="grid">
+
+          <div class="card">
+
+            <h3>📱 Smartphone</h3>
+
+            <p>
+              Create content and promote music.
+            </p>
+
+            <b>₦250</b>
+
+            <br><br>
+
+            <button
+              class="primary"
+              onclick="buyItem('Smartphone',250)"
+            >
+              Buy
+            </button>
+
+          </div>
+
+
+          <div class="card">
+
+            <h3>📷 Camera</h3>
+
+            <p>
+              Better artist content.
+            </p>
+
+            <b>₦500</b>
+
+            <br><br>
+
+            <button
+              class="primary"
+              onclick="buyItem('Camera',500)"
+            >
+              Buy
+            </button>
+
+          </div>
+
+
+          <div class="card">
+
+            <h3>🔊 Speaker</h3>
+
+            <p>
+              Host music events.
+            </p>
+
+            <b>₦700</b>
+
+            <br><br>
+
+            <button
+              class="primary"
+              onclick="buyItem('Speaker',700)"
+            >
+              Buy
+            </button>
+
+          </div>
+
+
+          <div class="card">
+
+            <h3>🏍️ Motorbike</h3>
+
+            <p>
+              Unlock delivery work.
+            </p>
+
+            <b>₦2,500</b>
+
+            <br><br>
+
+            <button
+              class="primary"
+              onclick="buyItem('Motorbike',2500)"
+            >
+              Buy
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =================================================
+         COINS
+    ================================================== -->
+
+    <section id="coinScreen" class="screen">
+
+      <div class="panel">
+
+        <h2>🪙 Buy Coins</h2>
+
+        <p class="muted">
+          Coins are the game's virtual currency for optional digital items.
+        </p>
+
+        <div class="grid">
+
+          <div class="coinPack">
+
+            <strong>100 🪙</strong>
+
+            <p>Starter Pack</p>
+
+            <button
+              class="payButton"
+              onclick="openPayment(100,500)"
+            >
+              Pay ₦500
+            </button>
+
+          </div>
+
+
+          <div class="coinPack">
+
+            <strong>500 🪙</strong>
+
+            <p>Hustler Pack</p>
+
+            <button
+              class="payButton"
+              onclick="openPayment(500,2000)"
+            >
+              Pay ₦2,000
+            </button>
+
+          </div>
+
+
+          <div class="coinPack">
+
+            <strong>1,200 🪙</strong>
+
+            <p>Big Life Pack</p>
+
+            <button
+              class="payButton"
+              onclick="openPayment(1200,4000)"
+            >
+              Pay ₦4,000
+            </button>
+
+          </div>
+
+
+          <div class="coinPack">
+
+            <strong>3,000 🪙</strong>
+
+            <p>Empire Pack</p>
+
+            <button
+              class="payButton"
+              onclick="openPayment(3000,9000)"
+            >
+              Pay ₦9,000
+            </button>
+
+          </div>
+
+        </div>
+
+        <div class="notice">
+
+          <b>Important:</b>
+
+          This HTML prototype cannot securely process real payments by itself.
+          Real money must be processed by a secure server/payment provider
+          such as Paystack, Flutterwave or another authorized payment processor.
+          Never put secret payment/API keys inside this HTML file.
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =================================================
+         PROFILE
+    ================================================== -->
+
+    <section id="profileScreen" class="screen">
+
+      <div class="panel">
+
+        <h2>👤 My Profile</h2>
+
+        <div class="stats">
+
+          <span class="stat">
+            Name:
+            <b id="profileName"></b>
+          </span>
+
+          <span class="stat">
+            State:
+            <b id="profileState"></b>
+          </span>
+
+          <span class="stat">
+            Job:
+            <b id="profileJob"></b>
+          </span>
+
+          <span class="stat">
+            Family:
+            <b id="profileFamily"></b>
+          </span>
+
+          <span class="stat">
+            House:
+            <b id="profileHouse"></b>
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <div class="panel">
+
+        <h2>🧰 Inventory</h2>
+
+        <p id="inventory">
+          No tools yet.
+        </p>
+
+      </div>
+
+
+      <div class="panel">
+
+        <h2>📊 Progress</h2>
+
+        <div class="stats">
+
+          <span class="stat">
+            🪢 Rubber:
+            <b id="profileRubber"></b>
+          </span>
+
+          <span class="stat">
+            🪙 Coins:
+            <b id="profileCoins"></b>
+          </span>
+
+          <span class="stat">
+            ⭐ Reputation:
+            <b id="profileRep"></b>
+          </span>
+
+          <span class="stat">
+            👥 Fans:
+            <b id="profileFans"></b>
+          </span>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+  </main>
+
+
+  <!-- =================================================
+       BOTTOM NAVIGATION
+  ================================================== -->
+
+  <nav class="bottomNav">
+
+    <button onclick="go('homeScreen')">
+      🏠<br>Home
+    </button>
+
+    <button onclick="go('activityScreen')">
+      🎯<br>Activity
+    </button>
+
+    <button onclick="go('liveScreen')">
+      🔴<br>Live
+    </button>
+
+    <button onclick="go('musicScreen')">
+      🎵<br>Music
+    </button>
+
+    <button onclick="go('shopScreen')">
+      🛍️<br>Shop
+    </button>
+
+    <button onclick="go('profileScreen')">
+      👤<br>Profile
+    </button>
+
+  </nav>
+
+</div>
+
+
+<!-- =====================================================
+     PAYMENT MODAL
+===================================================== -->
+
+<div id="paymentModal" class="modal">
+
+  <div class="modalBox">
+
+    <button
+      class="close"
+      onclick="closePayment()"
+    >
+      ✕
+    </button>
+
+    <h2>🪙 Buy Coins</h2>
+
+    <p>
+      You selected:
+      <b id="paymentCoins"></b>
+      coins for
+      <b id="paymentAmount"></b>
+    </p>
+
+    <div class="paymentBox">
+
+      <h3>Choose payment method</h3>
+
+      <div
+        class="paymentMethod"
+        id="methodCard"
+        onclick="selectPayment('card')"
+      >
+        💳 Card
+      </div>
+
+      <div
+        class="paymentMethod"
+        id="methodBank"
+        onclick="selectPayment('bank')"
+      >
+        🏦 Bank Transfer
+      </div>
+
+      <div
+        class="paymentMethod"
+        id="methodUSSD"
+        onclick="selectPayment('ussd')"
+      >
+        📱 USSD
+      </div>
+
+    </div>
+
+    <br>
+
+    <button
+      class="primary"
+      style="width:100%;padding:14px"
+      onclick="startCheckout()"
+    >
+      Continue to Secure Checkout
+    </button>
+
+    <p class="small muted">
+
+      Production version:
+      this button should call your backend,
+      which creates a payment transaction with
+      your chosen payment provider and verifies the
+      transaction before granting coins.
+
+    </p>
+
+  </div>
+
+</div>
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+/* =====================================================
+   PLAYER DATA
+===================================================== */
+
+let player = {
+
+  name:"",
+  state:"",
+  current:"",
+
+  mother:null,
+
+  lifeType:"",
+
+  money:0,
+
+  coins:0,
+
+  rubber:0,
+
+  reputation:0,
+
+  fans:0,
+
+  songs:0,
+
+  energy:100,
+
+  job:"Unemployed",
+
+  house:"Family Home",
+
+  tools:[],
+
+  upgrades:[]
+
+};
+
+
+/* =====================================================
+   MOTHERS
+===================================================== */
+
+const mothers = [
+
+  {
+    name:"Mama Ada",
+    emoji:"👩🏾‍🍳",
+    job:"sells akara",
+    home:"small one-room home",
+    description:
+      "She wakes before sunrise to fry akara and support the family.",
+    money:70
+  },
+
+  {
+    name:"Mama Efe",
+    emoji:"👩🏾‍🦱",
+    job:"sells roasted corn",
+    home:"roadside room",
+    description:
+      "She sells roasted corn and snacks while saving for a better home.",
+    money:50
+  },
+
+  {
+    name:"Mama Sade",
+    emoji:"👩🏾‍🦰",
+    job:"runs a small food stall",
+    home:"modest family compound",
+    description:
+      "She works at a food stand and knows everyone in the neighborhood.",
+    money:110
+  },
+
+  {
+    name:"Mama Ngozi",
+    emoji:"👩🏾‍🍼",
+    job:"does laundry and small jobs",
+    home:"tiny rented room",
+    description:
+      "She survives by taking different jobs and helping neighbors.",
+    money:40
+  },
+
+  {
+    name:"Mama Ijeoma",
+    emoji:"👩🏾‍🍳",
+    job:"sells snacks and granola",
+    home:"busy family room",
+    description:
+      "She sells snacks and granola around the neighborhood.",
+    money:90
+  }
+
+];
+
+
+/* =====================================================
+   AUTH
+===================================================== */
+
+function showAuth(type){
+
+  const login =
+    type === "login";
+
+  document
+    .getElementById("loginForm")
+    .classList
+    .toggle("hidden",!login);
+
+  document
+    .getElementById("signupForm")
+    .classList
+    .toggle("hidden",login);
+
+  document
+    .getElementById("loginTab")
+    .classList
+    .toggle("active",login);
+
+  document
+    .getElementById("signupTab")
+    .classList
+    .toggle("active",!login);
+
+  document
+    .getElementById("authMessage")
+    .textContent = "";
+
+}
+
+
+function signup(event){
+
+  event.preventDefault();
+
+  const username =
+    document.getElementById("signupUsername").value.trim();
+
+  const email =
+    document.getElementById("signupEmail").value.trim();
+
+  const password =
+    document.getElementById("signupPassword").value;
+
+  const confirm =
+    document.getElementById("signupConfirm").value;
+
+  if(password !== confirm){
+
+    document.getElementById("authMessage")
+      .textContent =
+      "Passwords do not match.";
+
+    return;
+  }
+
+  /*
+    DEMO ONLY.
+
+    A real production game must NOT store passwords
+    in localStorage.
+
+    Send the signup data to your secure backend,
+    hash the password server-side, and create the
+    authenticated session there.
+  */
+
+  localStorage.setItem(
+    "bornNigeriaDemoUser",
+    JSON.stringify({
+      username,
+      email
+    })
+  );
+
+  document.getElementById("authMessage")
+    .textContent =
+    "Account created. Welcome!";
+
+  setTimeout(function(){
+
+    document
+      .getElementById("authGate")
+      .style
+      .display="none";
+
+    document
+      .getElementById("app")
+      .style
+      .display="block";
+
+  },500);
+
+}
+
+
+function login(event){
+
+  event.preventDefault();
+
+  const identifier =
+    document
+      .getElementById("loginIdentifier")
+      .value
+      .trim();
+
+  if(!identifier){
+
+    return;
+
+  }
+
+  document
+    .getElementById("authMessage")
+    .textContent =
+    "Welcome back!";
+
+  setTimeout(function(){
+
+    document
+      .getElementById("authGate")
+      .style
+      .display="none";
+
+    document
+      .getElementById("app")
+      .style
+      .display="block";
+
+  },500);
+
+}
+
+
+/* =====================================================
+   SCREEN NAVIGATION
+===================================================== */
+
+function go(screen){
+
+  document
+    .querySelectorAll(".screen")
+    .forEach(function(element){
+
+      element.classList.remove("active");
+
+    });
+
+  const target =
+    document.getElementById(screen);
+
+  if(target){
+
+    target.classList.add("active");
+
+  }
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+
+  updateUI();
+
+}
+
+
+/* =====================================================
+   PROFILE CREATION
+===================================================== */
+
+function saveProfile(){
+
+  player.name =
+    document
+      .getElementById("playerName")
+      .value
+      .trim();
+
+  player.state =
+    document
+      .getElementById("playerState")
+      .value;
+
+  player.current =
+    document
+      .getElementById("playerCurrent")
+      .value;
+
+  if(!player.name){
+
+    alert("Enter your name first.");
+
+    return;
+
+  }
+
+  buildMotherCards();
+
+  go("motherScreen");
+
+}
+
+
+function buildMotherCards(){
+
+  const container =
+    document.getElementById("motherGrid");
+
+  container.innerHTML="";
+
+  mothers.forEach(function(mother,index){
+
+    const button =
+      document.createElement("button");
+
+    button.className="action";
+
+    button.innerHTML=`
+
+      <h3>
+        ${mother.emoji}
+        ${mother.name}
+      </h3>
+
+      <p>
+        ${mother.description}
+      </p>
+
+      <small>
+        🏠 ${mother.home}
+      </small>
+
+    `;
+
+    button.onclick=function(){
+
+      player.mother=mother;
+
+      document
+        .getElementById("motherDescription")
+        .innerHTML=`
+
+          You chose
+          <b>${mother.name}</b>.
+
+          She ${mother.job}.
+          Your beginning will be shaped by
+          this family.
+
+      `;
+
+      go("lifeTypeScreen");
+
+    };
+
+    container.appendChild(button);
+
+  });
+
+}
+
+
+/* =====================================================
+   CHOOSE LIFE
+===================================================== */
+
+function chooseLife(type){
+
+  player.lifeType=type;
+
+  if(type==="Struggle"){
+
+    player.money=20;
+
+    player.rubber=2;
+
+  }
+
+  if(type==="Hustler"){
+
+    player.money=100;
+
+    player.rubber=5;
+
+  }
+
+  if(type==="Comfort"){
+
+    player.money=300;
+
+    player.rubber=10;
+
+  }
+
+  document
+    .getElementById("birthTitle")
+    .textContent=
+    player.mother.name+
+    " is having a baby...";
+
+  document
+    .getElementById("birthText")
+    .textContent=
+    "Two people leave the house and travel to the hospital. The family waits. Time passes...";
+
+  go("birthScreen");
+
+  setTimeout(function(){
+
+    document
+      .getElementById("birthText")
+      .textContent=
+      "🏥 "+player.name+
+      " is born in "+
+      player.state+
+      ", Nigeria. Welcome to your new life.";
+
+  },1500);
+
+}
+
+
+/* =====================================================
+   ENTER WORLD
+===================================================== */
+
+function enterWorld(){
+
+  document
+    .getElementById("homeName")
+    .textContent=player.name;
+
+  document
+    .getElementById("homeState")
+    .textContent=player.state;
+
+  document
+    .getElementById("homeMother")
+    .textContent=player.mother.name;
+
+  updateUI();
+
+  go("homeScreen");
+
+}
+
+
+/* =====================================================
+   UI
+===================================================== */
+
+function updateUI(){
+
+  document
+    .getElementById("moneyTop")
+    .textContent=
+    player.money.toLocaleString();
+
+  document
+    .getElementById("coinsTop")
+    .textContent=
+    player.coins.toLocaleString();
+
+  document
+    .getElementById("rubberTop")
+    .textContent=
+    player.rubber;
+
+  document
+    .getElementById("repTop")
+    .textContent=
+    player.reputation;
+
+  const job =
+    document.getElementById("homeJob");
+
+  if(job){
+
+    job.textContent=
+      player.job;
+
+  }
+
+  const house =
+    document.getElementById("homeHouse");
+
+  if(house){
+
+    house.textContent=
+      player.house;
+
+  }
+
+  const artistRep =
+    document.getElementById("artistRep");
+
+  if(artistRep){
+
+    artistRep.textContent=
+      player.reputation;
+
+  }
+
+  const fans =
+    document.getElementById("fans");
+
+  if(fans){
+
+    fans.textContent=
+      player.fans;
+
+  }
+
+  const songs =
+    document.getElementById("songs");
+
+  if(songs){
+
+    songs.textContent=
+      player.songs;
+
+  }
+
+  const profileName =
+    document.getElementById("profileName");
+
+  if(profileName){
+
+    profileName.textContent=
+      player.name;
+
+  }
+
+  const profileState =
+    document.getElementById("profileState");
+
+  if(profileState){
+
+    profileState.textContent=
+      player.state;
+
+  }
+
+  const profileJob =
+    document.getElementById("profileJob");
+
+  if(profileJob){
+
+    profileJob.textContent=
+      player.job;
+
+  }
+
+  const profileFamily =
+    document.getElementById("profileFamily");
+
+  if(profileFamily){
+
+    profileFamily.textContent=
+      player.mother ?
+      player.mother.name :
+      "";
+
+  }
+
+  const profileHouse =
+    document.getElementById("profileHouse");
+
+  if(profileHouse){
+
+    profileHouse.textContent=
+      player.house;
+
+  }
+
+  const profileRubber =
+    document.getElementById("profileRubber");
+
+  if(profileRubber){
+
+    profileRubber.textContent=
+      player.rubber;
+
+  }
+
+  const profileCoins =
+    document.getElementById("profileCoins");
+
+  if(profileCoins){
+
+    profileCoins.textContent=
+      player.coins;
+
+  }
+
+  const profileRep =
+    document.getElementById("profileRep");
+
+  if(profileRep){
+
+    profileRep.textContent=
+      player.reputation;
+
+  }
+
+  const profileFans =
+    document.getElementById("profileFans");
+
+  if(profileFans){
+
+    profileFans.textContent=
+      player.fans;
+
+  }
+
+  const inventory =
+    document.getElementById("inventory");
+
+  if(inventory){
+
+    inventory.textContent=
+      player.tools.length ?
+      player.tools.join(", ") :
+      "No tools yet.";
+
+  }
+
+}
+
+
+/* =====================================================
+   ACTIVITIES
+===================================================== */
+
+function activity(name,reward,rep){
+
+  if(name==="Rest"){
+
+    player.energy=100;
+
+    document
+      .getElementById("activityMessage")
+      .textContent=
+      "😴 You rested and recovered your energy.";
+
+    updateUI();
+
+    return;
+
+  }
+
+  if(player.energy<10){
+
+    document
+      .getElementById("activityMessage")
+      .textContent=
+      "You are tired. Rest first.";
+
+    return;
+
+  }
+
+  player.money += reward;
+
+  player.reputation += rep;
+
+  player.energy =
+    Math.max(
+      0,
+      player.energy-10
+    );
+
+  document
+    .getElementById("activityMessage")
+    .textContent=
+    "🎯 "+name+
+    " completed. +₦"+
+    reward+
+    " and +"+
+    rep+
+    " reputation.";
+
+  updateUI();
+
+}
+
+
+/* =====================================================
+   JOBS
+===================================================== */
+
+function work(job,pay){
+
+  if(player.energy<10){
+
+    alert("You are tired. Rest first.");
+
+    return;
+
+  }
+
+  player.job=job;
+
+  player.money+=pay;
+
+  player.reputation+=1;
+
+  player.energy =
+    Math.max(
+      0,
+      player.energy-10
+    );
+
+  updateUI();
+
+  alert(
+    "You worked as a "+
+    job+
+    ". You earned ₦"+
+    pay+
+    "."
+  );
+
+}
+
+
+/* =====================================================
+   RUBBER GAME
+===================================================== */
+
+function playRubber(){
+
+  if(player.rubber<1){
+
+    document
+      .getElementById("rubberMessage")
+      .textContent=
+      "You need rubber to play.";
+
+    return;
+
+  }
+
+  const win =
+    Math.random()<0.65;
+
+  if(win){
+
+    player.rubber+=3;
+
+    player.money+=10;
+
+    player.reputation+=2;
+
+    document
+      .getElementById("rubberMessage")
+      .textContent=
+      "🔥 You won! +3 rubber, +₦10, +2 reputation.";
+
+  }else{
+
+    player.rubber=
+      Math.max(
+        0,
+        player.rubber-1
+      );
+
+    document
+      .getElementById("rubberMessage")
+      .textContent=
+      "You lost the round. -1 rubber.";
+
+  }
+
+  updateUI();
+
+}
+
+
+function practiceRubber(){
+
+  player.reputation+=1;
+
+  document
+    .getElementById("rubberMessage")
+    .textContent=
+    "🎯 You practiced and improved your rubber skill.";
+
+  updateUI();
+
+}
+
+
+function tradeRubber(){
+
+  if(player.rubber<1){
+
+    document
+      .getElementById("rubberMessage")
+      .textContent=
+      "You don't have enough rubber.";
+
+    return;
+
+  }
+
+  player.rubber--;
+
+  player.money+=10;
+
+  document
+    .getElementById("rubberMessage")
+    .textContent=
+    "🤝 One rubber band traded for ₦10.";
+
+  updateUI();
+
+}
+
+
+/* =====================================================
+   MUSIC
+===================================================== */
+
+function loadMusic(event){
+
+  const file =
+    event.target.files[0];
+
+  if(!file){
+
+    return;
+
+  }
+
+  const playerAudio =
+    document.getElementById("musicPlayer");
+
+  playerAudio.src=
+    URL.createObjectURL(file);
+
+  document
+    .getElementById("musicMessage")
+    .textContent=
+    "🎵 Your audio is loaded for this session.";
+
+}
+
+
+function playMusic(){
+
+  const audio =
+    document.getElementById("musicPlayer");
+
+  if(!audio.src){
+
+    document
+      .getElementById("musicMessage")
+      .textContent=
+      "Load your music first.";
+
+    return;
+
+  }
+
+  audio.play();
+
+}
+
+
+function pauseMusic(){
+
+  document
+    .getElementById("musicPlayer")
+    .pause();
+
+}
+
+
+function promoteSong(){
+
+  if(!player.tools.includes("Smartphone")){
+
+    document
+      .getElementById("musicMessage")
+      .textContent=
+      "Buy a smartphone first.";
+
+    return;
+
+  }
+
+  player.money+=30;
+
+  player.fans+=10;
+
+  player.reputation+=3;
+
+  document
+    .getElementById("musicMessage")
+    .textContent=
+    "📱 Your song was promoted. +10 fans, +3 reputation.";
+
+  updateUI();
+
+}
+
+
+function performShow(){
+
+  if(
+    !player.tools.includes("Speaker") &&
+    !player.tools.includes("Camera")
+  ){
+
+    document
+      .getElementById("musicMessage")
+      .textContent=
+      "You need a speaker or camera to perform bigger shows.";
+
+    return;
+
+  }
+
+  player.money+=150;
+
+  player.fans+=25;
+
+  player.reputation+=5;
+
+  player.songs+=1;
+
+  document
+    .getElementById("musicMessage")
+    .textContent=
+    "🎤 Live performance complete. +₦150, +25 fans.";
+
+  updateUI();
+
+}
+
+
+function goClub(){
+
+  if(player.money<100){
+
+    document
+      .getElementById("musicMessage")
+      .textContent=
+      "You need ₦100 to enter the club.";
+
+    return;
+
+  }
+
+  player.money-=100;
+
+  player.fans+=5;
+
+  player.reputation+=2;
+
+  document
+    .getElementById("musicMessage")
+    .textContent=
+    "🌃 You entered the club. Your music is playing.";
+
+  updateUI();
+
+}
+
+
+/* =====================================================
+   SHOP
+===================================================== */
+
+function buyItem(name,cost){
+
+  if(
+    player.tools.includes(name)
+  ){
+
+    alert(
+      "You already own a "+
+      name+"."
+    );
+
+    return;
+
+  }
+
+  if(player.money<cost){
+
+    alert(
+      "You need ₦"+
+      cost+
+      " to buy this."
+    );
+
+    return;
+
+  }
+
+  player.money-=cost;
+
+  player.tools.push(name);
+
+  updateUI();
+
+  alert(
+    "You bought a "+
+    name+"."
+  );
+
+}
+
+
+/* =====================================================
+   COIN PAYMENT
+===================================================== */
+
+let paymentCoins=0;
+
+let paymentAmount=0;
+
+let selectedPayment="card";
+
+
+function openCoins(){
+
+  go("coinScreen");
+
+}
+
+
+function openPayment(coins,amount){
+
+  paymentCoins=coins;
+
+  paymentAmount=amount;
+
+  document
+    .getElementById("paymentCoins")
+    .textContent=
+    coins+
+    " 🪙";
+
+  document
+    .getElementById("paymentAmount")
+    .textContent=
+    "₦"+
+    amount.toLocaleString();
+
+  document
+    .getElementById("paymentModal")
+    .classList
+    .add("show");
+
+}
+
+
+function closePayment(){
+
+  document
+    .getElementById("paymentModal")
+    .classList
+    .remove("show");
+
+}
+
+
+function selectPayment(method){
+
+  selectedPayment=method;
+
+  document
+    .querySelectorAll(".paymentMethod")
+    .forEach(function(element){
+
+      element.classList.remove("selected");
+
+    });
+
+  const selected =
+    document.getElementById(
+      "method"+
+      method.charAt(0).toUpperCase()+
+      method.slice(1)
+    );
+
+  if(selected){
+
+    selected.classList.add("selected");
+
+  }
+
+}
+
+
+/*
+==========================================================
+IMPORTANT PAYMENT ARCHITECTURE
+
+THIS FUNCTION IS ONLY A FRONT-END DEMO.
+
+REAL PRODUCTION FLOW:
+
+1. User selects a coin pack.
+
+2. Frontend sends:
+   POST /api/payments/create
+
+   {
+     userId,
+     amount,
+     coinPack,
+     paymentMethod
+   }
+
+3. Your SERVER creates the transaction
+   with Paystack/Flutterwave/etc.
+
+4. Server returns the secure checkout URL.
+
+5. User completes payment on the provider.
+
+6. Provider sends a webhook to YOUR SERVER.
+
+7. YOUR SERVER verifies the transaction.
+
+8. ONLY AFTER VERIFIED PAYMENT:
+   server credits coins to the user's account.
+
+9. Frontend asks:
+   GET /api/wallet
+
+10. Updated balance appears in the game.
+
+Never grant coins simply because the browser says
+"payment successful".
+
+Never put payment secret keys inside this HTML.
+==========================================================
+*/
+
+function startCheckout(){
+
+  closePayment();
+
+  /*
+    DEMO BEHAVIOR:
+
+    We show the intended production flow instead
+    of pretending this static file has securely
+    processed real money.
+
+    Replace this function with a request to your backend.
+
+    Example:
+
+    fetch("/api/payments/create",{
+      method:"POST",
+      headers:{
+        "Content-Type":"application/json"
+      },
+      body:JSON.stringify({
+        amount:paymentAmount,
+        coins:paymentCoins,
+        method:selectedPayment
+      })
+    })
+    .then(response=>response.json())
+    .then(data=>{
+      window.location.href=data.checkoutUrl;
+    });
+
+  */
+
+  alert(
+    "DEMO CHECKOUT\n\n"+
+    "Coins: "+paymentCoins+
+    "\nAmount: ₦"+
+    paymentAmount.toLocaleString()+
+    "\nMethod: "+selectedPayment+
+    "\n\nConnect this button to your secure payment backend before accepting real money."
+  );
+
+}
+
+
+/* =====================================================
+   LOCAL DEMO SAVE
+===================================================== */
+
+function saveDemoGame(){
+
+  localStorage.setItem(
+    "bornNigeriaGame",
+    JSON.stringify(player)
+  );
+
+}
+
+
+function loadDemoGame(){
+
+  const saved =
+    localStorage.getItem(
+      "bornNigeriaGame"
+    );
+
+  if(!saved){
+
+    return;
+
+  }
+
+  try{
+
+    player =
+      JSON.parse(saved);
+
+  }catch(error){
+
+    console.log(error);
+
+  }
+
+}
+
+
+/* =====================================================
+   AUTO SAVE
+===================================================== */
+
+setInterval(function(){
+
+  saveDemoGame();
+
+},5000);
+
+
+/* =====================================================
+   INITIALIZE
+===================================================== */
+
+loadDemoGame();
+
+updateUI();
+
+</script>
+
+</body>
+</html>
